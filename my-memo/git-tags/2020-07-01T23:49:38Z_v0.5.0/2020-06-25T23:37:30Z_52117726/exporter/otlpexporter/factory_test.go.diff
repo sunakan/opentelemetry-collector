@@ -1,0 +1,18 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index d5e533150..52164d7d1 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -77,11 +77,11 @@ func TestCreateTraceExporter(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			name: "KeepaliveParameters",
++			name: "Keepalive",
+ 			config: Config{
+ 				GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 					Endpoint: endpoint,
+-					KeepaliveParameters: &configgrpc.KeepaliveConfig{
++					Keepalive: &configgrpc.KeepaliveClientConfig{
+ 						Time:                30 * time.Second,
+ 						Timeout:             25 * time.Second,
+ 						PermitWithoutStream: true,

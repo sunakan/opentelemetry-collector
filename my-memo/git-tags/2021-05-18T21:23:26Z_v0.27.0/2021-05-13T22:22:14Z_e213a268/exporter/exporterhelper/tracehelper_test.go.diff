@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index a9aa90a91..2b2b9204d 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -39,7 +39,7 @@ const (
+ )
+ 
+ var (
+-	fakeTracesExporterName   = config.MustIDFromString("fake_traces_exporter/with_name")
++	fakeTracesExporterName   = config.NewIDWithName("fake_traces_exporter", "with_name")
+ 	fakeTracesExporterConfig = config.NewExporterSettings(fakeTracesExporterName)
+ )
+ 

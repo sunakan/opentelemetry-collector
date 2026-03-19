@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/slice_field.go b/internal/cmd/pdatagen/internal/slice_field.go
+index 28b7cf6e4..3e9bb1d1c 100644
+--- a/internal/cmd/pdatagen/internal/slice_field.go
++++ b/internal/cmd/pdatagen/internal/slice_field.go
+@@ -63,6 +63,8 @@ func (sf *SliceField) GenerateSetWithTestValue(ms *messageStruct) string {
+ 	return executeTemplate(t, sf.templateFields(ms))
+ }
+ 
++func (sf *SliceField) GenerateTestValue(*messageStruct) string { return "" }
++
+ func (sf *SliceField) GenerateCopyOrig(ms *messageStruct) string {
+ 	t := template.Must(templateNew("sliceCopyOrigTemplate").Parse(sliceCopyOrigTemplate))
+ 	return executeTemplate(t, sf.templateFields(ms))

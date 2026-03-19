@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/metadata.yaml b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+index 5570ec9aa..f82539fc9 100644
+--- a/cmd/mdatagen/internal/sampleconnector/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+@@ -12,7 +12,7 @@ status:
+   disable_codecov_badge: true
+   class: connector
+   stability:
+-    development: [metrics_to_metrics]
++    development: [metrics_to_metrics, profiles_to_profiles]
+   distributions: []
+   unsupported_platforms: [freebsd, illumos]
+   codeowners:

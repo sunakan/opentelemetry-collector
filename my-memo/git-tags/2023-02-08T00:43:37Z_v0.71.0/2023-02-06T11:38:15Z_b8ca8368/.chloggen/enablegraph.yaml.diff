@@ -1,0 +1,17 @@
+diff --git a/.chloggen/enablegraph.yaml b/.chloggen/enablegraph.yaml
+new file mode 100755
+index 000000000..da8ebbe0d
+--- /dev/null
++++ b/.chloggen/enablegraph.yaml
+@@ -0,0 +1,11 @@
++# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
++change_type: enhancement
++
++# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
++component: service
++
++# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
++note: Enable new pipelines implementation using graphs. Controlled by the `service.graph` featuregate.
++
++# One or more tracking issues or pull requests related to the change
++issues: [2336]

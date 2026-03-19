@@ -1,0 +1,18 @@
+diff --git a/config/confighttp/compression.go b/config/confighttp/compression.go
+index faa716c44..c219a1bec 100644
+--- a/config/confighttp/compression.go
++++ b/config/confighttp/compression.go
+@@ -20,11 +20,11 @@ import (
+ 
+ type compressRoundTripper struct {
+ 	rt              http.RoundTripper
+-	compressionType configcompression.CompressionType
++	compressionType configcompression.Type
+ 	compressor      *compressor
+ }
+ 
+-func newCompressRoundTripper(rt http.RoundTripper, compressionType configcompression.CompressionType) (*compressRoundTripper, error) {
++func newCompressRoundTripper(rt http.RoundTripper, compressionType configcompression.Type) (*compressRoundTripper, error) {
+ 	encoder, err := newCompressor(compressionType)
+ 	if err != nil {
+ 		return nil, err

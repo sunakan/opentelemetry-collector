@@ -1,0 +1,15 @@
+diff --git a/processor/spanprocessor/span_test.go b/processor/spanprocessor/span_test.go
+index 9dd85869b..2d3f50a6e 100644
+--- a/processor/spanprocessor/span_test.go
++++ b/processor/spanprocessor/span_test.go
+@@ -26,9 +26,9 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

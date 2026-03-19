@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender_test.go b/exporter/exporterhelper/retry_sender_test.go
+index e4de2a7a7..c934f6561 100644
+--- a/exporter/exporterhelper/retry_sender_test.go
++++ b/exporter/exporterhelper/retry_sender_test.go
+@@ -188,7 +188,7 @@ func TestQueuedRetry_ThrottleError(t *testing.T) {
+ 	ocs.awaitAsyncProcessing()
+ 
+ 	// The initial backoff is 10ms, but because of the throttle this should wait at least 100ms.
+-	assert.True(t, 100*time.Millisecond < time.Since(start))
++	assert.Less(t, 100*time.Millisecond, time.Since(start))
+ 
+ 	mockR.checkNumRequests(t, 2)
+ 	ocs.checkSendItemsCount(t, 2)

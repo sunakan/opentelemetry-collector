@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_attributetableslice.go b/pdata/pprofile/generated_attributetableslice.go
+index 4bacf6d54..4c00bb1bb 100644
+--- a/pdata/pprofile/generated_attributetableslice.go
++++ b/pdata/pprofile/generated_attributetableslice.go
+@@ -33,8 +33,7 @@ func newAttributeTableSlice(orig *[]otlpcommon.KeyValue, state *internal.State)
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewAttributeTableSlice() AttributeTableSlice {
+ 	orig := []otlpcommon.KeyValue(nil)
+-	state := internal.StateMutable
+-	return newAttributeTableSlice(&orig, &state)
++	return newAttributeTableSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

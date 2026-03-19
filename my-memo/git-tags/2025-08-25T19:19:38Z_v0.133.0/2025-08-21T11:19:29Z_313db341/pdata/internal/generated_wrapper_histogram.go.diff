@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_histogram.go b/pdata/internal/generated_wrapper_histogram.go
+index e5e33b884..5b76ca5c8 100644
+--- a/pdata/internal/generated_wrapper_histogram.go
++++ b/pdata/internal/generated_wrapper_histogram.go
+@@ -49,6 +49,10 @@ func DeleteOrigHistogram(orig *otlpmetrics.Histogram, nullable bool) {
+ }
+ 
+ func CopyOrigHistogram(dest, src *otlpmetrics.Histogram) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.DataPoints = CopyOrigHistogramDataPointSlice(dest.DataPoints, src.DataPoints)
+ 	dest.AggregationTemporality = src.AggregationTemporality
+ }

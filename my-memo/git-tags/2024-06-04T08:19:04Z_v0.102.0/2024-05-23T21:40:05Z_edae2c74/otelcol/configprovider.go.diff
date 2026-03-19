@@ -1,0 +1,15 @@
+diff --git a/otelcol/configprovider.go b/otelcol/configprovider.go
+index 477541fd4..6360b5365 100644
+--- a/otelcol/configprovider.go
++++ b/otelcol/configprovider.go
+@@ -67,8 +67,8 @@ type configProvider struct {
+ 	mapResolver *confmap.Resolver
+ }
+ 
+-var _ ConfigProvider = &configProvider{}
+-var _ ConfmapProvider = &configProvider{}
++var _ ConfigProvider = (*configProvider)(nil)
++var _ ConfmapProvider = (*configProvider)(nil)
+ 
+ // ConfigProviderSettings are the settings to configure the behavior of the ConfigProvider.
+ type ConfigProviderSettings struct {

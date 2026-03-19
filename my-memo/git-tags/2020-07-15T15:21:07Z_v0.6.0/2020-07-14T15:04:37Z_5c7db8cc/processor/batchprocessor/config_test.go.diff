@@ -1,0 +1,23 @@
+diff --git a/processor/batchprocessor/config_test.go b/processor/batchprocessor/config_test.go
+index bbf02a8d0..b46b1e7de 100644
+--- a/processor/batchprocessor/config_test.go
++++ b/processor/batchprocessor/config_test.go
+@@ -44,6 +44,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	timeout := time.Second * 10
+ 	sendBatchSize := uint32(10000)
++	sendBatchMaxSize := uint32(11000)
+ 
+ 	assert.Equal(t, p1,
+ 		&Config{
+@@ -51,7 +52,8 @@ func TestLoadConfig(t *testing.T) {
+ 				TypeVal: "batch",
+ 				NameVal: "batch/2",
+ 			},
+-			SendBatchSize: sendBatchSize,
+-			Timeout:       timeout,
++			SendBatchSize:    sendBatchSize,
++			SendBatchMaxSize: sendBatchMaxSize,
++			Timeout:          timeout,
+ 		})
+ }

@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 762553cd6..400bf19db 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -21,6 +21,10 @@
+ - Added feature gate summary to zpages extension (#4834)
+ - Add support for reloading TLS certificates (#4737)
+ 
++### 🧰 Bug fixes 🧰
++
++- `confighttp`: Allow CORS requests with configured auth (#4869)
++
+ ### 🚩 Deprecations 🚩
+ 
+ - Deprecate `pdata.NumberDataPoint.Type()` and `pdata.Exemplar.Type()` in favor of `NumberDataPoint.ValueType()` and

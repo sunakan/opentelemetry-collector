@@ -1,0 +1,13 @@
+diff --git a/component/component.go b/component/component.go
+index 868d9d26c..39d7a77c4 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package component
++package component // import "go.opentelemetry.io/collector/component"
+ 
+ import (
+ 	"context"

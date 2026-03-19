@@ -1,0 +1,16 @@
+diff --git a/exporter/debugexporter/config.go b/exporter/debugexporter/config.go
+index 2ebd85e78..3ddf8434d 100644
+--- a/exporter/debugexporter/config.go
++++ b/exporter/debugexporter/config.go
+@@ -20,9 +20,9 @@ var (
+ 	}
+ )
+ 
+-// Config defines configuration for logging exporter.
++// Config defines configuration for debug exporter.
+ type Config struct {
+-	// Verbosity defines the logging exporter verbosity.
++	// Verbosity defines the debug exporter verbosity.
+ 	Verbosity configtelemetry.Level `mapstructure:"verbosity,omitempty"`
+ 
+ 	// SamplingInitial defines how many samples are initially logged during each second.

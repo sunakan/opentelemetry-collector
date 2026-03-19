@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanslice_test.go b/pdata/ptrace/generated_spanslice_test.go
+index 48e0c2f86..d781be537 100644
+--- a/pdata/ptrace/generated_spanslice_test.go
++++ b/pdata/ptrace/generated_spanslice_test.go
+@@ -52,6 +52,8 @@ func TestSpanSlice_CopyTo(t *testing.T) {
+ 	src := generateTestSpanSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestSpanSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestSpanSlice(), dest)
+ }
+ 
+ func TestSpanSlice_EnsureCapacity(t *testing.T) {

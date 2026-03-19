@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index f8da78b71..ec067af81 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -455,7 +455,7 @@ func TestHTTPClientSettingWithAuthConfig(t *testing.T) {
+ 			shouldErr: true,
+ 			host: &mockHost{
+ 				ext: map[component.ID]component.Component{
+-					mockID: extensionauthtest.NewErrorClient(errors.New("error")),
++					mockID: extensionauthtest.NewErr(errors.New("error")),
+ 				},
+ 			},
+ 		},

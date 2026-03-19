@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index 1175cc7dd..0549c2d14 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -522,7 +522,7 @@ type zipkinMockTraceConsumer struct {
+ 	err error
+ }
+ 
+-func (m *zipkinMockTraceConsumer) ConsumeTraces(ctx context.Context, td pdata.Traces) error {
++func (m *zipkinMockTraceConsumer) ConsumeTraces(_ context.Context, td pdata.Traces) error {
+ 	m.ch <- td
+ 	return m.err
+ }

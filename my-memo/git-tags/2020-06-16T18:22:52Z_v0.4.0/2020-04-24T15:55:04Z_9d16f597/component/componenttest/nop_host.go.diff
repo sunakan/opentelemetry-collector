@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index b5a4446d4..7cd01203a 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -39,7 +39,7 @@ func (nh *NopHost) ReportFatalError(_ error) {
+ }
+ 
+ // GetFactory of the specified kind. Returns the factory for a component type.
+-func (nh *NopHost) GetFactory(_ component.Kind, _ string) component.Factory {
++func (nh *NopHost) GetFactory(_ component.Kind, _ configmodels.Type) component.Factory {
+ 	return nil
+ }
+ 

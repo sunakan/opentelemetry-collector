@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/compressor_test.go b/config/confighttp/compressor_test.go
+index 29efe4190..65e444578 100644
+--- a/config/confighttp/compressor_test.go
++++ b/config/confighttp/compressor_test.go
+@@ -49,7 +49,6 @@ func BenchmarkCompression(b *testing.B) {
+ 		b.Run(fmt.Sprint(benchmark.name), func(b *testing.B) {
+ 			benchmark.function(b, benchmark.codec, &buffer, payload)
+ 		})
+-
+ 	}
+ }
+ 

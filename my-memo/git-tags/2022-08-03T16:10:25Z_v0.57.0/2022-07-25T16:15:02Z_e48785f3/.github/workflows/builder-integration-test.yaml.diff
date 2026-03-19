@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/builder-integration-test.yaml b/.github/workflows/builder-integration-test.yaml
+index 1a512410f..78af2ccfd 100644
+--- a/.github/workflows/builder-integration-test.yaml
++++ b/.github/workflows/builder-integration-test.yaml
+@@ -20,6 +20,10 @@ on:
+   # manual execution
+   workflow_dispatch:
+ 
++concurrency:
++  group: ${{ github.workflow }}-${{ github.head_ref }}
++  cancel-in-progress: true
++
+ jobs:
+   integration-test:
+     name: Integration test

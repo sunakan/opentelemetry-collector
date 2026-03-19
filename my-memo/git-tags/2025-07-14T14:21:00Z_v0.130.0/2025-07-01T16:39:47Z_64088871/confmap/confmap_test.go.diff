@@ -1,0 +1,13 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index fa7ec956e..089d92edd 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -14,7 +14,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	yaml "sigs.k8s.io/yaml/goyaml.v3"
++	yaml "go.yaml.in/yaml/v3"
+ )
+ 
+ func TestToStringMapFlatten(t *testing.T) {

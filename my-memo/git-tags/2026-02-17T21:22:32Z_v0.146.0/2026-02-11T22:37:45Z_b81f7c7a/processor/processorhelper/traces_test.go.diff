@@ -1,0 +1,20 @@
+diff --git a/processor/processorhelper/traces_test.go b/processor/processorhelper/traces_test.go
+index 8ad59e54f..6b0f6f878 100644
+--- a/processor/processorhelper/traces_test.go
++++ b/processor/processorhelper/traces_test.go
+@@ -93,13 +93,11 @@ func TestTracesConcurrency(t *testing.T) {
+ 
+ 	var wg sync.WaitGroup
+ 	for range 10 {
+-		wg.Add(1)
+-		go func() {
+-			defer wg.Done()
++		wg.Go(func() {
+ 			for range 10000 {
+ 				assert.NoError(t, mp.ConsumeTraces(context.Background(), incomingTraces))
+ 			}
+-		}()
++		})
+ 	}
+ 	wg.Wait()
+ 	assert.NoError(t, mp.Shutdown(context.Background()))

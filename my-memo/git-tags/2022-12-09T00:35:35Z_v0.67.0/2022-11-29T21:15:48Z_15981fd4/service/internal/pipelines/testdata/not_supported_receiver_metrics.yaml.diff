@@ -1,0 +1,16 @@
+diff --git a/service/internal/pipelines/testdata/not_supported_receiver_metrics.yaml b/service/internal/pipelines/testdata/not_supported_receiver_metrics.yaml
+deleted file mode 100644
+index 20edc1d38..000000000
+--- a/service/internal/pipelines/testdata/not_supported_receiver_metrics.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  bf: # this is the bad receiver factory
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [bf]
+-      exporters: [nop]

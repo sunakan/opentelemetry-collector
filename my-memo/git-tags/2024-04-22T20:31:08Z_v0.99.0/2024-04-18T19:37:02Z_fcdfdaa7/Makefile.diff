@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 287da0f4c..a09ca9279 100644
+--- a/Makefile
++++ b/Makefile
+@@ -157,7 +157,7 @@ ocb:
+ OPENTELEMETRY_PROTO_SRC_DIR=pdata/internal/opentelemetry-proto
+ 
+ # The branch matching the current version of the proto to use
+-OPENTELEMETRY_PROTO_VERSION=v1.1.0
++OPENTELEMETRY_PROTO_VERSION=v1.2.0
+ 
+ # Find all .proto files.
+ OPENTELEMETRY_PROTO_FILES := $(subst $(OPENTELEMETRY_PROTO_SRC_DIR)/,,$(wildcard $(OPENTELEMETRY_PROTO_SRC_DIR)/opentelemetry/proto/*/v1/*.proto $(OPENTELEMETRY_PROTO_SRC_DIR)/opentelemetry/proto/collector/*/v1/*.proto))

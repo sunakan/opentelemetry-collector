@@ -1,0 +1,21 @@
+diff --git a/component/componentprofiles/config.go b/component/componentprofiles/config.go
+new file mode 100644
+index 000000000..85b4e90ca
+--- /dev/null
++++ b/component/componentprofiles/config.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package componentprofiles // import "go.opentelemetry.io/collector/component/componentprofiles"
++
++import "go.opentelemetry.io/collector/component"
++
++func mustNewDataType(strType string) component.DataType {
++	return component.MustNewType(strType)
++}
++
++var (
++	// DataTypeProfiles is the data type tag for profiles.
++	DataTypeProfiles = mustNewDataType("profiles")
++)

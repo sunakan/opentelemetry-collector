@@ -1,0 +1,17 @@
+diff --git a/internal/collector/processor/tail_sampling/processor_test.go b/internal/collector/processor/tail_sampling/processor_test.go
+index 6f6d9a858..b3bcb6836 100644
+--- a/internal/collector/processor/tail_sampling/processor_test.go
++++ b/internal/collector/processor/tail_sampling/processor_test.go
+@@ -282,10 +282,10 @@ type mockSpanProcessor struct {
+ 
+ var _ processor.SpanProcessor = &mockSpanProcessor{}
+ 
+-func (p *mockSpanProcessor) ProcessSpans(td data.TraceData, spanFormat string) (uint64, error) {
++func (p *mockSpanProcessor) ProcessSpans(td data.TraceData, spanFormat string) error {
+ 	batchSize := len(td.Spans)
+ 	p.TotalSpans += batchSize
+-	return 0, nil
++	return nil
+ }
+ 
+ func indexToTraceID(low int) []byte {

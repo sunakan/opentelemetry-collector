@@ -1,0 +1,17 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 799a92b60..423fcac13 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -367,7 +367,11 @@ func (a AttributeValue) copyTo(dest *otlpcommon.AnyValue) {
+ }
+ 
+ func (a AttributeValue) CopyTo(dest AttributeValue) {
+-	if *a.orig != nil && dest.IsNil() {
++	if *a.orig == nil {
++		*dest.orig = nil
++		return
++	}
++	if dest.IsNil() {
+ 		dest.InitEmpty()
+ 	}
+ 	a.copyTo(*dest.orig)

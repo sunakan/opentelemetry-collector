@@ -1,0 +1,37 @@
+diff --git a/processor/resourceprocessor/factory.go b/processor/resourceprocessor/factory.go
+index 932fe69e8..a84632b1a 100644
+--- a/processor/resourceprocessor/factory.go
++++ b/processor/resourceprocessor/factory.go
+@@ -40,7 +40,8 @@ func NewFactory() component.ProcessorFactory {
+ 		typeStr,
+ 		createDefaultConfig,
+ 		processorhelper.WithTraces(createTraceProcessor),
+-		processorhelper.WithMetrics(createMetricsProcessor))
++		processorhelper.WithMetrics(createMetricsProcessor),
++		processorhelper.WithLogs(createLogsProcessor))
+ }
+ 
+ // Note: This isn't a valid configuration because the processor would do no work.
+@@ -85,6 +86,22 @@ func createMetricsProcessor(
+ 		processorhelper.WithCapabilities(processorCapabilities))
+ }
+ 
++func createLogsProcessor(
++	_ context.Context,
++	params component.ProcessorCreateParams,
++	cfg configmodels.Processor,
++	nextConsumer consumer.LogsConsumer) (component.LogsProcessor, error) {
++	attrProc, err := createAttrProcessor(cfg.(*Config), params.Logger)
++	if err != nil {
++		return nil, err
++	}
++	return processorhelper.NewLogsProcessor(
++		cfg,
++		nextConsumer,
++		&resourceProcessor{attrProc: attrProc},
++		processorhelper.WithCapabilities(processorCapabilities))
++}
++
+ func createAttrProcessor(cfg *Config, logger *zap.Logger) (*processorhelper.AttrProc, error) {
+ 	handleDeprecatedFields(cfg, logger)
+ 	if len(cfg.AttributesActions) == 0 {

@@ -1,0 +1,9 @@
+diff --git a/cmd/occollector/app/builder/testdata/receivers_disabled.yaml b/cmd/occollector/app/builder/testdata/receivers_disabled.yaml
+index 249d7d757..565ed7a5e 100644
+--- a/cmd/occollector/app/builder/testdata/receivers_disabled.yaml
++++ b/cmd/occollector/app/builder/testdata/receivers_disabled.yaml
+@@ -3,3 +3,4 @@ receivers:
+   # jaeger: {} 
+   # opencensus: {}
+   # zipkin: {}
++  # zipkin-scribe: {}

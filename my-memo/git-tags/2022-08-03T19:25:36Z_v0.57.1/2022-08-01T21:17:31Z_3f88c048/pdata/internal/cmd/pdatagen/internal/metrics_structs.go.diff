@@ -1,0 +1,52 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index 092fe7e10..e6c1b2b9a 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -267,6 +267,7 @@ var numberDataPoint = &messageValueStruct{
+ 		},
+ 		exemplarsField,
+ 		dataPointFlagsField,
++		dataPointFlagsFieldStruct,
+ 	},
+ }
+ 
+@@ -289,6 +290,7 @@ var histogramDataPoint = &messageValueStruct{
+ 		explicitBoundsField,
+ 		exemplarsField,
+ 		dataPointFlagsField,
++		dataPointFlagsFieldStruct,
+ 		&optionalPrimitiveValue{
+ 			fieldName:        "Min",
+ 			fieldType:        "Double",
+@@ -364,6 +366,7 @@ var exponentialHistogramDataPoint = &messageValueStruct{
+ 		},
+ 		exemplarsField,
+ 		dataPointFlagsField,
++		dataPointFlagsFieldStruct,
+ 		&optionalPrimitiveValue{
+ 			fieldName:        "Min",
+ 			fieldType:        "Double",
+@@ -423,6 +426,7 @@ var summaryDataPoint = &messageValueStruct{
+ 			returnSlice:     quantileValuesSlice,
+ 		},
+ 		dataPointFlagsField,
++		dataPointFlagsFieldStruct,
+ 	},
+ }
+ 
+@@ -489,6 +493,15 @@ var exemplar = &messageValueStruct{
+ 	},
+ }
+ 
++var dataPointFlagsFieldStruct = &messageValueField{
++	fieldName:       "FlagsStruct",
++	originFieldName: "Flags",
++	returnMessage: &messageValueStruct{
++		structName:     "MetricDataPointFlagsStruct",
++		originFullName: "uint32",
++	},
++}
++
+ var exemplarsField = &sliceField{
+ 	fieldName:       "Exemplars",
+ 	originFieldName: "Exemplars",

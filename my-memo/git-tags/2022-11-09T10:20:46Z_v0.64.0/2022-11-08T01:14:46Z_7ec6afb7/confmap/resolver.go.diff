@@ -1,0 +1,21 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 7c2ea7689..c2754b627 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -44,11 +44,11 @@ const expandEnabled = "confmap.expandEnabled"
+ 
+ func init() {
+ 	// TODO: Remove this if by v0.64.0 no complains from distros.
+-	featuregate.GetRegistry().MustRegister(featuregate.Gate{
+-		ID:          expandEnabled,
+-		Description: "controls whether expending embedded external config providers URIs",
+-		Enabled:     true,
+-	})
++	featuregate.GetRegistry().MustRegisterID(
++		expandEnabled,
++		featuregate.Beta,
++		featuregate.WithRegisterDescription("controls whether expending embedded external config providers URIs"),
++	)
+ }
+ 
+ // Resolver resolves a configuration as a Conf.

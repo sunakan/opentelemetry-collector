@@ -1,0 +1,21 @@
+diff --git a/receiver/jaegerreceiver/testdata/bad_empty_config.yaml b/receiver/jaegerreceiver/testdata/bad_empty_config.yaml
+new file mode 100644
+index 000000000..a2ff3c2c9
+--- /dev/null
++++ b/receiver/jaegerreceiver/testdata/bad_empty_config.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  jaeger:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++     receivers: [jaeger]
++     processors: [exampleprocessor]
++     exporters: [exampleexporter]

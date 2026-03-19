@@ -1,0 +1,18 @@
+diff --git a/receiver/prometheusreceiver/internal/metricfamily.go b/receiver/prometheusreceiver/internal/metricfamily.go
+index e664c14d1..eca80c3fd 100644
+--- a/receiver/prometheusreceiver/internal/metricfamily.go
++++ b/receiver/prometheusreceiver/internal/metricfamily.go
+@@ -93,10 +93,9 @@ func (mf *metricFamily) updateLabelKeys(ls labels.Labels) {
+ 				mf.labelKeys[l.Name] = true
+ 				// use insertion sort to maintain order
+ 				i := sort.SearchStrings(mf.labelKeysOrdered, l.Name)
+-				labelKeys := append(mf.labelKeysOrdered, "")
+-				copy(labelKeys[i+1:], labelKeys[i:])
+-				labelKeys[i] = l.Name
+-				mf.labelKeysOrdered = labelKeys
++				mf.labelKeysOrdered = append(mf.labelKeysOrdered, "")
++				copy(mf.labelKeysOrdered[i+1:], mf.labelKeysOrdered[i:])
++				mf.labelKeysOrdered[i] = l.Name
+ 			}
+ 		}
+ 	}

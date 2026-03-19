@@ -1,0 +1,33 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obs_scraper.go b/internal/obsreportconfig/obsmetrics/obs_scraper.go
+index 2beaebec7..7e2b73d12 100644
+--- a/internal/obsreportconfig/obsmetrics/obs_scraper.go
++++ b/internal/obsreportconfig/obsmetrics/obs_scraper.go
+@@ -3,11 +3,6 @@
+ 
+ package obsmetrics // import "go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+ 
+-import (
+-	"go.opencensus.io/stats"
+-	"go.opencensus.io/tag"
+-)
+-
+ const (
+ 	// ScraperKey used to identify scrapers in metrics and traces.
+ 	ScraperKey = "scraper"
+@@ -24,16 +19,3 @@ const (
+ 	ScraperPrefix                 = ScraperKey + NameSep
+ 	ScraperMetricsOperationSuffix = NameSep + "MetricsScraped"
+ )
+-
+-var (
+-	TagKeyScraper, _ = tag.NewKey(ScraperKey)
+-
+-	ScraperScrapedMetricPoints = stats.Int64(
+-		ScraperPrefix+ScrapedMetricPointsKey,
+-		"Number of metric points successfully scraped.",
+-		stats.UnitDimensionless)
+-	ScraperErroredMetricPoints = stats.Int64(
+-		ScraperPrefix+ErroredMetricPointsKey,
+-		"Number of metric points that were unable to be scraped.",
+-		stats.UnitDimensionless)
+-)

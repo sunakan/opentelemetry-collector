@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/testdata/bad_empty_config.yaml b/receiver/otlpreceiver/testdata/bad_empty_config.yaml
+new file mode 100644
+index 000000000..db0b165a6
+--- /dev/null
++++ b/receiver/otlpreceiver/testdata/bad_empty_config.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  otlp:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++     receivers: [otlp]
++     processors: [exampleprocessor]
++     exporters: [exampleexporter]

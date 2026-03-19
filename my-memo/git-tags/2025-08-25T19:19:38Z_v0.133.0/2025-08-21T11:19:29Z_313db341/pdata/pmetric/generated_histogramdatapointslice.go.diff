@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice.go b/pdata/pmetric/generated_histogramdatapointslice.go
+index f5ad6a5f9..72f777254 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice.go
++++ b/pdata/pmetric/generated_histogramdatapointslice.go
+@@ -149,6 +149,9 @@ func (es HistogramDataPointSlice) RemoveIf(f func(HistogramDataPoint) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es HistogramDataPointSlice) CopyTo(dest HistogramDataPointSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigHistogramDataPointSlice(*dest.orig, *es.orig)
+ }
+ 

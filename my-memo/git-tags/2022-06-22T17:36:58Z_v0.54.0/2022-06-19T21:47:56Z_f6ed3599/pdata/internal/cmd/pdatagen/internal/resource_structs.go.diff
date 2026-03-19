@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/resource_structs.go b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+index 7831cd27c..d506e8db9 100644
+--- a/pdata/internal/cmd/pdatagen/internal/resource_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+@@ -15,7 +15,8 @@
+ package internal // import "go.opentelemetry.io/collector/pdata/internal/cmd/pdatagen/internal"
+ 
+ var resourceFile = &File{
+-	Name: "resource",
++	Name:     "resource",
++	IsCommon: true,
+ 	imports: []string{
+ 		`otlpresource "go.opentelemetry.io/collector/pdata/internal/data/protogen/resource/v1"`,
+ 	},

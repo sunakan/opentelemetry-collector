@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_tracesdata.go b/pdata/internal/generated_proto_tracesdata.go
+index f63549f1c..2b54b6247 100644
+--- a/pdata/internal/generated_proto_tracesdata.go
++++ b/pdata/internal/generated_proto_tracesdata.go
+@@ -45,11 +45,9 @@ func DeleteTracesData(orig *TracesData, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceSpans {
+ 		DeleteResourceSpans(orig.ResourceSpans[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolTracesData.Put(orig)

@@ -1,0 +1,23 @@
+diff --git a/.github/ISSUE_TEMPLATE/other.yaml b/.github/ISSUE_TEMPLATE/other.yaml
+index 51b12c0f7..06354bad9 100644
+--- a/.github/ISSUE_TEMPLATE/other.yaml
++++ b/.github/ISSUE_TEMPLATE/other.yaml
+@@ -13,6 +13,8 @@ body:
+       # Start components list
+       - cmd/builder
+       - cmd/mdatagen
++      - cmd/mdatagen/internal/sampleconnector
++      - cmd/mdatagen/internal/samplefactoryreceiver
+       - cmd/mdatagen/internal/sampleprocessor
+       - cmd/mdatagen/internal/samplereceiver
+       - cmd/mdatagen/internal/samplescraper
+@@ -28,8 +30,8 @@ body:
+       - docs/rfcs
+       - exporter/debug
+       - exporter/exporterhelper
++      - exporter/exporterhelper/internal/queuebatch
+       - exporter/exporterhelper/xexporterhelper
+-      - exporter/exporterqueue
+       - exporter/nop
+       - exporter/otlp
+       - exporter/otlphttp

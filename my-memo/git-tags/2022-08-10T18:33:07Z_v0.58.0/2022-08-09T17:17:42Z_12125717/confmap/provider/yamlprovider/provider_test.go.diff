@@ -1,0 +1,19 @@
+diff --git a/confmap/provider/yamlprovider/provider_test.go b/confmap/provider/yamlprovider/provider_test.go
+index 35a2548aa..0cf6a49be 100644
+--- a/confmap/provider/yamlprovider/provider_test.go
++++ b/confmap/provider/yamlprovider/provider_test.go
+@@ -19,8 +19,14 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/confmap/confmaptest"
+ )
+ 
++func TestValidateProviderScheme(t *testing.T) {
++	assert.NoError(t, confmaptest.ValidateProviderScheme(New()))
++}
++
+ func TestEmpty(t *testing.T) {
+ 	sp := New()
+ 	_, err := sp.Retrieve(context.Background(), "", nil)

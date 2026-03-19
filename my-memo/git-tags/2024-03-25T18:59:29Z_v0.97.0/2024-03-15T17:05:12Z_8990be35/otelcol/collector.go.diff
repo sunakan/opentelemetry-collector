@@ -1,0 +1,24 @@
+diff --git a/otelcol/collector.go b/otelcol/collector.go
+index 3fd5cb2ca..a1500f5b8 100644
+--- a/otelcol/collector.go
++++ b/otelcol/collector.go
+@@ -99,8 +99,9 @@ type Collector struct {
+ 
+ 	configProvider ConfigProvider
+ 
+-	service *service.Service
+-	state   *atomic.Int32
++	serviceConfig *service.Config
++	service       *service.Service
++	state         *atomic.Int32
+ 
+ 	// shutdownChan is used to terminate the collector.
+ 	shutdownChan chan struct{}
+@@ -182,6 +183,7 @@ func (col *Collector) setupConfigurationComponents(ctx context.Context) error {
+ 		return fmt.Errorf("invalid configuration: %w", err)
+ 	}
+ 
++	col.serviceConfig = &cfg.Service
+ 	col.service, err = service.New(ctx, service.Settings{
+ 		BuildInfo:         col.set.BuildInfo,
+ 		CollectorConf:     conf,

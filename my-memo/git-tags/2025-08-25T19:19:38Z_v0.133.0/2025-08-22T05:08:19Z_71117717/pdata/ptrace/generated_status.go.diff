@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_status.go b/pdata/ptrace/generated_status.go
+index 5c83283d1..e46b45f31 100644
+--- a/pdata/ptrace/generated_status.go
++++ b/pdata/ptrace/generated_status.go
+@@ -45,8 +45,8 @@ func (ms Status) MoveTo(dest Status) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlptrace.Status{}
++	internal.DeleteOrigStatus(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Message returns the message associated with this Status.

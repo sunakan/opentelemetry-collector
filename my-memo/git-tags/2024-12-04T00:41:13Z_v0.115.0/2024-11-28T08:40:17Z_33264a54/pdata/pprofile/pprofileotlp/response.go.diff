@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/pprofileotlp/response.go b/pdata/pprofile/pprofileotlp/response.go
+index bfc9d729a..5b87f8b34 100644
+--- a/pdata/pprofile/pprofileotlp/response.go
++++ b/pdata/pprofile/pprofileotlp/response.go
+@@ -9,7 +9,7 @@ import (
+ 	jsoniter "github.com/json-iterator/go"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1experimental"
++	otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1development"
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 

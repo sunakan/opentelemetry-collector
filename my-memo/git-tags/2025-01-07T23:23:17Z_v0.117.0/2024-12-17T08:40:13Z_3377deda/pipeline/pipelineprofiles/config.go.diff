@@ -1,0 +1,18 @@
+diff --git a/pipeline/pipelineprofiles/config.go b/pipeline/pipelineprofiles/config.go
+deleted file mode 100644
+index a81887086..000000000
+--- a/pipeline/pipelineprofiles/config.go
++++ /dev/null
+@@ -1,12 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-// Deprecated: [0.116.0] Use go.opentelemetry.io/collector/pipeline/xpipeline instead.
+-package pipelineprofiles // import "go.opentelemetry.io/collector/pipeline/pipelineprofiles"
+-
+-import (
+-	"go.opentelemetry.io/collector/pipeline/internal/globalsignal"
+-)
+-
+-// Deprecated: [0.116.0] Use xpipeline.SignalProfiles instead.
+-var SignalProfiles = globalsignal.MustNewSignal("profiles")

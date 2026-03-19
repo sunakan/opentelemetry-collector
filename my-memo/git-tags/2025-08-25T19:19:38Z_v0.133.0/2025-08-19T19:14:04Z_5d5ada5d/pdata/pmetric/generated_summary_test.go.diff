@@ -1,0 +1,24 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index 25e0adcd4..9db5025a0 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -24,8 +24,8 @@ func TestSummary_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestSummary(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newSummary(internal.NewOrigPtrSummary(), sharedState)) })
+-	assert.Panics(t, func() { newSummary(internal.NewOrigPtrSummary(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newSummary(internal.NewOrigSummary(), sharedState)) })
++	assert.Panics(t, func() { newSummary(internal.NewOrigSummary(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestSummary_CopyTo(t *testing.T) {
+@@ -38,7 +38,7 @@ func TestSummary_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newSummary(internal.NewOrigPtrSummary(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newSummary(internal.NewOrigSummary(), sharedState)) })
+ }
+ 
+ func TestSummary_DataPoints(t *testing.T) {

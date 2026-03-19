@@ -1,0 +1,10 @@
+diff --git a/config/extension.go b/config/extension.go
+index 209a06222..edb4967d2 100644
+--- a/config/extension.go
++++ b/config/extension.go
+@@ -32,4 +32,4 @@ func NewExtensionSettings(id component.ID) ExtensionSettings {
+ 	return ExtensionSettings{settings: newSettings(id)}
+ }
+ 
+-var _ component.ExtensionConfig = (*ExtensionSettings)(nil)
++var _ component.Config = (*ExtensionSettings)(nil)

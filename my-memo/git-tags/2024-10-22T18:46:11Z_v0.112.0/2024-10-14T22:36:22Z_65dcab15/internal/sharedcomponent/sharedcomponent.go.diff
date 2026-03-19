@@ -1,0 +1,30 @@
+diff --git a/internal/sharedcomponent/sharedcomponent.go b/internal/sharedcomponent/sharedcomponent.go
+index f9c8193c6..6c9a94bb6 100644
+--- a/internal/sharedcomponent/sharedcomponent.go
++++ b/internal/sharedcomponent/sharedcomponent.go
+@@ -29,7 +29,7 @@ type Map[K comparable, V component.Component] struct {
+ 
+ // LoadOrStore returns the already created instance if exists, otherwise creates a new instance
+ // and adds it to the map of references.
+-func (m *Map[K, V]) LoadOrStore(key K, create func() (V, error), telemetrySettings *component.TelemetrySettings) (*Component[V], error) {
++func (m *Map[K, V]) LoadOrStore(key K, create func() (V, error)) (*Component[V], error) {
+ 	m.lock.Lock()
+ 	defer m.lock.Unlock()
+ 	if c, ok := m.components[key]; ok {
+@@ -47,7 +47,6 @@ func (m *Map[K, V]) LoadOrStore(key K, create func() (V, error), telemetrySettin
+ 			defer m.lock.Unlock()
+ 			delete(m.components, key)
+ 		},
+-		telemetry: telemetrySettings,
+ 	}
+ 	m.components[key] = newComp
+ 	return newComp, nil
+@@ -62,8 +61,6 @@ type Component[V component.Component] struct {
+ 	stopOnce   sync.Once
+ 	removeFunc func()
+ 
+-	telemetry *component.TelemetrySettings
+-
+ 	hostWrapper *hostWrapper
+ }
+ 

@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunit.go b/pdata/internal/generated_wrapper_attributeunit.go
+index 72eda6f4b..f2fc77635 100644
+--- a/pdata/internal/generated_wrapper_attributeunit.go
++++ b/pdata/internal/generated_wrapper_attributeunit.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigAttributeUnit() otlpprofiles.AttributeUnit {
+-	return otlpprofiles.AttributeUnit{}
+-}
+-
+-func NewOrigPtrAttributeUnit() *otlpprofiles.AttributeUnit {
++func NewOrigAttributeUnit() *otlpprofiles.AttributeUnit {
+ 	return &otlpprofiles.AttributeUnit{}
+ }
+ 
+@@ -28,7 +24,7 @@ func CopyOrigAttributeUnit(dest, src *otlpprofiles.AttributeUnit) {
+ }
+ 
+ func GenTestOrigAttributeUnit() *otlpprofiles.AttributeUnit {
+-	orig := NewOrigPtrAttributeUnit()
++	orig := NewOrigAttributeUnit()
+ 	orig.AttributeKeyStrindex = int32(13)
+ 	orig.UnitStrindex = int32(13)
+ 	return orig

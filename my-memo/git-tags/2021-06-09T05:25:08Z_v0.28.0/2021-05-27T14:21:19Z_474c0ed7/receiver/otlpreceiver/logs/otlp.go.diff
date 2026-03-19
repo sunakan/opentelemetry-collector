@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/logs/otlp.go b/receiver/otlpreceiver/logs/otlp.go
+index 8ba21c964..e677afa1f 100644
+--- a/receiver/otlpreceiver/logs/otlp.go
++++ b/receiver/otlpreceiver/logs/otlp.go
+@@ -78,9 +78,9 @@ func (r *Receiver) sendToNextConsumer(ctx context.Context, ld pdata.Logs) error
+ 		ctx = client.NewContext(ctx, c)
+ 	}
+ 
+-	ctx = r.obsrecv.StartLogsReceiveOp(ctx)
++	ctx = r.obsrecv.StartLogsOp(ctx)
+ 	err := r.nextConsumer.ConsumeLogs(ctx, ld)
+-	r.obsrecv.EndLogsReceiveOp(ctx, dataFormatProtobuf, numSpans, err)
++	r.obsrecv.EndLogsOp(ctx, dataFormatProtobuf, numSpans, err)
+ 
+ 	return err
+ }

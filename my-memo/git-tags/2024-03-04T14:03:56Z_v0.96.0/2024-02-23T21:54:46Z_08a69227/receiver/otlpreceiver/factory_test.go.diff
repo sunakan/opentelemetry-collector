@@ -1,0 +1,70 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 82f8ea9b0..21a3a051f 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -116,21 +116,6 @@ func TestCreateTracesReceiver(t *testing.T) {
+ 			wantStartErr: true,
+ 			sink:         consumertest.NewNop(),
+ 		},
+-		{
+-			name: "no_next_consumer",
+-			cfg: &Config{
+-				Protocols: Protocols{
+-					GRPC: defaultGRPCSettings,
+-					HTTP: &HTTPConfig{
+-						ServerConfig: &confighttp.ServerConfig{
+-							Endpoint: "127.0.0.1:1122",
+-						},
+-					},
+-				},
+-			},
+-			wantErr: true,
+-			sink:    nil,
+-		},
+ 		{
+ 			name: "no_http_or_grcp_config",
+ 			cfg: &Config{
+@@ -225,21 +210,6 @@ func TestCreateMetricReceiver(t *testing.T) {
+ 			wantStartErr: true,
+ 			sink:         consumertest.NewNop(),
+ 		},
+-		{
+-			name: "no_next_consumer",
+-			cfg: &Config{
+-				Protocols: Protocols{
+-					GRPC: defaultGRPCSettings,
+-					HTTP: &HTTPConfig{
+-						ServerConfig: &confighttp.ServerConfig{
+-							Endpoint: "127.0.0.1:1122",
+-						},
+-					},
+-				},
+-			},
+-			wantErr: true,
+-			sink:    nil,
+-		},
+ 		{
+ 			name: "no_http_or_grcp_config",
+ 			cfg: &Config{
+@@ -334,21 +304,6 @@ func TestCreateLogReceiver(t *testing.T) {
+ 			wantStartErr: true,
+ 			sink:         consumertest.NewNop(),
+ 		},
+-		{
+-			name: "no_next_consumer",
+-			cfg: &Config{
+-				Protocols: Protocols{
+-					GRPC: defaultGRPCSettings,
+-					HTTP: &HTTPConfig{
+-						ServerConfig: &confighttp.ServerConfig{
+-							Endpoint: "127.0.0.1:1122",
+-						},
+-					},
+-				},
+-			},
+-			wantErr: true,
+-			sink:    nil,
+-		},
+ 		{
+ 			name: "no_http_or_grcp_config",
+ 			cfg: &Config{

@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 49ded4834..559dcf51d 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -88,7 +88,6 @@ require (
+ 	golang.org/x/sys v0.33.0 // indirect
+ 	golang.org/x/text v0.26.0 // indirect
+ 	gopkg.in/yaml.v3 v3.0.1 // indirect
+-	sigs.k8s.io/yaml v1.5.0 // indirect
+ )
+ 
+ replace go.opentelemetry.io/collector => ../../

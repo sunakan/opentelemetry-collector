@@ -1,0 +1,14 @@
+diff --git a/component/extension.go b/component/extension.go
+index ebc54fa98..f6752f489 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -51,6 +51,9 @@ type ExtensionCreateParams struct {
+ 	// Logger that the factory can use during creation and can pass to the created
+ 	// component to be used later as well.
+ 	Logger *zap.Logger
++
++	// ApplicationStartInfo can be used by components for informational purposes
++	ApplicationStartInfo ApplicationStartInfo
+ }
+ 
+ // ExtensionFactory is a factory interface for extensions to the service.

@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/codeql-analysis.yml b/.github/workflows/codeql-analysis.yml
+index 40be552d4..62fa30858 100644
+--- a/.github/workflows/codeql-analysis.yml
++++ b/.github/workflows/codeql-analysis.yml
+@@ -4,6 +4,10 @@ on:
+     branches: [ main ]
+   pull_request:
+ 
++concurrency:
++  group: ${{ github.workflow }}-${{ github.head_ref }}
++  cancel-in-progress: true
++
+ jobs:
+   CodeQL-Build:
+     runs-on: ubuntu-latest

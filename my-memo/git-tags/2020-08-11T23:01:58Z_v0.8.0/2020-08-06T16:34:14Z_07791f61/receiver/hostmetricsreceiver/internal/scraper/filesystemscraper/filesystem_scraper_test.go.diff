@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
+index da33692eb..bb7ba9fe2 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
+@@ -126,6 +126,8 @@ func TestScrapeMetrics(t *testing.T) {
+ 				assertFileSystemUsageMetricHasUnixSpecificStateLabels(t, metrics.At(0))
+ 				assertFileSystemUsageMetricValid(t, metrics.At(1), fileSystemINodesUsageDescriptor, test.expectedDeviceDataPoints*2)
+ 			}
++
++			internal.AssertSameTimeStampForAllMetrics(t, metrics)
+ 		})
+ 	}
+ }

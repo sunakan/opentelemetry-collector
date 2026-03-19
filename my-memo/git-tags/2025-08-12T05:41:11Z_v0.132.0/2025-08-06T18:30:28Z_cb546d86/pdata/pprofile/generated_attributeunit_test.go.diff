@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/generated_attributeunit_test.go b/pdata/pprofile/generated_attributeunit_test.go
+index e5ea35858..c3d476dd5 100644
+--- a/pdata/pprofile/generated_attributeunit_test.go
++++ b/pdata/pprofile/generated_attributeunit_test.go
+@@ -83,12 +83,7 @@ func TestAttributeUnit_UnitStrindex(t *testing.T) {
+ }
+ 
+ func generateTestAttributeUnit() AttributeUnit {
+-	tv := NewAttributeUnit()
+-	fillTestAttributeUnit(tv)
+-	return tv
+-}
+-
+-func fillTestAttributeUnit(tv AttributeUnit) {
+-	tv.orig.AttributeKeyStrindex = int32(13)
+-	tv.orig.UnitStrindex = int32(13)
++	ms := NewAttributeUnit()
++	internal.FillOrigTestAttributeUnit(ms.orig)
++	return ms
+ }

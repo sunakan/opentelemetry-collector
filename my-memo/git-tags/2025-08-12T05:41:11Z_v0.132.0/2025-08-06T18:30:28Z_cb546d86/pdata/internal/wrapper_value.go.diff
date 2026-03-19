@@ -1,0 +1,29 @@
+diff --git a/pdata/internal/wrapper_value.go b/pdata/internal/wrapper_value.go
+index cae0cf120..29e06eaea 100644
+--- a/pdata/internal/wrapper_value.go
++++ b/pdata/internal/wrapper_value.go
+@@ -65,15 +65,11 @@ func CopyOrigAnyValue(dest, src *otlpcommon.AnyValue) {
+ 	}
+ }
+ 
+-func FillTestValue(dest Value) {
+-	dest.orig.Value = &otlpcommon.AnyValue_StringValue{StringValue: "v"}
+-}
+-
+ func GenerateTestValue() Value {
+ 	var orig otlpcommon.AnyValue
++	FillOrigTestAnyValue(&orig)
+ 	state := StateMutable
+ 	ms := NewValue(&orig, &state)
+-	FillTestValue(ms)
+ 	return ms
+ }
+ 
+@@ -181,3 +177,7 @@ func readKvlistValue(iter *json.Iterator) *otlpcommon.KeyValueList {
+ 	})
+ 	return v
+ }
++
++func FillOrigTestAnyValue(orig *otlpcommon.AnyValue) {
++	orig.Value = &otlpcommon.AnyValue_StringValue{StringValue: "v"}
++}

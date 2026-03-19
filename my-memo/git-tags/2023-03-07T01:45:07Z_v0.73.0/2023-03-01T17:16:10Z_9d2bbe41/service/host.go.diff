@@ -1,0 +1,13 @@
+diff --git a/service/host.go b/service/host.go
+index 26aa9238c..2a061c0bd 100644
+--- a/service/host.go
++++ b/service/host.go
+@@ -36,7 +36,7 @@ type serviceHost struct {
+ 
+ 	buildInfo component.BuildInfo
+ 
+-	pipelines
++	pipelines         *pipelinesGraph
+ 	serviceExtensions *extensions.Extensions
+ }
+ 

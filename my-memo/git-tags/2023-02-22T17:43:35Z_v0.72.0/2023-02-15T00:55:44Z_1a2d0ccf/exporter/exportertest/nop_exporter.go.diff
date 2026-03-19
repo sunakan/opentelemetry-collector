@@ -1,0 +1,13 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index f73ec9f9c..3f11737cf 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -69,7 +69,7 @@ type nopExporter struct {
+ 	consumertest.Consumer
+ }
+ 
+-// NewNopBuilder returns a exporter.Builder that constructs nop receivers.
++// NewNopBuilder returns an exporter.Builder that constructs nop receivers.
+ func NewNopBuilder() *exporter.Builder {
+ 	nopFactory := NewNopFactory()
+ 	return exporter.NewBuilder(

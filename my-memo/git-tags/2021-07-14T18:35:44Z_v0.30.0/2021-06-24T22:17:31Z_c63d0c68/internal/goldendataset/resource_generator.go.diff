@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/resource_generator.go b/internal/goldendataset/resource_generator.go
+index 37d3d19a8..35ef2201c 100644
+--- a/internal/goldendataset/resource_generator.go
++++ b/internal/goldendataset/resource_generator.go
+@@ -15,7 +15,7 @@
+ package goldendataset
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

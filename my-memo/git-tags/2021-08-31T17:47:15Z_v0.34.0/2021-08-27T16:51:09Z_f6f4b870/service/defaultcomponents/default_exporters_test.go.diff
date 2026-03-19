@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/default_exporters_test.go b/service/defaultcomponents/default_exporters_test.go
+index 6e88220a4..81f3d7bef 100644
+--- a/service/defaultcomponents/default_exporters_test.go
++++ b/service/defaultcomponents/default_exporters_test.go
+@@ -30,7 +30,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/exporter/otlpexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlphttpexporter"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestDefaultExporters(t *testing.T) {

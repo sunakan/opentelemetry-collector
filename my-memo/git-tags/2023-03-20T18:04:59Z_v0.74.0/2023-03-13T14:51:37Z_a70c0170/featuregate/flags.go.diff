@@ -1,0 +1,14 @@
+diff --git a/featuregate/flags.go b/featuregate/flags.go
+index a1c9ec430..7e2a49802 100644
+--- a/featuregate/flags.go
++++ b/featuregate/flags.go
+@@ -22,8 +22,7 @@ import (
+ 
+ var _ flag.Value = (*FlagValue)(nil)
+ 
+-// FlagValue implements the flag.Value interface and provides a mechanism for applying feature
+-// gate statuses to a Registry
++// Deprecated: [v0.74.0] use NewFlag.
+ type FlagValue map[string]bool
+ 
+ // String returns a string representing the FlagValue

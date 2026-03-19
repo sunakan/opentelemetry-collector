@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+index 164d9f1e7..70ade4cba 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+@@ -53,13 +53,13 @@ func TestExportPartialSuccess_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestExportPartialSuccess()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewExportPartialSuccess()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 3d8d36729..d2c06279e 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -69,7 +69,7 @@ var (
+ 		"/extension/auth",
+ 		"/extension/zpagesextension",
+ 		"/featuregate",
+-		"/internal/featuregates",
++		"/internal/globalgates",
+ 		"/processor",
+ 		"/processor/batchprocessor",
+ 		"/processor/memorylimiterprocessor",

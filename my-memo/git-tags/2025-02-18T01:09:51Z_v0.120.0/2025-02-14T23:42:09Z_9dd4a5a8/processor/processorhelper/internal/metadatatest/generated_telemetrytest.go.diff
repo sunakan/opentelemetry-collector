@@ -1,0 +1,24 @@
+diff --git a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+index cfa500f6e..75a7c3f0a 100644
+--- a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -9,19 +9,9 @@ import (
+ 	"go.opentelemetry.io/otel/sdk/metric/metricdata"
+ 	"go.opentelemetry.io/otel/sdk/metric/metricdata/metricdatatest"
+ 
+-	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/processor"
+-	"go.opentelemetry.io/collector/processor/processortest"
+ )
+ 
+-func NewSettings(tt *componenttest.Telemetry) processor.Settings {
+-	set := processortest.NewNopSettingsWithType(processortest.NopType)
+-	set.ID = component.NewID(component.MustNewType("processorhelper"))
+-	set.TelemetrySettings = tt.NewTelemetrySettings()
+-	return set
+-}
+-
+ func AssertEqualProcessorIncomingItems(t *testing.T, tt *componenttest.Telemetry, dps []metricdata.DataPoint[int64], opts ...metricdatatest.Option) {
+ 	want := metricdata.Metrics{
+ 		Name:        "otelcol_processor_incoming_items",

@@ -1,0 +1,12 @@
+diff --git a/processor/processorhelper/metrics.go b/processor/processorhelper/metrics.go
+index c8381fd95..bf69e1b16 100644
+--- a/processor/processorhelper/metrics.go
++++ b/processor/processorhelper/metrics.go
+@@ -55,6 +55,7 @@ func NewMetrics(
+ 		md, errFunc = metricsFunc(ctx, md)
+ 		span.AddEvent("End processing.", eventOptions)
+ 		if errFunc != nil {
++			obs.recordInOut(ctx, pointsIn, 0)
+ 			if errors.Is(errFunc, ErrSkipProcessingData) {
+ 				return nil
+ 			}

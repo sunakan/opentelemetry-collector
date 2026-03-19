@@ -1,0 +1,18 @@
+diff --git a/connector/connectortest/connector.go b/connector/connectortest/connector.go
+index 144b4dff1..db3bdbb5a 100644
+--- a/connector/connectortest/connector.go
++++ b/connector/connectortest/connector.go
+@@ -17,13 +17,6 @@ import (
+ 
+ var nopType = component.MustNewType("nop")
+ 
+-// NewNopCreateSettings returns a new nop settings for Create* functions.
+-//
+-// Deprecated: [v0.103.0] Use connectortest.NewNopSettings instead.
+-func NewNopCreateSettings() connector.Settings {
+-	return NewNopSettings()
+-}
+-
+ // NewNopSettings returns a new nop settings for Create* functions.
+ func NewNopSettings() connector.Settings {
+ 	return connector.Settings{

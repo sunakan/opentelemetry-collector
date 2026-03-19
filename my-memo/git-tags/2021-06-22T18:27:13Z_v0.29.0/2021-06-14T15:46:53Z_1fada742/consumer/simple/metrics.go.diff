@@ -1,0 +1,13 @@
+diff --git a/consumer/simple/metrics.go b/consumer/simple/metrics.go
+index 7bb6eacde..deffe3162 100644
+--- a/consumer/simple/metrics.go
++++ b/consumer/simple/metrics.go
+@@ -352,7 +352,7 @@ func (mb *SafeMetrics) AddHistogramRawDataPoint(name string, hist pdata.IntHisto
+ 	return mb
+ }
+ 
+-// AddDHistogramRawDataPoint wraps AddDHistogramRawDataPoint.
++// AddDHistogramRawDataPoint wraps Metrics.AddDHistogramRawDataPoint.
+ func (mb *SafeMetrics) AddDHistogramRawDataPoint(name string, hist pdata.HistogramDataPoint) *SafeMetrics {
+ 	mb.Lock()
+ 	mb.Metrics.AddDHistogramRawDataPoint(name, hist)

@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_scopespans.go b/pdata/ptrace/generated_scopespans.go
+index 51d492581..5ea42e985 100644
+--- a/pdata/ptrace/generated_scopespans.go
++++ b/pdata/ptrace/generated_scopespans.go
+@@ -45,8 +45,8 @@ func (ms ScopeSpans) MoveTo(dest ScopeSpans) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlptrace.ScopeSpans{}
++	internal.DeleteOrigScopeSpans(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Scope returns the scope associated with this ScopeSpans.

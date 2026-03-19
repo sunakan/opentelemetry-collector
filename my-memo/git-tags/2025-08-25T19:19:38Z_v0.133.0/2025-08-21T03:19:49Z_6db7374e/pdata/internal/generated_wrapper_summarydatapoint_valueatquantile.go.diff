@@ -1,0 +1,46 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+index 37439921c..2c3571e9c 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+@@ -10,14 +10,40 @@ import (
+ 	"encoding/binary"
+ 	"fmt"
+ 	"math"
++	"sync"
+ 
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
++var protoPoolSummaryDataPoint_ValueAtQuantile = sync.Pool{
++	New: func() any {
++		return &otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
++	},
++}
++
+ func NewOrigSummaryDataPoint_ValueAtQuantile() *otlpmetrics.SummaryDataPoint_ValueAtQuantile {
+-	return &otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
++	if !UseProtoPooling.IsEnabled() {
++		return &otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
++	}
++	return protoPoolSummaryDataPoint_ValueAtQuantile.Get().(*otlpmetrics.SummaryDataPoint_ValueAtQuantile)
++}
++
++func DeleteOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDataPoint_ValueAtQuantile, nullable bool) {
++	if orig == nil {
++		return
++	}
++
++	if !UseProtoPooling.IsEnabled() {
++		orig.Reset()
++		return
++	}
++
++	orig.Reset()
++	if nullable {
++		protoPoolSummaryDataPoint_ValueAtQuantile.Put(orig)
++	}
+ }
+ 
+ func CopyOrigSummaryDataPoint_ValueAtQuantile(dest, src *otlpmetrics.SummaryDataPoint_ValueAtQuantile) {

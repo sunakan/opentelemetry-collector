@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/metrics.tmpl b/cmd/mdatagen/metrics.tmpl
+index cf6cd748d..6f953b64c 100644
+--- a/cmd/mdatagen/metrics.tmpl
++++ b/cmd/mdatagen/metrics.tmpl
+@@ -86,7 +86,6 @@ var Metrics = &metricStruct{
+ 		"{{ $name }}",
+ 		func() pdata.Metric {
+ 			metric := pdata.NewMetric()
+-			metric.InitEmpty()
+ 			metric.SetName("{{ $name }}")
+ 			metric.SetDescription("{{ $metric.Description }}")
+ 			metric.SetUnit("{{ $metric.Unit }}")

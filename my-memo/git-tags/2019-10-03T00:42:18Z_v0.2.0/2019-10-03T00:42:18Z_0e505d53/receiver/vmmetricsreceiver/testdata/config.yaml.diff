@@ -1,0 +1,19 @@
+diff --git a/receiver/vmmetricsreceiver/testdata/config.yaml b/receiver/vmmetricsreceiver/testdata/config.yaml
+index 35a39afac..85f46fd37 100644
+--- a/receiver/vmmetricsreceiver/testdata/config.yaml
++++ b/receiver/vmmetricsreceiver/testdata/config.yaml
+@@ -12,8 +12,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [vmmetrics]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [vmmetrics]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

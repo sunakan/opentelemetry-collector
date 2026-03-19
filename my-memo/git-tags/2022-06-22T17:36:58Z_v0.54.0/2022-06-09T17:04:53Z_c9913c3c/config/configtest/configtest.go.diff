@@ -1,0 +1,18 @@
+diff --git a/config/configtest/configtest.go b/config/configtest/configtest.go
+index 3b6fd73ce..0a3f3fb3d 100644
+--- a/config/configtest/configtest.go
++++ b/config/configtest/configtest.go
+@@ -21,13 +21,8 @@ import (
+ 	"strings"
+ 
+ 	"go.uber.org/multierr"
+-
+-	"go.opentelemetry.io/collector/confmap/confmaptest"
+ )
+ 
+-// Deprecated: [v0.53.0] use confmaptest.LoadConf
+-var LoadConfigMap = confmaptest.LoadConf
+-
+ // The regular expression for valid config field tag.
+ var configFieldTagRegExp = regexp.MustCompile("^[a-z0-9][a-z0-9_]*$")
+ 

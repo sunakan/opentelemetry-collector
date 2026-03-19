@@ -1,0 +1,20 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/factory_test.go b/exporter/jaeger/jaegergrpcexporter/factory_test.go
+index 77bd2c779..c71254d82 100644
+--- a/exporter/jaeger/jaegergrpcexporter/factory_test.go
++++ b/exporter/jaeger/jaegergrpcexporter/factory_test.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+ )
+ 
+@@ -27,6 +28,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	factory := Factory{}
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.NotNil(t, cfg, "failed to create default config")
++	assert.NoError(t, configcheck.ValidateConfig(cfg))
+ }
+ 
+ func TestCreateMetricsExporter(t *testing.T) {

@@ -1,0 +1,12 @@
+diff --git a/receiver/kafkareceiver/unmarshaller_test.go b/receiver/kafkareceiver/unmarshaller_test.go
+index 74b1d7df9..952eb9ced 100644
+--- a/receiver/kafkareceiver/unmarshaller_test.go
++++ b/receiver/kafkareceiver/unmarshaller_test.go
+@@ -26,6 +26,7 @@ func TestDefaultUnMarshaller(t *testing.T) {
+ 		"otlp_proto",
+ 		"jaeger_proto",
+ 		"jaeger_json",
++		"zipkin_proto",
+ 		"zipkin_json",
+ 		"zipkin_thrift",
+ 	}

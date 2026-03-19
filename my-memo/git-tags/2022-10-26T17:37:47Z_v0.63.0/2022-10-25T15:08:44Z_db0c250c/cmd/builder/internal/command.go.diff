@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index cf67da3d4..760462240 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -69,6 +69,10 @@ configuration is provided, ocb will generate a default Collector.
+ 				return fmt.Errorf("invalid configuration: %w", err)
+ 			}
+ 
++			if err := cfg.SetGoPath(); err != nil {
++				return fmt.Errorf("go not found: %w", err)
++			}
++
+ 			if err := cfg.ParseModules(); err != nil {
+ 				return fmt.Errorf("invalid module configuration: %w", err)
+ 			}

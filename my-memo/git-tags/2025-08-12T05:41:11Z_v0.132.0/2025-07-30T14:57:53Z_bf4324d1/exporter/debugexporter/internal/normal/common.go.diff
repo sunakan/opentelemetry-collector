@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/internal/normal/common.go b/exporter/debugexporter/internal/normal/common.go
+index 33c01436d..095053f60 100644
+--- a/exporter/debugexporter/internal/normal/common.go
++++ b/exporter/debugexporter/internal/normal/common.go
+@@ -35,7 +35,7 @@ func writeResourceDetails(schemaURL string) (resourceDetails string) {
+ 	return resourceDetails
+ }
+ 
+-func writeScopeDetails(name string, version string, schemaURL string) (scopeDetails string) {
++func writeScopeDetails(name, version, schemaURL string) (scopeDetails string) {
+ 	if name != "" {
+ 		scopeDetails += name
+ 	}

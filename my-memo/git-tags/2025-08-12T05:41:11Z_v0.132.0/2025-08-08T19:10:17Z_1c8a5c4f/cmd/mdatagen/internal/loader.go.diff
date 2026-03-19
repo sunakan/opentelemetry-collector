@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/loader.go b/cmd/mdatagen/internal/loader.go
+index fb61333e1..161e3bf50 100644
+--- a/cmd/mdatagen/internal/loader.go
++++ b/cmd/mdatagen/internal/loader.go
+@@ -39,7 +39,7 @@ func LoadMetadata(filePath string) (Metadata, error) {
+ 		return Metadata{}, err
+ 	}
+ 
+-	md := Metadata{ShortFolderName: shortFolderName(filePath), Tests: Tests{Host: "componenttest.NewNopHost()"}}
++	md := Metadata{ShortFolderName: shortFolderName(filePath), Tests: Tests{Host: "newMdatagenNopHost()"}}
+ 	err = conf.Unmarshal(&md)
+ 	if err != nil {
+ 		return md, err

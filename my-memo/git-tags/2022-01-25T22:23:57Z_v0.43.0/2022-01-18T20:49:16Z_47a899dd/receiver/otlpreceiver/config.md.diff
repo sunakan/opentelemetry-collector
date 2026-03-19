@@ -1,0 +1,29 @@
+diff --git a/receiver/otlpreceiver/config.md b/receiver/otlpreceiver/config.md
+index d0c40131a..92702cddb 100644
+--- a/receiver/otlpreceiver/config.md
++++ b/receiver/otlpreceiver/config.md
+@@ -71,11 +71,12 @@ Config defines configuration for OTLP receiver.
+ 
+ ### confighttp-HTTPServerSettings
+ 
+-| Name | Type | Default | Docs |
+-| ---- | ---- | ------- | ---- |
+-| endpoint |string| 0.0.0.0:4318 | Endpoint configures the listening address for the server.  |
+-| tls |[configtls-TLSServerSetting](#configtls-TLSServerSetting)| <no value> | TLSSetting struct exposes TLS client configuration.  |
+-| cors |[confighttp-CORSSettings](#confighttp-CORSSettings)| <no value> | CORSSettings configures a receiver for HTTP cross-origin resource sharing (CORS). |
++| Name                  | Type                                                      | Default      | Docs                                                                                                                                    |
++| ----                  | ----                                                      | -------      | ----                                                                                                                                    |
++| endpoint              | string                                                    | 0.0.0.0:4318 | Endpoint configures the listening address for the server.                                                                               |
++| tls                   | [configtls-TLSServerSetting](#configtls-TLSServerSetting) | <no value>   | TLSSetting struct exposes TLS client configuration.                                                                                     |
++| cors                  | [confighttp-CORSSettings](#confighttp-CORSSettings)       | <no value>   | CORSSettings configures a receiver for HTTP cross-origin resource sharing (CORS).                                                       |
++| max_request_body_size | int                                                       | 0            | MaxRequestBodySize configures the maximum allowed body size in bytes for a single request. The default `0` means there's no restriction |
+ 
+ ### confighttp-CORSSettings
+ 
+@@ -95,4 +96,4 @@ Config defines configuration for OTLP receiver.
+ | client_ca_file |string| <no value> | Path to the TLS cert to use by the server to verify a client certificate. (optional) This sets the ClientCAs and ClientAuth to RequireAndVerifyClientCert in the TLSConfig. Please refer to https://godoc.org/crypto/tls#Config for more information. (optional)  |
+ 
+ ### time-Duration 
+-An optionally signed sequence of decimal numbers, each with a unit suffix, such as `300ms`, `-1.5h`, or `2h45m`. Valid time units are `ns`, `us`, `ms`, `s`, `m`, `h`.
+\ No newline at end of file
++An optionally signed sequence of decimal numbers, each with a unit suffix, such as `300ms`, `-1.5h`, or `2h45m`. Valid time units are `ns`, `us`, `ms`, `s`, `m`, `h`.

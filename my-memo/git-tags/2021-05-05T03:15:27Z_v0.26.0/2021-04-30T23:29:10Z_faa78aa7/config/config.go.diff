@@ -1,0 +1,13 @@
+diff --git a/config/config.go b/config/config.go
+index b377ea369..31f072731 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -218,7 +218,7 @@ const (
+ type Pipeline struct {
+ 	Name       string
+ 	InputType  DataType
+-	Receivers  []string
++	Receivers  []ComponentID
+ 	Processors []string
+ 	Exporters  []string
+ }

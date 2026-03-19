@@ -1,0 +1,11 @@
+diff --git a/exporter/opencensusexporter/factory.go b/exporter/opencensusexporter/factory.go
+index cc0a69b56..c11a3fd0b 100644
+--- a/exporter/opencensusexporter/factory.go
++++ b/exporter/opencensusexporter/factory.go
+@@ -150,5 +150,5 @@ func (f *exporterFactory) CreateTraceExporter(logger *zap.Logger, config models.
+ 
+ // CreateMetricsExporter creates a metrics exporter based on this config.
+ func (f *exporterFactory) CreateMetricsExporter(logger *zap.Logger, cfg models.Exporter) (consumer.MetricsConsumer, factories.StopFunc, error) {
+-	return nil, nil, factories.ErrDataTypeIsNotSupported
++	return nil, nil, models.ErrDataTypeIsNotSupported
+ }

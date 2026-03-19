@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/default_extensions_test.go b/service/defaultcomponents/default_extensions_test.go
+index d6f22e2ff..05ea1f632 100644
+--- a/service/defaultcomponents/default_extensions_test.go
++++ b/service/defaultcomponents/default_extensions_test.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/extension/ballastextension"
+ 	"go.opentelemetry.io/collector/extension/pprofextension"
+ 	"go.opentelemetry.io/collector/extension/zpagesextension"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestDefaultExtensions(t *testing.T) {

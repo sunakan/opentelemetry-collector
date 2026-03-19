@@ -1,0 +1,12 @@
+diff --git a/pdata/plog/plogotlp/grpc_test.go b/pdata/plog/plogotlp/grpc_test.go
+index ff00c627a..0a602e0cf 100644
+--- a/pdata/plog/plogotlp/grpc_test.go
++++ b/pdata/plog/plogotlp/grpc_test.go
+@@ -102,6 +102,7 @@ func TestGrpcError(t *testing.T) {
+ }
+ 
+ type fakeLogsServer struct {
++	UnimplementedGRPCServer
+ 	t   *testing.T
+ 	err error
+ }

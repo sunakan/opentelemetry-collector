@@ -1,0 +1,19 @@
+diff --git a/receiver/fluentforwardreceiver/factory.go b/receiver/fluentforwardreceiver/factory.go
+index 80ee70113..965a5fa27 100644
+--- a/receiver/fluentforwardreceiver/factory.go
++++ b/receiver/fluentforwardreceiver/factory.go
+@@ -23,13 +23,12 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+-// This file implements factory for SignalFx receiver.
+-
+ const (
+ 	// The value of "type" key in configuration.
+ 	typeStr = "fluentforward"
+ )
+ 
++// NewFactory return a new component.ReceiverFactory for fluentd forwarder.
+ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,

@@ -1,0 +1,24 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto_test.go b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+index 5736a33cf..bbdd38c39 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+@@ -280,6 +280,19 @@ func TestInternalTracesToJaegerProto(t *testing.T) {
+ 			},
+ 			err: nil,
+ 		},
++		{
++			name: "library-info",
++			td:   generateTraceDataWithLibraryInfo(),
++			jb: model.Batch{
++				Process: &model.Process{
++					ServiceName: tracetranslator.ResourceNotSet,
++				},
++				Spans: []*model.Span{
++					generateProtoSpanWithLibraryInfo("io.opentelemetry.test"),
++				},
++			},
++			err: nil,
++		},
+ 		{
+ 			name: "two-spans-child-parent",
+ 			td:   generateTraceDataTwoSpansChildParent(),

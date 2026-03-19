@@ -1,0 +1,21 @@
+diff --git a/processor/tracesamplerprocessor/testdata/empty.yaml b/processor/tracesamplerprocessor/testdata/empty.yaml
+deleted file mode 100644
+index e320a9a4f..000000000
+--- a/processor/tracesamplerprocessor/testdata/empty.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  trace-sampler:
+-    
+-
+-exporters:
+-  exampleexporter:
+-
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [trace-sampler]
+-    exporters: [exampleexporter]

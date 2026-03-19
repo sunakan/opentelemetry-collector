@@ -1,0 +1,14 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index f8ad75ea6..d12e51e72 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -300,5 +300,8 @@ jobs:
+       - run:
+           name: Check links in markdown docs
+           command: |
+-            sudo npm install -g markdown-link-check
++            pushd $HOME
++            npm install --save-dev markdown-link-check@3.8.1
++            popd
++            export NODE_PATH=$HOME/node_modules
+             bash .circleci/check-links/check-links.sh

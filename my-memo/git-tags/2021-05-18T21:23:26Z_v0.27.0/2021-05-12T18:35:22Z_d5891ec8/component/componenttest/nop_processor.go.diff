@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_processor.go b/component/componenttest/nop_processor.go
+index 8044dddc8..9ce592127 100644
+--- a/component/componenttest/nop_processor.go
++++ b/component/componenttest/nop_processor.go
+@@ -35,7 +35,7 @@ type nopProcessorFactory struct {
+ 
+ var nopProcessorFactoryInstance = &nopProcessorFactory{}
+ 
+-// NewNopProcessorFactory returns a component.ProcessorFactory that constructs nop exporters.
++// NewNopProcessorFactory returns a component.ProcessorFactory that constructs nop processors.
+ func NewNopProcessorFactory() component.ProcessorFactory {
+ 	return nopProcessorFactoryInstance
+ }

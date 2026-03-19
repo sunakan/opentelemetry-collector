@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/otlp/profiles.go b/pdata/internal/otlp/profiles.go
+index d134ccf9c..59c23cc67 100644
+--- a/pdata/internal/otlp/profiles.go
++++ b/pdata/internal/otlp/profiles.go
+@@ -4,7 +4,7 @@
+ package otlp // import "go.opentelemetry.io/collector/pdata/internal/otlp"
+ 
+ import (
+-	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ // MigrateProfiles implements any translation needed due to deprecation in OTLP profiles protocol.

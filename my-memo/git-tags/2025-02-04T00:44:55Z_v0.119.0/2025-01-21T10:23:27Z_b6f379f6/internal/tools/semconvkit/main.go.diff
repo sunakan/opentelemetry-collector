@@ -1,0 +1,13 @@
+diff --git a/internal/tools/semconvkit/main.go b/internal/tools/semconvkit/main.go
+index 2dc73c37c..c60fc85d4 100644
+--- a/internal/tools/semconvkit/main.go
++++ b/internal/tools/semconvkit/main.go
+@@ -40,7 +40,7 @@ func render(src, dest string, data *SemanticConventions) error {
+ 	}
+ 	for _, tmpl := range tmpls.Templates() {
+ 		target := filepath.Join(dest, strings.TrimSuffix(tmpl.Name(), ".tmpl"))
+-		// nolint: gosec
++		//nolint:gosec
+ 		wr, err := os.Create(target)
+ 		if err != nil {
+ 			return err

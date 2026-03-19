@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterqueue/metadata.yaml b/exporter/exporterqueue/metadata.yaml
+new file mode 100644
+index 000000000..9bb03b3df
+--- /dev/null
++++ b/exporter/exporterqueue/metadata.yaml
+@@ -0,0 +1,7 @@
++type: exporterqueue
++github_project: open-telemetry/opentelemetry-collector
++
++status:
++  class: pkg
++  stability:
++    beta: [traces, metrics, logs]

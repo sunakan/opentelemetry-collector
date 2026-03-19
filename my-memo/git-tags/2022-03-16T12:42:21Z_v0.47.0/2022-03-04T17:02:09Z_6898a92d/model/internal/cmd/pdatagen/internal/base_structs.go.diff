@@ -1,0 +1,45 @@
+diff --git a/model/internal/cmd/pdatagen/internal/base_structs.go b/model/internal/cmd/pdatagen/internal/base_structs.go
+index 5f8950714..aed6e312d 100644
+--- a/model/internal/cmd/pdatagen/internal/base_structs.go
++++ b/model/internal/cmd/pdatagen/internal/base_structs.go
+@@ -78,6 +78,12 @@ const messageValueGenerateTestTemplate = `func generateTest${structName}() ${str
+ const messageValueFillTestHeaderTemplate = `func fillTest${structName}(tv ${structName}) {`
+ const messageValueFillTestFooterTemplate = `}`
+ 
++const messageValueAliasTemplate = `// ${structName} is an alias for pdata.${structName} struct.
++type ${structName} = pdata.${structName} 
++
++// New${structName} is an alias for a function to create a new empty ${structName}.
++var New${structName} = pdata.New${structName}`
++
+ const newLine = "\n"
+ 
+ type baseStruct interface {
+@@ -90,6 +96,10 @@ type baseStruct interface {
+ 	generateTestValueHelpers(sb *strings.Builder)
+ }
+ 
++type aliasGenerator interface {
++	generateAlias(sb *strings.Builder)
++}
++
+ type messageValueStruct struct {
+ 	structName     string
+ 	description    string
+@@ -186,4 +196,16 @@ func (ms *messageValueStruct) generateTestValueHelpers(sb *strings.Builder) {
+ 	}))
+ }
+ 
++func (ms *messageValueStruct) generateAlias(sb *strings.Builder) {
++	sb.WriteString(os.Expand(messageValueAliasTemplate, func(name string) string {
++		switch name {
++		case "structName":
++			return ms.structName
++		default:
++			panic(name)
++		}
++	}))
++	sb.WriteString(newLine + newLine)
++}
++
+ var _ baseStruct = (*messageValueStruct)(nil)

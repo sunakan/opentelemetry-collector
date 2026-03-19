@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_int32slice_test.go b/pdata/pcommon/generated_int32slice_test.go
+index 18ee9f360..8d29b1251 100644
+--- a/pdata/pcommon/generated_int32slice_test.go
++++ b/pdata/pcommon/generated_int32slice_test.go
+@@ -135,7 +135,7 @@ func TestInt32Slice_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	stream := json.BorrowStream(nil)
+ 	defer json.ReturnStream(stream)
+ 	src := NewInt32Slice()
+-	internal.FillTestInt32Slice(internal.Int32Slice(src))
++	*src.getOrig() = internal.GenerateOrigTestInt32Slice()
+ 	internal.MarshalJSONStreamInt32Slice(internal.Int32Slice(src), stream)
+ 	require.NoError(t, stream.Error())
+ 

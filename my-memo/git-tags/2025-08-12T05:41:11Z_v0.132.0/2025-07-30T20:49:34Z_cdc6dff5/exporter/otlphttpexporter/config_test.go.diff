@@ -1,0 +1,12 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index dc337d367..0ac8e1762 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -82,6 +82,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				MaxIdleConnsPerHost: defaultMaxIdleConnsPerHost,
+ 				MaxConnsPerHost:     defaultMaxConnsPerHost,
+ 				IdleConnTimeout:     defaultIdleConnTimeout,
++				ForceAttemptHTTP2:   true,
+ 			},
+ 		}, cfg)
+ }

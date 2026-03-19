@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_function.go b/pdata/internal/generated_wrapper_function.go
+index d5aec366d..2999e35c2 100644
+--- a/pdata/internal/generated_wrapper_function.go
++++ b/pdata/internal/generated_wrapper_function.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolFunction = sync.Pool{
+-	New: func() any {
+-		return &otlpprofiles.Function{}
+-	},
+-}
++var (
++	protoPoolFunction = sync.Pool{
++		New: func() any {
++			return &otlpprofiles.Function{}
++		},
++	}
++)
+ 
+ func NewOrigFunction() *otlpprofiles.Function {
+ 	if !UseProtoPooling.IsEnabled() {

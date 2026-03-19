@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index f0b8077a5..c89514f13 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -112,7 +112,7 @@ func NewLogsExporter(
+ 		req := newLogsRequest(ctx, ld, pusher)
+ 		err := be.sender.send(req)
+ 		if errors.Is(err, errSendingQueueIsFull) {
+-			be.obsrep.recordLogsEnqueueFailure(req.context(), req.count())
++			be.obsrep.recordLogsEnqueueFailure(req.context(), int64(req.count()))
+ 		}
+ 		return err
+ 	}, bs.consumerOptions...)

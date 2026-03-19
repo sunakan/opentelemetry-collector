@@ -1,0 +1,18 @@
+diff --git a/internal/goldendataset/generator_commons.go b/internal/goldendataset/generator_commons.go
+index db09852b8..804705ddf 100644
+--- a/internal/goldendataset/generator_commons.go
++++ b/internal/goldendataset/generator_commons.go
+@@ -102,11 +102,11 @@ func generateTraceID(random io.Reader) otlpcommon.TraceID {
+ 	return otlpcommon.NewTraceID(r[:])
+ }
+ 
+-func generateSpanID(random io.Reader) []byte {
++func generateSpanID(random io.Reader) otlpcommon.SpanID {
+ 	var r [8]byte
+ 	_, err := random.Read(r[:])
+ 	if err != nil {
+ 		panic(err)
+ 	}
+-	return r[:]
++	return otlpcommon.NewSpanID(r[:])
+ }

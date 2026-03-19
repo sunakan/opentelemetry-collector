@@ -1,0 +1,19 @@
+diff --git a/.github/workflows/check_links_config.json b/.github/workflows/check_links_config.json
+index 4f17e9062..82ca9c0c3 100644
+--- a/.github/workflows/check_links_config.json
++++ b/.github/workflows/check_links_config.json
+@@ -10,5 +10,13 @@
+             "pattern": "http(s)?://example.com"
+         }
+     ],
+-    "aliveStatusCodes": [429, 200]
++    "aliveStatusCodes": [429, 200],
++    "httpHeaders": [
++        {
++            "urls": ["https://docs.github.com/"],
++            "headers": {
++                "Accept-Encoding": "zstd, br, gzip, deflate"
++            }
++        }
++    ]
+ }

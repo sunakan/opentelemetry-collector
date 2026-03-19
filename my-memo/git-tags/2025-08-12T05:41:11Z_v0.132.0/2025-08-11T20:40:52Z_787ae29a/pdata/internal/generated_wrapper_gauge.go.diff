@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_gauge.go b/pdata/internal/generated_wrapper_gauge.go
+index cc2c5fc70..b57526537 100644
+--- a/pdata/internal/generated_wrapper_gauge.go
++++ b/pdata/internal/generated_wrapper_gauge.go
+@@ -25,7 +25,13 @@ func MarshalJSONOrigGauge(orig *otlpmetrics.Gauge, dest *json.Stream) {
+ 	dest.WriteObjectStart()
+ 	if len(orig.DataPoints) > 0 {
+ 		dest.WriteObjectField("dataPoints")
+-		MarshalJSONOrigNumberDataPointSlice(orig.DataPoints, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigNumberDataPoint(orig.DataPoints[0], dest)
++		for i := 1; i < len(orig.DataPoints); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigNumberDataPoint(orig.DataPoints[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	dest.WriteObjectEnd()
+ }

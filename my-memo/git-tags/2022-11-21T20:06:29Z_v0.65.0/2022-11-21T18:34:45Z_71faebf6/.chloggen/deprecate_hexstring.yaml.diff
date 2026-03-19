@@ -1,0 +1,10 @@
+diff --git a/.chloggen/deprecate_hexstring.yaml b/.chloggen/deprecate_hexstring.yaml
+deleted file mode 100755
+index 465e779a7..000000000
+--- a/.chloggen/deprecate_hexstring.yaml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-change_type: 'deprecation'
+-component: pdata
+-note: Deprecate `pcommon.[Span|Trace]ID.HexString` methods. Call `hex.EncodeToString` explicitly instead.
+-issues: [6514]

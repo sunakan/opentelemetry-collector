@@ -1,0 +1,13 @@
+diff --git a/internal/telemetry/componentattribute/meter_test.go b/internal/telemetry/componentattribute/meter_test.go
+index c6e10968c..3f0ff3946 100644
+--- a/internal/telemetry/componentattribute/meter_test.go
++++ b/internal/telemetry/componentattribute/meter_test.go
+@@ -81,7 +81,7 @@ func TestMPWA(t *testing.T) {
+ 			i := slices.IndexFunc(rm.ScopeMetrics, func(sm metricdata.ScopeMetrics) bool {
+ 				return sm.Scope.Name == meterName
+ 			})
+-			assert.NotEqual(t, i, -1)
++			assert.NotEqual(t, -1, i)
+ 			assert.Equal(t, test.expAttrs, rm.ScopeMetrics[i].Scope.Attributes)
+ 			metrics := rm.ScopeMetrics[i].Metrics
+ 			require.Len(t, metrics, 1)

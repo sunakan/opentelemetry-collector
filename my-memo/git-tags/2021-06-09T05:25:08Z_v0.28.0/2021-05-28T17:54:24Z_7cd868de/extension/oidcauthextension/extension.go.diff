@@ -1,0 +1,13 @@
+diff --git a/extension/oidcauthextension/extension.go b/extension/oidcauthextension/extension.go
+index 172cc3e2c..60e2cc55d 100644
+--- a/extension/oidcauthextension/extension.go
++++ b/extension/oidcauthextension/extension.go
+@@ -48,7 +48,7 @@ type oidcExtension struct {
+ }
+ 
+ var (
+-	_ configauth.Authenticator = (*oidcExtension)(nil)
++	_ configauth.ServerAuthenticator = (*oidcExtension)(nil)
+ 
+ 	errNoAudienceProvided                = errors.New("no Audience provided for the OIDC configuration")
+ 	errNoIssuerURL                       = errors.New("no IssuerURL provided for the OIDC configuration")

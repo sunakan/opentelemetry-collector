@@ -1,0 +1,13 @@
+diff --git a/service/parserprovider/file.go b/service/parserprovider/file.go
+index cf2705ad9..a3c700722 100644
+--- a/service/parserprovider/file.go
++++ b/service/parserprovider/file.go
+@@ -36,7 +36,7 @@ func (fl *fileProvider) Get(context.Context) (*configparser.ConfigMap, error) {
+ 		return nil, errors.New("config file not specified")
+ 	}
+ 
+-	cp, err := configparser.NewParserFromFile(fileName)
++	cp, err := configparser.NewConfigMapFromFile(fileName)
+ 	if err != nil {
+ 		return nil, fmt.Errorf("error loading config file %q: %v", fileName, err)
+ 	}

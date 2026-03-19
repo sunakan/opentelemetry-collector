@@ -1,0 +1,14 @@
+diff --git a/internal/otlp/from_translator.go b/internal/otlp/from_translator.go
+index c193487d0..d3ab333f1 100644
+--- a/internal/otlp/from_translator.go
++++ b/internal/otlp/from_translator.go
+@@ -15,8 +15,8 @@
+ package otlp
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type fromTranslator struct{}

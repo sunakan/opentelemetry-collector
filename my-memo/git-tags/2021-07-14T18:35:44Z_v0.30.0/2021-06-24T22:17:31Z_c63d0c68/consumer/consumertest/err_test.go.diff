@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/err_test.go b/consumer/consumertest/err_test.go
+index 0601e2d46..382b38090 100644
+--- a/consumer/consumertest/err_test.go
++++ b/consumer/consumertest/err_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestErr(t *testing.T) {

@@ -1,0 +1,20 @@
+diff --git a/exporter/jaegerexporter/factory.go b/exporter/jaegerexporter/factory.go
+index 823180b14..6c93712f5 100644
+--- a/exporter/jaegerexporter/factory.go
++++ b/exporter/jaegerexporter/factory.go
+@@ -52,7 +52,7 @@ func createDefaultConfig() config.Exporter {
+ 
+ func createTracesExporter(
+ 	_ context.Context,
+-	params component.ExporterCreateParams,
++	set component.ExporterCreateSettings,
+ 	config config.Exporter,
+ ) (component.TracesExporter, error) {
+ 
+@@ -64,5 +64,5 @@ func createTracesExporter(
+ 			expCfg.ID().String())
+ 	}
+ 
+-	return newTracesExporter(expCfg, params.Logger)
++	return newTracesExporter(expCfg, set.Logger)
+ }

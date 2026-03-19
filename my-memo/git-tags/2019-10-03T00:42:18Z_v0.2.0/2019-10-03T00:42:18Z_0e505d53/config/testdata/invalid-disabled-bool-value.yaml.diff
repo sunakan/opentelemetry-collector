@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-disabled-bool-value.yaml b/config/testdata/invalid-disabled-bool-value.yaml
+index 152ce90ce..b55bae0a8 100644
+--- a/config/testdata/invalid-disabled-bool-value.yaml
++++ b/config/testdata/invalid-disabled-bool-value.yaml
+@@ -5,8 +5,9 @@ exporters:
+     disabled: "string for bool"
+ processors:
+   exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

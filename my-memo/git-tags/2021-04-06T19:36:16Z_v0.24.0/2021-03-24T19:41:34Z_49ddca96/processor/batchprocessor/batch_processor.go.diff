@@ -1,0 +1,21 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index a1c6e85de..43045f263 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -173,6 +173,16 @@ func (bp *batchProcessor) processItem(item interface{}) {
+ 				}()
+ 			}
+ 		}
++		if td, ok := item.(pdata.Logs); ok {
++			itemCount := bp.batch.itemCount()
++			if itemCount+uint32(td.LogRecordCount()) > bp.sendBatchMaxSize {
++				tdRemainSize := splitLogs(int(bp.sendBatchSize-itemCount), td)
++				item = tdRemainSize
++				go func() {
++					bp.newItem <- td
++				}()
++			}
++		}
+ 	}
+ 
+ 	bp.batch.add(item)

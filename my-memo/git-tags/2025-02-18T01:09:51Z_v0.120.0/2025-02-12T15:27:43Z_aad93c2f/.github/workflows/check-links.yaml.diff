@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 660b8f1af..de27f841c 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -12,10 +12,6 @@ concurrency:
+ 
+ permissions: read-all
+ 
+-env:
+-  # renovate: datasource=github-releases depName=tcort/markdown-link-check
+-  MD_LINK_CHECK_VERSION: "3.12.2"
+-
+ jobs:
+   changedfiles:
+     name: changed files

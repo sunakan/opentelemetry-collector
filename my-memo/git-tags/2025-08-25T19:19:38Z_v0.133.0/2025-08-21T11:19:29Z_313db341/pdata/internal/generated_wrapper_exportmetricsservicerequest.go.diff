@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+index 717f2f2bf..5929197ab 100644
+--- a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+@@ -66,6 +66,10 @@ func DeleteOrigExportMetricsServiceRequest(orig *otlpcollectormetrics.ExportMetr
+ }
+ 
+ func CopyOrigExportMetricsServiceRequest(dest, src *otlpcollectormetrics.ExportMetricsServiceRequest) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.ResourceMetrics = CopyOrigResourceMetricsSlice(dest.ResourceMetrics, src.ResourceMetrics)
+ }
+ 

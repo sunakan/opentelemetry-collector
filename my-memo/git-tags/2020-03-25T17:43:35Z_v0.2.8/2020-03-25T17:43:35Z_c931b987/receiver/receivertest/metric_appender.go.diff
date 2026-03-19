@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/metric_appender.go b/receiver/receivertest/metric_appender.go
+index 0da524ee2..01b0c0aac 100644
+--- a/receiver/receivertest/metric_appender.go
++++ b/receiver/receivertest/metric_appender.go
+@@ -31,7 +31,7 @@ func NewMetricAppender() *MetricAppender {
+ 	return &MetricAppender{}
+ }
+ 
+-var _ consumer.MetricsConsumer = (*MetricAppender)(nil)
++var _ consumer.MetricsConsumerOld = (*MetricAppender)(nil)
+ 
+ func (ma *MetricAppender) ConsumeMetricsData(ctx context.Context, md consumerdata.MetricsData) error {
+ 	ma.Lock()

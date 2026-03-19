@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index de452636c..3f63e3744 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -82,7 +82,7 @@ func NewTracesExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be := newBaseExporter(cfg, set.Logger, bs)
++	be := newBaseExporter(cfg, set, bs)
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &tracesExporterWithObservability{
+ 			obsrep:     be.obsrep,

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/async_metric.yaml b/cmd/mdatagen/internal/testdata/async_metric.yaml
+index 5d6949f28..0ab626840 100644
+--- a/cmd/mdatagen/internal/testdata/async_metric.yaml
++++ b/cmd/mdatagen/internal/testdata/async_metric.yaml
+@@ -13,6 +13,8 @@ metrics:
+   metric:
+     enabled: true
+     description: Description.
++    stability:
++      level: development
+     unit: s
+     gauge:
+       value_type: double

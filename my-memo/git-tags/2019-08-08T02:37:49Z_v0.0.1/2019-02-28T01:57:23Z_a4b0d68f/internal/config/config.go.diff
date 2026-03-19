@@ -1,0 +1,13 @@
+diff --git a/internal/config/config.go b/internal/config/config.go
+index a0e86b08d..31d1b49f5 100644
+--- a/internal/config/config.go
++++ b/internal/config/config.go
+@@ -499,7 +499,7 @@ func ExportersFromViperConfig(logger *zap.Logger, v *viper.Viper) ([]processor.T
+ 		for _, me := range mes {
+ 			if me != nil {
+ 				metricsExporters = append(metricsExporters, me)
+-				logger.Info("Metrices Exporter enabled", zap.String("exporter", cfg.name))
++				logger.Info("Metrics Exporter enabled", zap.String("exporter", cfg.name))
+ 			}
+ 		}
+ 

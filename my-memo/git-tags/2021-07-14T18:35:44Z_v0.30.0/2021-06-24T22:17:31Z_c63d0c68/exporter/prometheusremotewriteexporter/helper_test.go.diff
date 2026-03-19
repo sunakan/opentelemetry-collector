@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/helper_test.go b/exporter/prometheusremotewriteexporter/helper_test.go
+index 16d5a8a6b..d077d432e 100644
+--- a/exporter/prometheusremotewriteexporter/helper_test.go
++++ b/exporter/prometheusremotewriteexporter/helper_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/prometheus/prometheus/prompb"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Test_validateMetrics checks validateMetrics return true if a type and temporality combination is valid, false

@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/config.go b/extension/healthcheckextension/config.go
+index 0937c30e0..e3558ae95 100644
+--- a/extension/healthcheckextension/config.go
++++ b/extension/healthcheckextension/config.go
+@@ -22,7 +22,7 @@ import (
+ // Config has the configuration for the extension enabling the health check
+ // extension, used to report the health status of the service.
+ type Config struct {
+-	config.ExtensionSettings `mapstructure:",squash"`
++	*config.ExtensionSettings `mapstructure:"-"`
+ 
+ 	// Port is the port used to publish the health check status.
+ 	// The default value is 13133.

@@ -1,0 +1,11 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 68bbf2602..688f61360 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -140,4 +140,6 @@ retract (
+ 	v0.69.0 // Release failed, use v0.69.1
+ )
+ 
++replace go.opentelemetry.io/collector/extension/auth/authtest => ../../extension/auth/authtest
++
+ replace go.opentelemetry.io/collector/scraper => ../../scraper

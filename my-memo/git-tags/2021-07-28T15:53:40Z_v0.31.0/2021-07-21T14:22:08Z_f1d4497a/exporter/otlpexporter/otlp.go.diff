@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index b592d790c..53ea09eb4 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -101,7 +101,7 @@ func newGrpcSender(config *Config, ext map[config.ComponentID]component.Extensio
+ 	}
+ 
+ 	var clientConn *grpc.ClientConn
+-	if clientConn, err = grpc.Dial(config.GRPCClientSettings.Endpoint, dialOpts...); err != nil {
++	if clientConn, err = grpc.Dial(config.GRPCClientSettings.SanitizedEndpoint(), dialOpts...); err != nil {
+ 		return nil, err
+ 	}
+ 

@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/log_structs.go b/pdata/internal/cmd/pdatagen/internal/log_structs.go
+index 918762ecb..f52c75f0b 100644
+--- a/pdata/internal/cmd/pdatagen/internal/log_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/log_structs.go
+@@ -126,8 +126,8 @@ var logRecord = &messageValueStruct{
+ 			originFieldName: "SeverityNumber",
+ 			returnType:      "SeverityNumber",
+ 			rawType:         "otlplogs.SeverityNumber",
+-			defaultVal:      `SeverityNumberUNDEFINED`,
+-			testVal:         `SeverityNumberINFO`,
++			defaultVal:      `SeverityNumberUndefined`,
++			testVal:         `SeverityNumberInfo`,
+ 		},
+ 		bodyField,
+ 		attributes,

@@ -1,0 +1,13 @@
+diff --git a/internal/collector/processor/queued/config.go b/internal/collector/processor/queued/config.go
+index 9c6761219..44fb1db52 100644
+--- a/internal/collector/processor/queued/config.go
++++ b/internal/collector/processor/queued/config.go
+@@ -17,7 +17,7 @@ package queued
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ )
+ 
+ // ConfigV2 defines configuration for Attributes processor.

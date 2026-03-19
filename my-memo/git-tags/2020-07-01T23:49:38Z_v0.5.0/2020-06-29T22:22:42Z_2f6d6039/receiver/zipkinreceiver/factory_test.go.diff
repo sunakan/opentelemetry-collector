@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 9e0e6396a..2af31f136 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -52,7 +52,7 @@ func TestCreateReceiver(t *testing.T) {
+ 	assert.Nil(t, err, "receiver creation failed")
+ 	assert.NotNil(t, tReceiver, "receiver creation failed")
+ 
+-	mReceiver, err := factory.CreateMetricsReceiver(zap.NewNop(), cfg, nil)
++	mReceiver, err := factory.CreateMetricsReceiver(context.Background(), zap.NewNop(), cfg, nil)
+ 	assert.Equal(t, err, configerror.ErrDataTypeIsNotSupported)
+ 	assert.Nil(t, mReceiver)
+ }

@@ -1,0 +1,17 @@
+diff --git a/examples/demotrace/otel-collector-config.yaml b/examples/demotrace/otel-collector-config.yaml
+index 7128b1fba..3368021a0 100644
+--- a/examples/demotrace/otel-collector-config.yaml
++++ b/examples/demotrace/otel-collector-config.yaml
+@@ -14,6 +14,12 @@ exporters:
+   jaeger-grpc:
+     endpoint: jaeger-all-in-one:14250
+ 
++# Alternatively, use jaeger-thrift-http with the settings below. In this case
++# update the list of exporters on the traces pipeline.
++#
++#  jaeger-thrift-http:
++#    url: http://jaeger-all-in-one:14268/api/traces
++
+ processors:
+   batch:
+   queued-retry:

@@ -1,0 +1,23 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index b24239321..a73f11fad 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -20,6 +20,7 @@ import (
+ 	"log"
+ 	"net"
+ 
++	"go.opentelemetry.io/otel/trace"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -582,5 +583,9 @@ func (pds *prometheusDataSender) ProtocolName() string {
+ }
+ 
+ func defaultExporterParams() component.ExporterCreateSettings {
+-	return component.ExporterCreateSettings{Logger: zap.L()}
++	return component.ExporterCreateSettings{
++		Logger:         zap.L(),
++		TracerProvider: trace.NewNoopTracerProvider(),
++		BuildInfo:      component.DefaultBuildInfo(),
++	}
+ }

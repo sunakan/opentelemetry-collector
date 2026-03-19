@@ -1,0 +1,19 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go b/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
+index a04ef9ea8..38c1379ff 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
+@@ -141,6 +141,14 @@ func TestSummaryDataPointValueAtQuantileSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestSummaryDataPointValueAtQuantileSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestSummaryDataPointValueAtQuantileSlice()
++	got.RemoveIf(func(el SummaryDataPointValueAtQuantile) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestSummaryDataPointValueAtQuantileSliceAll(t *testing.T) {
+ 	ms := generateTestSummaryDataPointValueAtQuantileSlice()
+ 	assert.NotEmpty(t, ms.Len())

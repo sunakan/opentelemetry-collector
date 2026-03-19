@@ -1,0 +1,19 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index f5efae9aa..9ebc88fd2 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -146,6 +146,14 @@ func TestLoadTLSClientConfig(t *testing.T) {
+ 	tlsCfg, err = tlsSetting.LoadTLSConfig()
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, tlsCfg)
++
++	tlsSetting = TLSClientSetting{
++		InsecureSkipVerify: true,
++	}
++	tlsCfg, err = tlsSetting.LoadTLSConfig()
++	assert.NoError(t, err)
++	assert.NotNil(t, tlsCfg)
++	assert.True(t, tlsCfg.InsecureSkipVerify)
+ }
+ 
+ func TestLoadTLSServerConfigError(t *testing.T) {

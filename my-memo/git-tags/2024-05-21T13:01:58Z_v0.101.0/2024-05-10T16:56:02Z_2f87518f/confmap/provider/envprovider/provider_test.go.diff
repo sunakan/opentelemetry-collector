@@ -1,0 +1,31 @@
+diff --git a/confmap/provider/envprovider/provider_test.go b/confmap/provider/envprovider/provider_test.go
+index c5fcbd91e..f1f593101 100644
+--- a/confmap/provider/envprovider/provider_test.go
++++ b/confmap/provider/envprovider/provider_test.go
+@@ -77,7 +77,7 @@ func TestEnvWithLogger(t *testing.T) {
+ 	core, ol := observer.New(zap.WarnLevel)
+ 	logger := zap.New(core)
+ 
+-	env := NewWithSettings(confmap.ProviderSettings{Logger: logger})
++	env := NewFactory().Create(confmap.ProviderSettings{Logger: logger})
+ 	ret, err := env.Retrieve(context.Background(), envSchemePrefix+envName, nil)
+ 	require.NoError(t, err)
+ 	retMap, err := ret.AsConf()
+@@ -97,7 +97,7 @@ func TestUnsetEnvWithLoggerWarn(t *testing.T) {
+ 	core, ol := observer.New(zap.WarnLevel)
+ 	logger := zap.New(core)
+ 
+-	env := NewWithSettings(confmap.ProviderSettings{Logger: logger})
++	env := NewFactory().Create(confmap.ProviderSettings{Logger: logger})
+ 	ret, err := env.Retrieve(context.Background(), envSchemePrefix+envName, nil)
+ 	require.NoError(t, err)
+ 	retMap, err := ret.AsConf()
+@@ -121,7 +121,7 @@ func TestEmptyEnvWithLoggerWarn(t *testing.T) {
+ 	core, ol := observer.New(zap.InfoLevel)
+ 	logger := zap.New(core)
+ 
+-	env := NewWithSettings(confmap.ProviderSettings{Logger: logger})
++	env := NewFactory().Create(confmap.ProviderSettings{Logger: logger})
+ 	ret, err := env.Retrieve(context.Background(), envSchemePrefix+envName, nil)
+ 	require.NoError(t, err)
+ 	retMap, err := ret.AsConf()

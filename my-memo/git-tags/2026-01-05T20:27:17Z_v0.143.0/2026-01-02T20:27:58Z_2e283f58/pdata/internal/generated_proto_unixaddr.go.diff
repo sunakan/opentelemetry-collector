@@ -1,0 +1,25 @@
+diff --git a/pdata/internal/generated_proto_unixaddr.go b/pdata/internal/generated_proto_unixaddr.go
+index b7d25686c..be00bfbd3 100644
+--- a/pdata/internal/generated_proto_unixaddr.go
++++ b/pdata/internal/generated_proto_unixaddr.go
+@@ -64,7 +64,6 @@ func CopyUnixAddr(dest, src *UnixAddr) *UnixAddr {
+ 		dest = NewUnixAddr()
+ 	}
+ 	dest.Name = src.Name
+-
+ 	dest.Net = src.Net
+ 
+ 	return dest
+@@ -154,10 +153,12 @@ func (orig *UnixAddr) SizeProto() int {
+ 	var n int
+ 	var l int
+ 	_ = l
++
+ 	l = len(orig.Name)
+ 	if l > 0 {
+ 		n += 1 + proto.Sov(uint64(l)) + l
+ 	}
++
+ 	l = len(orig.Net)
+ 	if l > 0 {
+ 		n += 1 + proto.Sov(uint64(l)) + l

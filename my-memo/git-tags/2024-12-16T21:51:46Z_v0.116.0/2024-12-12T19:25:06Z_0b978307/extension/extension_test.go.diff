@@ -1,0 +1,13 @@
+diff --git a/extension/extension_test.go b/extension/extension_test.go
+index f86bf648b..1d85292b2 100644
+--- a/extension/extension_test.go
++++ b/extension/extension_test.go
+@@ -20,7 +20,7 @@ type nopExtension struct {
+ }
+ 
+ func TestNewFactory(t *testing.T) {
+-	var testType = component.MustNewType("test")
++	testType := component.MustNewType("test")
+ 	defaultCfg := struct{}{}
+ 	nopExtensionInstance := new(nopExtension)
+ 

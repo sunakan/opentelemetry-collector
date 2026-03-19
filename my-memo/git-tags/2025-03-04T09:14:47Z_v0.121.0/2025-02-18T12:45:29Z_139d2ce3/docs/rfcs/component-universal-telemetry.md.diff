@@ -1,0 +1,13 @@
+diff --git a/docs/rfcs/component-universal-telemetry.md b/docs/rfcs/component-universal-telemetry.md
+index a13ed7bfe..bf45f8adf 100644
+--- a/docs/rfcs/component-universal-telemetry.md
++++ b/docs/rfcs/component-universal-telemetry.md
+@@ -27,7 +27,7 @@ be automatically captured for each kind of pipeline component.
+ 
+ ## Attributes
+ 
+-All signals should use the following attributes:
++Spans, data points, and log records should carry the following attributes:
+ 
+ ### Receivers
+ 

@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression.go b/config/confighttp/compression.go
+index 55b75c373..88ecafe78 100644
+--- a/config/confighttp/compression.go
++++ b/config/confighttp/compression.go
+@@ -86,7 +86,7 @@ func httpContentDecompressor(h http.Handler, eh func(w http.ResponseWriter, r *h
+ 		errHandler: errHandler,
+ 		base:       h,
+ 		decoders: map[string]func(body io.ReadCloser) (io.ReadCloser, error){
+-			"": func(_ io.ReadCloser) (io.ReadCloser, error) {
++			"": func(io.ReadCloser) (io.ReadCloser, error) {
+ 				// Not a compressed payload. Nothing to do.
+ 				return nil, nil
+ 			},

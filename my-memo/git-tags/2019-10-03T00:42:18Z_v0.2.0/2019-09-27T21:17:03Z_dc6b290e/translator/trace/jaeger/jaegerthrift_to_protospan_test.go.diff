@@ -1,0 +1,17 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_protospan_test.go b/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
+index c3f090e81..39d2b283f 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
+@@ -26,9 +26,9 @@ import (
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ func TestThriftBatchToOCProto_Roundtrip(t *testing.T) {

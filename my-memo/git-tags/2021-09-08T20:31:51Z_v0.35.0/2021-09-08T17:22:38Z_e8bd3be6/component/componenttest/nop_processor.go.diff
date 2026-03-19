@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/nop_processor.go b/component/componenttest/nop_processor.go
+index 4925e9a4f..519450be6 100644
+--- a/component/componenttest/nop_processor.go
++++ b/component/componenttest/nop_processor.go
+@@ -27,8 +27,8 @@ import (
+ // NewNopProcessorCreateSettings returns a new nop settings for Create*Processor functions.
+ func NewNopProcessorCreateSettings() component.ProcessorCreateSettings {
+ 	return component.ProcessorCreateSettings{
+-		TelemetryCreateSettings: NewNopTelemetryCreateSettings(),
+-		BuildInfo:               component.DefaultBuildInfo(),
++		TelemetrySettings: NewNopTelemetrySettings(),
++		BuildInfo:         component.DefaultBuildInfo(),
+ 	}
+ }
+ 

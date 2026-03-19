@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/retry_sender_test.go b/exporter/exporterhelper/retry_sender_test.go
+index 1da5fb29e..0062fcb0d 100644
+--- a/exporter/exporterhelper/retry_sender_test.go
++++ b/exporter/exporterhelper/retry_sender_test.go
+@@ -404,12 +404,3 @@ func (pcq *producerConsumerQueueWithCounter) Produce(item internal.Request) bool
+ 	pcq.produceCounter.Add(1)
+ 	return pcq.ProducerConsumerQueue.Produce(item)
+ }
+-
+-type errorRequestSender struct {
+-	baseRequestSender
+-	errToReturn error
+-}
+-
+-func (rs *errorRequestSender) send(_ internal.Request) error {
+-	return rs.errToReturn
+-}

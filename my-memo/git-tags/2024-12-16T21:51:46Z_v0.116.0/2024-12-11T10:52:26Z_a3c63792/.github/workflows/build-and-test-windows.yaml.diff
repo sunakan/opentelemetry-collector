@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 9c70e93e6..0fda5e460 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -9,7 +9,7 @@ on:
+   pull_request:
+ 
+ concurrency:
+-  group: ${{ github.workflow }}-${{ github.head_ref }}
++  group: ${{ github.workflow }}-${{ github.ref_name }}
+   cancel-in-progress: true
+ 
+ permissions:

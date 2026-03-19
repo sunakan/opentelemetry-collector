@@ -1,0 +1,19 @@
+diff --git a/configv2/testdata/duplicate-exporter.yaml b/configv2/testdata/duplicate-exporter.yaml
+new file mode 100644
+index 000000000..32fef8765
+--- /dev/null
++++ b/configv2/testdata/duplicate-exporter.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter/exp:
++  exampleexporter/ exp :
++processors:
++  exampleprocessor:
++    enabled: true
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

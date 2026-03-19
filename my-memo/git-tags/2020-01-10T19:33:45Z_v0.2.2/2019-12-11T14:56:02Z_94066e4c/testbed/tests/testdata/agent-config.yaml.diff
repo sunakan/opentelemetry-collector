@@ -1,0 +1,28 @@
+diff --git a/testbed/tests/testdata/agent-config.yaml b/testbed/tests/testdata/agent-config.yaml
+index e6b7e11cd..54aaa1cc5 100644
+--- a/testbed/tests/testdata/agent-config.yaml
++++ b/testbed/tests/testdata/agent-config.yaml
+@@ -3,10 +3,14 @@ receivers:
+     protocols:
+       thrift-http:
+         endpoint: "localhost:14268"
++  opencensus:
++    endpoint: "localhost:55678"
+ 
+ exporters:
+   opencensus:
+     endpoint: "localhost:56565"
++  logging:
++    loglevel: debug
+ 
+ processors:
+   queued_retry:
+@@ -16,4 +20,7 @@ service:
+     traces:
+       receivers: [jaeger]
+       processors: [queued_retry]
+-      exporters: [opencensus]
++      exporters: [opencensus,logging]
++    metrics:
++      receivers: [opencensus]
++      exporters: [opencensus,logging]

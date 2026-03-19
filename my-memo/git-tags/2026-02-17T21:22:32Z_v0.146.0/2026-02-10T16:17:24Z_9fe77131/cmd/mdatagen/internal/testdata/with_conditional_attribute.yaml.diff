@@ -1,0 +1,23 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_conditional_attribute.yaml b/cmd/mdatagen/internal/testdata/with_conditional_attribute.yaml
+index d3f4af8e0..024602071 100644
+--- a/cmd/mdatagen/internal/testdata/with_conditional_attribute.yaml
++++ b/cmd/mdatagen/internal/testdata/with_conditional_attribute.yaml
+@@ -12,7 +12,7 @@ attributes:
+     description: Conditional int attr.
+     type: string
+     requirement_level: conditionally_required
+-  
++
+   opt_in_string_attr:
+     description: Opt-in string attr.
+     type: string
+@@ -22,8 +22,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
+-    stability:
+-      level: development
++    stability: development
+     unit: "1"
+     gauge:
+       value_type: double

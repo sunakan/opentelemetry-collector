@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/factory.go b/extension/ballastextension/factory.go
+index 96d4bb42a..828744a19 100644
+--- a/extension/ballastextension/factory.go
++++ b/extension/ballastextension/factory.go
+@@ -37,7 +37,7 @@ func NewFactory() component.ExtensionFactory {
+ 
+ func createDefaultConfig() config.Extension {
+ 	return &Config{
+-		ExtensionSettings: config.NewExtensionSettings(typeStr),
++		ExtensionSettings: config.NewExtensionSettings(config.NewID(typeStr)),
+ 	}
+ }
+ 

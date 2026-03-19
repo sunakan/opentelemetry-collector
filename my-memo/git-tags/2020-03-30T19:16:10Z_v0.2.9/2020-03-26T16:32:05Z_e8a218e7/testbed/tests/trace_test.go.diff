@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index 4fac7e309..7db732b48 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -323,7 +323,7 @@ func TestTraceAttributesProcessor(t *testing.T) {
+ `,
+ 			}
+ 
+-			configFile := createConfigFile(test.sender, test.receiver, resultDir, processors)
++			configFile := createConfigFile(t, test.sender, test.receiver, resultDir, processors)
+ 			defer os.Remove(configFile)
+ 
+ 			if configFile == "" {

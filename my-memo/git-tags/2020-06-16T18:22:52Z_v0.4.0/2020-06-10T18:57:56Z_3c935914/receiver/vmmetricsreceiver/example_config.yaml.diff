@@ -1,0 +1,10 @@
+diff --git a/receiver/vmmetricsreceiver/example_config.yaml b/receiver/vmmetricsreceiver/example_config.yaml
+index 3e06437d4..70a813d77 100644
+--- a/receiver/vmmetricsreceiver/example_config.yaml
++++ b/receiver/vmmetricsreceiver/example_config.yaml
+@@ -10,4 +10,4 @@ zpages:
+ exporters:
+   prometheus:
+     namespace: "vmmetrics_test"
+-    address: "localhost:8888"
++    address: "0.0.0.0:8888"

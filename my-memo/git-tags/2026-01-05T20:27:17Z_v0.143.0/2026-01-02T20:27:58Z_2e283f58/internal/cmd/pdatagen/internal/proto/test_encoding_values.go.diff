@@ -1,0 +1,17 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/test_encoding_values.go b/internal/cmd/pdatagen/internal/proto/test_encoding_values.go
+index 400716931..dc194364d 100644
+--- a/internal/cmd/pdatagen/internal/proto/test_encoding_values.go
++++ b/internal/cmd/pdatagen/internal/proto/test_encoding_values.go
+@@ -13,6 +13,12 @@ import (
+ const encodingTestValuesScalar = `{{ if ne .oneOfGroup "" -}}
+ "{{ .fieldName }}/default": { {{ .oneOfGroup }}: &{{ .oneOfMessageName }}{{ "{" }}{{ .fieldName }}: {{ .defaultValue }}} },
+ "{{ .fieldName }}/test": { {{ .oneOfGroup }}: &{{ .oneOfMessageName }}{{ "{" }}{{ .fieldName }}: {{ .testValue }}} },
++{{- else if .nullable }}
++"{{ .fieldName }}/test": func () *{{ .parentMessageName }} { 
++	ms := New{{ .parentMessageName }}() 
++	ms.Set{{ .fieldName }}({{ .testValue }})
++	return ms
++}(),
+ {{- else }}
+ "{{ .fieldName }}/test": { {{ .fieldName }}: {{ .testValue }} },
+ {{- end }}`

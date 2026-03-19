@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/factories_test.go b/service/internal/builder/factories_test.go
+index add76844a..360363e55 100644
+--- a/service/internal/builder/factories_test.go
++++ b/service/internal/builder/factories_test.go
+@@ -96,7 +96,7 @@ func newBadExtensionFactory() component.ExtensionFactory {
+ 				ExtensionSettings: config.NewExtensionSettings(config.NewID("bf")),
+ 			}
+ 		},
+-		func(ctx context.Context, params component.ExtensionCreateParams, extension config.Extension) (component.Extension, error) {
++		func(ctx context.Context, set component.ExtensionCreateSettings, extension config.Extension) (component.Extension, error) {
+ 			return nil, nil
+ 		},
+ 	)

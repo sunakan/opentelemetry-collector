@@ -1,0 +1,20 @@
+diff --git a/pkg/configv2/testdata/pipeline-processor-not-exists.yaml b/pkg/configv2/testdata/pipeline-processor-not-exists.yaml
+new file mode 100644
+index 000000000..81aabccac
+--- /dev/null
++++ b/pkg/configv2/testdata/pipeline-processor-not-exists.yaml
+@@ -0,0 +1,14 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers:
++      - multireceiver
++    processors:
++      - nosuchprocessor
++    exporters:
++      - exampleexporter

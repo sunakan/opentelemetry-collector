@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 51e823b44..2b8ece848 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -4,8 +4,8 @@ go 1.18
+ 
+ require (
+ 	github.com/stretchr/testify v1.8.1
+-	go.opentelemetry.io/collector v0.62.1
+-	go.opentelemetry.io/collector/pdata v0.62.1
++	go.opentelemetry.io/collector v0.63.0
++	go.opentelemetry.io/collector/pdata v0.63.0
+ 	go.uber.org/atomic v1.10.0
+ 	google.golang.org/genproto v0.0.0-20221018160656-63c7b68cfc55
+ 	google.golang.org/grpc v1.50.1

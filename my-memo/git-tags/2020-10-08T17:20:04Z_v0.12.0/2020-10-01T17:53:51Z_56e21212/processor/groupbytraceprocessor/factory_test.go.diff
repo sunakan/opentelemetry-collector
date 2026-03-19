@@ -1,0 +1,23 @@
+diff --git a/processor/groupbytraceprocessor/factory_test.go b/processor/groupbytraceprocessor/factory_test.go
+index 67365509b..a6a5594a2 100644
+--- a/processor/groupbytraceprocessor/factory_test.go
++++ b/processor/groupbytraceprocessor/factory_test.go
+@@ -19,8 +19,6 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+-	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ )
+@@ -39,9 +37,6 @@ func TestDefaultConfiguration(t *testing.T) {
+ func TestCreateTestProcessor(t *testing.T) {
+ 	c := createDefaultConfig().(*Config)
+ 
+-	logger, err := zap.NewDevelopment()
+-	require.NoError(t, err)
+-
+ 	params := component.ProcessorCreateParams{
+ 		Logger: logger,
+ 	}

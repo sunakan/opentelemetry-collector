@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 84a7f6c8d..87bca6027 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -4,6 +4,8 @@ on:
+     branches: [main]
+     tags:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
++  merge_group:
++    types: [checks_requested]
+   pull_request:
+ 
+ permissions:

@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index 1a4189b0a..68569e655 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -234,6 +234,9 @@ func templatize(tmplFile string, md Metadata) *template.Template {
+ 				"isConnector": func() bool {
+ 					return md.Status.Class == "connector"
+ 				},
++				"isScraper": func() bool {
++					return md.Status.Class == "scraper"
++				},
+ 				"isCommand": func() bool {
+ 					return md.Status.Class == "cmd"
+ 				},

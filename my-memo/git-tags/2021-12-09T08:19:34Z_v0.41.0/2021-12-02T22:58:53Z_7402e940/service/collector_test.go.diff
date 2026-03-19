@@ -1,0 +1,22 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 5b21d194d..35e519b3b 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -93,7 +93,7 @@ func TestCollector_Start(t *testing.T) {
+ 	col, err := New(CollectorSettings{
+ 		BuildInfo:         component.NewDefaultBuildInfo(),
+ 		Factories:         factories,
+-		ConfigMapProvider: configmapprovider.NewFile("testdata/otelcol-config.yaml"),
++		ConfigMapProvider: configmapprovider.NewFile(path.Join("testdata", "otelcol-config.yaml")),
+ 		LoggingOptions:    []zap.Option{zap.Hooks(hook)},
+ 	})
+ 	require.NoError(t, err)
+@@ -159,7 +159,7 @@ func TestCollector_ReportError(t *testing.T) {
+ 	col, err := New(CollectorSettings{
+ 		BuildInfo:         component.NewDefaultBuildInfo(),
+ 		Factories:         factories,
+-		ConfigMapProvider: configmapprovider.NewFile("testdata/otelcol-config.yaml"),
++		ConfigMapProvider: configmapprovider.NewFile(path.Join("testdata", "otelcol-config.yaml")),
+ 	})
+ 	require.NoError(t, err)
+ 

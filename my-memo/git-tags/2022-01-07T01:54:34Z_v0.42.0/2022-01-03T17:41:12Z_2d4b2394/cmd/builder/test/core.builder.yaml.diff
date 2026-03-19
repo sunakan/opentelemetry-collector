@@ -1,0 +1,21 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+new file mode 100644
+index 000000000..dac61b658
+--- /dev/null
++++ b/cmd/builder/test/core.builder.yaml
+@@ -0,0 +1,15 @@
++dist:
++  module: go.opentelemetry.io/collector/builder/test/nocore
++  otelcol_version: 0.41.0
++
++extensions:
++  - import: go.opentelemetry.io/collector/extension/zpagesextension
++    gomod: go.opentelemetry.io/collector v0.41.0
++
++receivers:
++  - import: go.opentelemetry.io/collector/receiver/otlpreceiver
++    gomod: go.opentelemetry.io/collector v0.41.0
++
++exporters:
++  - import: go.opentelemetry.io/collector/exporter/loggingexporter
++    gomod: go.opentelemetry.io/collector v0.41.0

@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index 30217a7aa..7eed7fcf8 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -28,6 +28,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/processor/addattributesprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/attributekeyprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/nodebatcherprocessor"
++	"github.com/open-telemetry/opentelemetry-service/processor/probabilisticsamplerprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/queuedprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/tailsamplingprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+@@ -76,6 +77,7 @@ func Components() (
+ 		&queuedprocessor.Factory{},
+ 		&nodebatcherprocessor.Factory{},
+ 		&tailsamplingprocessor.Factory{},
++		&probabilisticsamplerprocessor.Factory{},
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

@@ -1,0 +1,82 @@
+diff --git a/exporter/exporterhelper/batch_sender.go b/exporter/exporterhelper/batch_sender.go
+index 8c69c4c1f..3501fc3ef 100644
+--- a/exporter/exporterhelper/batch_sender.go
++++ b/exporter/exporterhelper/batch_sender.go
+@@ -33,10 +33,9 @@ type batchSender struct {
+ 	concurrencyLimit uint64
+ 	activeRequests   atomic.Uint64
+ 
+-	resetTimerCh chan struct{}
+-
+ 	mu          sync.Mutex
+ 	activeBatch *batch
++	lastFlushed time.Time
+ 
+ 	logger *zap.Logger
+ 
+@@ -57,7 +56,6 @@ func newBatchSender(cfg exporterbatcher.Config, set exporter.CreateSettings,
+ 		shutdownCh:         nil,
+ 		shutdownCompleteCh: make(chan struct{}),
+ 		stopped:            &atomic.Bool{},
+-		resetTimerCh:       make(chan struct{}),
+ 	}
+ 	return bs
+ }
+@@ -85,16 +83,17 @@ func (bs *batchSender) Start(_ context.Context, _ component.Host) error {
+ 				return
+ 			case <-timer.C:
+ 				bs.mu.Lock()
++				nextFlush := bs.cfg.FlushTimeout
+ 				if bs.activeBatch.request != nil {
+-					bs.exportActiveBatch()
++					sinceLastFlush := time.Since(bs.lastFlushed)
++					if sinceLastFlush >= bs.cfg.FlushTimeout {
++						bs.exportActiveBatch()
++					} else {
++						nextFlush = bs.cfg.FlushTimeout - sinceLastFlush
++					}
+ 				}
+ 				bs.mu.Unlock()
+-				timer.Reset(bs.cfg.FlushTimeout)
+-			case <-bs.resetTimerCh:
+-				if !timer.Stop() {
+-					<-timer.C
+-				}
+-				timer.Reset(bs.cfg.FlushTimeout)
++				timer.Reset(nextFlush)
+ 			}
+ 		}
+ 	}()
+@@ -123,15 +122,10 @@ func (bs *batchSender) exportActiveBatch() {
+ 		b.err = bs.nextSender.send(b.ctx, b.request)
+ 		close(b.done)
+ 	}(bs.activeBatch)
++	bs.lastFlushed = time.Now()
+ 	bs.activeBatch = newEmptyBatch()
+ }
+ 
+-func (bs *batchSender) resetTimer() {
+-	if !bs.stopped.Load() {
+-		bs.resetTimerCh <- struct{}{}
+-	}
+-}
+-
+ // isActiveBatchReady returns true if the active batch is ready to be exported.
+ // The batch is ready if it has reached the minimum size or the concurrency limit is reached.
+ // Caller must hold the lock.
+@@ -168,7 +162,6 @@ func (bs *batchSender) sendMergeSplitBatch(ctx context.Context, req Request) err
+ 		batch := bs.activeBatch
+ 		if bs.isActiveBatchReady() || len(reqs) > 1 {
+ 			bs.exportActiveBatch()
+-			bs.resetTimer()
+ 		}
+ 		bs.mu.Unlock()
+ 		<-batch.done
+@@ -208,7 +201,6 @@ func (bs *batchSender) sendMergeBatch(ctx context.Context, req Request) error {
+ 	batch := bs.activeBatch
+ 	if bs.isActiveBatchReady() {
+ 		bs.exportActiveBatch()
+-		bs.resetTimer()
+ 	}
+ 	bs.mu.Unlock()
+ 	<-batch.done

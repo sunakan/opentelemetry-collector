@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index f27eeb0bc..d9ae3ceb7 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -42,7 +42,6 @@ func Test_NewPrwExporter(t *testing.T) {
+ 	cfg := &Config{
+ 		ExporterSettings:   config.NewExporterSettings(config.NewID(typeStr)),
+ 		TimeoutSettings:    exporterhelper.TimeoutSettings{},
+-		QueueSettings:      exporterhelper.QueueSettings{},
+ 		RetrySettings:      exporterhelper.RetrySettings{},
+ 		Namespace:          "",
+ 		ExternalLabels:     map[string]string{},

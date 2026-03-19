@@ -1,0 +1,16 @@
+diff --git a/exporter/loggingexporter/internal/otlptext/databuffer.go b/exporter/loggingexporter/internal/otlptext/databuffer.go
+index 44ecd4542..162174024 100644
+--- a/exporter/loggingexporter/internal/otlptext/databuffer.go
++++ b/exporter/loggingexporter/internal/otlptext/databuffer.go
+@@ -102,9 +102,9 @@ func (b *dataBuffer) logNumberDataPoints(ps pmetric.NumberDataPointSlice) {
+ 		b.logEntry("Timestamp: %s", p.Timestamp())
+ 		switch p.ValueType() {
+ 		case pmetric.NumberDataPointValueTypeInt:
+-			b.logEntry("Value: %d", p.IntVal())
++			b.logEntry("Value: %d", p.IntValue())
+ 		case pmetric.NumberDataPointValueTypeDouble:
+-			b.logEntry("Value: %f", p.DoubleVal())
++			b.logEntry("Value: %f", p.DoubleValue())
+ 		}
+ 	}
+ }

@@ -1,0 +1,26 @@
+diff --git a/examples/local/otel-config.yaml b/examples/local/otel-config.yaml
+index 692949085..7ea61683d 100644
+--- a/examples/local/otel-config.yaml
++++ b/examples/local/otel-config.yaml
+@@ -22,7 +22,7 @@ processors:
+     check_interval: 5s
+ 
+ exporters:
+-  logging:
++  debug:
+     verbosity: detailed
+ 
+ service:
+@@ -30,10 +30,10 @@ service:
+     traces:
+       receivers: [otlp]
+       processors: [memory_limiter, batch]
+-      exporters: [logging]
++      exporters: [debug]
+     metrics:
+       receivers: [otlp]
+       processors: [memory_limiter, batch]
+-      exporters: [logging]
++      exporters: [debug]
+ 
+   extensions: [memory_ballast, zpages]

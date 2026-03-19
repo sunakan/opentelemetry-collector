@@ -1,0 +1,14 @@
+diff --git a/Dockerfile b/Dockerfile
+new file mode 100644
+index 000000000..4fdea406b
+--- /dev/null
++++ b/Dockerfile
+@@ -0,0 +1,8 @@
++FROM debian:jessie
++
++COPY ./bin/ocagent_linux ocagent
++
++# Expose the OpenCensus interceptor port
++EXPOSE 55678/tcp
++
++CMD ["ocagent"]

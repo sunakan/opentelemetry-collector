@@ -1,0 +1,20 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index df6cc3973..6c52b684e 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -74,15 +74,6 @@ func TestCreateTraceExporter(t *testing.T) {
+ 				},
+ 			},
+ 		},
+-		{
+-			name: "ReconnectionDelay",
+-			config: Config{
+-				GRPCSettings: configgrpc.GRPCSettings{
+-					Endpoint: endpoint,
+-				},
+-				ReconnectionDelay: 5 * time.Second,
+-			},
+-		},
+ 		{
+ 			name: "KeepaliveParameters",
+ 			config: Config{

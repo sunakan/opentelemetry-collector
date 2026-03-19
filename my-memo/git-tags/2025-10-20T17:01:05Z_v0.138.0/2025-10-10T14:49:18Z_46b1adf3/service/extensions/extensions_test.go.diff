@@ -1,0 +1,13 @@
+diff --git a/service/extensions/extensions_test.go b/service/extensions/extensions_test.go
+index c352eaa34..2a33c9fd7 100644
+--- a/service/extensions/extensions_test.go
++++ b/service/extensions/extensions_test.go
+@@ -358,7 +358,7 @@ func TestStatusReportedOnStartupShutdown(t *testing.T) {
+ 	// compare two slices of status events ignoring timestamp
+ 	assertEqualStatuses := func(t *testing.T, evts1, evts2 []*componentstatus.Event) {
+ 		assert.Len(t, evts2, len(evts1))
+-		for i := 0; i < len(evts1); i++ {
++		for i := range evts1 {
+ 			ev1 := evts1[i]
+ 			ev2 := evts2[i]
+ 			assert.Equal(t, ev1.Status(), ev2.Status())

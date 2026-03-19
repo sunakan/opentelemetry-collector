@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics.go b/pdata/pmetric/pmetricotlp/metrics.go
+index 65203cc7a..e911ba841 100644
+--- a/pdata/pmetric/pmetricotlp/metrics.go
++++ b/pdata/pmetric/pmetricotlp/metrics.go
+@@ -157,7 +157,7 @@ func RegisterServer(s *grpc.Server, srv GRPCServer) {
+ }
+ 
+ type rawMetricsServer struct {
+-	srv Server
++	srv GRPCServer
+ }
+ 
+ func (s rawMetricsServer) Export(ctx context.Context, request *otlpcollectormetrics.ExportMetricsServiceRequest) (*otlpcollectormetrics.ExportMetricsServiceResponse, error) {

@@ -1,0 +1,18 @@
+diff --git a/exporter/opencensusexporter/testdata/config.yaml b/exporter/opencensusexporter/testdata/config.yaml
+index 3dfb34dcf..603ae5192 100644
+--- a/exporter/opencensusexporter/testdata/config.yaml
++++ b/exporter/opencensusexporter/testdata/config.yaml
+@@ -10,12 +10,11 @@ exporters:
+     endpoint: "1.2.3.4:1234"
+     compression: "on"
+     num_workers: 123
+-    cert_pem_file: /var/lib/mycert.pem
++    ca_file: /var/lib/mycert.pem
+     headers:
+       "can you have a . here?": "F0000000-0000-0000-0000-000000000000"
+       header1: 234
+       another: "somevalue"
+-    secure: true
+     reconnection_delay: 15
+     keepalive:
+       time: 20

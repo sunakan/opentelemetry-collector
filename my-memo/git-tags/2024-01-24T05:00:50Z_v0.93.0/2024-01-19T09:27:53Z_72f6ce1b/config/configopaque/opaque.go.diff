@@ -1,0 +1,15 @@
+diff --git a/config/configopaque/opaque.go b/config/configopaque/opaque.go
+index 5293804b9..c79d053f6 100644
+--- a/config/configopaque/opaque.go
++++ b/config/configopaque/opaque.go
+@@ -36,3 +36,10 @@ var _ fmt.GoStringer = String("")
+ func (s String) GoString() string {
+ 	return fmt.Sprintf("%#v", maskedString)
+ }
++
++var _ encoding.BinaryMarshaler = String("")
++
++// MarshalBinary marshals the string `[REDACTED]` as []byte.
++func (s String) MarshalBinary() (text []byte, err error) {
++	return []byte(maskedString), nil
++}

@@ -1,0 +1,13 @@
+diff --git a/config/configparser/config.go b/config/configparser/config.go
+index 9bde0e68a..fcd340977 100644
+--- a/config/configparser/config.go
++++ b/config/configparser/config.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package configparser implements loading of configuration from Viper configuration.
++// Package configparser implements configuration loading from a config.Parser.
+ // The implementation relies on registered factories that allow creating
+ // default configuration for each type of receiver/exporter/processor.
+ package configparser

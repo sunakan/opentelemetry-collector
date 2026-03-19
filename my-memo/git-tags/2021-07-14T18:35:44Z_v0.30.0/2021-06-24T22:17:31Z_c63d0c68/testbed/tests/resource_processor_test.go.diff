@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index a82286c75..c4c091b67 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/testbed/testbed"
+ )
+ 

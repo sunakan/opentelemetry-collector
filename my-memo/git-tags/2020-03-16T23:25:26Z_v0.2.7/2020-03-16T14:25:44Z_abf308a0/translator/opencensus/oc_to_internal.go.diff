@@ -1,0 +1,13 @@
+diff --git a/translator/opencensus/oc_to_internal.go b/translator/opencensus/oc_to_internal.go
+index bca39f6e6..18b5943f6 100644
+--- a/translator/opencensus/oc_to_internal.go
++++ b/translator/opencensus/oc_to_internal.go
+@@ -353,7 +353,7 @@ func ocMessageEventToInternalAttrs(msgEvent *octrace.Span_TimeEvent_MessageEvent
+ }
+ 
+ func ocNodeResourceToInternal(ocNode *occommon.Node, ocResource *ocresource.Resource) *data.Resource {
+-	resource := &data.Resource{}
++	resource := data.NewResource()
+ 
+ 	// Number of special fields in the Node. See the code below that deals with special fields.
+ 	const specialNodeAttrCount = 7

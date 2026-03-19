@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+index cc15b7836..146743f79 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -283,11 +283,14 @@ var valueType = &messageValueStruct{
+ 			defaultVal: "int32(0)",
+ 			testVal:    "int32(1)",
+ 		},
+-		&primitiveField{
+-			fieldName:  "AggregationTemporality",
+-			returnType: "otlpprofiles.AggregationTemporality",
+-			defaultVal: "otlpprofiles.AggregationTemporality(0)",
+-			testVal:    "otlpprofiles.AggregationTemporality(1)",
++		&primitiveTypedField{
++			fieldName: "AggregationTemporality",
++			returnType: &primitiveType{
++				structName: "AggregationTemporality",
++				rawType:    "otlpprofiles.AggregationTemporality",
++				defaultVal: "otlpprofiles.AggregationTemporality(0)",
++				testVal:    "otlpprofiles.AggregationTemporality(1)",
++			},
+ 		},
+ 	},
+ }

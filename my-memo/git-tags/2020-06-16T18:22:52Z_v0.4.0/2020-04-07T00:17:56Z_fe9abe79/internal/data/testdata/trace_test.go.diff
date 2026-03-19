@@ -1,0 +1,96 @@
+diff --git a/internal/data/testdata/trace_test.go b/internal/data/testdata/trace_test.go
+index f6774c56f..1ac35aa62 100644
+--- a/internal/data/testdata/trace_test.go
++++ b/internal/data/testdata/trace_test.go
+@@ -41,15 +41,25 @@ func generateAllTraceTestCases() []traceTestCase {
+ 			td:   GenerateTraceDataOneEmptyResourceSpans(),
+ 			otlp: generateTraceOtlpOneEmptyResourceSpans(),
+ 		},
++		{
++			name: "one-empty-one-nil-resource-spans",
++			td:   GenerateTraceDataOneEmptyOneNilResourceSpans(),
++			otlp: generateTraceOtlpOneEmptyOneNilResourceSpans(),
++		},
+ 		{
+ 			name: "no-libraries",
+ 			td:   GenerateTraceDataNoLibraries(),
+ 			otlp: generateTraceOtlpNoLibraries(),
+ 		},
+ 		{
+-			name: "no-spans",
+-			td:   GenerateTraceDataNoSpans(),
+-			otlp: generateTraceOtlpNoSpans(),
++			name: "one-empty-instrumentation-library",
++			td:   GenerateTraceDataOneEmptyInstrumentationLibrary(),
++			otlp: generateTraceOtlpOneEmptyInstrumentationLibrary(),
++		},
++		{
++			name: "one-empty-one-nil-instrumentation-library",
++			td:   GenerateTraceDataOneEmptyOneNilInstrumentationLibrary(),
++			otlp: generateTraceOtlpOneEmptyOneNilInstrumentationLibrary(),
+ 		},
+ 		{
+ 			name: "one-span-no-resource",
+@@ -61,6 +71,11 @@ func generateAllTraceTestCases() []traceTestCase {
+ 			td:   GenerateTraceDataOneSpan(),
+ 			otlp: generateTraceOtlpOneSpan(),
+ 		},
++		{
++			name: "one-span-one-nil",
++			td:   GenerateTraceDataOneSpanOneNil(),
++			otlp: generateTraceOtlpOneSpanOneNil(),
++		},
+ 		{
+ 			name: "two-spans-same-resource",
+ 			td:   GenerateTraceDataTwoSpansSameResource(),
+@@ -74,26 +89,7 @@ func generateAllTraceTestCases() []traceTestCase {
+ 	}
+ }
+ 
+-func TestGenerateTraceData(t *testing.T) {
+-	assert.EqualValues(t, GenerateTraceDataOneEmptyResourceSpans(), GenerateTraceDataOneEmptyResourceSpans())
+-	assert.EqualValues(t, GenerateTraceDataNoLibraries(), GenerateTraceDataNoLibraries())
+-	assert.EqualValues(t, GenerateTraceDataNoSpans(), GenerateTraceDataNoSpans())
+-	assert.EqualValues(t, GenerateTraceDataOneSpanNoResource(), GenerateTraceDataOneSpanNoResource())
+-	assert.EqualValues(t, GenerateTraceDataOneSpan(), GenerateTraceDataOneSpan())
+-	assert.EqualValues(t, GenerateTraceDataTwoSpansSameResource(), GenerateTraceDataTwoSpansSameResource())
+-	assert.EqualValues(t, GenerateTraceDataTwoSpansSameResourceOneDifferent(), GenerateTraceDataTwoSpansSameResourceOneDifferent())
+-}
+-
+-func TestGeneratedTraceOtlp(t *testing.T) {
+-	assert.EqualValues(t, generateTraceOtlpNoLibraries(), generateTraceOtlpNoLibraries())
+-	assert.EqualValues(t, generateTraceOtlpNoSpans(), generateTraceOtlpNoSpans())
+-	assert.EqualValues(t, generateTraceOtlpOneSpanNoResource(), generateTraceOtlpOneSpanNoResource())
+-	assert.EqualValues(t, generateTraceOtlpOneSpan(), generateTraceOtlpOneSpan())
+-	assert.EqualValues(t, generateTraceOtlpSameResourceTwoSpans(), generateTraceOtlpSameResourceTwoSpans())
+-	assert.EqualValues(t, generateTraceOtlpTwoSpansSameResourceOneDifferent(), generateTraceOtlpTwoSpansSameResourceOneDifferent())
+-}
+-
+-func TestToFromOtlp(t *testing.T) {
++func TestToFromOtlpTrace(t *testing.T) {
+ 	allTestCases := generateAllTraceTestCases()
+ 	// Ensure NumTraceTests gets updated.
+ 	assert.EqualValues(t, NumTraceTests, len(allTestCases))
+@@ -107,3 +103,22 @@ func TestToFromOtlp(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestToFromOtlpTraceWithNils(t *testing.T) {
++	md := GenerateTraceDataOneEmptyOneNilResourceSpans()
++	assert.EqualValues(t, 2, md.ResourceSpans().Len())
++	assert.False(t, md.ResourceSpans().At(0).IsNil())
++	assert.True(t, md.ResourceSpans().At(1).IsNil())
++
++	md = GenerateTraceDataOneEmptyOneNilInstrumentationLibrary()
++	rs := md.ResourceSpans().At(0)
++	assert.EqualValues(t, 2, rs.InstrumentationLibrarySpans().Len())
++	assert.False(t, rs.InstrumentationLibrarySpans().At(0).IsNil())
++	assert.True(t, rs.InstrumentationLibrarySpans().At(1).IsNil())
++
++	md = GenerateTraceDataOneSpanOneNil()
++	ilss := md.ResourceSpans().At(0).InstrumentationLibrarySpans().At(0)
++	assert.EqualValues(t, 2, ilss.Spans().Len())
++	assert.False(t, ilss.Spans().At(0).IsNil())
++	assert.True(t, ilss.Spans().At(1).IsNil())
++}

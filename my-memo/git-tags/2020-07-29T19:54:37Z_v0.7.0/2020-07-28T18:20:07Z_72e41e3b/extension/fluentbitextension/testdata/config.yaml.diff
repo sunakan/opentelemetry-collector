@@ -1,0 +1,26 @@
+diff --git a/extension/fluentbitextension/testdata/config.yaml b/extension/fluentbitextension/testdata/config.yaml
+new file mode 100644
+index 000000000..a7ff30fbe
+--- /dev/null
++++ b/extension/fluentbitextension/testdata/config.yaml
+@@ -0,0 +1,20 @@
++extensions:
++  fluentbit:
++  fluentbit/1:
++    executable_path: /usr/local/bin/fluent-bit
++
++service:
++  extensions: [fluentbit/1]
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
++
++# Data pipeline is required to load the config.
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:

@@ -1,0 +1,25 @@
+diff --git a/pdata/pprofile/scopeprofiles.go b/pdata/pprofile/scopeprofiles.go
+new file mode 100644
+index 000000000..89d098c23
+--- /dev/null
++++ b/pdata/pprofile/scopeprofiles.go
+@@ -0,0 +1,19 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package pprofile // import "go.opentelemetry.io/collector/pdata/pprofile"
++
++import "fmt"
++
++// switchDictionary updates the ScopeProfiles, switching its indices from one
++// dictionary to another.
++func (ms ScopeProfiles) switchDictionary(src, dst ProfilesDictionary) error {
++	for i, v := range ms.Profiles().All() {
++		err := v.switchDictionary(src, dst)
++		if err != nil {
++			return fmt.Errorf("error switching dictionary for profile %d: %w", i, err)
++		}
++	}
++
++	return nil
++}

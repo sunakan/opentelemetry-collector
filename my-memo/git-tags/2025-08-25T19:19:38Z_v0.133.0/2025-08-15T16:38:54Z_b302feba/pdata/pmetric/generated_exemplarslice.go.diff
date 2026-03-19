@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_exemplarslice.go b/pdata/pmetric/generated_exemplarslice.go
+index 537c641a3..21a60b2f3 100644
+--- a/pdata/pmetric/generated_exemplarslice.go
++++ b/pdata/pmetric/generated_exemplarslice.go
+@@ -33,8 +33,7 @@ func newExemplarSlice(orig *[]otlpmetrics.Exemplar, state *internal.State) Exemp
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewExemplarSlice() ExemplarSlice {
+ 	orig := []otlpmetrics.Exemplar(nil)
+-	state := internal.StateMutable
+-	return newExemplarSlice(&orig, &state)
++	return newExemplarSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

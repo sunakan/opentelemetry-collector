@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_scopespans.go b/pdata/internal/generated_wrapper_scopespans.go
+index a8e355eee..aeab8c4f2 100644
+--- a/pdata/internal/generated_wrapper_scopespans.go
++++ b/pdata/internal/generated_wrapper_scopespans.go
+@@ -15,3 +15,9 @@ func CopyOrigScopeSpans(dest, src *otlptrace.ScopeSpans) {
+ 	dest.SchemaUrl = src.SchemaUrl
+ 	dest.Spans = CopyOrigSpanSlice(dest.Spans, src.Spans)
+ }
++
++func FillOrigTestScopeSpans(orig *otlptrace.ScopeSpans) {
++	FillOrigTestInstrumentationScope(&orig.Scope)
++	orig.SchemaUrl = "test_schemaurl"
++	orig.Spans = GenerateOrigTestSpanSlice()
++}

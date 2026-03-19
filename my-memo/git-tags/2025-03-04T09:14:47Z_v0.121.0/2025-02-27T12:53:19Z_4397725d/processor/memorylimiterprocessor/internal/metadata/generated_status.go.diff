@@ -1,0 +1,16 @@
+diff --git a/processor/memorylimiterprocessor/internal/metadata/generated_status.go b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+index 0e8416082..e22c704f5 100644
+--- a/processor/memorylimiterprocessor/internal/metadata/generated_status.go
++++ b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+@@ -12,7 +12,8 @@ var (
+ )
+ 
+ const (
+-	TracesStability  = component.StabilityLevelBeta
+-	MetricsStability = component.StabilityLevelBeta
+-	LogsStability    = component.StabilityLevelBeta
++	ProfilesStability = component.StabilityLevelAlpha
++	TracesStability   = component.StabilityLevelBeta
++	MetricsStability  = component.StabilityLevelBeta
++	LogsStability     = component.StabilityLevelBeta
+ )

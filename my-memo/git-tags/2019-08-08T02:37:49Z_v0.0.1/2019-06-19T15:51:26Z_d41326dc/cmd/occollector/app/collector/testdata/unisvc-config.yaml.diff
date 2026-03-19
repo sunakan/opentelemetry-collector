@@ -1,0 +1,24 @@
+diff --git a/cmd/occollector/app/collector/testdata/unisvc-config.yaml b/cmd/occollector/app/collector/testdata/unisvc-config.yaml
+deleted file mode 100644
+index a28a771ef..000000000
+--- a/cmd/occollector/app/collector/testdata/unisvc-config.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-receivers:
+-  jaeger:
+-    enabled: true
+-
+-exporters:
+-  opencensus:
+-    endpoint: "locahost:55678"
+-    enabled: true
+-
+-processors:
+-  attributes:
+-    enabled: true
+-
+-pipelines:
+-  traces:
+-    receivers: [jaeger]
+-    processors: [attributes]
+-    exporters: [opencensus]

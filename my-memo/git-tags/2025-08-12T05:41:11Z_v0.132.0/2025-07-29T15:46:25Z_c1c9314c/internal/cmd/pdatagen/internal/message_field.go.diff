@@ -1,0 +1,31 @@
+diff --git a/internal/cmd/pdatagen/internal/message_field.go b/internal/cmd/pdatagen/internal/message_field.go
+index c1d910357..157f879c2 100644
+--- a/internal/cmd/pdatagen/internal/message_field.go
++++ b/internal/cmd/pdatagen/internal/message_field.go
+@@ -48,6 +48,14 @@ const messageMarshalJSONTemplate = `{{- if eq .returnType "TraceState" }} if ms.
+ 	ms.{{ .fieldName }}().marshalJSONStream(dest)
+ 	{{- end }}{{ if eq .returnType "TraceState" -}} } {{- end }}`
+ 
++const messageUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
++	{{- if .isCommon }}
++	{{ if not .isBaseStructCommon }}internal.{{ end }}UnmarshalJSONIter{{ .returnType }}(
++	{{- if not .isBaseStructCommon }}internal.{{ end }}New{{ .returnType }}(&ms.orig.{{ .originFieldName }}, ms.state), iter)
++	{{- else }}
++	ms.{{ .fieldName }}().unmarshalJSONIter(iter)
++	{{- end }}`
++
+ type MessageField struct {
+ 	fieldName     string
+ 	returnMessage *messageStruct
+@@ -78,6 +86,11 @@ func (mf *MessageField) GenerateMarshalJSON(ms *messageStruct) string {
+ 	return executeTemplate(t, mf.templateFields(ms))
+ }
+ 
++func (mf *MessageField) GenerateUnmarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("messageUnmarshalJSONTemplate").Parse(messageUnmarshalJSONTemplate))
++	return executeTemplate(t, mf.templateFields(ms))
++}
++
+ func (mf *MessageField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"isCommon":        usedByOtherDataTypes(mf.returnMessage.packageName),

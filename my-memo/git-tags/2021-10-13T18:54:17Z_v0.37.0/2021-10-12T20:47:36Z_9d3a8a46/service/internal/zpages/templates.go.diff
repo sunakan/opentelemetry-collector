@@ -1,0 +1,13 @@
+diff --git a/service/internal/zpages/templates.go b/service/internal/zpages/templates.go
+index 364eb5b20..184a9a44d 100644
+--- a/service/internal/zpages/templates.go
++++ b/service/internal/zpages/templates.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package zpages
++package zpages // import "go.opentelemetry.io/collector/service/internal/zpages"
+ 
+ import (
+ 	"html/template"

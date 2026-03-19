@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 64583c146..f165e948e 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -110,6 +110,7 @@ linters:
+   enable:
+     - depguard
+     - errcheck
++    - errorlint
+     - exportloopref
+     - gocritic
+     - gofmt

@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index f6d9142a4..a06f9c208 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -146,11 +146,7 @@ metrics:
+     # Optional: array of attributes that were defined in the attributes section that are emitted by this metric.
+     attributes: [string]
+     # Required: the metric stability
+-    stability:
+-      # Required: the level of stability
+-      level: <development|alpha|beta|stable|deprecated>
+-      # Optional: the version current stability was introduced
+-      from:
++    stability: <development|alpha|beta|stable|deprecated>
+     # Deprecation information for the metric. Required when stability is `deprecated`.
+     deprecated:
+       # Required: version when the metric was deprecated

@@ -1,0 +1,23 @@
+diff --git a/pdata/pprofile/aggregation_temporality_test.go b/pdata/pprofile/aggregation_temporality_test.go
+new file mode 100644
+index 000000000..eefe2c89e
+--- /dev/null
++++ b/pdata/pprofile/aggregation_temporality_test.go
+@@ -0,0 +1,17 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package pprofile
++
++import (
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++)
++
++func TestAggregationTemporalityString(t *testing.T) {
++	assert.Equal(t, "Unspecified", AggregationTemporalityUnspecified.String())
++	assert.Equal(t, "Delta", AggregationTemporalityDelta.String())
++	assert.Equal(t, "Cumulative", AggregationTemporalityCumulative.String())
++	assert.Equal(t, "", (AggregationTemporalityCumulative + 1).String())
++}

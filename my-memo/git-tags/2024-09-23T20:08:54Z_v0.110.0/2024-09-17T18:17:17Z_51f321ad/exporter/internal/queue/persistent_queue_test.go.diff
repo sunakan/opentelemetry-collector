@@ -1,0 +1,13 @@
+diff --git a/exporter/internal/queue/persistent_queue_test.go b/exporter/internal/queue/persistent_queue_test.go
+index a6a7b8b97..230d20f3f 100644
+--- a/exporter/internal/queue/persistent_queue_test.go
++++ b/exporter/internal/queue/persistent_queue_test.go
+@@ -563,7 +563,7 @@ func TestPersistentQueueStartWithNonDispatchedConcurrent(t *testing.T) {
+ 		go func() {
+ 			defer conWg.Done()
+ 			for i := 0; i < 10; i++ {
+-				require.True(t, pq.Consume(func(context.Context, tracesRequest) error { return nil }))
++				assert.True(t, pq.Consume(func(context.Context, tracesRequest) error { return nil }))
+ 			}
+ 		}()
+ 	}

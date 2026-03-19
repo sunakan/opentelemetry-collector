@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusexporter/testdata/config.yaml b/exporter/prometheusexporter/testdata/config.yaml
+index 8908e9e5a..5d563bcdf 100644
+--- a/exporter/prometheusexporter/testdata/config.yaml
++++ b/exporter/prometheusexporter/testdata/config.yaml
+@@ -13,6 +13,7 @@ exporters:
+       label1: value1
+       "another label": spaced value
+     send_timestamps: true
++    metric_expiration: 60m
+ 
+ service:
+   pipelines:

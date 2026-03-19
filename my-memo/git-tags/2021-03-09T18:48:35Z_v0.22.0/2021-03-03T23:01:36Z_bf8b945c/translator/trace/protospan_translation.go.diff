@@ -1,0 +1,17 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 903967b30..5dba6dc1f 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -39,10 +39,8 @@ const (
+ 	TagZipkinCensusMsg     = "census.status_description"
+ 	TagZipkinOpenCensusMsg = "opencensus.status_description"
+ 
+-	TagW3CTraceState          = "w3c.tracestate"
+-	TagServiceNameSource      = "otlp.service.name.source"
+-	TagInstrumentationName    = "otlp.instrumentation.library.name"
+-	TagInstrumentationVersion = "otlp.instrumentation.library.version"
++	TagW3CTraceState     = "w3c.tracestate"
++	TagServiceNameSource = "otlp.service.name.source"
+ )
+ 
+ // Constants used for signifying batch-level attribute values where not supplied by OTLP data but required

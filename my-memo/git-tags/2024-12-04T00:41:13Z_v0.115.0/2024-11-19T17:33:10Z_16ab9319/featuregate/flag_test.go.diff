@@ -1,0 +1,13 @@
+diff --git a/featuregate/flag_test.go b/featuregate/flag_test.go
+index 0eb603307..f978499ef 100644
+--- a/featuregate/flag_test.go
++++ b/featuregate/flag_test.go
+@@ -132,3 +132,8 @@ func TestNewFlag(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestFlagStringNotInitialize(t *testing.T) {
++	flag := &flagValue{}
++	assert.Empty(t, flag.String())
++}

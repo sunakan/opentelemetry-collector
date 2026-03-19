@@ -1,0 +1,22 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 771e0470b..7f7404b09 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -505,10 +505,15 @@ func TestDecompressorAvoidDecompressionBomb(t *testing.T) {
+ 			compress: compressZlib,
+ 		},
+ 		{
+-			name:                "x-snappy-framed",
++			name:     "x-snappy-framed",
++			encoding: "x-snappy-framed",
++			compress: compressSnappyFramed,
++		},
++		{
++			name:                "x-snappy-not-framed",
+ 			encoding:            "x-snappy-framed",
+ 			compress:            compressSnappyFramed,
+-			framedSnappyEnabled: true,
++			framedSnappyEnabled: false,
+ 		},
+ 		{
+ 			name:     "snappy",

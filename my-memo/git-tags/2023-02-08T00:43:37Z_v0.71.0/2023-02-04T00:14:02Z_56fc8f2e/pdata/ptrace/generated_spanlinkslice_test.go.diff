@@ -1,0 +1,27 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice_test.go b/pdata/ptrace/generated_spanlinkslice_test.go
+index 9a44e9a78..5a71dc3e9 100644
+--- a/pdata/ptrace/generated_spanlinkslice_test.go
++++ b/pdata/ptrace/generated_spanlinkslice_test.go
+@@ -119,15 +119,15 @@ func TestSpanLinkSlice_RemoveIf(t *testing.T) {
+ }
+ 
+ func generateTestSpanLinkSlice() SpanLinkSlice {
+-	tv := NewSpanLinkSlice()
+-	fillTestSpanLinkSlice(tv)
+-	return tv
++	es := NewSpanLinkSlice()
++	fillTestSpanLinkSlice(es)
++	return es
+ }
+ 
+-func fillTestSpanLinkSlice(tv SpanLinkSlice) {
+-	*tv.orig = make([]*otlptrace.Span_Link, 7)
++func fillTestSpanLinkSlice(es SpanLinkSlice) {
++	*es.orig = make([]*otlptrace.Span_Link, 7)
+ 	for i := 0; i < 7; i++ {
+-		(*tv.orig)[i] = &otlptrace.Span_Link{}
+-		fillTestSpanLink(newSpanLink((*tv.orig)[i]))
++		(*es.orig)[i] = &otlptrace.Span_Link{}
++		fillTestSpanLink(newSpanLink((*es.orig)[i]))
+ 	}
+ }

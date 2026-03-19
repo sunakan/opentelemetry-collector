@@ -1,0 +1,19 @@
+diff --git a/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml b/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+index 35b5b0c5e..10dd8dd93 100644
+--- a/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
++++ b/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+@@ -32,8 +32,9 @@ processors:
+          }
+       ]
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [tail_sampling]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [tail_sampling]
++      exporters: [exampleexporter]

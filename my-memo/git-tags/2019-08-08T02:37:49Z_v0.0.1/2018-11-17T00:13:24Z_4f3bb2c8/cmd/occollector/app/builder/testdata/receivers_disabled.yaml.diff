@@ -1,0 +1,11 @@
+diff --git a/cmd/occollector/app/builder/testdata/receivers_disabled.yaml b/cmd/occollector/app/builder/testdata/receivers_disabled.yaml
+new file mode 100644
+index 000000000..249d7d757
+--- /dev/null
++++ b/cmd/occollector/app/builder/testdata/receivers_disabled.yaml
+@@ -0,0 +1,5 @@
++# No receivers enabled, all commented out
++receivers:
++  # jaeger: {} 
++  # opencensus: {}
++  # zipkin: {}

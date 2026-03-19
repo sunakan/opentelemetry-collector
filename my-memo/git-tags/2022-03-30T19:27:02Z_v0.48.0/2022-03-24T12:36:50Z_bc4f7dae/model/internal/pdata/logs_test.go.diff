@@ -1,0 +1,21 @@
+diff --git a/model/internal/pdata/logs_test.go b/model/internal/pdata/logs_test.go
+index c5c42c2f1..df614f7ff 100644
+--- a/model/internal/pdata/logs_test.go
++++ b/model/internal/pdata/logs_test.go
+@@ -57,14 +57,14 @@ func TestLogRecordCountWithEmpty(t *testing.T) {
+ 	assert.Zero(t, Logs{orig: &otlplogs.LogsData{
+ 		ResourceLogs: []*otlplogs.ResourceLogs{
+ 			{
+-				InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{{}},
++				ScopeLogs: []*otlplogs.ScopeLogs{{}},
+ 			},
+ 		},
+ 	}}.LogRecordCount())
+ 	assert.Equal(t, 1, Logs{orig: &otlplogs.LogsData{
+ 		ResourceLogs: []*otlplogs.ResourceLogs{
+ 			{
+-				InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{
++				ScopeLogs: []*otlplogs.ScopeLogs{
+ 					{
+ 						LogRecords: []*otlplogs.LogRecord{{}},
+ 					},

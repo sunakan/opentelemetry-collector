@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/lint-workflow-files.yml b/.github/workflows/lint-workflow-files.yml
+index e65654233..07ac6eb1d 100644
+--- a/.github/workflows/lint-workflow-files.yml
++++ b/.github/workflows/lint-workflow-files.yml
+@@ -6,6 +6,9 @@ on:
+       - '.github/workflows/*.yml'
+       - '.github/workflows/*.yaml'
+ 
++permissions:
++  contents: read
++
+ jobs:
+   lint:
+     runs-on: ubuntu-latest

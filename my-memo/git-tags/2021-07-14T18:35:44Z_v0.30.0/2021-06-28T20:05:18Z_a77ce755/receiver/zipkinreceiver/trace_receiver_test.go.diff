@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index b9cb47273..3ee0dc6b5 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -424,7 +424,7 @@ func TestReceiverInvalidContentType(t *testing.T) {
+ 	zr.ServeHTTP(req, r)
+ 
+ 	require.Equal(t, 400, req.Code)
+-	require.Equal(t, "unmarshal failed: invalid character 'i' looking for beginning of object key string\n", req.Body.String())
++	require.Equal(t, "invalid character 'i' looking for beginning of object key string\n", req.Body.String())
+ }
+ 
+ func TestReceiverConsumerError(t *testing.T) {

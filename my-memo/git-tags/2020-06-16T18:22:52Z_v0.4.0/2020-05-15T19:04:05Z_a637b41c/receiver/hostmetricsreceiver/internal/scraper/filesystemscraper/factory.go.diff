@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
+index 217b06ab7..888277313 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ )
+ 
+ // This file implements Factory for FileSystem scraper.

@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index 95685eae5..3144cc459 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -33,7 +33,7 @@ func createDefaultConfig() component.Config {
+ 		TimeoutSettings: exporterhelper.NewDefaultTimeoutSettings(),
+ 		RetryConfig:     configretry.NewDefaultBackOffConfig(),
+ 		QueueConfig:     exporterhelper.NewDefaultQueueSettings(),
+-		GRPCClientSettings: configgrpc.GRPCClientSettings{
++		ClientConfig: configgrpc.ClientConfig{
+ 			Headers: map[string]configopaque.String{},
+ 			// Default to gzip compression
+ 			Compression: configcompression.Gzip,

@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 3ad07597b..f598d065d 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -352,7 +352,7 @@ func (mb *multiShardBatcher) consume(ctx context.Context, data any) error {
+ 		}
+ 
+ 		// aset.ToSlice() returns the sorted, deduplicated,
+-		// and name-downcased list of attributes.
++		// and name-lowercased list of attributes.
+ 		var loaded bool
+ 		b, loaded = mb.batchers.LoadOrStore(aset, mb.processor.newShard(md))
+ 		if !loaded {

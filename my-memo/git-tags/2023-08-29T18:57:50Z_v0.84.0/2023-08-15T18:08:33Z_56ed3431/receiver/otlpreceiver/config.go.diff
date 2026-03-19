@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index 8cc3e301f..2234e2532 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -21,7 +21,7 @@ const (
+ 	protoHTTP = "protocols::http"
+ )
+ 
+-type httpServerSettings struct {
++type HTTPConfig struct {
+ 	*confighttp.HTTPServerSettings `mapstructure:",squash"`
+ 
+ 	// The URL path to receive traces on. If omitted "/v1/traces" will be used.
+@@ -37,7 +37,7 @@ type httpServerSettings struct {
+ // Protocols is the configuration for the supported protocols.
+ type Protocols struct {
+ 	GRPC *configgrpc.GRPCServerSettings `mapstructure:"grpc"`
+-	HTTP *httpServerSettings            `mapstructure:"http"`
++	HTTP *HTTPConfig                    `mapstructure:"http"`
+ }
+ 
+ // Config defines configuration for OTLP receiver.

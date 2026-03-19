@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 92559d05d..d9ab9179b 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -52,7 +52,7 @@ func createDefaultConfig() component.Config {
+ 				ReadBufferSize: 512 * 1024,
+ 			},
+ 			HTTP: &HTTPConfig{
+-				HTTPServerConfig: &confighttp.HTTPServerConfig{
++				ServerConfig: &confighttp.ServerConfig{
+ 					Endpoint: localhostgate.EndpointForPort(httpPort),
+ 				},
+ 				TracesURLPath:  defaultTracesURLPath,

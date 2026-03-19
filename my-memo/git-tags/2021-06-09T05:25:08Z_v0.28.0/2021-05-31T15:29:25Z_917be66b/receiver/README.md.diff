@@ -1,0 +1,21 @@
+diff --git a/receiver/README.md b/receiver/README.md
+index 426f4a814..ac16544c2 100644
+--- a/receiver/README.md
++++ b/receiver/README.md
+@@ -23,8 +23,8 @@ Available metric receivers (sorted alphabetically):
+ 
+ Available log receivers (sorted alphabetically):
+ 
+-- [OTLP Receiver](otlpreceiver/README.md)
+ - [Kafka Receiver](kafkareceiver/README.md)
++- [OTLP Receiver](otlpreceiver/README.md)
+ 
+ The [contrib repository](https://github.com/open-telemetry/opentelemetry-collector-contrib)
+  has more receivers that can be added to custom builds of the collector.
+@@ -80,4 +80,4 @@ service:
+       exporters: [exampleexporter]
+ ```
+ 
+-> At least one receiver must be enabled per pipeline to be a valid configuration.
+\ No newline at end of file
++> At least one receiver must be enabled per pipeline to be a valid configuration.

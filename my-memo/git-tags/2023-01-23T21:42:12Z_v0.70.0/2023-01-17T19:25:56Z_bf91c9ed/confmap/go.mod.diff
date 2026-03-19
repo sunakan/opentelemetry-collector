@@ -1,0 +1,10 @@
+diff --git a/confmap/go.mod b/confmap/go.mod
+index b28bd3cb3..2d809fb43 100644
+--- a/confmap/go.mod
++++ b/confmap/go.mod
+@@ -20,3 +20,5 @@ require (
+ )
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
++
++retract v0.69.0 // Release failed, use v0.69.1

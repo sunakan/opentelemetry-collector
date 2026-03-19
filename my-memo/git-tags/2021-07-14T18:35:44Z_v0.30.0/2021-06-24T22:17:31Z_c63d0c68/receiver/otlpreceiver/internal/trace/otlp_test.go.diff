@@ -1,0 +1,15 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index 0e2d56fc7..0c455d43c 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -26,9 +26,9 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/pdatagrpc"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestExport(t *testing.T) {

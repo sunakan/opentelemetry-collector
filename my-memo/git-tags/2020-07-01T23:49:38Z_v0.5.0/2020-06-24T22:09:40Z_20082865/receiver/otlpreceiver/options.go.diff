@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/options.go b/receiver/otlpreceiver/options.go
+index f58ba0e93..66e608e89 100644
+--- a/receiver/otlpreceiver/options.go
++++ b/receiver/otlpreceiver/options.go
+@@ -54,12 +54,3 @@ func WithGRPCServerOptions(gsOpts ...grpc.ServerOption) Option {
+ 	gsvOpts := grpcServerOptions(gsOpts)
+ 	return gsvOpts
+ }
+-
+-type noopOption int
+-
+-var _ Option = (noopOption)(0)
+-
+-func (noopOpt noopOption) withReceiver(r *Receiver) {}
+-
+-// WithNoopOption returns an option that doesn't mutate the receiver.
+-func WithNoopOption() Option { return noopOption(0) }

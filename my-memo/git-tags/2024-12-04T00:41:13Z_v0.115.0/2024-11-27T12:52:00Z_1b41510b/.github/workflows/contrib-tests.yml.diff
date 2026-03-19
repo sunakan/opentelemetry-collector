@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 9671901c7..90e8067df 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -7,6 +7,8 @@ on:
+   pull_request:
+     types: [opened, ready_for_review, synchronize, reopened, labeled, unlabeled]
+     branches: [main]
++  merge_group:
++    types: [checks_requested]
+ 
+ concurrency:
+   group: ${{ github.workflow }}-${{ github.head_ref }}

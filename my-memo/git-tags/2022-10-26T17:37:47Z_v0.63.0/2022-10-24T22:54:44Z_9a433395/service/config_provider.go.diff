@@ -1,0 +1,13 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 88b194fb6..1b2115caa 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -106,7 +106,7 @@ func (cm *configProvider) Get(ctx context.Context, factories component.Factories
+ 	}
+ 
+ 	var cfg *Config
+-	if cfg, err = configunmarshaler.New().Unmarshal(retMap, factories); err != nil {
++	if cfg, err = configunmarshaler.Unmarshal(retMap, factories); err != nil {
+ 		return nil, fmt.Errorf("cannot unmarshal the configuration: %w", err)
+ 	}
+ 

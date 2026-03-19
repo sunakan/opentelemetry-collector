@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue.go b/exporter/exporterhelper/internal/persistent_queue.go
+index f5927ca29..0284373d9 100644
+--- a/exporter/exporterhelper/internal/persistent_queue.go
++++ b/exporter/exporterhelper/internal/persistent_queue.go
+@@ -15,7 +15,7 @@
+ //go:build enable_unstable
+ // +build enable_unstable
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 
+ import (
+ 	"context"

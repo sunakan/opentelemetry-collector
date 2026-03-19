@@ -1,0 +1,20 @@
+diff --git a/confmap/confmaptest/package_test.go b/confmap/confmaptest/package_test.go
+new file mode 100644
+index 000000000..77bb79e76
+--- /dev/null
++++ b/confmap/confmaptest/package_test.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package confmaptest
++
++import (
++	"testing"
++
++	"go.uber.org/goleak"
++)
++
++func TestMain(m *testing.M) {
++	goleak.VerifyTestMain(m)
++}

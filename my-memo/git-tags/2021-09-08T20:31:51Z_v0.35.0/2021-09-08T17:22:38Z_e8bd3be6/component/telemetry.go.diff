@@ -1,0 +1,13 @@
+diff --git a/component/telemetry.go b/component/telemetry.go
+index 9b0b785fb..c44b5d49f 100644
+--- a/component/telemetry.go
++++ b/component/telemetry.go
+@@ -19,7 +19,7 @@ import (
+ 	"go.uber.org/zap"
+ )
+ 
+-type TelemetryCreateSettings struct {
++type TelemetrySettings struct {
+ 	// Logger that the factory can use during creation and can pass to the created
+ 	// component to be used later as well.
+ 	Logger *zap.Logger

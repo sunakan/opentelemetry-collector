@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver_test.go b/receiver/kafkareceiver/kafka_receiver_test.go
+index ab10031ee..f70f9c846 100644
+--- a/receiver/kafkareceiver/kafka_receiver_test.go
++++ b/receiver/kafkareceiver/kafka_receiver_test.go
+@@ -144,7 +144,7 @@ func TestConsumerGroupHandler(t *testing.T) {
+ 	err := c.Setup(testSession)
+ 	require.NoError(t, err)
+ 	_, ok := <-c.ready
+-	assert.Equal(t, false, ok)
++	assert.False(t, ok)
+ 	viewData, err := view.RetrieveData(statPartitionStart.Name())
+ 	require.NoError(t, err)
+ 	assert.Equal(t, 1, len(viewData))

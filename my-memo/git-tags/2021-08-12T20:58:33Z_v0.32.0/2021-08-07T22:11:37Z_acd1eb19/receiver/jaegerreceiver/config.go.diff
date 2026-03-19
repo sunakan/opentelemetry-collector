@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index 7ed8432ee..8579c3faa 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -81,7 +81,7 @@ type Config struct {
+ }
+ 
+ var _ config.Receiver = (*Config)(nil)
+-var _ config.CustomUnmarshable = (*Config)(nil)
++var _ config.Unmarshallable = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

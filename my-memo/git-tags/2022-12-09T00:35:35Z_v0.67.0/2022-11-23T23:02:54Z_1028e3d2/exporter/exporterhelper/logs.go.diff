@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 29a558520..92d2f1b71 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -81,7 +81,7 @@ type logsExporter struct {
+ func NewLogsExporter(
+ 	_ context.Context,
+ 	set component.ExporterCreateSettings,
+-	cfg component.ExporterConfig,
++	cfg component.Config,
+ 	pusher consumer.ConsumeLogsFunc,
+ 	options ...Option,
+ ) (component.LogsExporter, error) {

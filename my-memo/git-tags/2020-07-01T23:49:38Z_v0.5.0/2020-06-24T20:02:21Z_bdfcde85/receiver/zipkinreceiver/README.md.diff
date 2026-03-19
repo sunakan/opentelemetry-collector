@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/README.md b/receiver/zipkinreceiver/README.md
+index 8dba03412..6d7ba2a35 100644
+--- a/receiver/zipkinreceiver/README.md
++++ b/receiver/zipkinreceiver/README.md
+@@ -4,7 +4,7 @@ This receiver receives spans from [Zipkin](https://zipkin.io/) (V1 and V2).
+ 
+ To get started, all that is required to enable the Zipkin receiver is to
+ include it in the receiver definitions. This will enable the default values as
+-specified [here](zipkinreceiver/factory.go).
++specified [here](./factory.go).
+ The following is an example:
+ 
+ ```yaml

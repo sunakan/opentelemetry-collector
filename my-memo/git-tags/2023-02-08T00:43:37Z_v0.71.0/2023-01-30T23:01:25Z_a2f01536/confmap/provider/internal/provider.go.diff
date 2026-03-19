@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/internal/provider.go b/confmap/provider/internal/provider.go
+index b8ff514be..e2e1ced0c 100644
+--- a/confmap/provider/internal/provider.go
++++ b/confmap/provider/internal/provider.go
+@@ -24,7 +24,7 @@ import (
+ // * yamlBytes the yaml bytes that will be deserialized.
+ // * opts specifies options associated with this Retrieved value, such as CloseFunc.
+ func NewRetrievedFromYAML(yamlBytes []byte, opts ...confmap.RetrievedOption) (*confmap.Retrieved, error) {
+-	var rawConf interface{}
++	var rawConf any
+ 	if err := yaml.Unmarshal(yamlBytes, &rawConf); err != nil {
+ 		return nil, err
+ 	}

@@ -1,0 +1,14 @@
+diff --git a/exporter/nopexporter/metadata.yaml b/exporter/nopexporter/metadata.yaml
+index 352312a44..3a6d9e6f3 100644
+--- a/exporter/nopexporter/metadata.yaml
++++ b/exporter/nopexporter/metadata.yaml
+@@ -2,6 +2,9 @@ type: nop
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  codeowners:
++    active:
++      - evan-bradley
+   class: exporter
+   stability:
+     beta: [traces, metrics, logs]

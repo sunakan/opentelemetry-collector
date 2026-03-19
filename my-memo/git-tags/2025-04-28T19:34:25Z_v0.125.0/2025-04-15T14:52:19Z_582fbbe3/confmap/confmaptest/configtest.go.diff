@@ -1,0 +1,13 @@
+diff --git a/confmap/confmaptest/configtest.go b/confmap/confmaptest/configtest.go
+index 4c7ec5708..8d94fab3b 100644
+--- a/confmap/confmaptest/configtest.go
++++ b/confmap/confmaptest/configtest.go
+@@ -9,7 +9,7 @@ import (
+ 	"path/filepath"
+ 	"regexp"
+ 
+-	"gopkg.in/yaml.v3"
++	yaml "sigs.k8s.io/yaml/goyaml.v3"
+ 
+ 	"go.opentelemetry.io/collector/confmap"
+ )

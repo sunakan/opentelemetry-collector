@@ -1,0 +1,13 @@
+diff --git a/docs/rfcs/processing.md b/docs/rfcs/processing.md
+index 3678922d8..7901acd2b 100644
+--- a/docs/rfcs/processing.md
++++ b/docs/rfcs/processing.md
+@@ -248,7 +248,7 @@ receivers:
+   otlp:
+ 
+ exporters:
+-  otlp:
++  otlp_grpc:
+ 
+ processors:
+   transform:

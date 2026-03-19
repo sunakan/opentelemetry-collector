@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 61c55cefc..6e7b734ba 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -449,7 +449,7 @@ func copySpanTags(tags map[string]string) map[string]string {
+ }
+ 
+ func extractLocalServiceName(zspan *zipkinmodel.SpanModel) string {
+-	if zspan == nil || zspan.LocalEndpoint == nil {
++	if zspan == nil || zspan.LocalEndpoint == nil || zspan.LocalEndpoint.ServiceName == "" {
+ 		return tracetranslator.ResourceNotSet
+ 	}
+ 	return zspan.LocalEndpoint.ServiceName

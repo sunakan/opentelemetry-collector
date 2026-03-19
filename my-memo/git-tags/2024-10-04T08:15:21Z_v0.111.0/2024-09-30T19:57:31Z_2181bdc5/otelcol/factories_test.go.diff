@@ -1,0 +1,13 @@
+diff --git a/otelcol/factories_test.go b/otelcol/factories_test.go
+index fb0b67d14..154292390 100644
+--- a/otelcol/factories_test.go
++++ b/otelcol/factories_test.go
+@@ -38,7 +38,7 @@ func nopFactories() (Factories, error) {
+ 		factories.ExtensionModules[ext.Type()] = "go.opentelemetry.io/collector/extension/extensiontest v1.2.3"
+ 	}
+ 
+-	if factories.Receivers, err = receiver.MakeFactoryMap(receivertest.NewNopFactory(), receivertest.NewNopFactoryForTypeWithSignal(pipeline.SignalLogs)); err != nil {
++	if factories.Receivers, err = receiver.MakeFactoryMap(receivertest.NewNopFactory(), receivertest.NewNopFactoryForType(pipeline.SignalLogs)); err != nil {
+ 		return Factories{}, err
+ 	}
+ 	factories.ReceiverModules = make(map[component.Type]string, len(factories.Receivers))

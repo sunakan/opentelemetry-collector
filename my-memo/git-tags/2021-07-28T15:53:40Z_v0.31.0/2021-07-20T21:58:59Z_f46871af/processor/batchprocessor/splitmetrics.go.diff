@@ -1,0 +1,30 @@
+diff --git a/processor/batchprocessor/splitmetrics.go b/processor/batchprocessor/splitmetrics.go
+index 2a6920845..f1de8a929 100644
+--- a/processor/batchprocessor/splitmetrics.go
++++ b/processor/batchprocessor/splitmetrics.go
+@@ -90,8 +90,6 @@ func metricDataPointCount(ms pdata.Metric) (dataPointCount int) {
+ 		dataPointCount = ms.IntSum().DataPoints().Len()
+ 	case pdata.MetricDataTypeSum:
+ 		dataPointCount = ms.Sum().DataPoints().Len()
+-	case pdata.MetricDataTypeIntHistogram:
+-		dataPointCount = ms.IntHistogram().DataPoints().Len()
+ 	case pdata.MetricDataTypeHistogram:
+ 		dataPointCount = ms.Histogram().DataPoints().Len()
+ 	case pdata.MetricDataTypeSummary:
+@@ -157,16 +155,6 @@ func splitMetric(ms, dest pdata.Metric, size int) (int, bool) {
+ 		src.RemoveIf(func(_ pdata.NumberDataPoint) bool {
+ 			return filterDataPoints()
+ 		})
+-	case pdata.MetricDataTypeIntHistogram:
+-		src := ms.IntHistogram().DataPoints()
+-		dst := dest.IntHistogram().DataPoints()
+-		dst.EnsureCapacity(size)
+-		for j := 0; j < size; j++ {
+-			src.At(j).CopyTo(dst.AppendEmpty())
+-		}
+-		src.RemoveIf(func(_ pdata.IntHistogramDataPoint) bool {
+-			return filterDataPoints()
+-		})
+ 	case pdata.MetricDataTypeHistogram:
+ 		src := ms.Histogram().DataPoints()
+ 		dst := dest.Histogram().DataPoints()

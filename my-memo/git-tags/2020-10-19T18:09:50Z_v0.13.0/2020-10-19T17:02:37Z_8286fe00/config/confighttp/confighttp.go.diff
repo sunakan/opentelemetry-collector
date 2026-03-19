@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 18d4f4dec..126ba92d4 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -27,7 +27,7 @@ import (
+ )
+ 
+ type HTTPClientSettings struct {
+-	// The target URL to send data to (e.g.: http://some.url:9411/v1/trace).
++	// The target URL to send data to (e.g.: http://some.url:9411/v1/traces).
+ 	Endpoint string `mapstructure:"endpoint"`
+ 
+ 	// TLSSetting struct exposes TLS client configuration.

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 241f71e7a..19f8d961a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -60,6 +60,7 @@
+       
+ ### 💡 Enhancements 💡
+ 
++- Add semconv definitions for v1.9.0 (#5090)
+ - Change outcome of `pdata.Metric.<Gauge|Sum|Histogram|ExponentialHistogram>()` functions misuse.
+   In case of type mismatch, they don't panic right away but return an invalid zero-initialized
+   instance for consistency with other OneOf field accessors (#5034)

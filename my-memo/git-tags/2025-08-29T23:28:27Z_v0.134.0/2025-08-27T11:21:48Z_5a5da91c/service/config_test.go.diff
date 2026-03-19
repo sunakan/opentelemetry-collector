@@ -1,0 +1,13 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 334f79fb4..e9fffd02b 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -79,7 +79,7 @@ func TestConfigValidate(t *testing.T) {
+ }
+ 
+ func TestConfmapMarshalConfig(t *testing.T) {
+-	telFactory := otelconftelemetry.NewFactory(nil, nil)
++	telFactory := otelconftelemetry.NewFactory()
+ 	defaultTelConfig := *telFactory.CreateDefaultConfig().(*otelconftelemetry.Config)
+ 	conf := confmap.New()
+ 

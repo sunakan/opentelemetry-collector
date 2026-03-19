@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsreport_test.go b/exporter/exporterhelper/obsreport_test.go
+index e0101f112..daafd422e 100644
+--- a/exporter/exporterhelper/obsreport_test.go
++++ b/exporter/exporterhelper/obsreport_test.go
+@@ -22,7 +22,7 @@ func TestExportEnqueueFailure(t *testing.T) {
+ 
+ 	obsrep, err := NewObsReport(ObsReportSettings{
+ 		ExporterID:             exporterID,
+-		ExporterCreateSettings: exporter.CreateSettings{ID: exporterID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},
++		ExporterCreateSettings: exporter.Settings{ID: exporterID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},
+ 	})
+ 	require.NoError(t, err)
+ 

@@ -1,0 +1,23 @@
+diff --git a/pdata/plog/generated_scopelogs.go b/pdata/plog/generated_scopelogs.go
+index f28c5ea58..151597508 100644
+--- a/pdata/plog/generated_scopelogs.go
++++ b/pdata/plog/generated_scopelogs.go
+@@ -75,7 +75,7 @@ func (ms ScopeLogs) LogRecords() LogRecordSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ScopeLogs) CopyTo(dest ScopeLogs) {
+ 	dest.state.AssertMutable()
+-	copyOrigScopeLogs(dest.orig, ms.orig)
++	internal.CopyOrigScopeLogs(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -110,9 +110,3 @@ func (ms ScopeLogs) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigScopeLogs(dest, src *otlplogs.ScopeLogs) {
+-	internal.CopyOrigInstrumentationScope(&dest.Scope, &src.Scope)
+-	dest.SchemaUrl = src.SchemaUrl
+-	dest.LogRecords = copyOrigLogRecordSlice(dest.LogRecords, src.LogRecords)
+-}

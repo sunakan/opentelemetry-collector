@@ -1,0 +1,14 @@
+diff --git a/exporter/internal/queue/batcher.go b/exporter/internal/queue/batcher.go
+index 08d51aa83..2250b27d1 100644
+--- a/exporter/internal/queue/batcher.go
++++ b/exporter/internal/queue/batcher.go
+@@ -35,7 +35,8 @@ type BaseBatcher struct {
+ func NewBatcher(batchCfg exporterbatcher.Config,
+ 	queue Queue[internal.Request],
+ 	exportFunc func(ctx context.Context, req internal.Request) error,
+-	maxWorkers int) (Batcher, error) {
++	maxWorkers int,
++) (Batcher, error) {
+ 	if !batchCfg.Enabled {
+ 		return &DisabledBatcher{
+ 			BaseBatcher{

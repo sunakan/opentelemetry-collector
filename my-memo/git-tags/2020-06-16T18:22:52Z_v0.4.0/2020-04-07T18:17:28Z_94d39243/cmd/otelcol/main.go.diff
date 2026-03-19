@@ -1,0 +1,24 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 7fb4f85a3..89d3dc946 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -19,9 +19,9 @@ package main
+ import (
+ 	"log"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/defaults"
+ 	"github.com/open-telemetry/opentelemetry-collector/internal/version"
+ 	"github.com/open-telemetry/opentelemetry-collector/service"
++	"github.com/open-telemetry/opentelemetry-collector/service/defaultcomponents"
+ )
+ 
+ func main() {
+@@ -31,7 +31,7 @@ func main() {
+ 		}
+ 	}
+ 
+-	factories, err := defaults.Components()
++	factories, err := defaultcomponents.Components()
+ 	handleErr("Failed to build default components", err)
+ 
+ 	info := service.ApplicationStartInfo{

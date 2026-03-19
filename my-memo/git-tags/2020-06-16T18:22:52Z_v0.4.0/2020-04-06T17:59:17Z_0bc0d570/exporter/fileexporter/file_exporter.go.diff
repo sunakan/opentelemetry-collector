@@ -1,0 +1,18 @@
+diff --git a/exporter/fileexporter/file_exporter.go b/exporter/fileexporter/file_exporter.go
+index 2eb95d33e..1f03e09a5 100644
+--- a/exporter/fileexporter/file_exporter.go
++++ b/exporter/fileexporter/file_exporter.go
+@@ -197,11 +197,11 @@ func (e *Exporter) ConsumeMetricsData(ctx context.Context, md consumerdata.Metri
+ 	return nil
+ }
+ 
+-func (e *Exporter) Start(host component.Host) error {
++func (e *Exporter) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }
+ 
+ // Shutdown stops the exporter and is invoked during shutdown.
+-func (e *Exporter) Shutdown() error {
++func (e *Exporter) Shutdown(context.Context) error {
+ 	return e.file.Close()
+ }

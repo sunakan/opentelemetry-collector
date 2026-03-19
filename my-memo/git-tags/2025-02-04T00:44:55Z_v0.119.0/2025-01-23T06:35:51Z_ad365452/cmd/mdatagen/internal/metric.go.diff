@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metric.go b/cmd/mdatagen/internal/metric.go
+index 1d61e845d..7e9707791 100644
+--- a/cmd/mdatagen/internal/metric.go
++++ b/cmd/mdatagen/internal/metric.go
+@@ -350,7 +350,7 @@ func (d *Histogram) HasMonotonic() bool {
+ }
+ 
+ func (d *Histogram) HasAggregated() bool {
+-	return false
++	return true
+ }
+ 
+ func (d *Histogram) Instrument() string {

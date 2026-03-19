@@ -1,0 +1,13 @@
+diff --git a/config/receiver.go b/config/receiver.go
+index 1ca35e610..c4bdf0333 100644
+--- a/config/receiver.go
++++ b/config/receiver.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package config
++package config // import "go.opentelemetry.io/collector/config"
+ 
+ // Receiver is the configuration of a component.Receiver. Specific extensions must implement
+ // this interface and must embed ReceiverSettings struct or a struct that extends it.

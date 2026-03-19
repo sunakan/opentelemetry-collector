@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/milestone-add-to-pr.yml b/.github/workflows/milestone-add-to-pr.yml
+index bebe064b5..6ca8dae4b 100644
+--- a/.github/workflows/milestone-add-to-pr.yml
++++ b/.github/workflows/milestone-add-to-pr.yml
+@@ -12,7 +12,7 @@ jobs:
+     if: github.event.pull_request.merged
+     runs-on: ubuntu-latest
+     steps:
+-      - uses: actions/github-script@v6
++      - uses: actions/github-script@v7
+         with:
+           script: |
+             const milestones = await github.rest.issues.listMilestones({

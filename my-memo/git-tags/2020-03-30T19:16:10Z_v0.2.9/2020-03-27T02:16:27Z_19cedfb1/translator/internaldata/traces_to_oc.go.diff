@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index fa62446ca..f588c9037 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -27,7 +27,7 @@ import (
+ 	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+-const sourceFormat = "otel_internal_trace"
++const sourceFormat = "otlp_trace"
+ 
+ var (
+ 	defaultProcessID = 0

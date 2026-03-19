@@ -1,0 +1,13 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 5a27a5cc1..208fe51e9 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,8 @@
+ 
+ ## Unreleased
+ 
++- Remove reference to `defaultcomponents` in core and deprecate `include_core` flag (#4087)
++
+ ## 🛑 Breaking changes 🛑
+ 
+ - Remove `config.NewConfigMapFrom[File|Buffer]`, add testonly version (#4502)

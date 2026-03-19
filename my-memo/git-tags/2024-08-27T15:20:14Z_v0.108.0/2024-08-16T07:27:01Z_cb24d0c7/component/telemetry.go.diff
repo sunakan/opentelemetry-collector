@@ -1,0 +1,15 @@
+diff --git a/component/telemetry.go b/component/telemetry.go
+index febb6d6cb..a3d153c70 100644
+--- a/component/telemetry.go
++++ b/component/telemetry.go
+@@ -30,10 +30,4 @@ type TelemetrySettings struct {
+ 
+ 	// Resource contains the resource attributes for the collector's telemetry.
+ 	Resource pcommon.Resource
+-
+-	// ReportStatus allows a component to report runtime changes in status. The service
+-	// will automatically report status for a component during startup and shutdown. Components can
+-	// use this method to report status after start and before shutdown. For more details about
+-	// component status reporting see: https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/component-status.md
+-	ReportStatus func(*StatusEvent)
+ }

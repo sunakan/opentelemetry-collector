@@ -1,0 +1,15 @@
+diff --git a/receiver/prometheusreceiver/config.go b/receiver/prometheusreceiver/config.go
+index d63745eea..d64b545ea 100644
+--- a/receiver/prometheusreceiver/config.go
++++ b/receiver/prometheusreceiver/config.go
+@@ -36,3 +36,10 @@ type Config struct {
+ 	// structure, ie.: it will error if an unknown key is present.
+ 	ConfigPlaceholder interface{} `mapstructure:"config"`
+ }
++
++var _ config2.CustomConfigOptions = (*Config)(nil)
++
++// Validate checks the receiver configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

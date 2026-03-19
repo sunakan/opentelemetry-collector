@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/documentation.md.tmpl b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+index e62d09646..d841060b5 100644
+--- a/cmd/mdatagen/internal/templates/documentation.md.tmpl
++++ b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+@@ -40,7 +40,7 @@
+ 
+ ### otelcol_{{ $metricName }}
+ 
+-{{ $metric.Description }}
++{{ $metric.Description }}{{ $metric.Stability }}
+ 
+ {{- if $metric.ExtendedDocumentation }}
+ 

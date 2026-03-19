@@ -1,0 +1,13 @@
+diff --git a/service/metadata.yaml b/service/metadata.yaml
+index d5417740d..886f71549 100644
+--- a/service/metadata.yaml
++++ b/service/metadata.yaml
+@@ -10,8 +10,6 @@ tests:
+   goleak:
+     ignore:
+       top:
+-        # See https://github.com/census-instrumentation/opencensus-go/issues/1191 for more information.
+-        - "go.opencensus.io/stats/view.(*worker).start"
+         - "go.opentelemetry.io/collector/service/internal/proctelemetry.InitPrometheusServer.func1"
+ 
+ telemetry:

@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_span_link.go b/pdata/internal/generated_wrapper_span_link.go
+index 32201980a..0adb3bf26 100644
+--- a/pdata/internal/generated_wrapper_span_link.go
++++ b/pdata/internal/generated_wrapper_span_link.go
+@@ -18,11 +18,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolSpan_Link = sync.Pool{
+-	New: func() any {
+-		return &otlptrace.Span_Link{}
+-	},
+-}
++var (
++	protoPoolSpan_Link = sync.Pool{
++		New: func() any {
++			return &otlptrace.Span_Link{}
++		},
++	}
++)
+ 
+ func NewOrigSpan_Link() *otlptrace.Span_Link {
+ 	if !UseProtoPooling.IsEnabled() {

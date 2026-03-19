@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/config_test.go b/receiver/prometheusreceiver/config_test.go
+index 68b8c82f5..ccbf1ddae 100644
+--- a/receiver/prometheusreceiver/config_test.go
++++ b/receiver/prometheusreceiver/config_test.go
+@@ -54,6 +54,7 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Equal(t, r1.PrometheusConfig.ScrapeConfigs[0].JobName, "demo")
+ 	assert.Equal(t, time.Duration(r1.PrometheusConfig.ScrapeConfigs[0].ScrapeInterval), 5*time.Second)
+ 	assert.Equal(t, r1.UseStartTimeMetric, true)
++	assert.Equal(t, r1.StartTimeMetricRegex, "^(.+_)*process_start_time_seconds$")
+ }
+ 
+ func TestLoadConfigWithEnvVar(t *testing.T) {

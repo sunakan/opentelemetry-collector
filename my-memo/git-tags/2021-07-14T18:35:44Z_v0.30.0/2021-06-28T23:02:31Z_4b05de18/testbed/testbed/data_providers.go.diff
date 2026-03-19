@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/data_providers.go b/testbed/testbed/data_providers.go
+index 3696435d3..7163be396 100644
+--- a/testbed/testbed/data_providers.go
++++ b/testbed/testbed/data_providers.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ 	"go.opentelemetry.io/collector/internal/idutils"
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

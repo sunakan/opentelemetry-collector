@@ -1,0 +1,21 @@
+diff --git a/otelcol/configprovider.go b/otelcol/configprovider.go
+index 16a10013d..fdef66ffe 100644
+--- a/otelcol/configprovider.go
++++ b/otelcol/configprovider.go
+@@ -23,6 +23,7 @@ import (
+ 	"go.opentelemetry.io/collector/confmap/provider/envprovider"
+ 	"go.opentelemetry.io/collector/confmap/provider/fileprovider"
+ 	"go.opentelemetry.io/collector/confmap/provider/httpprovider"
++	"go.opentelemetry.io/collector/confmap/provider/httpsprovider"
+ 	"go.opentelemetry.io/collector/confmap/provider/yamlprovider"
+ )
+ 
+@@ -120,7 +121,7 @@ func newDefaultConfigProviderSettings(uris []string) ConfigProviderSettings {
+ 	return ConfigProviderSettings{
+ 		ResolverSettings: confmap.ResolverSettings{
+ 			URIs:       uris,
+-			Providers:  makeMapProvidersMap(fileprovider.New(), envprovider.New(), yamlprovider.New(), httpprovider.New()),
++			Providers:  makeMapProvidersMap(fileprovider.New(), envprovider.New(), yamlprovider.New(), httpprovider.New(), httpsprovider.New()),
+ 			Converters: []confmap.Converter{expandconverter.New()},
+ 		},
+ 	}

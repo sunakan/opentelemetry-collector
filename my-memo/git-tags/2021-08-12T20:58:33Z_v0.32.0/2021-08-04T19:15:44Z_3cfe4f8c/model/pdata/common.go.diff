@@ -1,0 +1,160 @@
+diff --git a/model/pdata/common.go b/model/pdata/common.go
+index cf8e042c5..c34ecd41d 100644
+--- a/model/pdata/common.go
++++ b/model/pdata/common.go
+@@ -18,6 +18,7 @@ package pdata
+ // such as timestamps, attributes, etc.
+ 
+ import (
++	"bytes"
+ 	"sort"
+ 
+ 	otlpcommon "go.opentelemetry.io/collector/model/internal/data/protogen/common/v1"
+@@ -34,6 +35,7 @@ const (
+ 	AttributeValueTypeBool
+ 	AttributeValueTypeMap
+ 	AttributeValueTypeArray
++	AttributeValueTypeBytes
+ )
+ 
+ // String returns the string representation of the AttributeValueType.
+@@ -53,6 +55,8 @@ func (avt AttributeValueType) String() string {
+ 		return "MAP"
+ 	case AttributeValueTypeArray:
+ 		return "ARRAY"
++	case AttributeValueTypeBytes:
++		return "BYTES"
+ 	}
+ 	return ""
+ }
+@@ -116,6 +120,13 @@ func NewAttributeValueArray() AttributeValue {
+ 	return AttributeValue{orig: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_ArrayValue{ArrayValue: &otlpcommon.ArrayValue{}}}}
+ }
+ 
++// NewAttributeValueBytes creates a new AttributeValue with the given []byte value.
++// The caller must ensure the []byte passed in is not modified after the call is made, sharing the data
++// across multiple attributes is forbidden.
++func NewAttributeValueBytes(v []byte) AttributeValue {
++	return AttributeValue{orig: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_BytesValue{BytesValue: v}}}
++}
++
+ // Type returns the type of the value for this AttributeValue.
+ // Calling this function on zero-initialized AttributeValue will cause a panic.
+ func (a AttributeValue) Type() AttributeValueType {
+@@ -135,6 +146,8 @@ func (a AttributeValue) Type() AttributeValueType {
+ 		return AttributeValueTypeMap
+ 	case *otlpcommon.AnyValue_ArrayValue:
+ 		return AttributeValueTypeArray
++	case *otlpcommon.AnyValue_BytesValue:
++		return AttributeValueTypeBytes
+ 	}
+ 	return AttributeValueTypeNull
+ }
+@@ -193,6 +206,14 @@ func (a AttributeValue) ArrayVal() AnyValueArray {
+ 	return newAnyValueArray(&arr.Values)
+ }
+ 
++// BytesVal returns the []byte value associated with this AttributeValue.
++// If the Type() is not AttributeValueTypeBytes then returns false.
++// Calling this function on zero-initialized AttributeValue will cause a panic.
++// Modifying the returned []byte in-place is forbidden.
++func (a AttributeValue) BytesVal() []byte {
++	return a.orig.GetBytesValue()
++}
++
+ // SetStringVal replaces the string value associated with this AttributeValue,
+ // it also changes the type to be AttributeValueTypeString.
+ // Calling this function on zero-initialized AttributeValue will cause a panic.
+@@ -221,6 +242,15 @@ func (a AttributeValue) SetBoolVal(v bool) {
+ 	a.orig.Value = &otlpcommon.AnyValue_BoolValue{BoolValue: v}
+ }
+ 
++// SetBytesVal replaces the []byte value associated with this AttributeValue,
++// it also changes the type to be AttributeValueTypeBytes.
++// Calling this function on zero-initialized AttributeValue will cause a panic.
++// The caller must ensure the []byte passed in is not modified after the call is made, sharing the data
++// across multiple attributes is forbidden.
++func (a AttributeValue) SetBytesVal(v []byte) {
++	a.orig.Value = &otlpcommon.AnyValue_BytesValue{BytesValue: v}
++}
++
+ // copyTo copies the value to AnyValue. Will panic if dest is nil.
+ func (a AttributeValue) copyTo(dest *otlpcommon.AnyValue) {
+ 	switch v := a.orig.Value.(type) {
+@@ -323,6 +353,8 @@ func (a AttributeValue) Equal(av AttributeValue) bool {
+ 			}
+ 		}
+ 		return true
++	case *otlpcommon.AnyValue_BytesValue:
++		return bytes.Equal(v.BytesValue, av.orig.GetBytesValue())
+ 	}
+ 
+ 	return false
+@@ -367,6 +399,13 @@ func newAttributeKeyValue(k string, av AttributeValue) otlpcommon.KeyValue {
+ 	return orig
+ }
+ 
++func newAttributeKeyValueBytes(k string, v []byte) otlpcommon.KeyValue {
++	orig := otlpcommon.KeyValue{Key: k}
++	akv := AttributeValue{&orig.Value}
++	akv.SetBytesVal(v)
++	return orig
++}
++
+ // AttributeMap stores a map of attribute keys to values.
+ type AttributeMap struct {
+ 	orig *[]otlpcommon.KeyValue
+@@ -503,6 +542,16 @@ func (am AttributeMap) InsertBool(k string, v bool) {
+ 	}
+ }
+ 
++// InsertBytes adds the []byte Value to the map when the key does not exist.
++// No action is applied to the map where the key already exists.
++// The caller must ensure the []byte passed in is not modified after the call is made, sharing the data
++// across multiple attributes is forbidden.
++func (am AttributeMap) InsertBytes(k string, v []byte) {
++	if _, existing := am.Get(k); !existing {
++		*am.orig = append(*am.orig, newAttributeKeyValueBytes(k, v))
++	}
++}
++
+ // Update updates an existing AttributeValue with a value.
+ // No action is applied to the map where the key does not exist.
+ //
+@@ -548,6 +597,16 @@ func (am AttributeMap) UpdateBool(k string, v bool) {
+ 	}
+ }
+ 
++// UpdateBytes updates an existing []byte Value with a value.
++// No action is applied to the map where the key does not exist.
++// The caller must ensure the []byte passed in is not modified after the call is made, sharing the data
++// across multiple attributes is forbidden.
++func (am AttributeMap) UpdateBytes(k string, v []byte) {
++	if av, existing := am.Get(k); existing {
++		av.SetBytesVal(v)
++	}
++}
++
+ // Upsert performs the Insert or Update action. The AttributeValue is
+ // inserted to the map that did not originally have the key. The key/value is
+ // updated to the map where the key already existed.
+@@ -608,6 +667,19 @@ func (am AttributeMap) UpsertBool(k string, v bool) {
+ 	}
+ }
+ 
++// UpsertBytes performs the Insert or Update action. The []byte Value is
++// inserted to the map that did not originally have the key. The key/value is
++// updated to the map where the key already existed.
++// The caller must ensure the []byte passed in is not modified after the call is made, sharing the data
++// across multiple attributes is forbidden.
++func (am AttributeMap) UpsertBytes(k string, v []byte) {
++	if av, existing := am.Get(k); existing {
++		av.SetBytesVal(v)
++	} else {
++		*am.orig = append(*am.orig, newAttributeKeyValueBytes(k, v))
++	}
++}
++
+ // Sort sorts the entries in the AttributeMap so two instances can be compared.
+ // Returns the same instance to allow nicer code like:
+ //   assert.EqualValues(t, expected.Sort(), actual.Sort())

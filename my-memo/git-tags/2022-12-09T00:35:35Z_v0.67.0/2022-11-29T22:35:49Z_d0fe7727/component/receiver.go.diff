@@ -1,0 +1,14 @@
+diff --git a/component/receiver.go b/component/receiver.go
+index 9253b31ef..0da80c245 100644
+--- a/component/receiver.go
++++ b/component/receiver.go
+@@ -55,6 +55,9 @@ type LogsReceiver interface {
+ 
+ // ReceiverCreateSettings configures Receiver creators.
+ type ReceiverCreateSettings struct {
++	// ID returns the ID of the component that will be created.
++	ID ID
++
+ 	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes.

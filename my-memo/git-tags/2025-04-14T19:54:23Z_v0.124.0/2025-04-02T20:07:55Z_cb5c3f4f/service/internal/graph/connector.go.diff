@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/connector.go b/service/internal/graph/connector.go
+index 754dfdffa..9c1cfdb8a 100644
+--- a/service/internal/graph/connector.go
++++ b/service/internal/graph/connector.go
+@@ -51,7 +51,7 @@ func (n *connectorNode) buildComponent(
+ ) error {
+ 	set := connector.Settings{ID: n.componentID, TelemetrySettings: tel, BuildInfo: info}
+ 	if telemetry.NewPipelineTelemetryGate.IsEnabled() {
+-		set.TelemetrySettings = telemetry.WithAttributeSet(set.TelemetrySettings, *n.Attributes.Set())
++		set.TelemetrySettings = telemetry.WithAttributeSet(set.TelemetrySettings, *n.Set())
+ 	}
+ 	switch n.rcvrPipelineType {
+ 	case pipeline.SignalTraces:

@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index c666b2da0..3e74fcab0 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -58,7 +58,6 @@ require (
+ 	go.opentelemetry.io/collector/config/internal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension/auth v0.111.0 // indirect
+-	go.opentelemetry.io/collector/internal/globalsignal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.111.0 // indirect
+ 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.55.0 // indirect
+ 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.55.0 // indirect
+@@ -124,8 +123,6 @@ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../receiverpr
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal
+-
+ retract (
+ 	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1

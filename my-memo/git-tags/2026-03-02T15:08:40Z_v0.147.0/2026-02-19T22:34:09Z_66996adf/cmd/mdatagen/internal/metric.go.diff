@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metric.go b/cmd/mdatagen/internal/metric.go
+index 059c02dd0..c1bcf9bf1 100644
+--- a/cmd/mdatagen/internal/metric.go
++++ b/cmd/mdatagen/internal/metric.go
+@@ -17,7 +17,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ )
+ 
+-var reNonAlnum = regexp.MustCompile(`[^a-z0-9]+`)
++var reNonAlnum = regexp.MustCompile(`[^a-z0-9_]+`)
+ 
+ type MetricName string
+ 

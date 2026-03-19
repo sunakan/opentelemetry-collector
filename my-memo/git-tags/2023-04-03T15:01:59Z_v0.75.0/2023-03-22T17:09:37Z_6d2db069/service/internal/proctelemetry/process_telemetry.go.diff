@@ -1,0 +1,17 @@
+diff --git a/service/internal/proctelemetry/process_telemetry.go b/service/internal/proctelemetry/process_telemetry.go
+index fce00a31d..58bee7221 100644
+--- a/service/internal/proctelemetry/process_telemetry.go
++++ b/service/internal/proctelemetry/process_telemetry.go
+@@ -147,11 +147,7 @@ func (pm *processMetrics) recordWithOC(ocRegistry *metric.Registry) error {
+ 	if err != nil {
+ 		return err
+ 	}
+-	if err = pm.rssMemory.UpsertEntry(pm.updateRSSMemory); err != nil {
+-		return err
+-	}
+-
+-	return nil
++	return pm.rssMemory.UpsertEntry(pm.updateRSSMemory)
+ }
+ 
+ func (pm *processMetrics) recordWithOtel(meter otelmetric.Meter) error {

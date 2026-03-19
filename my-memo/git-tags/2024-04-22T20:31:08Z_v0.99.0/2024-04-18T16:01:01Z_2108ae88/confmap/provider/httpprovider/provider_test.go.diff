@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/httpprovider/provider_test.go b/confmap/provider/httpprovider/provider_test.go
+index 3e3e866e1..2a49c65ec 100644
+--- a/confmap/provider/httpprovider/provider_test.go
++++ b/confmap/provider/httpprovider/provider_test.go
+@@ -14,7 +14,7 @@ import (
+ )
+ 
+ func TestSupportedScheme(t *testing.T) {
+-	fp := NewWithSettings(confmaptest.NewNopProviderSettings())
++	fp := NewFactory().Create(confmaptest.NewNopProviderSettings())
+ 	assert.Equal(t, "http", fp.Scheme())
+ 	require.NoError(t, fp.Shutdown(context.Background()))
+ }

@@ -1,0 +1,21 @@
+diff --git a/otelcol/factories_test.go b/otelcol/factories_test.go
+index 19d6fe6ac..fb0b67d14 100644
+--- a/otelcol/factories_test.go
++++ b/otelcol/factories_test.go
+@@ -11,6 +11,7 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/extension"
+ 	"go.opentelemetry.io/collector/extension/extensiontest"
++	"go.opentelemetry.io/collector/pipeline"
+ 	"go.opentelemetry.io/collector/processor"
+ 	"go.opentelemetry.io/collector/processor/processortest"
+ 	"go.opentelemetry.io/collector/receiver"
+@@ -37,7 +38,7 @@ func nopFactories() (Factories, error) {
+ 		factories.ExtensionModules[ext.Type()] = "go.opentelemetry.io/collector/extension/extensiontest v1.2.3"
+ 	}
+ 
+-	if factories.Receivers, err = receiver.MakeFactoryMap(receivertest.NewNopFactory(), receivertest.NewNopFactoryForType(component.DataTypeLogs)); err != nil {
++	if factories.Receivers, err = receiver.MakeFactoryMap(receivertest.NewNopFactory(), receivertest.NewNopFactoryForTypeWithSignal(pipeline.SignalLogs)); err != nil {
+ 		return Factories{}, err
+ 	}
+ 	factories.ReceiverModules = make(map[component.Type]string, len(factories.Receivers))

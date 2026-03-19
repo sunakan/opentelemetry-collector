@@ -1,0 +1,34 @@
+diff --git a/service/internal/graph/graph_test.go b/service/internal/graph/graph_test.go
+index 228dbf779..881f4afa2 100644
+--- a/service/internal/graph/graph_test.go
++++ b/service/internal/graph/graph_test.go
+@@ -2231,11 +2231,11 @@ func TestGraphBuildErrors(t *testing.T) {
+ 				},
+ 			},
+ 			expected: `cycle detected: ` +
+-				`connector "nop/conn" (traces to traces) -> ` +
+-				`processor "nop" in pipeline "traces/1" -> ` +
+ 				`connector "nop/conn1" (traces to traces) -> ` +
+ 				`processor "nop" in pipeline "traces/2" -> ` +
+-				`connector "nop/conn" (traces to traces)`,
++				`connector "nop/conn" (traces to traces) -> ` +
++				`processor "nop" in pipeline "traces/1" -> ` +
++				`connector "nop/conn1" (traces to traces)`,
+ 		},
+ 		{
+ 			name: "not_allowed_deep_cycle_metrics.yaml",
+@@ -2321,11 +2321,11 @@ func TestGraphBuildErrors(t *testing.T) {
+ 				},
+ 			},
+ 			expected: `cycle detected: ` +
+-				`connector "nop/conn1" (logs to logs) -> ` +
+-				`processor "nop" in pipeline "logs/2" -> ` +
+ 				`connector "nop/conn" (logs to logs) -> ` +
+ 				`processor "nop" in pipeline "logs/1" -> ` +
+-				`connector "nop/conn1" (logs to logs)`,
++				`connector "nop/conn1" (logs to logs) -> ` +
++				`processor "nop" in pipeline "logs/2" -> ` +
++				`connector "nop/conn" (logs to logs)`,
+ 		},
+ 		{
+ 			name: "not_allowed_deep_cycle_profiles.yaml",

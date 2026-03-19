@@ -1,0 +1,24 @@
+diff --git a/otelcol/command.go b/otelcol/command.go
+index db336c34c..cd0ee98e7 100644
+--- a/otelcol/command.go
++++ b/otelcol/command.go
+@@ -10,6 +10,7 @@ import (
+ 	"github.com/spf13/cobra"
+ 
+ 	"go.opentelemetry.io/collector/featuregate"
++	"go.opentelemetry.io/collector/internal/featuregates"
+ )
+ 
+ // NewCommand constructs a new cobra.Command using the given CollectorSettings.
+@@ -67,6 +68,11 @@ func updateSettingsUsingFlags(set *CollectorSettings, flags *flag.FlagSet, enfor
+ 	if len(resolverSet.URIs) == 0 {
+ 		return errors.New("at least one config flag must be provided")
+ 	}
++
++	if featuregates.UseUnifiedEnvVarExpansionRules.IsEnabled() && set.ConfigProviderSettings.ResolverSettings.DefaultScheme == "" {
++		set.ConfigProviderSettings.ResolverSettings.DefaultScheme = "env"
++	}
++
+ 	// Provide a default set of providers and converters if none have been specified.
+ 	// TODO: Remove this after CollectorSettings.ConfigProvider is removed and instead
+ 	// do it in the builder.

@@ -1,0 +1,24 @@
+diff --git a/pdata/plog/generated_scopelogs_test.go b/pdata/plog/generated_scopelogs_test.go
+index a83b0e9e5..a4adcaf57 100644
+--- a/pdata/plog/generated_scopelogs_test.go
++++ b/pdata/plog/generated_scopelogs_test.go
+@@ -26,8 +26,8 @@ func TestScopeLogs_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestScopeLogs(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newScopeLogs(internal.NewOrigPtrScopeLogs(), sharedState)) })
+-	assert.Panics(t, func() { newScopeLogs(internal.NewOrigPtrScopeLogs(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newScopeLogs(internal.NewOrigScopeLogs(), sharedState)) })
++	assert.Panics(t, func() { newScopeLogs(internal.NewOrigScopeLogs(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestScopeLogs_CopyTo(t *testing.T) {
+@@ -40,7 +40,7 @@ func TestScopeLogs_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newScopeLogs(internal.NewOrigPtrScopeLogs(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newScopeLogs(internal.NewOrigScopeLogs(), sharedState)) })
+ }
+ 
+ func TestScopeLogs_Scope(t *testing.T) {

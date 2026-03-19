@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/exporter.go b/exporter/otlpexporter/exporter.go
+index 497b89201..aa7d4e50f 100644
+--- a/exporter/otlpexporter/exporter.go
++++ b/exporter/otlpexporter/exporter.go
+@@ -109,7 +109,7 @@ func (e *exporterImp) start() error {
+ 		// An optimistic first connection attempt to ensure that
+ 		// applications under heavy load can immediately process
+ 		// data. See https://github.com/census-ecosystem/opencensus-go-exporter-ocagent/pull/63
+-		if err := e.connect(); err == nil {
++		if err = e.connect(); err == nil {
+ 			e.setStateConnected()
+ 		} else {
+ 			e.setStateDisconnected(err)

@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/trace/otlp.go b/receiver/otlpreceiver/trace/otlp.go
+index f324783ae..ba5356238 100644
+--- a/receiver/otlpreceiver/trace/otlp.go
++++ b/receiver/otlpreceiver/trace/otlp.go
+@@ -50,6 +50,7 @@ const (
+ 	receiverTransport = "grpc"
+ )
+ 
++// Export implements the service Export traces func.
+ func (r *Receiver) Export(ctx context.Context, req *collectortrace.ExportTraceServiceRequest) (*collectortrace.ExportTraceServiceResponse, error) {
+ 	// We need to ensure that it propagates the receiver name as a tag
+ 	ctxWithReceiverName := obsreport.ReceiverContext(ctx, r.instanceName, receiverTransport)

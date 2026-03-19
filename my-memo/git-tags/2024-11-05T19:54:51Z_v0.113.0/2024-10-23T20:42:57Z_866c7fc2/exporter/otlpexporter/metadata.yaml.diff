@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/metadata.yaml b/exporter/otlpexporter/metadata.yaml
+index ff08c4f0f..0c909a549 100644
+--- a/exporter/otlpexporter/metadata.yaml
++++ b/exporter/otlpexporter/metadata.yaml
+@@ -7,7 +7,7 @@ status:
+     stable: [traces, metrics]
+     beta: [logs]
+     development: [profiles]
+-  distributions: [core, contrib, k8s]
++  distributions: [core, contrib, k8s, otlp]
+ 
+ tests:
+   config:

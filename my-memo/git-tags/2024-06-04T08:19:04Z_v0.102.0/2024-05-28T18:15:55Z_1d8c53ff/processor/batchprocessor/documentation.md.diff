@@ -1,0 +1,19 @@
+diff --git a/processor/batchprocessor/documentation.md b/processor/batchprocessor/documentation.md
+index 294dc2994..c27bb1818 100644
+--- a/processor/batchprocessor/documentation.md
++++ b/processor/batchprocessor/documentation.md
+@@ -30,6 +30,14 @@ Number of times the batch was sent due to a size trigger
+ | ---- | ----------- | ---------- | --------- |
+ | 1 | Sum | Int | true |
+ 
++### processor_batch_metadata_cardinality
++
++Number of distinct metadata value combinations being processed
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| 1 | Sum | Int | false |
++
+ ### processor_batch_timeout_trigger_send
+ 
+ Number of times the batch was sent due to a timeout trigger

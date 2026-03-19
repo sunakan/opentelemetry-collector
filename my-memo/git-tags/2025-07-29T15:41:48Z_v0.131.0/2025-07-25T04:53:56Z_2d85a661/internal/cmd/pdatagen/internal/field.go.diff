@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/field.go b/internal/cmd/pdatagen/internal/field.go
+new file mode 100644
+index 000000000..2ff6bb48c
+--- /dev/null
++++ b/internal/cmd/pdatagen/internal/field.go
+@@ -0,0 +1,28 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/internal/cmd/pdatagen/internal"
++
++type Field interface {
++	GenerateAccessors(ms *messageStruct) string
++
++	GenerateAccessorsTest(ms *messageStruct) string
++
++	GenerateSetWithTestValue(ms *messageStruct) string
++
++	GenerateCopyOrig(ms *messageStruct) string
++}
++
++func origAccessor(packageName string) string {
++	if usedByOtherDataTypes(packageName) {
++		return "getOrig()"
++	}
++	return "orig"
++}
++
++func stateAccessor(packageName string) string {
++	if usedByOtherDataTypes(packageName) {
++		return "getState()"
++	}
++	return "state"
++}

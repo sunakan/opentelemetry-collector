@@ -1,0 +1,17 @@
+diff --git a/processor/filterprocessor/filter_processor.go b/processor/filterprocessor/filter_processor.go
+index b94dfb5b0..9e4f7e4db 100644
+--- a/processor/filterprocessor/filter_processor.go
++++ b/processor/filterprocessor/filter_processor.go
+@@ -19,11 +19,11 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filtermatcher"
+ 	"go.opentelemetry.io/collector/internal/processor/filtermetric"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 

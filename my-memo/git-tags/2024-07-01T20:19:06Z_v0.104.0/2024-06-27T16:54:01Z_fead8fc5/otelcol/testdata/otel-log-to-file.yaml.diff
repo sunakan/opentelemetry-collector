@@ -1,0 +1,13 @@
+diff --git a/otelcol/testdata/otel-log-to-file.yaml b/otelcol/testdata/otel-log-to-file.yaml
+index e618aca22..9097c92c9 100644
+--- a/otelcol/testdata/otel-log-to-file.yaml
++++ b/otelcol/testdata/otel-log-to-file.yaml
+@@ -14,7 +14,7 @@ exporters:
+ service:
+   telemetry:
+     logs:
+-      level: warn
++      level: info
+       output_paths:
+         # The folder need to be created prior to starting the collector
+         - ${ProgramData}\OpenTelemetry\Collector\Logs\otelcol.log

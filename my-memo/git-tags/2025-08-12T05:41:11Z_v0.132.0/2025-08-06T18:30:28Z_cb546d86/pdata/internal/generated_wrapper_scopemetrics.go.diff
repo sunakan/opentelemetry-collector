@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_scopemetrics.go b/pdata/internal/generated_wrapper_scopemetrics.go
+index 8ee85d78e..e764dde77 100644
+--- a/pdata/internal/generated_wrapper_scopemetrics.go
++++ b/pdata/internal/generated_wrapper_scopemetrics.go
+@@ -15,3 +15,9 @@ func CopyOrigScopeMetrics(dest, src *otlpmetrics.ScopeMetrics) {
+ 	dest.SchemaUrl = src.SchemaUrl
+ 	dest.Metrics = CopyOrigMetricSlice(dest.Metrics, src.Metrics)
+ }
++
++func FillOrigTestScopeMetrics(orig *otlpmetrics.ScopeMetrics) {
++	FillOrigTestInstrumentationScope(&orig.Scope)
++	orig.SchemaUrl = "test_schemaurl"
++	orig.Metrics = GenerateOrigTestMetricSlice()
++}

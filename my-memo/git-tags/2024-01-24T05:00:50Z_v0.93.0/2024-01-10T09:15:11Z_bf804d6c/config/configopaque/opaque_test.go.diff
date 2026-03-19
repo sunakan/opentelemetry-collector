@@ -1,0 +1,27 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index 50d2f3ea0..49aa3d676 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -4,6 +4,7 @@
+ package configopaque // import "go.opentelemetry.io/collector/config/configopaque"
+ 
+ import (
++	"fmt"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -18,3 +19,14 @@ func TestStringMarshalText(t *testing.T) {
+ 		assert.Equal(t, "[REDACTED]", string(opaque))
+ 	}
+ }
++
++func TestStringFmt(t *testing.T) {
++	examples := []String{"opaque", "s", "veryveryveryveryveryveryveryveryveryverylong"}
++	for _, example := range examples {
++		// nolint S1025
++		assert.Equal(t, "[REDACTED]", fmt.Sprintf("%s", example))
++		// converting to a string allows to output as an unredacted string still:
++		// nolint S1025
++		assert.Equal(t, string(example), fmt.Sprintf("%s", string(example)))
++	}
++}

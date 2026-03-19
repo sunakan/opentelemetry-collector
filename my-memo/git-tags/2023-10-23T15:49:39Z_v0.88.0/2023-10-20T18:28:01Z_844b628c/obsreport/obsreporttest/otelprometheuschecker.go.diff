@@ -1,0 +1,30 @@
+diff --git a/obsreport/obsreporttest/otelprometheuschecker.go b/obsreport/obsreporttest/otelprometheuschecker.go
+index 20598384b..a61ca9b59 100644
+--- a/obsreport/obsreporttest/otelprometheuschecker.go
++++ b/obsreport/obsreporttest/otelprometheuschecker.go
+@@ -77,8 +77,8 @@ func (pc *prometheusChecker) checkExporterLogs(exporter component.ID, sent, send
+ 	return pc.checkExporter(exporter, "log_records", sent, sendFailed)
+ }
+ 
+-func (pc *prometheusChecker) checkExporterMetrics(exporter component.ID, sentMetricPoints, sendFailedMetricPoints int64) error {
+-	return pc.checkExporter(exporter, "metric_points", sentMetricPoints, sendFailedMetricPoints)
++func (pc *prometheusChecker) checkExporterMetrics(exporter component.ID, sent, sendFailed int64) error {
++	return pc.checkExporter(exporter, "metric_points", sent, sendFailed)
+ }
+ 
+ func (pc *prometheusChecker) checkExporter(exporter component.ID, datatype string, sent, sendFailed int64) error {
+@@ -91,6 +91,14 @@ func (pc *prometheusChecker) checkExporter(exporter component.ID, datatype strin
+ 	return errs
+ }
+ 
++func (pc *prometheusChecker) checkExporterEnqueueFailed(exporter component.ID, datatype string, enqueueFailed int64) error {
++	if enqueueFailed == 0 {
++		return nil
++	}
++	exporterAttrs := attributesForExporterMetrics(exporter)
++	return pc.checkCounter(fmt.Sprintf("exporter_enqueue_failed_%s", datatype), enqueueFailed, exporterAttrs)
++}
++
+ func (pc *prometheusChecker) checkCounter(expectedMetric string, value int64, attrs []attribute.KeyValue) error {
+ 	// Forces a flush for the opencensus view data.
+ 	_, _ = view.RetrieveData(expectedMetric)

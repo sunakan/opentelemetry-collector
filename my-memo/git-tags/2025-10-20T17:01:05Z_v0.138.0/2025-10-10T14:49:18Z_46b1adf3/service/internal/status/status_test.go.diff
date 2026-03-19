@@ -1,0 +1,13 @@
+diff --git a/service/internal/status/status_test.go b/service/internal/status/status_test.go
+index d744e1aa6..74ffcc781 100644
+--- a/service/internal/status/status_test.go
++++ b/service/internal/status/status_test.go
+@@ -245,7 +245,7 @@ func TestStatusFuncsConcurrent(t *testing.T) {
+ 		go func() {
+ 			compFn := NewReportStatusFunc(id, rep.ReportStatus)
+ 			compFn(componentstatus.NewEvent(componentstatus.StatusStarting))
+-			for i := 0; i < 1000; i++ {
++			for range 1000 {
+ 				compFn(componentstatus.NewEvent(componentstatus.StatusRecoverableError))
+ 				compFn(componentstatus.NewEvent(componentstatus.StatusOK))
+ 			}

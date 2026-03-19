@@ -1,0 +1,12 @@
+diff --git a/service/builder/testdata/receivers_disabled.yaml b/service/builder/testdata/receivers_disabled.yaml
+new file mode 100644
+index 000000000..565ed7a5e
+--- /dev/null
++++ b/service/builder/testdata/receivers_disabled.yaml
+@@ -0,0 +1,6 @@
++# No receivers enabled, all commented out
++receivers:
++  # jaeger: {} 
++  # opencensus: {}
++  # zipkin: {}
++  # zipkin-scribe: {}

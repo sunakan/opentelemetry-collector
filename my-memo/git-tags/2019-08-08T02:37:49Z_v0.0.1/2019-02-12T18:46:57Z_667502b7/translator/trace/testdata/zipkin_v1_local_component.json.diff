@@ -1,0 +1,23 @@
+diff --git a/translator/trace/testdata/zipkin_v1_local_component.json b/translator/trace/testdata/zipkin_v1_local_component.json
+new file mode 100644
+index 000000000..20187e4a0
+--- /dev/null
++++ b/translator/trace/testdata/zipkin_v1_local_component.json
+@@ -0,0 +1,17 @@
++[
++    {
++        "traceId": "0ed2e63cbe71f5a8",
++        "name": "checkStock",
++        "id": "fe351a053fbcac1f",
++        "parentId": "0ed2e63cbe71f5a8",
++        "timestamp": 1544805927453923,
++        "duration": 3740,
++        "annotations": [],
++        "binaryAnnotations": [
++            {
++                "key": "lc",
++                "value": "myLocalComponent"
++            }
++        ]
++    }
++]

@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/zpagesextension.go b/extension/zpagesextension/zpagesextension.go
+index 9872750df..5e331966b 100644
+--- a/extension/zpagesextension/zpagesextension.go
++++ b/extension/zpagesextension/zpagesextension.go
+@@ -79,7 +79,7 @@ func (zpe *zpagesExtension) Start(_ context.Context, host component.Host) error
+ 		defer close(zpe.stopCh)
+ 
+ 		if errHTTP := zpe.server.Serve(ln); errHTTP != nil && !errors.Is(errHTTP, http.ErrServerClosed) {
+-			host.ReportFatalError(errHTTP)
++			zpe.telemetry.ReportStatus(component.NewFatalErrorEvent(errHTTP))
+ 		}
+ 	}()
+ 

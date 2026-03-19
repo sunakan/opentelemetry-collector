@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index fbf0fd0c0..205d8c2e1 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -491,7 +491,7 @@ var dataPointFlagsField = &primitiveTypedField{
+ 	fieldName:       "Flags",
+ 	originFieldName: "Flags",
+ 	returnType: &primitiveType{
+-		structName: "MetricDataPointFlags",
++		structName: "DataPointFlags",
+ 		rawType:    "uint32",
+ 		defaultVal: "0",
+ 		testVal:    "1",

@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index ecd2cec51..bef13d4c9 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -31,7 +31,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

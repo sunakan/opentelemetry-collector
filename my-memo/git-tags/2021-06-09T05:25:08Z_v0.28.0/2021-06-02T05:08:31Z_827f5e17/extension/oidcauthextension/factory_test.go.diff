@@ -1,0 +1,13 @@
+diff --git a/extension/oidcauthextension/factory_test.go b/extension/oidcauthextension/factory_test.go
+index 18fbdf0ca..5d7c341cb 100644
+--- a/extension/oidcauthextension/factory_test.go
++++ b/extension/oidcauthextension/factory_test.go
+@@ -46,7 +46,7 @@ func TestCreateExtension(t *testing.T) {
+ 	cfg.Audience = "collector"
+ 	cfg.IssuerURL = "https://auth.example.com"
+ 
+-	ext, err := createExtension(context.Background(), component.ExtensionCreateParams{Logger: zap.NewNop()}, cfg)
++	ext, err := createExtension(context.Background(), component.ExtensionCreateSettings{Logger: zap.NewNop()}, cfg)
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, ext)
+ }

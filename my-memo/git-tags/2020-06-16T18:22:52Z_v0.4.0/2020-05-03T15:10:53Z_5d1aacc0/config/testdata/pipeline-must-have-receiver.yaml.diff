@@ -1,0 +1,18 @@
+diff --git a/config/testdata/pipeline-must-have-receiver.yaml b/config/testdata/pipeline-must-have-receiver.yaml
+index e93446bd3..ff6904139 100644
+--- a/config/testdata/pipeline-must-have-receiver.yaml
++++ b/config/testdata/pipeline-must-have-receiver.yaml
+@@ -1,10 +1,11 @@
+ receivers:
+-  multireceiver:
++  examplereceiver:
++    extra: "not present in the service pipeline"
+ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+ service:
+   pipelines:
+-    metrics:
++    traces:
+       exporters: [exampleexporter]

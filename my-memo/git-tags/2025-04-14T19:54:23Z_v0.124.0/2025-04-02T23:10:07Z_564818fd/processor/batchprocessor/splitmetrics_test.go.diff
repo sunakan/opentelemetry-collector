@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splitmetrics_test.go b/processor/batchprocessor/splitmetrics_test.go
+index 06238174c..dc46a4a78 100644
+--- a/processor/batchprocessor/splitmetrics_test.go
++++ b/processor/batchprocessor/splitmetrics_test.go
+@@ -23,7 +23,7 @@ func TestSplitMetrics_noop(t *testing.T) {
+ 		i++
+ 		return i > 5
+ 	})
+-	assert.EqualValues(t, td, split)
++	assert.Equal(t, td, split)
+ }
+ 
+ func TestSplitMetrics(t *testing.T) {

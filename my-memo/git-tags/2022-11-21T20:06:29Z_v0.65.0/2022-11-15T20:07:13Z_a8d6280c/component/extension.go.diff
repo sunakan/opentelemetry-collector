@@ -1,0 +1,13 @@
+diff --git a/component/extension.go b/component/extension.go
+index c6f2cdf00..09477006a 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+-// ExtensionConfig is the configuration of a component.Extension. Specific extensions must implement
++// ExtensionConfig is the configuration of a component.Extension. Specific Extension must implement
+ // this interface and must embed config.ExtensionSettings struct or a struct that extends it.
+ type ExtensionConfig interface {
+ 	identifiable

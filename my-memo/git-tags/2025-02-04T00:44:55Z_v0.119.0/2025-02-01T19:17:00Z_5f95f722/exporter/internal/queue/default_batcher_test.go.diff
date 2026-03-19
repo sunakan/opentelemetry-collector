@@ -1,0 +1,48 @@
+diff --git a/exporter/internal/queue/default_batcher_test.go b/exporter/internal/queue/default_batcher_test.go
+index 7d9f97d1f..f9bb11ee1 100644
+--- a/exporter/internal/queue/default_batcher_test.go
++++ b/exporter/internal/queue/default_batcher_test.go
+@@ -27,10 +27,6 @@ func TestDefaultBatcher_NoSplit_MinThresholdZero_TimeoutDisabled(t *testing.T) {
+ 		name       string
+ 		maxWorkers int
+ 	}{
+-		{
+-			name:       "infinate_workers",
+-			maxWorkers: 0,
+-		},
+ 		{
+ 			name:       "one_worker",
+ 			maxWorkers: 1,
+@@ -89,10 +85,6 @@ func TestDefaultBatcher_NoSplit_TimeoutDisabled(t *testing.T) {
+ 		name       string
+ 		maxWorkers int
+ 	}{
+-		{
+-			name:       "infinate_workers",
+-			maxWorkers: 0,
+-		},
+ 		{
+ 			name:       "one_worker",
+ 			maxWorkers: 1,
+@@ -161,10 +153,6 @@ func TestDefaultBatcher_NoSplit_WithTimeout(t *testing.T) {
+ 		name       string
+ 		maxWorkers int
+ 	}{
+-		{
+-			name:       "infinate_workers",
+-			maxWorkers: 0,
+-		},
+ 		{
+ 			name:       "one_worker",
+ 			maxWorkers: 1,
+@@ -230,10 +218,6 @@ func TestDefaultBatcher_Split_TimeoutDisabled(t *testing.T) {
+ 		name       string
+ 		maxWorkers int
+ 	}{
+-		{
+-			name:       "infinate_workers",
+-			maxWorkers: 0,
+-		},
+ 		{
+ 			name:       "one_worker",
+ 			maxWorkers: 1,

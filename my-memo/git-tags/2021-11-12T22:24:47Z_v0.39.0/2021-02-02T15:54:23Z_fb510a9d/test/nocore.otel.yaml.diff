@@ -1,0 +1,31 @@
+diff --git a/test/nocore.otel.yaml b/test/nocore.otel.yaml
+new file mode 100644
+index 000000000..8f8093839
+--- /dev/null
++++ b/test/nocore.otel.yaml
+@@ -0,0 +1,25 @@
++extensions:
++  health_check:
++
++receivers:
++  jaeger:
++    protocols:
++      grpc:
++      thrift_http:
++      thrift_compact:
++      thrift_binary:
++
++processors:
++
++exporters:
++  logging:
++
++service:
++  extensions: [health_check]
++  pipelines:
++    traces:
++      receivers:
++        - jaeger
++      processors: []
++      exporters:
++        - logging

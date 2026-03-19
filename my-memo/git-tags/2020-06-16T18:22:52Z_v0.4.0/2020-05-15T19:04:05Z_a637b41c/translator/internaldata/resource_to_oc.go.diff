@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index 89a966ba9..80cfcb7af 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -23,8 +23,8 @@ import (
+ 	ocresource "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
+ 	"github.com/golang/protobuf/ptypes"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/translator/conventions"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 
+ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.Resource) {

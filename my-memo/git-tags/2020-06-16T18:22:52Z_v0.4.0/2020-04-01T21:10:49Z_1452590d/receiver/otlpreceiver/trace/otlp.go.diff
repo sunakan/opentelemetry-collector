@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/trace/otlp.go b/receiver/otlpreceiver/trace/otlp.go
+index fc2b0c3bf..312b6baeb 100644
+--- a/receiver/otlpreceiver/trace/otlp.go
++++ b/receiver/otlpreceiver/trace/otlp.go
+@@ -64,7 +64,7 @@ func (r *Receiver) Export(ctx context.Context, req *collectortrace.ExportTraceSe
+ 	td := data.TraceDataFromOtlp(req.ResourceSpans)
+ 	rss := td.ResourceSpans()
+ 	for i := 0; i < rss.Len(); i++ {
+-		rs := rss.Get(i)
++		rs := rss.At(i)
+ 
+ 		if rs.InstrumentationLibrarySpans().Len() == 0 {
+ 			continue

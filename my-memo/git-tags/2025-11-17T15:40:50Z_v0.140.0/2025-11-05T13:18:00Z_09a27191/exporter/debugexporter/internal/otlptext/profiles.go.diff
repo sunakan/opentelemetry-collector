@@ -1,0 +1,14 @@
+diff --git a/exporter/debugexporter/internal/otlptext/profiles.go b/exporter/debugexporter/internal/otlptext/profiles.go
+index af681abc8..9b4a487f2 100644
+--- a/exporter/debugexporter/internal/otlptext/profiles.go
++++ b/exporter/debugexporter/internal/otlptext/profiles.go
+@@ -58,8 +58,7 @@ func (textProfilesMarshaler) MarshalProfiles(pd pprofile.Profiles) ([]byte, erro
+ 				buf.logAttr("Duration", profile.Duration().String())
+ 				buf.logAttr("Dropped attributes count", strconv.FormatUint(uint64(profile.DroppedAttributesCount()), 10))
+ 
+-				buf.logProfileSamples(profile.Sample(), dic)
+-				buf.logComment(profile.CommentStrindices())
++				buf.logProfileSamples(profile.Samples(), dic)
+ 			}
+ 		}
+ 	}

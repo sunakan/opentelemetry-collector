@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/config_test.go b/exporter/zipkinexporter/config_test.go
+index c242ac336..0d5452985 100644
+--- a/exporter/zipkinexporter/config_test.go
++++ b/exporter/zipkinexporter/config_test.go
+@@ -33,7 +33,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

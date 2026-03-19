@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index 983bde956..ad0145c53 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -81,7 +81,7 @@ func TestPrometheusExporter_endToEnd(t *testing.T) {
+ 
+ 	factory := Factory{}
+ 	consumer, err := factory.CreateMetricsExporter(zap.NewNop(), config)
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	defer consumer.Shutdown(context.Background())
+ 

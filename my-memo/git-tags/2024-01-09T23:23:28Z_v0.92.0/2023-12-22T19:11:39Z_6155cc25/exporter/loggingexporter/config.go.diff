@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config.go b/exporter/loggingexporter/config.go
+index 469286b11..d35cdd6fa 100644
+--- a/exporter/loggingexporter/config.go
++++ b/exporter/loggingexporter/config.go
+@@ -65,7 +65,7 @@ func (cfg *Config) Unmarshal(conf *confmap.Conf) error {
+ 		return fmt.Errorf("'loglevel' and 'verbosity' are incompatible. Use only 'verbosity' instead")
+ 	}
+ 
+-	if err := conf.Unmarshal(cfg, confmap.WithErrorUnused()); err != nil {
++	if err := conf.Unmarshal(cfg); err != nil {
+ 		return err
+ 	}
+ 

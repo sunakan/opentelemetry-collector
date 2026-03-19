@@ -1,0 +1,13 @@
+diff --git a/docs/design.md b/docs/design.md
+index 64df8e11a..17cf2f6b8 100644
+--- a/docs/design.md
++++ b/docs/design.md
+@@ -149,6 +149,8 @@ When the Collector loads this config the result will look like this:
+ 
+ Note that each `batch` processor is an independent instance, although both are configured the same way, i.e. each have a `send_batch_size` of 10000.
+ 
++The same name of the processor MUST NOT be referenced multiple times in the `processors` key of a single pipeline.
++
+ ## <a name="opentelemetry-agent"></a>Running as an Agent
+ 
+ On a typical VM/container, there are user applications running in some

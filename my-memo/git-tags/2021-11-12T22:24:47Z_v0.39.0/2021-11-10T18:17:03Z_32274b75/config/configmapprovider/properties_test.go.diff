@@ -1,0 +1,22 @@
+diff --git a/config/configmapprovider/properties_test.go b/config/configmapprovider/properties_test.go
+index 39e560e37..77caca4dd 100644
+--- a/config/configmapprovider/properties_test.go
++++ b/config/configmapprovider/properties_test.go
+@@ -30,7 +30,7 @@ func TestPropertiesProvider(t *testing.T) {
+ 		"exporters.kafka.brokers=foo:9200,foo2:9200",
+ 	}
+ 
+-	pmp := NewPropertiesMapProvider(setFlagStr)
++	pmp := NewProperties(setFlagStr)
+ 	retr, err := pmp.Retrieve(context.Background())
+ 	require.NoError(t, err)
+ 	cfgMap := retr.Get()
+@@ -44,7 +44,7 @@ func TestPropertiesProvider(t *testing.T) {
+ }
+ 
+ func TestPropertiesProvider_empty(t *testing.T) {
+-	pmp := NewPropertiesMapProvider(nil)
++	pmp := NewProperties(nil)
+ 	retr, err := pmp.Retrieve(context.Background())
+ 	require.NoError(t, err)
+ 	cfgMap := retr.Get()

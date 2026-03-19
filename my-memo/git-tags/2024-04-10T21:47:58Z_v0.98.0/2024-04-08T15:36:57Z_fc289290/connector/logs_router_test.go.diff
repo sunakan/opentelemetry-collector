@@ -1,0 +1,14 @@
+diff --git a/connector/logs_router_test.go b/connector/logs_router_test.go
+index accce0a03..a4074762a 100644
+--- a/connector/logs_router_test.go
++++ b/connector/logs_router_test.go
+@@ -14,8 +14,8 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/plog"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ type mutatingLogsSink struct {

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/add-labels.yml b/.github/workflows/add-labels.yml
+index 1941ec0e4..9f243caa6 100644
+--- a/.github/workflows/add-labels.yml
++++ b/.github/workflows/add-labels.yml
+@@ -9,7 +9,7 @@ jobs:
+ 
+     runs-on: ubuntu-24.04
+     steps:
+-      - uses: actions/checkout@v4
++      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+ 
+       - name: Run add-labels.sh
+         run: ./.github/workflows/scripts/add-labels.sh

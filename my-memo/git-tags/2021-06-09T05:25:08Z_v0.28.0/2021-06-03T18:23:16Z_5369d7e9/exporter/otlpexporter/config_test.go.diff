@@ -1,0 +1,42 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index db4d56877..a8a6ec98a 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -24,10 +24,12 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configauth"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configtest"
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
++	"go.opentelemetry.io/collector/extension/bearertokenauthextension"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -37,6 +39,10 @@ func TestLoadConfig(t *testing.T) {
+ 	factory := NewFactory()
+ 	factories.Exporters[typeStr] = factory
+ 
++	authFactory := bearertokenauthextension.NewFactory()
++	authType := authFactory.Type()
++	factories.Extensions[authType] = authFactory
++
+ 	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+@@ -82,12 +88,9 @@ func TestLoadConfig(t *testing.T) {
+ 					PermitWithoutStream: true,
+ 					Timeout:             30 * time.Second,
+ 				},
+-				PerRPCAuth: &configgrpc.PerRPCAuthConfig{
+-					AuthType:    "bearer",
+-					BearerToken: "some-token",
+-				},
+ 				WriteBufferSize: 512 * 1024,
+ 				BalancerName:    "round_robin",
++				Auth:            &configauth.Authentication{AuthenticatorName: string(authType)},
+ 			},
+ 		})
+ }

@@ -1,0 +1,11 @@
+diff --git a/featuregate/stage_test.go b/featuregate/stage_test.go
+index ad6e5a581..a706bc881 100644
+--- a/featuregate/stage_test.go
++++ b/featuregate/stage_test.go
+@@ -24,5 +24,6 @@ func TestStageString(t *testing.T) {
+ 	assert.Equal(t, "Alpha", StageAlpha.String())
+ 	assert.Equal(t, "Beta", StageBeta.String())
+ 	assert.Equal(t, "Stable", StageStable.String())
++	assert.Equal(t, "Deprecated", StageDeprecated.String())
+ 	assert.Equal(t, "Unknown", Stage(-1).String())
+ }

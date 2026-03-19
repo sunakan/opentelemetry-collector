@@ -1,0 +1,31 @@
+diff --git a/confmap/provider/envprovider/provider_test.go b/confmap/provider/envprovider/provider_test.go
+index 70b68842f..cc5edcc45 100644
+--- a/confmap/provider/envprovider/provider_test.go
++++ b/confmap/provider/envprovider/provider_test.go
+@@ -22,7 +22,7 @@ const envSchemePrefix = schemeName + ":"
+ 
+ const validYAML = `
+ processors:
+-  batch:
++  testprocessor:
+ exporters:
+   otlp:
+     endpoint: "localhost:4317"
+@@ -68,7 +68,7 @@ func TestEnv(t *testing.T) {
+ 	retMap, err := ret.AsConf()
+ 	require.NoError(t, err)
+ 	expectedMap := confmap.NewFromStringMap(map[string]any{
+-		"processors::batch":         nil,
++		"processors::testprocessor": nil,
+ 		"exporters::otlp::endpoint": "localhost:4317",
+ 	})
+ 	assert.Equal(t, expectedMap.ToStringMap(), retMap.ToStringMap())
+@@ -88,7 +88,7 @@ func TestEnvWithLogger(t *testing.T) {
+ 	retMap, err := ret.AsConf()
+ 	require.NoError(t, err)
+ 	expectedMap := confmap.NewFromStringMap(map[string]any{
+-		"processors::batch":         nil,
++		"processors::testprocessor": nil,
+ 		"exporters::otlp::endpoint": "localhost:4317",
+ 	})
+ 	assert.Equal(t, expectedMap.ToStringMap(), retMap.ToStringMap())

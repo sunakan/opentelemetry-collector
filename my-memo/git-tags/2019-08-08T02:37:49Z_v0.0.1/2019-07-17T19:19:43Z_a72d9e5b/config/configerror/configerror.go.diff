@@ -1,0 +1,12 @@
+diff --git a/config/configerror/configerror.go b/config/configerror/configerror.go
+index 8b7a5bda1..00464f374 100644
+--- a/config/configerror/configerror.go
++++ b/config/configerror/configerror.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package configerror contains the common errors caused by malformed configs.
+ package configerror
+ 
+ import "errors"

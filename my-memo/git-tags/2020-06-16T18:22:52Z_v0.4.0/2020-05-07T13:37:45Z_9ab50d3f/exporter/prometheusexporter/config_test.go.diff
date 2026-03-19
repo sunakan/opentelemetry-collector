@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/config_test.go b/exporter/prometheusexporter/config_test.go
+index 48dd1db88..c3b44f84d 100644
+--- a/exporter/prometheusexporter/config_test.go
++++ b/exporter/prometheusexporter/config_test.go
+@@ -27,7 +27,7 @@ import (
+ 
+ func TestLoadConfig(t *testing.T) {
+ 	factories, err := config.ExampleComponents()
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}
+ 	factories.Exporters[typeStr] = factory

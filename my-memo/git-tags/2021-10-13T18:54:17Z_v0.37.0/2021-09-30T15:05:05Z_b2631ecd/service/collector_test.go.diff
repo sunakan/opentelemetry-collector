@@ -1,0 +1,87 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 850c1b2bd..300196d4c 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -63,6 +63,44 @@ service:
+       exporters: [otlp]
+ `
+ 
++// TestCollector_StartAsGoRoutine must be the first unit test on the file,
++// to test for initialization without setting CLI flags.
++func TestCollector_StartAsGoRoutine(t *testing.T) {
++	// use a mock AppTelemetry struct to return an error on shutdown
++	preservedAppTelemetry := collectorTelemetry
++	collectorTelemetry = &colTelemetry{}
++	defer func() { collectorTelemetry = preservedAppTelemetry }()
++
++	factories, err := defaultcomponents.Components()
++	require.NoError(t, err)
++
++	set := CollectorSettings{
++		BuildInfo:         component.NewDefaultBuildInfo(),
++		Factories:         factories,
++		ConfigMapProvider: parserprovider.NewInMemoryMapProvider(strings.NewReader(configStr)),
++	}
++	col, err := New(set)
++	require.NoError(t, err)
++
++	colDone := make(chan struct{})
++	go func() {
++		defer close(colDone)
++		colErr := col.Run(context.Background())
++		if colErr != nil {
++			err = colErr
++		}
++	}()
++
++	assert.Equal(t, Starting, <-col.GetStateChannel())
++	assert.Equal(t, Running, <-col.GetStateChannel())
++
++	col.Shutdown()
++	col.Shutdown()
++	<-colDone
++	assert.Equal(t, Closing, <-col.GetStateChannel())
++	assert.Equal(t, Closed, <-col.GetStateChannel())
++}
++
+ func TestCollector_Start(t *testing.T) {
+ 	factories, err := defaultcomponents.Components()
+ 	require.NoError(t, err)
+@@ -161,37 +199,6 @@ func TestCollector_ReportError(t *testing.T) {
+ 	assert.Equal(t, Closed, <-col.GetStateChannel())
+ }
+ 
+-func TestCollector_StartAsGoRoutine(t *testing.T) {
+-	factories, err := defaultcomponents.Components()
+-	require.NoError(t, err)
+-
+-	set := CollectorSettings{
+-		BuildInfo:         component.NewDefaultBuildInfo(),
+-		Factories:         factories,
+-		ConfigMapProvider: parserprovider.NewInMemoryMapProvider(strings.NewReader(configStr)),
+-	}
+-	col, err := New(set)
+-	require.NoError(t, err)
+-
+-	colDone := make(chan struct{})
+-	go func() {
+-		defer close(colDone)
+-		colErr := col.Run(context.Background())
+-		if colErr != nil {
+-			err = colErr
+-		}
+-	}()
+-
+-	assert.Equal(t, Starting, <-col.GetStateChannel())
+-	assert.Equal(t, Running, <-col.GetStateChannel())
+-
+-	col.Shutdown()
+-	col.Shutdown()
+-	<-colDone
+-	assert.Equal(t, Closing, <-col.GetStateChannel())
+-	assert.Equal(t, Closed, <-col.GetStateChannel())
+-}
+-
+ func assertMetrics(t *testing.T, prefix string, metricsPort uint16, mandatoryLabels []string) {
+ 	client := &http.Client{}
+ 	resp, err := client.Get(fmt.Sprintf("http://localhost:%d/metrics", metricsPort))

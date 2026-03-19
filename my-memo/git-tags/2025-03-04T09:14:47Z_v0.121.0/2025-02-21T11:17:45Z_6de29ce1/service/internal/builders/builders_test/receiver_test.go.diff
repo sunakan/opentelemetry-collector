@@ -1,0 +1,13 @@
+diff --git a/service/internal/builders/builders_test/receiver_test.go b/service/internal/builders/builders_test/receiver_test.go
+index d0c0d2c34..fa88a972a 100644
+--- a/service/internal/builders/builders_test/receiver_test.go
++++ b/service/internal/builders/builders_test/receiver_test.go
+@@ -188,7 +188,7 @@ func TestNewNopReceiverConfigsAndFactories(t *testing.T) {
+ 
+ 	factory := receivertest.NewNopFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	set := receivertest.NewNopSettingsWithType(factory.Type())
++	set := receivertest.NewNopSettings(factory.Type())
+ 	set.ID = component.NewID(builders.NopType)
+ 
+ 	traces, err := factory.CreateTraces(context.Background(), set, cfg, consumertest.NewNop())

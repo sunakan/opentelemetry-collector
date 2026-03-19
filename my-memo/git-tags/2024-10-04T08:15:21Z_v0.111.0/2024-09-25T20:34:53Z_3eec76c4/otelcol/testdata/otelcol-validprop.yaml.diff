@@ -1,0 +1,18 @@
+diff --git a/otelcol/testdata/otelcol-validprop.yaml b/otelcol/testdata/otelcol-validprop.yaml
+index 5c611333c..1d478caba 100644
+--- a/otelcol/testdata/otelcol-validprop.yaml
++++ b/otelcol/testdata/otelcol-validprop.yaml
+@@ -14,7 +14,12 @@ service:
+         - "b3"
+         - "tracecontext"
+     metrics:
+-      address: localhost:8888
++      readers:
++        - pull:
++            exporter:
++              prometheus:
++                host: "localhost"
++                port: 8888
+   pipelines:
+     traces:
+       receivers: [nop]

@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/constants.go b/exporter/exporterhelper/constants.go
+index 5ee687760..9749b8b6e 100644
+--- a/exporter/exporterhelper/constants.go
++++ b/exporter/exporterhelper/constants.go
+@@ -28,8 +28,8 @@ var (
+ )
+ 
+ const (
+-	numDroppedMetricsAttribute  = "num_dropped_metrics"
+-	numReceivedMetricsAttribute = "num_received_metrics"
+-	numDroppedSpansAttribute    = "num_dropped_spans"
+-	numReceivedSpansAttribute   = "num_received_spans"
++	numDroppedTimeSeriesAttribute  = "num_dropped_timeseries"
++	numReceivedTimeSeriesAttribute = "num_received_timeseries"
++	numDroppedSpansAttribute       = "num_dropped_spans"
++	numReceivedSpansAttribute      = "num_received_spans"
+ )

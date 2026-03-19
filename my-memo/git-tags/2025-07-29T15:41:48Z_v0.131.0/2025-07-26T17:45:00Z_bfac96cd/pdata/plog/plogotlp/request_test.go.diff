@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/plogotlp/request_test.go b/pdata/plog/plogotlp/request_test.go
+index 4bea3ac65..d69bf5d99 100644
+--- a/pdata/plog/plogotlp/request_test.go
++++ b/pdata/plog/plogotlp/request_test.go
+@@ -29,9 +29,7 @@ var logsRequestJSON = []byte(`
+ 						{
+ 							"body": {
+ 								"stringValue": "test_log_record"
+-							},
+-							"traceId": "",
+-							"spanId": ""
++							}
+ 						}
+ 					]
+ 				}

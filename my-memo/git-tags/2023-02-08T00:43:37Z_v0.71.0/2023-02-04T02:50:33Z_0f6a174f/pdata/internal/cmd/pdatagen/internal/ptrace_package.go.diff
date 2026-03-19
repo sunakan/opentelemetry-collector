@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/ptrace_package.go b/pdata/internal/cmd/pdatagen/internal/ptrace_package.go
+index 2f330039a..ad44a8c28 100644
+--- a/pdata/internal/cmd/pdatagen/internal/ptrace_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/ptrace_package.go
+@@ -27,6 +27,7 @@ var ptrace = &Package{
+ 	},
+ 	testImports: []string{
+ 		`"testing"`,
++		`"unsafe"`,
+ 		``,
+ 		`"github.com/stretchr/testify/assert"`,
+ 		``,

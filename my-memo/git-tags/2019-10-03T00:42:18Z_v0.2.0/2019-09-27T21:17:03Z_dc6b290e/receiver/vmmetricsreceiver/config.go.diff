@@ -1,0 +1,13 @@
+diff --git a/receiver/vmmetricsreceiver/config.go b/receiver/vmmetricsreceiver/config.go
+index b01defd96..1a5d51b04 100644
+--- a/receiver/vmmetricsreceiver/config.go
++++ b/receiver/vmmetricsreceiver/config.go
+@@ -17,7 +17,7 @@ package vmmetricsreceiver
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config defines configuration for VMMetrics receiver.

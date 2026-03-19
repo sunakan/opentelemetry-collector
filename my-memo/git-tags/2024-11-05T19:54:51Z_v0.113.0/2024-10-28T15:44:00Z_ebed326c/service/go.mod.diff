@@ -1,0 +1,21 @@
+diff --git a/service/go.mod b/service/go.mod
+index a9a25a1ce..8086dca45 100644
+--- a/service/go.mod
++++ b/service/go.mod
+@@ -39,6 +39,7 @@ require (
+ 	go.opentelemetry.io/collector/processor/processortest v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
+ 	go.opentelemetry.io/collector/receiver/receiverprofiles v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	go.opentelemetry.io/collector/semconv v0.112.0
+ 	go.opentelemetry.io/contrib/bridges/otelzap v0.6.0
+ 	go.opentelemetry.io/contrib/config v0.10.0
+@@ -190,6 +191,8 @@ replace go.opentelemetry.io/collector/client => ../client
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../receiver/receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../receiver/receivertest
++
+ replace go.opentelemetry.io/collector/processor/processorprofiles => ../processor/processorprofiles
+ 
+ replace go.opentelemetry.io/collector/exporter/exporterprofiles => ../exporter/exporterprofiles

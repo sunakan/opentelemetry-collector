@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index e6866e9d7..0f4c1a647 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -77,7 +77,7 @@ func TestLoadConfig(t *testing.T) {
+ 				ReadBufferSize:  123,
+ 				WriteBufferSize: 345,
+ 				Timeout:         time.Second * 10,
++				Compression:     "gzip",
+ 			},
+-			Compression: "gzip",
+ 		})
+ }

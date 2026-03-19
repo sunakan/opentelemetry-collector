@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index 931cf91d2..85b011859 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -66,6 +66,10 @@ func (mb *DataReceiverBase) GetExtensions() map[configmodels.Extension]component
+ 	return nil
+ }
+ 
++func (mb *DataReceiverBase) GetExporters() map[configmodels.DataType]map[configmodels.Exporter]component.Exporter {
++	return nil
++}
++
+ // OCDataReceiver implements OpenCensus format receiver.
+ type OCDataReceiver struct {
+ 	DataReceiverBase

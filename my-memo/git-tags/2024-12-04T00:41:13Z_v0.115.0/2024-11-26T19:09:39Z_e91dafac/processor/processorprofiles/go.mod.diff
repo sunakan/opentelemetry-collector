@@ -1,0 +1,13 @@
+diff --git a/processor/processorprofiles/go.mod b/processor/processorprofiles/go.mod
+index 4da9de9d7..3d7fb07a0 100644
+--- a/processor/processorprofiles/go.mod
++++ b/processor/processorprofiles/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/processor/processorprofiles
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.114.0

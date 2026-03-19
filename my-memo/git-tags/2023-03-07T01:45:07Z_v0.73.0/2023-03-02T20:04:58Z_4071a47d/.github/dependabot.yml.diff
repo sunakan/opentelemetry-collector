@@ -1,0 +1,15 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 0642bef88..032c81935 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -74,6 +74,10 @@ updates:
+     directory: "/processor/memorylimiterprocessor"
+     schedule:
+       interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/receiver"
++    schedule:
++      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/receiver/otlpreceiver"
+     schedule:

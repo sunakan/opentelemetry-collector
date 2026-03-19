@@ -1,0 +1,20 @@
+diff --git a/translator/conventions/opentelemetry.go b/translator/conventions/opentelemetry.go
+index b73fd048d..3f3b81cdf 100644
+--- a/translator/conventions/opentelemetry.go
++++ b/translator/conventions/opentelemetry.go
+@@ -30,7 +30,6 @@ const (
+ 	AttributeFaasInstance          = "faas.instance"
+ 	AttributeFaasName              = "faas.name"
+ 	AttributeFaasVersion           = "faas.version"
+-	AttributeHostHostname          = "host.hostname"
+ 	AttributeHostID                = "host.id"
+ 	AttributeHostImageID           = "host.image.id"
+ 	AttributeHostImageName         = "host.image.name"
+@@ -111,7 +110,6 @@ func GetResourceSemanticConventionAttributeNames() []string {
+ 		AttributeFaasInstance,
+ 		AttributeFaasName,
+ 		AttributeFaasVersion,
+-		AttributeHostHostname,
+ 		AttributeHostID,
+ 		AttributeHostImageID,
+ 		AttributeHostImageName,

@@ -1,0 +1,13 @@
+diff --git a/service/internal/extensions/extensions.go b/service/internal/extensions/extensions.go
+index 717cccc15..15e67bb48 100644
+--- a/service/internal/extensions/extensions.go
++++ b/service/internal/extensions/extensions.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package extensions
++package extensions // import "go.opentelemetry.io/collector/service/internal/extensions"
+ 
+ import (
+ 	"context"

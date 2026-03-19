@@ -1,0 +1,16 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 07bb29c93..2ed6336fd 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -33,8 +33,9 @@ func main() {
+ 	}
+ 
+ 	info := component.BuildInfo{
+-		ExeName: "otelcol",
+-		Version: version.Version,
++		Command:     "otelcol",
++		Description: "OpenTelemetry Collector",
++		Version:     version.Version,
+ 	}
+ 
+ 	if err := run(service.Parameters{BuildInfo: info, Factories: factories}); err != nil {

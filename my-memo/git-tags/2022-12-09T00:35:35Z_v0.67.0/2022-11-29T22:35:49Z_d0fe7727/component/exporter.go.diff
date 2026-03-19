@@ -1,0 +1,14 @@
+diff --git a/component/exporter.go b/component/exporter.go
+index db1013d47..3f2044cc5 100644
+--- a/component/exporter.go
++++ b/component/exporter.go
+@@ -46,6 +46,9 @@ type LogsExporter interface {
+ 
+ // ExporterCreateSettings configures Exporter creators.
+ type ExporterCreateSettings struct {
++	// ID returns the ID of the component that will be created.
++	ID ID
++
+ 	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes

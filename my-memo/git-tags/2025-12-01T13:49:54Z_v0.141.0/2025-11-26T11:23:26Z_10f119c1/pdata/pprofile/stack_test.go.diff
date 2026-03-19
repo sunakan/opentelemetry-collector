@@ -1,0 +1,41 @@
+diff --git a/pdata/pprofile/stack_test.go b/pdata/pprofile/stack_test.go
+index ee2927c17..00cc33e65 100644
+--- a/pdata/pprofile/stack_test.go
++++ b/pdata/pprofile/stack_test.go
+@@ -9,6 +9,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestStackEqual(t *testing.T) {
+@@ -195,3 +197,27 @@ func TestStackSwitchDictionary(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func BenchmarkStackSwitchDictionary(b *testing.B) {
++	testutil.SkipMemoryBench(b)
++
++	s := NewStack()
++	s.LocationIndices().Append(1, 2)
++
++	src := NewProfilesDictionary()
++	src.LocationTable().AppendEmpty()
++	src.LocationTable().AppendEmpty().SetAddress(42)
++	src.LocationTable().AppendEmpty().SetAddress(43)
++
++	b.ReportAllocs()
++
++	for b.Loop() {
++		b.StopTimer()
++		dst := NewProfilesDictionary()
++		dst.LocationTable().AppendEmpty()
++		dst.LocationTable().AppendEmpty().SetAddress(43)
++		b.StartTimer()
++
++		_ = s.switchDictionary(src, dst)
++	}
++}

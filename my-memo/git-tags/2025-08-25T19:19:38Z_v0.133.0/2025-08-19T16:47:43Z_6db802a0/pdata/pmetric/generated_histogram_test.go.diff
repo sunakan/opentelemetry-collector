@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogram_test.go b/pdata/pmetric/generated_histogram_test.go
+index e1437eaac..c25314721 100644
+--- a/pdata/pmetric/generated_histogram_test.go
++++ b/pdata/pmetric/generated_histogram_test.go
+@@ -58,7 +58,6 @@ func TestHistogram_AggregationTemporality(t *testing.T) {
+ }
+ 
+ func generateTestHistogram() Histogram {
+-	ms := NewHistogram()
+-	internal.FillOrigTestHistogram(ms.orig)
++	ms := newHistogram(internal.GenTestOrigHistogram(), internal.NewState())
+ 	return ms
+ }

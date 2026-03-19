@@ -1,0 +1,13 @@
+diff --git a/exporter/factory.go b/exporter/factory.go
+index 2c77c08c5..62c8b9ea9 100644
+--- a/exporter/factory.go
++++ b/exporter/factory.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Factory interface for exporters.

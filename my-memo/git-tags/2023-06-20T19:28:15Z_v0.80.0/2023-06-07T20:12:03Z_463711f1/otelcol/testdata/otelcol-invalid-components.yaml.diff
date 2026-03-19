@@ -1,0 +1,18 @@
+diff --git a/otelcol/testdata/otelcol-invalid-components.yaml b/otelcol/testdata/otelcol-invalid-components.yaml
+new file mode 100644
+index 000000000..37a1ea4b3
+--- /dev/null
++++ b/otelcol/testdata/otelcol-invalid-components.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  nop:
++exporters:
++  nop:
++processors:
++  nosuchprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [nop]
++      exporters: [nop]
++      processors: [nop]

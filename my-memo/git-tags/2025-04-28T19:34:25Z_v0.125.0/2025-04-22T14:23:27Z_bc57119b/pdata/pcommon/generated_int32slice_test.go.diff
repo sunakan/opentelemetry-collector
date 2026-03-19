@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_int32slice_test.go b/pdata/pcommon/generated_int32slice_test.go
+index 9c3c89ed5..1d1dbf46c 100644
+--- a/pdata/pcommon/generated_int32slice_test.go
++++ b/pdata/pcommon/generated_int32slice_test.go
+@@ -43,6 +43,9 @@ func TestNewInt32Slice(t *testing.T) {
+ 	ms.MoveTo(mv)
+ 	assert.Equal(t, 3, mv.Len())
+ 	assert.Equal(t, int32(1), mv.At(0))
++	mv.MoveTo(mv)
++	assert.Equal(t, 3, mv.Len())
++	assert.Equal(t, int32(1), mv.At(0))
+ }
+ 
+ func TestInt32SliceReadOnly(t *testing.T) {

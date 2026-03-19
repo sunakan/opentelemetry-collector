@@ -1,0 +1,15 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 326b58eec..1c9d17a65 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -98,8 +98,8 @@ func MustNewConfigProvider(
+ 	}
+ }
+ 
+-// MustNewDefaultConfigProvider returns the default ConfigProvider, and it creates configuration from a file
+-// defined by the given configFile and overwrites fields using properties.
++// MustNewDefaultConfigProvider returns the default ConfigProvider from slice of location strings
++// (e.g. file:/path/to/config.yaml) and property overrides (e.g. service.telemetry.metrics.address=localhost:8888).
+ func MustNewDefaultConfigProvider(configLocations []string, properties []string) ConfigProvider {
+ 	return MustNewConfigProvider(
+ 		configLocations,

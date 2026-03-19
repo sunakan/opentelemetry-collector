@@ -1,0 +1,10 @@
+diff --git a/pdata/xpdata/go.mod b/pdata/xpdata/go.mod
+index 1775c59b8..2fb43f391 100644
+--- a/pdata/xpdata/go.mod
++++ b/pdata/xpdata/go.mod
+@@ -35,3 +35,5 @@ replace go.opentelemetry.io/collector/client => ../../client
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

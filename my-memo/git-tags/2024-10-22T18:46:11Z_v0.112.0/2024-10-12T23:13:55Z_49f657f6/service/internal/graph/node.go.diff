@@ -1,0 +1,11 @@
+diff --git a/service/internal/graph/node.go b/service/internal/graph/node.go
+index 0e17bb74b..0d1c329c6 100644
+--- a/service/internal/graph/node.go
++++ b/service/internal/graph/node.go
+@@ -17,5 +17,6 @@ func (n nodeID) ID() int64 {
+ func newNodeID(parts ...string) nodeID {
+ 	h := fnv.New64a()
+ 	h.Write([]byte(strings.Join(parts, "|")))
++	// nolint:gosec
+ 	return nodeID(h.Sum64())
+ }

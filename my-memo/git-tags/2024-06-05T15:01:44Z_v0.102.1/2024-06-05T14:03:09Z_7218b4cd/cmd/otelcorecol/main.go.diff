@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcorecol/main.go b/cmd/otelcorecol/main.go
+index b392b8478..8d43a5027 100644
+--- a/cmd/otelcorecol/main.go
++++ b/cmd/otelcorecol/main.go
+@@ -21,7 +21,7 @@ func main() {
+ 	info := component.BuildInfo{
+ 		Command:     "otelcorecol",
+ 		Description: "Local OpenTelemetry Collector binary, testing only.",
+-		Version:     "0.102.0-dev",
++		Version:     "0.102.1-dev",
+ 	}
+ 
+ 	set := otelcol.CollectorSettings{

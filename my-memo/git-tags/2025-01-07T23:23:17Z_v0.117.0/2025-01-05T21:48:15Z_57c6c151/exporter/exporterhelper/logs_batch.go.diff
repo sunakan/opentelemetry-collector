@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/logs_batch.go b/exporter/exporterhelper/logs_batch.go
+index 9d5c7077c..4e4609b18 100644
+--- a/exporter/exporterhelper/logs_batch.go
++++ b/exporter/exporterhelper/logs_batch.go
+@@ -37,13 +37,15 @@ func (req *logsRequest) MergeSplit(_ context.Context, cfg exporterbatcher.MaxSiz
+ 		if srcReq == nil {
+ 			continue
+ 		}
+-		if srcReq.ld.LogRecordCount() <= capacityLeft {
++
++		srcCount := srcReq.ld.LogRecordCount()
++		if srcCount <= capacityLeft {
+ 			if destReq == nil {
+ 				destReq = srcReq
+ 			} else {
+ 				srcReq.ld.ResourceLogs().MoveAndAppendTo(destReq.ld.ResourceLogs())
+ 			}
+-			capacityLeft -= destReq.ld.LogRecordCount()
++			capacityLeft -= srcCount
+ 			continue
+ 		}
+ 

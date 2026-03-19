@@ -1,0 +1,18 @@
+diff --git a/pdata/pmetric/pb_test.go b/pdata/pmetric/pb_test.go
+index b50041e17..3be66f16a 100644
+--- a/pdata/pmetric/pb_test.go
++++ b/pdata/pmetric/pb_test.go
+@@ -31,12 +31,11 @@ func TestProtoMetricsUnmarshaler_error(t *testing.T) {
+ }
+ 
+ func TestProtoSizer(t *testing.T) {
+-	sizer := NewProtoMarshaler().(Sizer)
+ 	marshaler := NewProtoMarshaler()
+ 	md := NewMetrics()
+ 	md.ResourceMetrics().AppendEmpty().ScopeMetrics().AppendEmpty().Metrics().AppendEmpty().SetName("foo")
+ 
+-	size := sizer.MetricsSize(md)
++	size := marshaler.MetricsSize(md)
+ 
+ 	bytes, err := marshaler.MarshalMetrics(md)
+ 	require.NoError(t, err)

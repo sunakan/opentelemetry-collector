@@ -1,0 +1,14 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2.go b/translator/trace/zipkin/traces_to_zipkinv2.go
+index 922e10cf3..a8378c2cd 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2.go
+@@ -95,9 +95,6 @@ func resourceSpansToZipkinSpans(rs pdata.ResourceSpans, estSpanCount int) ([]*zi
+ }
+ 
+ func extractInstrumentationLibraryTags(il pdata.InstrumentationLibrary, zTags map[string]string) {
+-	if il.IsNil() {
+-		return
+-	}
+ 	if ilName := il.Name(); ilName != "" {
+ 		zTags[tracetranslator.TagInstrumentationName] = ilName
+ 	}

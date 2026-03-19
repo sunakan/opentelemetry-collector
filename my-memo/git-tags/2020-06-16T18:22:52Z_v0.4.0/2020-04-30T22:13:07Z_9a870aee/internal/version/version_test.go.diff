@@ -1,0 +1,23 @@
+diff --git a/internal/version/version_test.go b/internal/version/version_test.go
+index 8dede43da..1084cd54d 100644
+--- a/internal/version/version_test.go
++++ b/internal/version/version_test.go
+@@ -14,4 +14,17 @@
+ 
+ package version
+ 
+-// TODO: Add tests
++import (
++	"strings"
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++)
++
++func TestInfoString(t *testing.T) {
++	infoString := InfoVar.String()
++	for _, el := range InfoVar {
++		assert.True(t, strings.Contains(infoString, el[0]))
++		assert.True(t, strings.Contains(infoString, el[1]))
++	}
++}

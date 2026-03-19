@@ -1,0 +1,34 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice_test.go b/pdata/pmetric/generated_numberdatapointslice_test.go
+index 1d6651aaa..a7da42fbb 100644
+--- a/pdata/pmetric/generated_numberdatapointslice_test.go
++++ b/pdata/pmetric/generated_numberdatapointslice_test.go
+@@ -51,16 +51,25 @@ func TestNumberDataPointSliceReadOnly(t *testing.T) {
+ 
+ func TestNumberDataPointSlice_CopyTo(t *testing.T) {
+ 	dest := NewNumberDataPointSlice()
+-	// Test CopyTo to empty
++	// Test CopyTo empty
+ 	NewNumberDataPointSlice().CopyTo(dest)
+ 	assert.Equal(t, NewNumberDataPointSlice(), dest)
+ 
+-	// Test CopyTo larger slice
+-	generateTestNumberDataPointSlice().CopyTo(dest)
++	// Test CopyTo larger slice and EnsureCapacity
++	src := generateTestNumberDataPointSlice()
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestNumberDataPointSlice(), dest)
+ 
+ 	// Test CopyTo same size slice
+-	generateTestNumberDataPointSlice().CopyTo(dest)
++	src.CopyTo(dest)
++	assert.Equal(t, generateTestNumberDataPointSlice(), dest)
++}
++
++func TestNumberDataPointSlice_CopyToAndEnsureCapacity(t *testing.T) {
++	dest := NewNumberDataPointSlice()
++	src := generateTestNumberDataPointSlice()
++	dest.EnsureCapacity(src.Len())
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestNumberDataPointSlice(), dest)
+ }
+ 

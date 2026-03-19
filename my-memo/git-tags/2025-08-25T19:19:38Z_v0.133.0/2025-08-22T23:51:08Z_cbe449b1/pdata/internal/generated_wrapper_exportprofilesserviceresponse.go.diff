@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+index c0a4e1e0d..57f666fb0 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolExportProfilesServiceResponse = sync.Pool{
+-	New: func() any {
+-		return &otlpcollectorprofiles.ExportProfilesServiceResponse{}
+-	},
+-}
++var (
++	protoPoolExportProfilesServiceResponse = sync.Pool{
++		New: func() any {
++			return &otlpcollectorprofiles.ExportProfilesServiceResponse{}
++		},
++	}
++)
+ 
+ func NewOrigExportProfilesServiceResponse() *otlpcollectorprofiles.ExportProfilesServiceResponse {
+ 	if !UseProtoPooling.IsEnabled() {

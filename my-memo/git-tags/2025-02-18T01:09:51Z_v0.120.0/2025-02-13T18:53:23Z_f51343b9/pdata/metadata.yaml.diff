@@ -1,0 +1,16 @@
+diff --git a/pdata/metadata.yaml b/pdata/metadata.yaml
+index bcb68722f..5bb99667d 100644
+--- a/pdata/metadata.yaml
++++ b/pdata/metadata.yaml
+@@ -1,4 +1,5 @@
+ type: pdata
++github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
+   class: pkg
+@@ -6,3 +7,5 @@ status:
+     active:
+       - BogdanDrutu
+       - dmitryax
++  stability:
++    stable: [traces, metrics, logs]

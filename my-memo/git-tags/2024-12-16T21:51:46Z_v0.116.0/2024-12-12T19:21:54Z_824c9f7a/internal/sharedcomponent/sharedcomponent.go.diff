@@ -1,0 +1,17 @@
+diff --git a/internal/sharedcomponent/sharedcomponent.go b/internal/sharedcomponent/sharedcomponent.go
+index 10ccba36b..397e97848 100644
+--- a/internal/sharedcomponent/sharedcomponent.go
++++ b/internal/sharedcomponent/sharedcomponent.go
+@@ -102,8 +102,10 @@ func (c *Component[V]) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }
+ 
+-var _ component.Host = (*hostWrapper)(nil)
+-var _ componentstatus.Reporter = (*hostWrapper)(nil)
++var (
++	_ component.Host           = (*hostWrapper)(nil)
++	_ componentstatus.Reporter = (*hostWrapper)(nil)
++)
+ 
+ type hostWrapper struct {
+ 	host           component.Host

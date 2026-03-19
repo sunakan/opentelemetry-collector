@@ -1,0 +1,27 @@
+diff --git a/processor/resourceprocessor/resource_processor_test.go b/processor/resourceprocessor/resource_processor_test.go
+index 0929ce162..f55586f67 100644
+--- a/processor/resourceprocessor/resource_processor_test.go
++++ b/processor/resourceprocessor/resource_processor_test.go
+@@ -129,6 +129,22 @@ func TestResourceProcessor(t *testing.T) {
+ 			sourceResource:      nil,
+ 			wantResource:        nil,
+ 		},
++		{
++			name:                "Consumed resource with nil labels",
++			config:              cfgWithEmptyResourceType,
++			mutatesConsumedData: true,
++			sourceResource: &resourcepb.Resource{
++				Type: "original-type",
++			},
++			wantResource: &resourcepb.Resource{
++				Type: "original-type",
++				Labels: map[string]string{
++					"cloud.zone":       "zone-1",
++					"k8s.cluster.name": "k8s-cluster",
++					"host.name":        "k8s-node",
++				},
++			},
++		},
+ 	}
+ 
+ 	for _, tt := range tests {

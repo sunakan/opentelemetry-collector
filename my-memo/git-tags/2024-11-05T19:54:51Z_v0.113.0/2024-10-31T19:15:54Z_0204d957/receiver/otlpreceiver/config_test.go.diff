@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 2b67125c1..dc00872dd 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -141,7 +141,6 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				},
+ 			},
+ 		}, cfg)
+-
+ }
+ 
+ func TestUnmarshalConfigUnix(t *testing.T) {

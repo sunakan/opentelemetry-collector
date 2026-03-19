@@ -1,0 +1,15 @@
+diff --git a/consumer/consumererror/xconsumererror/signalerrors_test.go b/consumer/consumererror/xconsumererror/signalerrors_test.go
+index ade36ac12..0782d8f29 100644
+--- a/consumer/consumererror/xconsumererror/signalerrors_test.go
++++ b/consumer/consumererror/xconsumererror/signalerrors_test.go
+@@ -19,8 +19,8 @@ func TestProfiles(t *testing.T) {
+ 	profileErr := NewProfiles(err, td)
+ 	assert.Equal(t, err.Error(), profileErr.Error())
+ 	var target Profiles
+-	assert.False(t, errors.As(nil, &target))
+-	assert.False(t, errors.As(err, &target))
++	assert.NotErrorAs(t, nil, &target)
++	assert.NotErrorAs(t, err, &target)
+ 	require.ErrorAs(t, profileErr, &target)
+ 	assert.Equal(t, td, target.Data())
+ }

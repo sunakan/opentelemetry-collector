@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index d6a72f429..245a71f1d 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -256,7 +256,7 @@ type templateContext struct {
+ }
+ 
+ func loadMetadata(filePath string) (metadata, error) {
+-	cp, err := fileprovider.NewWithSettings(confmaptest.NewNopProviderSettings()).Retrieve(context.Background(), "file:"+filePath, nil)
++	cp, err := fileprovider.NewFactory().Create(confmaptest.NewNopProviderSettings()).Retrieve(context.Background(), "file:"+filePath, nil)
+ 	if err != nil {
+ 		return metadata{}, err
+ 	}

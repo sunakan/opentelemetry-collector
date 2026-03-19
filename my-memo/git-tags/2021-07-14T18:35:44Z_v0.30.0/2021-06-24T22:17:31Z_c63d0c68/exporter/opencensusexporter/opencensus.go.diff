@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/opencensus.go b/exporter/opencensusexporter/opencensus.go
+index ca1c28f3e..eeff52e17 100644
+--- a/exporter/opencensusexporter/opencensus.go
++++ b/exporter/opencensusexporter/opencensus.go
+@@ -27,7 +27,7 @@ import (
+ 	"google.golang.org/grpc/metadata"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/internaldata"
+ )
+ 

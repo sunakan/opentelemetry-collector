@@ -1,0 +1,18 @@
+diff --git a/scraper/logs_test.go b/scraper/logs_test.go
+index 89f0a6a63..dc46e522c 100644
+--- a/scraper/logs_test.go
++++ b/scraper/logs_test.go
+@@ -58,11 +58,11 @@ func TestLogsConcurrency(t *testing.T) {
+ 	require.NoError(t, mp.Start(context.Background(), componenttest.NewNopHost()))
+ 
+ 	var wg sync.WaitGroup
+-	for i := 0; i < 10; i++ {
++	for range 10 {
+ 		wg.Add(1)
+ 		go func() {
+ 			defer wg.Done()
+-			for j := 0; j < 10000; j++ {
++			for range 10000 {
+ 				_, errScrape := mp.ScrapeLogs(context.Background())
+ 				assert.NoError(t, errScrape)
+ 			}

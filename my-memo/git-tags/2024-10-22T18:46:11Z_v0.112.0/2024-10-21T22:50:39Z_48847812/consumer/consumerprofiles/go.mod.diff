@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerprofiles/go.mod b/consumer/consumerprofiles/go.mod
+index fe83e9a16..a78c7f300 100644
+--- a/consumer/consumerprofiles/go.mod
++++ b/consumer/consumerprofiles/go.mod
+@@ -10,7 +10,7 @@ replace go.opentelemetry.io/collector/consumer => ../
+ 
+ require (
+ 	github.com/stretchr/testify v1.9.0
+-	go.opentelemetry.io/collector/consumer v0.111.0
++	go.opentelemetry.io/collector/consumer v0.111.1-0.20241021181817-007f06b7c4a8
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.111.0
+ )
+ 

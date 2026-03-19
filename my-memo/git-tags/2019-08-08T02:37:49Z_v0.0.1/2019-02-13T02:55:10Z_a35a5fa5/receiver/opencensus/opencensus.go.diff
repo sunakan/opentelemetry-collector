@@ -1,0 +1,20 @@
+diff --git a/receiver/opencensus/opencensus.go b/receiver/opencensus/opencensus.go
+index 447aa0e22..055bb14c0 100644
+--- a/receiver/opencensus/opencensus.go
++++ b/receiver/opencensus/opencensus.go
+@@ -189,9 +189,13 @@ func (ocr *Receiver) Stop() error {
+ 
+ 	var err = errAlreadyStopped
+ 	ocr.stopOnce.Do(func() {
+-		_ = ocr.serverHTTP.Close()
++		if ocr.serverHTTP != nil {
++			_ = ocr.serverHTTP.Close()
++		}
+ 
+-		_ = ocr.ln.Close()
++		if ocr.ln != nil {
++			_ = ocr.ln.Close()
++		}
+ 
+ 		// TODO: @(odeke-em) investigate what utility invoking (*grpc.Server).Stop()
+ 		// gives us yet we invoke (net.Listener).Close().

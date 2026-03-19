@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_logrecordslice.go b/pdata/plog/generated_logrecordslice.go
+index 39ef05ee2..0c1cb9297 100644
+--- a/pdata/plog/generated_logrecordslice.go
++++ b/pdata/plog/generated_logrecordslice.go
+@@ -99,7 +99,7 @@ func (es LogRecordSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added LogRecord.
+ func (es LogRecordSlice) AppendEmpty() LogRecord {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrLogRecord())
++	*es.orig = append(*es.orig, internal.NewOrigLogRecord())
+ 	return es.At(es.Len() - 1)
+ }
+ 

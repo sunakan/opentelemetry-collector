@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/nodes.go b/service/internal/graph/nodes.go
+index e6277a8ac..7f66a3257 100644
+--- a/service/internal/graph/nodes.go
++++ b/service/internal/graph/nodes.go
+@@ -231,7 +231,7 @@ func (n *connectorNode) buildComponent(
+ 	ctx context.Context,
+ 	tel component.TelemetrySettings,
+ 	info component.BuildInfo,
+-	builder *connector.Builder,
++	builder builders.Connector,
+ 	nexts []baseConsumer,
+ ) error {
+ 	tel.Logger = components.ConnectorLogger(tel.Logger, n.componentID, n.exprPipelineType, n.rcvrPipelineType)

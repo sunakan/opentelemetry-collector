@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/generated_resource.go b/pdata/pcommon/generated_resource.go
+index 12e6cfa7f..a40ab92ea 100644
+--- a/pdata/pcommon/generated_resource.go
++++ b/pdata/pcommon/generated_resource.go
+@@ -38,6 +38,10 @@ func NewResource() Resource {
+ func (ms Resource) MoveTo(dest Resource) {
+ 	ms.getState().AssertMutable()
+ 	dest.getState().AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = *ms.getOrig()
+ 	*ms.getOrig() = otlpresource.Resource{}
+ }

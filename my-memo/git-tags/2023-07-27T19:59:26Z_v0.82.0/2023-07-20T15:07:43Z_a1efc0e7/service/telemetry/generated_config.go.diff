@@ -1,0 +1,496 @@
+diff --git a/service/telemetry/generated_config.go b/service/telemetry/generated_config.go
+index b9ed20c12..340d9aac7 100644
+--- a/service/telemetry/generated_config.go
++++ b/service/telemetry/generated_config.go
+@@ -17,7 +17,7 @@ type BatchLogRecordProcessor struct {
+ 	ExportTimeout *int `mapstructure:"export_timeout,omitempty"`
+ 
+ 	// Exporter corresponds to the JSON schema field "exporter".
+-	Exporter *LogRecordExporter `mapstructure:"exporter,omitempty"`
++	Exporter LogRecordExporter `mapstructure:"exporter"`
+ 
+ 	// MaxExportBatchSize corresponds to the JSON schema field
+ 	// "max_export_batch_size".
+@@ -35,7 +35,7 @@ type BatchSpanProcessor struct {
+ 	ExportTimeout *int `mapstructure:"export_timeout,omitempty"`
+ 
+ 	// Exporter corresponds to the JSON schema field "exporter".
+-	Exporter *SpanExporter `mapstructure:"exporter,omitempty"`
++	Exporter SpanExporter `mapstructure:"exporter"`
+ 
+ 	// MaxExportBatchSize corresponds to the JSON schema field
+ 	// "max_export_batch_size".
+@@ -52,7 +52,7 @@ type CommonJson map[string]interface{}
+ 
+ type Console map[string]interface{}
+ 
+-type Headers map[string]interface{}
++type Headers map[string]string
+ 
+ type LogRecordExporter struct {
+ 	// Otlp corresponds to the JSON schema field "otlp".
+@@ -222,126 +222,90 @@ type SamplerAlwaysOff map[string]interface{}
+ 
+ type SamplerAlwaysOn map[string]interface{}
+ 
+-type SamplerJaegerRemote struct {
+-	// Endpoint corresponds to the JSON schema field "endpoint".
+-	Endpoint *string `mapstructure:"endpoint,omitempty"`
+-
+-	// InitialSampler corresponds to the JSON schema field "initial_sampler".
+-	InitialSampler *Sampler `mapstructure:"initial_sampler,omitempty"`
+-
+-	// Interval corresponds to the JSON schema field "interval".
+-	Interval *int `mapstructure:"interval,omitempty"`
+-}
+-
+-type SamplerParentBased struct {
+-	// LocalParentNotSampled corresponds to the JSON schema field
+-	// "local_parent_not_sampled".
+-	LocalParentNotSampled *Sampler `mapstructure:"local_parent_not_sampled,omitempty"`
+-
+-	// LocalParentSampled corresponds to the JSON schema field "local_parent_sampled".
+-	LocalParentSampled *Sampler `mapstructure:"local_parent_sampled,omitempty"`
+-
+-	// RemoteParentNotSampled corresponds to the JSON schema field
+-	// "remote_parent_not_sampled".
+-	RemoteParentNotSampled *Sampler `mapstructure:"remote_parent_not_sampled,omitempty"`
+-
+-	// RemoteParentSampled corresponds to the JSON schema field
+-	// "remote_parent_sampled".
+-	RemoteParentSampled *Sampler `mapstructure:"remote_parent_sampled,omitempty"`
+-
+-	// Root corresponds to the JSON schema field "root".
+-	Root *Sampler `mapstructure:"root,omitempty"`
+-}
+-
+-type SamplerTraceIdRatioBased struct {
+-	// Ratio corresponds to the JSON schema field "ratio".
+-	Ratio *float64 `mapstructure:"ratio,omitempty"`
+-}
+-
+-type SimpleLogRecordProcessor struct {
+-	// Exporter corresponds to the JSON schema field "exporter".
+-	Exporter *LogRecordExporter `mapstructure:"exporter,omitempty"`
+-}
+-
+-type SimpleSpanProcessor struct {
+-	// Exporter corresponds to the JSON schema field "exporter".
+-	Exporter *SpanExporter `mapstructure:"exporter,omitempty"`
++// UnmarshalJSON implements json.Unmarshaler.
++func (j *BatchSpanProcessor) UnmarshalJSON(b []byte) error {
++	var raw map[string]interface{}
++	if err := json.Unmarshal(b, &raw); err != nil {
++		return err
++	}
++	if v, ok := raw["exporter"]; !ok || v == nil {
++		return fmt.Errorf("field exporter in BatchSpanProcessor: required")
++	}
++	type Plain BatchSpanProcessor
++	var plain Plain
++	if err := json.Unmarshal(b, &plain); err != nil {
++		return err
++	}
++	*j = BatchSpanProcessor(plain)
++	return nil
+ }
+ 
+-type SpanExporter struct {
+-	// Console corresponds to the JSON schema field "console".
+-	Console Console `mapstructure:"console,omitempty"`
++type ViewStreamAggregationExplicitBucketHistogram struct {
++	// Boundaries corresponds to the JSON schema field "boundaries".
++	Boundaries []float64 `mapstructure:"boundaries,omitempty"`
+ 
+-	// Otlp corresponds to the JSON schema field "otlp".
+-	Otlp *Otlp `mapstructure:"otlp,omitempty"`
++	// RecordMinMax corresponds to the JSON schema field "record_min_max".
++	RecordMinMax *bool `mapstructure:"record_min_max,omitempty"`
+ }
+ 
+-type SpanLimits struct {
+-	// AttributeCountLimit corresponds to the JSON schema field
+-	// "attribute_count_limit".
+-	AttributeCountLimit *int `mapstructure:"attribute_count_limit,omitempty"`
+-
+-	// AttributeValueLengthLimit corresponds to the JSON schema field
+-	// "attribute_value_length_limit".
+-	AttributeValueLengthLimit *int `mapstructure:"attribute_value_length_limit,omitempty"`
+-
+-	// EventAttributeCountLimit corresponds to the JSON schema field
+-	// "event_attribute_count_limit".
+-	EventAttributeCountLimit *int `mapstructure:"event_attribute_count_limit,omitempty"`
+-
+-	// EventCountLimit corresponds to the JSON schema field "event_count_limit".
+-	EventCountLimit *int `mapstructure:"event_count_limit,omitempty"`
++type ViewStreamAggregationExponentialBucketHistogram struct {
++	// MaxScale corresponds to the JSON schema field "max_scale".
++	MaxScale *int `mapstructure:"max_scale,omitempty"`
+ 
+-	// LinkAttributeCountLimit corresponds to the JSON schema field
+-	// "link_attribute_count_limit".
+-	LinkAttributeCountLimit *int `mapstructure:"link_attribute_count_limit,omitempty"`
++	// MaxSize corresponds to the JSON schema field "max_size".
++	MaxSize *int `mapstructure:"max_size,omitempty"`
+ 
+-	// LinkCountLimit corresponds to the JSON schema field "link_count_limit".
+-	LinkCountLimit *int `mapstructure:"link_count_limit,omitempty"`
++	// RecordMinMax corresponds to the JSON schema field "record_min_max".
++	RecordMinMax *bool `mapstructure:"record_min_max,omitempty"`
+ }
+ 
+-type SpanProcessor struct {
+-	// Batch corresponds to the JSON schema field "batch".
+-	Batch *BatchSpanProcessor `mapstructure:"batch,omitempty"`
+-
+-	// Simple corresponds to the JSON schema field "simple".
+-	Simple *SimpleSpanProcessor `mapstructure:"simple,omitempty"`
+-}
++type ViewStreamAggregation struct {
++	// Default corresponds to the JSON schema field "default".
++	Default interface{} `mapstructure:"default,omitempty"`
+ 
+-type TracerProviderJson struct {
+-	// Limits corresponds to the JSON schema field "limits".
+-	Limits *SpanLimits `mapstructure:"limits,omitempty"`
++	// Drop corresponds to the JSON schema field "drop".
++	Drop interface{} `mapstructure:"drop,omitempty"`
+ 
+-	// Processors corresponds to the JSON schema field "processors".
+-	Processors []SpanProcessor `mapstructure:"processors,omitempty"`
++	// ExplicitBucketHistogram corresponds to the JSON schema field
++	// "explicit_bucket_histogram".
++	ExplicitBucketHistogram *ViewStreamAggregationExplicitBucketHistogram `mapstructure:"explicit_bucket_histogram,omitempty"`
+ 
+-	// Sampler corresponds to the JSON schema field "sampler".
+-	Sampler *Sampler `mapstructure:"sampler,omitempty"`
+-}
++	// ExponentialBucketHistogram corresponds to the JSON schema field
++	// "exponential_bucket_histogram".
++	ExponentialBucketHistogram *ViewStreamAggregationExponentialBucketHistogram `mapstructure:"exponential_bucket_histogram,omitempty"`
+ 
+-type View struct {
+-	// Selector corresponds to the JSON schema field "selector".
+-	Selector *ViewSelector `mapstructure:"selector,omitempty"`
++	// LastValue corresponds to the JSON schema field "last_value".
++	LastValue interface{} `mapstructure:"last_value,omitempty"`
+ 
+-	// Stream corresponds to the JSON schema field "stream".
+-	Stream *ViewStream `mapstructure:"stream,omitempty"`
++	// Sum corresponds to the JSON schema field "sum".
++	Sum interface{} `mapstructure:"sum,omitempty"`
+ }
+ 
+-type ViewSelector struct {
+-	// InstrumentName corresponds to the JSON schema field "instrument_name".
+-	InstrumentName *string `mapstructure:"instrument_name,omitempty"`
+-
+-	// InstrumentType corresponds to the JSON schema field "instrument_type".
+-	InstrumentType *string `mapstructure:"instrument_type,omitempty"`
+-
+-	// MeterName corresponds to the JSON schema field "meter_name".
+-	MeterName *string `mapstructure:"meter_name,omitempty"`
+-
+-	// MeterSchemaUrl corresponds to the JSON schema field "meter_schema_url".
+-	MeterSchemaUrl *string `mapstructure:"meter_schema_url,omitempty"`
+-
+-	// MeterVersion corresponds to the JSON schema field "meter_version".
+-	MeterVersion *string `mapstructure:"meter_version,omitempty"`
++// UnmarshalJSON implements json.Unmarshaler.
++func (j *ViewStreamAggregation) UnmarshalJSON(b []byte) error {
++	var raw map[string]interface{}
++	if err := json.Unmarshal(b, &raw); err != nil {
++		return err
++	}
++	type Plain ViewStreamAggregation
++	var plain Plain
++	if err := json.Unmarshal(b, &plain); err != nil {
++		return err
++	}
++	if plain.Default != nil {
++		return fmt.Errorf("field %s: must be null", "default")
++	}
++	if plain.Drop != nil {
++		return fmt.Errorf("field %s: must be null", "drop")
++	}
++	if plain.LastValue != nil {
++		return fmt.Errorf("field %s: must be null", "last_value")
++	}
++	if plain.Sum != nil {
++		return fmt.Errorf("field %s: must be null", "sum")
++	}
++	*j = ViewStreamAggregation(plain)
++	return nil
+ }
+ 
+ type ViewStream struct {
+@@ -358,26 +322,12 @@ type ViewStream struct {
+ 	Name *string `mapstructure:"name,omitempty"`
+ }
+ 
+-type ViewStreamAggregation struct {
+-	// Default corresponds to the JSON schema field "default".
+-	Default interface{} `mapstructure:"default,omitempty"`
+-
+-	// Drop corresponds to the JSON schema field "drop".
+-	Drop interface{} `mapstructure:"drop,omitempty"`
+-
+-	// ExplicitBucketHistogram corresponds to the JSON schema field
+-	// "explicit_bucket_histogram".
+-	ExplicitBucketHistogram *ViewStreamAggregationExplicitBucketHistogram `mapstructure:"explicit_bucket_histogram,omitempty"`
+-
+-	// ExponentialBucketHistogram corresponds to the JSON schema field
+-	// "exponential_bucket_histogram".
+-	ExponentialBucketHistogram *ViewStreamAggregationExponentialBucketHistogram `mapstructure:"exponential_bucket_histogram,omitempty"`
+-
+-	// LastValue corresponds to the JSON schema field "last_value".
+-	LastValue interface{} `mapstructure:"last_value,omitempty"`
++type View struct {
++	// Selector corresponds to the JSON schema field "selector".
++	Selector *ViewSelector `mapstructure:"selector,omitempty"`
+ 
+-	// Sum corresponds to the JSON schema field "sum".
+-	Sum interface{} `mapstructure:"sum,omitempty"`
++	// Stream corresponds to the JSON schema field "stream".
++	Stream *ViewStream `mapstructure:"stream,omitempty"`
+ }
+ 
+ // UnmarshalJSON implements json.Unmarshaler.
+@@ -398,6 +348,27 @@ func (j *PullMetricReader) UnmarshalJSON(b []byte) error {
+ 	return nil
+ }
+ 
++// UnmarshalJSON implements json.Unmarshaler.
++func (j *Otlp) UnmarshalJSON(b []byte) error {
++	var raw map[string]interface{}
++	if err := json.Unmarshal(b, &raw); err != nil {
++		return err
++	}
++	if v, ok := raw["endpoint"]; !ok || v == nil {
++		return fmt.Errorf("field endpoint in Otlp: required")
++	}
++	if v, ok := raw["protocol"]; !ok || v == nil {
++		return fmt.Errorf("field protocol in Otlp: required")
++	}
++	type Plain Otlp
++	var plain Plain
++	if err := json.Unmarshal(b, &plain); err != nil {
++		return err
++	}
++	*j = Otlp(plain)
++	return nil
++}
++
+ // UnmarshalJSON implements json.Unmarshaler.
+ func (j *PeriodicMetricReader) UnmarshalJSON(b []byte) error {
+ 	var raw map[string]interface{}
+@@ -416,6 +387,14 @@ func (j *PeriodicMetricReader) UnmarshalJSON(b []byte) error {
+ 	return nil
+ }
+ 
++type SpanExporter struct {
++	// Console corresponds to the JSON schema field "console".
++	Console Console `mapstructure:"console,omitempty"`
++
++	// Otlp corresponds to the JSON schema field "otlp".
++	Otlp *Otlp `mapstructure:"otlp,omitempty"`
++}
++
+ // UnmarshalJSON implements json.Unmarshaler.
+ func (j *OtlpMetric) UnmarshalJSON(b []byte) error {
+ 	var raw map[string]interface{}
+@@ -437,69 +416,162 @@ func (j *OtlpMetric) UnmarshalJSON(b []byte) error {
+ 	return nil
+ }
+ 
++type ViewSelector struct {
++	// InstrumentName corresponds to the JSON schema field "instrument_name".
++	InstrumentName *string `mapstructure:"instrument_name,omitempty"`
++
++	// InstrumentType corresponds to the JSON schema field "instrument_type".
++	InstrumentType *string `mapstructure:"instrument_type,omitempty"`
++
++	// MeterName corresponds to the JSON schema field "meter_name".
++	MeterName *string `mapstructure:"meter_name,omitempty"`
++
++	// MeterSchemaUrl corresponds to the JSON schema field "meter_schema_url".
++	MeterSchemaUrl *string `mapstructure:"meter_schema_url,omitempty"`
++
++	// MeterVersion corresponds to the JSON schema field "meter_version".
++	MeterVersion *string `mapstructure:"meter_version,omitempty"`
++}
++
+ // UnmarshalJSON implements json.Unmarshaler.
+-func (j *Otlp) UnmarshalJSON(b []byte) error {
++func (j *BatchLogRecordProcessor) UnmarshalJSON(b []byte) error {
+ 	var raw map[string]interface{}
+ 	if err := json.Unmarshal(b, &raw); err != nil {
+ 		return err
+ 	}
+-	if v, ok := raw["endpoint"]; !ok || v == nil {
+-		return fmt.Errorf("field endpoint in Otlp: required")
+-	}
+-	if v, ok := raw["protocol"]; !ok || v == nil {
+-		return fmt.Errorf("field protocol in Otlp: required")
++	if v, ok := raw["exporter"]; !ok || v == nil {
++		return fmt.Errorf("field exporter in BatchLogRecordProcessor: required")
+ 	}
+-	type Plain Otlp
++	type Plain BatchLogRecordProcessor
+ 	var plain Plain
+ 	if err := json.Unmarshal(b, &plain); err != nil {
+ 		return err
+ 	}
+-	*j = Otlp(plain)
++	*j = BatchLogRecordProcessor(plain)
+ 	return nil
+ }
+ 
+-type ViewStreamAggregationExplicitBucketHistogram struct {
+-	// Boundaries corresponds to the JSON schema field "boundaries".
+-	Boundaries []float64 `mapstructure:"boundaries,omitempty"`
++type SimpleLogRecordProcessor struct {
++	// Exporter corresponds to the JSON schema field "exporter".
++	Exporter LogRecordExporter `mapstructure:"exporter"`
++}
+ 
+-	// RecordMinMax corresponds to the JSON schema field "record_min_max".
+-	RecordMinMax *bool `mapstructure:"record_min_max,omitempty"`
++type SamplerJaegerRemote struct {
++	// Endpoint corresponds to the JSON schema field "endpoint".
++	Endpoint *string `mapstructure:"endpoint,omitempty"`
++
++	// InitialSampler corresponds to the JSON schema field "initial_sampler".
++	InitialSampler *Sampler `mapstructure:"initial_sampler,omitempty"`
++
++	// Interval corresponds to the JSON schema field "interval".
++	Interval *int `mapstructure:"interval,omitempty"`
+ }
+ 
+-type ViewStreamAggregationExponentialBucketHistogram struct {
+-	// MaxScale corresponds to the JSON schema field "max_scale".
+-	MaxScale *int `mapstructure:"max_scale,omitempty"`
++type SamplerParentBased struct {
++	// LocalParentNotSampled corresponds to the JSON schema field
++	// "local_parent_not_sampled".
++	LocalParentNotSampled *Sampler `mapstructure:"local_parent_not_sampled,omitempty"`
+ 
+-	// MaxSize corresponds to the JSON schema field "max_size".
+-	MaxSize *int `mapstructure:"max_size,omitempty"`
++	// LocalParentSampled corresponds to the JSON schema field "local_parent_sampled".
++	LocalParentSampled *Sampler `mapstructure:"local_parent_sampled,omitempty"`
+ 
+-	// RecordMinMax corresponds to the JSON schema field "record_min_max".
+-	RecordMinMax *bool `mapstructure:"record_min_max,omitempty"`
++	// RemoteParentNotSampled corresponds to the JSON schema field
++	// "remote_parent_not_sampled".
++	RemoteParentNotSampled *Sampler `mapstructure:"remote_parent_not_sampled,omitempty"`
++
++	// RemoteParentSampled corresponds to the JSON schema field
++	// "remote_parent_sampled".
++	RemoteParentSampled *Sampler `mapstructure:"remote_parent_sampled,omitempty"`
++
++	// Root corresponds to the JSON schema field "root".
++	Root *Sampler `mapstructure:"root,omitempty"`
++}
++
++type SamplerTraceIdRatioBased struct {
++	// Ratio corresponds to the JSON schema field "ratio".
++	Ratio *float64 `mapstructure:"ratio,omitempty"`
+ }
+ 
+ // UnmarshalJSON implements json.Unmarshaler.
+-func (j *ViewStreamAggregation) UnmarshalJSON(b []byte) error {
++func (j *SimpleLogRecordProcessor) UnmarshalJSON(b []byte) error {
+ 	var raw map[string]interface{}
+ 	if err := json.Unmarshal(b, &raw); err != nil {
+ 		return err
+ 	}
+-	type Plain ViewStreamAggregation
++	if v, ok := raw["exporter"]; !ok || v == nil {
++		return fmt.Errorf("field exporter in SimpleLogRecordProcessor: required")
++	}
++	type Plain SimpleLogRecordProcessor
+ 	var plain Plain
+ 	if err := json.Unmarshal(b, &plain); err != nil {
+ 		return err
+ 	}
+-	if plain.Default != nil {
+-		return fmt.Errorf("field %s: must be null", "default")
+-	}
+-	if plain.Drop != nil {
+-		return fmt.Errorf("field %s: must be null", "drop")
++	*j = SimpleLogRecordProcessor(plain)
++	return nil
++}
++
++type SimpleSpanProcessor struct {
++	// Exporter corresponds to the JSON schema field "exporter".
++	Exporter SpanExporter `mapstructure:"exporter"`
++}
++
++// UnmarshalJSON implements json.Unmarshaler.
++func (j *SimpleSpanProcessor) UnmarshalJSON(b []byte) error {
++	var raw map[string]interface{}
++	if err := json.Unmarshal(b, &raw); err != nil {
++		return err
+ 	}
+-	if plain.LastValue != nil {
+-		return fmt.Errorf("field %s: must be null", "last_value")
++	if v, ok := raw["exporter"]; !ok || v == nil {
++		return fmt.Errorf("field exporter in SimpleSpanProcessor: required")
+ 	}
+-	if plain.Sum != nil {
+-		return fmt.Errorf("field %s: must be null", "sum")
++	type Plain SimpleSpanProcessor
++	var plain Plain
++	if err := json.Unmarshal(b, &plain); err != nil {
++		return err
+ 	}
+-	*j = ViewStreamAggregation(plain)
++	*j = SimpleSpanProcessor(plain)
+ 	return nil
+ }
++
++type SpanLimits struct {
++	// AttributeCountLimit corresponds to the JSON schema field
++	// "attribute_count_limit".
++	AttributeCountLimit *int `mapstructure:"attribute_count_limit,omitempty"`
++
++	// AttributeValueLengthLimit corresponds to the JSON schema field
++	// "attribute_value_length_limit".
++	AttributeValueLengthLimit *int `mapstructure:"attribute_value_length_limit,omitempty"`
++
++	// EventAttributeCountLimit corresponds to the JSON schema field
++	// "event_attribute_count_limit".
++	EventAttributeCountLimit *int `mapstructure:"event_attribute_count_limit,omitempty"`
++
++	// EventCountLimit corresponds to the JSON schema field "event_count_limit".
++	EventCountLimit *int `mapstructure:"event_count_limit,omitempty"`
++
++	// LinkAttributeCountLimit corresponds to the JSON schema field
++	// "link_attribute_count_limit".
++	LinkAttributeCountLimit *int `mapstructure:"link_attribute_count_limit,omitempty"`
++
++	// LinkCountLimit corresponds to the JSON schema field "link_count_limit".
++	LinkCountLimit *int `mapstructure:"link_count_limit,omitempty"`
++}
++
++type SpanProcessor struct {
++	// Batch corresponds to the JSON schema field "batch".
++	Batch *BatchSpanProcessor `mapstructure:"batch,omitempty"`
++
++	// Simple corresponds to the JSON schema field "simple".
++	Simple *SimpleSpanProcessor `mapstructure:"simple,omitempty"`
++}
++
++type TracerProviderJson struct {
++	// Limits corresponds to the JSON schema field "limits".
++	Limits *SpanLimits `mapstructure:"limits,omitempty"`
++
++	// Processors corresponds to the JSON schema field "processors".
++	Processors []SpanProcessor `mapstructure:"processors,omitempty"`
++
++	// Sampler corresponds to the JSON schema field "sampler".
++	Sampler *Sampler `mapstructure:"sampler,omitempty"`
++}

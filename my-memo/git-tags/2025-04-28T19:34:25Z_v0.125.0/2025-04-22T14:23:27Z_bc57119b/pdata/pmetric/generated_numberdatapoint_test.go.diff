@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint_test.go b/pdata/pmetric/generated_numberdatapoint_test.go
+index 27051155f..de6225438 100644
+--- a/pdata/pmetric/generated_numberdatapoint_test.go
++++ b/pdata/pmetric/generated_numberdatapoint_test.go
+@@ -22,6 +22,8 @@ func TestNumberDataPoint_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewNumberDataPoint(), ms)
+ 	assert.Equal(t, generateTestNumberDataPoint(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestNumberDataPoint(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newNumberDataPoint(&otlpmetrics.NumberDataPoint{}, &sharedState)) })
+ 	assert.Panics(t, func() { newNumberDataPoint(&otlpmetrics.NumberDataPoint{}, &sharedState).MoveTo(dest) })

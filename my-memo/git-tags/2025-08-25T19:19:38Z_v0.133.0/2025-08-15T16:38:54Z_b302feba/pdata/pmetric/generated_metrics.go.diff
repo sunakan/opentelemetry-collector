@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_metrics.go b/pdata/pmetric/generated_metrics.go
+index 0c1c41a5e..fb4efdb3b 100644
+--- a/pdata/pmetric/generated_metrics.go
++++ b/pdata/pmetric/generated_metrics.go
+@@ -30,8 +30,7 @@ func newMetrics(orig *otlpcollectormetrics.ExportMetricsServiceRequest, state *i
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewMetrics() Metrics {
+-	state := internal.StateMutable
+-	return newMetrics(&otlpcollectormetrics.ExportMetricsServiceRequest{}, &state)
++	return newMetrics(&otlpcollectormetrics.ExportMetricsServiceRequest{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

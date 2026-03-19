@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index e510bae3d..6017516c2 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -155,8 +155,9 @@ func newTracesExporterWithObservability(obsrep *ObsReport) requestSender {
+ 
+ func (tewo *tracesExporterWithObservability) send(ctx context.Context, req Request) error {
+ 	c := tewo.obsrep.StartTracesOp(ctx)
++	numTraceSpans := req.ItemsCount()
+ 	// Forward the data to the next consumer (this pusher is the next).
+ 	err := tewo.nextSender.send(c, req)
+-	tewo.obsrep.EndTracesOp(c, req.ItemsCount(), err)
++	tewo.obsrep.EndTracesOp(c, numTraceSpans, err)
+ 	return err
+ }

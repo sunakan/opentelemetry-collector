@@ -1,0 +1,22 @@
+diff --git a/.chloggen/otlpexporter-nil-guard.yaml b/.chloggen/otlpexporter-nil-guard.yaml
+deleted file mode 100644
+index 754a3d539..000000000
+--- a/.chloggen/otlpexporter-nil-guard.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-change_type: bug_fix
+-
+-component: exporter/otlp_grpc
+-
+-note: Prevent nil pointer panic when push methods are called before the OTLP exporter initializes its gRPC clients.
+-
+-issues: [14663]
+-
+-subtext: |
+-  When the sending queue and retry are disabled, calling ConsumeTraces,
+-  ConsumeMetrics, ConsumeLogs, or ConsumeProfiles before the OTLP exporter
+-  initializes its gRPC clients could cause a nil pointer dereference panic.
+-  The push methods now return an error instead of panicking.
+-
+-change_logs: [user]
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/consumer/consumererror/partialerror_test.go b/consumer/consumererror/partialerror_test.go
+index 9a293bcfd..54d19c1c7 100644
+--- a/consumer/consumererror/partialerror_test.go
++++ b/consumer/consumererror/partialerror_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ func TestPartialError(t *testing.T) {

@@ -1,0 +1,31 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 8f93645ee..4c86356ea 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -298,7 +298,7 @@ func (jr *jReceiver) startAgent(host component.Host) error {
+ 			nextConsumer: jr.nextConsumer,
+ 			obsrecv:      obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: jr.id, Transport: agentTransportBinary}),
+ 		}
+-		processor, err := jr.buildProcessor(jr.agentBinaryThriftAddr(), jr.config.AgentBinaryThriftConfig, apacheThrift.NewTBinaryProtocolFactoryDefault(), h)
++		processor, err := jr.buildProcessor(jr.agentBinaryThriftAddr(), jr.config.AgentBinaryThriftConfig, apacheThrift.NewTBinaryProtocolFactoryConf(nil), h)
+ 		if err != nil {
+ 			return err
+ 		}
+@@ -312,7 +312,7 @@ func (jr *jReceiver) startAgent(host component.Host) error {
+ 			nextConsumer: jr.nextConsumer,
+ 			obsrecv:      obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: jr.id, Transport: agentTransportCompact}),
+ 		}
+-		processor, err := jr.buildProcessor(jr.agentCompactThriftAddr(), jr.config.AgentCompactThriftConfig, apacheThrift.NewTCompactProtocolFactory(), h)
++		processor, err := jr.buildProcessor(jr.agentCompactThriftAddr(), jr.config.AgentCompactThriftConfig, apacheThrift.NewTCompactProtocolFactoryConf(nil), h)
+ 		if err != nil {
+ 			return err
+ 		}
+@@ -406,7 +406,7 @@ func (jr *jReceiver) decodeThriftHTTPBody(r *http.Request) (*jaeger.Batch, *http
+ 
+ 	tdes := apacheThrift.NewTDeserializer()
+ 	batch := &jaeger.Batch{}
+-	if err = tdes.Read(batch, bodyBytes); err != nil {
++	if err = tdes.Read(r.Context(), batch, bodyBytes); err != nil {
+ 		return nil, &httpError{
+ 			fmt.Sprintf(handler.UnableToReadBodyErrFormat, err),
+ 			http.StatusBadRequest,

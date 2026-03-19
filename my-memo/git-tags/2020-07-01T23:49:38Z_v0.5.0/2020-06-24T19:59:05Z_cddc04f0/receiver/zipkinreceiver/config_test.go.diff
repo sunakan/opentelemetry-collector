@@ -1,0 +1,25 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index b3c82cd06..311c22d88 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -23,6 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configprotocol"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -45,8 +46,10 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Equal(t, r1,
+ 		&Config{
+ 			ReceiverSettings: configmodels.ReceiverSettings{
+-				TypeVal:  typeStr,
+-				NameVal:  "zipkin/customname",
++				TypeVal: typeStr,
++				NameVal: "zipkin/customname",
++			},
++			ProtocolServerSettings: configprotocol.ProtocolServerSettings{
+ 				Endpoint: "localhost:8765",
+ 			},
+ 		})

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/README.md b/exporter/exporterhelper/README.md
+index 25805edcc..3cf08456c 100644
+--- a/exporter/exporterhelper/README.md
++++ b/exporter/exporterhelper/README.md
+@@ -1,7 +1,6 @@
+ # Exporter Helper
+ 
+-This is a helper exporter that other exporters can depend on. Today, it
+-primarily offers queued retries  and resource attributes to metric labels conversion.
++This is a helper exporter that other exporters can depend on. Today, it primarily offers queued retry capabilities.
+ 
+ > :warning: This exporter should not be added to a service pipeline.
+ 

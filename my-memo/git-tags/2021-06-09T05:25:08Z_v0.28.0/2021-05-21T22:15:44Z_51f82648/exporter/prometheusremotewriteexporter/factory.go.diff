@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/factory.go b/exporter/prometheusremotewriteexporter/factory.go
+index 09bda4612..6b9b2c155 100644
+--- a/exporter/prometheusremotewriteexporter/factory.go
++++ b/exporter/prometheusremotewriteexporter/factory.go
+@@ -45,7 +45,7 @@ func createMetricsExporter(_ context.Context, params component.ExporterCreatePar
+ 		return nil, errors.New("invalid configuration")
+ 	}
+ 
+-	prwe, err := NewPrwExporter(prwCfg, params.BuildInfo)
++	prwe, err := NewPRWExporter(prwCfg, params.BuildInfo)
+ 	if err != nil {
+ 		return nil, err
+ 	}

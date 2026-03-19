@@ -1,0 +1,40 @@
+diff --git a/testutil/testutil.go b/testutil/testutil.go
+index 1412aea88..bc94e3b6c 100644
+--- a/testutil/testutil.go
++++ b/testutil/testutil.go
+@@ -15,9 +15,11 @@
+ package testutil
+ 
+ import (
++	"bytes"
+ 	"encoding/json"
+ 	"errors"
+ 	"fmt"
++	"io"
+ 	"io/ioutil"
+ 	"net"
+ 	"os"
+@@ -151,3 +153,23 @@ func WaitFor(t *testing.T, cond func() bool, errMsg ...interface{}) bool {
+ 		}
+ 	}
+ }
++
++// LimitedWriter is an io.Writer that will return an EOF error after MaxLen has
++// been reached.  If MaxLen is 0, Writes will always succeed.
++type LimitedWriter struct {
++	bytes.Buffer
++	MaxLen int
++}
++
++var _ io.Writer = new(LimitedWriter)
++
++func (lw *LimitedWriter) Write(p []byte) (n int, err error) {
++	if lw.MaxLen != 0 && len(p)+lw.Len() > lw.MaxLen {
++		return 0, io.EOF
++	}
++	return lw.Buffer.Write(p)
++}
++
++func (lw *LimitedWriter) Close() error {
++	return nil
++}

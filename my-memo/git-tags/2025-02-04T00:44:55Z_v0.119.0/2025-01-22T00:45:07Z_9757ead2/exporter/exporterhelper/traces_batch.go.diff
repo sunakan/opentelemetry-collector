@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces_batch.go b/exporter/exporterhelper/traces_batch.go
+index 07a3025d7..46eb1d0f6 100644
+--- a/exporter/exporterhelper/traces_batch.go
++++ b/exporter/exporterhelper/traces_batch.go
+@@ -56,7 +56,7 @@ func (req *tracesRequest) MergeSplit(_ context.Context, cfg exporterbatcher.MaxS
+ 			}
+ 			capacityLeft -= extractedTraces.SpanCount()
+ 			if destReq == nil {
+-				destReq = &tracesRequest{td: extractedTraces, pusher: srcReq.pusher}
++				destReq = newTracesRequest(extractedTraces, srcReq.pusher).(*tracesRequest)
+ 			} else {
+ 				extractedTraces.ResourceSpans().MoveAndAppendTo(destReq.td.ResourceSpans())
+ 			}

@@ -1,0 +1,22 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-exporter-type.yaml b/service/internal/configunmarshaler/testdata/invalid-exporter-type.yaml
+index 9f497c228..359726594 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-exporter-type.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-exporter-type.yaml
+@@ -1,12 +1,12 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+   /custom:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      exporters: [nop]

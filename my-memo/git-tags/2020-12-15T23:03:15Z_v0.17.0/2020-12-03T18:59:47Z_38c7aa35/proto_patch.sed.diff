@@ -1,0 +1,14 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+index b97fc0734..c83bfd00b 100644
+--- a/proto_patch.sed
++++ b/proto_patch.sed
+@@ -34,4 +34,7 @@ s+opentelemetry.proto.resource.v1.Resource resource = \(.*\);+opentelemetry.prot
+   [ (gogoproto.nullable) = false ];+g
+ 
+ s+opentelemetry.proto.common.v1.InstrumentationLibrary instrumentation_library = \(.*\);+opentelemetry.proto.common.v1.InstrumentationLibrary instrumentation_library = \1\
+-  [ (gogoproto.nullable) = false ];+g
+\ No newline at end of file
++  [ (gogoproto.nullable) = false ];+g
++
++s+Status \(.*\);+Status \1\
++  [ (gogoproto.nullable) = false ];+g

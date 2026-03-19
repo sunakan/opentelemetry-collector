@@ -1,0 +1,16 @@
+diff --git a/.gitignore b/.gitignore
+index 0122f7bcd..6404b3f27 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -14,11 +14,6 @@ bin/
+ *.sw[op]
+ *.DS_Store
+ 
+-# Binaries are copied (as needed) to the same location as their respective Dockerfile in
+-# order to simplify docker build commands. Ignore these files if proper clean up fails.
+-cmd/occollector/occollector_linux
+-cmd/otelsvc/otelsvc_linux
+-
+ # Coverage
+ coverage.txt
+ coverage.html

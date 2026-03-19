@@ -1,0 +1,14 @@
+diff --git a/internal/processor/filtermetric/expr_matcher.go b/internal/processor/filtermetric/expr_matcher.go
+index 50352293d..2eb0cc869 100644
+--- a/internal/processor/filtermetric/expr_matcher.go
++++ b/internal/processor/filtermetric/expr_matcher.go
+@@ -15,8 +15,8 @@
+ package filtermetric
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterexpr"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type exprMatcher struct {

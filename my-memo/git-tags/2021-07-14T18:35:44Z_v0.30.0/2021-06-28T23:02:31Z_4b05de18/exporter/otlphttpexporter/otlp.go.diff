@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index 9175f937f..53da6082a 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -37,7 +37,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/internal/middleware"
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

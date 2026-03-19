@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/opencensus.go b/exporter/opencensusexporter/opencensus.go
+index 2484d1719..b487eee66 100644
+--- a/exporter/opencensusexporter/opencensus.go
++++ b/exporter/opencensusexporter/opencensus.go
+@@ -104,7 +104,7 @@ func (oce *ocExporter) shutdown(context.Context) error {
+ 	return oce.grpcClientConn.Close()
+ }
+ 
+-func newTraceExporter(ctx context.Context, cfg *Config) (*ocExporter, error) {
++func newTracesExporter(ctx context.Context, cfg *Config) (*ocExporter, error) {
+ 	oce, err := newOcExporter(ctx, cfg)
+ 	if err != nil {
+ 		return nil, err

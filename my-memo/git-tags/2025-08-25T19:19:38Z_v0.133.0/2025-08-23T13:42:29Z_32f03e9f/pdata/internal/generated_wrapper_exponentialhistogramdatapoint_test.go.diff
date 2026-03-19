@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_test.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_test.go
+index bee5523d1..afa5e376a 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_test.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_test.go
+@@ -24,7 +24,7 @@ import (
+ func TestCopyOrigExponentialHistogramDataPoint(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExponentialHistogramDataPoint() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -53,7 +53,7 @@ func TestMarshalAndUnmarshalJSONOrigExponentialHistogramDataPointUnknown(t *test
+ func TestMarshalAndUnmarshalJSONOrigExponentialHistogramDataPoint(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExponentialHistogramDataPoint() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -97,7 +97,7 @@ func TestMarshalAndUnmarshalProtoOrigExponentialHistogramDataPointUnknown(t *tes
+ func TestMarshalAndUnmarshalProtoOrigExponentialHistogramDataPoint(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExponentialHistogramDataPoint() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {

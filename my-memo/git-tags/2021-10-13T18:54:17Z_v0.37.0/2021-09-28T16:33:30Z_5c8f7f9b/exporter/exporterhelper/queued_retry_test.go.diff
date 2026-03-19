@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index 5f772fd99..9066d9876 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -46,7 +46,7 @@ func mockRequestUnmarshaler(mr *mockRequest) requestUnmarshaler {
+ func TestQueuedRetry_DropOnPermanentError(t *testing.T) {
+ 	qCfg := DefaultQueueSettings()
+ 	rCfg := DefaultRetrySettings()
+-	mockR := newMockRequest(context.Background(), 2, consumererror.Permanent(errors.New("bad data")))
++	mockR := newMockRequest(context.Background(), 2, consumererror.NewPermanent(errors.New("bad data")))
+ 	be := newBaseExporter(&defaultExporterCfg, componenttest.NewNopExporterCreateSettings(), fromOptions(WithRetry(rCfg), WithQueue(qCfg)), "", mockRequestUnmarshaler(mockR))
+ 	ocs := newObservabilityConsumerSender(be.qrSender.consumerSender)
+ 	be.qrSender.consumerSender = ocs

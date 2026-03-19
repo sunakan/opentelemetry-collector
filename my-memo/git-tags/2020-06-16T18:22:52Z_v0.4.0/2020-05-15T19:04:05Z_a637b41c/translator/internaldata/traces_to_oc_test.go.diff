@@ -1,0 +1,19 @@
+diff --git a/translator/internaldata/traces_to_oc_test.go b/translator/internaldata/traces_to_oc_test.go
+index e6f07571e..7bfc06750 100644
+--- a/translator/internaldata/traces_to_oc_test.go
++++ b/translator/internaldata/traces_to_oc_test.go
+@@ -23,10 +23,10 @@ import (
+ 	"github.com/golang/protobuf/ptypes"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data/testdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/data/testdata"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func TestInternalTraceStateToOC(t *testing.T) {

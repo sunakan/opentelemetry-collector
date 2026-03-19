@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/field.go b/internal/cmd/pdatagen/internal/proto/field.go
+index 37368cf52..e91386915 100644
+--- a/internal/cmd/pdatagen/internal/proto/field.go
++++ b/internal/cmd/pdatagen/internal/proto/field.go
+@@ -126,6 +126,7 @@ func (pf *Field) getTemplateFields() map[string]any {
+ 		"jsonTag":              genJSONTag(pf.Name),
+ 		"fieldName":            pf.Name,
+ 		"origName":             pf.messageName(),
++		"origFullName":         pf.MessageFullName,
+ 		"oneOfGroup":           pf.OneOfGroup,
+ 		"oneOfMessageFullName": pf.OneOfMessageFullName,
+ 		"repeated":             pf.Repeated,

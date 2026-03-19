@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index dbdad37d5..c4d70da23 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -375,7 +375,9 @@ func (cp *ChildProcess) WatchResourceConsumption() error {
+ 			cp.fetchCPUUsage()
+ 
+ 			if err := cp.checkAllowedResourceUsage(); err != nil {
+-				cp.Stop()
++				if _, errStop := cp.Stop(); errStop != nil {
++					log.Printf("Failed to stop child process: %v", err)
++				}
+ 				return err
+ 			}
+ 

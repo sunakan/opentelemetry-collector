@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_scopespans.go b/pdata/internal/generated_wrapper_scopespans.go
+index e59727d95..6e228b9c5 100644
+--- a/pdata/internal/generated_wrapper_scopespans.go
++++ b/pdata/internal/generated_wrapper_scopespans.go
+@@ -101,7 +101,7 @@ func MarshalProtoOrigScopeSpans(orig *otlptrace.ScopeSpans, buf []byte) int {
+ 	pos--
+ 	buf[pos] = 0xa
+ 
+-	for i := range orig.Spans {
++	for i := len(orig.Spans) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigSpan(orig.Spans[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

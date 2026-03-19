@@ -1,0 +1,13 @@
+diff --git a/scraper/scraperhelper/obs_metrics_test.go b/scraper/scraperhelper/obs_metrics_test.go
+index 1b458872d..2a9cf4e98 100644
+--- a/scraper/scraperhelper/obs_metrics_test.go
++++ b/scraper/scraperhelper/obs_metrics_test.go
+@@ -110,7 +110,7 @@ func TestCheckScraperMetrics(t *testing.T) {
+ 	checkScraperMetrics(t, tel, receiverID, scraperID, 7, 0)
+ }
+ 
+-func checkScraperMetrics(t *testing.T, tt *componenttest.Telemetry, receiver component.ID, scraper component.ID, scrapedMetricPoints, erroredMetricPoints int64) {
++func checkScraperMetrics(t *testing.T, tt *componenttest.Telemetry, receiver, scraper component.ID, scrapedMetricPoints, erroredMetricPoints int64) {
+ 	metadatatest.AssertEqualScraperScrapedMetricPoints(t, tt,
+ 		[]metricdata.DataPoint[int64]{
+ 			{

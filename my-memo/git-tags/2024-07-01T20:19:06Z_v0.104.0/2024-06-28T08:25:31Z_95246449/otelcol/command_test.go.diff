@@ -1,0 +1,12 @@
+diff --git a/otelcol/command_test.go b/otelcol/command_test.go
+index 388df2591..49fc11139 100644
+--- a/otelcol/command_test.go
++++ b/otelcol/command_test.go
+@@ -36,6 +36,7 @@ func TestNewCommandProgrammaticallyPassedConfig(t *testing.T) {
+ 	cmd := NewCommandMustSetProvider(CollectorSettings{Factories: nopFactories, ConfigProviderSettings: ConfigProviderSettings{
+ 		ResolverSettings: confmap.ResolverSettings{
+ 			ProviderFactories: []confmap.ProviderFactory{confmap.NewProviderFactory(newFailureProvider)},
++			DefaultScheme:     "file",
+ 		},
+ 	}})
+ 	otelRunE := cmd.RunE

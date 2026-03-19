@@ -1,0 +1,19 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index f1fcb49b7..e81a6327b 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -22,14 +22,6 @@ import (
+ 	"go.opentelemetry.io/collector/exporter"
+ )
+ 
+-// Deprecated: [v0.67.0] use exportertest.NewNopCreateSettings.
+-func NewNopExporterCreateSettings() exporter.CreateSettings {
+-	return exporter.CreateSettings{
+-		TelemetrySettings: NewNopTelemetrySettings(),
+-		BuildInfo:         component.NewDefaultBuildInfo(),
+-	}
+-}
+-
+ // Deprecated: [v0.67.0] use exportertest.NewNopFactory.
+ func NewNopExporterFactory() exporter.Factory {
+ 	return exporter.NewFactory(

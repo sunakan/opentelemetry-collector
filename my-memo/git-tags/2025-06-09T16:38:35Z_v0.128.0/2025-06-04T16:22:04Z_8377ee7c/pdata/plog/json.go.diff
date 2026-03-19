@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/json.go b/pdata/plog/json.go
+index 373985e70..5e1cdd70d 100644
+--- a/pdata/plog/json.go
++++ b/pdata/plog/json.go
+@@ -108,6 +108,8 @@ func (ms LogRecord) unmarshalJsoniter(iter *jsoniter.Iterator) {
+ 			ms.orig.SeverityNumber = otlplogs.SeverityNumber(json.ReadEnumValue(iter, otlplogs.SeverityNumber_value))
+ 		case "severity_text", "severityText":
+ 			ms.orig.SeverityText = iter.ReadString()
++		case "event_name", "eventName":
++			ms.orig.EventName = iter.ReadString()
+ 		case "body":
+ 			json.ReadValue(iter, &ms.orig.Body)
+ 		case "attributes":

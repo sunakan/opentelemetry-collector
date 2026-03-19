@@ -1,0 +1,14 @@
+diff --git a/translator/trace/zipkinv1/json.go b/translator/trace/zipkinv1/json.go
+index 7a81eb7c6..86562cca4 100644
+--- a/translator/trace/zipkinv1/json.go
++++ b/translator/trace/zipkinv1/json.go
+@@ -27,8 +27,8 @@ import (
+ 	"github.com/jaegertracing/jaeger/thrift-gen/zipkincore"
+ 	"google.golang.org/protobuf/types/known/timestamppb"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/idutils"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ 	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"
+ )

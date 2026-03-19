@@ -1,0 +1,21 @@
+diff --git a/extension/authoidcextension/README.md b/extension/authoidcextension/README.md
+index 8ac39c870..4b93b3d4e 100644
+--- a/extension/authoidcextension/README.md
++++ b/extension/authoidcextension/README.md
+@@ -1,6 +1,6 @@
+ # Authenticator - OIDC
+ 
+-This extension implements a `configauth.ServerAuthenticator`, to be used in receivers inside the `auth` settings. The authenticator type has to be set to `oidc`.
++This extension implements a `configauth.Authenticator`, to be used in receivers inside the `auth` settings. The authenticator type has to be set to `oidc`.
+ 
+ ## Configuration
+ 
+@@ -16,7 +16,7 @@ receivers:
+   otlp:
+     protocols:
+       grpc:
+-        auth:
++        authentication:
+           attribute: authorization
+           authenticator: oidc
+ 

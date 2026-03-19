@@ -1,0 +1,14 @@
+diff --git a/internal/otlptext/metrics_test.go b/internal/otlptext/metrics_test.go
+index 403231895..4361b9ed7 100644
+--- a/internal/otlptext/metrics_test.go
++++ b/internal/otlptext/metrics_test.go
+@@ -19,8 +19,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestMetrics(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index 4dc3045cb..82e4b45f6 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -45,7 +45,7 @@ func NewFactory() component.ProcessorFactory {
+ 
+ func createDefaultConfig() config.Processor {
+ 	return &Config{
+-		ProcessorSettings: config.NewProcessorSettings(typeStr),
++		ProcessorSettings: config.NewProcessorSettings(config.NewID(typeStr)),
+ 		SendBatchSize:     defaultSendBatchSize,
+ 		Timeout:           defaultTimeout,
+ 	}

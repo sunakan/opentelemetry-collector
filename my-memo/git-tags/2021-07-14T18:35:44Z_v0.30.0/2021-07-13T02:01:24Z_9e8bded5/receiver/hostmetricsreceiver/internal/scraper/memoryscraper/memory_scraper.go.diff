@@ -1,0 +1,24 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+index 1562ac30e..833040980 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+@@ -49,8 +49,8 @@ func (s *scraper) Scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 		return metrics, scrapererror.NewPartialScrapeError(err, metricsLen)
+ 	}
+ 
+-	metrics.Resize(metricsLen)
+-	initializeMemoryUsageMetric(metrics.At(0), now, memInfo)
++	metrics.EnsureCapacity(metricsLen)
++	initializeMemoryUsageMetric(metrics.AppendEmpty(), now, memInfo)
+ 	return metrics, nil
+ }
+ 
+@@ -58,7 +58,7 @@ func initializeMemoryUsageMetric(metric pdata.Metric, now pdata.Timestamp, memIn
+ 	metadata.Metrics.SystemMemoryUsage.Init(metric)
+ 
+ 	idps := metric.IntSum().DataPoints()
+-	idps.Resize(memStatesLen)
++	idps.EnsureCapacity(memStatesLen)
+ 	appendMemoryUsageStateDataPoints(idps, now, memInfo)
+ }
+ 

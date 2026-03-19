@@ -1,0 +1,14 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+index d26656aea..16cbc61ee 100644
+--- a/proto_patch.sed
++++ b/proto_patch.sed
+@@ -38,3 +38,9 @@ s+opentelemetry.proto.common.v1.InstrumentationLibrary instrumentation_library =
+ 
+ s+Status \(.*\);+Status \1\
+   [ (gogoproto.nullable) = false ];+g
++
++s+repeated IntExemplar exemplars = \(.*\);+repeated IntExemplar exemplars = \1\
++  [ (gogoproto.nullable) = false ];+g
++
++s+repeated DoubleExemplar exemplars = \(.*\);+repeated DoubleExemplar exemplars = \1\
++  [ (gogoproto.nullable) = false ];+g

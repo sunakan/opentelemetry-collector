@@ -1,0 +1,23 @@
+diff --git a/exporter/kafkaexporter/otlp_marshaller.go b/exporter/kafkaexporter/otlp_marshaller.go
+index 24437b895..2e6981256 100644
+--- a/exporter/kafkaexporter/otlp_marshaller.go
++++ b/exporter/kafkaexporter/otlp_marshaller.go
+@@ -50,3 +50,18 @@ func (m *otlpMetricsPbMarshaller) Marshal(md pdata.Metrics) ([]Message, error) {
+ 	}
+ 	return []Message{{Value: bts}}, nil
+ }
++
++type otlpLogsPbMarshaller struct {
++}
++
++func (m *otlpLogsPbMarshaller) Encoding() string {
++	return defaultEncoding
++}
++
++func (m *otlpLogsPbMarshaller) Marshal(ld pdata.Logs) ([]Message, error) {
++	bts, err := ld.ToOtlpProtoBytes()
++	if err != nil {
++		return nil, err
++	}
++	return []Message{{Value: bts}}, nil
++}

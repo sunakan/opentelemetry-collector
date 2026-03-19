@@ -1,0 +1,41 @@
+diff --git a/pdata/internal/generated_wrapper_common.go b/pdata/internal/generated_wrapper_common.go
+index 28c256c87..4b790252a 100644
+--- a/pdata/internal/generated_wrapper_common.go
++++ b/pdata/internal/generated_wrapper_common.go
+@@ -33,18 +33,6 @@ func NewInstrumentationScope(orig *otlpcommon.InstrumentationScope) Instrumentat
+ 	return InstrumentationScope{orig: orig}
+ }
+ 
+-type Slice struct {
+-	orig *[]otlpcommon.AnyValue
+-}
+-
+-func GetOrigSlice(ms Slice) *[]otlpcommon.AnyValue {
+-	return ms.orig
+-}
+-
+-func NewSlice(orig *[]otlpcommon.AnyValue) Slice {
+-	return Slice{orig: orig}
+-}
+-
+ func GenerateTestInstrumentationScope() InstrumentationScope {
+ 	orig := otlpcommon.InstrumentationScope{}
+ 	tv := NewInstrumentationScope(&orig)
+@@ -58,17 +46,3 @@ func FillTestInstrumentationScope(tv InstrumentationScope) {
+ 	FillTestMap(NewMap(&tv.orig.Attributes))
+ 	tv.orig.DroppedAttributesCount = uint32(17)
+ }
+-
+-func GenerateTestSlice() Slice {
+-	orig := []otlpcommon.AnyValue{}
+-	tv := NewSlice(&orig)
+-	FillTestSlice(tv)
+-	return tv
+-}
+-
+-func FillTestSlice(tv Slice) {
+-	*tv.orig = make([]otlpcommon.AnyValue, 7)
+-	for i := 0; i < 7; i++ {
+-		FillTestValue(NewValue(&(*tv.orig)[i]))
+-	}
+-}

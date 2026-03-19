@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/templates/metrics.go.tmpl b/cmd/mdatagen/templates/metrics.go.tmpl
+index dff435b8c..1e1de647f 100644
+--- a/cmd/mdatagen/templates/metrics.go.tmpl
++++ b/cmd/mdatagen/templates/metrics.go.tmpl
+@@ -135,7 +135,7 @@ type MetricsBuilder struct {
+ 	metricsCapacity int                  // maximum observed number of metrics per resource.
+ 	metricsBuffer   pmetric.Metrics      // accumulates metrics data before emitting.
+ 	buildInfo       component.BuildInfo  // contains version information.
+-	{{ if .ResourceAttributes -}}
++	{{- if .ResourceAttributes }}
+ 	resourceAttributeIncludeFilter map[string]filter.Filter
+ 	resourceAttributeExcludeFilter map[string]filter.Filter
+ 	{{- end }}

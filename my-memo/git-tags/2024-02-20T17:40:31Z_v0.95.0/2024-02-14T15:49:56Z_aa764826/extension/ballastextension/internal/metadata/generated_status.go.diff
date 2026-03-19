@@ -1,0 +1,26 @@
+diff --git a/extension/ballastextension/internal/metadata/generated_status.go b/extension/ballastextension/internal/metadata/generated_status.go
+index 02205c562..c6407064c 100644
+--- a/extension/ballastextension/internal/metadata/generated_status.go
++++ b/extension/ballastextension/internal/metadata/generated_status.go
+@@ -10,7 +10,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("memory_ballast")
++	Type      = component.MustNewType("memory_ballast")
++	scopeName = "go.opentelemetry.io/collector/extension/ballastextension"
+ )
+ 
+ const (
+@@ -18,9 +19,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("otelcol/ballast")
++	return settings.MeterProvider.Meter(scopeName)
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("otelcol/ballast")
++	return settings.TracerProvider.Tracer(scopeName)
+ }

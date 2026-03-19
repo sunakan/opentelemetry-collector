@@ -1,0 +1,13 @@
+diff --git a/builder/.goreleaser.yml b/builder/.goreleaser.yml
+index 1c068ac73..ee05a0b2e 100644
+--- a/builder/.goreleaser.yml
++++ b/builder/.goreleaser.yml
+@@ -5,7 +5,7 @@ builds:
+   - flags:
+       - -trimpath
+     ldflags:
+-      - -s -w -X github.com/open-telemetry/opentelemetry-collector-builder/cmd.version={{.Version}} -X github.com/open-telemetry/opentelemetry-collector-builder/cmd.date={{.Date}}
++      - -s -w -X go.opentelemetry.io/collector/builder/cmd.version={{.Version}} -X go.opentelemetry.io/collector/builder/cmd.date={{.Date}}
+     env:
+       - CGO_ENABLED=0
+     goos:

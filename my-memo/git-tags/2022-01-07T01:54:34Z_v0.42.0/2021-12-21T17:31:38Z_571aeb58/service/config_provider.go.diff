@@ -1,0 +1,41 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index c752d9c95..d48a0b34b 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -26,6 +26,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmapprovider"
+ 	"go.opentelemetry.io/collector/config/configunmarshaler"
+ 	"go.opentelemetry.io/collector/config/experimental/configsource"
++	"go.opentelemetry.io/collector/service/internal/configprovider"
+ )
+ 
+ // ConfigProvider provides the service configuration.
+@@ -71,9 +72,9 @@ type configProvider struct {
+ 	watcher chan error
+ }
+ 
+-// NewConfigProvider returns a new ConfigProvider that provides the configuration using the given
++// newConfigProvider returns a new ConfigProvider that provides the configuration using the given
+ // `configMapProvider` and the given `configUnmarshaler`.
+-func NewConfigProvider(configMapProvider configmapprovider.Provider, configUnmarshaler configunmarshaler.ConfigUnmarshaler) ConfigProvider {
++func newConfigProvider(configMapProvider configmapprovider.Provider, configUnmarshaler configunmarshaler.ConfigUnmarshaler) ConfigProvider {
+ 	return &configProvider{
+ 		configMapProvider: configMapProvider,
+ 		configUnmarshaler: configUnmarshaler,
+@@ -81,6 +82,16 @@ func NewConfigProvider(configMapProvider configmapprovider.Provider, configUnmar
+ 	}
+ }
+ 
++// NewDefaultConfigProvider returns the default ConfigProvider, and it creates configuration from a file
++// defined by the given configFile and overwrites fields using properties.
++func NewDefaultConfigProvider(configFileName string, properties []string) ConfigProvider {
++	return &configProvider{
++		configMapProvider: configprovider.NewDefaultMapProvider(configFileName, properties),
++		configUnmarshaler: configunmarshaler.NewDefault(),
++		watcher:           make(chan error, 1),
++	}
++}
++
+ func (cm *configProvider) Get(ctx context.Context, factories component.Factories) (*config.Config, error) {
+ 	// First check if already an active watching, close that if any.
+ 	if err := cm.closeIfNeeded(ctx); err != nil {

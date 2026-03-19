@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/internal/tests.go b/cmd/mdatagen/internal/tests.go
+new file mode 100644
+index 000000000..df91ff490
+--- /dev/null
++++ b/cmd/mdatagen/internal/tests.go
+@@ -0,0 +1,25 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/cmd/mdatagen/internal"
++
++type Ignore struct {
++	Top []string `mapstructure:"top"`
++	Any []string `mapstructure:"any"`
++}
++
++type GoLeak struct {
++	Skip     bool   `mapstructure:"skip"`
++	Ignore   Ignore `mapstructure:"ignore"`
++	Setup    string `mapstructure:"setup"`
++	Teardown string `mapstructure:"teardown"`
++}
++
++type Tests struct {
++	Config              any    `mapstructure:"config"`
++	SkipLifecycle       bool   `mapstructure:"skip_lifecycle"`
++	SkipShutdown        bool   `mapstructure:"skip_shutdown"`
++	GoLeak              GoLeak `mapstructure:"goleak"`
++	ExpectConsumerError bool   `mapstructure:"expect_consumer_error"`
++	Host                string `mapstructure:"host"`
++}

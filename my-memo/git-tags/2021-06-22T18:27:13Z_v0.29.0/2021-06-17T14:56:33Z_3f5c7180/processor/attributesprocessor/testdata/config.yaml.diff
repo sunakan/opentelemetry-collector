@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/testdata/config.yaml b/processor/attributesprocessor/testdata/config.yaml
+index 3565ee53a..d31c585aa 100644
+--- a/processor/attributesprocessor/testdata/config.yaml
++++ b/processor/attributesprocessor/testdata/config.yaml
+@@ -294,7 +294,7 @@ processors:
+       match_type: regexp
+       attributes:
+         # This attribute ('db.statement') must exist in the span and match the regex ('SELECT \* FROM USERS.*') for a match.
+-        - {key: env, value: "'SELECT * FROM USERS WHERE ID=1'"}
++        - {key: env, value: 'SELECT \* FROM USERS.*'}
+     actions:
+       - key: db.statement
+         action: update

@@ -1,0 +1,12 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus.go b/receiver/opencensusreceiver/octrace/opencensus.go
+index 698dc65cd..b70b31ea5 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/octrace/opencensus.go
+@@ -38,6 +38,7 @@ const (
+ 
+ // Receiver is the type used to handle spans from OpenCensus exporters.
+ type Receiver struct {
++	agenttracepb.UnimplementedTraceServiceServer
+ 	nextConsumer consumer.TraceConsumerOld
+ 	instanceName string
+ }

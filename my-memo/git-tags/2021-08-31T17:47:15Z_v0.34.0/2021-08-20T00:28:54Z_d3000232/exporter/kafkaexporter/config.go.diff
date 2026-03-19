@@ -1,0 +1,27 @@
+diff --git a/exporter/kafkaexporter/config.go b/exporter/kafkaexporter/config.go
+index 9970b9bc4..48fcc0a3c 100644
+--- a/exporter/kafkaexporter/config.go
++++ b/exporter/kafkaexporter/config.go
+@@ -42,6 +42,9 @@ type Config struct {
+ 	// Client, and shared by the Producer/Consumer.
+ 	Metadata Metadata `mapstructure:"metadata"`
+ 
++	// Producer is the namespaces for producer properties used only by the Producer
++	Producer Producer `mapstructure:"producer"`
++
+ 	// Authentication defines used authentication mechanism.
+ 	Authentication Authentication `mapstructure:"auth"`
+ }
+@@ -60,6 +63,12 @@ type Metadata struct {
+ 	Retry MetadataRetry `mapstructure:"retry"`
+ }
+ 
++// Producer defines configuration for producer
++type Producer struct {
++	// Maximum message bytes the producer will accept to produce.
++	MaxMessageBytes int `mapstructure:"max_message_bytes"`
++}
++
+ // MetadataRetry defines retry configuration for Metadata.
+ type MetadataRetry struct {
+ 	// The total number of times to retry a metadata request when the

@@ -1,0 +1,13 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 68934b63c..401461ccf 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -266,7 +266,7 @@ type errParserLoader struct {
+ 	err error
+ }
+ 
+-func (epl *errParserLoader) Get(context.Context) (*config.Map, error) {
++func (epl *errParserLoader) Retrieve(_ context.Context) (config.Retrieved, error) {
+ 	return nil, epl.err
+ }
+ 

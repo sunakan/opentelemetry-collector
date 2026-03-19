@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config.yaml b/receiver/hostmetricsreceiver/testdata/config.yaml
+index 9e9f2b0e1..bccfa7b33 100644
+--- a/receiver/hostmetricsreceiver/testdata/config.yaml
++++ b/receiver/hostmetricsreceiver/testdata/config.yaml
+@@ -14,8 +14,8 @@ receivers:
+         include:
+           interfaces: ["test1"]
+           match_type: "strict"
++      paging:
+       processes:
+-      swap:
+       process:
+         include:
+           names: ["test2", "test3"]

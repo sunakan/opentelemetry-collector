@@ -1,0 +1,31 @@
+diff --git a/scraper/scraperhelper/metadata.yaml b/scraper/scraperhelper/metadata.yaml
+index f82e307c4..3d96d2499 100644
+--- a/scraper/scraperhelper/metadata.yaml
++++ b/scraper/scraperhelper/metadata.yaml
+@@ -26,4 +26,24 @@ telemetry:
+       unit: "{datapoints}"
+       sum:
+         value_type: int
+-        monotonic: true
+\ No newline at end of file
++        monotonic: true
++
++    scraper_scraped_log_records:
++      enabled: true
++      stability:
++        level: alpha
++      description: Number of log records successfully scraped.
++      unit: "{datapoints}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    scraper_errored_log_records:
++      enabled: true
++      stability:
++        level: alpha
++      description: Number of log records that were unable to be scraped.
++      unit: "{datapoints}"
++      sum:
++        value_type: int
++        monotonic: true

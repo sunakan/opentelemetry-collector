@@ -1,0 +1,12 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index 27d35ad9b..b0cee6a97 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -74,7 +74,6 @@ func createExampleConfig(dataType string) *config.Config {
+ 		Service: config.Service{
+ 			Pipelines: map[config.ComponentID]*config.Pipeline{
+ 				config.NewComponentID(config.Type(dataType)): {
+-					InputType:  config.DataType(dataType),
+ 					Receivers:  []config.ComponentID{config.NewComponentID(exampleReceiverFactory.Type())},
+ 					Processors: []config.ComponentID{config.NewComponentID(exampleProcessorFactory.Type())},
+ 					Exporters:  []config.ComponentID{config.NewComponentID(exampleExporterFactory.Type())},

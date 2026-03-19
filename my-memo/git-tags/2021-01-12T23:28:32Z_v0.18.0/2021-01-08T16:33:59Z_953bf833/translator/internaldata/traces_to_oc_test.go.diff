@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/traces_to_oc_test.go b/translator/internaldata/traces_to_oc_test.go
+index 1fd58cf40..2b7e38f87 100644
+--- a/translator/internaldata/traces_to_oc_test.go
++++ b/translator/internaldata/traces_to_oc_test.go
+@@ -29,7 +29,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"

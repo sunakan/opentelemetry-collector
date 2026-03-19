@@ -1,0 +1,21 @@
+diff --git a/config/testdata/invalid-extension-name-after-slash.yaml b/config/testdata/invalid-extension-name-after-slash.yaml
+deleted file mode 100644
+index 7361f2807..000000000
+--- a/config/testdata/invalid-extension-name-after-slash.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-extensions:
+-  exampleextension/:
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
+\ No newline at end of file

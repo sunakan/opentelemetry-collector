@@ -1,0 +1,42 @@
+diff --git a/internal/e2e/testdata/metric_stability_test_no_readers.yaml b/internal/e2e/testdata/metric_stability_test_no_readers.yaml
+new file mode 100644
+index 000000000..381c89a08
+--- /dev/null
++++ b/internal/e2e/testdata/metric_stability_test_no_readers.yaml
+@@ -0,0 +1,35 @@
++receivers:
++  otlp:
++    protocols:
++      http:
++        endpoint: localhost:${env:OTEL_PORT}
++
++processors:
++  batch:
++    timeout: 100ms
++    send_batch_size: 100
++
++exporters:
++  debug:
++    verbosity: detailed
++
++service:
++  telemetry:
++    logs:
++      level: info
++    metrics:
++      level: detailed
++
++  pipelines:
++    traces:
++      receivers: [otlp]
++      processors: [batch]
++      exporters: [debug]
++    metrics:
++      receivers: [otlp]
++      processors: [batch]
++      exporters: [debug]
++    logs:
++      receivers: [otlp]
++      processors: [batch]
++      exporters: [debug] 
+\ No newline at end of file

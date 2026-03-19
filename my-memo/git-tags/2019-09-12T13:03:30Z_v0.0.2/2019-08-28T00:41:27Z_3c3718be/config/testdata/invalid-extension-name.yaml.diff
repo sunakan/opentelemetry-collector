@@ -1,0 +1,22 @@
+diff --git a/config/testdata/invalid-extension-name.yaml b/config/testdata/invalid-extension-name.yaml
+new file mode 100644
+index 000000000..0023c8ddf
+--- /dev/null
++++ b/config/testdata/invalid-extension-name.yaml
+@@ -0,0 +1,16 @@
++extensions:
++  exampleextension:
++service:
++  extensions: [exampleextension, nosuchextension, and, another, three]
++
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [exampleprocessor]
++    exporters: [exampleexporter]

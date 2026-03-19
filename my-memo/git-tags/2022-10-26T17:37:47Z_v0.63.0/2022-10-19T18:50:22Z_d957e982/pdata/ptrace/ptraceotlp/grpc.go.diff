@@ -1,0 +1,21 @@
+diff --git a/pdata/ptrace/ptraceotlp/grpc.go b/pdata/ptrace/ptraceotlp/grpc.go
+index bd37a0fd0..cfa00f2de 100644
+--- a/pdata/ptrace/ptraceotlp/grpc.go
++++ b/pdata/ptrace/ptraceotlp/grpc.go
+@@ -34,11 +34,14 @@ type GRPCClient interface {
+ 	Export(ctx context.Context, request Request, opts ...grpc.CallOption) (Response, error)
+ }
+ 
+-// NewClient returns a new Client connected using the given connection.
+-func NewClient(cc *grpc.ClientConn) GRPCClient {
++// NewGRPCClient returns a new GRPCClient connected using the given connection.
++func NewGRPCClient(cc *grpc.ClientConn) GRPCClient {
+ 	return &grpcClient{rawClient: otlpcollectortrace.NewTraceServiceClient(cc)}
+ }
+ 
++// Deprecated: [v0.63.0]: use NewGRPCClient.
++var NewClient = NewGRPCClient
++
+ type grpcClient struct {
+ 	rawClient otlpcollectortrace.TraceServiceClient
+ }

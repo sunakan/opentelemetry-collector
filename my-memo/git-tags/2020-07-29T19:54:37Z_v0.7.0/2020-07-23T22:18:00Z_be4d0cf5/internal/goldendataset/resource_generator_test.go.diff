@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/resource_generator_test.go b/internal/goldendataset/resource_generator_test.go
+index c2510726b..32944166e 100644
+--- a/internal/goldendataset/resource_generator_test.go
++++ b/internal/goldendataset/resource_generator_test.go
+@@ -17,7 +17,7 @@ package goldendataset
+ import (
+ 	"testing"
+ 
+-	"github.com/golang/protobuf/proto"
++	"github.com/golang/protobuf/proto" //lint:ignore SA1019 golang/protobuf/proto is deprecated
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	otlpresource "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/resource/v1"

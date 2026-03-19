@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/correctness_test_case.go b/testbed/correctness/metrics/correctness_test_case.go
+index c8f44b06e..c843f828f 100644
+--- a/testbed/correctness/metrics/correctness_test_case.go
++++ b/testbed/correctness/metrics/correctness_test_case.go
+@@ -32,7 +32,7 @@ type correctnessTestCase struct {
+ 	sender    testbed.DataSender
+ 	receiver  testbed.DataReceiver
+ 	harness   *testHarness
+-	collector *testbed.InProcessCollector
++	collector testbed.OtelcolRunner
+ }
+ 
+ func newCorrectnessTestCase(

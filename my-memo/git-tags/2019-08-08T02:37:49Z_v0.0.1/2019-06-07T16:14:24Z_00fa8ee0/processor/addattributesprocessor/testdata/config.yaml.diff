@@ -1,0 +1,25 @@
+diff --git a/processor/addattributesprocessor/testdata/config.yaml b/processor/addattributesprocessor/testdata/config.yaml
+new file mode 100644
+index 000000000..99d60b391
+--- /dev/null
++++ b/processor/addattributesprocessor/testdata/config.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  examplereceiver:
++
++processors:
++  attributes:
++  attributes/2:
++    values:
++      attribute1: 123
++      "string attribute": "string value"
++      "attribute.with.dot": "another value"
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [attributes]
++    exporters: [exampleexporter]

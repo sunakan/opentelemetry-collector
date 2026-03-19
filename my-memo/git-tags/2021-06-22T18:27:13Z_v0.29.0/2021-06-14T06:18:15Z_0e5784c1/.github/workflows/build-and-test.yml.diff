@@ -1,0 +1,22 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index df14720d4..b8f52bae1 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -192,16 +192,8 @@ jobs:
+             /home/runner/go/pkg/mod
+             /home/runner/.cache/go-build
+           key: go-pkg-mod-${{ runner.os }}-${{ hashFiles('**/go.mod', '**/go.sum') }}
+-      - name: Cache Tools
+-        id: tool-cache
+-        uses: actions/cache@v2
+-        env:
+-          cache-name: cache-tool-binaries
+-        with:
+-          path: /home/runner/go/bin
+-          key: tools-${{ runner.os }}-${{ hashFiles('./internal/tools/go.mod', './cmd/mdatagen/go.mod', './cmd/mdatagen/*.go') }}
+       - name: Build Collector for All Architectures
+-        run: make -j4 binaries-all-sys
++        run: make binaries-all-sys
+       - name: Create Collector Binaries Archive
+         run: tar -cvf bin.tar ./bin
+       - name: Upload Collector Binaries

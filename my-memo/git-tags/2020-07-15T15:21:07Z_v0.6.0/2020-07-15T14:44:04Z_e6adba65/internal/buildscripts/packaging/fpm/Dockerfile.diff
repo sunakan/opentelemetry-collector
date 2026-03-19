@@ -1,0 +1,13 @@
+diff --git a/internal/buildscripts/packaging/fpm/Dockerfile b/internal/buildscripts/packaging/fpm/Dockerfile
+index bdc36c6fa..ec3ff295f 100644
+--- a/internal/buildscripts/packaging/fpm/Dockerfile
++++ b/internal/buildscripts/packaging/fpm/Dockerfile
+@@ -11,6 +11,6 @@ WORKDIR /repo
+ ENV PACKAGE="deb"
+ ENV VERSION=""
+ ENV ARCH="amd64"
+-ENV OUTPUT_DIR="/repo/bin/"
++ENV OUTPUT_DIR="/repo/dist/"
+ 
+ CMD ./internal/buildscripts/packaging/fpm/$PACKAGE/build.sh "$VERSION" "$ARCH" "$OUTPUT_DIR"
+\ No newline at end of file

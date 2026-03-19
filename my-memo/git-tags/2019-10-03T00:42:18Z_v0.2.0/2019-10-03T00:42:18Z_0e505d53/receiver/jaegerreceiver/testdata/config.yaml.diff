@@ -1,0 +1,20 @@
+diff --git a/receiver/jaegerreceiver/testdata/config.yaml b/receiver/jaegerreceiver/testdata/config.yaml
+index 5471c09ef..fb3439152 100644
+--- a/receiver/jaegerreceiver/testdata/config.yaml
++++ b/receiver/jaegerreceiver/testdata/config.yaml
+@@ -53,9 +53,10 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-   receivers: [jaeger]
+-   processors: [exampleprocessor]
+-   exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++     receivers: [jaeger]
++     processors: [exampleprocessor]
++     exporters: [exampleexporter]
+ 

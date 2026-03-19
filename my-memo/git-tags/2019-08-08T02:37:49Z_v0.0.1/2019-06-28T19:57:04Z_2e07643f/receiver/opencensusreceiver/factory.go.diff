@@ -1,0 +1,15 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index 6d4e93e94..cb87c8bf4 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -17,8 +17,8 @@ package opencensusreceiver
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/internal/factories"
++	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"

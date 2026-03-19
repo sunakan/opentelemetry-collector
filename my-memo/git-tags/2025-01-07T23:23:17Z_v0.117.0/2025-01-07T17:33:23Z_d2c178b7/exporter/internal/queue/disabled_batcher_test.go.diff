@@ -1,0 +1,34 @@
+diff --git a/exporter/internal/queue/disabled_batcher_test.go b/exporter/internal/queue/disabled_batcher_test.go
+index ca612d82d..0d9fe7e3b 100644
+--- a/exporter/internal/queue/disabled_batcher_test.go
++++ b/exporter/internal/queue/disabled_batcher_test.go
+@@ -14,7 +14,10 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
++	"go.opentelemetry.io/collector/exporter/exporterqueue"
++	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/exporter/internal"
++	"go.opentelemetry.io/collector/pipeline"
+ )
+ 
+ func TestDisabledBatcher_Basic(t *testing.T) {
+@@ -40,11 +43,13 @@ func TestDisabledBatcher_Basic(t *testing.T) {
+ 			cfg := exporterbatcher.NewDefaultConfig()
+ 			cfg.Enabled = false
+ 
+-			q := NewBoundedMemoryQueue[internal.Request](
+-				MemoryQueueSettings[internal.Request]{
+-					Sizer:    &RequestSizer[internal.Request]{},
+-					Capacity: 10,
+-				})
++			q := exporterqueue.NewMemoryQueueFactory[internal.Request]()(
++				context.Background(),
++				exporterqueue.Settings{
++					Signal:           pipeline.SignalTraces,
++					ExporterSettings: exportertest.NewNopSettings(),
++				},
++				exporterqueue.NewDefaultConfig())
+ 
+ 			ba, err := NewBatcher(cfg, q,
+ 				func(ctx context.Context, req internal.Request) error { return req.Export(ctx) },

@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config.yaml b/receiver/hostmetricsreceiver/testdata/config.yaml
+index 87014216e..ea44b2d19 100644
+--- a/receiver/hostmetricsreceiver/testdata/config.yaml
++++ b/receiver/hostmetricsreceiver/testdata/config.yaml
+@@ -8,6 +8,7 @@ receivers:
+       cpu:
+         report_per_cpu: true
+       disk:
++      load:
+       filesystem:
+       memory:
+       network:

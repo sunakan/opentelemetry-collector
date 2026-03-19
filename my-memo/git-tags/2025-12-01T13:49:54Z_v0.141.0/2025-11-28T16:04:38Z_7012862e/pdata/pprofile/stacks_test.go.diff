@@ -1,0 +1,22 @@
+diff --git a/pdata/pprofile/stacks_test.go b/pdata/pprofile/stacks_test.go
+index 5eaadec38..0b4feaa94 100644
+--- a/pdata/pprofile/stacks_test.go
++++ b/pdata/pprofile/stacks_test.go
+@@ -37,7 +37,7 @@ func TestSetStack(t *testing.T) {
+ 	idx, err = SetStack(table, s2)
+ 	require.NoError(t, err)
+ 	assert.Equal(t, 2, table.Len())
+-	assert.Equal(t, int32(table.Len()-1), idx) //nolint:gosec // G115
++	assert.Equal(t, int32(table.Len()-1), idx)
+ 
+ 	// Set an existing stack
+ 	idx, err = SetStack(table, s)
+@@ -48,7 +48,7 @@ func TestSetStack(t *testing.T) {
+ 	idx, err = SetStack(table, s2)
+ 	require.NoError(t, err)
+ 	assert.Equal(t, 2, table.Len())
+-	assert.Equal(t, int32(table.Len()-1), idx) //nolint:gosec // G115
++	assert.Equal(t, int32(table.Len()-1), idx)
+ }
+ 
+ func BenchmarkSetStack(b *testing.B) {

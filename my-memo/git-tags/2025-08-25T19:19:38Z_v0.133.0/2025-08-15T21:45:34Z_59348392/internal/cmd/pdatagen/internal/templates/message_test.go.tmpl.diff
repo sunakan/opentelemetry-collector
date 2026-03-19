@@ -1,0 +1,24 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+index 56b43bd77..20f266114 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+@@ -22,8 +22,8 @@ func Test{{ .structName }}_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTest{{ .structName }}(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(new{{ .structName }}(&{{ .originFullName }}{}, sharedState)) })
+-	assert.Panics(t, func() { new{{ .structName }}(&{{ .originFullName }}{}, sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(new{{ .structName }}(internal.NewOrigPtr{{ .originName }}(), sharedState)) })
++	assert.Panics(t, func() { new{{ .structName }}(internal.NewOrigPtr{{ .originName }}(), sharedState).MoveTo(dest) })
+ }
+ 
+ func Test{{ .structName }}_CopyTo(t *testing.T) {
+@@ -36,7 +36,7 @@ func Test{{ .structName }}_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(new{{ .structName }}(&{{ .originFullName }}{}, sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(new{{ .structName }}(internal.NewOrigPtr{{ .originName }}(), sharedState)) })
+ }
+ 
+ {{ range .fields }}

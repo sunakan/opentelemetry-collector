@@ -1,0 +1,27 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index 3c121983a..afe26d32f 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -38,10 +38,10 @@ func TestIdleMode(t *testing.T) {
+ 		&testbed.ChildProcess{},
+ 		&testbed.PerfTestValidator{},
+ 		performanceResultsSummary,
++		testbed.WithResourceLimits(testbed.ResourceSpec{ExpectedMaxCPU: 4, ExpectedMaxRAM: 70}),
+ 	)
+ 	defer tc.Stop()
+ 
+-	tc.SetResourceLimits(testbed.ResourceSpec{ExpectedMaxCPU: 4, ExpectedMaxRAM: 70})
+ 	tc.StartAgent()
+ 
+ 	tc.Sleep(tc.Duration)
+@@ -69,9 +69,8 @@ func TestBallastMemory(t *testing.T) {
+ 			&testbed.PerfTestValidator{},
+ 			performanceResultsSummary,
+ 			testbed.WithSkipResults(),
++			testbed.WithResourceLimits(testbed.ResourceSpec{ExpectedMaxRAM: test.maxRSS}),
+ 		)
+-		tc.SetResourceLimits(testbed.ResourceSpec{ExpectedMaxRAM: test.maxRSS})
+-
+ 		tc.StartAgent("--mem-ballast-size-mib", strconv.Itoa(int(test.ballastSize)))
+ 
+ 		var rss, vms uint32

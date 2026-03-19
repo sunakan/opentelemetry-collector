@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 7bd75dd8e..a1b45ae10 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -21,7 +21,7 @@ import (
+ 	"sort"
+ 	"time"
+ 
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
+ )
+ 
+ // TimestampUnixNano is a time specified as UNIX Epoch time in nanoseconds since

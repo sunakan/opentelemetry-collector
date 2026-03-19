@@ -1,0 +1,12 @@
+diff --git a/service/config_provider_test.go b/service/config_provider_test.go
+index 2582f96d0..1b2828b85 100644
+--- a/service/config_provider_test.go
++++ b/service/config_provider_test.go
+@@ -57,6 +57,7 @@ func (ecu *errConfigUnmarshaler) Unmarshal(*config.Map, component.Factories) (*c
+ }
+ 
+ type errRetrieved struct {
++	configmapprovider.Retrieved
+ 	retM     *config.Map
+ 	errW     error
+ 	errC     error

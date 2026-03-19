@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 10749c978..8dbea58ff 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -47,7 +47,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 		ReceiverSettings: configmodels.ReceiverSettings{
+ 			TypeVal:  typeStr,
+ 			NameVal:  typeStr,
+-			Endpoint: "localhost:55680",
++			Endpoint: "0.0.0.0:55680",
+ 		},
+ 		Transport: "tcp",
+ 	}

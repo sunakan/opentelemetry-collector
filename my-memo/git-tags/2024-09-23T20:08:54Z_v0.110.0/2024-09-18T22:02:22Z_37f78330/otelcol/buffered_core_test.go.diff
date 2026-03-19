@@ -1,0 +1,12 @@
+diff --git a/otelcol/buffered_core_test.go b/otelcol/buffered_core_test.go
+index ee2d2c913..59977b226 100644
+--- a/otelcol/buffered_core_test.go
++++ b/otelcol/buffered_core_test.go
+@@ -102,6 +102,6 @@ func Test_bufferedCore_TakeLogs(t *testing.T) {
+ 	assert.Equal(t, expected, bc.TakeLogs())
+ 	assert.Nil(t, bc.logs)
+ 
+-	assert.Error(t, bc.Write(e, fields))
++	require.Error(t, bc.Write(e, fields))
+ 	assert.Nil(t, bc.TakeLogs())
+ }

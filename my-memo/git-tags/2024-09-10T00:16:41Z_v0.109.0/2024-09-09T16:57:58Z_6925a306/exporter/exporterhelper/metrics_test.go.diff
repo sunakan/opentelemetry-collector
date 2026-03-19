@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index f849ded61..22b643d9d 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -424,7 +424,7 @@ func checkWrapSpanForMetricsExporter(t *testing.T, sr *tracetest.SpanRecorder, t
+ 
+ 	// Inspection time!
+ 	gotSpanData := sr.Ended()
+-	require.Equal(t, numRequests+1, len(gotSpanData))
++	require.Len(t, gotSpanData, numRequests+1)
+ 
+ 	parentSpan := gotSpanData[numRequests]
+ 	require.Equalf(t, fakeMetricsParentSpanName, parentSpan.Name(), "SpanData %v", parentSpan)

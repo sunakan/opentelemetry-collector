@@ -1,0 +1,12 @@
+diff --git a/service/go.mod b/service/go.mod
+index edba45300..3e82c8655 100644
+--- a/service/go.mod
++++ b/service/go.mod
+@@ -226,3 +226,7 @@ replace go.opentelemetry.io/collector/extension/auth/authtest => ../extension/au
+ replace go.opentelemetry.io/collector/extension/xextension => ../extension/xextension
+ 
+ replace go.opentelemetry.io/collector/otelcol => ../otelcol
++
++replace go.opentelemetry.io/collector/confmap/provider/yamlprovider => ../confmap/provider/yamlprovider
++
++replace go.opentelemetry.io/collector/confmap/provider/fileprovider => ../confmap/provider/fileprovider

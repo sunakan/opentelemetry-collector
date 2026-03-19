@@ -1,0 +1,13 @@
+diff --git a/config/configauth/go.mod b/config/configauth/go.mod
+index a58c97c34..66bde0cc8 100644
+--- a/config/configauth/go.mod
++++ b/config/configauth/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/config/configauth
+ go 1.21
+ 
+ require (
+-	github.com/stretchr/testify v1.8.4
++	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.96.0
+ 	go.opentelemetry.io/collector/extension v0.96.0
+ 	go.opentelemetry.io/collector/extension/auth v0.96.0

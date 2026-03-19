@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
+index 0b881bc87..df696a5c6 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
+@@ -44,7 +44,7 @@ func (f *Factory) CreateMetricsScraper(
+ 	ctx context.Context,
+ 	_ *zap.Logger,
+ 	config internal.Config,
+-) (scraperhelper.MetricsScraper, error) {
++) (scraperhelper.Scraper, error) {
+ 	cfg := config.(*Config)
+ 	s := newProcessesScraper(ctx, cfg)
+ 

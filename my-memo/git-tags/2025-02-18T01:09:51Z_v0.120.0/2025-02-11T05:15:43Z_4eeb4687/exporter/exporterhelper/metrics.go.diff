@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index b257e4964..0f414706f 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -126,7 +126,7 @@ func NewMetricsRequest(
+ 		return nil, errNilMetricsConverter
+ 	}
+ 
+-	be, err := internal.NewBaseExporter(set, pipeline.SignalMetrics, internal.NewObsReportSender, options...)
++	be, err := internal.NewBaseExporter(set, pipeline.SignalMetrics, options...)
+ 	if err != nil {
+ 		return nil, err
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/string_table_test.go b/pdata/pprofile/string_table_test.go
+index 0896dbc78..5b73b7fcf 100644
+--- a/pdata/pprofile/string_table_test.go
++++ b/pdata/pprofile/string_table_test.go
+@@ -99,7 +99,7 @@ func BenchmarkSetString(b *testing.B) {
+ 			b.ResetTimer()
+ 			b.ReportAllocs()
+ 
+-			for range b.N {
++			for b.Loop() {
+ 				_, _ = SetString(table, bb.val)
+ 			}
+ 		})

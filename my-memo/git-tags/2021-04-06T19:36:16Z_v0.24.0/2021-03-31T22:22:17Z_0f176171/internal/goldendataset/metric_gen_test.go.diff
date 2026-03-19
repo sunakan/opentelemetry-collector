@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/metric_gen_test.go b/internal/goldendataset/metric_gen_test.go
+index 98b9a26f9..441ba507c 100644
+--- a/internal/goldendataset/metric_gen_test.go
++++ b/internal/goldendataset/metric_gen_test.go
+@@ -53,7 +53,7 @@ func TestGenDefault(t *testing.T) {
+ 	ptLabels, _ := pt.LabelsMap().Get("pt-label-key-0")
+ 	require.Equal(t, "pt-label-val-0", ptLabels)
+ 
+-	require.EqualValues(t, 940000000000000000, pt.StartTime())
++	require.EqualValues(t, 940000000000000000, pt.StartTimestamp())
+ 	require.EqualValues(t, 940000000000000042, pt.Timestamp())
+ 	require.EqualValues(t, 1, pt.Value())
+ }

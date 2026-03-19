@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 79aac829d..3564b1e69 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -62,7 +62,7 @@ func (f *Factory) CustomUnmarshaler() receiver.CustomUnmarshaler {
+ }
+ 
+ // CustomUnmarshalerFunc performs custom unmarshaling of config.
+-func CustomUnmarshalerFunc(v *viper.Viper, viperKey string, intoCfg interface{}) error {
++func CustomUnmarshalerFunc(v *viper.Viper, viperKey string, sourceViperSection *viper.Viper, intoCfg interface{}) error {
+ 	// We need custom unmarshaling because prometheus "config" subkey defines its own
+ 	// YAML unmarshaling routines so we need to do it explicitly.
+ 

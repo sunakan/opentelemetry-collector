@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index f48dc12a8..1c2a49a0f 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -210,6 +210,8 @@ func (s *loggingExporter) pushMetricsData(
+ 			}
+ 		}
+ 	}
++	s.logger.Debug(buf.str.String())
++
+ 	return 0, nil
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/interceptor/zipkin/trace_interceptor_test.go b/interceptor/zipkin/trace_interceptor_test.go
+index ba4cced07..0d07bfdf0 100644
+--- a/interceptor/zipkin/trace_interceptor_test.go
++++ b/interceptor/zipkin/trace_interceptor_test.go
+@@ -75,7 +75,7 @@ func TestConvertSpansToTraceSpans(t *testing.T) {
+ 	nonNilSpans := 0
+ 	for _, span := range req.Spans {
+ 		if span != nil {
+-			nonNilSpans += 1
++			nonNilSpans++
+ 		}
+ 	}
+ 	// Expecting 9 non-nil spans

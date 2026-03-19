@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/batch_sender.go b/exporter/exporterhelper/batch_sender.go
+index 3501fc3ef..a1c8bc690 100644
+--- a/exporter/exporterhelper/batch_sender.go
++++ b/exporter/exporterhelper/batch_sender.go
+@@ -45,7 +45,7 @@ type batchSender struct {
+ }
+ 
+ // newBatchSender returns a new batch consumer component.
+-func newBatchSender(cfg exporterbatcher.Config, set exporter.CreateSettings,
++func newBatchSender(cfg exporterbatcher.Config, set exporter.Settings,
+ 	mf exporterbatcher.BatchMergeFunc[Request], msf exporterbatcher.BatchMergeSplitFunc[Request]) *batchSender {
+ 	bs := &batchSender{
+ 		activeBatch:        newEmptyBatch(),

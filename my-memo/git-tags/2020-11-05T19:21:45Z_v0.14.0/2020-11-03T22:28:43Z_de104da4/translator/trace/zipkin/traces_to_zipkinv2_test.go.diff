@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2_test.go b/translator/trace/zipkin/traces_to_zipkinv2_test.go
+index 89f725d7b..4ac740e21 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2_test.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2_test.go
+@@ -154,7 +154,7 @@ func zipkinOneSpan() *zipkinmodel.SpanModel {
+ 		},
+ 		Tags: map[string]string{
+ 			"resource-attr":  "resource-attr-val-1",
+-			"status.code":    "STATUS_CODE_CANCELLED",
++			"status.code":    "STATUS_CODE_ERROR",
+ 			"status.message": "status-cancelled",
+ 		},
+ 		Name:      "operationA",

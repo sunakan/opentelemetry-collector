@@ -1,0 +1,12 @@
+diff --git a/processor/spanprocessor/factory.go b/processor/spanprocessor/factory.go
+index 0f6c016f8..f5b7aa7dc 100644
+--- a/processor/spanprocessor/factory.go
++++ b/processor/spanprocessor/factory.go
+@@ -73,6 +73,6 @@ func createTracesProcessor(
+ 	return processorhelper.NewTracesProcessor(
+ 		cfg,
+ 		nextConsumer,
+-		sp,
++		sp.processTraces,
+ 		processorhelper.WithCapabilities(processorCapabilities))
+ }

@@ -1,0 +1,22 @@
+diff --git a/exporter/xexporter/exporter.go b/exporter/xexporter/exporter.go
+index 8add9a9ab..a30100080 100644
+--- a/exporter/xexporter/exporter.go
++++ b/exporter/xexporter/exporter.go
+@@ -9,6 +9,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer/xconsumer"
+ 	"go.opentelemetry.io/collector/exporter"
++	"go.opentelemetry.io/collector/exporter/internal/experr"
+ 	"go.opentelemetry.io/collector/pipeline"
+ )
+ 
+@@ -95,6 +96,9 @@ func (f *factory) CreateProfiles(ctx context.Context, set exporter.Settings, cfg
+ 		return nil, pipeline.ErrSignalNotSupported
+ 	}
+ 
++	if set.ID.Type() != f.Type() {
++		return nil, experr.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesFunc(ctx, set, cfg)
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-release.yaml b/.github/workflows/builder-release.yaml
+index 5cb05b226..b29297c3d 100644
+--- a/.github/workflows/builder-release.yaml
++++ b/.github/workflows/builder-release.yaml
+@@ -18,7 +18,7 @@ jobs:
+         with:
+           go-version: 1.18
+       - name: Run GoReleaser
+-        uses: goreleaser/goreleaser-action@v2
++        uses: goreleaser/goreleaser-action@v3
+         with:
+           distribution: goreleaser-pro
+           version: latest

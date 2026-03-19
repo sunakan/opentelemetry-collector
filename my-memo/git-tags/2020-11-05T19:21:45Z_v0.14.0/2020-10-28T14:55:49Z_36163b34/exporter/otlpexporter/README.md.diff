@@ -1,0 +1,18 @@
+diff --git a/exporter/otlpexporter/README.md b/exporter/otlpexporter/README.md
+index 6f54eafa2..af085e5df 100644
+--- a/exporter/otlpexporter/README.md
++++ b/exporter/otlpexporter/README.md
+@@ -1,7 +1,11 @@
+ # OTLP Exporter
+ 
+-Exports traces and/or metrics via gRPC using
+-[OpenTelemetry](https://opentelemetry.io/) format.
++Exports traces and/or metrics via gRPC using [OTLP](
++https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/protocol/otlp.md)
++format.
++
++*Important: OTLP metrics format is currently marked as "Alpha" and may change in
++incompatible way any time.*
+ 
+ The following settings are required:
+ 

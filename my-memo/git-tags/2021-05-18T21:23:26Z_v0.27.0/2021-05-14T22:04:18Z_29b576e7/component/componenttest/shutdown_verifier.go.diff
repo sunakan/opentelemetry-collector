@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index e582d8f9c..71831a254 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -50,7 +50,7 @@ func verifyTracesProcessorDoesntProduceAfterShutdown(t *testing.T, factory compo
+ 	// Send some traces to the processor.
+ 	const generatedCount = 10
+ 	for i := 0; i < generatedCount; i++ {
+-		processor.ConsumeTraces(context.Background(), testdata.GenerateTraceDataOneSpan())
++		require.NoError(t, processor.ConsumeTraces(context.Background(), testdata.GenerateTraceDataOneSpan()))
+ 	}
+ 
+ 	// Now shutdown the processor.

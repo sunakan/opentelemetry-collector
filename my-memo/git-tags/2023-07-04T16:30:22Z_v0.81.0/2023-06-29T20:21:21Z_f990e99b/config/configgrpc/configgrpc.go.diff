@@ -1,0 +1,15 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 5cdbb1806..6f216eff2 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -12,8 +12,8 @@ import (
+ 	"strings"
+ 	"time"
+ 
+-	"github.com/mostynb/go-grpc-compression/snappy"
+-	"github.com/mostynb/go-grpc-compression/zstd"
++	"github.com/mostynb/go-grpc-compression/nonclobbering/snappy"
++	"github.com/mostynb/go-grpc-compression/nonclobbering/zstd"
+ 	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+ 	"go.opentelemetry.io/otel"
+ 	"google.golang.org/grpc"

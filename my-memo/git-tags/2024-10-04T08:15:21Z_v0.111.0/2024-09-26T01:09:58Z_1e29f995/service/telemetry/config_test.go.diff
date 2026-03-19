@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/config_test.go b/service/telemetry/config_test.go
+index 4bd7c81bc..9f8f9da1e 100644
+--- a/service/telemetry/config_test.go
++++ b/service/telemetry/config_test.go
+@@ -71,7 +71,7 @@ func TestUnmarshalConfigDeprecatedAddressGateEnabled(t *testing.T) {
+ 	cfg := NewFactory().CreateDefaultConfig()
+ 	require.NoError(t, cm.Unmarshal(&cfg))
+ 	require.Len(t, cfg.(*Config).Metrics.Readers, 1)
+-	assert.Equal(t, "", *cfg.(*Config).Metrics.Readers[0].Pull.Exporter.Prometheus.Host)
++	assert.Equal(t, "localhost", *cfg.(*Config).Metrics.Readers[0].Pull.Exporter.Prometheus.Host)
+ 	assert.Equal(t, 8888, *cfg.(*Config).Metrics.Readers[0].Pull.Exporter.Prometheus.Port)
+ }
+ 

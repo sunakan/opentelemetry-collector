@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_sum_test.go b/pdata/internal/generated_wrapper_sum_test.go
+index 551e5c0d1..b47dd2dc2 100644
+--- a/pdata/internal/generated_wrapper_sum_test.go
++++ b/pdata/internal/generated_wrapper_sum_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigSum(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigSum(t *testing.T) {
++	src := &otlpmetrics.Sum{}
++	FillOrigTestSum(src)
++	buf, err := MarshalProtoOrigSum(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigSum(src))
++
++	dest := &otlpmetrics.Sum{}
++	require.NoError(t, UnmarshalProtoOrigSum(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptySum(t *testing.T) {
++	src := &otlpmetrics.Sum{}
++	buf, err := MarshalProtoOrigSum(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigSum(src))
++
++	dest := &otlpmetrics.Sum{}
++	require.NoError(t, UnmarshalProtoOrigSum(dest, buf))
++	assert.Equal(t, src, dest)
++}

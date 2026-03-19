@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint_test.go b/pdata/pmetric/generated_numberdatapoint_test.go
+index 3cc73fa38..27fa0d6f5 100644
+--- a/pdata/pmetric/generated_numberdatapoint_test.go
++++ b/pdata/pmetric/generated_numberdatapoint_test.go
+@@ -48,13 +48,13 @@ func TestNumberDataPoint_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestNumberDataPoint()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewNumberDataPoint()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

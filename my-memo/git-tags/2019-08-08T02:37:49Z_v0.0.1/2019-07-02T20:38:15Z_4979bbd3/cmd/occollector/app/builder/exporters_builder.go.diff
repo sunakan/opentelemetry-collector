@@ -1,0 +1,22 @@
+diff --git a/cmd/occollector/app/builder/exporters_builder.go b/cmd/occollector/app/builder/exporters_builder.go
+index 9c8f69d4b..d5c9f1813 100644
+--- a/cmd/occollector/app/builder/exporters_builder.go
++++ b/cmd/occollector/app/builder/exporters_builder.go
+@@ -170,7 +170,7 @@ func (eb *ExportersBuilder) buildExporter(
+ 		// Traces data type is required. Create a trace exporter based on config.
+ 		tc, stopFunc, err := factory.CreateTraceExporter(eb.logger, config)
+ 		if err != nil {
+-			if err == factories.ErrDataTypeIsNotSupported {
++			if err == models.ErrDataTypeIsNotSupported {
+ 				// Could not create because this exporter does not support this data type.
+ 				return nil, typeMismatchErr(config, requirement.requiredBy, models.TracesDataType)
+ 			}
+@@ -185,7 +185,7 @@ func (eb *ExportersBuilder) buildExporter(
+ 		// Metrics data type is required. Create a trace exporter based on config.
+ 		mc, stopFunc, err := factory.CreateMetricsExporter(eb.logger, config)
+ 		if err != nil {
+-			if err == factories.ErrDataTypeIsNotSupported {
++			if err == models.ErrDataTypeIsNotSupported {
+ 				// Could not create because this exporter does not support this data type.
+ 				return nil, typeMismatchErr(config, requirement.requiredBy, models.MetricsDataType)
+ 			}

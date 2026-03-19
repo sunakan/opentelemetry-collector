@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index fc90f8f7c..55e9ce726 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -423,7 +423,7 @@ func TestHTTPClientSettingWithAuthConfig(t *testing.T) {
+ 			name: "with_auth_configuration_has_extension_and_compression",
+ 			settings: ClientConfig{
+ 				Endpoint:    "localhost:1234",
+-				Auth:        &configauth.Authentication{AuthenticatorID: component.NewID("mock")},
++				Auth:        &configauth.Authentication{AuthenticatorID: component.MustNewID("mock")},
+ 				Compression: configcompression.TypeGzip,
+ 			},
+ 			shouldErr: false,

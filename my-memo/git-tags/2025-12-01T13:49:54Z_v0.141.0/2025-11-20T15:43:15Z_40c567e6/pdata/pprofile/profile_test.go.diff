@@ -1,0 +1,16 @@
+diff --git a/pdata/pprofile/profile_test.go b/pdata/pprofile/profile_test.go
+index 0dd380782..dc5e4c31f 100644
+--- a/pdata/pprofile/profile_test.go
++++ b/pdata/pprofile/profile_test.go
+@@ -210,3 +210,11 @@ func TestProfileSwitchDictionary(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestProfile_Duration(_ *testing.T) {
++	ms := NewProfile()
++	ms.SetDuration(0)
++
++	ts := ms.Duration()
++	_ = ts
++}

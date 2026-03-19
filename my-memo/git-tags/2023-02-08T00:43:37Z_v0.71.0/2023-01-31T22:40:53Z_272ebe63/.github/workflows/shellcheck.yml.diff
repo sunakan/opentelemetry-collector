@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/shellcheck.yml b/.github/workflows/shellcheck.yml
+new file mode 100644
+index 000000000..a8eb4e8a8
+--- /dev/null
++++ b/.github/workflows/shellcheck.yml
+@@ -0,0 +1,15 @@
++name: Shellcheck lint
++on:
++  push:
++    branches: [ main ]
++  pull_request:
++    branches: [ main ]
++
++jobs:
++  shellcheck:
++    name: Shellcheck
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v3
++      - name: Run ShellCheck
++        uses: ludeeus/action-shellcheck@1.1.0

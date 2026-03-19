@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/testdata/zipkin_v1_multiple_batches.json b/translator/trace/zipkin/testdata/zipkin_v1_multiple_batches.json
+index 2e4270b66..8e1b58f20 100644
+--- a/translator/trace/zipkin/testdata/zipkin_v1_multiple_batches.json
++++ b/translator/trace/zipkin/testdata/zipkin_v1_multiple_batches.json
+@@ -132,6 +132,10 @@
+                 {
+                     "key": "success",
+                     "value": "true"
++                },
++                {
++                  "key": "processed",
++                  "value": "1.5"
+                 }
+             ]
+         }

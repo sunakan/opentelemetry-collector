@@ -1,0 +1,27 @@
+diff --git a/service/internal/configunmarshaler/extensions_test.go b/service/internal/configunmarshaler/extensions_test.go
+index 6af6f761b..3f6a7e57e 100644
+--- a/service/internal/configunmarshaler/extensions_test.go
++++ b/service/internal/configunmarshaler/extensions_test.go
+@@ -20,8 +20,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+@@ -38,9 +38,9 @@ func TestExtensionsUnmarshal(t *testing.T) {
+ 
+ 	cfgWithName := factories.Extensions["nop"].CreateDefaultConfig()
+ 	cfgWithName.SetIDName("myextension")
+-	assert.Equal(t, map[config.ComponentID]config.Extension{
+-		config.NewComponentID("nop"):                        factories.Extensions["nop"].CreateDefaultConfig(),
+-		config.NewComponentIDWithName("nop", "myextension"): cfgWithName,
++	assert.Equal(t, map[component.ID]component.ExtensionConfig{
++		component.NewID("nop"):                        factories.Extensions["nop"].CreateDefaultConfig(),
++		component.NewIDWithName("nop", "myextension"): cfgWithName,
+ 	}, exts.GetExtensions())
+ }
+ 

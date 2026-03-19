@@ -1,0 +1,31 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index aefbd63b6..0c4c20e1a 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -28,8 +28,8 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
++	"go.opentelemetry.io/collector/internal/occonventions"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+-	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 
+ func TestOcTraceStateToInternal(t *testing.T) {
+@@ -397,14 +397,14 @@ func TestOcSameProcessAsParentSpanToInternal(t *testing.T) {
+ 
+ 	ocSameProcessAsParentSpanToInternal(wrapperspb.Bool(false), span)
+ 	assert.Equal(t, 1, span.Attributes().Len())
+-	v, ok := span.Attributes().Get(conventions.OCAttributeSameProcessAsParentSpan)
++	v, ok := span.Attributes().Get(occonventions.AttributeSameProcessAsParentSpan)
+ 	assert.True(t, ok)
+ 	assert.EqualValues(t, pdata.AttributeValueBOOL, v.Type())
+ 	assert.False(t, v.BoolVal())
+ 
+ 	ocSameProcessAsParentSpanToInternal(wrapperspb.Bool(true), span)
+ 	assert.Equal(t, 1, span.Attributes().Len())
+-	v, ok = span.Attributes().Get(conventions.OCAttributeSameProcessAsParentSpan)
++	v, ok = span.Attributes().Get(occonventions.AttributeSameProcessAsParentSpan)
+ 	assert.True(t, ok)
+ 	assert.EqualValues(t, pdata.AttributeValueBOOL, v.Type())
+ 	assert.True(t, v.BoolVal())

@@ -1,0 +1,28 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index bde46823a..87047d80a 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -30,6 +30,11 @@ const (
+ 
+ 	defaultSendBatchSize = uint32(8192)
+ 	defaultTimeout       = 200 * time.Millisecond
++
++	// defaultMetadataCardinalityLimit should be set to the number
++	// of metadata configurations the user expects to submit to
++	// the collector.
++	defaultMetadataCardinalityLimit = 1000
+ )
+ 
+ // NewFactory returns a new factory for the Batch processor.
+@@ -44,8 +49,9 @@ func NewFactory() processor.Factory {
+ 
+ func createDefaultConfig() component.Config {
+ 	return &Config{
+-		SendBatchSize: defaultSendBatchSize,
+-		Timeout:       defaultTimeout,
++		SendBatchSize:            defaultSendBatchSize,
++		Timeout:                  defaultTimeout,
++		MetadataCardinalityLimit: defaultMetadataCardinalityLimit,
+ 	}
+ }
+ 

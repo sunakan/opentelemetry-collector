@@ -1,0 +1,13 @@
+diff --git a/connector/traces_router_test.go b/connector/traces_router_test.go
+index 7438d4aa9..9b4141d28 100644
+--- a/connector/traces_router_test.go
++++ b/connector/traces_router_test.go
+@@ -98,7 +98,7 @@ func fuzzTraces(numIDs, numCons, numTraces int) func(*testing.T) {
+ 				}
+ 				assert.Len(t, traces, expected[id])
+ 				for n := 0; n < len(traces); n++ {
+-					assert.EqualValues(t, td, traces[n])
++					assert.Equal(t, td, traces[n])
+ 				}
+ 			}
+ 		}

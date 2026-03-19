@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice.go.tmpl
+index b99a824fd..435e573c6 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice.go.tmpl
+@@ -129,6 +129,9 @@ func (ms {{ .structName }}) MoveAndAppendTo(dest {{ .structName }}) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (ms {{ .structName }}) CopyTo(dest {{ .structName }}) {
+ 	dest.getState().AssertMutable()
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = internal.CopyOrig{{ .elementOriginName }}Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 

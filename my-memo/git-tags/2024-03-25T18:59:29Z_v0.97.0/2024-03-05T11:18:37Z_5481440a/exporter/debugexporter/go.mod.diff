@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/go.mod b/exporter/debugexporter/go.mod
+index 4f237eca8..0cbf4ad02 100644
+--- a/exporter/debugexporter/go.mod
++++ b/exporter/debugexporter/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/exporter/debugexporter
+ go 1.21
+ 
+ require (
+-	github.com/stretchr/testify v1.8.4
++	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.96.0
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.96.0
+ 	go.opentelemetry.io/collector/confmap v0.96.0

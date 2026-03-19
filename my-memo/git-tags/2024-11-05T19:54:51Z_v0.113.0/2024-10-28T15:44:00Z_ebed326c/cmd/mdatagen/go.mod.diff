@@ -1,0 +1,21 @@
+diff --git a/cmd/mdatagen/go.mod b/cmd/mdatagen/go.mod
+index 540107cd3..b6cfd4c54 100644
+--- a/cmd/mdatagen/go.mod
++++ b/cmd/mdatagen/go.mod
+@@ -17,6 +17,7 @@ require (
+ 	go.opentelemetry.io/collector/processor v0.112.0
+ 	go.opentelemetry.io/collector/processor/processortest v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	go.opentelemetry.io/collector/semconv v0.112.0
+ 	go.opentelemetry.io/otel/metric v1.31.0
+ 	go.opentelemetry.io/otel/sdk/metric v1.31.0
+@@ -83,6 +84,8 @@ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../../receiver/receivertest
++
+ retract (
+ 	v0.76.2
+ 	v0.76.1

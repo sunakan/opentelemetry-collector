@@ -1,0 +1,12 @@
+diff --git a/otelcol/command.go b/otelcol/command.go
+index 8e5c6284b..9db850bcc 100644
+--- a/otelcol/command.go
++++ b/otelcol/command.go
+@@ -41,6 +41,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 	return rootCmd
+ }
+ 
++// Puts command line flags from flags into the CollectorSettings, to be used during config resolution.
+ func updateSettingsUsingFlags(set *CollectorSettings, flags *flag.FlagSet) error {
+ 	if set.ConfigProvider == nil {
+ 		resolverSet := &set.ConfigProviderSettings.ResolverSettings

@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/conversion.go b/receiver/fluentforwardreceiver/conversion.go
+index 4a2976ec4..ae0519824 100644
+--- a/receiver/fluentforwardreceiver/conversion.go
++++ b/receiver/fluentforwardreceiver/conversion.go
+@@ -113,7 +113,7 @@ func timeFromTimestamp(ts interface{}) (time.Time, error) {
+ 	switch v := ts.(type) {
+ 	case int64:
+ 		return time.Unix(v, 0), nil
+-	case *EventTimeExt:
++	case *eventTimeExt:
+ 		return time.Time(*v), nil
+ 	default:
+ 		return time.Time{}, fmt.Errorf("unknown type of value: %v", ts)

@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 2213ff81b..05c1f26c7 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,8 +4,9 @@
+ 
+ ## 🛑 Breaking changes 🛑
+ 
+-- Move configcheck.ValidateConfigFromFactories as internal function in service package (#3876).
++- Move configcheck.ValidateConfigFromFactories as internal function in service package (#3876)
+ - Rename `configparser.Parser` as `config.Map` (#4075)
++- Rename `component.DefaultBuildInfo()` to `component.NewDefaultBuildInfo()` (#4129)
+ 
+ ## 💡 Enhancements 💡
+ 

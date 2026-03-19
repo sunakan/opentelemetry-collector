@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index 4d3eb013f..c6d3cc1e9 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -81,7 +81,7 @@ func TestTraceNoBackend10kSPSJaeger(t *testing.T) {
+ 	defer tc.Stop()
+ 
+ 	tc.SetResourceLimits(testbed.ResourceSpec{
+-		ExpectedMaxCPU: 45,
++		ExpectedMaxCPU: 60,
+ 		ExpectedMaxRAM: 198,
+ 	})
+ 

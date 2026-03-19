@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 96c9b9975..b5d66ce1e 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -56,7 +56,7 @@ func newMetricsRequestUnmarshalerFunc(pusher consumerhelper.ConsumeMetricsFunc)
+ 
+ func (req *metricsRequest) onError(err error) request {
+ 	var metricsError consumererror.Metrics
+-	if consumererror.AsMetrics(err, &metricsError) {
++	if errors.As(err, &metricsError) {
+ 		return newMetricsRequest(req.ctx, metricsError.GetMetrics(), req.pusher)
+ 	}
+ 	return req

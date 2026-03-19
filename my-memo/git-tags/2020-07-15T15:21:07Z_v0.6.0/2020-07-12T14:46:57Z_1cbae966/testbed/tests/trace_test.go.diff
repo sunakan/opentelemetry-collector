@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index f3eb42b96..ce96573e9 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -152,7 +152,7 @@ func TestTraceNoBackend10kSPS(t *testing.T) {
+ 			testbed.NewJaegerGRPCDataSender(testbed.DefaultHost, testbed.DefaultJaegerPort),
+ 			testbed.NewOCDataReceiver(testbed.DefaultOCPort),
+ 			testbed.ResourceSpec{
+-				ExpectedMaxCPU: 60,
++				ExpectedMaxCPU: 70,
+ 				ExpectedMaxRAM: 198,
+ 			},
+ 			processorsConfig,

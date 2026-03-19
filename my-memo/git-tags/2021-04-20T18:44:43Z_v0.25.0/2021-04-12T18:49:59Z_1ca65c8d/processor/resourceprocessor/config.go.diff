@@ -1,0 +1,15 @@
+diff --git a/processor/resourceprocessor/config.go b/processor/resourceprocessor/config.go
+index 6d15c465c..24656ca4f 100644
+--- a/processor/resourceprocessor/config.go
++++ b/processor/resourceprocessor/config.go
+@@ -27,3 +27,10 @@ type Config struct {
+ 	// The set of actions are {INSERT, UPDATE, UPSERT, DELETE, HASH, EXTRACT}.
+ 	AttributesActions []processorhelper.ActionKeyValue `mapstructure:"attributes"`
+ }
++
++var _ config.Processor = (*Config)(nil)
++
++// Validate checks if the processor configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

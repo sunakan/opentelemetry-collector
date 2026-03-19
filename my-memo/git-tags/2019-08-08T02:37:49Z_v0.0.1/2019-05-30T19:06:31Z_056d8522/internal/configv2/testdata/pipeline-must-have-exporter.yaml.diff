@@ -1,0 +1,15 @@
+diff --git a/internal/configv2/testdata/pipeline-must-have-exporter.yaml b/internal/configv2/testdata/pipeline-must-have-exporter.yaml
+new file mode 100644
+index 000000000..19668e027
+--- /dev/null
++++ b/internal/configv2/testdata/pipeline-must-have-exporter.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers: [multireceiver]

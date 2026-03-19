@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metrics_test.go b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+index 0e713ae22..f010ec208 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metrics_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ // TestGeneratedMetrics verifies that the internal/metadata API is generated correctly.
+ func TestGeneratedMetrics(t *testing.T) {
+-	mb := metadata.NewMetricsBuilder(metadata.DefaultMetricsBuilderConfig(), receivertest.NewNopSettingsWithType(metadata.Type))
++	mb := metadata.NewMetricsBuilder(metadata.DefaultMetricsBuilderConfig(), receivertest.NewNopSettings(metadata.Type))
+ 	m := mb.Emit()
+ 	require.Equal(t, 0, m.ResourceMetrics().Len())
+ }

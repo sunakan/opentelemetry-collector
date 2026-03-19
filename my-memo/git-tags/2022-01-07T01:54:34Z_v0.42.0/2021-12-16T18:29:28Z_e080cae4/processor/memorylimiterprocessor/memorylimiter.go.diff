@@ -1,0 +1,21 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter.go b/processor/memorylimiterprocessor/memorylimiter.go
+index a8ca86f4f..e8e1656ca 100644
+--- a/processor/memorylimiterprocessor/memorylimiter.go
++++ b/processor/memorylimiterprocessor/memorylimiter.go
+@@ -25,7 +25,6 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/extension/ballastextension"
+ 	"go.opentelemetry.io/collector/internal/iruntime"
+ 	"go.opentelemetry.io/collector/model/pdata"
+@@ -115,7 +114,7 @@ func newMemoryLimiter(set component.ProcessorCreateSettings, cfg *Config) (*memo
+ 		readMemStatsFn: runtime.ReadMemStats,
+ 		logger:         logger,
+ 		obsrep: obsreport.NewProcessor(obsreport.ProcessorSettings{
+-			Level:                   configtelemetry.GetMetricsLevelFlagValue(),
++			Level:                   set.MetricsLevel,
+ 			ProcessorID:             cfg.ID(),
+ 			ProcessorCreateSettings: set,
+ 		}),

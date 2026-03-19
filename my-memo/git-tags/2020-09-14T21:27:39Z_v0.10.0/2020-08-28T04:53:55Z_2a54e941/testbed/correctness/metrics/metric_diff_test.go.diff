@@ -1,0 +1,12 @@
+diff --git a/testbed/correctness/metrics/metric_diff_test.go b/testbed/correctness/metrics/metric_diff_test.go
+index e7de655b1..2e4b68ff7 100644
+--- a/testbed/correctness/metrics/metric_diff_test.go
++++ b/testbed/correctness/metrics/metric_diff_test.go
+@@ -100,6 +100,6 @@ func TestSummary(t *testing.T) {
+ func TestPDMToPDRM(t *testing.T) {
+ 	md := dataold.NewMetricData()
+ 	md.ResourceMetrics().Resize(1)
+-	rm := pdmToPDRM([]pdata.Metrics{pdatautil.MetricsFromInternalMetrics(md)})
++	rm := pdmToPDRM([]pdata.Metrics{pdatautil.MetricsFromOldInternalMetrics(md)})
+ 	require.Equal(t, 1, len(rm))
+ }

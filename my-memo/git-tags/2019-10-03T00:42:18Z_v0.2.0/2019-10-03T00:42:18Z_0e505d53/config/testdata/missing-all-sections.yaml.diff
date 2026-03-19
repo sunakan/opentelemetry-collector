@@ -1,0 +1,11 @@
+diff --git a/config/testdata/missing-all-sections.yaml b/config/testdata/missing-all-sections.yaml
+index cba2bcffb..2eaee087e 100644
+--- a/config/testdata/missing-all-sections.yaml
++++ b/config/testdata/missing-all-sections.yaml
+@@ -1,4 +1,5 @@
+ receivers:
+ exporters:
+ processors:
+-pipeline:
++service:
++  pipeline:

@@ -1,0 +1,13 @@
+diff --git a/config/configmapprovider/merge.go b/config/configmapprovider/merge.go
+index e6fc5d3fd..4776d3bfb 100644
+--- a/config/configmapprovider/merge.go
++++ b/config/configmapprovider/merge.go
+@@ -22,8 +22,6 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
+-// TODO: Add support to "merge" watchable interface.
+-
+ type mergeMapProvider struct {
+ 	providers []Provider
+ }

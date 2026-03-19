@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/factory_test.go b/receiver/kafkareceiver/factory_test.go
+index 4417776a9..855d76aa8 100644
+--- a/receiver/kafkareceiver/factory_test.go
++++ b/receiver/kafkareceiver/factory_test.go
+@@ -73,7 +73,7 @@ func TestWithUnmarshallers(t *testing.T) {
+ 		require.NotNil(t, exporter)
+ 	})
+ 	t.Run("default_encoding", func(t *testing.T) {
+-		cfg.Encoding = new(otlpProtoUnmarshaller).Encoding()
++		cfg.Encoding = new(otlpTracesPbUnmarshaller).Encoding()
+ 		exporter, err := f.CreateTracesReceiver(context.Background(), component.ReceiverCreateParams{}, cfg, nil)
+ 		require.NoError(t, err)
+ 		assert.NotNil(t, exporter)

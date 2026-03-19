@@ -1,0 +1,14 @@
+diff --git a/translator/internaldata/oc_to_resource.go b/translator/internaldata/oc_to_resource.go
+index d98d508d7..96f814895 100644
+--- a/translator/internaldata/oc_to_resource.go
++++ b/translator/internaldata/oc_to_resource.go
+@@ -21,8 +21,8 @@ import (
+ 	ocresource "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
+ 	"go.opencensus.io/resource/resourcekeys"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

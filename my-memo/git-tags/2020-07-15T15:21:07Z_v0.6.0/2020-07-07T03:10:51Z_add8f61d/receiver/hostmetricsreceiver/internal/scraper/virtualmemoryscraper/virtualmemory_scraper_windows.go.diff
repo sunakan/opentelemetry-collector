@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
+index 385530abe..24d9bb757 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
+@@ -129,7 +129,7 @@ func (s *scraper) scrapeAndAppendSwapUsageMetric(metrics pdata.MetricSlice) erro
+ }
+ 
+ func initializeSwapUsageMetric(metric pdata.Metric, pageFiles []*pageFileData) {
+-	metricSwapUsageDescriptor.CopyTo(metric.MetricDescriptor())
++	swapUsageDescriptor.CopyTo(metric.MetricDescriptor())
+ 
+ 	idps := metric.Int64DataPoints()
+ 	idps.Resize(2 * len(pageFiles))
+@@ -175,7 +175,7 @@ func (s *scraper) scrapeAndAppendPagingMetric(metrics pdata.MetricSlice) error {
+ }
+ 
+ func initializePagingMetric(metric pdata.Metric, startTime pdata.TimestampUnixNano, reads float64, writes float64) {
+-	metricPagingDescriptor.CopyTo(metric.MetricDescriptor())
++	swapPagingDescriptor.CopyTo(metric.MetricDescriptor())
+ 
+ 	idps := metric.Int64DataPoints()
+ 	idps.Resize(2)

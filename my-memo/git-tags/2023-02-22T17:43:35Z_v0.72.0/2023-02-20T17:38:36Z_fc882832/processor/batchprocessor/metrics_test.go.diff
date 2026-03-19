@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metrics_test.go b/processor/batchprocessor/metrics_test.go
+index 49e4c23b3..389363d66 100644
+--- a/processor/batchprocessor/metrics_test.go
++++ b/processor/batchprocessor/metrics_test.go
+@@ -139,7 +139,7 @@ func (tt *testTelemetry) assertMetrics(t *testing.T, expected expectedMetrics) {
+ 		_, _ = view.RetrieveData(v.Name)
+ 	}
+ 
+-	req, err := http.NewRequest("GET", "/metrics", nil)
++	req, err := http.NewRequest(http.MethodGet, "/metrics", nil)
+ 	require.NoError(t, err)
+ 
+ 	rr := httptest.NewRecorder()

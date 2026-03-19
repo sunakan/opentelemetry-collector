@@ -1,0 +1,10 @@
+diff --git a/config/confighttp/go.mod b/config/confighttp/go.mod
+index beb57170b..cbca50bb8 100644
+--- a/config/confighttp/go.mod
++++ b/config/confighttp/go.mod
+@@ -91,3 +91,5 @@ replace go.opentelemetry.io/collector/component => ../../component
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
+ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
++
++replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile

@@ -1,0 +1,30 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
+index 82761c711..7aea84650 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
+@@ -23,3 +23,24 @@ func TestCopyOrig{{ .originName }}(t *testing.T) {
+ 	CopyOrig{{ .originName }}(dest, src)
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalJSONOrig{{ .originName }}(t *testing.T) {
++	src := &{{ .originFullName }}{}
++	FillOrigTest{{ .originName }}(src)
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	MarshalJSONOrig{{ .originName }}(src, stream)
++	require.NoError(t, stream.Error())
++
++	// Append an unknown field at the start to ensure unknown fields are skipped
++	// and the unmarshal logic continues.
++	buf := stream.Buffer()
++	assert.EqualValues(t, '{', buf[0])
++	iter := json.BorrowIterator(append([]byte(`{"unknown": "string",`), buf[1:]...))
++	defer json.ReturnIterator(iter)
++	dest := &{{ .originFullName }}{}
++	UnmarshalJSONOrig{{ .originName }}(dest, iter)
++	require.NoError(t, iter.Error())
++
++	assert.Equal(t, src, dest)
++}
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/troubleshooting.md b/docs/troubleshooting.md
+index 38e283422..df9c995c5 100644
+--- a/docs/troubleshooting.md
++++ b/docs/troubleshooting.md
+@@ -84,7 +84,7 @@ service:
+ 
+ OpenTelemetry Collector has an ability to send it's own traces using OTLP exporter. You can send the traces to OTLP server running on the same OpenTelemetry Collector, so it goes through configured pipelines. For example:
+ 
+-```
++```yaml
+ service:
+   telemetry:
+     traces:

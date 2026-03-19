@@ -1,0 +1,19 @@
+diff --git a/config/configloader/testdata/invalid-receiver-type.yaml b/config/configloader/testdata/invalid-receiver-type.yaml
+deleted file mode 100644
+index 29ffaffac..000000000
+--- a/config/configloader/testdata/invalid-receiver-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-  /custom:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

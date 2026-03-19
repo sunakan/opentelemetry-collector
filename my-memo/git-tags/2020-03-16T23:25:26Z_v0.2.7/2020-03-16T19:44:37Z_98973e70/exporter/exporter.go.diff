@@ -1,0 +1,14 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 9162fa0ce..5df8b5c2c 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -42,3 +42,9 @@ type MetricsExporter interface {
+ 	consumer.MetricsConsumer
+ 	Exporter
+ }
++
++// MetricsExporterV2 is a MetricsConsumerV2 that is also an Exporter.
++type MetricsExporterV2 interface {
++	consumer.MetricsConsumerV2
++	Exporter
++}

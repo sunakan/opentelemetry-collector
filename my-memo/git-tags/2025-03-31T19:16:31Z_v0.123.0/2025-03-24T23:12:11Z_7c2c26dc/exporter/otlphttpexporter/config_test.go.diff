@@ -1,0 +1,12 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index 8e07baa28..15b1eead7 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -54,6 +54,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 			},
+ 			QueueConfig: exporterhelper.QueueConfig{
+ 				Enabled:      true,
++				Sizer:        exporterhelper.RequestSizerTypeRequests,
+ 				NumConsumers: 2,
+ 				QueueSize:    10,
+ 			},

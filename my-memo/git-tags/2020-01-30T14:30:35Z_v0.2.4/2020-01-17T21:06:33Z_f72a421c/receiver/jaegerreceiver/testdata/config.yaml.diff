@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/testdata/config.yaml b/receiver/jaegerreceiver/testdata/config.yaml
+index 47065bc8b..8ef10b9a2 100644
+--- a/receiver/jaegerreceiver/testdata/config.yaml
++++ b/receiver/jaegerreceiver/testdata/config.yaml
+@@ -16,6 +16,7 @@ receivers:
+       thrift-binary:
+         endpoint: "0.0.0.0:789"
+     remote_sampling:
++      host_endpoint: "0.0.0.0:5778"
+       fetch_endpoint: "jaeger-collector:1234"
+   # The following demonstrates how to enable protocols with defaults.
+   jaeger/defaults:

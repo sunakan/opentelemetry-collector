@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pprofileotlp_package.go b/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+index e3771c8b2..5f6201384 100644
+--- a/internal/cmd/pdatagen/internal/pprofileotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+@@ -26,7 +26,7 @@ var pprofileotlp = &Package{
+ 	},
+ }
+ 
+-var exportProfilesPartialSuccess = &messageValueStruct{
++var exportProfilesPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",
+ 	originFullName: "otlpcollectorprofile.ExportProfilesPartialSuccess",

@@ -1,0 +1,25 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+index b421c9943..b6c9d926f 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+@@ -19,7 +19,6 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
+ )
+ 
+@@ -42,10 +41,9 @@ func (f *Factory) CreateDefaultConfig() internal.Config {
+ // CreateMetricsScraper creates a scraper based on provided config.
+ func (f *Factory) CreateMetricsScraper(
+ 	ctx context.Context,
+-	logger *zap.Logger,
++	_ *zap.Logger,
+ 	config internal.Config,
+-	consumer consumer.MetricsConsumer,
+ ) (internal.Scraper, error) {
+ 	cfg := config.(*Config)
+-	return NewMemoryScraper(ctx, cfg, consumer)
++	return newMemoryScraper(ctx, cfg), nil
+ }

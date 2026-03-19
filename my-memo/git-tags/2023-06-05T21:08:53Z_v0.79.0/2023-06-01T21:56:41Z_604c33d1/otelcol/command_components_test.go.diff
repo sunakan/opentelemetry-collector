@@ -1,0 +1,12 @@
+diff --git a/otelcol/command_components_test.go b/otelcol/command_components_test.go
+index 81920eb7d..37e923276 100644
+--- a/otelcol/command_components_test.go
++++ b/otelcol/command_components_test.go
+@@ -36,6 +36,7 @@ func TestNewBuildSubCommand(t *testing.T) {
+ 		Receivers:  []component.Type{"nop"},
+ 		Processors: []component.Type{"nop"},
+ 		Exporters:  []component.Type{"nop"},
++		Connectors: []component.Type{"nop"},
+ 		Extensions: []component.Type{"nop"},
+ 	}
+ 	ExpectedOutput, err := yaml.Marshal(ExpectedYamlStruct)

@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory_test.go b/processor/attributesprocessor/factory_test.go
+index 97a2b5af8..bce964ffe 100644
+--- a/processor/attributesprocessor/factory_test.go
++++ b/processor/attributesprocessor/factory_test.go
+@@ -38,7 +38,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.Equal(t, cfg, &Config{
+-		ProcessorSettings: config.NewProcessorSettings(typeStr),
++		ProcessorSettings: config.NewProcessorSettings(config.NewID(typeStr)),
+ 	})
+ 	assert.NoError(t, configcheck.ValidateConfig(cfg))
+ }

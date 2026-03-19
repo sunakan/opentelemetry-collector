@@ -1,0 +1,20 @@
+diff --git a/receiver/internal/err.go b/receiver/internal/err.go
+new file mode 100644
+index 000000000..7969e79af
+--- /dev/null
++++ b/receiver/internal/err.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/receiver/internal"
++
++import (
++	"fmt"
++
++	"go.opentelemetry.io/collector/component"
++)
++
++func ErrIDMismatch(id component.ID, typ component.Type) error {
++	return fmt.Errorf("component type mismatch: component ID %q does not have type %q", id, typ)
++}

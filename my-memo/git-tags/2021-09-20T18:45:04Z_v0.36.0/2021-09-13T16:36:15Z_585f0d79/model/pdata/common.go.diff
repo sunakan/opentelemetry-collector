@@ -1,0 +1,22 @@
+diff --git a/model/pdata/common.go b/model/pdata/common.go
+index 94718758d..421df4851 100644
+--- a/model/pdata/common.go
++++ b/model/pdata/common.go
+@@ -19,6 +19,7 @@ package pdata
+ 
+ import (
+ 	"bytes"
++	"encoding/base64"
+ 	"encoding/json"
+ 	"fmt"
+ 	"sort"
+@@ -401,6 +402,9 @@ func (a AttributeValue) AsString() string {
+ 		jsonStr, _ := json.Marshal(a.MapVal().AsRaw())
+ 		return string(jsonStr)
+ 
++	case AttributeValueTypeBytes:
++		return base64.StdEncoding.EncodeToString(a.BytesVal())
++
+ 	case AttributeValueTypeArray:
+ 		jsonStr, _ := json.Marshal(a.ArrayVal().asRaw())
+ 		return string(jsonStr)

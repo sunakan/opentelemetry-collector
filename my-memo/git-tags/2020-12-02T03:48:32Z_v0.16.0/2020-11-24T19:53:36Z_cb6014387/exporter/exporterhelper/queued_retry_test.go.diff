@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index 474e269ea..793da16ef 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -28,7 +28,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/obsreport/obsreporttest"
+ )
+ 

@@ -1,0 +1,13 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index bf907473f..b079981c0 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -17,7 +17,7 @@ package consumer
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Capabilities describes the capabilities of a Processor.

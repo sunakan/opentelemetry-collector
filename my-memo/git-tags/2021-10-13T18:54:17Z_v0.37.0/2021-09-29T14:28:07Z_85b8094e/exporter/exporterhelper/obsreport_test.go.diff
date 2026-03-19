@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsreport_test.go b/exporter/exporterhelper/obsreport_test.go
+index 298dfee49..0021ac1ff 100644
+--- a/exporter/exporterhelper/obsreport_test.go
++++ b/exporter/exporterhelper/obsreport_test.go
+@@ -36,7 +36,7 @@ func TestExportEnqueueFailure(t *testing.T) {
+ 	require.NoError(t, err)
+ 	defer doneFn()
+ 
+-	exporter := config.NewID("fakeExporter")
++	exporter := config.NewComponentID("fakeExporter")
+ 
+ 	obsrep := newObsExporter(obsreport.ExporterSettings{
+ 		Level:                  configtelemetry.LevelNormal,

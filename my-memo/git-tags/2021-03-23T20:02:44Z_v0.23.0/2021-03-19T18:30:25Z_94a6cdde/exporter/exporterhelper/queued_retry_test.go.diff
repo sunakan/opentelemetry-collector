@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index 4ca91d3f5..5f5ec1d16 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -136,7 +136,7 @@ func TestQueuedRetry_StopWhileWaiting(t *testing.T) {
+ 	// secondMockR.checkNumRequests(t, 1)
+ 	// ocs.checkSendItemsCount(t, 3)
+ 	ocs.checkDroppedItemsCount(t, 2)
+-	// require.Zero(t, be.qrSender.queue.Size())
++	// require.Zero(t, be.qrSender.queue.OtlpProtoSize())
+ }
+ 
+ func TestQueuedRetry_DoNotPreserveCancellation(t *testing.T) {

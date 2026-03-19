@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queue/persistent_queue_test.go b/exporter/exporterhelper/internal/queue/persistent_queue_test.go
+index 6633a90f7..ab12b0f2d 100644
+--- a/exporter/exporterhelper/internal/queue/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/queue/persistent_queue_test.go
+@@ -1185,7 +1185,6 @@ func requireCurrentlyDispatchedItemsEqual(t *testing.T, pq *persistentQueue[intR
+ func itemIndexArrayToBytes(arr []uint64) []byte {
+ 	size := len(arr)
+ 	buf := make([]byte, 0, 4+size*8)
+-	//nolint:gosec
+ 	buf = binary.LittleEndian.AppendUint32(buf, uint32(size))
+ 	for _, item := range arr {
+ 		buf = binary.LittleEndian.AppendUint64(buf, item)

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/proto_marshal.go b/internal/cmd/pdatagen/internal/proto_marshal.go
+index fe3284527..e20720a07 100644
+--- a/internal/cmd/pdatagen/internal/proto_marshal.go
++++ b/internal/cmd/pdatagen/internal/proto_marshal.go
+@@ -151,7 +151,7 @@ const marshalProtoBytesString = `{{ if .repeated -}}
+ {{- end }}{{- end }}`
+ 
+ const marshalProtoMessage = `{{ if .repeated -}}
+-	for i := range orig.{{ .fieldName }} {
++	for i := len(orig.{{ .fieldName }}) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrig{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }}[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

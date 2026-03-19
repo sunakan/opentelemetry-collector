@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index 78ebbcd82..cb69719c8 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package exporterhelper
++package exporterhelper // import "go.opentelemetry.io/collector/exporter/exporterhelper"
+ 
+ import (
+ 	"context"

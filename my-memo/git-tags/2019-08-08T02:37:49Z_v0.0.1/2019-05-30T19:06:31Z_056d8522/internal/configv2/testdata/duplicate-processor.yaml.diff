@@ -1,0 +1,19 @@
+diff --git a/internal/configv2/testdata/duplicate-processor.yaml b/internal/configv2/testdata/duplicate-processor.yaml
+new file mode 100644
+index 000000000..f33b1a8ac
+--- /dev/null
++++ b/internal/configv2/testdata/duplicate-processor.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor/       abc:
++    enabled: true
++  exampleprocessor/abc:
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

@@ -1,0 +1,13 @@
+diff --git a/internal/sharedcomponent/go.mod b/internal/sharedcomponent/go.mod
+index 562f4d97e..08de7c27c 100644
+--- a/internal/sharedcomponent/go.mod
++++ b/internal/sharedcomponent/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/internal/sharedcomponent
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/component/componentstatus v0.114.0
+ 	go.opentelemetry.io/collector/component/componenttest v0.114.0

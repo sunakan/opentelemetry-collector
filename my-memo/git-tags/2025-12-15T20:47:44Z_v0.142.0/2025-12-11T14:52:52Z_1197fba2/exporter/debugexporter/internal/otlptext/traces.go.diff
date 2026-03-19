@@ -1,0 +1,24 @@
+diff --git a/exporter/debugexporter/internal/otlptext/traces.go b/exporter/debugexporter/internal/otlptext/traces.go
+index 190bab5dc..405849384 100644
+--- a/exporter/debugexporter/internal/otlptext/traces.go
++++ b/exporter/debugexporter/internal/otlptext/traces.go
+@@ -4,6 +4,8 @@
+ package otlptext // import "go.opentelemetry.io/collector/exporter/debugexporter/internal/otlptext"
+ 
+ import (
++	"strconv"
++
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
+@@ -49,6 +51,10 @@ func (textTracesMarshaler) MarshalTraces(td ptrace.Traces) ([]byte, error) {
+ 				buf.logAttr("Status code", span.Status().Code().String())
+ 				buf.logAttr("Status message", span.Status().Message())
+ 
++				buf.logAttr("DroppedAttributesCount", strconv.FormatUint(uint64(span.DroppedAttributesCount()), 10))
++				buf.logAttr("DroppedEventsCount", strconv.FormatUint(uint64(span.DroppedEventsCount()), 10))
++				buf.logAttr("DroppedLinksCount", strconv.FormatUint(uint64(span.DroppedLinksCount()), 10))
++
+ 				buf.logAttributes("Attributes", span.Attributes())
+ 				buf.logEvents("Events", span.Events())
+ 				buf.logLinks("Links", span.Links())

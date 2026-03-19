@@ -1,0 +1,27 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+deleted file mode 100644
+index c22493b31..000000000
+--- a/obsreport/obsreport.go
++++ /dev/null
+@@ -1,21 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package obsreport // import "go.opentelemetry.io/collector/obsreport"
+-
+-import (
+-	"go.opentelemetry.io/otel/codes"
+-	"go.opentelemetry.io/otel/trace"
+-)
+-
+-const (
+-	scopeName = "go.opentelemetry.io/collector/obsreport"
+-
+-	nameSep = "/"
+-)
+-
+-func recordError(span trace.Span, err error) {
+-	if err != nil {
+-		span.SetStatus(codes.Error, err.Error())
+-	}
+-}

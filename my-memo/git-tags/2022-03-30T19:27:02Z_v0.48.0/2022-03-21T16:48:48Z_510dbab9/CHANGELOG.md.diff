@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 4881133bf..571623bc4 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -16,6 +16,7 @@
+   - `pdata.AttributeValueType` type is deprecated in favor of `pdata.ValueType`
+   - `pdata.AttributeValueType...` constants are deprecated in favor of `pdata.ValueType...`
+   - `pdata.NewAttributeValue...` funcs are deprecated in favor of `pdata.NewValue...`
++- Deprecate LogRecord.Name(), it was deprecated in the data model (#5054)
+ 
+ ## v0.47.0 Beta
+ 

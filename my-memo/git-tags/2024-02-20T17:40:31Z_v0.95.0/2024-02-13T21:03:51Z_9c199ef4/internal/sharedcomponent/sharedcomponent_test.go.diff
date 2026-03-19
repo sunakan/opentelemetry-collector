@@ -1,0 +1,18 @@
+diff --git a/internal/sharedcomponent/sharedcomponent_test.go b/internal/sharedcomponent/sharedcomponent_test.go
+index 8ba96a287..77cda5124 100644
+--- a/internal/sharedcomponent/sharedcomponent_test.go
++++ b/internal/sharedcomponent/sharedcomponent_test.go
+@@ -79,11 +79,11 @@ func TestSharedComponent(t *testing.T) {
+ 	calledStart := 0
+ 	calledStop := 0
+ 	comp := &baseComponent{
+-		StartFunc: func(ctx context.Context, host component.Host) error {
++		StartFunc: func(context.Context, component.Host) error {
+ 			calledStart++
+ 			return wantErr
+ 		},
+-		ShutdownFunc: func(ctx context.Context) error {
++		ShutdownFunc: func(context.Context) error {
+ 			calledStop++
+ 			return wantErr
+ 		}}

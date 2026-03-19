@@ -1,0 +1,14 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerproto.go b/translator/trace/jaeger/protospan_to_jaegerproto.go
+index de8628ef3..d63142585 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerproto.go
++++ b/translator/trace/jaeger/protospan_to_jaegerproto.go
+@@ -201,9 +201,6 @@ func ocLinksToJaegerReferencesProto(ocSpanLinks *tracepb.Span_Links) ([]jaeger.S
+ 			return nil, err
+ 		}
+ 
+-		if uSpanID == 0 {
+-			return nil, errZeroSpanID
+-		}
+ 		spanID = jaeger.SpanID(uSpanID)
+ 
+ 		var jRefType jaeger.SpanRefType

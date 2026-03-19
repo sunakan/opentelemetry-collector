@@ -1,0 +1,12 @@
+diff --git a/exporter/kafkaexporter/otlp_marshaller_test.go b/exporter/kafkaexporter/otlp_marshaller_test.go
+index be0634ef4..01820fb25 100644
+--- a/exporter/kafkaexporter/otlp_marshaller_test.go
++++ b/exporter/kafkaexporter/otlp_marshaller_test.go
+@@ -27,7 +27,6 @@ import (
+ func TestOTLPMarshaller(t *testing.T) {
+ 	td := pdata.NewTraces()
+ 	td.ResourceSpans().Resize(1)
+-	td.ResourceSpans().At(0).Resource().InitEmpty()
+ 	td.ResourceSpans().At(0).Resource().Attributes().InsertString("foo", "bar")
+ 	request := &otlptrace.ExportTraceServiceRequest{
+ 		ResourceSpans: pdata.TracesToOtlp(td),

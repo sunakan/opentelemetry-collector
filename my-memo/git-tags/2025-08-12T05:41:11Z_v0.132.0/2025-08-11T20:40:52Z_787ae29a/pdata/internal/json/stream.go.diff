@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/json/stream.go b/pdata/internal/json/stream.go
+index 09ba30f4f..1c84e52a0 100644
+--- a/pdata/internal/json/stream.go
++++ b/pdata/internal/json/stream.go
+@@ -4,6 +4,7 @@
+ package json // import "go.opentelemetry.io/collector/pdata/internal/json"
+ 
+ import (
++	"encoding/base64"
+ 	"errors"
+ 	"io"
+ 	"math"
+@@ -63,6 +64,11 @@ func (ots *Stream) WriteUint64(val uint64) {
+ 	ots.WriteString(strconv.FormatUint(val, 10))
+ }
+ 
++// WriteBytes writes the values as a base64 encoded string. This is per the protobuf encoding rules for bytes.
++func (ots *Stream) WriteBytes(val []byte) {
++	ots.WriteString(base64.StdEncoding.EncodeToString(val))
++}
++
+ // WriteFloat64 writes the JSON value that will be a number or one of the special string
+ // values "NaN", "Infinity", and "-Infinity". Either numbers or strings are accepted.
+ // Empty strings are invalid. Exponent notation is also accepted.

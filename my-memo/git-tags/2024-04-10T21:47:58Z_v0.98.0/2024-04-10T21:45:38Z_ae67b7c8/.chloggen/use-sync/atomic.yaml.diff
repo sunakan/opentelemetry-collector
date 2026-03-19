@@ -1,0 +1,22 @@
+diff --git a/.chloggen/use-sync/atomic.yaml b/.chloggen/use-sync/atomic.yaml
+deleted file mode 100755
+index 35d3a11fe..000000000
+--- a/.chloggen/use-sync/atomic.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: enhancement
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: all
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: "replacing uber-go/atomic by sync/atomic"
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7160]
+-
+-# (Optional) One or more lines of additional information to render under the primary note.
+-# These lines will be padded with 2 spaces and then inserted directly into the document.
+-# Use pipe (|) for multiline entries.
+-subtext:

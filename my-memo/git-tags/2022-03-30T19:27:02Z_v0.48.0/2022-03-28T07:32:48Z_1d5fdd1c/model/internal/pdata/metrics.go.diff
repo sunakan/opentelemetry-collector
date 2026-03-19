@@ -1,0 +1,36 @@
+diff --git a/model/internal/pdata/metrics.go b/model/internal/pdata/metrics.go
+index 1ce076c49..dd8571951 100644
+--- a/model/internal/pdata/metrics.go
++++ b/model/internal/pdata/metrics.go
+@@ -75,7 +75,7 @@ func (md Metrics) MetricCount() int {
+ 	rms := md.ResourceMetrics()
+ 	for i := 0; i < rms.Len(); i++ {
+ 		rm := rms.At(i)
+-		ilms := rm.InstrumentationLibraryMetrics()
++		ilms := rm.ScopeMetrics()
+ 		for j := 0; j < ilms.Len(); j++ {
+ 			ilm := ilms.At(j)
+ 			metricCount += ilm.Metrics().Len()
+@@ -89,7 +89,7 @@ func (md Metrics) DataPointCount() (dataPointCount int) {
+ 	rms := md.ResourceMetrics()
+ 	for i := 0; i < rms.Len(); i++ {
+ 		rm := rms.At(i)
+-		ilms := rm.InstrumentationLibraryMetrics()
++		ilms := rm.ScopeMetrics()
+ 		for j := 0; j < ilms.Len(); j++ {
+ 			ilm := ilms.At(j)
+ 			ms := ilm.Metrics()
+@@ -258,3 +258,13 @@ func (ot OptionalType) String() string {
+ 	}
+ 	return ""
+ }
++
++// Deprecated: [v0.48.0] Use ScopeMetrics instead.
++func (ms ResourceMetrics) InstrumentationLibraryMetrics() ScopeMetricsSlice {
++	return ms.ScopeMetrics()
++}
++
++// Deprecated: [v0.48.0] Use Scope instead.
++func (ms ScopeMetrics) InstrumentationLibrary() InstrumentationScope {
++	return ms.Scope()
++}

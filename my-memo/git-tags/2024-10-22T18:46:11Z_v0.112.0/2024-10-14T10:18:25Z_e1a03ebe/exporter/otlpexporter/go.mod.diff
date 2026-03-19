@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index e5cefcbcb..9c7ba1630 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -55,7 +55,6 @@ require (
+ 	go.opentelemetry.io/collector/extension v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension/auth v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension/experimental/storage v0.111.0 // indirect
+-	go.opentelemetry.io/collector/internal/globalsignal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/receiver v0.111.0 // indirect
+@@ -125,8 +124,6 @@ replace go.opentelemetry.io/collector/exporter/exporterprofiles => ../exporterpr
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal
+-
+ replace go.opentelemetry.io/collector => ../..
+ 
+ replace go.opentelemetry.io/collector/component/componentstatus => ../../component/componentstatus

@@ -1,0 +1,15 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index 003028840..03b3d87d0 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

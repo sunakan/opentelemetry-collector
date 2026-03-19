@@ -1,0 +1,19 @@
+diff --git a/exporter/prometheusremotewriteexporter/config_test.go b/exporter/prometheusremotewriteexporter/config_test.go
+index 6c4c29701..cfc7a9e63 100644
+--- a/exporter/prometheusremotewriteexporter/config_test.go
++++ b/exporter/prometheusremotewriteexporter/config_test.go
+@@ -76,12 +76,9 @@ func Test_loadConfig(t *testing.T) {
+ 					},
+ 					Insecure: false,
+ 				},
+-				ReadBufferSize: 0,
+-
++				ReadBufferSize:  0,
+ 				WriteBufferSize: 512 * 1024,
+-
+-				Timeout: 5 * time.Second,
+-
++				Timeout:         5 * time.Second,
+ 				Headers: map[string]string{
+ 					"prometheus-remote-write-version": "0.1.0",
+ 					"x-scope-orgid":                   "234"},

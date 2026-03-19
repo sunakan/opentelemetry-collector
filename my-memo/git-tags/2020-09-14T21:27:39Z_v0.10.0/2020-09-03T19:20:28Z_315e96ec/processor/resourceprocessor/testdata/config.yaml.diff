@@ -1,0 +1,15 @@
+diff --git a/processor/resourceprocessor/testdata/config.yaml b/processor/resourceprocessor/testdata/config.yaml
+index ac5ebc24b..30cff1fdd 100644
+--- a/processor/resourceprocessor/testdata/config.yaml
++++ b/processor/resourceprocessor/testdata/config.yaml
+@@ -27,6 +27,10 @@ exporters:
+ 
+ service:
+   pipelines:
++    logs:
++      receivers: [examplereceiver]
++      processors: [resource]
++      exporters: [exampleexporter]
+     metrics:
+       receivers: [examplereceiver]
+       processors: [resource]

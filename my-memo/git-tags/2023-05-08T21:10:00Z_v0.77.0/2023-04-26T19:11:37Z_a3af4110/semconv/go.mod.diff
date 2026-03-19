@@ -1,0 +1,12 @@
+diff --git a/semconv/go.mod b/semconv/go.mod
+index c2670f422..97eceff16 100644
+--- a/semconv/go.mod
++++ b/semconv/go.mod
+@@ -14,6 +14,7 @@ require (
+ )
+ 
+ retract (
++	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1
+ 	v0.57.1 // Release failed, use v0.57.2
+ 	v0.57.0 // Release failed, use v0.57.2

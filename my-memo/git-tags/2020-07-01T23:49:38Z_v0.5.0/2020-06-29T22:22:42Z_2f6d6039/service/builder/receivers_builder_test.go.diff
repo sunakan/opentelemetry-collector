@@ -1,0 +1,17 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index ab7f85164..1c44203f7 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -440,11 +440,7 @@ func (b *badReceiverFactory) CreateTraceReceiver(
+ 	return nil, nil
+ }
+ 
+-func (b *badReceiverFactory) CreateMetricsReceiver(
+-	_ *zap.Logger,
+-	_ configmodels.Receiver,
+-	_ consumer.MetricsConsumerOld,
+-) (component.MetricsReceiver, error) {
++func (b *badReceiverFactory) CreateMetricsReceiver(ctx context.Context, logger *zap.Logger, cfg configmodels.Receiver, nextConsumer consumer.MetricsConsumerOld) (component.MetricsReceiver, error) {
+ 	return nil, nil
+ }
+ 

@@ -1,0 +1,85 @@
+diff --git a/translator/metrics/oc_to_otlp_test.go b/translator/metrics/oc_to_otlp_test.go
+index b6b7f85f1..67bab1c35 100644
+--- a/translator/metrics/oc_to_otlp_test.go
++++ b/translator/metrics/oc_to_otlp_test.go
+@@ -94,6 +94,28 @@ func TestOCToOTLP(t *testing.T) {
+ 		},
+ 	}
+ 
++	noLabelsOCMetric := &ocmetrics.Metric{
++		MetricDescriptor: &ocmetrics.MetricDescriptor{
++			Name:        "mymetric",
++			Description: "My metric",
++			Unit:        "ms",
++			Type:        ocmetrics.MetricDescriptor_CUMULATIVE_INT64,
++		},
++		Timeseries: []*ocmetrics.TimeSeries{
++			{
++				StartTimestamp: unixnanoToTimestamp(unixnanos1),
++				Points: []*ocmetrics.Point{
++					{
++						Timestamp: unixnanoToTimestamp(unixnanos2),
++						Value: &ocmetrics.Point_Int64Value{
++							Int64Value: 123,
++						},
++					},
++				},
++			},
++		},
++	}
++
+ 	doubleOCMetric := &ocmetrics.Metric{
+ 		MetricDescriptor: &ocmetrics.MetricDescriptor{
+ 			Name:        "mymetric",
+@@ -277,6 +299,22 @@ func TestOCToOTLP(t *testing.T) {
+ 		},
+ 	}
+ 
++	noLabelsMetric := &otlpmetrics.Metric{
++		MetricDescriptor: &otlpmetrics.MetricDescriptor{
++			Name:        "mymetric",
++			Description: "My metric",
++			Unit:        "ms",
++			Type:        otlpmetrics.MetricDescriptor_COUNTER_INT64,
++		},
++		Int64DataPoints: []*otlpmetrics.Int64DataPoint{
++			{
++				StartTimeUnixNano: unixnanos1,
++				TimeUnixNano:      unixnanos2,
++				Value:             123,
++			},
++		},
++	}
++
+ 	doubleMetric := &otlpmetrics.Metric{
+ 		MetricDescriptor: &otlpmetrics.MetricDescriptor{
+ 			Name:        "mymetric",
+@@ -458,6 +496,28 @@ func TestOCToOTLP(t *testing.T) {
+ 			},
+ 		},
+ 
++		{
++			name: "no-labels-metric",
++			oc: consumerdata.MetricsData{
++				Resource: &ocresource.Resource{
++					Type: "good-resource",
++				},
++				Metrics: []*ocmetrics.Metric{noLabelsOCMetric},
++			},
++			otlp: []*otlpmetrics.ResourceMetrics{
++				{
++					Resource: &otlpresource.Resource{
++						Attributes: otlpAttributes,
++					},
++					InstrumentationLibraryMetrics: []*otlpmetrics.InstrumentationLibraryMetrics{
++						{
++							Metrics: []*otlpmetrics.Metric{noLabelsMetric},
++						},
++					},
++				},
++			},
++		},
++
+ 		{
+ 			name: "double-metric",
+ 			oc: consumerdata.MetricsData{

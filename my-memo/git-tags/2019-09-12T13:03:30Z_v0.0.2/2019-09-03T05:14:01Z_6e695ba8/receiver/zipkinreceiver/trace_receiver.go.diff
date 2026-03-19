@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index 412088bf7..13e8a1356 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -337,7 +337,7 @@ func (zr *ZipkinReceiver) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+ 	}
+ 
+ 	// TODO: Get the number of dropped spans from the conversion failure.
+-	observability.RecordTraceReceiverMetrics(ctxWithReceiverName, tdsSize, 0)
++	observability.RecordMetricsForTraceReceiver(ctxWithReceiverName, tdsSize, 0)
+ 
+ 	// Finally send back the response "Accepted" as
+ 	// required at https://zipkin.io/zipkin-api/#/default/post_spans

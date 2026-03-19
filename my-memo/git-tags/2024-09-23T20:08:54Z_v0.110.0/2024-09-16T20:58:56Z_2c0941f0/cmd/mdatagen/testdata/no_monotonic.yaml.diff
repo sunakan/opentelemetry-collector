@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/testdata/no_monotonic.yaml b/cmd/mdatagen/testdata/no_monotonic.yaml
+deleted file mode 100644
+index 2f99cecab..000000000
+--- a/cmd/mdatagen/testdata/no_monotonic.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-type: file
+-
+-status:
+-  class: receiver
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+-  distributions: [contrib]
+-  warnings:
+-    - Any additional information that should be brought to the consumer's attention
+-
+-
+-metrics:
+-  default.metric:
+-    enabled: true
+-    description: Monotonic cumulative sum int metric enabled by default.
+-    extended_documentation: The metric will be become optional soon.
+-    unit: s
+-    sum:
+-      value_type: int
+-      aggregation_temporality: cumulative

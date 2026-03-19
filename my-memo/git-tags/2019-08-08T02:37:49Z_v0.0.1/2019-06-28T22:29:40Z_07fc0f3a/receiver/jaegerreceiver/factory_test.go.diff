@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/factory_test.go b/receiver/jaegerreceiver/factory_test.go
+index 5577f133b..181b5f45a 100644
+--- a/receiver/jaegerreceiver/factory_test.go
++++ b/receiver/jaegerreceiver/factory_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
++	"github.com/open-telemetry/opentelemetry-service/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

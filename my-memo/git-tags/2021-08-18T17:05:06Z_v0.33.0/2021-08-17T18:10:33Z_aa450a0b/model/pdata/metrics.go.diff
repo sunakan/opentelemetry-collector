@@ -1,0 +1,39 @@
+diff --git a/model/pdata/metrics.go b/model/pdata/metrics.go
+index 92f9f5d55..2562cb1e5 100644
+--- a/model/pdata/metrics.go
++++ b/model/pdata/metrics.go
+@@ -24,7 +24,7 @@ import (
+ type MetricsMarshaler interface {
+ 	// MarshalMetrics the given pdata.Metrics into bytes.
+ 	// If the error is not nil, the returned bytes slice cannot be used.
+-	MarshalMetrics(td Metrics) ([]byte, error)
++	MarshalMetrics(md Metrics) ([]byte, error)
+ }
+ 
+ // MetricsUnmarshaler unmarshalls bytes into pdata.Metrics.
+@@ -34,6 +34,12 @@ type MetricsUnmarshaler interface {
+ 	UnmarshalMetrics(buf []byte) (Metrics, error)
+ }
+ 
++// MetricsSizer returns the size of a Metrics.
++type MetricsSizer interface {
++	// LogsSize returns the size in bytes of a Metrics.
++	MetricsSize(md Metrics) int
++}
++
+ // Metrics is an opaque interface that allows transition to the new internal Metrics data, but also facilitates the
+ // transition to the new components, especially for traces.
+ //
+@@ -87,12 +93,6 @@ func (md Metrics) MetricCount() int {
+ 	return metricCount
+ }
+ 
+-// OtlpProtoSize returns the size in bytes of this Metrics encoded as OTLP Collector
+-// ExportMetricsServiceRequest ProtoBuf bytes.
+-func (md Metrics) OtlpProtoSize() int {
+-	return md.orig.Size()
+-}
+-
+ // DataPointCount calculates the total number of data points.
+ func (md Metrics) DataPointCount() (dataPointCount int) {
+ 	rms := md.ResourceMetrics()

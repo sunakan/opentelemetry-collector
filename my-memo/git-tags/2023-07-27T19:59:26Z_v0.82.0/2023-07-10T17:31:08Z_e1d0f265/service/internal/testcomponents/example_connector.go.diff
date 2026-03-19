@@ -1,0 +1,19 @@
+diff --git a/service/internal/testcomponents/example_connector.go b/service/internal/testcomponents/example_connector.go
+index 4d1cc5ac6..ccf6d678d 100644
+--- a/service/internal/testcomponents/example_connector.go
++++ b/service/internal/testcomponents/example_connector.go
+@@ -35,6 +35,14 @@ var ExampleConnectorFactory = connector.NewFactory(
+ 	connector.WithLogsToLogs(createExampleLogsToLogs, component.StabilityLevelDevelopment),
+ )
+ 
++var MockForwardConnectorFactory = connector.NewFactory(
++	"mockforward",
++	createExampleConnectorDefaultConfig,
++	connector.WithTracesToTraces(createExampleTracesToTraces, component.StabilityLevelDevelopment),
++	connector.WithMetricsToMetrics(createExampleMetricsToMetrics, component.StabilityLevelDevelopment),
++	connector.WithLogsToLogs(createExampleLogsToLogs, component.StabilityLevelDevelopment),
++)
++
+ func createExampleConnectorDefaultConfig() component.Config {
+ 	return &struct{}{}
+ }

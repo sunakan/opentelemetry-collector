@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/Makefile b/cmd/builder/Makefile
+index 988ed9e64..4c4549c74 100644
+--- a/cmd/builder/Makefile
++++ b/cmd/builder/Makefile
+@@ -1,5 +1,7 @@
+ include ../../Makefile.Common
+ 
++GOTEST_TIMEOUT=360s
++
+ .PHONY: ocb
+ ocb:
+ 	CGO_ENABLED=0 $(GOCMD) build -trimpath -o ../../bin/ocb_$(GOOS)_$(GOARCH) .

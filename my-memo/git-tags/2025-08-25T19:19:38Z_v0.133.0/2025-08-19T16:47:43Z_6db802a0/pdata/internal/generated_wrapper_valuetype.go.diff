@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_valuetype.go b/pdata/internal/generated_wrapper_valuetype.go
+index 8c11eb088..764704321 100644
+--- a/pdata/internal/generated_wrapper_valuetype.go
++++ b/pdata/internal/generated_wrapper_valuetype.go
+@@ -28,10 +28,12 @@ func CopyOrigValueType(dest, src *otlpprofiles.ValueType) {
+ 	dest.AggregationTemporality = src.AggregationTemporality
+ }
+ 
+-func FillOrigTestValueType(orig *otlpprofiles.ValueType) {
++func GenTestOrigValueType() *otlpprofiles.ValueType {
++	orig := NewOrigPtrValueType()
+ 	orig.TypeStrindex = int32(13)
+ 	orig.UnitStrindex = int32(13)
+ 	orig.AggregationTemporality = otlpprofiles.AggregationTemporality(1)
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

@@ -1,0 +1,27 @@
+diff --git a/cmd/mdatagen/internal/loader_test.go b/cmd/mdatagen/internal/loader_test.go
+index 08dda39e6..a50d7e248 100644
+--- a/cmd/mdatagen/internal/loader_test.go
++++ b/cmd/mdatagen/internal/loader_test.go
+@@ -371,6 +371,22 @@ func TestLoadMetadata(t *testing.T) {
+ 				},
+ 			},
+ 		},
++		{
++			name: "testdata/empty_test_config.yaml",
++			want: Metadata{
++				Type:                 "test",
++				GeneratedPackageName: "metadata",
++				ScopeName:            "go.opentelemetry.io/collector/cmd/mdatagen/internal",
++				ShortFolderName:      "testdata",
++				Tests:                Tests{Host: "componenttest.NewNopHost()"},
++				Status: &Status{
++					Class: "receiver",
++					Stability: map[component.StabilityLevel][]string{
++						component.StabilityLevelBeta: {"logs"},
++					},
++				},
++			},
++		},
+ 		{
+ 			name:    "testdata/invalid_type_rattr.yaml",
+ 			want:    Metadata{},

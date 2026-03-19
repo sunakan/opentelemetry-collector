@@ -1,0 +1,27 @@
+diff --git a/internal/processor/filterset/regexp/config.go b/internal/processor/filterset/regexp/config.go
+index 307133e45..ebc25da60 100644
+--- a/internal/processor/filterset/regexp/config.go
++++ b/internal/processor/filterset/regexp/config.go
+@@ -14,7 +14,7 @@
+ 
+ package regexp
+ 
+-// RegexpConfig represents the options for a NewRegexpFilterSet.
++// RegexpConfig represents the options for a NewFilterSet.
+ type Config struct {
+ 	// CacheEnabled determines whether match results are LRU cached to make subsequent matches faster.
+ 	// Cache size is unlimited unless CacheMaxNumEntries is also specified.
+@@ -23,13 +23,3 @@ type Config struct {
+ 	// CacheMaxNumEntries is ignored if CacheEnabled is false.
+ 	CacheMaxNumEntries int `mapstructure:"cachemaxnumentries"`
+ }
+-
+-// CreateFilterSet creates a regexp FilterSet from yaml config.
+-func CreateRegexpFilterSet(filters []string, cfg *Config) (*FilterSet, error) {
+-	opts := []Option{}
+-	if cfg != nil && cfg.CacheEnabled {
+-		opts = append(opts, WithCache(cfg.CacheMaxNumEntries))
+-	}
+-
+-	return NewRegexpFilterSet(filters, opts...)
+-}

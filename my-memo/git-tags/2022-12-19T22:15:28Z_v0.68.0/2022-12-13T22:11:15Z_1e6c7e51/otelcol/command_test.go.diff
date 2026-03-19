@@ -1,0 +1,30 @@
+diff --git a/otelcol/command_test.go b/otelcol/command_test.go
+index 1e2f2c011..579409ff8 100644
+--- a/otelcol/command_test.go
++++ b/otelcol/command_test.go
+@@ -25,7 +25,6 @@ import (
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/confmap/converter/expandconverter"
+ 	"go.opentelemetry.io/collector/confmap/provider/fileprovider"
+-	"go.opentelemetry.io/collector/service/servicetest"
+ )
+ 
+ func TestNewCommandVersion(t *testing.T) {
+@@ -34,7 +33,7 @@ func TestNewCommandVersion(t *testing.T) {
+ }
+ 
+ func TestNewCommandNoConfigURI(t *testing.T) {
+-	factories, err := servicetest.NopFactories()
++	factories, err := nopFactories()
+ 	require.NoError(t, err)
+ 
+ 	cmd := NewCommand(CollectorSettings{Factories: factories})
+@@ -42,7 +41,7 @@ func TestNewCommandNoConfigURI(t *testing.T) {
+ }
+ 
+ func TestNewCommandInvalidComponent(t *testing.T) {
+-	factories, err := servicetest.NopFactories()
++	factories, err := nopFactories()
+ 	require.NoError(t, err)
+ 
+ 	cfgProvider, err := NewConfigProvider(

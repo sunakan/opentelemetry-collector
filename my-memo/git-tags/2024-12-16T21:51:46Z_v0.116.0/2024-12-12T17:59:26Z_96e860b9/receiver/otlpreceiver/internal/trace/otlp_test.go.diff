@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index 3df87c317..7e353dd27 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -58,6 +58,7 @@ func TestExport_NonPermanentErrorConsumer(t *testing.T) {
+ 	assert.IsType(t, status.Error(codes.Unknown, ""), err)
+ 	assert.Equal(t, ptraceotlp.ExportResponse{}, resp)
+ }
++
+ func TestExport_PermanentErrorConsumer(t *testing.T) {
+ 	ld := testdata.GenerateTraces(1)
+ 	req := ptraceotlp.NewExportRequestFromTraces(ld)

@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index ce066ef66..7c38e7c55 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -31,9 +31,6 @@ jobs:
+       - name: Install dependencies
+         if: steps.go-cache.outputs.cache-hit != 'true'
+         run: make gomoddownload
+-      - name: Install Tools
+-        if: steps.go-cache.outputs.cache-hit != 'true'
+-        run: make install-tools
+ 
+   lint:
+     runs-on: ubuntu-latest

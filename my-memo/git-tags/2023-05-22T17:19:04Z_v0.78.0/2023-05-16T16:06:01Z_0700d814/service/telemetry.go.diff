@@ -1,0 +1,21 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index 98149ea0f..587e1d634 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -90,13 +90,15 @@ type telemetryInitializer struct {
+ 
+ 	useOtel                bool
+ 	disableHighCardinality bool
++	extendedConfig         bool
+ }
+ 
+-func newColTelemetry(useOtel bool, disableHighCardinality bool) *telemetryInitializer {
++func newColTelemetry(useOtel bool, disableHighCardinality bool, extendedConfig bool) *telemetryInitializer {
+ 	return &telemetryInitializer{
+ 		mp:                     noop.NewMeterProvider(),
+ 		useOtel:                useOtel,
+ 		disableHighCardinality: disableHighCardinality,
++		extendedConfig:         extendedConfig,
+ 	}
+ }
+ 

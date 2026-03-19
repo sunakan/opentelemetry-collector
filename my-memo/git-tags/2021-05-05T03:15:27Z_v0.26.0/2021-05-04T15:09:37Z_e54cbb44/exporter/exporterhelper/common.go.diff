@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index d8b1b05f2..dc1f26463 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -166,7 +166,7 @@ func newBaseExporter(cfg config.Exporter, logger *zap.Logger, options ...Option)
+ 		convertResourceToTelemetry: bs.ResourceToTelemetrySettings.Enabled,
+ 	}
+ 
+-	be.qrSender = newQueuedRetrySender(cfg.Name(), bs.QueueSettings, bs.RetrySettings, &timeoutSender{cfg: bs.TimeoutSettings}, logger)
++	be.qrSender = newQueuedRetrySender(cfg.ID().String(), bs.QueueSettings, bs.RetrySettings, &timeoutSender{cfg: bs.TimeoutSettings}, logger)
+ 	be.sender = be.qrSender
+ 
+ 	return be

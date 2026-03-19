@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 3fbfde292..d107c897c 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -152,8 +152,6 @@ func shouldRetry(code codes.Code) bool {
+ 	switch code {
+ 	case codes.Canceled,
+ 		codes.DeadlineExceeded,
+-		codes.PermissionDenied,
+-		codes.Unauthenticated,
+ 		codes.ResourceExhausted,
+ 		codes.Aborted,
+ 		codes.OutOfRange,

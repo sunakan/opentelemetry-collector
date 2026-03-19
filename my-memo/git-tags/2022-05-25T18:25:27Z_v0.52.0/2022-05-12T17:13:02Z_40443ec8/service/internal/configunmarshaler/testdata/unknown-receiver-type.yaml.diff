@@ -1,0 +1,21 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-receiver-type.yaml b/service/internal/configunmarshaler/testdata/unknown-receiver-type.yaml
+new file mode 100644
+index 000000000..75c777f2b
+--- /dev/null
++++ b/service/internal/configunmarshaler/testdata/unknown-receiver-type.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  nosuchreceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers:
++        - examplereceiver
++      exporters:
++        - exampleexporter
++      processors:
++        - exampleprocessor

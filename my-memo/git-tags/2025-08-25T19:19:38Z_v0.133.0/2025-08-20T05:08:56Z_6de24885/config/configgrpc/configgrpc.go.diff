@@ -1,0 +1,19 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 62b641b7c..1d329eaca 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -212,8 +212,14 @@ type ServerConfig struct {
+ 
+ // NewDefaultServerConfig returns a new instance of ServerConfig with default values.
+ func NewDefaultServerConfig() ServerConfig {
++	netAddr := confignet.NewDefaultAddrConfig()
++
++	// We typically want to create a TCP server and listen over a network.
++	netAddr.Transport = confignet.TransportTypeTCP
++
+ 	return ServerConfig{
+ 		Keepalive: configoptional.Some(NewDefaultKeepaliveServerConfig()),
++		NetAddr:   netAddr,
+ 	}
+ }
+ 

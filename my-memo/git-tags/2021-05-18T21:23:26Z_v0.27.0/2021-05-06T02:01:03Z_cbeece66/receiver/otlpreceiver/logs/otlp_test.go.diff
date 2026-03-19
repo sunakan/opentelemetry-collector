@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/logs/otlp_test.go b/receiver/otlpreceiver/logs/otlp_test.go
+index 673e99f18..d583a1c3d 100644
+--- a/receiver/otlpreceiver/logs/otlp_test.go
++++ b/receiver/otlpreceiver/logs/otlp_test.go
+@@ -154,7 +154,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, tc consumer.Logs) (net.Addr, func())
+ 		}
+ 	}
+ 
+-	r := New(receiverTagValue, tc)
++	r := New(receiverID, tc)
+ 	require.NoError(t, err)
+ 
+ 	// Now run it as a gRPC server

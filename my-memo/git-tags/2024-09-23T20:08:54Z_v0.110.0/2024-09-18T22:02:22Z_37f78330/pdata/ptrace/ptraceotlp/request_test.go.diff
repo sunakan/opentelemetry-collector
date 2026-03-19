@@ -1,0 +1,25 @@
+diff --git a/pdata/ptrace/ptraceotlp/request_test.go b/pdata/ptrace/ptraceotlp/request_test.go
+index be9530f5a..444ae74b7 100644
+--- a/pdata/ptrace/ptraceotlp/request_test.go
++++ b/pdata/ptrace/ptraceotlp/request_test.go
+@@ -9,6 +9,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ )
+ 
+ var _ json.Unmarshaler = ExportRequest{}
+@@ -46,10 +47,10 @@ func TestRequestToPData(t *testing.T) {
+ 
+ func TestRequestJSON(t *testing.T) {
+ 	tr := NewExportRequest()
+-	assert.NoError(t, tr.UnmarshalJSON(tracesRequestJSON))
++	require.NoError(t, tr.UnmarshalJSON(tracesRequestJSON))
+ 	assert.Equal(t, "test_span", tr.Traces().ResourceSpans().At(0).ScopeSpans().At(0).Spans().At(0).Name())
+ 
+ 	got, err := tr.MarshalJSON()
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 	assert.Equal(t, strings.Join(strings.Fields(string(tracesRequestJSON)), ""), string(got))
+ }

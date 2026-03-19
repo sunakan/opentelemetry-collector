@@ -1,0 +1,29 @@
+diff --git a/model/internal/cmd/pdatagen/internal/base_structs.go b/model/internal/cmd/pdatagen/internal/base_structs.go
+index c602219c2..5f8950714 100644
+--- a/model/internal/cmd/pdatagen/internal/base_structs.go
++++ b/model/internal/cmd/pdatagen/internal/base_structs.go
+@@ -26,7 +26,6 @@ const messageValueTemplate = `${description}
+ //
+ // Must use New${structName} function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
+-// ${deprecated}
+ type ${structName} struct {
+ 	orig *${originName}
+ }
+@@ -95,7 +94,6 @@ type messageValueStruct struct {
+ 	structName     string
+ 	description    string
+ 	originFullName string
+-	deprecated     string
+ 	fields         []baseField
+ }
+ 
+@@ -112,8 +110,6 @@ func (ms *messageValueStruct) generateStruct(sb *strings.Builder) {
+ 			return ms.originFullName
+ 		case "description":
+ 			return ms.description
+-		case "deprecated":
+-			return ms.deprecated
+ 		default:
+ 			panic(name)
+ 		}

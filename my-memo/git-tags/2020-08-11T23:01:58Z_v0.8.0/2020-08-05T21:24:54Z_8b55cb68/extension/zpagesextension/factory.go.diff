@@ -1,0 +1,22 @@
+diff --git a/extension/zpagesextension/factory.go b/extension/zpagesextension/factory.go
+index 2e402d4e1..5bac64b59 100644
+--- a/extension/zpagesextension/factory.go
++++ b/extension/zpagesextension/factory.go
+@@ -49,7 +49,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Extension {
+ }
+ 
+ // CreateExtension creates the extension based on this config.
+-func (f *Factory) CreateExtension(ctx context.Context, params component.ExtensionCreateParams, cfg configmodels.Extension) (component.ServiceExtension, error) {
++func (f *Factory) CreateExtension(_ context.Context, params component.ExtensionCreateParams, cfg configmodels.Extension) (component.ServiceExtension, error) {
+ 	config := cfg.(*Config)
+ 	if config.Endpoint == "" {
+ 		return nil, errors.New("\"endpoint\" is required when using the \"zpages\" extension")
+@@ -66,7 +66,7 @@ func (f *Factory) CreateExtension(ctx context.Context, params component.Extensio
+ 		return nil, errors.New("only a single instance can be created per process")
+ 	}
+ 
+-	return newServer(*config, params.Logger)
++	return newServer(*config, params.Logger), nil
+ }
+ 
+ // See comment in CreateExtension how these are used.

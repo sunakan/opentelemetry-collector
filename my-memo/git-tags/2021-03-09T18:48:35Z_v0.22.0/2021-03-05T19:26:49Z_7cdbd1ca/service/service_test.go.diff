@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 51f1f9e95..03d5d3f27 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -343,7 +343,7 @@ func (b badExtensionFactory) CreateDefaultConfig() configmodels.Extension {
+ 	return &configmodels.ExtensionSettings{}
+ }
+ 
+-func (b badExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateParams, _ configmodels.Extension) (component.ServiceExtension, error) {
++func (b badExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateParams, _ configmodels.Extension) (component.Extension, error) {
+ 	return nil, nil
+ }
+ 

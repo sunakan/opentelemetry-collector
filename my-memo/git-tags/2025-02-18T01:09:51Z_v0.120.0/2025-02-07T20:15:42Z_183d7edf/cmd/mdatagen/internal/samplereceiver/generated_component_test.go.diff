@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+index 71936a240..90ee56026 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+@@ -17,8 +17,10 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
++var typ = component.MustNewType("sample")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "sample", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

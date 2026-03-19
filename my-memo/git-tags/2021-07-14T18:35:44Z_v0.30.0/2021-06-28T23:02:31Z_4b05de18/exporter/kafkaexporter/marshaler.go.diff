@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/marshaler.go b/exporter/kafkaexporter/marshaler.go
+index 1906bbe6d..838d236f1 100644
+--- a/exporter/kafkaexporter/marshaler.go
++++ b/exporter/kafkaexporter/marshaler.go
+@@ -17,7 +17,7 @@ package kafkaexporter
+ import (
+ 	"github.com/Shopify/sarama"
+ 
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

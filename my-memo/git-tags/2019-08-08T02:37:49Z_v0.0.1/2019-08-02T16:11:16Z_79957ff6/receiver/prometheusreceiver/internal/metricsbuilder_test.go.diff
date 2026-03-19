@@ -1,0 +1,20 @@
+diff --git a/receiver/prometheusreceiver/internal/metricsbuilder_test.go b/receiver/prometheusreceiver/internal/metricsbuilder_test.go
+index ff65bb27a..19b038ee4 100644
+--- a/receiver/prometheusreceiver/internal/metricsbuilder_test.go
++++ b/receiver/prometheusreceiver/internal/metricsbuilder_test.go
+@@ -196,11 +196,10 @@ func Test_metricBuilder(t *testing.T) {
+ 	}
+ 
+ 	tests := []struct {
+-		name       string
+-		pts        []*pt
+-		processErr bool
+-		buildErr   bool
+-		metrics    []*metricspb.Metric
++		name     string
++		pts      []*pt
++		buildErr bool
++		metrics  []*metricspb.Metric
+ 	}{
+ 		{
+ 			name: "counters",

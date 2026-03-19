@@ -1,0 +1,19 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus.go b/receiver/opencensusreceiver/octrace/opencensus.go
+index 2472cba37..4bd49c6d5 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/octrace/opencensus.go
+@@ -144,12 +144,12 @@ func (ocr *Receiver) processReceivedMsg(
+ }
+ 
+ func (ocr *Receiver) sendToNextConsumer(longLivedRPCCtx context.Context, td pdata.Traces) error {
+-	ctx := ocr.obsrecv.StartTraceDataReceiveOp(
++	ctx := ocr.obsrecv.StartTracesOp(
+ 		longLivedRPCCtx,
+ 		obsreport.WithLongLivedCtx())
+ 
+ 	err := ocr.nextConsumer.ConsumeTraces(ctx, td)
+-	ocr.obsrecv.EndTraceDataReceiveOp(ctx, receiverDataFormat, td.SpanCount(), err)
++	ocr.obsrecv.EndTracesOp(ctx, receiverDataFormat, td.SpanCount(), err)
+ 
+ 	return err
+ }

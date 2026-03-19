@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/factory.go b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+index db977cc3b..91f4bfb9f 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/factory.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+@@ -27,7 +27,7 @@ import (
+ 
+ const (
+ 	// The value of "type" key in configuration.
+-	typeStr = "jaeger-thrift-http"
++	typeStr = "jaeger_thrift_http"
+ )
+ 
+ // Factory is the factory for Jaeger Thrift over HTTP exporter.

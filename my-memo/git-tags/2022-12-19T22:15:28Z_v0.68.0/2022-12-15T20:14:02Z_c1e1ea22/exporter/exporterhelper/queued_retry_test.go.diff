@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index e4e8ec7d8..c09835a56 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -307,8 +307,9 @@ func TestQueuedRetry_DropOnFull(t *testing.T) {
+ 	t.Cleanup(func() {
+ 		assert.NoError(t, be.Shutdown(context.Background()))
+ 	})
+-	err = be.sender.send(newMockRequest(context.Background(), 2, errors.New("transient error")))
+-	require.Error(t, err)
++	ocs.run(func() {
++		require.Error(t, be.sender.send(newMockRequest(context.Background(), 2, errors.New("transient error"))))
++	})
+ }
+ 
+ func TestQueuedRetryHappyPath(t *testing.T) {

@@ -1,0 +1,19 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 11581b69d..83f915c06 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -78,11 +78,11 @@ func Components() (
+ 	exporters, err := component.MakeExporterFactoryMap(
+ 		&opencensusexporter.Factory{},
+ 		&prometheusexporter.Factory{},
+-		&loggingexporter.Factory{},
++		loggingexporter.NewFactory(),
+ 		&zipkinexporter.Factory{},
+-		&jaegerexporter.Factory{},
++		jaegerexporter.NewFactory(),
+ 		&fileexporter.Factory{},
+-		&otlpexporter.Factory{},
++		otlpexporter.NewFactory(),
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

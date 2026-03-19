@@ -1,0 +1,22 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index a820d7060..ae45b9d04 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -39,7 +39,7 @@ type TargetConfig[T any] struct {
+ 	Field T `mapstructure:"field"`
+ }
+ 
+-func NewResolver(t testing.TB, path string) *confmap.Resolver {
++func NewResolver(tb testing.TB, path string) *confmap.Resolver {
+ 	resolver, err := confmap.NewResolver(confmap.ResolverSettings{
+ 		URIs: []string{filepath.Join("testdata", path)},
+ 		ProviderFactories: []confmap.ProviderFactory{
+@@ -48,7 +48,7 @@ func NewResolver(t testing.TB, path string) *confmap.Resolver {
+ 		},
+ 		DefaultScheme: "env",
+ 	})
+-	require.NoError(t, err)
++	require.NoError(tb, err)
+ 	return resolver
+ }
+ 

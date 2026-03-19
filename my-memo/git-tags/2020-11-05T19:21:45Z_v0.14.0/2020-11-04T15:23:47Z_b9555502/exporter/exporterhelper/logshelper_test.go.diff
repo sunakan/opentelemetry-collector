@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/logshelper_test.go b/exporter/exporterhelper/logshelper_test.go
+index 7466b3e5a..6df45fea6 100644
+--- a/exporter/exporterhelper/logshelper_test.go
++++ b/exporter/exporterhelper/logshelper_test.go
+@@ -46,10 +46,14 @@ var (
+ )
+ 
+ func TestLogsRequest(t *testing.T) {
+-	mr := newLogsRequest(context.Background(), testdata.GenerateLogDataEmpty(), nil)
+-
+-	partialErr := consumererror.PartialTracesError(errors.New("some error"), testdata.GenerateTraceDataOneSpan())
+-	assert.Same(t, mr, mr.onPartialError(partialErr.(consumererror.PartialError)))
++	mr := newLogsRequest(context.Background(), testdata.GenerateLogDataOneLog(), nil)
++
++	partialErr := consumererror.PartialLogsError(errors.New("some error"), testdata.GenerateLogDataEmpty())
++	assert.EqualValues(
++		t,
++		newLogsRequest(context.Background(), testdata.GenerateLogDataEmpty(), nil),
++		mr.onPartialError(partialErr.(consumererror.PartialError)),
++	)
+ }
+ 
+ func TestLogsExporter_InvalidName(t *testing.T) {

@@ -1,0 +1,26 @@
+diff --git a/internal/collector/processor/nodebatcher/config_test.go b/internal/collector/processor/nodebatcher/config_test.go
+index 73e9bf7d0..1000c3f5b 100644
+--- a/internal/collector/processor/nodebatcher/config_test.go
++++ b/internal/collector/processor/nodebatcher/config_test.go
+@@ -22,9 +22,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/pkg/configv2"
+-	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
++	"github.com/open-telemetry/opentelemetry-service/configv2"
++	"github.com/open-telemetry/opentelemetry-service/factories"
++	"github.com/open-telemetry/opentelemetry-service/models"
+ )
+ 
+ var _ = configv2.RegisterTestFactories()
+@@ -50,7 +50,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	assert.Equal(t, p1,
+ 		&ConfigV2{
+-			ProcessorSettings: configmodels.ProcessorSettings{
++			ProcessorSettings: models.ProcessorSettings{
+ 				TypeVal: "batch",
+ 				NameVal: "batch/2",
+ 			},

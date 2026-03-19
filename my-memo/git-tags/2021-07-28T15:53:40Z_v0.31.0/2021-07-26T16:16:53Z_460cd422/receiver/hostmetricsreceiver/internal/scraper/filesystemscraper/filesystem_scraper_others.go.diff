@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
+index 0cfdc6d2e..119379875 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
+@@ -23,7 +23,7 @@ import (
+ 
+ const fileSystemStatesLen = 2
+ 
+-func appendFileSystemUsageStateDataPoints(idps pdata.IntDataPointSlice, now pdata.Timestamp, deviceUsage *deviceUsage) {
++func appendFileSystemUsageStateDataPoints(idps pdata.NumberDataPointSlice, now pdata.Timestamp, deviceUsage *deviceUsage) {
+ 	initializeFileSystemUsageDataPoint(idps.AppendEmpty(), now, deviceUsage.partition, metadata.LabelFilesystemState.Used, int64(deviceUsage.usage.Used))
+ 	initializeFileSystemUsageDataPoint(idps.AppendEmpty(), now, deviceUsage.partition, metadata.LabelFilesystemState.Free, int64(deviceUsage.usage.Free))
+ }

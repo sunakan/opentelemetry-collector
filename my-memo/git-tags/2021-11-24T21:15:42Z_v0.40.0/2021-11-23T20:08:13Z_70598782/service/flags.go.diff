@@ -1,0 +1,20 @@
+diff --git a/service/flags.go b/service/flags.go
+index 2c133d3be..66221157b 100644
+--- a/service/flags.go
++++ b/service/flags.go
+@@ -19,6 +19,7 @@ import (
+ 	"strings"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/service/featuregate"
+ )
+ 
+ var (
+@@ -52,6 +53,7 @@ func (s *stringArrayValue) String() string {
+ func flags() *flag.FlagSet {
+ 	flagSet := new(flag.FlagSet)
+ 	configtelemetry.Flags(flagSet)
++	featuregate.Flags(flagSet)
+ 
+ 	// At least until we can use a generic, i.e.: OpenCensus, metrics exporter
+ 	// we default to Prometheus at port 8888, if not otherwise specified.

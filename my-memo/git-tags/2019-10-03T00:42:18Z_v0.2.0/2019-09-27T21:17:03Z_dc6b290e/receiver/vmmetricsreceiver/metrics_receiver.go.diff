@@ -1,0 +1,15 @@
+diff --git a/receiver/vmmetricsreceiver/metrics_receiver.go b/receiver/vmmetricsreceiver/metrics_receiver.go
+index 5ec218b2b..ef76da780 100644
+--- a/receiver/vmmetricsreceiver/metrics_receiver.go
++++ b/receiver/vmmetricsreceiver/metrics_receiver.go
+@@ -17,8 +17,8 @@ package vmmetricsreceiver
+ import (
+ 	"sync"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/oterr"
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/oterr"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+ var _ receiver.MetricsReceiver = (*Receiver)(nil)

@@ -1,0 +1,18 @@
+diff --git a/connector/xconnector/go.mod b/connector/xconnector/go.mod
+index 2b32ec6ee..3d93f53c2 100644
+--- a/connector/xconnector/go.mod
++++ b/connector/xconnector/go.mod
+@@ -9,6 +9,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer v1.49.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.143.0
+ 	go.opentelemetry.io/collector/consumer/xconsumer v0.143.0
++	go.opentelemetry.io/collector/internal/componentalias v0.0.0-00010101000000-000000000000
+ 	go.opentelemetry.io/collector/internal/fanoutconsumer v0.143.0
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.143.0
+ 	go.opentelemetry.io/collector/pdata/testdata v0.143.0
+@@ -59,3 +60,5 @@ replace go.opentelemetry.io/collector/internal/fanoutconsumer => ../../internal/
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil
++
++replace go.opentelemetry.io/collector/internal/componentalias => ../../internal/componentalias

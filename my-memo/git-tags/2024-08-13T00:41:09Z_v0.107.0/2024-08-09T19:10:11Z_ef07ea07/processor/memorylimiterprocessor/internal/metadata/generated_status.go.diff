@@ -1,0 +1,14 @@
+diff --git a/processor/memorylimiterprocessor/internal/metadata/generated_status.go b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+index bd77272f6..0e8416082 100644
+--- a/processor/memorylimiterprocessor/internal/metadata/generated_status.go
++++ b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("memory_limiter")
++	Type      = component.MustNewType("memory_limiter")
++	ScopeName = "go.opentelemetry.io/collector/processor/memorylimiterprocessor"
+ )
+ 
+ const (

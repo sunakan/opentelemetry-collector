@@ -1,0 +1,14 @@
+diff --git a/service/internal/templates/component_header.html b/service/internal/templates/component_header.html
+new file mode 100644
+index 000000000..463a15cc7
+--- /dev/null
++++ b/service/internal/templates/component_header.html
+@@ -0,0 +1,7 @@
++{{$a := .ComponentEndpoint}}
++{{$link := .Link}}
++{{- if $link -}}
++    <h6><a href="{{$a}}">{{.Name}}</a></h6>
++{{- else -}}
++    <h6>{{.Name}}</h6>
++{{- end -}}
+\ No newline at end of file

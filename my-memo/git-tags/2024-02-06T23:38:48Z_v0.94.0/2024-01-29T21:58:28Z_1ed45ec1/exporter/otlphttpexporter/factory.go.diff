@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index 3ed71d626..96dcb93c6 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -36,7 +36,7 @@ func createDefaultConfig() component.Config {
+ 	return &Config{
+ 		RetryConfig: configretry.NewDefaultBackOffConfig(),
+ 		QueueConfig: exporterhelper.NewDefaultQueueSettings(),
+-		HTTPClientSettings: confighttp.HTTPClientSettings{
++		HTTPClientConfig: confighttp.HTTPClientConfig{
+ 			Endpoint: "",
+ 			Timeout:  30 * time.Second,
+ 			Headers:  map[string]configopaque.String{},

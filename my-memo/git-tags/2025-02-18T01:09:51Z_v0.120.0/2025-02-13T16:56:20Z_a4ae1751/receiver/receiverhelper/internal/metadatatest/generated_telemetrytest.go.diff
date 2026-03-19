@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
+index b88b78e5b..422799e41 100644
+--- a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ func NewSettings(tt *componenttest.Telemetry) receiver.Settings {
+-	set := receivertest.NewNopSettings()
++	set := receivertest.NewNopSettingsWithType(receivertest.NopType)
+ 	set.ID = component.NewID(component.MustNewType("receiverhelper"))
+ 	set.TelemetrySettings = tt.NewTelemetrySettings()
+ 	return set

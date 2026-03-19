@@ -1,0 +1,20 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver.go b/receiver/prometheusreceiver/metrics_receiver.go
+index 0d42f6b7e..318f8cf43 100644
+--- a/receiver/prometheusreceiver/metrics_receiver.go
++++ b/receiver/prometheusreceiver/metrics_receiver.go
+@@ -35,13 +35,13 @@ type pReceiver struct {
+ 	startOnce sync.Once
+ 	stopOnce  sync.Once
+ 	cfg       *Config
+-	consumer  consumer.MetricsConsumerOld
++	consumer  consumer.MetricsConsumer
+ 	cancel    context.CancelFunc
+ 	logger    *zap.Logger
+ }
+ 
+ // New creates a new prometheus.Receiver reference.
+-func newPrometheusReceiver(logger *zap.Logger, cfg *Config, next consumer.MetricsConsumerOld) *pReceiver {
++func newPrometheusReceiver(logger *zap.Logger, cfg *Config, next consumer.MetricsConsumer) *pReceiver {
+ 	pr := &pReceiver{
+ 		cfg:      cfg,
+ 		consumer: next,

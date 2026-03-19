@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index f8f2ad63d..d17bfb6f9 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -42,7 +42,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
+         with:
+-          go-version: ~1.20.12
++          go-version: ~1.21.5
+           cache: false
+       - name: Run Contrib Tests
+         run: |

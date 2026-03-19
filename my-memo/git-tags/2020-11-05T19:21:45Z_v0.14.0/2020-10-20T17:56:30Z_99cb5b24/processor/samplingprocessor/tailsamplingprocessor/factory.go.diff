@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/factory.go b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+index 8f616f65a..5de7ba0f0 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/factory.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+@@ -52,7 +52,7 @@ func createTraceProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceProcessor, error) {
+ 	tCfg := cfg.(*Config)
+ 	return newTraceProcessor(params.Logger, nextConsumer, *tCfg)

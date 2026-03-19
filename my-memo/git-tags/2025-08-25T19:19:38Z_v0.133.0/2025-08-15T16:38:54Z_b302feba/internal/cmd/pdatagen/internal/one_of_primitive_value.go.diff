@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_primitive_value.go b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+index afade9622..e0fdb99c7 100644
+--- a/internal/cmd/pdatagen/internal/one_of_primitive_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+@@ -39,8 +39,9 @@ const oneOfPrimitiveAccessorTestTemplate = `func Test{{ .structName }}_{{ .acces
+ 	assert.Equal(t, {{ .testValue }}, ms.{{ .accessorFieldName }}())
+ 	{{- end }}
+ 	assert.Equal(t, {{ .typeName }}, ms.{{ .originOneOfTypeFuncName }}())
+-	sharedState := internal.StateReadOnly
+-	assert.Panics(t, func() { new{{ .structName }}(&{{ .originStructName }}{}, &sharedState).Set{{ .accessorFieldName }}({{ .testValue }}) })
++	sharedState := internal.NewState()
++	sharedState.MarkReadOnly()
++	assert.Panics(t, func() { new{{ .structName }}(&{{ .originStructName }}{}, sharedState).Set{{ .accessorFieldName }}({{ .testValue }}) })
+ }
+ `
+ 

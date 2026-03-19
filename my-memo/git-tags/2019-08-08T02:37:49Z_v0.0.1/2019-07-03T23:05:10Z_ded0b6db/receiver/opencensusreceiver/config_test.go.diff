@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/config_test.go b/receiver/opencensusreceiver/config_test.go
+index 45778b2a7..350d678af 100644
+--- a/receiver/opencensusreceiver/config_test.go
++++ b/receiver/opencensusreceiver/config_test.go
+@@ -30,7 +30,7 @@ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+ 
+-	factory := receiver.GetReceiverFactory(typeStr)
++	factory := receiver.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

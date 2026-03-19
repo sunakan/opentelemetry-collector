@@ -1,0 +1,33 @@
+diff --git a/pdata/ptrace/generated_status_test.go b/pdata/ptrace/generated_status_test.go
+index fc14b682e..7eceb3c2b 100644
+--- a/pdata/ptrace/generated_status_test.go
++++ b/pdata/ptrace/generated_status_test.go
+@@ -13,6 +13,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestStatus_MoveTo(t *testing.T) {
+@@ -40,6 +41,20 @@ func TestStatus_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newStatus(&otlptrace.Status{}, &sharedState)) })
+ }
+ 
++func TestStatus_MarshalAndUnmarshal(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTestStatus()
++	src.marshalJSONStream(stream)
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := NewStatus()
++	dest.unmarshalJsoniter(iter)
++
++	assert.Equal(t, src, dest)
++}
++
+ func TestStatus_Code(t *testing.T) {
+ 	ms := NewStatus()
+ 	assert.Equal(t, StatusCode(0), ms.Code())

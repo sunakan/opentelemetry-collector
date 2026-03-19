@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 42f5f3d00..7319c8a6f 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -20,6 +20,7 @@ jobs:
+     runs-on: ubuntu-latest
+     if: ${{ !contains(github.event.pull_request.labels.*.name, 'Skip Contrib Tests') }}
+     strategy:
++      fail-fast: false
+       matrix:
+         group:
+           - receiver-0

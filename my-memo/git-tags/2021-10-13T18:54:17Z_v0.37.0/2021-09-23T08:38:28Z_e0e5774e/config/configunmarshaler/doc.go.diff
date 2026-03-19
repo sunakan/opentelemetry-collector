@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/doc.go b/config/configunmarshaler/doc.go
+index 7ca58b87e..93ed4cd05 100644
+--- a/config/configunmarshaler/doc.go
++++ b/config/configunmarshaler/doc.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package configunmarshaler implements configuration unmarshalling from a config.Parser.
++// Package configunmarshaler implements configuration unmarshalling from a config.Map.
+ // The implementation relies on registered factories that allow creating
+ // default configuration for each type of receiver/exporter/processor.
+ package configunmarshaler

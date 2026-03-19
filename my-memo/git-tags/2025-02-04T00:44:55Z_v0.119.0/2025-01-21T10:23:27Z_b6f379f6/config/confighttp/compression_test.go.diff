@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 136ad142d..8dbee42ea 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -189,7 +189,7 @@ func TestHTTPCustomDecompression(t *testing.T) {
+ 		w.WriteHeader(http.StatusOK)
+ 	})
+ 	decoders := map[string]func(io.ReadCloser) (io.ReadCloser, error){
+-		"custom-encoding": func(io.ReadCloser) (io.ReadCloser, error) { // nolint: unparam
++		"custom-encoding": func(io.ReadCloser) (io.ReadCloser, error) { //nolint:unparam
+ 			return io.NopCloser(strings.NewReader("decompressed body")), nil
+ 		},
+ 	}

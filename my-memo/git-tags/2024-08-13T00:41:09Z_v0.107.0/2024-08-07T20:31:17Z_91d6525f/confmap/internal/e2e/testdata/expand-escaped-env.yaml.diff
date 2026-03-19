@@ -1,0 +1,14 @@
+diff --git a/confmap/internal/e2e/testdata/expand-escaped-env.yaml b/confmap/internal/e2e/testdata/expand-escaped-env.yaml
+index ae8cb280e..74a1d9fa2 100644
+--- a/confmap/internal/e2e/testdata/expand-escaped-env.yaml
++++ b/confmap/internal/e2e/testdata/expand-escaped-env.yaml
+@@ -27,3 +27,9 @@ test_map:
+   key13: "env:MAP_VALUE_2}$${ENV_VALUE}{"
+   # $$$ -> escaped $ + expanded env var
+   key14: "$$${env:ENV_VALUE}"
++  # $ -> $
++  key15: "$ENV_VALUE"
++  # list is escaped
++  key16: "${env:ENV_LIST}"
++  # map is escaped
++  key17: "${env:ENV_MAP}"

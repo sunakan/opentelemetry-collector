@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter_test.go b/exporter/exporterhelper/internal/base_exporter_test.go
+index c79a0b568..833eee9cb 100644
+--- a/exporter/exporterhelper/internal/base_exporter_test.go
++++ b/exporter/exporterhelper/internal/base_exporter_test.go
+@@ -153,10 +153,9 @@ func noopExport(context.Context, request.Request) error {
+ 
+ func newFakeQueueBatch() QueueBatchSettings[request.Request] {
+ 	return QueueBatchSettings[request.Request]{
+-		Encoding: fakeEncoding{},
+-		Sizers: map[request.SizerType]request.Sizer[request.Request]{
+-			request.SizerTypeRequests: request.RequestsSizer[request.Request]{},
+-		},
++		Encoding:   fakeEncoding{},
++		ItemsSizer: request.NewItemsSizer(),
++		BytesSizer: requesttest.NewBytesSizer(),
+ 	}
+ }
+ 

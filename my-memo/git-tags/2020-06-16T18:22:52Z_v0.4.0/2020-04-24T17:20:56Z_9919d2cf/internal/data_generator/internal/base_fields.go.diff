@@ -1,0 +1,95 @@
+diff --git a/internal/data_generator/internal/base_fields.go b/internal/data_generator/internal/base_fields.go
+index 28121d30b..b6ad523bb 100644
+--- a/internal/data_generator/internal/base_fields.go
++++ b/internal/data_generator/internal/base_fields.go
+@@ -95,9 +95,11 @@ func (ms ${structName}) Set${fieldName}(v ${returnType}) {
+ type baseField interface {
+ 	generateAccessors(ms *messageStruct, sb *strings.Builder)
+ 
+-	generateAccessorsTests(ms *messageStruct, sb *strings.Builder)
++	generateAccessorsTest(ms *messageStruct, sb *strings.Builder)
+ 
+ 	generateSetWithTestValue(sb *strings.Builder)
++
++	generateCopyToValue(sb *strings.Builder)
+ }
+ 
+ type sliceField struct {
+@@ -123,7 +125,7 @@ func (sf *sliceField) generateAccessors(ms *messageStruct, sb *strings.Builder)
+ 	}))
+ }
+ 
+-func (sf *sliceField) generateAccessorsTests(ms *messageStruct, sb *strings.Builder) {
++func (sf *sliceField) generateAccessorsTest(ms *messageStruct, sb *strings.Builder) {
+ 	sb.WriteString(os.Expand(accessorsSliceTestTemplate, func(name string) string {
+ 		switch name {
+ 		case "structName":
+@@ -142,6 +144,10 @@ func (sf *sliceField) generateSetWithTestValue(sb *strings.Builder) {
+ 	sb.WriteString("\tfillTest" + sf.returnSlice.structName + "(tv." + sf.fieldMame + "())")
+ }
+ 
++func (sf *sliceField) generateCopyToValue(sb *strings.Builder) {
++	sb.WriteString("\tms." + sf.fieldMame + "().CopyTo(dest." + sf.fieldMame + "())")
++}
++
+ var _ baseField = (*sliceField)(nil)
+ 
+ type messageField struct {
+@@ -171,7 +177,7 @@ func (mf *messageField) generateAccessors(ms *messageStruct, sb *strings.Builder
+ 	}))
+ }
+ 
+-func (mf *messageField) generateAccessorsTests(ms *messageStruct, sb *strings.Builder) {
++func (mf *messageField) generateAccessorsTest(ms *messageStruct, sb *strings.Builder) {
+ 	sb.WriteString(os.Expand(accessorsMessageTestTemplate, func(name string) string {
+ 		switch name {
+ 		case "structName":
+@@ -191,6 +197,10 @@ func (mf *messageField) generateSetWithTestValue(sb *strings.Builder) {
+ 	sb.WriteString("\tfillTest" + mf.returnMessage.structName + "(tv." + mf.fieldMame + "())")
+ }
+ 
++func (mf *messageField) generateCopyToValue(sb *strings.Builder) {
++	sb.WriteString("\tms." + mf.fieldMame + "().CopyTo(dest." + mf.fieldMame + "())")
++}
++
+ var _ baseField = (*messageField)(nil)
+ 
+ type primitiveField struct {
+@@ -220,7 +230,7 @@ func (pf *primitiveField) generateAccessors(ms *messageStruct, sb *strings.Build
+ 	}))
+ }
+ 
+-func (pf *primitiveField) generateAccessorsTests(ms *messageStruct, sb *strings.Builder) {
++func (pf *primitiveField) generateAccessorsTest(ms *messageStruct, sb *strings.Builder) {
+ 	sb.WriteString(os.Expand(accessorsPrimitiveTestTemplate, func(name string) string {
+ 		switch name {
+ 		case "structName":
+@@ -241,6 +251,10 @@ func (pf *primitiveField) generateSetWithTestValue(sb *strings.Builder) {
+ 	sb.WriteString("\ttv.Set" + pf.fieldMame + "(" + pf.testVal + ")")
+ }
+ 
++func (pf *primitiveField) generateCopyToValue(sb *strings.Builder) {
++	sb.WriteString("\tdest.Set" + pf.fieldMame + "(ms." + pf.fieldMame + "())")
++}
++
+ var _ baseField = (*primitiveField)(nil)
+ 
+ // Types that has defined a custom type (e.g. "type TimestampUnixNano uint64")
+@@ -274,7 +288,7 @@ func (ptf *primitiveTypedField) generateAccessors(ms *messageStruct, sb *strings
+ 	}))
+ }
+ 
+-func (ptf *primitiveTypedField) generateAccessorsTests(ms *messageStruct, sb *strings.Builder) {
++func (ptf *primitiveTypedField) generateAccessorsTest(ms *messageStruct, sb *strings.Builder) {
+ 	sb.WriteString(os.Expand(accessorsPrimitiveTestTemplate, func(name string) string {
+ 		switch name {
+ 		case "structName":
+@@ -295,4 +309,8 @@ func (ptf *primitiveTypedField) generateSetWithTestValue(sb *strings.Builder) {
+ 	sb.WriteString("\ttv.Set" + ptf.fieldMame + "(" + ptf.testVal + ")")
+ }
+ 
++func (ptf *primitiveTypedField) generateCopyToValue(sb *strings.Builder) {
++	sb.WriteString("\tdest.Set" + ptf.fieldMame + "(ms." + ptf.fieldMame + "())")
++}
++
+ var _ baseField = (*primitiveTypedField)(nil)

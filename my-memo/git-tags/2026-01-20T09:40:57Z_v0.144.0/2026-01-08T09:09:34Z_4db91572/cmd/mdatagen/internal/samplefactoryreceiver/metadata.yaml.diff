@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplefactoryreceiver/metadata.yaml b/cmd/mdatagen/internal/samplefactoryreceiver/metadata.yaml
+index a64cd97fd..7c8679e67 100644
+--- a/cmd/mdatagen/internal/samplefactoryreceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplefactoryreceiver/metadata.yaml
+@@ -1,6 +1,8 @@
+ # Sample metadata file with all available configurations for a receiver.
+ 
+ type: sample
++display_name: Sample Factory Receiver
++description: This receiver is used for testing purposes to check the output of mdatagen.
+ scope_name: go.opentelemetry.io/collector/internal/receiver/samplefactoryreceiver
+ github_project: open-telemetry/opentelemetry-collector
+ 

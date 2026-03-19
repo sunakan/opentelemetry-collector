@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metrics_correctness_test.go b/testbed/correctness/metrics/metrics_correctness_test.go
+index c7cff6b27..c98397ccc 100644
+--- a/testbed/correctness/metrics/metrics_correctness_test.go
++++ b/testbed/correctness/metrics/metrics_correctness_test.go
+@@ -30,7 +30,7 @@ import (
+ // tests with the prefix "TestHarness_" get run in the "correctness-metrics" ci job
+ func TestHarness_MetricsGoldenData(t *testing.T) {
+ 	tests, err := correctness.LoadPictOutputPipelineDefs(
+-		"../testdata/generated_pict_pairs_metrics_pipeline.txt",
++		"testdata/generated_pict_pairs_metrics_pipeline.txt",
+ 	)
+ 	require.NoError(t, err)
+ 

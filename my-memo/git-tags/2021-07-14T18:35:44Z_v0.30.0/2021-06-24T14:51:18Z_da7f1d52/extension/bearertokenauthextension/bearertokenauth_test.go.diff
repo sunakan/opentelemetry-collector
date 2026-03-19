@@ -1,0 +1,22 @@
+diff --git a/extension/bearertokenauthextension/bearertokenauth_test.go b/extension/bearertokenauthextension/bearertokenauth_test.go
+index aa041e19e..9a62d2c40 100644
+--- a/extension/bearertokenauthextension/bearertokenauth_test.go
++++ b/extension/bearertokenauthextension/bearertokenauth_test.go
+@@ -20,7 +20,6 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"google.golang.org/grpc/credentials"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ )
+@@ -54,9 +53,6 @@ func TestBearerAuthenticator(t *testing.T) {
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, credential)
+ 
+-	_, ok := credential.(credentials.PerRPCCredentials)
+-	assert.True(t, ok)
+-
+ 	md, err := credential.GetRequestMetadata(context.Background())
+ 	expectedMd := map[string]string{
+ 		"authorization": fmt.Sprintf("Bearer %s", cfg.BearerToken),

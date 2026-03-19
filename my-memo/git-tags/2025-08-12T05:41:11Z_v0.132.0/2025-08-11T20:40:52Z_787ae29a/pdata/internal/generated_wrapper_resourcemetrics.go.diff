@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetrics.go b/pdata/internal/generated_wrapper_resourcemetrics.go
+index 17410f456..2f807410b 100644
+--- a/pdata/internal/generated_wrapper_resourcemetrics.go
++++ b/pdata/internal/generated_wrapper_resourcemetrics.go
+@@ -31,7 +31,13 @@ func MarshalJSONOrigResourceMetrics(orig *otlpmetrics.ResourceMetrics, dest *jso
+ 	MarshalJSONOrigResource(&orig.Resource, dest)
+ 	if len(orig.ScopeMetrics) > 0 {
+ 		dest.WriteObjectField("scopeMetrics")
+-		MarshalJSONOrigScopeMetricsSlice(orig.ScopeMetrics, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigScopeMetrics(orig.ScopeMetrics[0], dest)
++		for i := 1; i < len(orig.ScopeMetrics); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigScopeMetrics(orig.ScopeMetrics[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	if orig.SchemaUrl != "" {
+ 		dest.WriteObjectField("schemaUrl")

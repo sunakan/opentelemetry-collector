@@ -1,0 +1,12 @@
+diff --git a/service/application.go b/service/application.go
+index b335ae02f..3c4aad92b 100644
+--- a/service/application.go
++++ b/service/application.go
+@@ -280,7 +280,6 @@ func (app *Application) setupConfigurationComponents(ctx context.Context) error
+ func (app *Application) execute(ctx context.Context) error {
+ 	app.logger.Info("Starting "+app.info.ExeName+"...",
+ 		zap.String("Version", app.info.Version),
+-		zap.String("GitHash", app.info.GitHash),
+ 		zap.Int("NumCPU", runtime.NumCPU()),
+ 	)
+ 	app.stateChannel <- Starting

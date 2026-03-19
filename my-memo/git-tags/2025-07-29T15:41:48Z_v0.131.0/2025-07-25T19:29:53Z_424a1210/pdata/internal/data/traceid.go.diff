@@ -1,0 +1,33 @@
+diff --git a/pdata/internal/data/traceid.go b/pdata/internal/data/traceid.go
+index 4828ee02b..de1f10e0e 100644
+--- a/pdata/internal/data/traceid.go
++++ b/pdata/internal/data/traceid.go
+@@ -4,9 +4,12 @@
+ package data // import "go.opentelemetry.io/collector/pdata/internal/data"
+ 
+ import (
++	"encoding/hex"
+ 	"errors"
+ 
+ 	"github.com/gogo/protobuf/proto"
++
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ const traceIDSize = 16
+@@ -71,6 +74,15 @@ func (tid TraceID) MarshalJSON() ([]byte, error) {
+ 	return marshalJSON(tid[:])
+ }
+ 
++// MarshalJSONStream converts trace id into a hex string enclosed in quotes.
++func (tid TraceID) MarshalJSONStream(dest *json.Stream) {
++	if tid.IsEmpty() {
++		dest.WriteString("")
++		return
++	}
++	dest.WriteString(hex.EncodeToString(tid[:]))
++}
++
+ // UnmarshalJSON inflates trace id from hex string, possibly enclosed in quotes.
+ // Called by Protobuf JSON deserialization.
+ func (tid *TraceID) UnmarshalJSON(data []byte) error {

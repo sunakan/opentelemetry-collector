@@ -1,0 +1,18 @@
+diff --git a/otelcol/otelcoltest/go.mod b/otelcol/otelcoltest/go.mod
+index d63ae65f6..aa7d16ace 100644
+--- a/otelcol/otelcoltest/go.mod
++++ b/otelcol/otelcoltest/go.mod
+@@ -64,6 +64,7 @@ require (
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.104.0 // indirect
+ 	go.opentelemetry.io/collector/consumer v0.104.0 // indirect
+ 	go.opentelemetry.io/collector/featuregate v1.11.0 // indirect
++	go.opentelemetry.io/collector/internal/featuregates v0.104.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.11.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.104.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/testdata v0.104.0 // indirect
+@@ -163,3 +164,5 @@ replace go.opentelemetry.io/collector/exporter => ../../exporter
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/extension/auth => ../../extension/auth
++
++replace go.opentelemetry.io/collector/internal/featuregates => ../../internal/featuregates

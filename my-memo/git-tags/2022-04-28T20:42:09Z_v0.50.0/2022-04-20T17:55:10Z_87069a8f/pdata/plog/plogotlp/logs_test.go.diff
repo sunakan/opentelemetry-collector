@@ -1,0 +1,16 @@
+diff --git a/pdata/plog/plogotlp/logs_test.go b/pdata/plog/plogotlp/logs_test.go
+index 2de90203b..95a3adc67 100644
+--- a/pdata/plog/plogotlp/logs_test.go
++++ b/pdata/plog/plogotlp/logs_test.go
+@@ -314,10 +314,7 @@ func (f fakeLogsServer) Export(_ context.Context, request Request) (Response, er
+ func generateLogsRequest() Request {
+ 	ld := plog.NewLogs()
+ 	ld.ResourceLogs().AppendEmpty().ScopeLogs().AppendEmpty().LogRecords().AppendEmpty().Body().SetStringVal("test_log_record")
+-
+-	lr := NewRequest()
+-	lr.SetLogs(ld)
+-	return lr
++	return NewRequestFromLogs(ld)
+ }
+ 
+ func generateLogsRequestWithInstrumentationLibrary() Request {

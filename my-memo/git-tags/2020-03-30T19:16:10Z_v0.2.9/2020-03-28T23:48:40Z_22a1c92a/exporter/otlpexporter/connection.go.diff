@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/connection.go b/exporter/otlpexporter/connection.go
+index 3a14ebd68..f5e66f696 100644
+--- a/exporter/otlpexporter/connection.go
++++ b/exporter/otlpexporter/connection.go
+@@ -35,6 +35,7 @@ func (e *exporterImp) saveLastConnectError(err error) {
+ 	if err != nil {
+ 		errPtr = &err
+ 	}
++	// #nosec
+ 	atomic.StorePointer(&e.lastConnectErrPtr, unsafe.Pointer(errPtr))
+ }
+ 

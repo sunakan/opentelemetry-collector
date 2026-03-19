@@ -1,0 +1,10 @@
+diff --git a/exporter/loggingexporter/go.mod b/exporter/loggingexporter/go.mod
+index 0d2fb15fc..13b393b74 100644
+--- a/exporter/loggingexporter/go.mod
++++ b/exporter/loggingexporter/go.mod
+@@ -47,3 +47,5 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+ 
+ replace go.opentelemetry.io/collector/extension/ballastextension => ../../extension/ballastextension
++
++replace go.opentelemetry.io/collector/processor/batchprocessor => ../../processor/batchprocessor

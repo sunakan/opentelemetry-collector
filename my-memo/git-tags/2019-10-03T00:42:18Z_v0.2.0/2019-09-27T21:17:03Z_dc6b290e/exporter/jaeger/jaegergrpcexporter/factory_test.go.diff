@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/factory_test.go b/exporter/jaeger/jaegergrpcexporter/factory_test.go
+index 83a0605d2..9e1cabf47 100644
+--- a/exporter/jaeger/jaegergrpcexporter/factory_test.go
++++ b/exporter/jaeger/jaegergrpcexporter/factory_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configerror"
++	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

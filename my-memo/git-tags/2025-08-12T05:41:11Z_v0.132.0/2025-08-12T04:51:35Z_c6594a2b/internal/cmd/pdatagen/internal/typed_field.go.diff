@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/typed_field.go b/internal/cmd/pdatagen/internal/typed_field.go
+index 2077384e7..a2463cdfb 100644
+--- a/internal/cmd/pdatagen/internal/typed_field.go
++++ b/internal/cmd/pdatagen/internal/typed_field.go
+@@ -74,6 +74,8 @@ func (ptf *TypedField) GenerateSetWithTestValue(ms *messageStruct) string {
+ 	return executeTemplate(t, ptf.templateFields(ms))
+ }
+ 
++func (ptf *TypedField) GenerateTestValue(*messageStruct) string { return "" }
++
+ func (ptf *TypedField) GenerateCopyOrig(ms *messageStruct) string {
+ 	t := template.Must(templateNew("typedCopyOrigTemplate").Parse(typedCopyOrigTemplate))
+ 	return executeTemplate(t, ptf.templateFields(ms))

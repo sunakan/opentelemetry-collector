@@ -1,0 +1,20 @@
+diff --git a/service/generated_component_telemetry_test.go b/service/generated_component_telemetry_test.go
+index 2680da027..346198dff 100644
+--- a/service/generated_component_telemetry_test.go
++++ b/service/generated_component_telemetry_test.go
+@@ -16,6 +16,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
++// Deprecated: [v0.117.0] use metadatatest.Telemetry
+ type componentTestTelemetry struct {
+ 	reader        *sdkmetric.ManualReader
+ 	meterProvider *sdkmetric.MeterProvider
+@@ -28,6 +29,7 @@ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySett
+ 	return set
+ }
+ 
++// Deprecated: [v0.116.0] use metadatatest.SetupTelemetry
+ func setupTestTelemetry() componentTestTelemetry {
+ 	reader := sdkmetric.NewManualReader()
+ 	return componentTestTelemetry{

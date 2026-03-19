@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index b53821cfa..31a891e84 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -129,6 +129,10 @@ func (req *profilesRequest) setCachedSize(size int) {
+ 	req.cachedSize = size
+ }
+ 
++func (req *profilesRequest) BytesSize() int {
++	return profilesMarshaler.ProfilesSize(req.pd)
++}
++
+ type profileExporter struct {
+ 	*internal.BaseExporter
+ 	xconsumer.Profiles

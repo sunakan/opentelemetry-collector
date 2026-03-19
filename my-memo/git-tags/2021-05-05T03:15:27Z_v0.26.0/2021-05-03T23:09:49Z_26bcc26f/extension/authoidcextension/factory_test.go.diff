@@ -1,0 +1,13 @@
+diff --git a/extension/authoidcextension/factory_test.go b/extension/authoidcextension/factory_test.go
+index a01e8cc67..29d74bcba 100644
+--- a/extension/authoidcextension/factory_test.go
++++ b/extension/authoidcextension/factory_test.go
+@@ -29,7 +29,7 @@ import (
+ func TestCreateDefaultConfig(t *testing.T) {
+ 	// prepare and test
+ 	expected := &Config{
+-		ExtensionSettings: *config.NewExtensionSettings(typeStr),
++		ExtensionSettings: config.NewExtensionSettings(config.NewID(typeStr)),
+ 		Attribute:         defaultAttribute,
+ 	}
+ 

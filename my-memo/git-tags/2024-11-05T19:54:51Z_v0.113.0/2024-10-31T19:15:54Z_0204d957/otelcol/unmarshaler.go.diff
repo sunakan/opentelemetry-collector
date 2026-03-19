@@ -1,0 +1,12 @@
+diff --git a/otelcol/unmarshaler.go b/otelcol/unmarshaler.go
+index 4967b0a73..8f2b8e583 100644
+--- a/otelcol/unmarshaler.go
++++ b/otelcol/unmarshaler.go
+@@ -27,7 +27,6 @@ type configSettings struct {
+ // unmarshal the configSettings from a confmap.Conf.
+ // After the config is unmarshalled, `Validate()` must be called to validate.
+ func unmarshal(v *confmap.Conf, factories Factories) (*configSettings, error) {
+-
+ 	telFactory := telemetry.NewFactory()
+ 	defaultTelConfig := *telFactory.CreateDefaultConfig().(*telemetry.Config)
+ 

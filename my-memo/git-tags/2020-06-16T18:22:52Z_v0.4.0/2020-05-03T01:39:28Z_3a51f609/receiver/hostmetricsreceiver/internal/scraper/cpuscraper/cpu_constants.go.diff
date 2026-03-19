@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
+index e8d6a3fc0..e95895b43 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
+@@ -30,6 +30,10 @@ var (
+ 	SystemStateLabelValue    = "system"
+ 	IdleStateLabelValue      = "idle"
+ 	InterruptStateLabelValue = "interrupt"
++	NiceStateLabelValue      = "nice"
++	SoftIRQStateLabelValue   = "softirq"
++	StealStateLabelValue     = "steal"
++	WaitStateLabelValue      = "wait"
+ )
+ 
+ var MetricCPUSecondsDescriptor = metricCPUSecondsDescriptor()

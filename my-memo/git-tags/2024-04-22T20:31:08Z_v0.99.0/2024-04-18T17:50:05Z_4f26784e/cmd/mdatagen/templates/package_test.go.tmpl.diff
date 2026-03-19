@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/templates/package_test.go.tmpl b/cmd/mdatagen/templates/package_test.go.tmpl
+index 7fa282461..bbb4878c5 100644
+--- a/cmd/mdatagen/templates/package_test.go.tmpl
++++ b/cmd/mdatagen/templates/package_test.go.tmpl
+@@ -9,12 +9,12 @@ import (
+ )
+ 
+ func TestMain(m *testing.M) {
+-    {{- if .Tests.GoLeak.Skip }}
+-    // skipping goleak test as per metadata.yml configuration
+-    {{- else }}
+     {{- if .Tests.GoLeak.Setup }}
+     {{.Tests.GoLeak.Setup}}
+     {{- end }}
++    {{- if .Tests.GoLeak.Skip }}
++    // skipping goleak test as per metadata.yml configuration
++    {{- else }}
+ 	goleak.VerifyTestMain(m {{- range $val := .Tests.GoLeak.Ignore.Top}}, goleak.IgnoreTopFunction("{{$val}}"){{end}}{{- range $val := .Tests.GoLeak.Ignore.Any}}, goleak.IgnoreAnyFunction("{{$val}}"){{end}} )
+     {{- end }}
+     {{- if .Tests.GoLeak.Teardown }}

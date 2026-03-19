@@ -1,0 +1,22 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index 87d74c69e..d15578478 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -4,11 +4,6 @@ receivers:
+       grpc:
+ 
+ exporters:
+-  prometheus:
+-    endpoint: "0.0.0.0:8889"
+-    namespace: promexample
+-    const_labels:
+-      label1: value1
+   logging:
+ 
+   zipkin:
+@@ -39,4 +34,4 @@ service:
+     metrics:
+       receivers: [otlp]
+       processors: [batch]
+-      exporters: [logging, prometheus]
++      exporters: [logging]

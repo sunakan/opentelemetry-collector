@@ -1,0 +1,13 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 0ca8b6342..4909873a3 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -380,7 +380,7 @@ jobs:
+ 
+   build-package:
+     machine:
+-      image: ubuntu-2004:202104-01
++      image: ubuntu-1604:202007-01
+     parameters:
+       package_type:
+         type: enum

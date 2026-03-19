@@ -1,0 +1,10 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obsmetrics.go b/internal/obsreportconfig/obsmetrics/obsmetrics.go
+index d938b1cd4..84baf6d9c 100644
+--- a/internal/obsreportconfig/obsmetrics/obsmetrics.go
++++ b/internal/obsreportconfig/obsmetrics/obsmetrics.go
+@@ -8,4 +8,5 @@ package obsmetrics // import "go.opentelemetry.io/collector/internal/obsreportco
+ 
+ const (
+ 	NameSep = "/"
++	Scope   = "go.opentelemetry.io/collector/obsreport"
+ )

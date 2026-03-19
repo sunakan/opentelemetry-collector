@@ -1,0 +1,10 @@
+diff --git a/consumer/consumererror/doc.go b/consumer/consumererror/doc.go
+index c0ec29584..8648f3a22 100644
+--- a/consumer/consumererror/doc.go
++++ b/consumer/consumererror/doc.go
+@@ -15,4 +15,4 @@
+ // Package consumererror provides wrappers to easily classify errors. This allows
+ // appropriate action by error handlers without the need to know each individual
+ // error type/instance.
+-package consumererror
++package consumererror // import "go.opentelemetry.io/collector/consumer/consumererror"

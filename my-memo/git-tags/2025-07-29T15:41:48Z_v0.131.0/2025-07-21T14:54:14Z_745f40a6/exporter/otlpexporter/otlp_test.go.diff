@@ -1,0 +1,31 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index 861710212..4ab18eb74 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -64,6 +64,8 @@ func (r *mockReceiver) setExportError(err error) {
+ 	r.exportError = err
+ }
+ 
++var _ ptraceotlp.GRPCServer = &mockTracesReceiver{}
++
+ type mockTracesReceiver struct {
+ 	ptraceotlp.UnimplementedGRPCServer
+ 	mockReceiver
+@@ -128,6 +130,8 @@ func otlpTracesReceiverOnGRPCServer(ln net.Listener, useTLS bool) (*mockTracesRe
+ 	return rcv, nil
+ }
+ 
++var _ plogotlp.GRPCServer = &mockLogsReceiver{}
++
+ type mockLogsReceiver struct {
+ 	plogotlp.UnimplementedGRPCServer
+ 	mockReceiver
+@@ -177,6 +181,8 @@ func otlpLogsReceiverOnGRPCServer(ln net.Listener) *mockLogsReceiver {
+ 	return rcv
+ }
+ 
++var _ pmetricotlp.GRPCServer = &mockMetricsReceiver{}
++
+ type mockMetricsReceiver struct {
+ 	pmetricotlp.UnimplementedGRPCServer
+ 	mockReceiver

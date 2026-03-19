@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/doc_test.go b/pdata/ptrace/doc_test.go
+index 2d1d66fe7..4732c69a5 100644
+--- a/pdata/ptrace/doc_test.go
++++ b/pdata/ptrace/doc_test.go
+@@ -152,7 +152,7 @@ func ExampleSpan_Links() {
+ 	scopeSpans := resourceSpans.ScopeSpans().AppendEmpty()
+ 	span := scopeSpans.Spans().AppendEmpty()
+ 
+-	span.SetName("batch-processor")
++	span.SetName("memlimit-processor")
+ 	span.SetKind(ptrace.SpanKindInternal)
+ 
+ 	// Add links to other spans

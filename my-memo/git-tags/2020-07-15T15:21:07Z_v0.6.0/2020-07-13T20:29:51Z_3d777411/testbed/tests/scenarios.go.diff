@@ -1,0 +1,12 @@
+diff --git a/testbed/tests/scenarios.go b/testbed/tests/scenarios.go
+index a99cdba9f..e59f23e1a 100644
+--- a/testbed/tests/scenarios.go
++++ b/testbed/tests/scenarios.go
+@@ -129,6 +129,7 @@ func Scenario10kItemsPerSecond(
+ 	options := testbed.LoadOptions{
+ 		DataItemsPerSecond: 10_000,
+ 		ItemsPerBatch:      100,
++		Parallel:           4,
+ 	}
+ 	agentProc := &testbed.ChildProcess{}
+ 	configStr := createConfigYaml(t, sender, receiver, resultDir, processors)

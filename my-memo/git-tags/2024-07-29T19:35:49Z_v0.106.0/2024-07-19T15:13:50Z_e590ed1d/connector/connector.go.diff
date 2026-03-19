@@ -1,0 +1,16 @@
+diff --git a/connector/connector.go b/connector/connector.go
+index 22aace7fc..f7d9cc46e 100644
+--- a/connector/connector.go
++++ b/connector/connector.go
+@@ -54,11 +54,6 @@ type Metrics = internal.Metrics
+ //     pipeline can then process and export the log to the appropriate backend.
+ type Logs = internal.Logs
+ 
+-// CreateSettings configures Connector creators.
+-//
+-// Deprecated: [v0.103.0] Use connector.Settings instead.
+-type CreateSettings = internal.Settings
+-
+ // Settings configures Connector creators.
+ type Settings = internal.Settings
+ 

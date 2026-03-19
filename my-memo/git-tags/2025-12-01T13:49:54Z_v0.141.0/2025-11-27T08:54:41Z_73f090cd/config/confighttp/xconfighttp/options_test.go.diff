@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/xconfighttp/options_test.go b/config/confighttp/xconfighttp/options_test.go
+index 9b7b7d48a..e9b0c46db 100644
+--- a/config/confighttp/xconfighttp/options_test.go
++++ b/config/confighttp/xconfighttp/options_test.go
+@@ -32,7 +32,7 @@ func TestServerWithOtelHTTPOptions(t *testing.T) {
+ 
+ 	srv, err := sc.ToServer(
+ 		context.Background(),
+-		componenttest.NewNopHost(),
++		nil,
+ 		telemetry,
+ 		http.HandlerFunc(func(http.ResponseWriter, *http.Request) {}),
+ 		WithOtelHTTPOptions(

@@ -1,0 +1,20 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index e0a8f9842..d44455260 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -402,7 +402,14 @@ func TestErrorResponses(t *testing.T) {
+ 		{
+ 			name:           "404",
+ 			responseStatus: http.StatusNotFound,
+-			err:            errors.New(errMsgPrefix + "404"),
++			responseBody:   status.New(codes.InvalidArgument, "Bad field"),
++			isPermErr:      true,
++		},
++		{
++			name:           "405",
++			responseStatus: http.StatusMethodNotAllowed,
++			responseBody:   status.New(codes.InvalidArgument, "Bad field"),
++			isPermErr:      true,
+ 		},
+ 		{
+ 			name:           "413",

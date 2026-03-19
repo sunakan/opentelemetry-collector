@@ -1,0 +1,11 @@
+diff --git a/processor/processorhelper/traces.go b/processor/processorhelper/traces.go
+index 3cebc3ab9..941168985 100644
+--- a/processor/processorhelper/traces.go
++++ b/processor/processorhelper/traces.go
+@@ -76,6 +76,3 @@ func NewTraces(
+ 		Traces:       traceConsumer,
+ 	}, nil
+ }
+-
+-// Deprecated: [v0.111.0] use NewTraces.
+-var NewTracesProcessor = NewTraces

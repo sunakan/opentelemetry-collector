@@ -1,0 +1,13 @@
+diff --git a/otelcol/otelcoltest/go.mod b/otelcol/otelcoltest/go.mod
+index 1471d6b53..c9432132a 100644
+--- a/otelcol/otelcoltest/go.mod
++++ b/otelcol/otelcoltest/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/otelcol/otelcoltest
+ go 1.24
+ 
+ require (
+-	github.com/stretchr/testify v1.10.0
++	github.com/stretchr/testify v1.11.0
+ 	go.opentelemetry.io/collector/component v1.39.0
+ 	go.opentelemetry.io/collector/confmap v1.39.0
+ 	go.opentelemetry.io/collector/confmap/provider/envprovider v1.39.0

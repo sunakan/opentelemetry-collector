@@ -1,0 +1,10 @@
+diff --git a/component/doc.go b/component/doc.go
+index 73f438ff0..bc6ea3168 100644
+--- a/component/doc.go
++++ b/component/doc.go
+@@ -16,4 +16,4 @@
+ // and provides a foundation for the component’s creation and
+ // termination process. A component can be either a receiver, exporter,
+ // processor, or an extension.
+-package component
++package component // import "go.opentelemetry.io/collector/component"

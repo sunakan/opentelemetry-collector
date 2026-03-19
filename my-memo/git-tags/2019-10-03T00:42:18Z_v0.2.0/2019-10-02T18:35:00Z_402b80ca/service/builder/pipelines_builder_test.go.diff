@@ -1,0 +1,24 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index 4802ecb63..605f5950b 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -98,8 +98,8 @@ func testPipeline(t *testing.T, pipelineName string, exporterNames []string) {
+ 
+ 	// Ensure pipeline has its fields correctly populated.
+ 	require.NotNil(t, processor)
+-	assert.NotNil(t, processor.tc)
+-	assert.Nil(t, processor.mc)
++	assert.NotNil(t, processor.firstTC)
++	assert.Nil(t, processor.firstMC)
+ 
+ 	// Compose the list of created exporters.
+ 	var exporters []*builtExporter
+@@ -136,7 +136,7 @@ func testPipeline(t *testing.T, pipelineName string, exporterNames []string) {
+ 			Type: "resourcetype",
+ 		},
+ 	}
+-	processor.tc.ConsumeTraceData(context.Background(), traceData)
++	processor.firstTC.ConsumeTraceData(context.Background(), traceData)
+ 
+ 	// Now verify received data.
+ 	for _, consumer := range exporterConsumers {

@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_metadata.go
+index 3003110db..289a29c1b 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_metadata.go
+@@ -21,6 +21,7 @@ import (
+ // network metric constants
+ 
+ const (
++	interfaceLabelName = "interface"
+ 	directionLabelName = "direction"
+ 	stateLabelName     = "state"
+ )

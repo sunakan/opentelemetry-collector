@@ -1,0 +1,13 @@
+diff --git a/model/semconv/v1.5.0/nonstandard.go b/model/semconv/v1.5.0/nonstandard.go
+index 503df2937..d9856098f 100644
+--- a/model/semconv/v1.5.0/nonstandard.go
++++ b/model/semconv/v1.5.0/nonstandard.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package semconv
++package semconv // import "go.opentelemetry.io/collector/model/semconv/v1.5.0"
+ 
+ const (
+ 	InstrumentationLibraryName    = "otel.library.name"

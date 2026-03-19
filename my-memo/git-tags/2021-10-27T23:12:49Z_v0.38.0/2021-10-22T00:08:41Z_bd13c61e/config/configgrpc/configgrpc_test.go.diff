@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 74fa1f621..1b8378b3d 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -209,7 +209,7 @@ func TestGRPCClientSettingsError(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			err: "idStr must have non empty type",
++			err: "id must not be empty",
+ 			settings: GRPCClientSettings{
+ 				Endpoint: "localhost:1234",
+ 				Auth:     &configauth.Authentication{},

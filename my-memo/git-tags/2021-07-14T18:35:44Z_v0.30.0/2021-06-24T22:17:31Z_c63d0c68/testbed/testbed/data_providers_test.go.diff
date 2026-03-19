@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/data_providers_test.go b/testbed/testbed/data_providers_test.go
+index 4174e3dc8..aa7854d4a 100644
+--- a/testbed/testbed/data_providers_test.go
++++ b/testbed/testbed/data_providers_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/atomic"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ const metricsPictPairsFile = "../../internal/goldendataset/testdata/generated_pict_pairs_metrics.txt"

@@ -1,0 +1,26 @@
+diff --git a/extension/zpagesextension/internal/metadata/generated_status.go b/extension/zpagesextension/internal/metadata/generated_status.go
+index 21ba9b8e8..19408a372 100644
+--- a/extension/zpagesextension/internal/metadata/generated_status.go
++++ b/extension/zpagesextension/internal/metadata/generated_status.go
+@@ -10,8 +10,7 @@ import (
+ )
+ 
+ var (
+-	Type      = component.MustNewType("zpages")
+-	scopeName = "go.opentelemetry.io/collector/extension/zpagesextension"
++	Type = component.MustNewType("zpages")
+ )
+ 
+ const (
+@@ -19,9 +18,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter(scopeName)
++	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/extension/zpagesextension")
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer(scopeName)
++	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/extension/zpagesextension")
+ }

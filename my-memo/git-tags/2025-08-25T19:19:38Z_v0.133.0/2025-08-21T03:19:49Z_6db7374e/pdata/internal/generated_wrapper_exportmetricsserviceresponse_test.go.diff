@@ -1,0 +1,91 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricsserviceresponse_test.go b/pdata/internal/generated_wrapper_exportmetricsserviceresponse_test.go
+index 8a6b2bc14..63d79f928 100644
+--- a/pdata/internal/generated_wrapper_exportmetricsserviceresponse_test.go
++++ b/pdata/internal/generated_wrapper_exportmetricsserviceresponse_test.go
+@@ -14,6 +14,7 @@ import (
+ 	gootlpcollectormetrics "go.opentelemetry.io/proto/slim/otlp/collector/metrics/v1"
+ 	"google.golang.org/protobuf/proto"
+ 
++	"go.opentelemetry.io/collector/featuregate"
+ 	otlpcollectormetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/metrics/v1"
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+@@ -39,20 +40,29 @@ func TestMarshalAndUnmarshalJSONOrigExportMetricsServiceResponseUnknown(t *testi
+ 
+ func TestMarshalAndUnmarshalJSONOrigExportMetricsServiceResponse(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExportMetricsServiceResponse() {
+-		t.Run(name, func(t *testing.T) {
+-			stream := json.BorrowStream(nil)
+-			defer json.ReturnStream(stream)
+-			MarshalJSONOrigExportMetricsServiceResponse(src, stream)
+-			require.NoError(t, stream.Error())
+-
+-			iter := json.BorrowIterator(stream.Buffer())
+-			defer json.ReturnIterator(iter)
+-			dest := NewOrigExportMetricsServiceResponse()
+-			UnmarshalJSONOrigExportMetricsServiceResponse(dest, iter)
+-			require.NoError(t, iter.Error())
+-
+-			assert.Equal(t, src, dest)
+-		})
++		for _, pooling := range []bool{true, false} {
++			t.Run(name, func(t *testing.T) {
++				prevPooling := UseProtoPooling.IsEnabled()
++				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
++				defer func() {
++					require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), prevPooling))
++				}()
++
++				stream := json.BorrowStream(nil)
++				defer json.ReturnStream(stream)
++				MarshalJSONOrigExportMetricsServiceResponse(src, stream)
++				require.NoError(t, stream.Error())
++
++				iter := json.BorrowIterator(stream.Buffer())
++				defer json.ReturnIterator(iter)
++				dest := NewOrigExportMetricsServiceResponse()
++				UnmarshalJSONOrigExportMetricsServiceResponse(dest, iter)
++				require.NoError(t, iter.Error())
++
++				assert.Equal(t, src, dest)
++				DeleteOrigExportMetricsServiceResponse(dest, true)
++			})
++		}
+ 	}
+ }
+ 
+@@ -74,15 +84,25 @@ func TestMarshalAndUnmarshalProtoOrigExportMetricsServiceResponseUnknown(t *test
+ 
+ func TestMarshalAndUnmarshalProtoOrigExportMetricsServiceResponse(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExportMetricsServiceResponse() {
+-		t.Run(name, func(t *testing.T) {
+-			buf := make([]byte, SizeProtoOrigExportMetricsServiceResponse(src))
+-			gotSize := MarshalProtoOrigExportMetricsServiceResponse(src, buf)
+-			assert.Equal(t, len(buf), gotSize)
+-
+-			dest := NewOrigExportMetricsServiceResponse()
+-			require.NoError(t, UnmarshalProtoOrigExportMetricsServiceResponse(dest, buf))
+-			assert.Equal(t, src, dest)
+-		})
++		for _, pooling := range []bool{true, false} {
++			t.Run(name, func(t *testing.T) {
++				prevPooling := UseProtoPooling.IsEnabled()
++				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
++				defer func() {
++					require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), prevPooling))
++				}()
++
++				buf := make([]byte, SizeProtoOrigExportMetricsServiceResponse(src))
++				gotSize := MarshalProtoOrigExportMetricsServiceResponse(src, buf)
++				assert.Equal(t, len(buf), gotSize)
++
++				dest := NewOrigExportMetricsServiceResponse()
++				require.NoError(t, UnmarshalProtoOrigExportMetricsServiceResponse(dest, buf))
++
++				assert.Equal(t, src, dest)
++				DeleteOrigExportMetricsServiceResponse(dest, true)
++			})
++		}
+ 	}
+ }
+ 

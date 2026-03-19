@@ -1,0 +1,15 @@
+diff --git a/config/testdata/missing-processor-type.yaml b/config/testdata/missing-processor-type.yaml
+index e083c5579..d594ecdea 100644
+--- a/config/testdata/missing-processor-type.yaml
++++ b/config/testdata/missing-processor-type.yaml
+@@ -4,6 +4,7 @@ exporters:
+   exampleexporter:
+ processors:
+   /exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [somereceiver]
++service:
++  pipelines:
++    traces:
++      receivers: [somereceiver]

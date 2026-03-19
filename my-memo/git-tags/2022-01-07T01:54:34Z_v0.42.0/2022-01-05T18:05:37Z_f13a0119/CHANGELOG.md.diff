@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e6acf8cc0..4be2cfe87 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -32,6 +32,7 @@
+ 
+ - Fix merge config map provider to close the watchers (#4570)
+ - Fix expand map provider to call close on the base provider (#4571)
++- `otlp` receiver: Fix legacy port cfg value override and HTTP server starting bug (#4631)
+ 
+ ## v0.41.0 Beta
+ 

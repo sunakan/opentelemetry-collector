@@ -1,0 +1,23 @@
+diff --git a/cmd/mdatagen/internal/loader.go b/cmd/mdatagen/internal/loader.go
+index 2b059c9e2..fb61333e1 100644
+--- a/cmd/mdatagen/internal/loader.go
++++ b/cmd/mdatagen/internal/loader.go
+@@ -44,11 +44,14 @@ func LoadMetadata(filePath string) (Metadata, error) {
+ 	if err != nil {
+ 		return md, err
+ 	}
++	packageName, err := packageName(filepath.Dir(filePath))
++	if err != nil {
++		return md, fmt.Errorf("unable to determine package name: %w", err)
++	}
++	md.PackageName = packageName
++
+ 	if md.ScopeName == "" {
+-		md.ScopeName, err = packageName(filepath.Dir(filePath))
+-		if err != nil {
+-			return md, err
+-		}
++		md.ScopeName = packageName
+ 	}
+ 	if md.GeneratedPackageName == "" {
+ 		md.GeneratedPackageName = "metadata"

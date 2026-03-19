@@ -1,0 +1,13 @@
+diff --git a/internal/sharedcomponent/sharedcomponent_test.go b/internal/sharedcomponent/sharedcomponent_test.go
+index d53c89d7b..bfc3b72d0 100644
+--- a/internal/sharedcomponent/sharedcomponent_test.go
++++ b/internal/sharedcomponent/sharedcomponent_test.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
+-var id = config.NewID("test")
++var id = config.NewComponentID("test")
+ 
+ func TestNewSharedComponents(t *testing.T) {
+ 	comps := NewSharedComponents()

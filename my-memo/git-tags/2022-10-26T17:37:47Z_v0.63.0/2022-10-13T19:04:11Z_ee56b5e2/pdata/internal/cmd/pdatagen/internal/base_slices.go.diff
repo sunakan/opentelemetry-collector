@@ -1,0 +1,22 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_slices.go b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+index 2c2e64dd2..5fc741a81 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_slices.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+@@ -139,7 +139,7 @@ func (es ${structName}) At(ix int) ${elementName} {
+ 	return new${elementName}((*es.getOrig())[ix])
+ }
+ 
+-// CopyTo copies all elements from the current slice to the dest.
++// CopyTo copies all elements from the current slice overriding the destination.
+ func (es ${structName}) CopyTo(dest ${structName}) {
+ 	srcLen := es.Len()
+ 	destCap := cap(*dest.getOrig())
+@@ -340,7 +340,7 @@ func (es ${structName}) At(ix int) ${elementName} {
+ 	return new${elementName}(&(*es.getOrig())[ix])
+ }
+ 
+-// CopyTo copies all elements from the current slice to the dest.
++// CopyTo copies all elements from the current slice overriding the destination.
+ func (es ${structName}) CopyTo(dest ${structName}) {
+ 	srcLen := es.Len()
+ 	destCap := cap(*dest.getOrig())

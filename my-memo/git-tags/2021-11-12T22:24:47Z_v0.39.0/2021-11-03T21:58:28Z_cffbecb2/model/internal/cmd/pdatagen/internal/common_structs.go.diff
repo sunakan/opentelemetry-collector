@@ -1,0 +1,24 @@
+diff --git a/model/internal/cmd/pdatagen/internal/common_structs.go b/model/internal/cmd/pdatagen/internal/common_structs.go
+index e4b3488a5..01716967d 100644
+--- a/model/internal/cmd/pdatagen/internal/common_structs.go
++++ b/model/internal/cmd/pdatagen/internal/common_structs.go
+@@ -28,7 +28,7 @@ var commonFile = &File{
+ 	},
+ 	structs: []baseStruct{
+ 		instrumentationLibrary,
+-		anyValueArray,
++		attributeValueArray,
+ 	},
+ }
+ 
+@@ -109,8 +109,8 @@ var anyValue = &messageValueStruct{
+ 	originFullName: "otlpcommon.AnyValue",
+ }
+ 
+-var anyValueArray = &sliceOfValues{
+-	structName: "AnyValueArray",
++var attributeValueArray = &sliceOfValues{
++	structName: "AttributeValueSlice",
+ 	element:    anyValue,
+ }
+ 

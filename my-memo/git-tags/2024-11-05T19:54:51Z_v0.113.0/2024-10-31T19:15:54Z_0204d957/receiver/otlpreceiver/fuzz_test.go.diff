@@ -1,0 +1,11 @@
+diff --git a/receiver/otlpreceiver/fuzz_test.go b/receiver/otlpreceiver/fuzz_test.go
+index 4915364eb..39b2b2f6c 100644
+--- a/receiver/otlpreceiver/fuzz_test.go
++++ b/receiver/otlpreceiver/fuzz_test.go
+@@ -52,6 +52,5 @@ func FuzzReceiverHandlers(f *testing.F) {
+ 			httpLogsReceiver := logs.New(r.nextLogs, r.obsrepHTTP)
+ 			handleLogs(resp, req, httpLogsReceiver)
+ 		}
+-
+ 	})
+ }

@@ -1,0 +1,60 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index a67e23ca6..00edc6a48 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -11,6 +11,7 @@ import (
+ 	"path/filepath"
+ 	"strings"
+ 
++	"github.com/hashicorp/go-version"
+ 	"go.uber.org/multierr"
+ 	"go.uber.org/zap"
+ )
+@@ -40,15 +41,16 @@ type Config struct {
+ 
+ // Distribution holds the parameters for the final binary
+ type Distribution struct {
+-	Module           string `mapstructure:"module"`
+-	Name             string `mapstructure:"name"`
+-	Go               string `mapstructure:"go"`
+-	Description      string `mapstructure:"description"`
+-	OtelColVersion   string `mapstructure:"otelcol_version"`
+-	OutputPath       string `mapstructure:"output_path"`
+-	Version          string `mapstructure:"version"`
+-	BuildTags        string `mapstructure:"build_tags"`
+-	DebugCompilation bool   `mapstructure:"debug_compilation"`
++	Module               string `mapstructure:"module"`
++	Name                 string `mapstructure:"name"`
++	Go                   string `mapstructure:"go"`
++	Description          string `mapstructure:"description"`
++	OtelColVersion       string `mapstructure:"otelcol_version"`
++	RequireOtelColModule bool   `mapstructure:"-"` // required for backwards-compatibility with builds older than 0.86.0
++	OutputPath           string `mapstructure:"output_path"`
++	Version              string `mapstructure:"version"`
++	BuildTags            string `mapstructure:"build_tags"`
++	DebugCompilation     bool   `mapstructure:"debug_compilation"`
+ }
+ 
+ // Module represents a receiver, exporter, processor or extension for the distribution
+@@ -108,6 +110,21 @@ func (c *Config) SetGoPath() error {
+ 	return nil
+ }
+ 
++func (c *Config) SetRequireOtelColModule() error {
++	constraint, err := version.NewConstraint(">= 0.86.0")
++	if err != nil {
++		return err
++	}
++
++	otelColVersion, err := version.NewVersion(c.Distribution.OtelColVersion)
++	if err != nil {
++		return err
++	}
++
++	c.Distribution.RequireOtelColModule = constraint.Check(otelColVersion)
++	return nil
++}
++
+ // ParseModules will parse the Modules entries and populate the missing values
+ func (c *Config) ParseModules() error {
+ 	var err error

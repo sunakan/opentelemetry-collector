@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index f630f4d5b..7bfd1265e 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -429,7 +429,7 @@ func newNopConfig() Config {
+ 				ErrorOutputPaths:  []string{"stderr"},
+ 				DisableCaller:     false,
+ 				DisableStacktrace: false,
+-				InitialFields:     map[string]interface{}(nil),
++				InitialFields:     map[string]any(nil),
+ 			},
+ 			Metrics: telemetry.MetricsConfig{
+ 				Level:   configtelemetry.LevelBasic,

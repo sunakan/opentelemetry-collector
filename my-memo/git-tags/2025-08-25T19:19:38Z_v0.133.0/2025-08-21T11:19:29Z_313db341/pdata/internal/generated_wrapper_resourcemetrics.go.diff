@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetrics.go b/pdata/internal/generated_wrapper_resourcemetrics.go
+index 2f4fe0414..1509cdc3b 100644
+--- a/pdata/internal/generated_wrapper_resourcemetrics.go
++++ b/pdata/internal/generated_wrapper_resourcemetrics.go
+@@ -50,6 +50,10 @@ func DeleteOrigResourceMetrics(orig *otlpmetrics.ResourceMetrics, nullable bool)
+ }
+ 
+ func CopyOrigResourceMetrics(dest, src *otlpmetrics.ResourceMetrics) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.ScopeMetrics = CopyOrigScopeMetricsSlice(dest.ScopeMetrics, src.ScopeMetrics)
+ 	dest.SchemaUrl = src.SchemaUrl

@@ -1,0 +1,21 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 0f561d304..fec62ff31 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -8,6 +8,7 @@ require (
+ 	github.com/stretchr/testify v1.8.1
+ 	go.opentelemetry.io/collector v0.69.1
+ 	go.opentelemetry.io/collector/component v0.69.1
++	go.opentelemetry.io/collector/connector/forwardconnector v0.69.1
+ 	go.opentelemetry.io/collector/exporter/loggingexporter v0.69.1
+ 	go.opentelemetry.io/collector/exporter/otlpexporter v0.69.1
+ 	go.opentelemetry.io/collector/exporter/otlphttpexporter v0.69.1
+@@ -98,6 +99,8 @@ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
++replace go.opentelemetry.io/collector/connector/forwardconnector => ../../connector/forwardconnector
++
+ replace go.opentelemetry.io/collector/exporter/loggingexporter => ../../exporter/loggingexporter
+ 
+ replace go.opentelemetry.io/collector/exporter/otlpexporter => ../../exporter/otlpexporter

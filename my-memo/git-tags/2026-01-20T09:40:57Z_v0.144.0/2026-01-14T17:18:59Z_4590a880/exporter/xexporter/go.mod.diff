@@ -1,0 +1,10 @@
+diff --git a/exporter/xexporter/go.mod b/exporter/xexporter/go.mod
+index 2076a43be..5b24a76c1 100644
+--- a/exporter/xexporter/go.mod
++++ b/exporter/xexporter/go.mod
+@@ -87,3 +87,5 @@ replace go.opentelemetry.io/collector/exporter/exporterhelper => ../exporterhelp
+ replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil
+ 
+ replace go.opentelemetry.io/collector/internal/componentalias => ../../internal/componentalias
++
++replace go.opentelemetry.io/collector/pipeline/xpipeline => ../../pipeline/xpipeline

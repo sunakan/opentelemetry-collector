@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/testdata/no_enabled.yaml b/cmd/mdatagen/testdata/no_enabled.yaml
+deleted file mode 100644
+index ab1dfafed..000000000
+--- a/cmd/mdatagen/testdata/no_enabled.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-type: metricreceiver
+-
+-status:
+-  class: receiver
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+-    
+-metrics:
+-  system.cpu.time:
+-    description: Total CPU seconds broken down by different states.
+-    unit: s
+-    sum:
+-      value_type: double
+-      monotonic: true
+-      aggregation_temporality: cumulative
+-    attributes:

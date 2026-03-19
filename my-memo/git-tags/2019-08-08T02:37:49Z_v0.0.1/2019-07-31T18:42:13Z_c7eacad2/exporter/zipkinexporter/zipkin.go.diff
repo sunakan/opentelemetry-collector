@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index 0e6124c2d..eb3ff1d3f 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -33,7 +33,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumererror"
+ 	"github.com/open-telemetry/opentelemetry-service/observability"
+-	"github.com/open-telemetry/opentelemetry-service/translator/trace"
++	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
+ 	spandatatranslator "github.com/open-telemetry/opentelemetry-service/translator/trace/spandata"
+ )
+ 

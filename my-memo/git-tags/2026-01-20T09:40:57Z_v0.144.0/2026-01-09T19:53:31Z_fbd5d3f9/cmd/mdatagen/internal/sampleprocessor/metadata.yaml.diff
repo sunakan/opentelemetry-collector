@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/metadata.yaml b/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
+index e69f5fcbf..ccc5745aa 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
+@@ -3,6 +3,7 @@
+ type: sample
+ display_name: Sample Processor
+ description: This processor is used for testing purposes to check the output of mdatagen.
++reaggregation_enabled: true
+ scope_name: go.opentelemetry.io/collector/internal/receiver/samplereceiver
+ github_project: open-telemetry/opentelemetry-collector
+ 

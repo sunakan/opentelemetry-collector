@@ -1,0 +1,17 @@
+diff --git a/cmd/builder/internal/builder/templates/go.mod.tmpl b/cmd/builder/internal/builder/templates/go.mod.tmpl
+index cec15fe06..ef68aa277 100644
+--- a/cmd/builder/internal/builder/templates/go.mod.tmpl
++++ b/cmd/builder/internal/builder/templates/go.mod.tmpl
+@@ -34,6 +34,12 @@ require (
+ 	github.com/knadh/koanf/providers/confmap v0.1.0 // indirect
+ )
+ 
++{{- range .Converters}}
++{{if ne .Path ""}}replace {{.GoMod}} => {{.Path}}{{end}}
++{{- end}}
++{{- range .Providers}}
++{{if ne .Path ""}}replace {{.GoMod}} => {{.Path}}{{end}}
++{{- end}}
+ {{- range .Connectors}}
+ {{if ne .Path ""}}replace {{.GoMod}} => {{.Path}}{{end}}
+ {{- end}}

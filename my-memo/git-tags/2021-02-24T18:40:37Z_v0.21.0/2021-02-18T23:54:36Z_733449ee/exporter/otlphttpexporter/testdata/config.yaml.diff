@@ -1,0 +1,12 @@
+diff --git a/exporter/otlphttpexporter/testdata/config.yaml b/exporter/otlphttpexporter/testdata/config.yaml
+index bf6bb6424..9fbbe10c8 100644
+--- a/exporter/otlphttpexporter/testdata/config.yaml
++++ b/exporter/otlphttpexporter/testdata/config.yaml
+@@ -28,6 +28,7 @@ exporters:
+       "can you have a . here?": "F0000000-0000-0000-0000-000000000000"
+       header1: 234
+       another: "somevalue"
++    compression: gzip
+ 
+ service:
+   pipelines:

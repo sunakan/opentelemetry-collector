@@ -1,0 +1,13 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index c3a6c156d..36e0b527b 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -33,8 +33,6 @@ MULTIMOD     := $(TOOLS_BIN_DIR)/multimod
+ PORTO        := $(TOOLS_BIN_DIR)/porto
+ YQ           := $(TOOLS_BIN_DIR)/yq
+ 
+-GH := $(shell which gh)
+-
+ .PHONY: install-tools
+ install-tools: $(TOOLS_BIN_NAMES) $(YQ)
+ 

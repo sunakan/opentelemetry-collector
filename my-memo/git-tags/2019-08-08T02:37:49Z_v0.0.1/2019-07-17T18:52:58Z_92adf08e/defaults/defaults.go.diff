@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index d680aab3d..350415781 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -25,6 +25,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/internal/collector/processor/queued"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/addattributesprocessor"
++	"github.com/open-telemetry/opentelemetry-service/processor/attributekeyprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver/jaegerreceiver"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver/opencensusreceiver"
+@@ -64,6 +65,7 @@ func Components() (
+ 
+ 	processors, err := processor.Build(
+ 		&addattributesprocessor.Factory{},
++		&attributekeyprocessor.Factory{},
+ 		&queued.Factory{},
+ 		&nodebatcher.Factory{},
+ 	)

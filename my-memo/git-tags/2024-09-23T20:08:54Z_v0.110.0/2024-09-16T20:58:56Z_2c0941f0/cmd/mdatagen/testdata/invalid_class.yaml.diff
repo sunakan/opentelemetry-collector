@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/testdata/invalid_class.yaml b/cmd/mdatagen/testdata/invalid_class.yaml
+deleted file mode 100644
+index 6fcd9b9d7..000000000
+--- a/cmd/mdatagen/testdata/invalid_class.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-type: test
+-
+-status:
+-  class: incorrectclass
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+\ No newline at end of file

@@ -1,0 +1,21 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index 5576ac400..cbfcd1663 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -16,6 +16,7 @@ package builder // import "go.opentelemetry.io/collector/service/internal/builde
+ 
+ import (
+ 	"context"
++	"errors"
+ 	"fmt"
+ 
+ 	"go.uber.org/multierr"
+@@ -237,7 +238,7 @@ func buildExporter(
+ 		}
+ 
+ 		if err != nil {
+-			if err == componenterror.ErrDataTypeIsNotSupported {
++			if errors.Is(err, componenterror.ErrDataTypeIsNotSupported) {
+ 				// Could not create because this exporter does not support this data type.
+ 				return nil, exporterTypeMismatchErr(cfg, pipelineID, dataType)
+ 			}

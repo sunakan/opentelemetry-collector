@@ -1,0 +1,17 @@
+diff --git a/pdata/plog/plogotlp/generated_exportpartialsuccess.go b/pdata/plog/plogotlp/generated_exportpartialsuccess.go
+index 679976271..57f56d1a2 100644
+--- a/pdata/plog/plogotlp/generated_exportpartialsuccess.go
++++ b/pdata/plog/plogotlp/generated_exportpartialsuccess.go
+@@ -74,6 +74,10 @@ func (ms ExportPartialSuccess) SetErrorMessage(v string) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ExportPartialSuccess) CopyTo(dest ExportPartialSuccess) {
+ 	dest.state.AssertMutable()
+-	dest.SetRejectedLogRecords(ms.RejectedLogRecords())
+-	dest.SetErrorMessage(ms.ErrorMessage())
++	copyOrigExportPartialSuccess(dest.orig, ms.orig)
++}
++
++func copyOrigExportPartialSuccess(dest, src *otlpcollectorlog.ExportLogsPartialSuccess) {
++	dest.RejectedLogRecords = src.RejectedLogRecords
++	dest.ErrorMessage = src.ErrorMessage
+ }

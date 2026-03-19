@@ -1,0 +1,12 @@
+diff --git a/internal/configv2/configv2.go b/internal/configv2/configv2.go
+index 2f93e0a36..092531c75 100644
+--- a/internal/configv2/configv2.go
++++ b/internal/configv2/configv2.go
+@@ -312,6 +312,7 @@ func loadProcessors(v *viper.Viper) (configmodels.Processors, error) {
+ 
+ 		// Create the default config for this processors
+ 		processorCfg := factory.CreateDefaultConfig()
++		processorCfg.SetType(typeStr)
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it
+ 		// and it will apply user-defined config on top of the default.

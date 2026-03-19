@@ -1,0 +1,36 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index e74f473a2..173376a99 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -45,6 +45,7 @@ func NewFactory() component.ReceiverFactory {
+ 		createDefaultConfig,
+ 		receiverhelper.WithTraces(createTraceReceiver),
+ 		receiverhelper.WithMetrics(createMetricsReceiver),
++		receiverhelper.WithLogs(createLogReceiver),
+ 		receiverhelper.WithCustomUnmarshaler(customUnmarshaler))
+ }
+ 
+@@ -147,6 +148,23 @@ func createMetricsReceiver(
+ 	return r, nil
+ }
+ 
++// CreateLogReceiver creates a log receiver based on provided config.
++func createLogReceiver(
++	ctx context.Context,
++	_ component.ReceiverCreateParams,
++	cfg configmodels.Receiver,
++	consumer consumer.LogsConsumer,
++) (component.LogsReceiver, error) {
++	r, err := createReceiver(cfg)
++	if err != nil {
++		return nil, err
++	}
++	if err = r.registerLogsConsumer(ctx, consumer); err != nil {
++		return nil, err
++	}
++	return r, nil
++}
++
+ func createReceiver(cfg configmodels.Receiver) (*Receiver, error) {
+ 	rCfg := cfg.(*Config)
+ 

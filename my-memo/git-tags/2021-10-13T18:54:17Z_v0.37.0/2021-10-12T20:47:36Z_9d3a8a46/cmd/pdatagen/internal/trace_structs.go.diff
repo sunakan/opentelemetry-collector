@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/trace_structs.go b/cmd/pdatagen/internal/trace_structs.go
+index 0b234bea0..6f8d90c54 100644
+--- a/cmd/pdatagen/internal/trace_structs.go
++++ b/cmd/pdatagen/internal/trace_structs.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/cmd/pdatagen/internal"
+ 
+ var traceFile = &File{
+ 	Name: "trace",

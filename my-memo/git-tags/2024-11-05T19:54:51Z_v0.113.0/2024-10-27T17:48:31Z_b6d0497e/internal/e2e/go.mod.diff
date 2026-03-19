@@ -1,0 +1,18 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index 4146cac5c..ab78f8b5c 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -89,6 +89,7 @@ require (
+ 	go.opentelemetry.io/collector/extension/experimental/storage v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/extension/extensioncapabilities v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/featuregate v1.18.0 // indirect
++	go.opentelemetry.io/collector/internal/fanoutconsumer v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline/pipelineprofiles v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/processor v0.112.0 // indirect
+@@ -226,3 +227,5 @@ replace go.opentelemetry.io/collector/consumer/consumererror/consumererrorprofil
+ replace go.opentelemetry.io/collector/exporter/exporterhelper/exporterhelperprofiles => ../../exporter/exporterhelper/exporterhelperprofiles
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror
++
++replace go.opentelemetry.io/collector/internal/fanoutconsumer => ../fanoutconsumer

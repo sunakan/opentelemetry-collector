@@ -1,0 +1,12 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index 0da645769..0baee4726 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -39,6 +39,6 @@ func (nh *nopHost) GetExtensions() map[config.ComponentID]component.Extension {
+ 	return nil
+ }
+ 
+-func (nh *nopHost) GetExporters() map[config.DataType]map[config.NamedEntity]component.Exporter {
++func (nh *nopHost) GetExporters() map[config.DataType]map[config.ComponentID]component.Exporter {
+ 	return nil
+ }

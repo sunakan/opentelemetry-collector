@@ -1,0 +1,30 @@
+diff --git a/service/defaultcomponents/default_exporters_test.go b/service/defaultcomponents/default_exporters_test.go
+index 5c568e631..2d9ee67fa 100644
+--- a/service/defaultcomponents/default_exporters_test.go
++++ b/service/defaultcomponents/default_exporters_test.go
+@@ -35,7 +35,6 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/opencensusexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlpexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlphttpexporter"
+-	"go.opentelemetry.io/collector/exporter/prometheusexporter"
+ 	"go.opentelemetry.io/collector/exporter/zipkinexporter"
+ 	"go.opentelemetry.io/collector/testutil"
+ )
+@@ -113,17 +112,6 @@ func TestDefaultExporters(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
+-		{
+-			exporter: "prometheus",
+-			getConfigFn: func() config.Exporter {
+-				cfg := expFactories["prometheus"].CreateDefaultConfig().(*prometheusexporter.Config)
+-				cfg.Endpoint = endpoint
+-				return cfg
+-			},
+-		},
+-		{
+-			exporter: "prometheusremotewrite",
+-		},
+ 		{
+ 			exporter: "zipkin",
+ 			getConfigFn: func() config.Exporter {

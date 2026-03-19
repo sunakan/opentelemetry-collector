@@ -1,0 +1,14 @@
+diff --git a/extension/memorylimiterextension/memorylimiter_test.go b/extension/memorylimiterextension/memorylimiter_test.go
+index 96aa24e3f..da651bc49 100644
+--- a/extension/memorylimiterextension/memorylimiter_test.go
++++ b/extension/memorylimiterextension/memorylimiter_test.go
+@@ -14,8 +14,8 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/internal/iruntime"
+ 	"go.opentelemetry.io/collector/internal/memorylimiter"
++	"go.opentelemetry.io/collector/internal/memorylimiter/iruntime"
+ )
+ 
+ func TestMemoryPressureResponse(t *testing.T) {

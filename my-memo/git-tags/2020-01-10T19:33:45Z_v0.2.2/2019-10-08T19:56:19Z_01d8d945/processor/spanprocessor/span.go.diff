@@ -1,0 +1,16 @@
+diff --git a/processor/spanprocessor/span.go b/processor/spanprocessor/span.go
+index c6c58d445..fcd7a6ee2 100644
+--- a/processor/spanprocessor/span.go
++++ b/processor/spanprocessor/span.go
+@@ -61,6 +61,11 @@ func (sp *spanProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: true}
+ }
+ 
++// Shutdown is invoked during service shutdown.
++func (sp *spanProcessor) Shutdown() error {
++	return nil
++}
++
+ func (sp *spanProcessor) nameSpan(span *tracepb.Span) {
+ 	// Note: There was a separate proposal for creating the string.
+ 	// With benchmarking, strings.Builder is faster than the proposal.

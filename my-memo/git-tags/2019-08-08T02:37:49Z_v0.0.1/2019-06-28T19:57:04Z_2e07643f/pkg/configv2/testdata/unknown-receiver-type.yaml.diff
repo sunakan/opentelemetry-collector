@@ -1,0 +1,20 @@
+diff --git a/pkg/configv2/testdata/unknown-receiver-type.yaml b/pkg/configv2/testdata/unknown-receiver-type.yaml
+new file mode 100644
+index 000000000..d88682b2a
+--- /dev/null
++++ b/pkg/configv2/testdata/unknown-receiver-type.yaml
+@@ -0,0 +1,14 @@
++receivers:
++  nosuchreceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers:
++      - multireceiver
++    exporters:
++      - exampleexporter
++    processors:
++      - exampleprocessor

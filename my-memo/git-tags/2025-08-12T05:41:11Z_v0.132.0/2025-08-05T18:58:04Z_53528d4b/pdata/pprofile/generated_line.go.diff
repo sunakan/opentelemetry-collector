@@ -1,0 +1,23 @@
+diff --git a/pdata/pprofile/generated_line.go b/pdata/pprofile/generated_line.go
+index 14ff73308..0fd78e3f1 100644
+--- a/pdata/pprofile/generated_line.go
++++ b/pdata/pprofile/generated_line.go
+@@ -86,7 +86,7 @@ func (ms Line) SetColumn(v int64) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms Line) CopyTo(dest Line) {
+ 	dest.state.AssertMutable()
+-	copyOrigLine(dest.orig, ms.orig)
++	internal.CopyOrigLine(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -123,9 +123,3 @@ func (ms Line) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigLine(dest, src *otlpprofiles.Line) {
+-	dest.FunctionIndex = src.FunctionIndex
+-	dest.Line = src.Line
+-	dest.Column = src.Column
+-}

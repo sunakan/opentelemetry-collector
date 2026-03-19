@@ -1,0 +1,16 @@
+diff --git a/connector/connector.go b/connector/connector.go
+index b00eb54f8..d3166ab59 100644
+--- a/connector/connector.go
++++ b/connector/connector.go
+@@ -609,6 +609,11 @@ func (b *Builder) CreateLogsToLogs(ctx context.Context, set CreateSettings, next
+ 	return f.CreateLogsToLogs(ctx, set, cfg, next)
+ }
+ 
++func (b *Builder) IsConfigured(componentID component.ID) bool {
++	_, ok := b.cfgs[componentID]
++	return ok
++}
++
+ func (b *Builder) Factory(componentType component.Type) component.Factory {
+ 	return b.factories[componentType]
+ }

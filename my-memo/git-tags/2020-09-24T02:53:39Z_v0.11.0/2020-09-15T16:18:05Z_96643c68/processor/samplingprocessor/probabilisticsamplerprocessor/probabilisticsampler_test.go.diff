@@ -1,0 +1,14 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index 2c564269b..a84cc592d 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -234,8 +234,7 @@ func Test_tracesamplerprocessor_SpanSamplingPriority(t *testing.T) {
+ 		rs.Resource().InitEmpty()
+ 		rs.InstrumentationLibrarySpans().Resize(1)
+ 		instrLibrarySpans := rs.InstrumentationLibrarySpans().At(0)
+-		span := getSpanWithAttributes(key, attribValue)
+-		instrLibrarySpans.Spans().Append(&span)
++		instrLibrarySpans.Spans().Append(getSpanWithAttributes(key, attribValue))
+ 		return traces
+ 	}
+ 	tests := []struct {

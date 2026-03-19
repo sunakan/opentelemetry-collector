@@ -1,0 +1,14 @@
+diff --git a/obsreport/obsreporttest/obsreporttest.go b/obsreport/obsreporttest/obsreporttest.go
+index d9ac8cd21..d95cf548d 100644
+--- a/obsreport/obsreporttest/obsreporttest.go
++++ b/obsreport/obsreporttest/obsreporttest.go
+@@ -171,8 +171,7 @@ func SetupTelemetry(id component.ID) (TestTelemetry, error) {
+ 	}
+ 	settings.TelemetrySettings.TracerProvider = tp
+ 	settings.TelemetrySettings.MetricsLevel = configtelemetry.LevelNormal
+-	obsMetrics := obsreportconfig.Configure(configtelemetry.LevelNormal)
+-	settings.views = obsMetrics.Views
++	settings.views = obsreportconfig.AllViews(configtelemetry.LevelNormal)
+ 	err := view.Register(settings.views...)
+ 	if err != nil {
+ 		return settings, err

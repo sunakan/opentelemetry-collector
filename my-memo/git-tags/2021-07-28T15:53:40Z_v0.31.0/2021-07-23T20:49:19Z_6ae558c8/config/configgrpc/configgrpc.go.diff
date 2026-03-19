@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 2984e19d9..9ab0caf53 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -40,8 +40,6 @@ import (
+ const (
+ 	CompressionUnsupported = ""
+ 	CompressionGzip        = "gzip"
+-
+-	PerRPCAuthTypeBearer = "bearer"
+ )
+ 
+ var (

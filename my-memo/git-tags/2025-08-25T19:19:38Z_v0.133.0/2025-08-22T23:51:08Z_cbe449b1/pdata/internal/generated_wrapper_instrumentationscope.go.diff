@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_instrumentationscope.go b/pdata/internal/generated_wrapper_instrumentationscope.go
+index b0f606c5d..f9fea6cb8 100644
+--- a/pdata/internal/generated_wrapper_instrumentationscope.go
++++ b/pdata/internal/generated_wrapper_instrumentationscope.go
+@@ -32,11 +32,13 @@ func NewInstrumentationScope(orig *otlpcommon.InstrumentationScope, state *State
+ 	return InstrumentationScope{orig: orig, state: state}
+ }
+ 
+-var protoPoolInstrumentationScope = sync.Pool{
+-	New: func() any {
+-		return &otlpcommon.InstrumentationScope{}
+-	},
+-}
++var (
++	protoPoolInstrumentationScope = sync.Pool{
++		New: func() any {
++			return &otlpcommon.InstrumentationScope{}
++		},
++	}
++)
+ 
+ func NewOrigInstrumentationScope() *otlpcommon.InstrumentationScope {
+ 	if !UseProtoPooling.IsEnabled() {

@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 5292b6ea3..9b3dca765 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -157,7 +157,7 @@ func NewTraceExporter(config configmodels.Exporter, level string, logger *zap.Lo
+ 		logger: logger,
+ 	}
+ 
+-	return exporterhelper.NewTraceExporter(
++	return exporterhelper.NewTraceExporterOld(
+ 		config,
+ 		s.pushTraceData,
+ 		exporterhelper.WithShutdown(loggerSync(logger)),

@@ -1,0 +1,13 @@
+diff --git a/config/experimental/config/config.go b/config/experimental/config/config.go
+index 8b5596fc3..3cf80c65b 100644
+--- a/config/experimental/config/config.go
++++ b/config/experimental/config/config.go
+@@ -32,7 +32,7 @@ func (s *SourceSettings) ID() config.ComponentID {
+ 
+ // SetIDName updates the name part of the ID for the component that this configuration belongs to.
+ func (s *SourceSettings) SetIDName(idName string) {
+-	s.ComponentID = config.NewIDWithName(s.ComponentID.Type(), idName)
++	s.ComponentID = config.NewComponentIDWithName(s.ComponentID.Type(), idName)
+ }
+ 
+ // NewSourceSettings return a new config.SourceSettings struct with the given ComponentID.

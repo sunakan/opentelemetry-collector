@@ -1,0 +1,17 @@
+diff --git a/service/internal/builders/extension.go b/service/internal/builders/extension.go
+index 6ac32fe56..35c2bead4 100644
+--- a/service/internal/builders/extension.go
++++ b/service/internal/builders/extension.go
+@@ -60,10 +60,10 @@ func (b *ExtensionBuilder) Factory(componentType component.Type) component.Facto
+ func NewNopExtensionConfigsAndFactories() (map[component.ID]component.Config, map[component.Type]extension.Factory) {
+ 	nopFactory := extensiontest.NewNopFactory()
+ 	configs := map[component.ID]component.Config{
+-		component.NewID(nopType): nopFactory.CreateDefaultConfig(),
++		component.NewID(NopType): nopFactory.CreateDefaultConfig(),
+ 	}
+ 	factories := map[component.Type]extension.Factory{
+-		nopType: nopFactory,
++		NopType: nopFactory,
+ 	}
+ 	return configs, factories
+ }

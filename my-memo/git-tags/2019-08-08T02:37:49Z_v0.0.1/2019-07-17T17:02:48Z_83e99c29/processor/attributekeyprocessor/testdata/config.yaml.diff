@@ -1,0 +1,36 @@
+diff --git a/processor/attributekeyprocessor/testdata/config.yaml b/processor/attributekeyprocessor/testdata/config.yaml
+new file mode 100644
+index 000000000..d7f1f7578
+--- /dev/null
++++ b/processor/attributekeyprocessor/testdata/config.yaml
+@@ -0,0 +1,30 @@
++receivers:
++  examplereceiver:
++
++processors:
++  attribute-key:
++    keys:
++      foo: 
++          replacement: "boo"
++          overwrite: true
++          keep: true
++      kie: 
++          replacement: "goo"
++          overwrite: true
++          keep: false
++      ddd:
++          replacement: "vss"
++          overwrite: false
++          keep: true    
++      dot.test:
++          replacement: "bot"
++          overwrite: false
++          keep: false
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [attribute-key]
++    exporters: [exampleexporter]

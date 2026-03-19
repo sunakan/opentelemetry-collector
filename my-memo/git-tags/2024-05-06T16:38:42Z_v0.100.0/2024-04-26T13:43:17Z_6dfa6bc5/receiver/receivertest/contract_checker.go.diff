@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/contract_checker.go b/receiver/receivertest/contract_checker.go
+index 37dd68b7f..6951b5f41 100644
+--- a/receiver/receivertest/contract_checker.go
++++ b/receiver/receivertest/contract_checker.go
+@@ -390,7 +390,7 @@ func (m *mockConsumer) ConsumeMetrics(_ context.Context, data pmetric.Metrics) e
+ 	return m.consume(ids)
+ }
+ 
+-// idSetFromLogs computes an idSet from given pmetric.Metrics. The idSet will contain ids of all metric data points.
++// idSetFromMetrics computes an idSet from given pmetric.Metrics. The idSet will contain ids of all metric data points.
+ func idSetFromMetrics(data pmetric.Metrics) (idSet, error) {
+ 	ds := map[UniqueIDAttrVal]bool{}
+ 	rss := data.ResourceMetrics()

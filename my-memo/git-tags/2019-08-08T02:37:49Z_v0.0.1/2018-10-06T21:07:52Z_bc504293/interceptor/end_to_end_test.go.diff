@@ -1,0 +1,13 @@
+diff --git a/interceptor/end_to_end_test.go b/interceptor/end_to_end_test.go
+index af2efc9af..13724dfcd 100644
+--- a/interceptor/end_to_end_test.go
++++ b/interceptor/end_to_end_test.go
+@@ -97,7 +97,7 @@ type logSpanReceiver int
+ 
+ var _ spanreceiver.SpanReceiver = (*logSpanReceiver)(nil)
+ 
+-func (lsr *logSpanReceiver) ReceiveSpans(node *commonpb.Node, spans ...*tracepb.Span) (*spanreceiver.Acknowledgement, error) {
++func (lsr *logSpanReceiver) ReceiveSpans(ctx context.Context, node *commonpb.Node, spans ...*tracepb.Span) (*spanreceiver.Acknowledgement, error) {
+ 	spansBlob, _ := json.MarshalIndent(spans, " ", "  ")
+ 	log.Printf("\n****\nNode: %#v\nSpans: %s\n****\n", node, spansBlob)
+ 

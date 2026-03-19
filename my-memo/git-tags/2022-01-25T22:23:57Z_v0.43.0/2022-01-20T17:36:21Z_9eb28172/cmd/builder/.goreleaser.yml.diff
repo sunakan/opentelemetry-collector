@@ -1,0 +1,19 @@
+diff --git a/cmd/builder/.goreleaser.yml b/cmd/builder/.goreleaser.yml
+index f555f592e..cf970cc32 100644
+--- a/cmd/builder/.goreleaser.yml
++++ b/cmd/builder/.goreleaser.yml
+@@ -17,11 +17,10 @@ builds:
+       - darwin
+     goarch:
+       - amd64
+-      - arm
+       - arm64
+-    goarm:
+-      - 6
+-      - 7
++    ignore:
++      - goos: windows
++        goarch: arm64
+     binary: ocb
+ release:
+   github:

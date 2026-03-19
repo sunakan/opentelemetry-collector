@@ -1,0 +1,13 @@
+diff --git a/component/processor_test.go b/component/processor_test.go
+index 2f0822dfa..4c86e2836 100644
+--- a/component/processor_test.go
++++ b/component/processor_test.go
+@@ -40,7 +40,7 @@ func (f *TestProcessorFactory) CreateDefaultConfig() configmodels.Processor {
+ }
+ 
+ // CreateTraceProcessor creates a trace processor based on this config.
+-func (f *TestProcessorFactory) CreateTraceProcessor(context.Context, ProcessorCreateParams, configmodels.Processor, consumer.TraceConsumer) (TraceProcessor, error) {
++func (f *TestProcessorFactory) CreateTraceProcessor(context.Context, ProcessorCreateParams, configmodels.Processor, consumer.TracesConsumer) (TraceProcessor, error) {
+ 	return nil, configerror.ErrDataTypeIsNotSupported
+ }
+ 

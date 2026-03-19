@@ -1,0 +1,18 @@
+diff --git a/translator/trace/grpc_http_mapper_test.go b/translator/trace/grpc_http_mapper_test.go
+index c3db0539a..c7e5ac6c4 100644
+--- a/translator/trace/grpc_http_mapper_test.go
++++ b/translator/trace/grpc_http_mapper_test.go
+@@ -20,13 +20,6 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+-func TestHTTPStatusFromOTStatus(t *testing.T) {
+-	for otelStatus := int32(OCOK); otelStatus <= OCUnauthenticated; otelStatus++ {
+-		httpStatus := HTTPStatusCodeFromOCStatus(otelStatus)
+-		assert.True(t, httpStatus != 0)
+-	}
+-}
+-
+ func TestOTStatusFromHTTPStatus(t *testing.T) {
+ 	for httpStatus := int32(100); httpStatus <= 604; httpStatus++ {
+ 		otelStatus := OCStatusCodeFromHTTP(httpStatus)

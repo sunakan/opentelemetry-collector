@@ -1,0 +1,13 @@
+diff --git a/translator/trace/protospan_translation_test.go b/translator/trace/protospan_translation_test.go
+index ed95257d9..9823b318e 100644
+--- a/translator/trace/protospan_translation_test.go
++++ b/translator/trace/protospan_translation_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestAttributeValueToString(t *testing.T) {

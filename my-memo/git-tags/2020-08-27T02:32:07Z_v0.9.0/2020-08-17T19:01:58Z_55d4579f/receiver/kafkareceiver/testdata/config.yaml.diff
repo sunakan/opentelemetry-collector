@@ -1,0 +1,31 @@
+diff --git a/receiver/kafkareceiver/testdata/config.yaml b/receiver/kafkareceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..3b7983613
+--- /dev/null
++++ b/receiver/kafkareceiver/testdata/config.yaml
+@@ -0,0 +1,25 @@
++receivers:
++  kafka:
++    topic: spans
++    brokers:
++      - "foo:123"
++      - "bar:456"
++    client_id: otel-collector
++    group_id: otel-collector
++    metadata:
++      retry:
++        max: 10
++        backoff: 5s
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [kafka]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

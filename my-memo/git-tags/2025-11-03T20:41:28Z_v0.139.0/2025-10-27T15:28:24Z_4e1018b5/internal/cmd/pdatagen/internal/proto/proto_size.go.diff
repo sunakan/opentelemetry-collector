@@ -1,0 +1,23 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/proto_size.go b/internal/cmd/pdatagen/internal/proto/proto_size.go
+index 5bc5abc72..26cbb50ec 100644
+--- a/internal/cmd/pdatagen/internal/proto/proto_size.go
++++ b/internal/cmd/pdatagen/internal/proto/proto_size.go
+@@ -83,11 +83,16 @@ const sizeProtoBytesString = `{{ if .repeated -}}
+ 
+ const sizeProtoMessage = `{{ if .repeated -}}
+ 	for i := range orig.{{ .fieldName }} {
+-		l = SizeProto{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }}[i])
++		l = orig.{{ .fieldName }}[i].SizeProto()
++		n+= {{ .protoTagSize }} + proto.Sov(uint64(l)) + l
++	}
++{{- else if .nullable -}}
++	if orig.{{ .fieldName }} != nil {
++		l = orig.{{ .fieldName }}.SizeProto()
+ 		n+= {{ .protoTagSize }} + proto.Sov(uint64(l)) + l
+ 	}
+ {{- else -}}
+-	l = SizeProto{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }})
++	l = orig.{{ .fieldName }}.SizeProto()
+ 	n+= {{ .protoTagSize }} + proto.Sov(uint64(l)) + l
+ {{- end }}`
+ 

@@ -1,0 +1,15 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 7e5476867..7bd75dd8e 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -136,10 +136,6 @@ func NewAttributeValueArray() AttributeValue {
+ 	return AttributeValue{orig: orig}
+ }
+ 
+-func (a AttributeValue) InitEmpty() {
+-	*a.orig = otlpcommon.AnyValue{}
+-}
+-
+ // Type returns the type of the value for this AttributeValue.
+ // Calling this function on zero-initialized AttributeValue will cause a panic.
+ func (a AttributeValue) Type() AttributeValueType {

@@ -1,0 +1,10 @@
+diff --git a/receiver/doc.go b/receiver/doc.go
+index f2e788b12..86ff181eb 100644
+--- a/receiver/doc.go
++++ b/receiver/doc.go
+@@ -15,4 +15,4 @@
+ // Package receiver contains implementations of Receiver components.
+ //
+ // A receiver must be added as a default component to be included in the collector.
+-package receiver
++package receiver // import "go.opentelemetry.io/collector/receiver"

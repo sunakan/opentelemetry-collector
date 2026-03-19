@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/obsreport_test.go b/exporter/exporterhelper/obsreport_test.go
+index daafd422e..d7c479561 100644
+--- a/exporter/exporterhelper/obsreport_test.go
++++ b/exporter/exporterhelper/obsreport_test.go
+@@ -15,7 +15,6 @@ import (
+ )
+ 
+ func TestExportEnqueueFailure(t *testing.T) {
+-	exporterID := component.MustNewID("fakeExporter")
+ 	tt, err := componenttest.SetupTelemetry(exporterID)
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })

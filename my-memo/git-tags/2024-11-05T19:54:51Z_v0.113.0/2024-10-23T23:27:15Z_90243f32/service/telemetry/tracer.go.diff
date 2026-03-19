@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/tracer.go b/service/telemetry/tracer.go
+index ca4ee8c54..d7b9131d5 100644
+--- a/service/telemetry/tracer.go
++++ b/service/telemetry/tracer.go
+@@ -54,7 +54,7 @@ func (n *noopNoContextTracerProvider) Tracer(_ string, _ ...trace.TracerOption)
+ 	return &noopNoContextTracer{}
+ }
+ 
+-// New creates a new Telemetry from Config.
++// newTracerProvider creates a new TracerProvider from Config.
+ func newTracerProvider(ctx context.Context, set Settings, cfg Config) (trace.TracerProvider, error) {
+ 	if noopTracerProvider.IsEnabled() || cfg.Traces.Level == configtelemetry.LevelNone {
+ 		return &noopNoContextTracerProvider{}, nil

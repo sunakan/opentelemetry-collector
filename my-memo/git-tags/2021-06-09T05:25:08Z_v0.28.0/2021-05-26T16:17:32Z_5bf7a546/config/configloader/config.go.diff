@@ -1,0 +1,14 @@
+diff --git a/config/configloader/config.go b/config/configloader/config.go
+index f9a981488..0eceb8960 100644
+--- a/config/configloader/config.go
++++ b/config/configloader/config.go
+@@ -12,9 +12,6 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package configloader implements configuration loading from a config.Parser.
+-// The implementation relies on registered factories that allow creating
+-// default configuration for each type of receiver/exporter/processor.
+ package configloader
+ 
+ import (

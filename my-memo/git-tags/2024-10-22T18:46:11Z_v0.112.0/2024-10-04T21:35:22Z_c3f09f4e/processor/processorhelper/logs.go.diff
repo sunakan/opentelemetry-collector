@@ -1,0 +1,12 @@
+diff --git a/processor/processorhelper/logs.go b/processor/processorhelper/logs.go
+index a434fe8fb..5fedd5dfa 100644
+--- a/processor/processorhelper/logs.go
++++ b/processor/processorhelper/logs.go
+@@ -55,6 +55,7 @@ func NewLogs(
+ 		ld, errFunc = logsFunc(ctx, ld)
+ 		span.AddEvent("End processing.", eventOptions)
+ 		if errFunc != nil {
++			obs.recordInOut(ctx, recordsIn, 0)
+ 			if errors.Is(errFunc, ErrSkipProcessingData) {
+ 				return nil
+ 			}

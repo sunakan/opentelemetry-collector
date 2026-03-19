@@ -1,0 +1,25 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message.go.tmpl b/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+index f3dffe99e..3171dd248 100644
+--- a/internal/cmd/pdatagen/internal/templates/message.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+@@ -90,6 +90,20 @@ func (ms {{ .structName }}) marshalJSONStream(dest *json.Stream) {
+ 	dest.WriteObjectEnd()
+ }
+ 
++// unmarshalJSONIter unmarshals all properties from the current struct from the source iterator.
++func (ms {{ .structName }}) unmarshalJSONIter(iter *json.Iterator) {
++	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
++		switch f {
++		{{ range .fields -}}
++		{{ .GenerateUnmarshalJSON $.messageStruct }}
++		{{ end -}}
++		default:
++			iter.Skip()
++		}
++		return true
++	})
++}
++
+ func copyOrig{{ .structName }}(dest, src *{{ .originName }}) {
+ 	{{- range .fields }}
+ 	{{ .GenerateCopyOrig $.messageStruct }}

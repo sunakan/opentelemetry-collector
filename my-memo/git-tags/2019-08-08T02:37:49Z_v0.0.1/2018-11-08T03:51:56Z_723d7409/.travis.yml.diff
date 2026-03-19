@@ -1,0 +1,19 @@
+diff --git a/.travis.yml b/.travis.yml
+index a61b3134b..cb0fae2fb 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -3,8 +3,12 @@ language: go
+ go_import_path: github.com/census-instrumentation/opencensus-service
+ 
+ go:
+-  - 1.10.x
++  - 1.11.x
+  
++env:
++  global:
++    GO111MODULE=on
++
+ install:
+   - make install-tools
+-  - go get -t -v ./...
++  - go get -v ./...

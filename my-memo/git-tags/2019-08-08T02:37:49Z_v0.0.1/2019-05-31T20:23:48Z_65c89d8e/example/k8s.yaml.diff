@@ -1,0 +1,18 @@
+diff --git a/example/k8s.yaml b/example/k8s.yaml
+index 0ca807229..c3bdd947c 100644
+--- a/example/k8s.yaml
++++ b/example/k8s.yaml
+@@ -70,7 +70,12 @@ metadata:
+ data:
+   oc-collector-config: |
+     receivers:
+-      opencensus: {}
++      opencensus:
++# keepalive settings can help load balancing, see receiver/README.md for more info.
++        keepalive:
++          server-parameters:
++            max-connection-age: 120s
++            max-connection-age-grace: 30s            
+       jaeger: {}
+       zipkin: {}
+ # Can only use one exporter

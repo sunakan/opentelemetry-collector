@@ -1,0 +1,44 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_message_value.go b/internal/cmd/pdatagen/internal/one_of_message_value.go
+index 14fe7b43a..bdb92124e 100644
+--- a/internal/cmd/pdatagen/internal/one_of_message_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_message_value.go
+@@ -46,10 +46,17 @@ const oneOfMessageAccessorsTestTemplate = `func Test{{ .structName }}_{{ .fieldN
+ }
+ `
+ 
+-const oneOfMessageSetTestTemplate = `orig.{{ .originOneOfFieldName }} = &{{ .originStructName }}_{{ .fieldName -}}{ 
++const oneOfMessageSetTestTemplate = `orig.{{ .originOneOfFieldName }} = &{{ .originStructType }}{ 
+ {{- .fieldName }}: &{{ .originFieldPackageName }}.{{ .fieldName }}{}}
+ FillOrigTest{{ .fieldOriginName }}(orig.Get{{ .returnType }}())`
+ 
++const oneOfMessageTestValuesTemplate = `
++"oneof_{{ .lowerFieldName }}": { {{ .originOneOfFieldName }}: func() *{{ .originStructType }}{
++	val := &{{ .originFieldPackageName }}.{{ .fieldName }}{}
++	FillOrigTest{{ .fieldOriginName }}(val)
++	return &{{ .originStructType }}{{ "{" }}{{ .fieldName }}: val}
++}()},`
++
+ const oneOfMessageCopyOrigTemplate = `	case *{{ .originStructType }}:
+ 		{{ .lowerFieldName }} := &{{ .originFieldPackageName}}.{{ .fieldName }}{}
+ 		CopyOrig{{ .fieldOriginName }}({{ .lowerFieldName }}, t.{{ .fieldName }})
+@@ -57,7 +64,7 @@ const oneOfMessageCopyOrigTemplate = `	case *{{ .originStructType }}:
+ 			{{ .fieldName }}: {{ .lowerFieldName }},
+ 		}`
+ 
+-const oneOfMessageTypeTemplate = `case *{{ .originStructName }}_{{ .originFieldName }}:
++const oneOfMessageTypeTemplate = `case *{{ .originStructType }}:
+ 	return {{ .typeName }}`
+ 
+ const oneOfMessageUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
+@@ -91,6 +98,11 @@ func (omv *OneOfMessageValue) GenerateSetWithTestValue(ms *messageStruct, of *On
+ 	return executeTemplate(t, omv.templateFields(ms, of))
+ }
+ 
++func (omv *OneOfMessageValue) GenerateTestValue(ms *messageStruct, of *OneOfField) string {
++	t := template.Must(templateNew("oneOfMessageTestValuesTemplate").Parse(oneOfMessageTestValuesTemplate))
++	return executeTemplate(t, omv.templateFields(ms, of))
++}
++
+ func (omv *OneOfMessageValue) GenerateCopyOrig(ms *messageStruct, of *OneOfField) string {
+ 	t := template.Must(templateNew("oneOfMessageCopyOrigTemplate").Parse(oneOfMessageCopyOrigTemplate))
+ 	return executeTemplate(t, omv.templateFields(ms, of))

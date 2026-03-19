@@ -1,0 +1,10 @@
+diff --git a/internal/sharedcomponent/go.mod b/internal/sharedcomponent/go.mod
+index a7d2ac998..72b5494c8 100644
+--- a/internal/sharedcomponent/go.mod
++++ b/internal/sharedcomponent/go.mod
+@@ -46,3 +46,5 @@ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../testutil

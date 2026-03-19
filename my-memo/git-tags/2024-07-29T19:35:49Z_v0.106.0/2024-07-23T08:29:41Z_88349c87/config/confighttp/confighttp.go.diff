@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 2a1960e05..5421ddab7 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -297,7 +297,6 @@ type ServerConfig struct {
+ 	MaxRequestBodySize int64 `mapstructure:"max_request_body_size"`
+ 
+ 	// IncludeMetadata propagates the client metadata from the incoming requests to the downstream consumers
+-	// Experimental: *NOTE* this option is subject to change or removal in the future.
+ 	IncludeMetadata bool `mapstructure:"include_metadata"`
+ 
+ 	// Additional headers attached to each HTTP response sent to the client.

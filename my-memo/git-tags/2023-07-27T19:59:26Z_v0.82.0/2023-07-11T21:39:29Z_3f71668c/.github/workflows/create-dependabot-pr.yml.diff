@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/create-dependabot-pr.yml b/.github/workflows/create-dependabot-pr.yml
+index 682304be4..b6cc73780 100644
+--- a/.github/workflows/create-dependabot-pr.yml
++++ b/.github/workflows/create-dependabot-pr.yml
+@@ -11,7 +11,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Run dependabot-pr.sh
+         run: ./.github/workflows/scripts/dependabot-pr.sh
+         env:

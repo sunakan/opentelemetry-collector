@@ -1,0 +1,20 @@
+diff --git a/exporter/kafkaexporter/factory.go b/exporter/kafkaexporter/factory.go
+index 650c01300..e94ecdab5 100644
+--- a/exporter/kafkaexporter/factory.go
++++ b/exporter/kafkaexporter/factory.go
+@@ -41,11 +41,11 @@ const (
+ // FactoryOption applies changes to kafkaExporterFactory.
+ type FactoryOption func(factory *kafkaExporterFactory)
+ 
+-// WithAddTracesMarshallers adds tracesMarshallers.
+-func WithAddTracesMarshallers(encodingMarshaller map[string]TracesMarshaller) FactoryOption {
++// WithTracesMarshallers adds tracesMarshallers.
++func WithTracesMarshallers(tracesMarshallers ...TracesMarshaller) FactoryOption {
+ 	return func(factory *kafkaExporterFactory) {
+-		for encoding, marshaller := range encodingMarshaller {
+-			factory.tracesMarshallers[encoding] = marshaller
++		for _, marshaller := range tracesMarshallers {
++			factory.tracesMarshallers[marshaller.Encoding()] = marshaller
+ 		}
+ 	}
+ }

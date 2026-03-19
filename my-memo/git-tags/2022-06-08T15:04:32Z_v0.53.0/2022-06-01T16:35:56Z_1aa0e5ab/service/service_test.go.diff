@@ -1,0 +1,16 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index d8f0b2855..96f8c6f51 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -98,10 +98,9 @@ func createExampleService(t *testing.T, factories component.Factories) *service
+ 	cfg, err := configunmarshaler.New().Unmarshal(conf, factories)
+ 	require.NoError(t, err)
+ 
+-	srv, err := newService(&svcSettings{
++	srv, err := newService(&settings{
+ 		BuildInfo: component.NewDefaultBuildInfo(),
+ 		Factories: factories,
+-		Telemetry: componenttest.NewNopTelemetrySettings(),
+ 		Config:    cfg,
+ 	})
+ 	require.NoError(t, err)

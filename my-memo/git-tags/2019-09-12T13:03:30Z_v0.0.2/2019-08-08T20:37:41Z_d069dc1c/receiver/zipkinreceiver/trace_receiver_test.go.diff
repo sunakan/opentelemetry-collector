@@ -1,0 +1,21 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index 8df8f3f65..a88674368 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -39,6 +39,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/exportertest"
+ 	"github.com/open-telemetry/opentelemetry-service/internal"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-service/oterr"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver/receivertest"
+ 	spandatatranslator "github.com/open-telemetry/opentelemetry-service/translator/trace/spandata"
+@@ -126,7 +127,7 @@ func TestNew(t *testing.T) {
+ 		{
+ 			name:    "nil nextConsumer",
+ 			args:    args{},
+-			wantErr: errNilNextConsumer,
++			wantErr: oterr.ErrNilNextConsumer,
+ 		},
+ 		{
+ 			name: "happy path",

@@ -1,0 +1,26 @@
+diff --git a/service/testdata/otelcol-validprop.yaml b/service/testdata/otelcol-validprop.yaml
+new file mode 100644
+index 000000000..a80e058c3
+--- /dev/null
++++ b/service/testdata/otelcol-validprop.yaml
+@@ -0,0 +1,20 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  nop:
++
++service:
++  telemetry:
++    traces:
++      propagators:
++        - "b3"
++        - "tracecontext"
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

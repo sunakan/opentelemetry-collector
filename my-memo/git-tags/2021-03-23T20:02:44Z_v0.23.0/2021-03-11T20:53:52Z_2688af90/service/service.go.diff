@@ -1,0 +1,62 @@
+diff --git a/service/service.go b/service/service.go
+index 8da5544ea..233c12a30 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -61,11 +61,6 @@ const (
+ 	Closed
+ )
+ 
+-// GetStateChannel returns state channel of the application.
+-func (app *Application) GetStateChannel() chan State {
+-	return app.stateChannel
+-}
+-
+ // Application represents a collector application
+ type Application struct {
+ 	info            component.ApplicationStartInfo
+@@ -91,11 +86,6 @@ type Application struct {
+ 	asyncErrorChannel chan error
+ }
+ 
+-// Command returns Application's root command.
+-func (app *Application) Command() *cobra.Command {
+-	return app.rootCmd
+-}
+-
+ // Parameters holds configuration for creating a new Application.
+ type Parameters struct {
+ 	// Factories component factories.
+@@ -190,11 +180,14 @@ func New(params Parameters) (*Application, error) {
+ 	return app, nil
+ }
+ 
+-// ReportFatalError is used to report to the host that the receiver encountered
+-// a fatal error (i.e.: an error that the instance can't recover from) after
+-// its start function has already returned.
+-func (app *Application) ReportFatalError(err error) {
+-	app.asyncErrorChannel <- err
++// GetStateChannel returns state channel of the application.
++func (app *Application) GetStateChannel() chan State {
++	return app.stateChannel
++}
++
++// Command returns Application's root command.
++func (app *Application) Command() *cobra.Command {
++	return app.rootCmd
+ }
+ 
+ // GetLogger returns logger used by the Application.
+@@ -203,6 +196,13 @@ func (app *Application) GetLogger() *zap.Logger {
+ 	return app.logger
+ }
+ 
++// ReportFatalError is used to report to the host that the receiver encountered
++// a fatal error (i.e.: an error that the instance can't recover from) after
++// its start function has already returned.
++func (app *Application) ReportFatalError(err error) {
++	app.asyncErrorChannel <- err
++}
++
+ func (app *Application) GetFactory(kind component.Kind, componentType configmodels.Type) component.Factory {
+ 	switch kind {
+ 	case component.KindReceiver:

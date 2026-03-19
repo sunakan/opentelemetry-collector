@@ -1,0 +1,13 @@
+diff --git a/internal/data_generator/internal/common_structs.go b/internal/data_generator/internal/common_structs.go
+index 52d18fb46..3f7a94624 100644
+--- a/internal/data_generator/internal/common_structs.go
++++ b/internal/data_generator/internal/common_structs.go
+@@ -96,7 +96,7 @@ var endTimeField = &primitiveTypedField{
+ 	testVal:         "TimestampUnixNano(1234567890)",
+ }
+ 
+-var attributes = &sliceField{
++var attributes = &mapField{
+ 	fieldMame:               "Attributes",
+ 	originFieldName:         "Attributes",
+ 	returnSlice:             attributeMap,

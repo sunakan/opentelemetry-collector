@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index 0c713992e..143651828 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -52,7 +52,7 @@ import (
+ 	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/testutil"
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ 	"go.opentelemetry.io/collector/translator/trace/jaeger"
+ )

@@ -1,0 +1,12 @@
+diff --git a/confmap/provider/yamlprovider/go.mod b/confmap/provider/yamlprovider/go.mod
+index ac55e00fc..7d71535f8 100644
+--- a/confmap/provider/yamlprovider/go.mod
++++ b/confmap/provider/yamlprovider/go.mod
+@@ -24,7 +24,6 @@ require (
+ 	go.uber.org/zap v1.27.0 // indirect
+ 	go.yaml.in/yaml/v3 v3.0.3 // indirect
+ 	gopkg.in/yaml.v3 v3.0.1 // indirect
+-	sigs.k8s.io/yaml v1.5.0 // indirect
+ )
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../

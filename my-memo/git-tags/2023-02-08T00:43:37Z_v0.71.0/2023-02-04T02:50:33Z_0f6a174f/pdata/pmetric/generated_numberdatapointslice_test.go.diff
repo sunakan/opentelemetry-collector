@@ -1,0 +1,35 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice_test.go b/pdata/pmetric/generated_numberdatapointslice_test.go
+index 02ac86f82..d14d644f0 100644
+--- a/pdata/pmetric/generated_numberdatapointslice_test.go
++++ b/pdata/pmetric/generated_numberdatapointslice_test.go
+@@ -19,6 +19,7 @@ package pmetric
+ 
+ import (
+ 	"testing"
++	"unsafe"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+@@ -118,6 +119,22 @@ func TestNumberDataPointSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestNumberDataPointSlice_Sort(t *testing.T) {
++	es := generateTestNumberDataPointSlice()
++	es.Sort(func(a, b NumberDataPoint) bool {
++		return uintptr(unsafe.Pointer(a.orig)) < uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) < uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++	es.Sort(func(a, b NumberDataPoint) bool {
++		return uintptr(unsafe.Pointer(a.orig)) > uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) > uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++}
++
+ func generateTestNumberDataPointSlice() NumberDataPointSlice {
+ 	es := NewNumberDataPointSlice()
+ 	fillTestNumberDataPointSlice(es)

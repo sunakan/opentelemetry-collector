@@ -1,0 +1,14 @@
+diff --git a/featuregate/registry.go b/featuregate/registry.go
+index c6b5a2f89..82310f820 100644
+--- a/featuregate/registry.go
++++ b/featuregate/registry.go
+@@ -62,9 +62,6 @@ func WithRegisterReferenceURL(url string) RegisterOption {
+ 	})
+ }
+ 
+-// Deprecated: [v0.76.0] use WithRegisterToVersion.
+-var WithRegisterRemovalVersion = WithRegisterToVersion
+-
+ // WithRegisterFromVersion is used to set the Gate "FromVersion".
+ // The "FromVersion" contains the Collector release when a feature is introduced.
+ func WithRegisterFromVersion(fromVersion string) RegisterOption {

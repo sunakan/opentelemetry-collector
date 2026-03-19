@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/testdata/unused_attribute.yaml b/cmd/mdatagen/testdata/unused_attribute.yaml
+index cc0eb08f7..d71586a77 100644
+--- a/cmd/mdatagen/testdata/unused_attribute.yaml
++++ b/cmd/mdatagen/testdata/unused_attribute.yaml
+@@ -23,7 +23,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
+-    unit: 1
++    unit: "1"
+     gauge:
+       value_type: double
+     attributes: [used_attr]

@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/exporters_test.go b/service/internal/configunmarshaler/exporters_test.go
+index 59e37c21b..b5adc7a36 100644
+--- a/service/internal/configunmarshaler/exporters_test.go
++++ b/service/internal/configunmarshaler/exporters_test.go
+@@ -37,7 +37,7 @@ func TestExportersUnmarshal(t *testing.T) {
+ 	require.NoError(t, exps.Unmarshal(conf))
+ 
+ 	cfgWithName := factories.Exporters["nop"].CreateDefaultConfig()
+-	cfgWithName.SetIDName("myexporter")
++	cfgWithName.SetIDName("myexporter") //nolint:staticcheck
+ 	assert.Equal(t, map[component.ID]component.Config{
+ 		component.NewID("nop"):                       factories.Exporters["nop"].CreateDefaultConfig(),
+ 		component.NewIDWithName("nop", "myexporter"): cfgWithName,

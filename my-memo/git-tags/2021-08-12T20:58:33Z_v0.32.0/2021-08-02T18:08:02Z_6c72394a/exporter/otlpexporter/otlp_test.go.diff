@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index 95685ce80..b7a7ea831 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -368,7 +368,7 @@ func TestSendMetrics(t *testing.T) {
+ 	assert.EqualValues(t, 0, atomic.LoadInt32(&rcv.totalItems))
+ 
+ 	// Send two metrics.
+-	md = testdata.GenerateMetricsTwoSumMetrics()
++	md = testdata.GenerateMetricsTwoMetrics()
+ 
+ 	err = exp.ConsumeMetrics(context.Background(), md)
+ 	assert.NoError(t, err)

@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_slices.go b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+index d55620716..21646d92b 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_slices.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+@@ -272,13 +272,13 @@ func Test{{ .structName }}_Sort(t *testing.T) {
+ 		return uintptr(unsafe.Pointer(a.orig)) < uintptr(unsafe.Pointer(b.orig))
+ 	})
+ 	for i := 1; i < es.Len(); i++ {
+-		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) < uintptr(unsafe.Pointer(es.At(i).orig)))
++		assert.Less(t, uintptr(unsafe.Pointer(es.At(i-1).orig)), uintptr(unsafe.Pointer(es.At(i).orig)))
+ 	}
+ 	es.Sort(func(a, b {{ .elementName }}) bool {
+ 		return uintptr(unsafe.Pointer(a.orig)) > uintptr(unsafe.Pointer(b.orig))
+ 	})
+ 	for i := 1; i < es.Len(); i++ {
+-		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) > uintptr(unsafe.Pointer(es.At(i).orig)))
++		assert.Greater(t, uintptr(unsafe.Pointer(es.At(i-1).orig)), uintptr(unsafe.Pointer(es.At(i).orig)))
+ 	}
+ }
+ {{- end }}`

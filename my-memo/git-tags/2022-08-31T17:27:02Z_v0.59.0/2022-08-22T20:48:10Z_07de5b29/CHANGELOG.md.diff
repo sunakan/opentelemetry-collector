@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index fd4dac30c..5a6775c50 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -30,6 +30,7 @@
+ - Deprecate FlagsStruct types (#5933):
+   - `MetricDataPointFlagsStruct` -> `MetricDataPointFlags`
+   - `NewMetricDataPointFlagsStruct` -> `NewMetricDataPointFlags`
++- Deprecate builder distribution flags, use configuration. (#5946)
+ 
+ ### 💡 Enhancements 💡
+ 

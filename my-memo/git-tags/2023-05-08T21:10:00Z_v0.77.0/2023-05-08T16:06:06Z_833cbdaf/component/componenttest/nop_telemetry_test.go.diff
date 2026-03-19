@@ -1,0 +1,10 @@
+diff --git a/component/componenttest/nop_telemetry_test.go b/component/componenttest/nop_telemetry_test.go
+index be03822f4..e50b44216 100644
+--- a/component/componenttest/nop_telemetry_test.go
++++ b/component/componenttest/nop_telemetry_test.go
+@@ -34,4 +34,5 @@ func TestNewNopTelemetrySettings(t *testing.T) {
+ 		nts.MeterProvider.Meter("test")
+ 	})
+ 	assert.Equal(t, configtelemetry.LevelNone, nts.MetricsLevel)
++	assert.Equal(t, nts.Resource.Attributes().Len(), 0)
+ }

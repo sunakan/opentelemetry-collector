@@ -1,0 +1,31 @@
+diff --git a/exporter/exporterhelper/obsexporter_test.go b/exporter/exporterhelper/obsexporter_test.go
+index 033789f3f..05f55f6fb 100644
+--- a/exporter/exporterhelper/obsexporter_test.go
++++ b/exporter/exporterhelper/obsexporter_test.go
+@@ -176,7 +176,7 @@ func TestCheckExporterTracesViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-	obsrep, err := newObsReport(obsReportSettings{
++	obsrep, err := newExporter(obsReportSettings{
+ 		exporterID:             exporterID,
+ 		exporterCreateSettings: exporter.Settings{ID: exporterID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},
+ 	})
+@@ -196,7 +196,7 @@ func TestCheckExporterMetricsViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-	obsrep, err := newObsReport(obsReportSettings{
++	obsrep, err := newExporter(obsReportSettings{
+ 		exporterID:             exporterID,
+ 		exporterCreateSettings: exporter.Settings{ID: exporterID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},
+ 	})
+@@ -216,7 +216,7 @@ func TestCheckExporterLogsViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-	obsrep, err := newObsReport(obsReportSettings{
++	obsrep, err := newExporter(obsReportSettings{
+ 		exporterID:             exporterID,
+ 		exporterCreateSettings: exporter.Settings{ID: exporterID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},
+ 	})

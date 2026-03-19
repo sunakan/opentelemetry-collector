@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/known_sync_error_windows.go b/exporter/loggingexporter/known_sync_error_windows.go
+index e2d38a098..97b927b68 100644
+--- a/exporter/loggingexporter/known_sync_error_windows.go
++++ b/exporter/loggingexporter/known_sync_error_windows.go
+@@ -15,7 +15,7 @@
+ //go:build windows
+ // +build windows
+ 
+-package loggingexporter
++package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"
+ 
+ import "golang.org/x/sys/windows"
+ 

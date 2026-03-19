@@ -1,0 +1,12 @@
+diff --git a/internal/goldendataset/resource_generator.go b/internal/goldendataset/resource_generator.go
+index 4abda462e..0044fc670 100644
+--- a/internal/goldendataset/resource_generator.go
++++ b/internal/goldendataset/resource_generator.go
+@@ -120,7 +120,6 @@ func appendExecAttributes(attrMap pdata.AttributeMap) {
+ 	parts := pdata.NewAttributeValueArray()
+ 	parts.ArrayVal().AppendEmpty().SetStringVal("otelcol")
+ 	parts.ArrayVal().AppendEmpty().SetStringVal("--config=/etc/otel-collector-config.yaml")
+-	parts.ArrayVal().AppendEmpty().SetStringVal("--mem-ballast-size-mib=683")
+ 	attrMap.Upsert(conventions.AttributeProcessCommandLine, parts)
+ 	attrMap.UpsertString(conventions.AttributeProcessExecutablePath, "/usr/local/bin/otelcol")
+ 	attrMap.UpsertInt(conventions.AttributeProcessID, 2020)

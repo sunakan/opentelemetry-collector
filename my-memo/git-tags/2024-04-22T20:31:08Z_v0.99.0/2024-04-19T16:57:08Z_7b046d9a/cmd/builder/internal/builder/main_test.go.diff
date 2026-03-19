@@ -1,0 +1,41 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 23395af0a..721b27b14 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -86,21 +86,25 @@ func TestVersioning(t *testing.T) {
+ 		},
+ 		{
+ 			description: "old otel version",
+-			cfgBuilder: func() Config {
+-				cfg := NewDefaultConfig()
+-				cfg.Distribution.OtelColVersion = "0.90.0"
+-				return cfg
+-			},
+-			expectedErr: ErrVersionMismatch,
+-		},
+-		{
+-			description: "old otel version without strict mode",
+ 			cfgBuilder: func() Config {
+ 				cfg := NewDefaultConfig()
+ 				cfg.Verbose = true
+ 				cfg.Distribution.Go = "go"
+-				cfg.SkipStrictVersioning = true
+-				cfg.Distribution.OtelColVersion = "0.90.0"
++				cfg.Distribution.OtelColVersion = "0.97.0"
++				cfg.Distribution.RequireOtelColModule = true
++				var err error
++				cfg.Exporters, err = parseModules([]Module{
++					{
++						GoMod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.97.0",
++					},
++				})
++				require.NoError(t, err)
++				cfg.Receivers, err = parseModules([]Module{
++					{
++						GoMod: "go.opentelemetry.io/collector/receiver/otlpreceiver v0.97.0",
++					},
++				})
++				require.NoError(t, err)
+ 				return cfg
+ 			},
+ 			expectedErr: nil,

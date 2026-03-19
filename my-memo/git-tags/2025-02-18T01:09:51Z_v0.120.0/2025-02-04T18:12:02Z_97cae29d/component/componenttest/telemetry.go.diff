@@ -1,0 +1,20 @@
+diff --git a/component/componenttest/telemetry.go b/component/componenttest/telemetry.go
+index 7f14b1d43..e3d1a7f49 100644
+--- a/component/componenttest/telemetry.go
++++ b/component/componenttest/telemetry.go
+@@ -14,7 +14,6 @@ import (
+ 	"go.opentelemetry.io/otel/sdk/trace/tracetest"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ type TelemetryOption interface {
+@@ -70,7 +69,6 @@ func NewTelemetry(opts ...TelemetryOption) *Telemetry {
+ func (tt *Telemetry) NewTelemetrySettings() component.TelemetrySettings {
+ 	set := NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
+-	set.MetricsLevel = configtelemetry.LevelDetailed //nolint:staticcheck //SA1019
+ 	set.TracerProvider = tt.traceProvider
+ 	return set
+ }

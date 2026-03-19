@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/documentation.md b/cmd/mdatagen/internal/samplereceiver/documentation.md
+index 077f1bf82..b47d8a8ff 100644
+--- a/cmd/mdatagen/internal/samplereceiver/documentation.md
++++ b/cmd/mdatagen/internal/samplereceiver/documentation.md
+@@ -144,7 +144,7 @@ Queue capacity - sync gauge example.
+ 
+ ### otelcol_queue_length
+ 
+-This metric is optional and therefore not initialized in NewTelemetryBuilder.
++This metric is optional and therefore not initialized in NewTelemetryBuilder. [alpha]
+ 
+ For example this metric only exists if feature A is enabled.
+ 

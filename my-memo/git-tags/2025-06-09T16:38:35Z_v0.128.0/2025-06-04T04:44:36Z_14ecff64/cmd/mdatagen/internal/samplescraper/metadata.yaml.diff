@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index 1d090b137..01105f11d 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -10,6 +10,7 @@ status:
+   class: scraper
+   stability:
+     stable: [metrics]
++    development: [logs]
+   distributions: []
+   unsupported_platforms: [freebsd, illumos]
+   codeowners:

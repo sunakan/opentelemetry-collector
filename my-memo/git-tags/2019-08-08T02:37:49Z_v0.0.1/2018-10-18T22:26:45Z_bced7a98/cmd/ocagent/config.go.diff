@@ -1,0 +1,57 @@
+diff --git a/cmd/ocagent/config.go b/cmd/ocagent/config.go
+index c587383b7..c355427eb 100644
+--- a/cmd/ocagent/config.go
++++ b/cmd/ocagent/config.go
+@@ -23,10 +23,14 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/exporter/exporterparser"
+ )
+ 
+-const defaultOCInterceptorAddress = "localhost:55678"
++const (
++	defaultOCInterceptorAddress = "localhost:55678"
++	defaultZPagesPort           = 55679
++)
+ 
+ type config struct {
+ 	OpenCensusInterceptorConfig *interceptorConfig `yaml:"opencensus_interceptor"`
++	ZPagesConfig                *zPagesConfig      `yaml:"zpages"`
+ }
+ 
+ type interceptorConfig struct {
+@@ -34,6 +38,11 @@ type interceptorConfig struct {
+ 	Address string `yaml:"address"`
+ }
+ 
++type zPagesConfig struct {
++	Disabled bool `yaml:"disabled"`
++	Port     int  `yaml:"port"`
++}
++
+ func (c *config) ocInterceptorAddress() string {
+ 	if c == nil || c.OpenCensusInterceptorConfig == nil || c.OpenCensusInterceptorConfig.Address == "" {
+ 		return defaultOCInterceptorAddress
+@@ -41,6 +50,24 @@ func (c *config) ocInterceptorAddress() string {
+ 	return c.OpenCensusInterceptorConfig.Address
+ }
+ 
++func (c *config) zPagesDisabled() bool {
++	if c == nil {
++		return true
++	}
++	return c.ZPagesConfig != nil && c.ZPagesConfig.Disabled
++}
++
++func (c *config) zPagesPort() (int, bool) {
++	if c.zPagesDisabled() {
++		return -1, false
++	}
++	port := defaultZPagesPort
++	if c != nil && c.ZPagesConfig != nil && c.ZPagesConfig.Port > 0 {
++		port = c.ZPagesConfig.Port
++	}
++	return port, true
++}
++
+ func parseOCAgentConfig(yamlBlob []byte) (*config, error) {
+ 	var cfg config
+ 	if err := yaml.Unmarshal(yamlBlob, &cfg); err != nil {

@@ -1,0 +1,16 @@
+diff --git a/pdata/pmetric/metrics_test.go b/pdata/pmetric/metrics_test.go
+index 9b2b5c2b7..3c059643a 100644
+--- a/pdata/pmetric/metrics_test.go
++++ b/pdata/pmetric/metrics_test.go
+@@ -638,9 +638,11 @@ func TestMetricsCopyTo(t *testing.T) {
+ 
+ func TestReadOnlyMetricsInvalidUsage(t *testing.T) {
+ 	metrics := NewMetrics()
++	assert.False(t, metrics.IsReadOnly())
+ 	res := metrics.ResourceMetrics().AppendEmpty().Resource()
+ 	res.Attributes().PutStr("k1", "v1")
+ 	metrics.MarkReadOnly()
++	assert.True(t, metrics.IsReadOnly())
+ 	assert.Panics(t, func() { res.Attributes().PutStr("k2", "v2") })
+ }
+ 

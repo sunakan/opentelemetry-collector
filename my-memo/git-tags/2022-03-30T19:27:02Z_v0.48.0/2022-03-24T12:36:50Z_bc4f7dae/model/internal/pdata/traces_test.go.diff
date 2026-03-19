@@ -1,0 +1,21 @@
+diff --git a/model/internal/pdata/traces_test.go b/model/internal/pdata/traces_test.go
+index 558aa17ea..d2d1c67e2 100644
+--- a/model/internal/pdata/traces_test.go
++++ b/model/internal/pdata/traces_test.go
+@@ -56,14 +56,14 @@ func TestSpanCountWithEmpty(t *testing.T) {
+ 	assert.EqualValues(t, 0, Traces{orig: &otlptrace.TracesData{
+ 		ResourceSpans: []*otlptrace.ResourceSpans{
+ 			{
+-				InstrumentationLibrarySpans: []*otlptrace.InstrumentationLibrarySpans{{}},
++				ScopeSpans: []*otlptrace.ScopeSpans{{}},
+ 			},
+ 		},
+ 	}}.SpanCount())
+ 	assert.EqualValues(t, 1, Traces{orig: &otlptrace.TracesData{
+ 		ResourceSpans: []*otlptrace.ResourceSpans{
+ 			{
+-				InstrumentationLibrarySpans: []*otlptrace.InstrumentationLibrarySpans{
++				ScopeSpans: []*otlptrace.ScopeSpans{
+ 					{
+ 						Spans: []*otlptrace.Span{{}},
+ 					},

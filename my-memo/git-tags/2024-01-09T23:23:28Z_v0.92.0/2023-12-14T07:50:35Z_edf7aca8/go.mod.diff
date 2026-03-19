@@ -1,0 +1,21 @@
+diff --git a/go.mod b/go.mod
+index 74de59716..d832601f9 100644
+--- a/go.mod
++++ b/go.mod
+@@ -12,7 +12,6 @@ require (
+ 	go.opencensus.io v0.24.0
+ 	go.opentelemetry.io/collector/component v0.91.0
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.91.0
+-	go.opentelemetry.io/collector/connector v0.91.0
+ 	go.opentelemetry.io/collector/consumer v0.91.0
+ 	go.opentelemetry.io/collector/exporter v0.91.0
+ 	go.opentelemetry.io/collector/featuregate v1.0.0
+@@ -81,8 +80,6 @@ replace go.opentelemetry.io/collector/confmap => ./confmap
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ./config/configtelemetry
+ 
+-replace go.opentelemetry.io/collector/connector => ./connector
+-
+ replace go.opentelemetry.io/collector/consumer => ./consumer
+ 
+ replace go.opentelemetry.io/collector/exporter => ./exporter

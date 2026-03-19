@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 8cd3b5171..f0a000537 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -50,7 +50,7 @@ func runInteractive(params service.Parameters) error {
+ 		return fmt.Errorf("failed to construct the application: %w", err)
+ 	}
+ 
+-	err = app.Start()
++	err = app.Run()
+ 	if err != nil {
+ 		return fmt.Errorf("application run finished with error: %w", err)
+ 	}

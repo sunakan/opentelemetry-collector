@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/go.mod b/config/confighttp/go.mod
+index 30b07deb7..7ab2ba6f8 100644
+--- a/config/confighttp/go.mod
++++ b/config/confighttp/go.mod
+@@ -79,8 +79,6 @@ replace go.opentelemetry.io/collector/exporter => ../../exporter
+ 
+ replace go.opentelemetry.io/collector/receiver => ../../receiver
+ 
+-replace go.opentelemetry.io/collector/connector => ../../connector
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata

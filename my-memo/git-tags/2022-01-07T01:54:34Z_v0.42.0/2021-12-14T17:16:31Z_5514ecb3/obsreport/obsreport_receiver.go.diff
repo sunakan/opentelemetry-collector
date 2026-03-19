@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 6c1bcf935..12601f0fe 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -161,7 +161,7 @@ func (rec *Receiver) endOp(
+ 
+ 	span := trace.SpanFromContext(receiverCtx)
+ 
+-	if obsreportconfig.Level != configtelemetry.LevelNone {
++	if obsreportconfig.Level() != configtelemetry.LevelNone {
+ 		var acceptedMeasure, refusedMeasure *stats.Int64Measure
+ 		switch dataType {
+ 		case config.TracesDataType:

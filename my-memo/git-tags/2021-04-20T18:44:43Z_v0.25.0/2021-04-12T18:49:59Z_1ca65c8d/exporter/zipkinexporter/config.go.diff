@@ -1,0 +1,15 @@
+diff --git a/exporter/zipkinexporter/config.go b/exporter/zipkinexporter/config.go
+index 38f7d6712..c6db6f09e 100644
+--- a/exporter/zipkinexporter/config.go
++++ b/exporter/zipkinexporter/config.go
+@@ -34,3 +34,10 @@ type Config struct {
+ 
+ 	DefaultServiceName string `mapstructure:"default_service_name"`
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

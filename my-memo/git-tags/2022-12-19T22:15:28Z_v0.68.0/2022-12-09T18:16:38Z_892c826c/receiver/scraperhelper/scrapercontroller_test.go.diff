@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index f3e11b908..1410f8826 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -136,7 +136,7 @@ func TestScrapeController(t *testing.T) {
+ 
+ 	for _, test := range testCases {
+ 		t.Run(test.name, func(t *testing.T) {
+-			tt, err := obsreporttest.SetupTelemetryWithID(component.NewID("receiver"))
++			tt, err := obsreporttest.SetupTelemetry(component.NewID("receiver"))
+ 			require.NoError(t, err)
+ 			t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 

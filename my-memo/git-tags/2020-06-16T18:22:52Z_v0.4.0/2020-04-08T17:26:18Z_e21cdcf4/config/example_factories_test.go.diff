@@ -1,0 +1,29 @@
+diff --git a/config/example_factories_test.go b/config/example_factories_test.go
+index 2aa620a6a..bd7cf6a80 100644
+--- a/config/example_factories_test.go
++++ b/config/example_factories_test.go
+@@ -20,13 +20,13 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
++	"github.com/open-telemetry/opentelemetry-collector/component/componenttest"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ func TestExampleExporterConsumer(t *testing.T) {
+ 	exp := &ExampleExporterConsumer{}
+-	host := component.NewMockHost()
++	host := componenttest.NewNopHost()
+ 	assert.Equal(t, false, exp.ExporterStarted)
+ 	err := exp.Start(context.Background(), host)
+ 	assert.NoError(t, err)
+@@ -50,7 +50,7 @@ func TestExampleExporterConsumer(t *testing.T) {
+ 
+ func TestExampleReceiverProducer(t *testing.T) {
+ 	rcv := &ExampleReceiverProducer{}
+-	host := component.NewMockHost()
++	host := componenttest.NewNopHost()
+ 	assert.Equal(t, false, rcv.Started)
+ 	err := rcv.Start(context.Background(), host)
+ 	assert.NoError(t, err)

@@ -1,0 +1,12 @@
+diff --git a/model/pdata/generated_resource.go b/model/pdata/generated_resource.go
+index b1b3a40d3..9b98bb841 100644
+--- a/model/pdata/generated_resource.go
++++ b/model/pdata/generated_resource.go
+@@ -28,6 +28,7 @@ import (
+ //
+ // Must use NewResource function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
++//
+ type Resource struct {
+ 	orig *otlpresource.Resource
+ }

@@ -1,0 +1,51 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index bb99cf849..9daf158cb 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -4,6 +4,7 @@
+ package builder
+ 
+ import (
++	"errors"
+ 	"os"
+ 	"strings"
+ 	"testing"
+@@ -139,37 +140,10 @@ func TestMissingModule(t *testing.T) {
+ 			},
+ 			err: ErrMissingGoMod,
+ 		},
+-		{
+-			cfg: Config{
+-				Logger:          zap.NewNop(),
+-				SkipNewGoModule: true,
+-				Extensions: []Module{{
+-					GoMod: "some-module",
+-					Path:  "invalid",
+-				}},
+-			},
+-			err: ErrIncompatibleConfigurationValues,
+-		},
+-		{
+-			cfg: Config{
+-				Logger:          zap.NewNop(),
+-				SkipNewGoModule: true,
+-				Replaces:        []string{"", ""},
+-			},
+-			err: ErrIncompatibleConfigurationValues,
+-		},
+-		{
+-			cfg: Config{
+-				Logger:          zap.NewNop(),
+-				SkipNewGoModule: true,
+-				Excludes:        []string{"", ""},
+-			},
+-			err: ErrIncompatibleConfigurationValues,
+-		},
+ 	}
+ 
+ 	for _, test := range configurations {
+-		assert.ErrorIs(t, test.cfg.Validate(), test.err)
++		assert.True(t, errors.Is(test.cfg.Validate(), test.err))
+ 	}
+ }
+ 

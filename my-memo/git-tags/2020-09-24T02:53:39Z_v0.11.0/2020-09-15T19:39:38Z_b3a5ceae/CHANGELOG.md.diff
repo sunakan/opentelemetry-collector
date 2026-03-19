@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e61e60aea..63b4a6c80 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -3,8 +3,10 @@
+ ## Unreleased
+ 
+ ## 🛑 Breaking changes 🛑
++<<<<<<< HEAD
+ 
+ - Fix slice Append to accept by value the element in pdata
++- Change CreateTraceProcessor and CreateMetricsProcessor to use the same parameter order as receivers/logs processor and exporters.
+ 
+ ## v0.10.0 Beta
+ 

@@ -1,0 +1,13 @@
+diff --git a/service/parserprovider/merge.go b/service/parserprovider/merge.go
+index af4ab5076..499d091e6 100644
+--- a/service/parserprovider/merge.go
++++ b/service/parserprovider/merge.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package parserprovider
++package parserprovider // import "go.opentelemetry.io/collector/service/parserprovider"
+ 
+ import (
+ 	"context"

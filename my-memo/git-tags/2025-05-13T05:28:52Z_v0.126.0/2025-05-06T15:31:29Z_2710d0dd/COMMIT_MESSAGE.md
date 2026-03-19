@@ -1,0 +1,121 @@
+commit 2710d0dd4ebc87b6cc46013f41f648586fe7dc04
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue May 6 15:31:29 2025 +0000
+
+    Update module github.com/google/go-tpm to v0.9.4 (#12966)
+    
+    This PR contains the following updates:
+    
+    | Package | Change | Age | Adoption | Passing | Confidence |
+    |---|---|---|---|---|---|
+    | [github.com/google/go-tpm](https://redirect.github.com/google/go-tpm)
+    | `v0.9.3` -> `v0.9.4` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/github.com%2fgoogle%2fgo-tpm/v0.9.4?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/github.com%2fgoogle%2fgo-tpm/v0.9.4?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/github.com%2fgoogle%2fgo-tpm/v0.9.3/v0.9.4?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/github.com%2fgoogle%2fgo-tpm/v0.9.3/v0.9.4?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    
+    ---
+    
+    > [!WARNING]
+    > Some dependencies could not be looked up. Check the Dependency
+    Dashboard for more information.
+    
+    ---
+    
+    ### Release Notes
+    
+    <details>
+    <summary>google/go-tpm (github.com/google/go-tpm)</summary>
+    
+    ###
+    [`v0.9.4`](https://redirect.github.com/google/go-tpm/releases/tag/v0.9.4)
+    
+    [Compare
+    Source](https://redirect.github.com/google/go-tpm/compare/v0.9.3...v0.9.4)
+    
+    #### What's Changed
+    
+    - Tolerate differences in RSA private key libraries by
+    [@&#8203;chrisfenner](https://redirect.github.com/chrisfenner) in
+    [https://github.com/google/go-tpm/pull/383](https://redirect.github.com/google/go-tpm/pull/383)
+    - Add TPM2\_HMAC implementation by
+    [@&#8203;ludi317](https://redirect.github.com/ludi317) in
+    [https://github.com/google/go-tpm/pull/385](https://redirect.github.com/google/go-tpm/pull/385)
+    - Improve TPMUSymKeyBits and TPMUSymMode by
+    [@&#8203;AlexandreEXFO](https://redirect.github.com/AlexandreEXFO) in
+    [https://github.com/google/go-tpm/pull/384](https://redirect.github.com/google/go-tpm/pull/384)
+    - Implement TCP TPM protocol by
+    [@&#8203;chrisfenner](https://redirect.github.com/chrisfenner) in
+    [https://github.com/google/go-tpm/pull/387](https://redirect.github.com/google/go-tpm/pull/387)
+    - tpm2: Fix typo in MakeCredential cmd by
+    [@&#8203;loicsikidi](https://redirect.github.com/loicsikidi) in
+    [https://github.com/google/go-tpm/pull/391](https://redirect.github.com/google/go-tpm/pull/391)
+    - TPM2\_PCR_Allocate support by
+    [@&#8203;zhsh](https://redirect.github.com/zhsh) in
+    [https://github.com/google/go-tpm/pull/394](https://redirect.github.com/google/go-tpm/pull/394)
+    - Check for padding bytes in EK cert by
+    [@&#8203;dwaynebradley](https://redirect.github.com/dwaynebradley) in
+    [https://github.com/google/go-tpm/pull/397](https://redirect.github.com/google/go-tpm/pull/397)
+    - add support for ECMQV by
+    [@&#8203;chrisfenner](https://redirect.github.com/chrisfenner) in
+    [https://github.com/google/go-tpm/pull/399](https://redirect.github.com/google/go-tpm/pull/399)
+    
+    #### New Contributors
+    
+    - [@&#8203;ludi317](https://redirect.github.com/ludi317) made their
+    first contribution in
+    [https://github.com/google/go-tpm/pull/385](https://redirect.github.com/google/go-tpm/pull/385)
+    - [@&#8203;loicsikidi](https://redirect.github.com/loicsikidi) made
+    their first contribution in
+    [https://github.com/google/go-tpm/pull/391](https://redirect.github.com/google/go-tpm/pull/391)
+    - [@&#8203;zhsh](https://redirect.github.com/zhsh) made their first
+    contribution in
+    [https://github.com/google/go-tpm/pull/394](https://redirect.github.com/google/go-tpm/pull/394)
+    - [@&#8203;dwaynebradley](https://redirect.github.com/dwaynebradley)
+    made their first contribution in
+    [https://github.com/google/go-tpm/pull/397](https://redirect.github.com/google/go-tpm/pull/397)
+    
+    **Full Changelog**:
+    https://github.com/google/go-tpm/compare/v0.9.3...v0.9.4
+    
+    </details>
+    
+    ---
+    
+    ### Configuration
+    
+    📅 **Schedule**: Branch creation - "on tuesday" (UTC), Automerge - At any
+    time (no schedule defined).
+    
+    🚦 **Automerge**: Disabled by config. Please merge this manually once you
+    are satisfied.
+    
+    ♻ **Rebasing**: Whenever PR becomes conflicted, or you tick the
+    rebase/retry checkbox.
+    
+    🔕 **Ignore**: Close this PR and you won't be reminded about this update
+    again.
+    
+    ---
+    
+    - [ ] <!-- rebase-check -->If you want to rebase/retry this PR, check
+    this box
+    
+    ---
+    
+    This PR was generated by [Mend Renovate](https://mend.io/renovate/).
+    View the [repository job
+    log](https://developer.mend.io/github/open-telemetry/opentelemetry-collector).
+    
+    <!--renovate-debug:eyJjcmVhdGVkSW5WZXIiOiIzOS4yNjQuMCIsInVwZGF0ZWRJblZlciI6IjM5LjI2NC4wIiwidGFyZ2V0QnJhbmNoIjoibWFpbiIsImxhYmVscyI6WyJkZXBlbmRlbmNpZXMiLCJyZW5vdmF0ZWJvdCJdfQ==-->
+    
+    ---------
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+    Co-authored-by: opentelemetrybot <107717825+opentelemetrybot@users.noreply.github.com>
+    Co-authored-by: Alex Boten <223565+codeboten@users.noreply.github.com>

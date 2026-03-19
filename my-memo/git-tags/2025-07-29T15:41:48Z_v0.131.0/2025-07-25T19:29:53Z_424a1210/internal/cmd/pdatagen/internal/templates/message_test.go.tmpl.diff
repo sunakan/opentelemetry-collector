@@ -1,0 +1,46 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+index 3fec634bd..331901dbb 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+@@ -7,9 +7,9 @@
+ package {{ .packageName }}
+ 
+ import (
+-{{ range $index, $element := .testImports -}}
+-{{ $element }}
+-{{ end }}
++	{{ range $index, $element := .testImports -}}
++	{{ $element }}
++	{{ end }}
+ )
+ 
+ func Test{{ .structName }}_MoveTo(t *testing.T) {
+@@ -37,6 +37,28 @@ func Test{{ .structName }}_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(new{{ .structName }}(&{{ .originName }}{}, &sharedState)) })
+ }
+ 
++func Test{{ .structName }}_MarshalAndUnmarshal(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTest{{ .structName }}()
++	{{- if .isCommon }}
++	internal.MarshalJSONStream{{ .structName }}(internal.{{ .structName }}(src), stream)
++	{{- else }}
++	src.marshalJSONStream(stream)
++	{{- end }}
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := New{{ .structName }}()
++	{{- if .isCommon }}
++	internal.UnmarshalJSONIter{{ .structName }}(internal.{{ .structName }}(dest), iter)
++	{{- else }}
++	dest.unmarshalJsoniter(iter)
++	{{- end }}
++
++	assert.Equal(t, src, dest)
++}
++
+ {{ range .fields }}
+ {{ .GenerateAccessorsTest $.messageStruct }}
+ {{ end }}

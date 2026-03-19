@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/factory.go b/exporter/prometheusexporter/factory.go
+index e571eb484..3a955ad1b 100644
+--- a/exporter/prometheusexporter/factory.go
++++ b/exporter/prometheusexporter/factory.go
+@@ -53,7 +53,7 @@ func createMetricsExporter(
+ ) (component.MetricsExporter, error) {
+ 	pcfg := cfg.(*Config)
+ 
+-	prometheus, err := newPrometheusExporter(pcfg, set.Logger)
++	prometheus, err := newPrometheusExporter(pcfg, set)
+ 	if err != nil {
+ 		return nil, err
+ 	}

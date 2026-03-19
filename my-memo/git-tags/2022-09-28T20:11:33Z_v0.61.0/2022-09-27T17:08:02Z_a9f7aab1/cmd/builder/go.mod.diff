@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/go.mod b/cmd/builder/go.mod
+index 6cd220292..2debe350d 100644
+--- a/cmd/builder/go.mod
++++ b/cmd/builder/go.mod
+@@ -26,6 +26,7 @@ require (
+ )
+ 
+ require (
++	github.com/benbjohnson/clock v1.1.0 // indirect
+ 	github.com/davecgh/go-spew v1.1.1 // indirect
+ 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+ 	github.com/inconshreveable/mousetrap v1.0.0 // indirect

@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/obsreport.go b/processor/processorhelper/obsreport.go
+index 51aa26a9a..d4d2730f5 100644
+--- a/processor/processorhelper/obsreport.go
++++ b/processor/processorhelper/obsreport.go
+@@ -42,7 +42,7 @@ type ObsReport struct {
+ // ObsReportSettings are settings for creating an ObsReport.
+ type ObsReportSettings struct {
+ 	ProcessorID             component.ID
+-	ProcessorCreateSettings processor.CreateSettings
++	ProcessorCreateSettings processor.Settings
+ }
+ 
+ // NewObsReport creates a new Processor.

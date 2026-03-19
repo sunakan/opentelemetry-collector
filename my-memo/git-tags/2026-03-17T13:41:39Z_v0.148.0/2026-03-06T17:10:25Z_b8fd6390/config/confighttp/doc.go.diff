@@ -1,0 +1,10 @@
+diff --git a/config/confighttp/doc.go b/config/confighttp/doc.go
+index 70809993d..ea30cfb96 100644
+--- a/config/confighttp/doc.go
++++ b/config/confighttp/doc.go
+@@ -7,3 +7,5 @@
+ // The configuration structs in this package may be shared across signals, but
+ // assume each struct is used for a single protocol and component.
+ package confighttp // import "go.opentelemetry.io/collector/config/confighttp"
++
++//go:generate mdatagen metadata.yaml

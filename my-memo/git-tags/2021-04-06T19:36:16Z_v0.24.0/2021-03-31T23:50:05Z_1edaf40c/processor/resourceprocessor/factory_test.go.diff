@@ -1,0 +1,28 @@
+diff --git a/processor/resourceprocessor/factory_test.go b/processor/resourceprocessor/factory_test.go
+index 8626e4d62..62ade8723 100644
+--- a/processor/resourceprocessor/factory_test.go
++++ b/processor/resourceprocessor/factory_test.go
+@@ -37,10 +37,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ func TestCreateProcessor(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := &Config{
+-		ProcessorSettings: config.ProcessorSettings{
+-			TypeVal: "resource",
+-			NameVal: "resource",
+-		},
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 		AttributesActions: []processorhelper.ActionKeyValue{
+ 			{Key: "cloud.availability_zone", Value: "zone-1", Action: processorhelper.UPSERT},
+ 		},
+@@ -69,10 +66,7 @@ func TestInvalidEmptyActions(t *testing.T) {
+ func TestInvalidAttributeActions(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := &Config{
+-		ProcessorSettings: config.ProcessorSettings{
+-			TypeVal: "resource",
+-			NameVal: "resource",
+-		},
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 		AttributesActions: []processorhelper.ActionKeyValue{
+ 			{Key: "k", Value: "v", Action: "invalid-action"},
+ 		},

@@ -1,0 +1,13 @@
+diff --git a/component/processor.go b/component/processor.go
+index cfa132e3d..85ccbd4d1 100644
+--- a/component/processor.go
++++ b/component/processor.go
+@@ -48,7 +48,7 @@ type LogsProcessor interface {
+ 
+ // ProcessorCreateSettings is passed to Create* functions in ProcessorFactory.
+ type ProcessorCreateSettings struct {
+-	TelemetryCreateSettings
++	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo BuildInfo

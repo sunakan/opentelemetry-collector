@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/logs.go b/pdata/plog/logs.go
+index 2b7d93aa5..8a04dffca 100644
+--- a/pdata/plog/logs.go
++++ b/pdata/plog/logs.go
+@@ -100,7 +100,7 @@ const (
+ 	SeverityNumberFatal4      = SeverityNumber(otlplogs.SeverityNumber_SEVERITY_NUMBER_FATAL4)
+ )
+ 
+-// Deprecated: [0.62.0] Use SeverityNumberUnspecified instead.
++// Deprecated: [v0.62.0] Use SeverityNumberUnspecified instead.
+ const SeverityNumberUndefined = SeverityNumberUnspecified
+ 
+ // String returns the string representation of the SeverityNumber.

@@ -1,0 +1,13 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index f97692233..a0bc07165 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -124,7 +124,7 @@ issues:
+         - gocritic
+         - gosimple
+ 
+-    - path: cmd/issuegenerator
++    - path: main.go
+       text: "G101:"
+       linters:
+         - gosec

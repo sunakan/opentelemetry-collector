@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 035176fd6..9aa9e0322 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configauth"
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	otelcol "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
++	otelcol "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
+ 	"go.opentelemetry.io/collector/testutil"
+ )
+ 

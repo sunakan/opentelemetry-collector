@@ -1,0 +1,32 @@
+diff --git a/config/testdata/invalid-service-extensions-value.yaml b/config/testdata/invalid-service-extensions-value.yaml
+index 7a2155ba9..948be467f 100644
+--- a/config/testdata/invalid-service-extensions-value.yaml
++++ b/config/testdata/invalid-service-extensions-value.yaml
+@@ -1,18 +1,17 @@
+ extensions:
+   exampleextension:
+-service:
+-  extensions:
+-    exampleextension:
+-      disabled: true
+-
+ receivers:
+   examplereceiver:
+ processors:
+   exampleprocessor:
+ exporters:
+   exampleexporter:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter]
++service:
++  extensions:
++    exampleextension:
++      disabled: true
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/common_structs.go b/pdata/internal/cmd/pdatagen/internal/common_structs.go
+index 57ad48016..e96484b45 100644
+--- a/pdata/internal/cmd/pdatagen/internal/common_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/common_structs.go
+@@ -46,6 +46,8 @@ var scope = &messageValueStruct{
+ 			defaultVal:      `""`,
+ 			testVal:         `"test_version"`,
+ 		},
++		attributes,
++		droppedAttributesCount,
+ 	},
+ }
+ 

@@ -1,0 +1,42 @@
+diff --git a/examples/demo/otel-agent-config.yaml b/examples/demo/otel-agent-config.yaml
+index 7d455c67c..58442e65d 100644
+--- a/examples/demo/otel-agent-config.yaml
++++ b/examples/demo/otel-agent-config.yaml
+@@ -1,15 +1,17 @@
+ receivers:
++  otlp:
++    protocols:
++      grpc:
+   opencensus:
+-  zipkin:
+-    endpoint: :9411
+   jaeger:
+     protocols:
++      grpc:
+       thrift_http:
+-
++  zipkin:
+ 
+ exporters:
+-  opencensus:
+-    endpoint: "otel-collector:55678"
++  otlp:
++    endpoint: "otel-collector:4317"
+     insecure: true
+   logging:
+     loglevel: debug
+@@ -28,10 +30,10 @@ service:
+   extensions: [health_check, pprof, zpages]
+   pipelines:
+     traces:
+-      receivers: [opencensus, jaeger, zipkin]
++      receivers: [otlp, opencensus, jaeger, zipkin]
+       processors: [batch]
+-      exporters: [opencensus, logging]
++      exporters: [otlp, logging]
+     metrics:
+-      receivers: [opencensus]
++      receivers: [otlp, opencensus]
+       processors: [batch]
+-      exporters: [logging,opencensus]
++      exporters: [otlp, logging]

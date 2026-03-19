@@ -1,0 +1,19 @@
+diff --git a/config/configloader/testdata/duplicate-receiver.yaml b/config/configloader/testdata/duplicate-receiver.yaml
+new file mode 100644
+index 000000000..275054e67
+--- /dev/null
++++ b/config/configloader/testdata/duplicate-receiver.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver/ 1:
++  examplereceiver/1:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

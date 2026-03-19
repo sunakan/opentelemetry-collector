@@ -1,0 +1,12 @@
+diff --git a/consumer/consumertest/sink.go b/consumer/consumertest/sink.go
+index db67051ac..c8a6d2a48 100644
+--- a/consumer/consumertest/sink.go
++++ b/consumer/consumertest/sink.go
+@@ -28,6 +28,7 @@ type baseErrorConsumer struct {
+ }
+ 
+ // SetConsumeError sets an error that will be returned by the Consume function.
++// TODO: Remove this when all calls are switched to the new ErrConsumer.
+ func (bec *baseErrorConsumer) SetConsumeError(err error) {
+ 	bec.mu.Lock()
+ 	defer bec.mu.Unlock()

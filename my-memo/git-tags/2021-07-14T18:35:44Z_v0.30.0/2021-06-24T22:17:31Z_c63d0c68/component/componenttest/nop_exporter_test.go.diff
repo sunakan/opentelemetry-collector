@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_exporter_test.go b/component/componenttest/nop_exporter_test.go
+index 830b01841..d586f21f3 100644
+--- a/component/componenttest/nop_exporter_test.go
++++ b/component/componenttest/nop_exporter_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestNewNopExporterFactory(t *testing.T) {

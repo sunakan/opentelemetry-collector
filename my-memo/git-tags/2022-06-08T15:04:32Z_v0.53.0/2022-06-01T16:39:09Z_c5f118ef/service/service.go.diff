@@ -1,0 +1,12 @@
+diff --git a/service/service.go b/service/service.go
+index bbaf71e97..59df67611 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -49,6 +49,7 @@ func newService(set *settings) (*service, error) {
+ 		},
+ 		host: &serviceHost{
+ 			factories:         set.Factories,
++			buildInfo:         set.BuildInfo,
+ 			asyncErrorChannel: set.AsyncErrorChannel,
+ 		},
+ 	}

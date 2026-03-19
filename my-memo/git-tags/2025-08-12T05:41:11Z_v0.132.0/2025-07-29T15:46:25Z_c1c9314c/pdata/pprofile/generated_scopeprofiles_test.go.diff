@@ -1,0 +1,17 @@
+diff --git a/pdata/pprofile/generated_scopeprofiles_test.go b/pdata/pprofile/generated_scopeprofiles_test.go
+index b8c0a4885..73ba11047 100644
+--- a/pdata/pprofile/generated_scopeprofiles_test.go
++++ b/pdata/pprofile/generated_scopeprofiles_test.go
+@@ -50,7 +50,11 @@ func TestScopeProfiles_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	src.marshalJSONStream(stream)
+ 	require.NoError(t, stream.Error())
+ 
+-	iter := json.BorrowIterator(stream.Buffer())
++	// Append an unknown field at the start to ensure unknown fields are skipped
++	// and the unmarshal logic continues.
++	buf := stream.Buffer()
++	assert.EqualValues(t, '{', buf[0])
++	iter := json.BorrowIterator(append([]byte(`{"unknown": "string",`), buf[1:]...))
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewScopeProfiles()
+ 	dest.unmarshalJSONIter(iter)

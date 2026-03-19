@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index 4accfab0d..f0ae4788d 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -15,8 +15,6 @@ func NewNopHost() component.Host {
+ 	return &nopHost{}
+ }
+ 
+-func (nh *nopHost) ReportFatalError(_ error) {}
+-
+ func (nh *nopHost) GetFactory(_ component.Kind, _ component.Type) component.Factory {
+ 	return nil
+ }

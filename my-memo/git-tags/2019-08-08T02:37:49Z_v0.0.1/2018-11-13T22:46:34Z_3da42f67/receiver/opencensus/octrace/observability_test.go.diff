@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensus/octrace/observability_test.go b/receiver/opencensus/octrace/observability_test.go
+index 42425ddff..a82faa80d 100644
+--- a/receiver/opencensus/octrace/observability_test.go
++++ b/receiver/opencensus/octrace/observability_test.go
+@@ -246,7 +246,7 @@ func TestExportSpanLinkingMaintainsParentLink(t *testing.T) {
+ 	if g, w := receiverSpanData.Links[0], wantLink; !reflect.DeepEqual(g, w) {
+ 		t.Errorf("Link:\nGot: %#v\nWant: %#v\n", g, w)
+ 	}
+-	if g, w := receiverSpanData.Name, "OpenCensusReceiver.Export"; g != w {
++	if g, w := receiverSpanData.Name, "OpenCensusTraceReceiver.Export"; g != w {
+ 		t.Errorf("ReceiverExport span's SpanData.Name:\nGot:  %q\nWant: %q\n", g, w)
+ 	}
+ 

@@ -1,0 +1,16 @@
+diff --git a/exporter/exportertest/sink_exporter.go b/exporter/exportertest/sink_exporter.go
+index 777951db7..6241f0995 100644
+--- a/exporter/exportertest/sink_exporter.go
++++ b/exporter/exportertest/sink_exporter.go
+@@ -48,11 +48,6 @@ func (ste *SinkTraceExporter) ConsumeTraceData(ctx context.Context, td consumerd
+ 	return nil
+ }
+ 
+-const (
+-	sinkTraceExportFormat   = "sink_trace"
+-	sinkMetricsExportFormat = "sink_metrics"
+-)
+-
+ // AllTraces returns the traces sent to the test sink.
+ func (ste *SinkTraceExporter) AllTraces() []consumerdata.TraceData {
+ 	ste.mu.Lock()

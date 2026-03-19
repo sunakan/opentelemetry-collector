@@ -1,0 +1,13 @@
+diff --git a/service/internal/obsconsumer/logs.go b/service/internal/obsconsumer/logs.go
+index 8a0c9b91e..d888d2952 100644
+--- a/service/internal/obsconsumer/logs.go
++++ b/service/internal/obsconsumer/logs.go
+@@ -19,7 +19,7 @@ var (
+ 	logsMarshaler               = &plog.ProtoMarshaler{}
+ )
+ 
+-func NewLogs(cons consumer.Logs, itemCounter metric.Int64Counter, sizeCounter metric.Int64Counter, opts ...Option) consumer.Logs {
++func NewLogs(cons consumer.Logs, itemCounter, sizeCounter metric.Int64Counter, opts ...Option) consumer.Logs {
+ 	if !telemetry.NewPipelineTelemetryGate.IsEnabled() {
+ 		return cons
+ 	}

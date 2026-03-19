@@ -1,0 +1,13 @@
+diff --git a/receiver/go.mod b/receiver/go.mod
+index 77694a2f0..115b2e190 100644
+--- a/receiver/go.mod
++++ b/receiver/go.mod
+@@ -72,6 +72,8 @@ replace go.opentelemetry.io/collector/exporter => ../exporter
+ 
+ replace go.opentelemetry.io/collector/extension => ../extension
+ 
++replace go.opentelemetry.io/collector/extension/auth => ../extension/auth
++
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../extension/zpagesextension
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate

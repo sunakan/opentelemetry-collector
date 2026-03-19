@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/telemetry.go b/cmd/mdatagen/internal/telemetry.go
+index 5f8862580..35aa8e83f 100644
+--- a/cmd/mdatagen/internal/telemetry.go
++++ b/cmd/mdatagen/internal/telemetry.go
+@@ -6,11 +6,3 @@ package internal // import "go.opentelemetry.io/collector/cmd/mdatagen/internal"
+ type Telemetry struct {
+ 	Metrics map[MetricName]Metric `mapstructure:"metrics"`
+ }
+-
+-func (t Telemetry) Levels() map[string]any {
+-	levels := map[string]any{}
+-	for _, m := range t.Metrics {
+-		levels[m.Level.String()] = nil
+-	}
+-	return levels
+-}

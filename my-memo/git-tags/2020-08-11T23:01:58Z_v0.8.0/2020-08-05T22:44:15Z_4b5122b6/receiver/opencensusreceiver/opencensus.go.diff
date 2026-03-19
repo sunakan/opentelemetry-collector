@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index 12540b5f0..6a1a7447a 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -99,7 +99,7 @@ func newOpenCensusReceiver(
+ 
+ // Start runs the trace receiver on the gRPC server. Currently
+ // it also enables the metrics receiver too.
+-func (ocr *ocReceiver) Start(ctx context.Context, host component.Host) error {
++func (ocr *ocReceiver) Start(_ context.Context, host component.Host) error {
+ 	return ocr.start(host)
+ }
+ 

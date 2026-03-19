@@ -1,0 +1,21 @@
+diff --git a/translator/trace/jaeger/testdata/ocproto_batch_01.json b/translator/trace/jaeger/testdata/ocproto_batch_01.json
+index a9c9fdbcf..86d75d4f5 100644
+--- a/translator/trace/jaeger/testdata/ocproto_batch_01.json
++++ b/translator/trace/jaeger/testdata/ocproto_batch_01.json
+@@ -1,5 +1,5 @@
+ {
+-    "node": {
++    "Node": {
+       "identifier": {
+         "host_name": "api246-sjc1"
+       },
+@@ -17,7 +17,8 @@
+         "ip": "10.53.69.61"
+       }
+     },
+-    "spans": [
++    "Resource": null,
++    "Spans": [
+       {
+         "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+         "span_id": "AAAAAABkfZg=",

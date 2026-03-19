@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/data_providers_test.go b/testbed/testbed/data_providers_test.go
+index 7b001c1d7..3a900d0f3 100644
+--- a/testbed/testbed/data_providers_test.go
++++ b/testbed/testbed/data_providers_test.go
+@@ -27,7 +27,7 @@ const metricsPictPairsFile = "../../internal/goldendataset/testdata/generated_pi
+ 
+ func TestGoldenDataProvider(t *testing.T) {
+ 	dp := NewGoldenDataProvider("", "", metricsPictPairsFile)
+-	dp.SetLoadGeneratorCounters(atomic.NewUint64(0), atomic.NewUint64(0))
++	dp.SetLoadGeneratorCounters(atomic.NewUint64(0))
+ 	var ms []pdata.Metrics
+ 	for {
+ 		m, done := dp.GenerateMetrics()

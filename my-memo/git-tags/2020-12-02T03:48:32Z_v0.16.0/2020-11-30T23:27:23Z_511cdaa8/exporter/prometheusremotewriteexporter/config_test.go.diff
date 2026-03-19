@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/config_test.go b/exporter/prometheusremotewriteexporter/config_test.go
+index dd40f565d..6c4c29701 100644
+--- a/exporter/prometheusremotewriteexporter/config_test.go
++++ b/exporter/prometheusremotewriteexporter/config_test.go
+@@ -54,7 +54,7 @@ func Test_loadConfig(t *testing.T) {
+ 				NameVal: "prometheusremotewrite/2",
+ 				TypeVal: "prometheusremotewrite",
+ 			},
+-			TimeoutSettings: exporterhelper.CreateDefaultTimeoutSettings(),
++			TimeoutSettings: exporterhelper.DefaultTimeoutSettings(),
+ 			QueueSettings: exporterhelper.QueueSettings{
+ 				Enabled:      true,
+ 				NumConsumers: 2,

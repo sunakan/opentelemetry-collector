@@ -1,0 +1,12 @@
+diff --git a/testbed/correctness/metrics/metrics_test_harness.go b/testbed/correctness/metrics/metrics_test_harness.go
+index 81ed4c0e0..40296a8d5 100644
+--- a/testbed/correctness/metrics/metrics_test_harness.go
++++ b/testbed/correctness/metrics/metrics_test_harness.go
+@@ -102,6 +102,6 @@ func (h *testHarness) sendNextMetric() {
+ 	if h.outOfMetrics {
+ 		return
+ 	}
+-	err := h.sender.SendMetrics(h.currPDM)
++	err := h.sender.ConsumeMetrics(context.Background(), h.currPDM)
+ 	require.NoError(h.t, err)
+ }

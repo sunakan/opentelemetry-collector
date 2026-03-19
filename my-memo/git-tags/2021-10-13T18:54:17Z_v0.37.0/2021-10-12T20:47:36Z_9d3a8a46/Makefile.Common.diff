@@ -1,0 +1,15 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index f4b9b56da..a77cc2bd0 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -38,6 +38,10 @@ lint:
+ lint-unstable:
+ 	$(LINT) run --allow-parallel-runners --build-tags enable_unstable
+ 
++.PHONY: porto
++porto:
++	porto -w --include-internal  ./
++
+ .PHONY: impi
+ impi:
+ 	@$(IMPI) --local go.opentelemetry.io/collector --scheme stdThirdPartyLocal ./...

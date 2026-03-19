@@ -1,0 +1,19 @@
+diff --git a/service/config_provider_test.go b/service/config_provider_test.go
+index 2bbfba456..70a021cf6 100644
+--- a/service/config_provider_test.go
++++ b/service/config_provider_test.go
+@@ -34,10 +34,10 @@ import (
+ )
+ 
+ var configNop = &Config{
+-	Receivers:  map[component.ID]component.ReceiverConfig{component.NewID("nop"): componenttest.NewNopReceiverFactory().CreateDefaultConfig()},
+-	Processors: map[component.ID]component.ProcessorConfig{component.NewID("nop"): componenttest.NewNopProcessorFactory().CreateDefaultConfig()},
+-	Exporters:  map[component.ID]component.ExporterConfig{component.NewID("nop"): componenttest.NewNopExporterFactory().CreateDefaultConfig()},
+-	Extensions: map[component.ID]component.ExtensionConfig{component.NewID("nop"): componenttest.NewNopExtensionFactory().CreateDefaultConfig()},
++	Receivers:  map[component.ID]component.Config{component.NewID("nop"): componenttest.NewNopReceiverFactory().CreateDefaultConfig()},
++	Processors: map[component.ID]component.Config{component.NewID("nop"): componenttest.NewNopProcessorFactory().CreateDefaultConfig()},
++	Exporters:  map[component.ID]component.Config{component.NewID("nop"): componenttest.NewNopExporterFactory().CreateDefaultConfig()},
++	Extensions: map[component.ID]component.Config{component.NewID("nop"): componenttest.NewNopExtensionFactory().CreateDefaultConfig()},
+ 	Service: ConfigService{
+ 		Extensions: []component.ID{component.NewID("nop")},
+ 		Pipelines: map[component.ID]*ConfigServicePipeline{

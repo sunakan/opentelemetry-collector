@@ -1,0 +1,34 @@
+diff --git a/testbed/tests/testdata/ballast_extension.yaml b/testbed/tests/testdata/ballast_extension.yaml
+new file mode 100644
+index 000000000..71f34c71b
+--- /dev/null
++++ b/testbed/tests/testdata/ballast_extension.yaml
+@@ -0,0 +1,28 @@
++extensions:
++  memory_ballast:
++    size_mib: %d
++
++receivers:
++  jaeger:
++    protocols:
++      grpc:
++        endpoint: "localhost:14250"
++  opencensus:
++    endpoint: "localhost:55678"
++
++exporters:
++  opencensus:
++    endpoint: "localhost:56565"
++    insecure: true
++  logging:
++    loglevel: info
++
++service:
++  extensions: [memory_ballast]
++  pipelines:
++    traces:
++      receivers: [jaeger]
++      exporters: [opencensus,logging]
++    metrics:
++      receivers: [opencensus]
++      exporters: [opencensus,logging]

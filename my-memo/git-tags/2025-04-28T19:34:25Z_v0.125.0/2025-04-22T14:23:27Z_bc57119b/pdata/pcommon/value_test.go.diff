@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/value_test.go b/pdata/pcommon/value_test.go
+index 80ac16a60..b10be1978 100644
+--- a/pdata/pcommon/value_test.go
++++ b/pdata/pcommon/value_test.go
+@@ -244,6 +244,9 @@ func TestValue_MoveTo(t *testing.T) {
+ 	expected := NewValueMap()
+ 	expected.Map().PutStr("key", "value")
+ 	assert.True(t, dest.Equal(expected))
++
++	dest.MoveTo(dest)
++	assert.True(t, dest.Equal(expected))
+ }
+ 
+ func TestValue_CopyTo(t *testing.T) {

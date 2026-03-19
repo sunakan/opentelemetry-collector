@@ -1,0 +1,25 @@
+diff --git a/model/internal/pdata/generated_resource_test.go b/model/internal/pdata/generated_resource_test.go
+index 5df7a0189..82594e54a 100644
+--- a/model/internal/pdata/generated_resource_test.go
++++ b/model/internal/pdata/generated_resource_test.go
+@@ -39,9 +39,9 @@ func TestResource_CopyTo(t *testing.T) {
+ 
+ func TestResource_Attributes(t *testing.T) {
+ 	ms := NewResource()
+-	assert.EqualValues(t, NewAttributeMap(), ms.Attributes())
+-	fillTestAttributeMap(ms.Attributes())
+-	testValAttributes := generateTestAttributeMap()
++	assert.EqualValues(t, NewMap(), ms.Attributes())
++	fillTestMap(ms.Attributes())
++	testValAttributes := generateTestMap()
+ 	assert.EqualValues(t, testValAttributes, ms.Attributes())
+ }
+ 
+@@ -60,6 +60,6 @@ func generateTestResource() Resource {
+ }
+ 
+ func fillTestResource(tv Resource) {
+-	fillTestAttributeMap(tv.Attributes())
++	fillTestMap(tv.Attributes())
+ 	tv.SetDroppedAttributesCount(uint32(17))
+ }

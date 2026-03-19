@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/testdata/empty_test_config.yaml b/cmd/mdatagen/internal/testdata/empty_test_config.yaml
+new file mode 100644
+index 000000000..5b13e2dff
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/empty_test_config.yaml
+@@ -0,0 +1,9 @@
++type: test
++
++status:
++  class: receiver
++  stability:
++    beta: [logs]
++
++tests:
++  config:

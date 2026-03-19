@@ -1,0 +1,12 @@
+diff --git a/config/configretry/backoff.go b/config/configretry/backoff.go
+index 1fc3f8c58..476c350b0 100644
+--- a/config/configretry/backoff.go
++++ b/config/configretry/backoff.go
+@@ -68,7 +68,6 @@ func (bs *BackOffConfig) Validate() error {
+ 		if bs.MaxElapsedTime < bs.MaxInterval {
+ 			return errors.New("'max_elapsed_time' must not be less than 'max_interval'")
+ 		}
+-
+ 	}
+ 	return nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_linux.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_linux.go
+index 537da9837..88dfb62e6 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_linux.go
+@@ -19,7 +19,7 @@ package memoryscraper
+ import (
+ 	"github.com/shirou/gopsutil/mem"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ const memStatesLen = 6

@@ -1,0 +1,13 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 4e3984448..0f6490ae7 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -134,7 +134,7 @@ func openEventLog(serviceName string) (*eventlog.Log, error) {
+ 
+ func newWithWindowsEventLogCore(set CollectorSettings, elog *eventlog.Log) (*Collector, error) {
+ 	if set.ConfigProvider == nil {
+-		set.ConfigProvider = NewDefaultConfigProvider(getConfigFlag(), getSetFlag())
++		set.ConfigProvider = MustNewDefaultConfigProvider(getConfigFlag(), getSetFlag())
+ 	}
+ 	set.LoggingOptions = append(
+ 		set.LoggingOptions,

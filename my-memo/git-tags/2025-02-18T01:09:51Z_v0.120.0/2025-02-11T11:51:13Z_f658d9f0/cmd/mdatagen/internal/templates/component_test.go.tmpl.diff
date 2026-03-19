@@ -1,0 +1,23 @@
+diff --git a/cmd/mdatagen/internal/templates/component_test.go.tmpl b/cmd/mdatagen/internal/templates/component_test.go.tmpl
+index f7a46afd4..0161a0e0b 100644
+--- a/cmd/mdatagen/internal/templates/component_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/component_test.go.tmpl
+@@ -16,9 +16,7 @@ import (
+ 	{{- end }}
+ 
+ 	"github.com/stretchr/testify/require"
+-	{{- if and (not (and .Tests.SkipLifecycle .Tests.SkipShutdown)) (not isExtension) }}
+ 	"go.opentelemetry.io/collector/component"
+-	{{- end }}
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	{{- if not (and .Tests.SkipLifecycle .Tests.SkipShutdown) }}
+ 	"go.opentelemetry.io/collector/confmap/confmaptest"
+@@ -133,7 +131,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 				switch tt.name {
+ 				case "logs":
+ 					e, ok := c.(exporter.Logs)
+-					require.True(t, ok)				
++					require.True(t, ok)
+ 					logs := generateLifecycleTestLogs()
+ 					if !e.Capabilities().MutatesData {
+ 						logs.MarkReadOnly()

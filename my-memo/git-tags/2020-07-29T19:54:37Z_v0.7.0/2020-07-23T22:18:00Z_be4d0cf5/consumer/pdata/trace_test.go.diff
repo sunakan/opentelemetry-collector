@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/trace_test.go b/consumer/pdata/trace_test.go
+index 72e05bb97..bfebfe0ed 100644
+--- a/consumer/pdata/trace_test.go
++++ b/consumer/pdata/trace_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"testing"
+ 
+ 	gogoproto "github.com/gogo/protobuf/proto"
+-	goproto "github.com/golang/protobuf/proto"
++	goproto "github.com/golang/protobuf/proto" //lint:ignore SA1019 golang/protobuf/proto is deprecated
+ 	otlptrace_goproto "github.com/open-telemetry/opentelemetry-proto/gen/go/trace/v1"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"

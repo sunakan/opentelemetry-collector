@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_keyvaluelist.go b/pdata/internal/generated_wrapper_keyvaluelist.go
+index 4609ec07f..eed254a6c 100644
+--- a/pdata/internal/generated_wrapper_keyvaluelist.go
++++ b/pdata/internal/generated_wrapper_keyvaluelist.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolKeyValueList = sync.Pool{
+-	New: func() any {
+-		return &otlpcommon.KeyValueList{}
+-	},
+-}
++var (
++	protoPoolKeyValueList = sync.Pool{
++		New: func() any {
++			return &otlpcommon.KeyValueList{}
++		},
++	}
++)
+ 
+ func NewOrigKeyValueList() *otlpcommon.KeyValueList {
+ 	if !UseProtoPooling.IsEnabled() {

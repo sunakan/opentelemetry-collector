@@ -1,0 +1,39 @@
+diff --git a/pdata/pprofile/valuetype_test.go b/pdata/pprofile/valuetype_test.go
+index 1d7046931..19539c5ab 100644
+--- a/pdata/pprofile/valuetype_test.go
++++ b/pdata/pprofile/valuetype_test.go
+@@ -9,6 +9,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestValueTypeSwitchDictionary(t *testing.T) {
+@@ -148,3 +150,25 @@ func TestValueTypeSwitchDictionary(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func BenchmarkValueTypeSwitchDictionary(b *testing.B) {
++	testutil.SkipMemoryBench(b)
++
++	vt := NewValueType()
++	vt.SetTypeStrindex(1)
++	vt.SetUnitStrindex(2)
++
++	src := NewProfilesDictionary()
++	src.StringTable().Append("", "test", "foo")
++
++	b.ReportAllocs()
++
++	for b.Loop() {
++		b.StopTimer()
++		dst := NewProfilesDictionary()
++		dst.StringTable().Append("", "foo")
++		b.StartTimer()
++
++		_ = vt.switchDictionary(src, dst)
++	}
++}

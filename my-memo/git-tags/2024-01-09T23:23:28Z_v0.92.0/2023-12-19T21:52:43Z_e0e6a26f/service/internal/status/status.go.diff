@@ -1,0 +1,13 @@
+diff --git a/service/internal/status/status.go b/service/internal/status/status.go
+index 7592f139b..c5a002808 100644
+--- a/service/internal/status/status.go
++++ b/service/internal/status/status.go
+@@ -159,7 +159,7 @@ func (r *Reporter) componentFSM(id *component.InstanceID) *fsm {
+ func NewComponentStatusFunc(
+ 	id *component.InstanceID,
+ 	srvStatus ServiceStatusFunc,
+-) component.StatusFunc {
++) func(*component.StatusEvent) error {
+ 	return func(ev *component.StatusEvent) error {
+ 		return srvStatus(id, ev)
+ 	}

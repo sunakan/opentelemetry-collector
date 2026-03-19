@@ -1,0 +1,13 @@
+diff --git a/config/configcheck/configcheck_test.go b/config/configcheck/configcheck_test.go
+index 7a61651ff..bd4b9f1e9 100644
+--- a/config/configcheck/configcheck_test.go
++++ b/config/configcheck/configcheck_test.go
+@@ -187,7 +187,7 @@ func TestValidateConfig(t *testing.T) {
+ // a config not satisfying the validation.
+ type badConfigExtensionFactory struct{}
+ 
+-func (b badConfigExtensionFactory) Type() string {
++func (b badConfigExtensionFactory) Type() configmodels.Type {
+ 	return "bad_config"
+ }
+ 

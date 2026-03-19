@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/scripts/dependabot-pr.sh b/.github/workflows/scripts/dependabot-pr.sh
+index 8ab0fcab9..e37a92539 100755
+--- a/.github/workflows/scripts/dependabot-pr.sh
++++ b/.github/workflows/scripts/dependabot-pr.sh
+@@ -33,12 +33,11 @@ for line in $requests; do
+ done
+ 
+ make gotidy
+-make otelcorecol
++make genotelcorecol
+ 
+-git add go.sum go.mod
+-git add "**/go.sum" "**/go.mod"
++git add --all
+ git commit -m "dependabot updates `date`
+ $message"
+ git push origin $PR_NAME
+ 
+-gh pr create --title "[chore] dependabot updates `date`" --body "$message" -l "Skip Changelog"
++gh pr create --title "[chore] dependabot updates `date`" --body "$message" -l "dependencies"

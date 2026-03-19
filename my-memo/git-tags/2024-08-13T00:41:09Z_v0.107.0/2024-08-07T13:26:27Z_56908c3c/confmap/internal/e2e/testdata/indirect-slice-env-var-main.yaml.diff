@@ -1,0 +1,19 @@
+diff --git a/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml b/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml
+new file mode 100644
+index 000000000..8ba70ed33
+--- /dev/null
++++ b/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  nop:
++  otlp:
++    protocols:
++      grpc:
++
++exporters:
++  nop:
++  otlp:
++    endpoint: localhost:4317
++
++service:
++  pipelines: ${file:${env:BASE_FOLDER}/indirect-slice-env-var-pipelines.yaml}

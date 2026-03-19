@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/pb_test.go b/pdata/pprofile/pb_test.go
+index e1df9729f..f38ad3b0b 100644
+--- a/pdata/pprofile/pb_test.go
++++ b/pdata/pprofile/pb_test.go
+@@ -104,8 +104,7 @@ func generateBenchmarkProfiles(samplesCount int) Profiles {
+ 	ilm.Sample().EnsureCapacity(samplesCount)
+ 	for i := 0; i < samplesCount; i++ {
+ 		im := ilm.Sample().AppendEmpty()
+-		im.SetLocationsStartIndex(2)
+-		im.SetLocationsLength(10)
++		im.SetStackIndex(0)
+ 	}
+ 	return md
+ }

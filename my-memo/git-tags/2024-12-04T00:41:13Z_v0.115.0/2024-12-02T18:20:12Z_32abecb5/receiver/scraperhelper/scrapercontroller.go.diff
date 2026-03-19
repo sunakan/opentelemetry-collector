@@ -1,0 +1,14 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index 1facf4672..4236792b2 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -16,8 +16,8 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/receiver"
+ 	"go.opentelemetry.io/collector/receiver/receiverhelper"
+-	"go.opentelemetry.io/collector/receiver/scrapererror"
+ 	"go.opentelemetry.io/collector/scraper"
++	"go.opentelemetry.io/collector/scraper/scrapererror"
+ )
+ 
+ // ScraperControllerOption apply changes to internal options.

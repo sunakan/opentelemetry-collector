@@ -1,0 +1,24 @@
+diff --git a/obsreport/obsreport_processor.go b/obsreport/obsreport_processor.go
+index f5df4b4ff..94b0149f4 100644
+--- a/obsreport/obsreport_processor.go
++++ b/obsreport/obsreport_processor.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opencensus.io/stats"
+ 	"go.opencensus.io/tag"
+ 
++	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+@@ -48,8 +49,9 @@ type Processor struct {
+ 
+ // ProcessorSettings are settings for creating a Processor.
+ type ProcessorSettings struct {
+-	Level       configtelemetry.Level
+-	ProcessorID config.ComponentID
++	Level                   configtelemetry.Level
++	ProcessorID             config.ComponentID
++	ProcessorCreateSettings component.ProcessorCreateSettings
+ }
+ 
+ // NewProcessor creates a new Processor.

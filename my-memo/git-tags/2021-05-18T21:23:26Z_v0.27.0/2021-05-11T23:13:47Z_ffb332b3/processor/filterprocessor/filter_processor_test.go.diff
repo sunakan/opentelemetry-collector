@@ -1,0 +1,15 @@
+diff --git a/processor/filterprocessor/filter_processor_test.go b/processor/filterprocessor/filter_processor_test.go
+index da6f86472..ef259a5e2 100644
+--- a/processor/filterprocessor/filter_processor_test.go
++++ b/processor/filterprocessor/filter_processor_test.go
+@@ -324,8 +324,8 @@ func TestFilterMetricProcessor(t *testing.T) {
+ 			assert.NotNil(t, fmp)
+ 			assert.Nil(t, err)
+ 
+-			caps := fmp.GetCapabilities()
+-			assert.True(t, caps.MutatesConsumedData)
++			caps := fmp.Capabilities()
++			assert.True(t, caps.MutatesData)
+ 			ctx := context.Background()
+ 			assert.NoError(t, fmp.Start(ctx, nil))
+ 

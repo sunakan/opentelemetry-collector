@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/config_test.go b/receiver/fluentforwardreceiver/config_test.go
+index eb90f7ad7..1ab081e63 100644
+--- a/receiver/fluentforwardreceiver/config_test.go
++++ b/receiver/fluentforwardreceiver/config_test.go
+@@ -27,7 +27,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.Nil(t, err)
+ 
+ 	factory := NewFactory()

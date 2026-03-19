@@ -1,0 +1,20 @@
+diff --git a/pdata/pcommon/generated_resource_test.go b/pdata/pcommon/generated_resource_test.go
+index d8ede5357..ecf804f7f 100644
+--- a/pdata/pcommon/generated_resource_test.go
++++ b/pdata/pcommon/generated_resource_test.go
+@@ -47,13 +47,13 @@ func TestResource_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestResource()
+ 	internal.MarshalJSONStreamResource(internal.Resource(src), stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewResource()
+ 	internal.UnmarshalJSONIterResource(internal.Resource(dest), iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

@@ -1,0 +1,13 @@
+diff --git a/confmap/provider.go b/confmap/provider.go
+index da026e929..7d2704fe0 100644
+--- a/confmap/provider.go
++++ b/confmap/provider.go
+@@ -98,6 +98,8 @@ type ChangeEvent struct {
+ 	// Error is nil if the config is changed and needs to be re-fetched.
+ 	// Any non-nil error indicates that there was a problem with watching the config changes.
+ 	Error error
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Retrieved holds the result of a call to the Retrieve method of a Provider object.

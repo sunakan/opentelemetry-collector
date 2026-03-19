@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/request_test.go b/exporter/exporterhelper/request_test.go
+index 593ee1753..18e8228f9 100644
+--- a/exporter/exporterhelper/request_test.go
++++ b/exporter/exporterhelper/request_test.go
+@@ -16,7 +16,7 @@ type fakeRequest struct {
+ 	err   error
+ }
+ 
+-func (r fakeRequest) Export(_ context.Context) error {
++func (r fakeRequest) Export(context.Context) error {
+ 	return r.err
+ }
+ 

@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/ocmetrics/opencensus_test.go b/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
+index a7689b624..4d4e6883c 100644
+--- a/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
++++ b/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
+@@ -385,8 +385,7 @@ func ocReceiverOnGRPCServer(t *testing.T, sr consumer.MetricsConsumer) (int, fun
+ 
+ func makeMetric(val int) *metricspb.Metric {
+ 	key := &metricspb.LabelKey{
+-		Key:         fmt.Sprintf("%s%d", "key", val),
+-		Description: "label key",
++		Key: fmt.Sprintf("%s%d", "key", val),
+ 	}
+ 	value := &metricspb.LabelValue{
+ 		Value:    fmt.Sprintf("%s%d", "value", val),

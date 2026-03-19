@@ -1,0 +1,21 @@
+diff --git a/receiver/go.mod b/receiver/go.mod
+index 09043feb2..3c5a6384d 100644
+--- a/receiver/go.mod
++++ b/receiver/go.mod
+@@ -28,7 +28,6 @@ require (
+ 	github.com/modern-go/reflect2 v1.0.2 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
+-	go.opentelemetry.io/collector/config/configtelemetry v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/xconsumer v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.25.0 // indirect
+@@ -56,8 +55,6 @@ replace go.opentelemetry.io/collector/pdata => ../pdata
+ 
+ replace go.opentelemetry.io/collector/pdata/testdata => ../pdata/testdata
+ 
+-replace go.opentelemetry.io/collector/config/configtelemetry => ../config/configtelemetry
+-
+ replace go.opentelemetry.io/collector/pdata/pprofile => ../pdata/pprofile
+ 
+ replace go.opentelemetry.io/collector/consumer/xconsumer => ../consumer/xconsumer

@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/cgroups_test.go b/internal/cgroups/cgroups_test.go
+index 3c4c09966..b188a4d7a 100644
+--- a/internal/cgroups/cgroups_test.go
++++ b/internal/cgroups/cgroups_test.go
+@@ -208,7 +208,7 @@ func TestCGroupsMemoryQuotaV2(t *testing.T) {
+ 
+ 	quota, defined, err := memoryQuotaV2("nonexistent", "nonexistent")
+ 	assert.Equal(t, int64(-1), quota, "nonexistent")
+-	assert.Equal(t, false, defined, "nonexistent")
++	assert.False(t, defined, "nonexistent")
+ 	assert.NoError(t, err, "nonexistent")
+ 
+ 	cgroupBasePath := filepath.Join(testDataCGroupsPath, "v2")

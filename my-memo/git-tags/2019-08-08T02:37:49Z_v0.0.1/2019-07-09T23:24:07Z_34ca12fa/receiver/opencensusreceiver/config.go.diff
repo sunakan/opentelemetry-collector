@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/config.go b/receiver/opencensusreceiver/config.go
+index 6e785000f..a8ce92e0d 100644
+--- a/receiver/opencensusreceiver/config.go
++++ b/receiver/opencensusreceiver/config.go
+@@ -16,7 +16,7 @@ package opencensusreceiver
+ 
+ import "github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 
+-// ConfigV2 defines configuration for OpenCensus receiver.
+-type ConfigV2 struct {
++// Config defines configuration for OpenCensus receiver.
++type Config struct {
+ 	configmodels.ReceiverSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ }

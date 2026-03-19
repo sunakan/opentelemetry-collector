@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/telemetry_test.go b/component/componenttest/telemetry_test.go
+index 4361bb488..2bae32d84 100644
+--- a/component/componenttest/telemetry_test.go
++++ b/component/componenttest/telemetry_test.go
+@@ -20,7 +20,7 @@ func TestNewTelemetry(t *testing.T) {
+ 	assert.NotNil(t, tel.Reader)
+ 	assert.NotNil(t, tel.SpanRecorder)
+ 	set := tel.NewTelemetrySettings()
+-	assert.Equal(t, configtelemetry.LevelDetailed, set.MetricsLevel)
++	assert.Equal(t, configtelemetry.LevelDetailed, set.MetricsLevel) //nolint:staticcheck //SA1019
+ 	assert.IsType(t, &sdktrace.TracerProvider{}, set.TracerProvider)
+ 	assert.IsType(t, &sdkmetric.MeterProvider{}, set.MeterProvider)
+ 	require.NoError(t, tel.Shutdown(context.Background()))

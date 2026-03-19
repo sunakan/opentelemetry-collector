@@ -1,0 +1,13 @@
+diff --git a/pipeline/pipelineprofiles/config.go b/pipeline/pipelineprofiles/config.go
+index 8aa00dd61..e1cd9136c 100644
+--- a/pipeline/pipelineprofiles/config.go
++++ b/pipeline/pipelineprofiles/config.go
+@@ -4,7 +4,7 @@
+ package pipelineprofiles // import "go.opentelemetry.io/collector/pipeline/pipelineprofiles"
+ 
+ import (
+-	"go.opentelemetry.io/collector/internal/globalsignal"
++	"go.opentelemetry.io/collector/pipeline/internal/globalsignal"
+ )
+ 
+ var (

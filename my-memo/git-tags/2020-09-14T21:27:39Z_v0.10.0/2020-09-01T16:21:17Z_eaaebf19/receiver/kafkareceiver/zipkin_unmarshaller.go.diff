@@ -1,0 +1,22 @@
+diff --git a/receiver/kafkareceiver/zipkin_unmarshaller.go b/receiver/kafkareceiver/zipkin_unmarshaller.go
+index 40f57f1aa..746cb58d1 100644
+--- a/receiver/kafkareceiver/zipkin_unmarshaller.go
++++ b/receiver/kafkareceiver/zipkin_unmarshaller.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/apache/thrift/lib/go/thrift"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/zipkincore"
+ 	zipkinmodel "github.com/openzipkin/zipkin-go/model"
+-	zipkinproto "github.com/openzipkin/zipkin-go/proto/v2"
++	"github.com/openzipkin/zipkin-go/proto/zipkin_proto3"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	zipkintranslator "go.opentelemetry.io/collector/translator/trace/zipkin"
+@@ -32,7 +32,7 @@ type zipkinProtoSpanUnmarshaller struct {
+ var _ Unmarshaller = (*zipkinProtoSpanUnmarshaller)(nil)
+ 
+ func (z zipkinProtoSpanUnmarshaller) Unmarshal(bytes []byte) (pdata.Traces, error) {
+-	parseSpans, err := zipkinproto.ParseSpans(bytes, false)
++	parseSpans, err := zipkin_proto3.ParseSpans(bytes, false)
+ 	if err != nil {
+ 		return pdata.NewTraces(), err
+ 	}

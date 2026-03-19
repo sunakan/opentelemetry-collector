@@ -1,0 +1,33 @@
+diff --git a/client/client.go b/client/client.go
+index b5974e53a..4b3f701ba 100644
+--- a/client/client.go
++++ b/client/client.go
+@@ -91,6 +91,7 @@ package client // import "go.opentelemetry.io/collector/client"
+ import (
+ 	"context"
+ 	"net"
++	"strings"
+ )
+ 
+ type ctxKey struct{}
+@@ -160,7 +161,19 @@ func NewMetadata(md map[string][]string) Metadata {
+ func (m Metadata) Get(key string) []string {
+ 	vals := m.data[key]
+ 	if len(vals) == 0 {
+-		return nil
++		// we didn't find the key, but perhaps it just has different cases?
++		for k, v := range m.data {
++			if strings.EqualFold(key, k) {
++				vals = v
++				// we optimize for the next lookup
++				m.data[key] = v
++			}
++		}
++
++		// if it's still not found, it's really not here
++		if len(vals) == 0 {
++			return nil
++		}
+ 	}
+ 
+ 	ret := make([]string, len(vals))

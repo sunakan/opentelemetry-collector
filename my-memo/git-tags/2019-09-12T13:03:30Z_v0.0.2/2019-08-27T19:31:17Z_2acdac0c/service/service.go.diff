@@ -1,0 +1,14 @@
+diff --git a/service/service.go b/service/service.go
+index 9f185dcc9..fa9183460 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -239,7 +239,8 @@ func (app *Application) shutdownPipelines() {
+ 
+ 	// TODO: shutdown processors
+ 
+-	app.exporters.StopAll()
++	app.logger.Info("Shutting down exporters...")
++	app.exporters.ShutdownAll()
+ }
+ 
+ func (app *Application) executeUnified() {

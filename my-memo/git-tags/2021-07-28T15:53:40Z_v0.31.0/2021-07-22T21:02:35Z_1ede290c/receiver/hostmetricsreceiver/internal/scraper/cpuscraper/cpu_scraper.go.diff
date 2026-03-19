@@ -1,0 +1,11 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+index 4ec557355..7282a1a87 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+@@ -89,5 +89,5 @@ func initializeCPUTimeDataPoint(dataPoint pdata.NumberDataPoint, startTime, now
+ 
+ 	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+-	dataPoint.SetValue(value)
++	dataPoint.SetDoubleVal(value)
+ }

@@ -1,0 +1,28 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_linux.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_linux.go
+index c2bc6be62..180281c41 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_linux.go
+@@ -17,6 +17,8 @@
+ package processscraper
+ 
+ import (
++	"time"
++
+ 	"github.com/shirou/gopsutil/cpu"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+@@ -30,6 +32,14 @@ func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startTime pda
+ 	initializeCPUTimeDataPoint(ddps.At(2), startTime, cpuTime.Iowait, waitStateLabelValue)
+ }
+ 
++func initializeCPUTimeDataPoint(dataPoint pdata.DoubleDataPoint, startTime pdata.TimestampUnixNano, value float64, stateLabel string) {
++	labelsMap := dataPoint.LabelsMap()
++	labelsMap.Insert(stateLabelName, stateLabel)
++	dataPoint.SetStartTime(startTime)
++	dataPoint.SetTimestamp(pdata.TimestampUnixNano(uint64(time.Now().UnixNano())))
++	dataPoint.SetValue(value)
++}
++
+ func getProcessExecutable(proc processHandle) (*executableMetadata, error) {
+ 	name, err := proc.Name()
+ 	if err != nil {

@@ -1,0 +1,21 @@
+diff --git a/receiver/opencensusreceiver/config_test.go b/receiver/opencensusreceiver/config_test.go
+index cf2285c62..a138f8af8 100644
+--- a/receiver/opencensusreceiver/config_test.go
++++ b/receiver/opencensusreceiver/config_test.go
+@@ -22,6 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+@@ -30,7 +31,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := config.ExampleComponents()
++	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}

@@ -1,0 +1,11 @@
+diff --git a/vendor/github.com/philhofer/fwd/writer_appengine.go b/vendor/github.com/philhofer/fwd/writer_appengine.go
+deleted file mode 100644
+index e367f3931..000000000
+--- a/vendor/github.com/philhofer/fwd/writer_appengine.go
++++ /dev/null
+@@ -1,5 +0,0 @@
+-// +build appengine
+-
+-package fwd
+-
+-func unsafestr(s string) []byte { return []byte(s) }

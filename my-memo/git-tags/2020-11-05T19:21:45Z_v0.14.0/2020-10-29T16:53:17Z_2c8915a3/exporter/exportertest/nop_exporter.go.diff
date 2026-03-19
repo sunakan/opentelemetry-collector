@@ -1,0 +1,16 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 31ba32450..59b8a3c46 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -44,9 +44,9 @@ func (ne *nopExporter) Shutdown(context.Context) error {
+ 	return nil
+ }
+ 
+-// NewNopTraceExporter creates an TraceExporter that just drops the received data.
++// NewNopTraceExporter creates an TracesExporter that just drops the received data.
+ // Deprecated: Use consumertest.NewNopTraces.
+-func NewNopTraceExporter() component.TraceExporter {
++func NewNopTraceExporter() component.TracesExporter {
+ 	return &nopExporter{}
+ }
+ 

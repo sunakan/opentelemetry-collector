@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index ad0145c53..6d679e4f5 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -92,6 +92,7 @@ func TestPrometheusExporter_endToEnd(t *testing.T) {
+ 			Name:        "this/one/there(where)",
+ 			Description: "Extra ones",
+ 			Unit:        "1",
++			Type:        metricspb.MetricDescriptor_CUMULATIVE_INT64,
+ 			LabelKeys: []*metricspb.LabelKey{
+ 				{Key: "os", Description: "Operating system"},
+ 				{Key: "arch", Description: "Architecture"},

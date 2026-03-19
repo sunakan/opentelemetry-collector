@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index 2eb440d40..1045aa720 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -20,8 +20,9 @@ import (
+ 
+ // QueueBatchSettings is a subset of the queuebatch.Settings that are needed when used within an Exporter.
+ type QueueBatchSettings[T any] struct {
+-	Encoding queuebatch.Encoding[T]
+-	Sizers   map[request.SizerType]request.Sizer[T]
++	Encoding    queuebatch.Encoding[T]
++	Sizers      map[request.SizerType]request.Sizer[T]
++	Partitioner queuebatch.Partitioner[T]
+ }
+ 
+ // NewDefaultQueueConfig returns the default config for queuebatch.Config.

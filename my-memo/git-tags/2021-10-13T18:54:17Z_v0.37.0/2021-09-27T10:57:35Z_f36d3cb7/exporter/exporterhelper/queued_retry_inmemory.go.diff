@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/queued_retry_inmemory.go b/exporter/exporterhelper/queued_retry_inmemory.go
+index 8142e4b55..63ad4af11 100644
+--- a/exporter/exporterhelper/queued_retry_inmemory.go
++++ b/exporter/exporterhelper/queued_retry_inmemory.go
+@@ -61,7 +61,7 @@ type queuedRetrySender struct {
+ 	fullName        string
+ 	cfg             QueueSettings
+ 	consumerSender  requestSender
+-	queue           consumersQueue
++	queue           internal.ProducerConsumerQueue
+ 	retryStopCh     chan struct{}
+ 	traceAttributes []attribute.KeyValue
+ 	logger          *zap.Logger
+@@ -82,7 +82,7 @@ func newQueuedRetrySender(id config.ComponentID, _ config.DataType, qCfg QueueSe
+ 			logger:             sampledLogger,
+ 			onTemporaryFailure: onTemporaryFailure,
+ 		},
+-		queue:           internal.NewBoundedQueue(qCfg.QueueSize, func(item interface{}) {}),
++		queue:           internal.NewBoundedMemoryQueue(qCfg.QueueSize, func(item interface{}) {}),
+ 		retryStopCh:     retryStopCh,
+ 		traceAttributes: []attribute.KeyValue{traceAttr},
+ 		logger:          sampledLogger,

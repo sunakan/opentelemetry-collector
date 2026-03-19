@@ -1,0 +1,37 @@
+diff --git a/receiver/kafkareceiver/pdata_unmarshaler.go b/receiver/kafkareceiver/pdata_unmarshaler.go
+index 471b4e4de..6907c5d3e 100644
+--- a/receiver/kafkareceiver/pdata_unmarshaler.go
++++ b/receiver/kafkareceiver/pdata_unmarshaler.go
+@@ -23,6 +23,10 @@ type pdataLogsUnmarshaler struct {
+ 	encoding string
+ }
+ 
++func (p pdataLogsUnmarshaler) Unmarshal(buf []byte) (pdata.Logs, error) {
++	return p.LogsUnmarshaler.UnmarshalLogs(buf)
++}
++
+ func (p pdataLogsUnmarshaler) Encoding() string {
+ 	return p.encoding
+ }
+@@ -39,6 +43,10 @@ type pdataTracesUnmarshaler struct {
+ 	encoding string
+ }
+ 
++func (p pdataTracesUnmarshaler) Unmarshal(buf []byte) (pdata.Traces, error) {
++	return p.TracesUnmarshaler.UnmarshalTraces(buf)
++}
++
+ func (p pdataTracesUnmarshaler) Encoding() string {
+ 	return p.encoding
+ }
+@@ -55,6 +63,10 @@ type pdataMetricsUnmarshaler struct {
+ 	encoding string
+ }
+ 
++func (p pdataMetricsUnmarshaler) Unmarshal(buf []byte) (pdata.Metrics, error) {
++	return p.MetricsUnmarshaler.UnmarshalMetrics(buf)
++}
++
+ func (p pdataMetricsUnmarshaler) Encoding() string {
+ 	return p.encoding
+ }

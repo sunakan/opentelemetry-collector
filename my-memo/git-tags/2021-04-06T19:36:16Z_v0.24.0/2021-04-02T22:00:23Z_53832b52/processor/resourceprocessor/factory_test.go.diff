@@ -1,0 +1,31 @@
+diff --git a/processor/resourceprocessor/factory_test.go b/processor/resourceprocessor/factory_test.go
+index 62ade8723..6c241de9e 100644
+--- a/processor/resourceprocessor/factory_test.go
++++ b/processor/resourceprocessor/factory_test.go
+@@ -43,11 +43,11 @@ func TestCreateProcessor(t *testing.T) {
+ 		},
+ 	}
+ 
+-	tp, err := factory.CreateTracesProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewTracesNop())
++	tp, err := factory.CreateTracesProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewNop())
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, tp)
+ 
+-	mp, err := factory.CreateMetricsProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewMetricsNop())
++	mp, err := factory.CreateMetricsProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewNop())
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, mp)
+ }
+@@ -56,10 +56,10 @@ func TestInvalidEmptyActions(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 
+-	_, err := factory.CreateTracesProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewTracesNop())
++	_, err := factory.CreateTracesProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewNop())
+ 	assert.Error(t, err)
+ 
+-	_, err = factory.CreateMetricsProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewMetricsNop())
++	_, err = factory.CreateMetricsProcessor(context.Background(), component.ProcessorCreateParams{}, cfg, consumertest.NewNop())
+ 	assert.Error(t, err)
+ }
+ 

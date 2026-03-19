@@ -1,0 +1,14 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index d05991e30..0285ef901 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -28,6 +28,9 @@ import (
+ )
+ 
+ func internalResourceToOC(resource data.Resource) (*occommon.Node, *ocresource.Resource) {
++	if resource.IsNil() {
++		return nil, nil
++	}
+ 	attrs := resource.Attributes()
+ 
+ 	ocNode := occommon.Node{}

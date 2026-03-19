@@ -1,0 +1,12 @@
+diff --git a/vendor/cloud.google.com/go/internal/version/update_version.sh b/vendor/cloud.google.com/go/internal/version/update_version.sh
+new file mode 100755
+index 000000000..fecf1f03f
+--- /dev/null
++++ b/vendor/cloud.google.com/go/internal/version/update_version.sh
+@@ -0,0 +1,6 @@
++#!/bin/bash
++
++today=$(date +%Y%m%d)
++
++sed -i -r -e 's/const Repo = "([0-9]{8})"/const Repo = "'$today'"/' $GOFILE
++

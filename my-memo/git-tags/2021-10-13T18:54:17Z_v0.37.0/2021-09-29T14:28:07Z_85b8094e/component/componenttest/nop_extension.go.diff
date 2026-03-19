@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_extension.go b/component/componenttest/nop_extension.go
+index 84f6859d9..dc1c6aaba 100644
+--- a/component/componenttest/nop_extension.go
++++ b/component/componenttest/nop_extension.go
+@@ -52,7 +52,7 @@ func (f *nopExtensionFactory) Type() config.Type {
+ // CreateDefaultConfig creates the default configuration for the Extension.
+ func (f *nopExtensionFactory) CreateDefaultConfig() config.Extension {
+ 	return &nopExtensionConfig{
+-		ExtensionSettings: config.NewExtensionSettings(config.NewID("nop")),
++		ExtensionSettings: config.NewExtensionSettings(config.NewComponentID("nop")),
+ 	}
+ }
+ 

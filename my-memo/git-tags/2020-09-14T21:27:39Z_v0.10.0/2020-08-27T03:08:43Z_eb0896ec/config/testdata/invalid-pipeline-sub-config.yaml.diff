@@ -1,0 +1,15 @@
+diff --git a/config/testdata/invalid-pipeline-sub-config.yaml b/config/testdata/invalid-pipeline-sub-config.yaml
+new file mode 100644
+index 000000000..9b7dcee80
+--- /dev/null
++++ b/config/testdata/invalid-pipeline-sub-config.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 51f98cd48..65078b865 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -37,6 +37,7 @@
+ - Add support to unmarshalls bytes into pmetric.Metrics with `jsoniter` in jsonUnmarshaler(#5433)
+ - Add httpprovider to allow loading config files stored in HTTP (#5810)
+ - Added `service.telemetry.traces.propagators` configuration to set propagators for collector's internal spans. (#5572)
++- Remove unnecessary duplicate code and allocations for reading enums in JSON. (#5928)
+ 
+ ### 🧰 Bug fixes 🧰
+ 

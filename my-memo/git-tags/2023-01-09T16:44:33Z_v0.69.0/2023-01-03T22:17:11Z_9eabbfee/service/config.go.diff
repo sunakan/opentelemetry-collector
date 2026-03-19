@@ -1,0 +1,24 @@
+diff --git a/service/config.go b/service/config.go
+index ca9ed27f9..c3d5130ae 100644
+--- a/service/config.go
++++ b/service/config.go
+@@ -28,9 +28,6 @@ var (
+ 	errMissingServicePipelineExporters = errors.New("must have at least one exporter")
+ )
+ 
+-// Deprecated: [v0.68.0] use Config.
+-type ConfigService = Config
+-
+ // Config defines the configurable components of the Service.
+ type Config struct {
+ 	// Telemetry is the configuration for collector's own telemetry.
+@@ -69,9 +66,6 @@ func (cfg *Config) Validate() error {
+ 	return nil
+ }
+ 
+-// Deprecated: [v0.68.0] use PipelineConfig.
+-type ConfigServicePipeline = PipelineConfig
+-
+ // PipelineConfig defines the configuration of a Pipeline.
+ type PipelineConfig struct {
+ 	Receivers  []component.ID `mapstructure:"receivers"`

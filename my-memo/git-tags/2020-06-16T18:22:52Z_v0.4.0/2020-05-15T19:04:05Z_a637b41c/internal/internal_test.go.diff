@@ -1,0 +1,15 @@
+diff --git a/internal/internal_test.go b/internal/internal_test.go
+index 8dfbf259f..ef2ba830b 100644
+--- a/internal/internal_test.go
++++ b/internal/internal_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/golang/protobuf/ptypes/timestamp"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal"
+ )
+ 
+ func TestTimeConverters(t *testing.T) {

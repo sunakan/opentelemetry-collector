@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/slice_test.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/slice_test.go.tmpl
+index c6a627acb..2f3d33974 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/slice_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/slice_test.go.tmpl
+@@ -56,6 +56,8 @@ func Test{{ .structName }}_CopyTo(t *testing.T) {
+ 	src := generateTest{{ .structName }}()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTest{{ .structName }}(), dest)
++    dest.CopyTo(dest)
++    assert.Equal(t, generateTest{{ .structName }}(), dest)
+ }
+ 
+ func Test{{ .structName }}_EnsureCapacity(t *testing.T) {

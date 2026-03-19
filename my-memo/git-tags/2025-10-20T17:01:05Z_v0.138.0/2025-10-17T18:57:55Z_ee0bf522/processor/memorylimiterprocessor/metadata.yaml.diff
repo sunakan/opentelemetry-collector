@@ -1,0 +1,91 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+index 2b73072a2..aa8813f1e 100644
+--- a/processor/memorylimiterprocessor/metadata.yaml
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -17,68 +17,68 @@ tests:
+ 
+ telemetry:
+   metrics:
+-    processor_accepted_spans:
++    processor_accepted_log_records:
+       enabled: true
+-      description: Number of spans successfully pushed into the next component in the pipeline.
++      description: Number of log records successfully pushed into the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{spans}"
++      unit: "{records}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    processor_refused_spans:
++    processor_accepted_metric_points:
+       enabled: true
+-      description: Number of spans that were rejected by the next component in the pipeline.
++      description: Number of metric points successfully pushed into the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{spans}"
++      unit: "{datapoints}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    processor_accepted_metric_points:
++    processor_accepted_spans:
+       enabled: true
+-      description: Number of metric points successfully pushed into the next component in the pipeline.
++      description: Number of spans successfully pushed into the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{datapoints}"
++      unit: "{spans}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    processor_refused_metric_points:
++    processor_refused_log_records:
+       enabled: true
+-      description: Number of metric points that were rejected by the next component in the pipeline.
++      description: Number of log records that were rejected by the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{datapoints}"
++      unit: "{records}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    processor_accepted_log_records:
++    processor_refused_metric_points:
+       enabled: true
+-      description: Number of log records successfully pushed into the next component in the pipeline.
++      description: Number of metric points that were rejected by the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{records}"
++      unit: "{datapoints}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    processor_refused_log_records:
++    processor_refused_spans:
+       enabled: true
+-      description: Number of log records that were rejected by the next component in the pipeline.
++      description: Number of spans that were rejected by the next component in the pipeline.
+       stability:
+         level: deprecated
+         from: v0.110.0
+-      unit: "{records}"
++      unit: "{spans}"
+       sum:
+         value_type: int
+         monotonic: true

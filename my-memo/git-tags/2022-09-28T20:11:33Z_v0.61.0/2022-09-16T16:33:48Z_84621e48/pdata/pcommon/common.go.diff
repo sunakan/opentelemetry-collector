@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/common.go b/pdata/pcommon/common.go
+index df6f5a6d7..8fd4f93c3 100644
+--- a/pdata/pcommon/common.go
++++ b/pdata/pcommon/common.go
+@@ -125,6 +125,9 @@ func NewValueBytes() Value {
+ 	return newValue(&otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_BytesValue{BytesValue: nil}})
+ }
+ 
++// Deprecated: [0.61.0] Use NewValueBytes instead
++var NewValueBytesEmpty = NewValueBytes
++
+ func newValue(orig *otlpcommon.AnyValue) Value {
+ 	return Value(internal.NewValue(orig))
+ }

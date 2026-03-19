@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 40bfca37a..0d383848a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@
+ 
+ ## 🛑 Breaking changes 🛑
+ 
++- Remove testutil.HostPortFromAddr, users can write their own parsing helper (#2919)
+ - Remove `configparser.DecodeTypeAndName`, use `config.IDFromString` (#2869)
+ - Remove config.NewViper, users should use config.NewParser (#2917)
+ 

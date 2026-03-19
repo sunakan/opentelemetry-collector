@@ -1,0 +1,18 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index cfc0d9fef..e860a34f8 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,13 @@
+ 
+ ## Unreleased
+ 
++## 🛑 Breaking changes 🛑
++
++## 💡 Enhancements 💡
++
++- Add `validatable` interface with `Validate()` to all `config.<component>` (#2898)
++  - add the empty `Validate()` implementation for all component configs
++
+ ## v0.24.0 Beta
+ 
+ ## 🛑 Breaking changes 🛑

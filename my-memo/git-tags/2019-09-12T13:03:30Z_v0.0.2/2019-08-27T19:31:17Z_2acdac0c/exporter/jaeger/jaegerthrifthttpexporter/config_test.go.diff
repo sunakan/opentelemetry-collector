@@ -1,0 +1,12 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/config_test.go b/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
+index b0a6c84dc..fa4f0a5bf 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
+@@ -64,6 +64,6 @@ func TestLoadConfig(t *testing.T) {
+ 	}
+ 	assert.Equal(t, &expectedCfg, e1)
+ 
+-	_, _, err = factory.CreateTraceExporter(zap.NewNop(), e1)
++	_, err = factory.CreateTraceExporter(zap.NewNop(), e1)
+ 	require.NoError(t, err)
+ }

@@ -1,0 +1,18 @@
+diff --git a/service/telemetry/internal/migration/testdata/v0.2.0_traces.yaml b/service/telemetry/internal/migration/testdata/v0.2.0_traces.yaml
+new file mode 100644
+index 000000000..9b7f3b217
+--- /dev/null
++++ b/service/telemetry/internal/migration/testdata/v0.2.0_traces.yaml
+@@ -0,0 +1,12 @@
++level: "none"
++processors:
++  - batch:
++      exporter:
++        otlp:
++          protocol: http/protobuf
++          endpoint: 127.0.0.1:4317
++          headers:
++            "key1": "value1"
++  - simple:
++      exporter:
++        console: {}

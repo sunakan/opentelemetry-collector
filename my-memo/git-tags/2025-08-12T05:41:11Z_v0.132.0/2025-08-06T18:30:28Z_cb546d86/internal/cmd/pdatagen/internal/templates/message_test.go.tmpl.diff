@@ -1,0 +1,24 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+index d62939a9b..812ed92c8 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+@@ -73,16 +73,8 @@ func generateTest{{ .structName }}() {{ .structName }} {
+     {{- if .isCommon }}
+     return {{ .structName }}(internal.GenerateTest{{ .structName }}())
+     {{- else }}
+-	tv := New{{ .structName }}()
+-	fillTest{{ .structName }}(tv)
+-	return tv
+-	{{- end }}
+-}
+-
+-{{ if not .isCommon -}}
+-func fillTest{{ .structName }}(tv {{ .structName }}) {
+-	{{- range .fields }}
+-	{{ .GenerateSetWithTestValue $.messageStruct }}
++	ms := New{{ .structName }}()
++	internal.FillOrigTest{{ .originName }}(ms.orig)
++	return ms
+ 	{{- end }}
+ }
+-{{ end }}

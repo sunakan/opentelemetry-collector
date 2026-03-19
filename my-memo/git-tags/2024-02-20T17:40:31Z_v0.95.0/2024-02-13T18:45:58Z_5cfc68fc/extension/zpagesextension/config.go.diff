@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/config.go b/extension/zpagesextension/config.go
+index 090dbfd6e..6702491ad 100644
+--- a/extension/zpagesextension/config.go
++++ b/extension/zpagesextension/config.go
+@@ -15,7 +15,7 @@ type Config struct {
+ 	// TCPAddr is the address and port in which the zPages will be listening to.
+ 	// Use localhost:<port> to make it available only locally, or ":<port>" to
+ 	// make it available on all network interfaces.
+-	TCPAddr confignet.TCPAddr `mapstructure:",squash"`
++	TCPAddr confignet.TCPAddrConfig `mapstructure:",squash"`
+ }
+ 
+ var _ component.Config = (*Config)(nil)

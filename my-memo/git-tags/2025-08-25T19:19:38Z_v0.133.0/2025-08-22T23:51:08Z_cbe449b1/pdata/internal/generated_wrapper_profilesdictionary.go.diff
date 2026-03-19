@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_profilesdictionary.go b/pdata/internal/generated_wrapper_profilesdictionary.go
+index b98dfb905..5c14475bc 100644
+--- a/pdata/internal/generated_wrapper_profilesdictionary.go
++++ b/pdata/internal/generated_wrapper_profilesdictionary.go
+@@ -16,11 +16,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolProfilesDictionary = sync.Pool{
+-	New: func() any {
+-		return &otlpprofiles.ProfilesDictionary{}
+-	},
+-}
++var (
++	protoPoolProfilesDictionary = sync.Pool{
++		New: func() any {
++			return &otlpprofiles.ProfilesDictionary{}
++		},
++	}
++)
+ 
+ func NewOrigProfilesDictionary() *otlpprofiles.ProfilesDictionary {
+ 	if !UseProtoPooling.IsEnabled() {

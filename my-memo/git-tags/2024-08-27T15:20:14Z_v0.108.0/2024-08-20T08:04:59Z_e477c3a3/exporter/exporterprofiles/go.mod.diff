@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterprofiles/go.mod b/exporter/exporterprofiles/go.mod
+index 32e5846dc..020d85116 100644
+--- a/exporter/exporterprofiles/go.mod
++++ b/exporter/exporterprofiles/go.mod
+@@ -37,8 +37,6 @@ require (
+ 
+ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../../consumer/consumerprofiles
+ 
+-replace go.opentelemetry.io/collector/internal/globalgates => ../../internal/globalgates
+-
+ replace go.opentelemetry.io/collector/extension => ../../extension
+ 
+ replace go.opentelemetry.io/collector => ../..

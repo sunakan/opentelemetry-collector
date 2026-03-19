@@ -1,0 +1,13 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 8a9203cfa..e4c71bc6f 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -41,7 +41,7 @@ lint-unstable:
+ 
+ .PHONY: porto
+ porto:
+-	porto -w --include-internal  ./
++	porto -w --include-internal ./
+ 
+ .PHONY: impi
+ impi:

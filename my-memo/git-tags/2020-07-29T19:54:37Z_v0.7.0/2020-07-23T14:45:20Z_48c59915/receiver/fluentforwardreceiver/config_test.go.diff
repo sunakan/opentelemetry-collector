@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/config_test.go b/receiver/fluentforwardreceiver/config_test.go
+index 74d31e77e..ce4e9c31d 100644
+--- a/receiver/fluentforwardreceiver/config_test.go
++++ b/receiver/fluentforwardreceiver/config_test.go
+@@ -30,7 +30,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.Nil(t, err)
+ 
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	factories.Receivers[configmodels.Type(typeStr)] = factory
+ 	cfg, err := config.LoadConfigFile(
+ 		t, path.Join(".", "testdata", "config.yaml"), factories,

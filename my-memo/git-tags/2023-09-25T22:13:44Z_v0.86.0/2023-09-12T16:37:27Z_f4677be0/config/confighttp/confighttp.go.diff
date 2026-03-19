@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index e73925f51..ebf4f97c3 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -172,7 +172,7 @@ func (hcs *HTTPClientSettings) ToClient(host component.Host, settings component.
+ 		}
+ 	}
+ 
+-	// wrapping http transport with otelhttp transport to enable otel instrumenetation
++	// wrapping http transport with otelhttp transport to enable otel instrumentation
+ 	if settings.TracerProvider != nil && settings.MeterProvider != nil {
+ 		clientTransport = otelhttp.NewTransport(
+ 			clientTransport,

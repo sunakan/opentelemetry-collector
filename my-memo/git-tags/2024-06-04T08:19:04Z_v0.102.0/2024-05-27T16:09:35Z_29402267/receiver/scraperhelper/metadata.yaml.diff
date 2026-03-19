@@ -1,0 +1,14 @@
+diff --git a/receiver/scraperhelper/metadata.yaml b/receiver/scraperhelper/metadata.yaml
+index 7d084ca2b..33a1080e7 100644
+--- a/receiver/scraperhelper/metadata.yaml
++++ b/receiver/scraperhelper/metadata.yaml
+@@ -1,7 +1,8 @@
+ type: scraperhelper
+ 
+ status:
+-  class: pkg
++  class: receiver
++  not_component: true
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib]

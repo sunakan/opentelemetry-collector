@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv1/json_test.go b/translator/trace/zipkinv1/json_test.go
+index 7c904667c..336d0c931 100644
+--- a/translator/trace/zipkinv1/json_test.go
++++ b/translator/trace/zipkinv1/json_test.go
+@@ -29,7 +29,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"google.golang.org/protobuf/types/known/timestamppb"
+ 
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ 	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"
+ )

@@ -1,0 +1,15 @@
+diff --git a/exporter/internal/queue/persistent_queue_test.go b/exporter/internal/queue/persistent_queue_test.go
+index c453b2d76..c6b19e0f2 100644
+--- a/exporter/internal/queue/persistent_queue_test.go
++++ b/exporter/internal/queue/persistent_queue_test.go
+@@ -802,8 +802,8 @@ func TestPersistentQueue_StorageFull(t *testing.T) {
+ }
+ 
+ func TestPersistentQueue_ItemDispatchingFinish_ErrorHandling(t *testing.T) {
+-	errDeletingItem := fmt.Errorf("error deleting item")
+-	errUpdatingDispatched := fmt.Errorf("error updating dispatched items")
++	errDeletingItem := errors.New("error deleting item")
++	errUpdatingDispatched := errors.New("error updating dispatched items")
+ 	testCases := []struct {
+ 		storageErrors []error
+ 		expectedError error

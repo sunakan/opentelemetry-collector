@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+index 6a999e243..515715ec1 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+@@ -40,7 +40,6 @@ func newMemoryScraper(_ context.Context, cfg *Config) *scraper {
+ 	return &scraper{config: cfg, virtualMemory: mem.VirtualMemory}
+ }
+ 
+-// Scrape
+ func (s *scraper) Scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 	metrics := pdata.NewMetricSlice()
+ 

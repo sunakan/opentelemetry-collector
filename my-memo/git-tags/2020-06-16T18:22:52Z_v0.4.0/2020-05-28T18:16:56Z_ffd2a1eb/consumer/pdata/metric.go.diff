@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/metric.go b/consumer/pdata/metric.go
+index 1478d2844..71f0ac288 100644
+--- a/consumer/pdata/metric.go
++++ b/consumer/pdata/metric.go
+@@ -15,7 +15,7 @@
+ package pdata
+ 
+ import (
+-	otlpmetrics "github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1"
++	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
+ )
+ 
+ type MetricType otlpmetrics.MetricDescriptor_Type

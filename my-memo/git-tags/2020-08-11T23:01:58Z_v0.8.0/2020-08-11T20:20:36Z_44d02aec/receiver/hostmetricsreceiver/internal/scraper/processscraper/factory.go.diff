@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+index 4a96706c5..36861a1eb 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+@@ -43,7 +43,7 @@ func (f *Factory) CreateDefaultConfig() internal.Config {
+ 
+ // CreateMetricsScraper creates a resource scraper based on provided config.
+ func (f *Factory) CreateMetricsScraper(
+-	ctx context.Context,
++	_ context.Context,
+ 	_ *zap.Logger,
+ 	config internal.Config,
+ ) (internal.ResourceScraper, error) {

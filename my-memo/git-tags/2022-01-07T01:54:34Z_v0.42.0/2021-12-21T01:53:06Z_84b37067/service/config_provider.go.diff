@@ -1,0 +1,15 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 5123a5c48..c752d9c95 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -71,7 +71,9 @@ type configProvider struct {
+ 	watcher chan error
+ }
+ 
+-func newConfigProvider(configMapProvider configmapprovider.Provider, configUnmarshaler configunmarshaler.ConfigUnmarshaler) ConfigProvider {
++// NewConfigProvider returns a new ConfigProvider that provides the configuration using the given
++// `configMapProvider` and the given `configUnmarshaler`.
++func NewConfigProvider(configMapProvider configmapprovider.Provider, configUnmarshaler configunmarshaler.ConfigUnmarshaler) ConfigProvider {
+ 	return &configProvider{
+ 		configMapProvider: configMapProvider,
+ 		configUnmarshaler: configUnmarshaler,

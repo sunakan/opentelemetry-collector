@@ -1,0 +1,15 @@
+diff --git a/exporter/kafkaexporter/testdata/config.yaml b/exporter/kafkaexporter/testdata/config.yaml
+index 907d80f19..3c8843b49 100644
+--- a/exporter/kafkaexporter/testdata/config.yaml
++++ b/exporter/kafkaexporter/testdata/config.yaml
+@@ -9,6 +9,10 @@ exporters:
+       retry:
+         max: 15
+     timeout: 10s
++    auth:
++      plain_text:
++        username: jdoe
++        password: pass
+     sending_queue:
+       enabled: true
+       num_consumers: 2

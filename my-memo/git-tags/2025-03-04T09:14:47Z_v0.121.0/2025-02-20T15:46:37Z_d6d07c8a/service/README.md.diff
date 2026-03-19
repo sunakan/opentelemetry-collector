@@ -1,0 +1,15 @@
+diff --git a/service/README.md b/service/README.md
+index b954cd85a..42ed5234c 100644
+--- a/service/README.md
++++ b/service/README.md
+@@ -149,3 +149,9 @@ extensions:
+ ```bash
+    ./otelcorecol validate --config=file:examples/local/otel-config.yaml
+ ```
++
++## How to examine the final configuration after merging and resolving from various sources?
++
++```bash
++   ./otelcorecol print-initial-config --config=file:file.yaml --config=http:http://remote:8080/config --config=file:file2.yaml
++```
+\ No newline at end of file

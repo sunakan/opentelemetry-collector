@@ -1,0 +1,19 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+index bedf07bf2..7ee88e8b6 100644
+--- a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+@@ -261,8 +261,12 @@ func newWorkerPool(maxWorkers int) *workerPool {
+ 
+ func (wp *workerPool) execute(f func()) {
+ 	<-wp.workers
+-	go f()
+-	wp.workers <- struct{}{}
++	go func() {
++		defer func() {
++			wp.workers <- struct{}{}
++		}()
++		f()
++	}()
+ }
+ 
+ type multiDone []queue.Done

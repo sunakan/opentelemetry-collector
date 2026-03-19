@@ -1,0 +1,14 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 355dea2b9..5436e8203 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -277,8 +277,7 @@ func TestUintUnmarshalerFailure(t *testing.T) {
+ 	cfg := &UintConfig{}
+ 	err := conf.Unmarshal(cfg)
+ 
+-	require.Error(t, err)
+-	assert.Contains(t, err.Error(), fmt.Sprintf("decoding failed due to the following error(s):\n\ncannot parse 'uint_test', %d overflows uint", testValue))
++	assert.ErrorContains(t, err, fmt.Sprintf("decoding failed due to the following error(s):\n\ncannot parse 'uint_test', %d overflows uint", testValue))
+ }
+ 
+ func TestMapKeyStringToMapKeyTextUnmarshalerHookFuncDuplicateID(t *testing.T) {

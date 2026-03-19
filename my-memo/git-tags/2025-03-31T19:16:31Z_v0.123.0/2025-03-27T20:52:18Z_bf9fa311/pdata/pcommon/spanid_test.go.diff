@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/spanid_test.go b/pdata/pcommon/spanid_test.go
+index 0dffbefd3..1728f7b64 100644
+--- a/pdata/pcommon/spanid_test.go
++++ b/pdata/pcommon/spanid_test.go
+@@ -23,7 +23,7 @@ func TestNewSpanIDEmpty(t *testing.T) {
+ 
+ func TestSpanIDString(t *testing.T) {
+ 	sid := SpanID([8]byte{})
+-	assert.Equal(t, "", sid.String())
++	assert.Empty(t, sid.String())
+ 
+ 	sid = SpanID([8]byte{0x12, 0x23, 0xAD, 0x12, 0x23, 0xAD, 0x12, 0x23})
+ 	assert.Equal(t, "1223ad1223ad1223", sid.String())

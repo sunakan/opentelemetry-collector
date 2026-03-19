@@ -1,0 +1,13 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 591fc4672..af4780a04 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -33,6 +33,8 @@ replace go.opentelemetry.io/collector/exporter => ../exporter
+ 
+ replace go.opentelemetry.io/collector/pdata => ../pdata
+ 
++replace go.opentelemetry.io/collector/processor => ../processor
++
+ replace go.opentelemetry.io/collector/receiver => ../receiver
+ 
+ replace go.opentelemetry.io/collector/semconv => ../semconv

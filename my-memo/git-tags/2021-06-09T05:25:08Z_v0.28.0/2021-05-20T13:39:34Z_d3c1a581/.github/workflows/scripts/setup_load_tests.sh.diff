@@ -1,0 +1,11 @@
+diff --git a/.github/workflows/scripts/setup_load_tests.sh b/.github/workflows/scripts/setup_load_tests.sh
+index 108e626fc..9965421e3 100755
+--- a/.github/workflows/scripts/setup_load_tests.sh
++++ b/.github/workflows/scripts/setup_load_tests.sh
+@@ -14,5 +14,5 @@ else
+     curr="${TESTS[$i]}"
+ fi
+ done
+-MATRIX+="]}"
++MATRIX+=",{\"test\":\"$curr\"}]}"
+ echo "::set-output name=matrix::$MATRIX"

@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/test_bed.go b/testbed/testbed/test_bed.go
+index 8e6463370..4a89cd202 100644
+--- a/testbed/testbed/test_bed.go
++++ b/testbed/testbed/test_bed.go
+@@ -35,7 +35,7 @@ import (
+ 	"testing"
+ 	"text/template"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
++	"go.opentelemetry.io/collector/config"
+ )
+ 
+ // GlobalConfig defines test bed configuration.

@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scraper.go b/receiver/scraperhelper/scraper.go
+index 70bfe099d..f97eb65a4 100644
+--- a/receiver/scraperhelper/scraper.go
++++ b/receiver/scraperhelper/scraper.go
+@@ -67,7 +67,7 @@ func NewScraper(name string, scrape ScrapeFunc, options ...ScraperOption) (Scrap
+ 	}
+ 	bs := &baseScraper{
+ 		ScrapeFunc: scrape,
+-		id:         component.NewID(component.Type(name)),
++		id:         component.NewID(component.MustNewType(name)),
+ 	}
+ 	for _, op := range options {
+ 		op(bs)

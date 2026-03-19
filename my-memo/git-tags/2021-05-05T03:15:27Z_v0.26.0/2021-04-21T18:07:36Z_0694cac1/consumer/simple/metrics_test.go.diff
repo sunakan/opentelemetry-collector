@@ -1,0 +1,20 @@
+diff --git a/consumer/simple/metrics_test.go b/consumer/simple/metrics_test.go
+index 558018a11..d11422c0f 100644
+--- a/consumer/simple/metrics_test.go
++++ b/consumer/simple/metrics_test.go
+@@ -292,13 +292,11 @@ func TestMetrics(t *testing.T) {
+ func TestMetricFactories(t *testing.T) {
+ 	mb := Metrics{
+ 		Metrics: pdata.NewMetrics(),
+-		MetricFactoriesByName: map[string]func() pdata.Metric{
+-			"disk.ops": func() pdata.Metric {
+-				m := pdata.NewMetric()
++		MetricFactoriesByName: map[string]func(pdata.Metric){
++			"disk.ops": func(m pdata.Metric) {
+ 				m.SetName("disk.ops")
+ 				m.SetDescription("This counts disk operations")
+ 				m.SetDataType(pdata.MetricDataTypeIntSum)
+-				return m
+ 			},
+ 		},
+ 		InstrumentationLibraryName:    "example",

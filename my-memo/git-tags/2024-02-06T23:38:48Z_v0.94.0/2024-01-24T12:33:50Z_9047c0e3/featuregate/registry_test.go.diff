@@ -1,0 +1,13 @@
+diff --git a/featuregate/registry_test.go b/featuregate/registry_test.go
+index 0149c45b2..b67bd9aae 100644
+--- a/featuregate/registry_test.go
++++ b/featuregate/registry_test.go
+@@ -33,7 +33,7 @@ func TestRegistry(t *testing.T) {
+ 	assert.False(t, g.IsEnabled())
+ 
+ 	_, err = r.Register(id, StageBeta)
+-	assert.Error(t, err)
++	assert.ErrorIs(t, err, ErrAlreadyRegistered)
+ 	assert.Panics(t, func() {
+ 		r.MustRegister(id, StageBeta)
+ 	})

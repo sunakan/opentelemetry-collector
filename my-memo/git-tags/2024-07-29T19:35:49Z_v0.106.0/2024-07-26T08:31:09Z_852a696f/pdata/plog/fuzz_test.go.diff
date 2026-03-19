@@ -1,0 +1,30 @@
+diff --git a/pdata/plog/fuzz_test.go b/pdata/plog/fuzz_test.go
+new file mode 100644
+index 000000000..aed808a2e
+--- /dev/null
++++ b/pdata/plog/fuzz_test.go
+@@ -0,0 +1,24 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package plog // import "go.opentelemetry.io/collector/pdata/plog"
++
++import (
++	"testing"
++)
++
++func FuzzUnmarshalJsonLogs(f *testing.F) {
++	f.Fuzz(func(_ *testing.T, data []byte) {
++		u := &JSONUnmarshaler{}
++		//nolint: errcheck
++		_, _ = u.UnmarshalLogs(data)
++	})
++}
++
++func FuzzUnmarshalPBLogs(f *testing.F) {
++	f.Fuzz(func(_ *testing.T, data []byte) {
++		u := &ProtoUnmarshaler{}
++		//nolint: errcheck
++		_, _ = u.UnmarshalLogs(data)
++	})
++}

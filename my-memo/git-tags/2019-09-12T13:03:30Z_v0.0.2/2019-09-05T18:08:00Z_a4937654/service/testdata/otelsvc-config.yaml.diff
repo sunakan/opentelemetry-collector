@@ -1,0 +1,16 @@
+diff --git a/service/testdata/otelsvc-config.yaml b/service/testdata/otelsvc-config.yaml
+index 077f12974..fcaf9188a 100644
+--- a/service/testdata/otelsvc-config.yaml
++++ b/service/testdata/otelsvc-config.yaml
+@@ -19,3 +19,11 @@ pipelines:
+     receivers: [jaeger]
+     processors: [attributes, batch, queued-retry]
+     exporters: [opencensus]
++
++extensions:
++  health-check:
++  pprof:
++  zpages:
++
++service:
++  extensions: [pprof, zpages, health-check]

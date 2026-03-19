@@ -1,0 +1,16 @@
+diff --git a/consumer/pdata/generated_common.go b/consumer/pdata/generated_common.go
+index c54f817e4..9c5e7f73d 100644
+--- a/consumer/pdata/generated_common.go
++++ b/consumer/pdata/generated_common.go
+@@ -43,11 +43,6 @@ func NewInstrumentationLibrary() InstrumentationLibrary {
+ 	return newInstrumentationLibrary(&otlpcommon.InstrumentationLibrary{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms InstrumentationLibrary) InitEmpty() {
+-	*ms.orig = otlpcommon.InstrumentationLibrary{}
+-}
+-
+ // Name returns the name associated with this InstrumentationLibrary.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".

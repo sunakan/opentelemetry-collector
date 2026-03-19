@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/templates/config.go.tmpl b/cmd/mdatagen/templates/config.go.tmpl
+index 02f697883..712602222 100644
+--- a/cmd/mdatagen/templates/config.go.tmpl
++++ b/cmd/mdatagen/templates/config.go.tmpl
+@@ -19,7 +19,7 @@ func (ms *MetricConfig) Unmarshal(parser *confmap.Conf) error {
+ 	if parser == nil {
+ 		return nil
+ 	}
+-	err := parser.Unmarshal(ms, confmap.WithErrorUnused())
++	err := parser.Unmarshal(ms)
+ 	if err != nil {
+ 		return err
+ 	}
+@@ -57,7 +57,7 @@ func (rac *ResourceAttributeConfig) Unmarshal(parser *confmap.Conf) error {
+ 	if parser == nil {
+ 		return nil
+ 	}
+-	err := parser.Unmarshal(rac, confmap.WithErrorUnused())
++	err := parser.Unmarshal(rac)
+ 	if err != nil {
+ 		return err
+ 	}

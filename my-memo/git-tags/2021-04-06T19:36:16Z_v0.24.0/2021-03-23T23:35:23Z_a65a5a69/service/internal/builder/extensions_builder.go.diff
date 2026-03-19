@@ -1,0 +1,22 @@
+diff --git a/service/internal/builder/extensions_builder.go b/service/internal/builder/extensions_builder.go
+index b80ece77c..041922d00 100644
+--- a/service/internal/builder/extensions_builder.go
++++ b/service/internal/builder/extensions_builder.go
+@@ -71,7 +71,7 @@ func (exts Extensions) ShutdownAll(ctx context.Context) error {
+ 		}
+ 	}
+ 
+-	return consumererror.CombineErrors(errs)
++	return consumererror.Combine(errs)
+ }
+ 
+ func (exts Extensions) NotifyPipelineReady() error {
+@@ -99,7 +99,7 @@ func (exts Extensions) NotifyPipelineNotReady() error {
+ 		}
+ 	}
+ 
+-	return consumererror.CombineErrors(errs)
++	return consumererror.Combine(errs)
+ }
+ 
+ func (exts Extensions) ToMap() map[configmodels.NamedEntity]component.Extension {

@@ -1,0 +1,18 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 16fef55d9..b3d63c065 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -64,11 +64,11 @@ func Components() (
+ 	}
+ 
+ 	receivers, err := component.MakeReceiverFactoryMap(
+-		&jaegerreceiver.Factory{},
++		jaegerreceiver.NewFactory(),
+ 		&zipkinreceiver.Factory{},
+ 		&prometheusreceiver.Factory{},
+ 		&opencensusreceiver.Factory{},
+-		&otlpreceiver.Factory{},
++		otlpreceiver.NewFactory(),
+ 		hostmetricsreceiver.NewFactory(),
+ 	)
+ 	if err != nil {

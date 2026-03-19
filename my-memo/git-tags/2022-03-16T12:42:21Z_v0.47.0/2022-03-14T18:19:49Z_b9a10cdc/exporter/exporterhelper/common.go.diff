@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index 2096bc090..6f6efbce5 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -32,9 +32,6 @@ type TimeoutSettings struct {
+ 	Timeout time.Duration `mapstructure:"timeout"`
+ }
+ 
+-// Deprecated: [v0.46.0] use NewDefaultTimeoutSettings instead.
+-var DefaultTimeoutSettings = NewDefaultTimeoutSettings
+-
+ // NewDefaultTimeoutSettings returns the default settings for TimeoutSettings.
+ func NewDefaultTimeoutSettings() TimeoutSettings {
+ 	return TimeoutSettings{

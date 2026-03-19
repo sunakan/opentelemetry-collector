@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_int32slice_test.go b/pdata/pcommon/generated_int32slice_test.go
+index 342ff1ba1..3c1a3ed12 100644
+--- a/pdata/pcommon/generated_int32slice_test.go
++++ b/pdata/pcommon/generated_int32slice_test.go
+@@ -52,7 +52,7 @@ func TestInt32SliceReadOnly(t *testing.T) {
+ 	raw := []int32{1, 2, 3}
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	ms := Int32Slice(internal.NewInt32Slice(&raw, sharedState))
++	ms := Int32Slice(internal.NewInt32SliceWrapper(&raw, sharedState))
+ 
+ 	assert.Equal(t, 3, ms.Len())
+ 	assert.Equal(t, int32(1), ms.At(0))

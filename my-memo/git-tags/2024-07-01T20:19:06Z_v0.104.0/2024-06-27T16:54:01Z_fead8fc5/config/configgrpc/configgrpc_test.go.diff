@@ -1,0 +1,27 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index c6009d347..010c415a4 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -32,6 +32,8 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/extension/auth"
+ 	"go.opentelemetry.io/collector/extension/auth/authtest"
++	"go.opentelemetry.io/collector/featuregate"
++	"go.opentelemetry.io/collector/internal/localhostgate"
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
+ )
+ 
+@@ -437,6 +439,13 @@ func TestUseSecure(t *testing.T) {
+ }
+ 
+ func TestGRPCServerWarning(t *testing.T) {
++	prev := localhostgate.UseLocalHostAsDefaultHostfeatureGate.IsEnabled()
++	require.NoError(t, featuregate.GlobalRegistry().Set(localhostgate.UseLocalHostAsDefaultHostID, false))
++	defer func() {
++		// Restore previous value.
++		require.NoError(t, featuregate.GlobalRegistry().Set(localhostgate.UseLocalHostAsDefaultHostID, prev))
++	}()
++
+ 	tests := []struct {
+ 		name     string
+ 		settings ServerConfig

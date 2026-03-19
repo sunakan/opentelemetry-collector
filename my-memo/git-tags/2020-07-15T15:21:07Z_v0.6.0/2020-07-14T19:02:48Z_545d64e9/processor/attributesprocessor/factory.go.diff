@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory.go b/processor/attributesprocessor/factory.go
+index 2ece5af0c..c7a5e34e5 100644
+--- a/processor/attributesprocessor/factory.go
++++ b/processor/attributesprocessor/factory.go
+@@ -36,7 +36,7 @@ func NewFactory() component.ProcessorFactory {
+ 	return processorhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		processorhelper.WithTraceProcessor(createTraceProcessor))
++		processorhelper.WithTraces(createTraceProcessor))
+ }
+ 
+ // Note: This isn't a valid configuration because the processor would do no work.

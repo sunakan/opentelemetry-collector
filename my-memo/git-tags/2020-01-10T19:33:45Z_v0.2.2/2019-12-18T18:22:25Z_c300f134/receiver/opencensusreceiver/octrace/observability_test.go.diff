@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/observability_test.go b/receiver/opencensusreceiver/octrace/observability_test.go
+index c9ab414ca..08c0359c8 100644
+--- a/receiver/opencensusreceiver/octrace/observability_test.go
++++ b/receiver/opencensusreceiver/octrace/observability_test.go
+@@ -126,7 +126,7 @@ func TestExportSpanLinkingMaintainsParentLink(t *testing.T) {
+ 		"Unfortunately did not receive an exported span data. Please check this library's implementation or go.opencensus.io/trace",
+ 	)
+ 
+-	gotSpanData := ocSpansSaver.spanData[:]
++	gotSpanData := ocSpansSaver.spanData
+ 	if g, w := len(gotSpanData), n+1; g != w {
+ 		blob, _ := json.MarshalIndent(gotSpanData, "  ", " ")
+ 		t.Fatalf("Spandata count: Got %d Want %d\n\nData: %s", g, w, blob)

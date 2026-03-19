@@ -1,0 +1,23 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index 9d4fafaab..464c730d4 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -15,7 +15,6 @@
+ package testbed
+ 
+ import (
+-	"context"
+ 	"fmt"
+ 	"log"
+ 
+@@ -50,10 +49,6 @@ type DataReceiverBase struct {
+ 	Port int
+ }
+ 
+-func (mb *DataReceiverBase) Context() context.Context {
+-	return context.Background()
+-}
+-
+ func (mb *DataReceiverBase) ReportFatalError(err error) {
+ 	log.Printf("Fatal error reported: %v", err)
+ }

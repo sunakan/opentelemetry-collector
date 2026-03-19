@@ -1,0 +1,17 @@
+diff --git a/exporter/internal/queue/bounded_memory_queue_test.go b/exporter/internal/queue/bounded_memory_queue_test.go
+index 3a278447c..20816239c 100644
+--- a/exporter/internal/queue/bounded_memory_queue_test.go
++++ b/exporter/internal/queue/bounded_memory_queue_test.go
+@@ -138,10 +138,12 @@ func queueUsage(tb testing.TB, sizer Sizer[fakeReq], requestsCount int) {
+ 		wg.Done()
+ 		return nil
+ 	})
++	require.NoError(tb, q.Start(context.Background(), componenttest.NewNopHost()))
+ 	require.NoError(tb, consumers.Start(context.Background(), componenttest.NewNopHost()))
+ 	for j := 0; j < requestsCount; j++ {
+ 		require.NoError(tb, q.Offer(context.Background(), fakeReq{10}))
+ 	}
++	assert.NoError(tb, q.Shutdown(context.Background()))
+ 	assert.NoError(tb, consumers.Shutdown(context.Background()))
+ 	wg.Wait()
+ }

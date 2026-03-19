@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index eca7f899a..5ba5f8325 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -1,6 +1,8 @@
+ # Sample metadata file with all available configurations for a scraper.
+ 
+ type: sample
++display_name: Sample Scraper
++description: This scraper is used for testing purposes to check the output of mdatagen.
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ sem_conv_version: 1.38.0

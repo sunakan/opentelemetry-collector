@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/delete.go b/internal/cmd/pdatagen/internal/proto/delete.go
+index 52e8a8162..bbcd5a539 100644
+--- a/internal/cmd/pdatagen/internal/proto/delete.go
++++ b/internal/cmd/pdatagen/internal/proto/delete.go
+@@ -8,7 +8,7 @@ import (
+ )
+ 
+ const deleteOther = `{{ if ne .oneOfGroup "" -}}
+-	if UseProtoPooling.IsEnabled() {
++	if metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		ov.{{ .fieldName }} = {{ .defaultValue }}
+ 		ProtoPool{{ .oneOfMessageName }}.Put(ov)
+ 	}

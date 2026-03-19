@@ -1,0 +1,13 @@
+diff --git a/client/client.go b/client/client.go
+index c1b3caaed..18be2c2d3 100644
+--- a/client/client.go
++++ b/client/client.go
+@@ -125,7 +125,7 @@ type AuthData interface {
+ 	// implementations might define different data types for different
+ 	// attributes. While "string" is used most of the time, a key named
+ 	// "membership" might return a list of strings.
+-	GetAttribute(string) interface{}
++	GetAttribute(string) any
+ 
+ 	// GetAttributes returns the names of all attributes in this authentication
+ 	// data.

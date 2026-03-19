@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerproto_test.go b/translator/trace/jaeger/protospan_to_jaegerproto_test.go
+index d9bee49d5..c7f5f1388 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/protospan_to_jaegerproto_test.go
+@@ -27,8 +27,8 @@ import (
+ 	"github.com/google/go-cmp/cmp"
+ 	jaeger "github.com/jaegertracing/jaeger/model"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ func TestNilOCProtoNodeToJaegerProto(t *testing.T) {

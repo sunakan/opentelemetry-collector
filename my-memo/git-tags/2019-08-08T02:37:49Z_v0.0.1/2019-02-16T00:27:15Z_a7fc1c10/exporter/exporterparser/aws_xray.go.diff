@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterparser/aws_xray.go b/exporter/exporterparser/aws_xray.go
+index 8fe6bd0dd..ae2537b5d 100644
+--- a/exporter/exporterparser/aws_xray.go
++++ b/exporter/exporterparser/aws_xray.go
+@@ -172,7 +172,7 @@ func (axe *awsXRayExporter) ExportSpans(ctx context.Context, td data.TraceData)
+ 	if err != nil {
+ 		return err
+ 	}
+-	return exportSpans(ctx, "aws-xray", exp, td)
++	return ocProtoSpansToOCSpanDataInstrumented(ctx, "aws-xray", exp, td)
+ }
+ 
+ func (axe *awsXRayExporter) getOrMakeExporterByServiceName(serviceName string) (*xray.Exporter, error) {

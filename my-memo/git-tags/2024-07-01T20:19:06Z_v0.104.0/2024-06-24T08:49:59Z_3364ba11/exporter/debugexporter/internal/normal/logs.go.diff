@@ -1,0 +1,26 @@
+diff --git a/exporter/debugexporter/internal/normal/logs.go b/exporter/debugexporter/internal/normal/logs.go
+index 9a2ff4cd8..dbf2e5dda 100644
+--- a/exporter/debugexporter/internal/normal/logs.go
++++ b/exporter/debugexporter/internal/normal/logs.go
+@@ -8,7 +8,6 @@ import (
+ 	"fmt"
+ 	"strings"
+ 
+-	"go.opentelemetry.io/collector/pdata/pcommon"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ )
+ 
+@@ -40,13 +39,3 @@ func (normalLogsMarshaler) MarshalLogs(ld plog.Logs) ([]byte, error) {
+ 	}
+ 	return buffer.Bytes(), nil
+ }
+-
+-// writeAttributes returns a slice of strings in the form "attrKey=attrValue"
+-func writeAttributes(attributes pcommon.Map) (attributeStrings []string) {
+-	attributes.Range(func(k string, v pcommon.Value) bool {
+-		attribute := fmt.Sprintf("%s=%s", k, v.AsString())
+-		attributeStrings = append(attributeStrings, attribute)
+-		return true
+-	})
+-	return attributeStrings
+-}

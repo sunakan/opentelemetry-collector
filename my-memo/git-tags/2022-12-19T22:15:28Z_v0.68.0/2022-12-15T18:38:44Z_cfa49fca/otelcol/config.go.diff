@@ -1,0 +1,13 @@
+diff --git a/otelcol/config.go b/otelcol/config.go
+index 14004cdd6..ed196e238 100644
+--- a/otelcol/config.go
++++ b/otelcol/config.go
+@@ -41,7 +41,7 @@ type Config struct {
+ 	// Extensions is a map of ComponentID to extensions.
+ 	Extensions map[component.ID]component.Config
+ 
+-	Service service.ConfigService
++	Service service.Config
+ }
+ 
+ // Validate returns an error if the config is invalid.

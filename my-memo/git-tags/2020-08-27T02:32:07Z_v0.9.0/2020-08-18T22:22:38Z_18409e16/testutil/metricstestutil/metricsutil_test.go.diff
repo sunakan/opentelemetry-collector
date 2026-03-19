@@ -1,0 +1,16 @@
+diff --git a/testutil/metricstestutil/metricsutil_test.go b/testutil/metricstestutil/metricsutil_test.go
+index 5d03162eb..8161f3405 100644
+--- a/testutil/metricstestutil/metricsutil_test.go
++++ b/testutil/metricstestutil/metricsutil_test.go
+@@ -19,9 +19,9 @@ import (
+ 	"time"
+ 
+ 	metricspb "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
+-	timestamppb "github.com/golang/protobuf/ptypes/timestamp"
+-	wrapperspb "github.com/golang/protobuf/ptypes/wrappers"
+ 	"github.com/stretchr/testify/assert"
++	"google.golang.org/protobuf/types/known/timestamppb"
++	"google.golang.org/protobuf/types/known/wrapperspb"
+ )
+ 
+ func TestResourceProcessor(t *testing.T) {

@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/internal/metadata/generated_status.go b/receiver/otlpreceiver/internal/metadata/generated_status.go
+index ec7a695b1..8a7bc0b7b 100644
+--- a/receiver/otlpreceiver/internal/metadata/generated_status.go
++++ b/receiver/otlpreceiver/internal/metadata/generated_status.go
+@@ -9,8 +9,11 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++var (
++	Type = component.MustNewType("otlp")
++)
++
+ const (
+-	Type             = "otlp"
+ 	LogsStability    = component.StabilityLevelBeta
+ 	TracesStability  = component.StabilityLevelStable
+ 	MetricsStability = component.StabilityLevelStable

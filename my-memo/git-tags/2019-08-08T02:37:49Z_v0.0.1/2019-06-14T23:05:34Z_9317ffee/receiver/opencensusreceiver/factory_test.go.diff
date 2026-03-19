@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/factory_test.go b/receiver/opencensusreceiver/factory_test.go
+index bd31d5609..cc13cf845 100644
+--- a/receiver/opencensusreceiver/factory_test.go
++++ b/receiver/opencensusreceiver/factory_test.go
+@@ -21,6 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"github.com/census-instrumentation/opencensus-service/internal/factories"
++	"github.com/census-instrumentation/opencensus-service/internal/testutils"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+@@ -33,6 +34,9 @@ func TestCreateReceiver(t *testing.T) {
+ 	factory := factories.GetReceiverFactory(typeStr)
+ 	cfg := factory.CreateDefaultConfig()
+ 
++	config := cfg.(*ConfigV2)
++	config.Endpoint = testutils.GetAvailableLocalAddress(t)
++
+ 	tReceiver, err := factory.CreateTraceReceiver(context.Background(), cfg, nil)
+ 	assert.NotNil(t, tReceiver)
+ 	assert.Nil(t, err)

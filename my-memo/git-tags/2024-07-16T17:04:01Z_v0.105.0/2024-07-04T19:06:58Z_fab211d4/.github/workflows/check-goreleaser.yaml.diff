@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/check-goreleaser.yaml b/.github/workflows/check-goreleaser.yaml
+index 62d9f26b0..5b0ee1293 100644
+--- a/.github/workflows/check-goreleaser.yaml
++++ b/.github/workflows/check-goreleaser.yaml
+@@ -6,6 +6,9 @@ on:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
+   pull_request:
+ 
++permissions:
++  contents: read
++
+ jobs:
+   check:
+     runs-on: ubuntu-latest

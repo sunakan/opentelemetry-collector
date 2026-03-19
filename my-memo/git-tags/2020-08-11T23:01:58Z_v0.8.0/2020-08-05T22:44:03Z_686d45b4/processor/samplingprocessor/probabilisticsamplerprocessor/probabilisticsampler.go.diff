@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+index 438e14f6a..5664944a9 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -111,7 +111,7 @@ func (tsp *tracesamplerprocessor) GetCapabilities() component.ProcessorCapabilit
+ }
+ 
+ // Start is invoked during service startup.
+-func (tsp *tracesamplerprocessor) Start(ctx context.Context, host component.Host) error {
++func (tsp *tracesamplerprocessor) Start(context.Context, component.Host) error {
+ 	return nil
+ }
+ 

@@ -1,0 +1,16 @@
+diff --git a/pdata/ptrace/pb.go b/pdata/ptrace/pb.go
+index 5af934e1f..b7bada3e0 100644
+--- a/pdata/ptrace/pb.go
++++ b/pdata/ptrace/pb.go
+@@ -19,9 +19,9 @@ import (
+ 	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
+ )
+ 
+-// NewProtoMarshaler returns a MarshalerSizer.
++// NewProtoMarshaler returns a MarshalSizer.
+ // Marshals to OTLP binary protobuf bytes and calculates the size of the marshaled Traces.
+-func NewProtoMarshaler() MarshalerSizer {
++func NewProtoMarshaler() MarshalSizer {
+ 	return newPbMarshaler()
+ }
+ 

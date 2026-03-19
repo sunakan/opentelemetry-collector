@@ -1,0 +1,35 @@
+diff --git a/pdata/ptrace/generated_scopespansslice_test.go b/pdata/ptrace/generated_scopespansslice_test.go
+index 7e9c389ca..c5eb91d0b 100644
+--- a/pdata/ptrace/generated_scopespansslice_test.go
++++ b/pdata/ptrace/generated_scopespansslice_test.go
+@@ -19,6 +19,7 @@ package ptrace
+ 
+ import (
+ 	"testing"
++	"unsafe"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+@@ -118,6 +119,22 @@ func TestScopeSpansSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestScopeSpansSlice_Sort(t *testing.T) {
++	es := generateTestScopeSpansSlice()
++	es.Sort(func(a, b ScopeSpans) bool {
++		return uintptr(unsafe.Pointer(a.orig)) < uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) < uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++	es.Sort(func(a, b ScopeSpans) bool {
++		return uintptr(unsafe.Pointer(a.orig)) > uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) > uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++}
++
+ func generateTestScopeSpansSlice() ScopeSpansSlice {
+ 	es := NewScopeSpansSlice()
+ 	fillTestScopeSpansSlice(es)

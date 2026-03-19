@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/go.mod b/cmd/builder/go.mod
+index c5bf9eb9d..7a3cbadae 100644
+--- a/cmd/builder/go.mod
++++ b/cmd/builder/go.mod
+@@ -3,7 +3,7 @@
+ 
+ module go.opentelemetry.io/collector/cmd/builder
+ 
+-go 1.19
++go 1.20
+ 
+ require (
+ 	github.com/knadh/koanf/parsers/yaml v0.1.0

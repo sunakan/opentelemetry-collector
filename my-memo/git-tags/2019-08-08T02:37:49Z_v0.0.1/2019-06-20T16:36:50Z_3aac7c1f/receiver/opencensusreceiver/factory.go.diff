@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index b963803db..6d4e93e94 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -49,6 +49,8 @@ func (f *receiverFactory) CustomUnmarshaler() factories.CustomUnmarshaler {
+ func (f *receiverFactory) CreateDefaultConfig() configmodels.Receiver {
+ 	return &ConfigV2{
+ 		ReceiverSettings: configmodels.ReceiverSettings{
++			TypeVal:  typeStr,
++			NameVal:  typeStr,
+ 			Endpoint: "127.0.0.1:55678",
+ 			Enabled:  true,
+ 		},

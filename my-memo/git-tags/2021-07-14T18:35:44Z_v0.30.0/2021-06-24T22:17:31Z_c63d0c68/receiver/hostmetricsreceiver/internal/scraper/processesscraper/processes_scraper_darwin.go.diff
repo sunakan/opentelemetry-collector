@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
+index 1f364d455..2499ae809 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
+@@ -19,7 +19,7 @@ package processesscraper
+ import (
+ 	"github.com/shirou/gopsutil/load"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ const unixSystemSpecificMetricsLen = 0

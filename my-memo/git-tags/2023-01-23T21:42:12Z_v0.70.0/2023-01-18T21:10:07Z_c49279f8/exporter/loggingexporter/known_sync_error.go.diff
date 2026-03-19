@@ -1,0 +1,15 @@
+diff --git a/exporter/loggingexporter/known_sync_error.go b/exporter/loggingexporter/known_sync_error.go
+index 76ececa30..b05f526e7 100644
+--- a/exporter/loggingexporter/known_sync_error.go
++++ b/exporter/loggingexporter/known_sync_error.go
+@@ -12,8 +12,8 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-//go:build !windows
+-// +build !windows
++//go:build linux || darwin
++// +build linux darwin
+ 
+ package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"
+ 

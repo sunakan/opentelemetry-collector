@@ -1,0 +1,24 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index 1fa76a7c1..beee491ee 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -49,9 +49,6 @@ var errNextConsumerRespBody = []byte(`"Internal Server Error"`)
+ 
+ // ZipkinReceiver type is used to handle spans received in the Zipkin format.
+ type ZipkinReceiver struct {
+-	// mu protects the fields of this struct
+-	mu sync.Mutex
+-
+ 	// addr is the address onto which the HTTP server will be bound
+ 	host         component.Host
+ 	nextConsumer consumer.Traces
+@@ -95,9 +92,6 @@ func (zr *ZipkinReceiver) Start(_ context.Context, host component.Host) error {
+ 		return errors.New("nil host")
+ 	}
+ 
+-	zr.mu.Lock()
+-	defer zr.mu.Unlock()
+-
+ 	zr.host = host
+ 	zr.server = zr.config.HTTPServerSettings.ToServer(zr)
+ 	var listener net.Listener

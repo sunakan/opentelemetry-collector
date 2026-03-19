@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_test.go
+index c40266b84..564f905cb 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_test.go
+@@ -67,7 +67,7 @@ func TestScrapeMetrics(t *testing.T) {
+ 
+ 			assert.Equal(t, 1, metrics.Len())
+ 
+-			assertMemoryUsageMetricValid(t, metrics.At(0), metadata.Metrics.SystemMemoryUsage)
++			assertMemoryUsageMetricValid(t, metrics.At(0), metadata.Metrics.SystemMemoryUsage.New())
+ 
+ 			if runtime.GOOS == "linux" {
+ 				assertMemoryUsageMetricHasLinuxSpecificStateLabels(t, metrics.At(0))

@@ -1,0 +1,13 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index a9ed7439c..67378d476 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,8 @@
+ 
+ ## Unreleased
+ - Fix reading resource attributes for trace JSON, remove duplicate code. (#6023)
++- Add support to unmarshalls bytes into plogs.Logs with `jsoniter` in jsonUnmarshaler(#5935)
++
+ 
+ ### 🛑 Breaking changes 🛑
+ 

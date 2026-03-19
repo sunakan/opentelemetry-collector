@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/metadata.yaml b/processor/processorhelper/metadata.yaml
+index 75d66636d..7e0c72f5c 100644
+--- a/processor/processorhelper/metadata.yaml
++++ b/processor/processorhelper/metadata.yaml
+@@ -1,7 +1,8 @@
+ type: processorhelper
+ 
+ status:
+-  class: pkg
++  class: processor
++  not_component: true
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib]

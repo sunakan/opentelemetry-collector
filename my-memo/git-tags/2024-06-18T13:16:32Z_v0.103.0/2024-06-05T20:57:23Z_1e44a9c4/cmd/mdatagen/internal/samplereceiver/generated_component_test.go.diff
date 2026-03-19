@@ -1,0 +1,58 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+index d20ac9b6b..46616a207 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+@@ -30,26 +30,26 @@ func TestComponentLifecycle(t *testing.T) {
+ 
+ 	tests := []struct {
+ 		name     string
+-		createFn func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error)
++		createFn func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error)
+ 	}{
+ 
+ 		{
+ 			name: "logs",
+-			createFn: func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error) {
++			createFn: func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error) {
+ 				return factory.CreateLogsReceiver(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+ 
+ 		{
+ 			name: "metrics",
+-			createFn: func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error) {
++			createFn: func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error) {
+ 				return factory.CreateMetricsReceiver(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+ 
+ 		{
+ 			name: "traces",
+-			createFn: func(ctx context.Context, set receiver.CreateSettings, cfg component.Config) (component.Component, error) {
++			createFn: func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error) {
+ 				return factory.CreateTracesReceiver(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+@@ -64,19 +64,19 @@ func TestComponentLifecycle(t *testing.T) {
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {
+-			c, err := test.createFn(context.Background(), receivertest.NewNopCreateSettings(), cfg)
++			c, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+ 			require.NoError(t, err)
+ 			err = c.Shutdown(context.Background())
+ 			require.NoError(t, err)
+ 		})
+ 		t.Run(test.name+"-lifecycle", func(t *testing.T) {
+-			firstRcvr, err := test.createFn(context.Background(), receivertest.NewNopCreateSettings(), cfg)
++			firstRcvr, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+ 			require.NoError(t, err)
+ 			host := componenttest.NewNopHost()
+ 			require.NoError(t, err)
+ 			require.NoError(t, firstRcvr.Start(context.Background(), host))
+ 			require.NoError(t, firstRcvr.Shutdown(context.Background()))
+-			secondRcvr, err := test.createFn(context.Background(), receivertest.NewNopCreateSettings(), cfg)
++			secondRcvr, err := test.createFn(context.Background(), receivertest.NewNopSettings(), cfg)
+ 			require.NoError(t, err)
+ 			require.NoError(t, secondRcvr.Start(context.Background(), host))
+ 			require.NoError(t, secondRcvr.Shutdown(context.Background()))

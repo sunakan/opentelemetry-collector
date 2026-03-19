@@ -1,0 +1,16 @@
+diff --git a/service/internal/servicetelemetry/telemetry_settings.go b/service/internal/servicetelemetry/telemetry_settings.go
+index 06e41c268..55c6b9f39 100644
+--- a/service/internal/servicetelemetry/telemetry_settings.go
++++ b/service/internal/servicetelemetry/telemetry_settings.go
+@@ -50,10 +50,6 @@ func (s TelemetrySettings) ToComponentTelemetrySettings(id *component.InstanceID
+ 		MeterProvider:  s.MeterProvider,
+ 		MetricsLevel:   s.MetricsLevel,
+ 		Resource:       s.Resource,
+-		ReportComponentStatus: func(event *component.StatusEvent) error {
+-			statusFunc(event)
+-			return nil
+-		},
+-		ReportStatus: statusFunc,
++		ReportStatus:   statusFunc,
+ 	}
+ }

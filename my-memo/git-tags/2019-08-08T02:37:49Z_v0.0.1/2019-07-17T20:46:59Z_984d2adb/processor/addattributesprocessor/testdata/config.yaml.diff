@@ -1,0 +1,22 @@
+diff --git a/processor/addattributesprocessor/testdata/config.yaml b/processor/addattributesprocessor/testdata/config.yaml
+index 99d60b391..16819b72b 100644
+--- a/processor/addattributesprocessor/testdata/config.yaml
++++ b/processor/addattributesprocessor/testdata/config.yaml
+@@ -2,8 +2,8 @@ receivers:
+   examplereceiver:
+ 
+ processors:
+-  attributes:
+-  attributes/2:
++  add-attributes:
++  add-attributes/2:
+     values:
+       attribute1: 123
+       "string attribute": "string value"
+@@ -15,5 +15,5 @@ exporters:
+ pipelines:
+   traces:
+     receivers: [examplereceiver]
+-    processors: [attributes]
++    processors: [add-attributes]
+     exporters: [exampleexporter]

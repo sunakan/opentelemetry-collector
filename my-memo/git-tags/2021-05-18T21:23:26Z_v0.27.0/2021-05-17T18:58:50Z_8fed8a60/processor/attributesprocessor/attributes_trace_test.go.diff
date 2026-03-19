@@ -1,0 +1,15 @@
+diff --git a/processor/attributesprocessor/attributes_trace_test.go b/processor/attributesprocessor/attributes_trace_test.go
+index 0590b7b7e..e3291caf3 100644
+--- a/processor/attributesprocessor/attributes_trace_test.go
++++ b/processor/attributesprocessor/attributes_trace_test.go
+@@ -89,8 +89,8 @@ func TestSpanProcessor_NilEmptyData(t *testing.T) {
+ 	testCases := []nilEmptyTestCase{
+ 		{
+ 			name:   "empty",
+-			input:  testdata.GenerateTraceDataEmpty(),
+-			output: testdata.GenerateTraceDataEmpty(),
++			input:  pdata.NewTraces(),
++			output: pdata.NewTraces(),
+ 		},
+ 		{
+ 			name:   "one-empty-resource-spans",

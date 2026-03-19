@@ -1,0 +1,15 @@
+diff --git a/exporter/internal/common/logging_exporter.go b/exporter/internal/common/logging_exporter.go
+index 026018465..1d34f1f56 100644
+--- a/exporter/internal/common/logging_exporter.go
++++ b/exporter/internal/common/logging_exporter.go
+@@ -1,6 +1,10 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++// NOTE: If you are making changes to this file, consider whether you want to make similar changes
++// to the Debug exporter in /exporter/debugexporter/exporter.go, which has similar logic.
++// This is especially important for security issues.
++
+ package common // import "go.opentelemetry.io/collector/exporter/internal/common"
+ 
+ import (

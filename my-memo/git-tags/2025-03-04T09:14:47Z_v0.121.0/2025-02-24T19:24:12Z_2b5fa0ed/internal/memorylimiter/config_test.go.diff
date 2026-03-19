@@ -1,0 +1,22 @@
+diff --git a/internal/memorylimiter/config_test.go b/internal/memorylimiter/config_test.go
+index 320384d34..5861ad683 100644
+--- a/internal/memorylimiter/config_test.go
++++ b/internal/memorylimiter/config_test.go
+@@ -84,6 +84,17 @@ func TestConfigValidate(t *testing.T) {
+ 			},
+ 			err: errSpikeLimitPercentageOutOfRange,
+ 		},
++		{
++			name: "invalid gc intervals",
++			cfg: &Config{
++				CheckInterval:                100 * time.Millisecond,
++				MinGCIntervalWhenSoftLimited: 50 * time.Millisecond,
++				MinGCIntervalWhenHardLimited: 100 * time.Millisecond,
++				MemoryLimitMiB:               5722,
++				MemorySpikeLimitMiB:          1907,
++			},
++			err: errInconsistentGCMinInterval,
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {

@@ -1,0 +1,17 @@
+diff --git a/pdata/pmetric/pmetricotlp/request_test.go b/pdata/pmetric/pmetricotlp/request_test.go
+index d6fe9dbaa..e6eaab488 100644
+--- a/pdata/pmetric/pmetricotlp/request_test.go
++++ b/pdata/pmetric/pmetricotlp/request_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportRequest{}
+-var _ json.Marshaler = ExportRequest{}
++var (
++	_ json.Unmarshaler = ExportRequest{}
++	_ json.Marshaler   = ExportRequest{}
++)
+ 
+ var metricsRequestJSON = []byte(`
+ 	{

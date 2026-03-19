@@ -1,0 +1,18 @@
+diff --git a/pdata/ptrace/generated_spanslice_test.go b/pdata/ptrace/generated_spanslice_test.go
+index 5234810d0..4d799c871 100644
+--- a/pdata/ptrace/generated_spanslice_test.go
++++ b/pdata/ptrace/generated_spanslice_test.go
+@@ -103,6 +103,13 @@ func TestSpanSlice_MoveAndAppendTo(t *testing.T) {
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i))
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
+ 	}
++
++	dest.MoveAndAppendTo(dest)
++	assert.Equal(t, 2*expectedSlice.Len(), dest.Len())
++	for i := 0; i < expectedSlice.Len(); i++ {
++		assert.Equal(t, expectedSlice.At(i), dest.At(i))
++		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
++	}
+ }
+ 
+ func TestSpanSlice_RemoveIf(t *testing.T) {

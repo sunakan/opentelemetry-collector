@@ -1,0 +1,11 @@
+diff --git a/exporter/exporterparser/zipkin.go b/exporter/exporterparser/zipkin.go
+index ab0f5f47e..3f4f4652f 100644
+--- a/exporter/exporterparser/zipkin.go
++++ b/exporter/exporterparser/zipkin.go
+@@ -78,5 +78,5 @@ func (ze *zipkinExporter) ExportSpanData(ctx context.Context, node *commonpb.Nod
+ 	// TODO: Examine "contrib.go.opencensus.io/exporter/zipkin" to see
+ 	// if trace.ExportSpan was constraining and if perhaps the Zipkin
+ 	// upload can use the context and information from the Node.
+-	return exportSpans(ze.exporter, spandata)
++	return exportSpans(ctx, node, "zipkin", ze.exporter, spandata)
+ }

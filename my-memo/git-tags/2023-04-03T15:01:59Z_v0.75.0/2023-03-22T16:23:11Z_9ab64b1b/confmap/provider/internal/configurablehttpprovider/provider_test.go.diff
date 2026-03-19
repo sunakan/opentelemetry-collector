@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/internal/configurablehttpprovider/provider_test.go b/confmap/provider/internal/configurablehttpprovider/provider_test.go
+index 71e9a214a..5ac5b90f2 100644
+--- a/confmap/provider/internal/configurablehttpprovider/provider_test.go
++++ b/confmap/provider/internal/configurablehttpprovider/provider_test.go
+@@ -41,7 +41,7 @@ func newConfigurableHTTPProvider(scheme SchemeType) *provider {
+ 	return New(scheme).(*provider)
+ }
+ 
+-func answerGet(w http.ResponseWriter, r *http.Request) {
++func answerGet(w http.ResponseWriter, _ *http.Request) {
+ 	f, err := os.ReadFile("./testdata/otel-config.yaml")
+ 	if err != nil {
+ 		w.WriteHeader(http.StatusNotFound)

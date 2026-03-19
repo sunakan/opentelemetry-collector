@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index ea02be512..5c88b53c8 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -54,7 +54,7 @@ const (
+ )
+ 
+ // Create new exporter.
+-func newExporter(cfg component.Config, set exporter.CreateSettings) (*baseExporter, error) {
++func newExporter(cfg component.Config, set exporter.Settings) (*baseExporter, error) {
+ 	oCfg := cfg.(*Config)
+ 
+ 	if oCfg.Endpoint != "" {

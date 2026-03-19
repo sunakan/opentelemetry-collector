@@ -1,0 +1,13 @@
+diff --git a/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml b/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml
+index 8ba70ed33..be451ca15 100644
+--- a/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml
++++ b/confmap/internal/e2e/testdata/indirect-slice-env-var-main.yaml
+@@ -6,7 +6,7 @@ receivers:
+ 
+ exporters:
+   nop:
+-  otlp:
++  otlp_grpc:
+     endpoint: localhost:4317
+ 
+ service:

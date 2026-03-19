@@ -1,0 +1,13 @@
+diff --git a/confmap/provider.go b/confmap/provider.go
+index b78221d34..e1c197398 100644
+--- a/confmap/provider.go
++++ b/confmap/provider.go
+@@ -152,7 +152,7 @@ func NewRetrievedFromYAML(yamlBytes []byte, opts ...RetrievedOption) (*Retrieved
+ 			val = string(yamlBytes)
+ 		}
+ 		return NewRetrieved(val, append(opts, withStringRepresentation(val))...)
+-	case int, int32, int64, float32, float64, bool, map[string]any:
++	default:
+ 		opts = append(opts, withStringRepresentation(string(yamlBytes)))
+ 	}
+ 

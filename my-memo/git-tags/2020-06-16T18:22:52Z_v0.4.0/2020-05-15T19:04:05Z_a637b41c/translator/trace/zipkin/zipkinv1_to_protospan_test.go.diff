@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+index 473bd0739..f7411a61b 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+@@ -29,8 +29,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func Test_hexIDToOCID(t *testing.T) {

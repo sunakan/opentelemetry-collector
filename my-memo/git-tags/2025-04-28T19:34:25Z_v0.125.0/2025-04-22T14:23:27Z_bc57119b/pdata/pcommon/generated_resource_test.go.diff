@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_resource_test.go b/pdata/pcommon/generated_resource_test.go
+index 0397781ae..781e57be7 100644
+--- a/pdata/pcommon/generated_resource_test.go
++++ b/pdata/pcommon/generated_resource_test.go
+@@ -21,6 +21,8 @@ func TestResource_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewResource(), ms)
+ 	assert.Equal(t, generateTestResource(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestResource(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newResource(&otlpresource.Resource{}, &sharedState)) })
+ 	assert.Panics(t, func() { newResource(&otlpresource.Resource{}, &sharedState).MoveTo(dest) })

@@ -1,0 +1,31 @@
+diff --git a/service/builder/testdata/pipelines_builder.yaml b/service/builder/testdata/pipelines_builder.yaml
+index 97f37e7d2..0fe828b72 100644
+--- a/service/builder/testdata/pipelines_builder.yaml
++++ b/service/builder/testdata/pipelines_builder.yaml
+@@ -1,15 +1,8 @@
+ receivers:
+   examplereceiver:
+-    enabled: true
+-
+   examplereceiver/2:
+-    enabled: true
+-
+   examplereceiver/3:
+-    enabled: true
+-
+   examplereceiver/multi:
+-    enabled: true
+ 
+ processors:
+   add-attributes:
+@@ -18,10 +11,7 @@ processors:
+ 
+ exporters:
+   exampleexporter:
+-    enabled: true
+-
+   exampleexporter/2:
+-    enabled: true
+ 
+ pipelines:
+   traces:

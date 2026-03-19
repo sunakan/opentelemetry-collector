@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index e10b3d847..127bd66ec 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -168,7 +168,7 @@ type baseExporter struct {
+ func newBaseExporter(set exporter.CreateSettings, signal component.DataType, requestExporter bool, marshaler internal.RequestMarshaler,
+ 	unmarshaler internal.RequestUnmarshaler, osf obsrepSenderFactory, options ...Option) (*baseExporter, error) {
+ 
+-	obsrep, err := newObsExporter(Settings{ExporterID: set.ID, ExporterCreateSettings: set}, globalInstruments)
++	obsrep, err := newObsExporter(ObsReportSettings{ExporterID: set.ID, ExporterCreateSettings: set}, globalInstruments)
+ 	if err != nil {
+ 		return nil, err
+ 	}

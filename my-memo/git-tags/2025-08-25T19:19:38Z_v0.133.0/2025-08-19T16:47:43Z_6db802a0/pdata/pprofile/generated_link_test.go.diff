@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_link_test.go b/pdata/pprofile/generated_link_test.go
+index ea4012e34..6a63c55e0 100644
+--- a/pdata/pprofile/generated_link_test.go
++++ b/pdata/pprofile/generated_link_test.go
+@@ -60,7 +60,6 @@ func TestLink_SpanID(t *testing.T) {
+ }
+ 
+ func generateTestLink() Link {
+-	ms := NewLink()
+-	internal.FillOrigTestLink(ms.orig)
++	ms := newLink(internal.GenTestOrigLink(), internal.NewState())
+ 	return ms
+ }

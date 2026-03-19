@@ -1,0 +1,15 @@
+diff --git a/processor/addattributesprocessor/config.go b/processor/addattributesprocessor/config.go
+index 18e6f0085..e085bcb6c 100644
+--- a/processor/addattributesprocessor/config.go
++++ b/processor/addattributesprocessor/config.go
+@@ -18,8 +18,8 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ )
+ 
+-// ConfigV2 defines configuration for Attributes processor.
+-type ConfigV2 struct {
++// Config defines configuration for Attributes processor.
++type Config struct {
+ 	configmodels.ProcessorSettings `mapstructure:",squash"`
+ 	Overwrite                      bool                   `mapstructure:"overwrite"`
+ 	Values                         map[string]interface{} `mapstructure:"values"`

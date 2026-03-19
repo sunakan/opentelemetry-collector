@@ -1,0 +1,31 @@
+diff --git a/internal/cmd/pdatagen/internal/primitive_slice_field.go b/internal/cmd/pdatagen/internal/primitive_slice_field.go
+index 6c67f695c..4e5198ac5 100644
+--- a/internal/cmd/pdatagen/internal/primitive_slice_field.go
++++ b/internal/cmd/pdatagen/internal/primitive_slice_field.go
+@@ -34,6 +34,14 @@ const primitiveSliceMarshalJSONTemplate = `dest.WriteObjectField("{{ lowerFirst
+ 	ms.{{ .fieldName }}().marshalJSONStream(dest)
+ 	{{- end }}`
+ 
++const primitiveSliceUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
++	{{- if .isCommon }}
++	{{ if not .isBaseStructCommon }}internal.{{ end }}UnmarshalJSONIter{{ .returnType }}(
++	{{- if not .isBaseStructCommon }}internal.{{ end }}New{{ .returnType }}(&ms.orig.{{ .originFieldName }}, ms.state), iter)
++	{{- else }}
++	ms.{{ .fieldName }}().unmarshalJSONIter(iter)
++	{{- end }}`
++
+ // PrimitiveSliceField is used to generate fields for slice of primitive types
+ type PrimitiveSliceField struct {
+ 	fieldName         string
+@@ -69,6 +77,11 @@ func (psf *PrimitiveSliceField) GenerateMarshalJSON(ms *messageStruct) string {
+ 	return executeTemplate(t, psf.templateFields(ms))
+ }
+ 
++func (psf *PrimitiveSliceField) GenerateUnmarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("primitiveSliceUnmarshalJSONTemplate").Parse(primitiveSliceUnmarshalJSONTemplate))
++	return executeTemplate(t, psf.templateFields(ms))
++}
++
+ func (psf *PrimitiveSliceField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName": ms.getName(),

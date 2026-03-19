@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory_test.go b/exporter/otlphttpexporter/factory_test.go
+index 47973b6ec..107c565fd 100644
+--- a/exporter/otlphttpexporter/factory_test.go
++++ b/exporter/otlphttpexporter/factory_test.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configcheck"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

@@ -1,0 +1,19 @@
+diff --git a/otelcol/otelcoltest/config.go b/otelcol/otelcoltest/config.go
+index 9b7e7a0c6..8e4148292 100644
+--- a/otelcol/otelcoltest/config.go
++++ b/otelcol/otelcoltest/config.go
+@@ -6,6 +6,7 @@ package otelcoltest // import "go.opentelemetry.io/collector/otelcol/otelcoltest
+ import (
+ 	"context"
+ 
++	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/confmap/provider/envprovider"
+ 	"go.opentelemetry.io/collector/confmap/provider/fileprovider"
+@@ -40,5 +41,5 @@ func LoadConfigAndValidate(fileName string, factories otelcol.Factories) (*otelc
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	return cfg, cfg.Validate()
++	return cfg, component.ValidateConfig(cfg)
+ }

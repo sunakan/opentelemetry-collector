@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 141ce128f..4def50ef2 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -105,7 +105,7 @@ var metricSlice = &sliceOfPtrs{
+ var metric = &messageValueStruct{
+ 	structName: "Metric",
+ 	description: "// Metric represents one metric as a collection of datapoints.\n" +
+-		"// See Metric definition in OTLP: https://github.com/open-telemetry/opentelemetry-proto/blob/master/opentelemetry/proto/metrics/v1/metrics.proto",
++		"// See Metric definition in OTLP: https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/metrics/v1/metrics.proto",
+ 	originFullName: "otlpmetrics.Metric",
+ 	fields: []baseField{
+ 		nameField,

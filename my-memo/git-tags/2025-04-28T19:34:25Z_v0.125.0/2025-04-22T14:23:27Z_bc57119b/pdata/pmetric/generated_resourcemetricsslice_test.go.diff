@@ -1,0 +1,18 @@
+diff --git a/pdata/pmetric/generated_resourcemetricsslice_test.go b/pdata/pmetric/generated_resourcemetricsslice_test.go
+index 9198f6d7f..8d714c1a4 100644
+--- a/pdata/pmetric/generated_resourcemetricsslice_test.go
++++ b/pdata/pmetric/generated_resourcemetricsslice_test.go
+@@ -103,6 +103,13 @@ func TestResourceMetricsSlice_MoveAndAppendTo(t *testing.T) {
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i))
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
+ 	}
++
++	dest.MoveAndAppendTo(dest)
++	assert.Equal(t, 2*expectedSlice.Len(), dest.Len())
++	for i := 0; i < expectedSlice.Len(); i++ {
++		assert.Equal(t, expectedSlice.At(i), dest.At(i))
++		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
++	}
+ }
+ 
+ func TestResourceMetricsSlice_RemoveIf(t *testing.T) {

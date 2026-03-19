@@ -1,0 +1,13 @@
+diff --git a/cmd/ocagent/config.go b/cmd/ocagent/config.go
+index 16625b9fb..4973cd1f5 100644
+--- a/cmd/ocagent/config.go
++++ b/cmd/ocagent/config.go
+@@ -214,7 +214,7 @@ func exportersFromYAMLConfig(config []byte) (traceExporters []exporter.TraceExpo
+ 		for _, te := range tes {
+ 			if te != nil {
+ 				traceExporters = append(traceExporters, te)
+-				nonNilExporters += 1
++				nonNilExporters++
+ 			}
+ 		}
+ 

@@ -1,0 +1,32 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index 266bc99c0..12a269f7d 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -56,8 +56,7 @@ func createTracesProcessor(
+ 	cfg component.Config,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesProcessor, error) {
+-	level := set.MetricsLevel
+-	return newBatchTracesProcessor(set, nextConsumer, cfg.(*Config), level, featuregate.GetRegistry())
++	return newBatchTracesProcessor(set, nextConsumer, cfg.(*Config), featuregate.GetRegistry())
+ }
+ 
+ func createMetricsProcessor(
+@@ -66,8 +65,7 @@ func createMetricsProcessor(
+ 	cfg component.Config,
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsProcessor, error) {
+-	level := set.MetricsLevel
+-	return newBatchMetricsProcessor(set, nextConsumer, cfg.(*Config), level, featuregate.GetRegistry())
++	return newBatchMetricsProcessor(set, nextConsumer, cfg.(*Config), featuregate.GetRegistry())
+ }
+ 
+ func createLogsProcessor(
+@@ -76,6 +74,5 @@ func createLogsProcessor(
+ 	cfg component.Config,
+ 	nextConsumer consumer.Logs,
+ ) (component.LogsProcessor, error) {
+-	level := set.MetricsLevel
+-	return newBatchLogsProcessor(set, nextConsumer, cfg.(*Config), level, featuregate.GetRegistry())
++	return newBatchLogsProcessor(set, nextConsumer, cfg.(*Config), featuregate.GetRegistry())
+ }

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue.go b/exporter/exporterhelper/internal/persistent_queue.go
+index 3f95a8965..290e36d78 100644
+--- a/exporter/exporterhelper/internal/persistent_queue.go
++++ b/exporter/exporterhelper/internal/persistent_queue.go
+@@ -12,9 +12,6 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-//go:build enable_unstable
+-// +build enable_unstable
+-
+ package internal // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 
+ import (

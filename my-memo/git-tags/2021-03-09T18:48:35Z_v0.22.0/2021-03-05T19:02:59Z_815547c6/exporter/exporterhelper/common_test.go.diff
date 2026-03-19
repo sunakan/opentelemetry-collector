@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 23718d422..92d959251 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -27,6 +27,8 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
++var okStatus = trace.Status{Code: trace.StatusCodeOK}
++
+ var defaultExporterCfg = &configmodels.ExporterSettings{
+ 	TypeVal: "test",
+ 	NameVal: "test",

@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_scraper.go b/obsreport/obsreport_scraper.go
+index 3d496c24d..3c3717281 100644
+--- a/obsreport/obsreport_scraper.go
++++ b/obsreport/obsreport_scraper.go
+@@ -87,7 +87,7 @@ func (s *Scraper) EndMetricsOp(
+ 
+ 	span := trace.SpanFromContext(scraperCtx)
+ 
+-	if obsreportconfig.Level != configtelemetry.LevelNone {
++	if obsreportconfig.Level() != configtelemetry.LevelNone {
+ 		stats.Record(
+ 			scraperCtx,
+ 			obsmetrics.ScraperScrapedMetricPoints.M(int64(numScrapedMetrics)),

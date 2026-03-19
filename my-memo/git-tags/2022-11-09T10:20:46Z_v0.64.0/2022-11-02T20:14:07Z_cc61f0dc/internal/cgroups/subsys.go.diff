@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/subsys.go b/internal/cgroups/subsys.go
+index 40d453ad3..b4a529056 100644
+--- a/internal/cgroups/subsys.go
++++ b/internal/cgroups/subsys.go
+@@ -70,7 +70,7 @@ type CGroupSubsys struct {
+ // NewCGroupSubsysFromLine returns a new *CGroupSubsys by parsing a string in
+ // the format of `/proc/$PID/cgroup`
+ func NewCGroupSubsysFromLine(line string) (*CGroupSubsys, error) {
+-	fields := strings.Split(line, _cgroupSep)
++	fields := strings.SplitN(line, _cgroupSep, _csFieldCount)
+ 
+ 	if len(fields) != _csFieldCount {
+ 		return nil, cgroupSubsysFormatInvalidError{line}

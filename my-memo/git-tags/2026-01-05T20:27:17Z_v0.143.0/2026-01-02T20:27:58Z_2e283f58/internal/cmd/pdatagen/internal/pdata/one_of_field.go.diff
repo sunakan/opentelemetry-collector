@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/one_of_field.go b/internal/cmd/pdatagen/internal/pdata/one_of_field.go
+index d0610bd3a..014d368e3 100644
+--- a/internal/cmd/pdatagen/internal/pdata/one_of_field.go
++++ b/internal/cmd/pdatagen/internal/pdata/one_of_field.go
+@@ -178,6 +178,10 @@ func (of *oneOfProtoField) DefaultValue() string {
+ 	panic("implement me")
+ }
+ 
++func (of *oneOfProtoField) GenTest() string {
++	return "orig." + of.GetName() + " = " + of.TestValue()
++}
++
+ func (of *oneOfProtoField) TestValue() string {
+ 	return "&" + of.protoName + "_" + of.fields[0].GetName() + "{" + of.fields[0].GetName() + ": " + of.fields[0].TestValue() + "}"
+ }

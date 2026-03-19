@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index 4c7fac2f5..99dad5b8c 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -17,6 +17,7 @@ package defaults
+ 
+ import (
+ 	"github.com/open-telemetry/opentelemetry-service/exporter"
++	"github.com/open-telemetry/opentelemetry-service/exporter/jaeger/jaegergrpcexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/loggingexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/opencensusexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/prometheusexporter"
+@@ -60,6 +61,7 @@ func Components() (
+ 		&prometheusexporter.Factory{},
+ 		&loggingexporter.Factory{},
+ 		&zipkinexporter.Factory{},
++		&jaegergrpcexporter.Factory{},
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

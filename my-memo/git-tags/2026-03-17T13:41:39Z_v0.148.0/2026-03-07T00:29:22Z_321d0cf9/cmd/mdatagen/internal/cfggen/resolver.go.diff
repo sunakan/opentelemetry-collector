@@ -1,0 +1,21 @@
+diff --git a/cmd/mdatagen/internal/cfggen/resolver.go b/cmd/mdatagen/internal/cfggen/resolver.go
+index 5eb2e4fff..1f7a22853 100644
+--- a/cmd/mdatagen/internal/cfggen/resolver.go
++++ b/cmd/mdatagen/internal/cfggen/resolver.go
+@@ -75,8 +75,6 @@ func (r *Resolver) resolveSchema(root, current, target *ConfigMetadata, origin *
+ 		current = resolved
+ 	}
+ 
+-	transformDurationFormat(current)
+-
+ 	currRef := reflect.ValueOf(current).Elem()
+ 	targetRef := reflect.ValueOf(target).Elem()
+ 
+@@ -139,6 +137,7 @@ func (r *Resolver) resolveSchema(root, current, target *ConfigMetadata, origin *
+ 			targetField.Set(field)
+ 		}
+ 	}
++	transformDurationFormat(target)
+ 	target.Defs = nil // Clear defs after resolution to avoid confusion
+ 	return nil
+ }

@@ -1,0 +1,14 @@
+diff --git a/exporter/debugexporter/generated_component_test.go b/exporter/debugexporter/generated_component_test.go
+index 032aeb51d..cf0228393 100644
+--- a/exporter/debugexporter/generated_component_test.go
++++ b/exporter/debugexporter/generated_component_test.go
+@@ -32,8 +32,8 @@ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 
+ 	tests := []struct {
+-		name     string
+ 		createFn func(ctx context.Context, set exporter.Settings, cfg component.Config) (component.Component, error)
++		name     string
+ 	}{
+ 
+ 		{

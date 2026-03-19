@@ -1,0 +1,17 @@
+diff --git a/translator/trace/zipkinv2/to_translator.go b/translator/trace/zipkinv2/to_translator.go
+index 05bf2db5d..7af4dfdb1 100644
+--- a/translator/trace/zipkinv2/to_translator.go
++++ b/translator/trace/zipkinv2/to_translator.go
+@@ -25,11 +25,11 @@ import (
+ 
+ 	zipkinmodel "github.com/openzipkin/zipkin-go/model"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/data"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/internal/idutils"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ 	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"

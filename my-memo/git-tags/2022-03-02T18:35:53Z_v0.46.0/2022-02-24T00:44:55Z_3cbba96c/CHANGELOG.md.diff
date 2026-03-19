@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 9c3c21537..1475f9bc0 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -30,6 +30,7 @@
+   - Deprecated `receiverhelper.WithMetrics` in favour of `component.WithMetricsReceiver`
+   - Deprecated `receiverhelper.WithLogs` in favour of `component.WithLogsReceiver`
+   - Deprecated `receiverhelper.NewFactory` in favour of `component.NewReceiverFactory`
++- Remove support for legacy otlp/http port. (#4916)
+ 
+ ### 💡 Enhancements 💡
+ 

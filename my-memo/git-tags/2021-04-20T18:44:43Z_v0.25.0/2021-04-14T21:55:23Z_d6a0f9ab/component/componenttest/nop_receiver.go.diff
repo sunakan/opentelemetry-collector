@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index 839e97de7..fb73bd2b2 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -65,7 +65,7 @@ func (f *nopReceiverFactory) CreateMetricsReceiver(
+ 	return nopReceiverInstance, nil
+ }
+ 
+-// CreateMetricsReceiver implements component.ReceiverFactory interface.
++// CreateLogsReceiver implements component.ReceiverFactory interface.
+ func (f *nopReceiverFactory) CreateLogsReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,

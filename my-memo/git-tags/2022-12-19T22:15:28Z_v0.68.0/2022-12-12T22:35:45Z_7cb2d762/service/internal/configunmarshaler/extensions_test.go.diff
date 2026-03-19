@@ -1,0 +1,12 @@
+diff --git a/service/internal/configunmarshaler/extensions_test.go b/service/internal/configunmarshaler/extensions_test.go
+index 0610dbeb2..53febe9bf 100644
+--- a/service/internal/configunmarshaler/extensions_test.go
++++ b/service/internal/configunmarshaler/extensions_test.go
+@@ -38,7 +38,6 @@ func TestExtensionsUnmarshal(t *testing.T) {
+ 	require.NoError(t, exts.Unmarshal(conf))
+ 
+ 	cfgWithName := factories["nop"].CreateDefaultConfig()
+-	cfgWithName.SetIDName("myextension") //nolint:staticcheck
+ 	assert.Equal(t, map[component.ID]component.Config{
+ 		component.NewID("nop"):                        factories["nop"].CreateDefaultConfig(),
+ 		component.NewIDWithName("nop", "myextension"): cfgWithName,

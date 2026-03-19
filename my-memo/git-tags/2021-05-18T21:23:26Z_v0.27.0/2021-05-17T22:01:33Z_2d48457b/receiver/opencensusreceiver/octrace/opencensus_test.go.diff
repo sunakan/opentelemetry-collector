@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index 3939c8c3b..f989cf2d0 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -64,7 +64,7 @@ func TestReceiver_endToEnd(t *testing.T) {
+ 		require.NoError(t, oce.Shutdown(context.Background()))
+ 	}()
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	assert.NoError(t, oce.ConsumeTraces(context.Background(), td))
+ 
+ 	assert.Eventually(t, func() bool {

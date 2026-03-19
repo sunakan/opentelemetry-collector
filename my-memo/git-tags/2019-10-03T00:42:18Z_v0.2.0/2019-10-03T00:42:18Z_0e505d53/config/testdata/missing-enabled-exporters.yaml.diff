@@ -1,0 +1,19 @@
+diff --git a/config/testdata/missing-enabled-exporters.yaml b/config/testdata/missing-enabled-exporters.yaml
+index 9f377780b..5d648f869 100644
+--- a/config/testdata/missing-enabled-exporters.yaml
++++ b/config/testdata/missing-enabled-exporters.yaml
+@@ -8,8 +8,9 @@ exporters:
+ processors:
+   exampleprocessor:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver/one]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter/disabled]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver/one]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter/disabled]

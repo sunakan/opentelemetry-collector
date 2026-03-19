@@ -1,0 +1,20 @@
+diff --git a/translator/trace/jaeger/testdata/ocproto_batch_02.json b/translator/trace/jaeger/testdata/ocproto_batch_02.json
+index a86d69f0c..0ff82536d 100644
+--- a/translator/trace/jaeger/testdata/ocproto_batch_02.json
++++ b/translator/trace/jaeger/testdata/ocproto_batch_02.json
+@@ -1,12 +1,13 @@
+ {
+-    "node": {
++    "Node": {
+       "identifier": {},
+       "library_info": {},
+       "service_info": {
+         "name": "api"
+       }
+     },
+-    "spans": [
++    "Resource": null,
++    "Spans": [
+       {
+         "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+         "span_id": "AAAAAABkfZg=",

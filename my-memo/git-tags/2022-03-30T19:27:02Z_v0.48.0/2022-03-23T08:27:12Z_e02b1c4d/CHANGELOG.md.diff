@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index bb609ed1a..a403e304d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -14,6 +14,7 @@
+ 
+ ### 🚩 Deprecations 🚩
+ 
++- Move MapProvider to config, split providers in their own package (#5030)
+ - API related to `pdata.AttributeValue` is deprecated in favor of `pdata.Value` (#4975)
+   - `pdata.AttributeValue` struct is deprecated in favor of `pdata.Value`
+   - `pdata.AttributeValueType` type is deprecated in favor of `pdata.ValueType`

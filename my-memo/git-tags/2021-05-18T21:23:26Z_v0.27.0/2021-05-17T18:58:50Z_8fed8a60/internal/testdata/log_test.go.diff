@@ -1,0 +1,16 @@
+diff --git a/internal/testdata/log_test.go b/internal/testdata/log_test.go
+index 27eb489c3..8da2f0165 100644
+--- a/internal/testdata/log_test.go
++++ b/internal/testdata/log_test.go
+@@ -32,11 +32,6 @@ type logTestCase struct {
+ 
+ func generateAllLogTestCases() []logTestCase {
+ 	return []logTestCase{
+-		{
+-			name: "empty",
+-			ld:   GenerateLogDataEmpty(),
+-			otlp: generateLogOtlpEmpty(),
+-		},
+ 		{
+ 			name: "one-empty-resource-logs",
+ 			ld:   GenerateLogDataOneEmptyResourceLogs(),

@@ -1,0 +1,19 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-processor.yaml b/config/configunmarshaler/testdata/duplicate-processor.yaml
+deleted file mode 100644
+index 0871b540f..000000000
+--- a/config/configunmarshaler/testdata/duplicate-processor.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor/ proc:
+-  exampleprocessor /proc :
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

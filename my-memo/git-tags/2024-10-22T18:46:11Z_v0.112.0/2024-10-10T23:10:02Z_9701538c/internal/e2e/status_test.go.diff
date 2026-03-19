@@ -1,0 +1,19 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index 67dc15680..02cd49beb 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -239,12 +239,12 @@ func newExtensionFactory() extension.Factory {
+ 	return extension.NewFactory(
+ 		component.MustNewType("watcher"),
+ 		createDefaultExtensionConfig,
+-		createExtension,
++		create,
+ 		component.StabilityLevelStable,
+ 	)
+ }
+ 
+-func createExtension(_ context.Context, _ extension.Settings, cfg component.Config) (extension.Extension, error) {
++func create(_ context.Context, _ extension.Settings, cfg component.Config) (extension.Extension, error) {
+ 	oCfg := cfg.(*extensionConfig)
+ 	return &testExtension{
+ 		eventsReceived: oCfg.eventsReceived,

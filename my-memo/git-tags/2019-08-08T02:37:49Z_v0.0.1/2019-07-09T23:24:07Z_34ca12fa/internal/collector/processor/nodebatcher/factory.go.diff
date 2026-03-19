@@ -1,0 +1,22 @@
+diff --git a/internal/collector/processor/nodebatcher/factory.go b/internal/collector/processor/nodebatcher/factory.go
+index f6ea379c8..faa056a1e 100644
+--- a/internal/collector/processor/nodebatcher/factory.go
++++ b/internal/collector/processor/nodebatcher/factory.go
+@@ -46,7 +46,7 @@ func (f *factory) CreateDefaultConfig() configmodels.Processor {
+ 	tickTime := defaultTickTime
+ 	timeout := defaultTimeout
+ 
+-	return &ConfigV2{
++	return &Config{
+ 		ProcessorSettings: configmodels.ProcessorSettings{
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+@@ -65,7 +65,7 @@ func (f *factory) CreateTraceProcessor(
+ 	nextConsumer consumer.TraceConsumer,
+ 	c configmodels.Processor,
+ ) (processor.TraceProcessor, error) {
+-	cfg := c.(*ConfigV2)
++	cfg := c.(*Config)
+ 
+ 	var batchingOptions []Option
+ 	if cfg.Timeout != nil {

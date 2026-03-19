@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/metric_data_point_flags.go b/pdata/pmetric/metric_data_point_flags.go
+index 872e8f0fa..6338b9b7d 100644
+--- a/pdata/pmetric/metric_data_point_flags.go
++++ b/pdata/pmetric/metric_data_point_flags.go
+@@ -37,9 +37,3 @@ func (ms DataPointFlags) WithNoRecordedValue(b bool) DataPointFlags {
+ 	}
+ 	return DataPointFlags(orig)
+ }
+-
+-// Deprecated: [0.62.0] Use DefaultDataPointFlags instead.
+-var DefaultMetricDataPointFlags = DefaultDataPointFlags
+-
+-// Deprecated: [0.62.0] Use DataPointFlags instead.
+-type MetricDataPointFlags = DataPointFlags

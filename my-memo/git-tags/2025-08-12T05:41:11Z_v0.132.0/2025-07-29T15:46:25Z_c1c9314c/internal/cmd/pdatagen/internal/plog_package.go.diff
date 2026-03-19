@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/plog_package.go b/internal/cmd/pdatagen/internal/plog_package.go
+index eaf00701e..6abfbcd28 100644
+--- a/internal/cmd/pdatagen/internal/plog_package.go
++++ b/internal/cmd/pdatagen/internal/plog_package.go
+@@ -126,7 +126,7 @@ var logRecord = &messageStruct{
+ 			returnType: &TypedType{
+ 				structName: "SeverityNumber",
+ 				rawType:    "otlplogs.SeverityNumber",
+-				isType:     true,
++				isEnum:     true,
+ 				defaultVal: `otlplogs.SeverityNumber(0)`,
+ 				testVal:    `otlplogs.SeverityNumber(5)`,
+ 			},

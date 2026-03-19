@@ -1,0 +1,13 @@
+diff --git a/cmd/ocagent/config.go b/cmd/ocagent/config.go
+index 4973cd1f5..2ed6e0451 100644
+--- a/cmd/ocagent/config.go
++++ b/cmd/ocagent/config.go
+@@ -141,7 +141,7 @@ func (c *config) checkLogicalConflicts(blob []byte) error {
+ 		return err
+ 	}
+ 
+-	if cfg.Exporters == nil || cfg.Exporters.Zipkin == nil {
++	if cfg.Exporters == nil || cfg.Exporters.Zipkin == nil || !c.zipkinInterceptorEnabled() {
+ 		return nil
+ 	}
+ 

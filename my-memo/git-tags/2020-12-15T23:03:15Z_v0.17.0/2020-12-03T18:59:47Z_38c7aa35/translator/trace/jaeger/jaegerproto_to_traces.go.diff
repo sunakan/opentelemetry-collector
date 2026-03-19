@@ -1,0 +1,12 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces.go b/translator/trace/jaeger/jaegerproto_to_traces.go
+index 1698ce631..19e8e06b0 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces.go
+@@ -266,7 +266,6 @@ func setInternalSpanStatus(attrs pdata.AttributeMap, dest pdata.SpanStatus) {
+ 	}
+ 
+ 	if statusExists {
+-		dest.InitEmpty()
+ 		dest.SetCode(statusCode)
+ 		dest.SetMessage(statusMessage)
+ 	}

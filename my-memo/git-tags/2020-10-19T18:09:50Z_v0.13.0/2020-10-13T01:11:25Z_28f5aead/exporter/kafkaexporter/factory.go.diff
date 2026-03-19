@@ -1,0 +1,23 @@
+diff --git a/exporter/kafkaexporter/factory.go b/exporter/kafkaexporter/factory.go
+index 788126bf9..f3876d7af 100644
+--- a/exporter/kafkaexporter/factory.go
++++ b/exporter/kafkaexporter/factory.go
+@@ -63,9 +63,6 @@ func NewFactory(options ...FactoryOption) component.ExporterFactory {
+ }
+ 
+ func createDefaultConfig() configmodels.Exporter {
+-	// TODO: Enable the queued settings by default.
+-	qs := exporterhelper.CreateDefaultQueueSettings()
+-	qs.Enabled = false
+ 	return &Config{
+ 		ExporterSettings: configmodels.ExporterSettings{
+ 			TypeVal: typeStr,
+@@ -73,7 +70,7 @@ func createDefaultConfig() configmodels.Exporter {
+ 		},
+ 		TimeoutSettings: exporterhelper.CreateDefaultTimeoutSettings(),
+ 		RetrySettings:   exporterhelper.CreateDefaultRetrySettings(),
+-		QueueSettings:   qs,
++		QueueSettings:   exporterhelper.CreateDefaultQueueSettings(),
+ 		Brokers:         []string{defaultBroker},
+ 		Topic:           defaultTopic,
+ 		Encoding:        defaultEncoding,

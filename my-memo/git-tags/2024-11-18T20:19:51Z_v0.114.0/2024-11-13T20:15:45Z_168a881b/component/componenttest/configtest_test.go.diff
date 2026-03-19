@@ -1,0 +1,21 @@
+diff --git a/component/componenttest/configtest_test.go b/component/componenttest/configtest_test.go
+index 51b59eb31..70f776b03 100644
+--- a/component/componenttest/configtest_test.go
++++ b/component/componenttest/configtest_test.go
+@@ -5,7 +5,6 @@ package componenttest
+ 
+ import (
+ 	"io"
+-	"strings"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -141,7 +140,7 @@ func TestCheckConfigStruct(t *testing.T) {
+ 				assert.NoError(t, err)
+ 			} else {
+ 				require.Error(t, err)
+-				assert.True(t, strings.Contains(err.Error(), tt.wantErrMsgSubStr))
++				assert.Contains(t, err.Error(), tt.wantErrMsgSubStr)
+ 			}
+ 		})
+ 	}

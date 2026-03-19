@@ -1,0 +1,13 @@
+diff --git a/cmd/configschema/docsgen/docsgen/cli_test.go b/cmd/configschema/docsgen/docsgen/cli_test.go
+index d91b83d32..70481d405 100644
+--- a/cmd/configschema/docsgen/docsgen/cli_test.go
++++ b/cmd/configschema/docsgen/docsgen/cli_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/cmd/configschema/configschema"
++	"go.opentelemetry.io/collector/cmd/configschema"
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/receiver/otlpreceiver"
+ 	"go.opentelemetry.io/collector/service/defaultcomponents"

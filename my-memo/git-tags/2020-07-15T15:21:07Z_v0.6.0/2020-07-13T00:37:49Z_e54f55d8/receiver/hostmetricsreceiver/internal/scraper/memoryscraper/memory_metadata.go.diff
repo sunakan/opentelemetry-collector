@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
+index a43a0c86d..3c077d41d 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
+@@ -27,6 +27,7 @@ const stateLabelName = "state"
+ const (
+ 	bufferedStateLabelValue          = "buffered"
+ 	cachedStateLabelValue            = "cached"
++	inactiveStateLabelValue          = "inactive"
+ 	freeStateLabelValue              = "free"
+ 	slabReclaimableStateLabelValue   = "slab_reclaimable"
+ 	slabUnreclaimableStateLabelValue = "slab_unreclaimable"

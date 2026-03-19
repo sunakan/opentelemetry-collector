@@ -1,0 +1,18 @@
+diff --git a/extension/auth/authtest/mock_clientauth.go b/extension/auth/authtest/mock_clientauth.go
+deleted file mode 100644
+index 699971e93..000000000
+--- a/extension/auth/authtest/mock_clientauth.go
++++ /dev/null
+@@ -1,12 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package authtest // import "go.opentelemetry.io/collector/extension/auth/authtest"
+-
+-import (
+-	"go.opentelemetry.io/collector/extension/extensionauth/extensionauthtest"
+-)
+-
+-// MockClient provides a mock implementation of GRPCClient and HTTPClient interfaces
+-// Deprecated: [v0.121.0] Use extensionauthtest.MockClient instead.
+-type MockClient = extensionauthtest.MockClient

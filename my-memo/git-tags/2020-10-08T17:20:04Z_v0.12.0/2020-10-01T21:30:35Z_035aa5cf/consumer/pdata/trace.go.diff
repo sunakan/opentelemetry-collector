@@ -1,0 +1,31 @@
+diff --git a/consumer/pdata/trace.go b/consumer/pdata/trace.go
+index e4b962b4b..788474179 100644
+--- a/consumer/pdata/trace.go
++++ b/consumer/pdata/trace.go
+@@ -15,8 +15,6 @@
+ package pdata
+ 
+ import (
+-	"encoding/hex"
+-
+ 	"github.com/gogo/protobuf/proto"
+ 
+ 	otlpcollectortrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
+@@ -105,17 +103,6 @@ func (td Traces) ResourceSpans() ResourceSpansSlice {
+ 	return newResourceSpansSlice(td.orig)
+ }
+ 
+-type SpanID []byte
+-
+-// NewSpanID returns a new SpanID.
+-func NewSpanID(bytes []byte) SpanID { return bytes }
+-
+-func (s SpanID) Bytes() []byte {
+-	return s
+-}
+-
+-func (s SpanID) String() string { return hex.EncodeToString(s) }
+-
+ // TraceState in w3c-trace-context format: https://www.w3.org/TR/trace-context/#tracestate-header
+ type TraceState string
+ 

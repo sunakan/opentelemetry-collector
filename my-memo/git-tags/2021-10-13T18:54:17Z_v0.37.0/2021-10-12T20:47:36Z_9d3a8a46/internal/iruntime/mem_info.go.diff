@@ -1,0 +1,13 @@
+diff --git a/internal/iruntime/mem_info.go b/internal/iruntime/mem_info.go
+index ca2313611..609bc517f 100644
+--- a/internal/iruntime/mem_info.go
++++ b/internal/iruntime/mem_info.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package iruntime
++package iruntime // import "go.opentelemetry.io/collector/internal/iruntime"
+ 
+ import (
+ 	"github.com/shirou/gopsutil/v3/mem"

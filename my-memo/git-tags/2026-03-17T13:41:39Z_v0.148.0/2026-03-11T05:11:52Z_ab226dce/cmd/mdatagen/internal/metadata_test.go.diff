@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/metadata_test.go b/cmd/mdatagen/internal/metadata_test.go
+index 97b7deacb..a567bad73 100644
+--- a/cmd/mdatagen/internal/metadata_test.go
++++ b/cmd/mdatagen/internal/metadata_test.go
+@@ -231,6 +231,15 @@ func TestCodeCovID(t *testing.T) {
+ 			},
+ 			want: "exporter_file",
+ 		},
++		{
++			md: Metadata{
++				Type: "file_log_thing",
++				Status: &Status{
++					Class: "exporter",
++				},
++			},
++			want: "exporter_filelogthing",
++		},
+ 	}
+ 
+ 	for _, tt := range tests {

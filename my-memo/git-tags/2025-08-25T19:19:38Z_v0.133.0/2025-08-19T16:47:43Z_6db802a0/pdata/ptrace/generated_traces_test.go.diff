@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/generated_traces_test.go b/pdata/ptrace/generated_traces_test.go
+index b386310db..5c374f1dd 100644
+--- a/pdata/ptrace/generated_traces_test.go
++++ b/pdata/ptrace/generated_traces_test.go
+@@ -49,5 +49,6 @@ func TestTraces_ResourceSpans(t *testing.T) {
+ }
+ 
+ func generateTestTraces() Traces {
+-	return Traces(internal.GenerateTestTraces())
++	ms := newTraces(internal.GenTestOrigExportTraceServiceRequest(), internal.NewState())
++	return ms
+ }

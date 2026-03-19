@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcol/config.yaml b/cmd/otelcol/config.yaml
+index 71db1034c..85308ea84 100644
+--- a/cmd/otelcol/config.yaml
++++ b/cmd/otelcol/config.yaml
+@@ -48,7 +48,7 @@ service:
+       exporters: [logging]
+ 
+     metrics:
+-      receivers: [opencensus, prometheus]
++      receivers: [otlp, opencensus, prometheus]
+       processors: [batch]
+       exporters: [logging]
+ 

@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index d241843f1..dba45741c 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -757,11 +757,11 @@ func TestHTTPInvalidTLSCredentials(t *testing.T) {
+ 			HTTP: configoptional.Some(HTTPConfig{
+ 				ServerConfig: confighttp.ServerConfig{
+ 					Endpoint: testutil.GetAvailableLocalAddress(t),
+-					TLS: &configtls.ServerConfig{
++					TLS: configoptional.Some(configtls.ServerConfig{
+ 						Config: configtls.Config{
+ 							CertFile: "willfail",
+ 						},
+-					},
++					}),
+ 				},
+ 				TracesURLPath:  defaultTracesURLPath,
+ 				MetricsURLPath: defaultMetricsURLPath,

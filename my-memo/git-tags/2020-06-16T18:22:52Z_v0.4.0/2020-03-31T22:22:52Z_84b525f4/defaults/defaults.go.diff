@@ -1,0 +1,24 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index 7610152c0..1be32f30b 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -19,8 +19,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/config"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/fileexporter"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter/jaeger/jaegergrpcexporter"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter/jaeger/jaegerthrifthttpexporter"
++	"github.com/open-telemetry/opentelemetry-collector/exporter/jaegerexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/loggingexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/opencensusexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/otlpexporter"
+@@ -79,8 +78,7 @@ func Components() (
+ 		&prometheusexporter.Factory{},
+ 		&loggingexporter.Factory{},
+ 		&zipkinexporter.Factory{},
+-		&jaegergrpcexporter.Factory{},
+-		&jaegerthrifthttpexporter.Factory{},
++		&jaegerexporter.Factory{},
+ 		&fileexporter.Factory{},
+ 		&otlpexporter.Factory{},
+ 	)

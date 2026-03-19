@@ -1,0 +1,16 @@
+diff --git a/connector/forwardconnector/generated_component_test.go b/connector/forwardconnector/generated_component_test.go
+index b9f09f4c2..78a9c756d 100644
+--- a/connector/forwardconnector/generated_component_test.go
++++ b/connector/forwardconnector/generated_component_test.go
+@@ -18,8 +18,10 @@ import (
+ 	"go.opentelemetry.io/collector/pipeline"
+ )
+ 
++var typ = component.MustNewType("forward")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "forward", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

@@ -1,0 +1,17 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
+index ddf95f3b9..dbe067632 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
+@@ -1,9 +1,9 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces

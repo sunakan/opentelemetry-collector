@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_processor.go b/obsreport/obsreport_processor.go
+index f548168e9..bb31b5f32 100644
+--- a/obsreport/obsreport_processor.go
++++ b/obsreport/obsreport_processor.go
+@@ -82,7 +82,7 @@ type ProcessorSettings struct {
+ 
+ // NewProcessor creates a new Processor.
+ func NewProcessor(cfg ProcessorSettings) (*Processor, error) {
+-	return newProcessor(cfg, obsreportconfig.UseOtel())
++	return newProcessor(cfg, obsreportconfig.UseOtelForInternalMetricsfeatureGate.IsEnabled())
+ }
+ 
+ func newProcessor(cfg ProcessorSettings, useOtel bool) (*Processor, error) {

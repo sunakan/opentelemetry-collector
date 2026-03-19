@@ -1,0 +1,13 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index 5e2e9d279..c32d9480e 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/internal/idutils"
+ 	"go.opentelemetry.io/collector/model/pdata"
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ )
+ 
+ func TestNewTracesProcessor(t *testing.T) {

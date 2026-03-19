@@ -1,0 +1,23 @@
+diff --git a/exporter/jaegerexporter/factory_test.go b/exporter/jaegerexporter/factory_test.go
+index 2d4233c23..bbe797bc0 100644
+--- a/exporter/jaegerexporter/factory_test.go
++++ b/exporter/jaegerexporter/factory_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+-	"go.opentelemetry.io/collector/config/configerror"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+@@ -39,7 +39,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ 
+ 	params := component.ExporterCreateParams{Logger: zap.NewNop()}
+ 	_, err := factory.CreateMetricsExporter(context.Background(), params, cfg)
+-	assert.Error(t, err, configerror.ErrDataTypeIsNotSupported)
++	assert.Error(t, err, componenterror.ErrDataTypeIsNotSupported)
+ }
+ 
+ func TestCreateInstanceViaFactory(t *testing.T) {

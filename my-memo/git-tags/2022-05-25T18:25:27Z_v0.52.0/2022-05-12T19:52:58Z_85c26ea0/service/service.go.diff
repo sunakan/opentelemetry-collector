@@ -1,0 +1,16 @@
+diff --git a/service/service.go b/service/service.go
+index 986e6daa8..9df747767 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -40,9 +40,8 @@ func newService(set *svcSettings) (*service, error) {
+ 		config:    set.Config,
+ 		telemetry: set.Telemetry,
+ 		host: &serviceHost{
+-			factories:           set.Factories,
+-			zPagesSpanProcessor: set.ZPagesSpanProcessor,
+-			asyncErrorChannel:   set.AsyncErrorChannel,
++			factories:         set.Factories,
++			asyncErrorChannel: set.AsyncErrorChannel,
+ 		},
+ 	}
+ 

@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/configtest.go b/component/componenttest/configtest.go
+index 3750dfd02..8d1f1d157 100644
+--- a/component/componenttest/configtest.go
++++ b/component/componenttest/configtest.go
+@@ -65,10 +65,8 @@ func validateConfigDataType(t reflect.Type) error {
+ 
+ // checkStructFieldTags inspects the tags of a struct field.
+ func checkStructFieldTags(f reflect.StructField) error {
+-
+ 	tagValue := f.Tag.Get("mapstructure")
+ 	if tagValue == "" {
+-
+ 		// Ignore special types.
+ 		switch f.Type.Kind() {
+ 		case reflect.Interface, reflect.Chan, reflect.Func, reflect.Uintptr, reflect.UnsafePointer:

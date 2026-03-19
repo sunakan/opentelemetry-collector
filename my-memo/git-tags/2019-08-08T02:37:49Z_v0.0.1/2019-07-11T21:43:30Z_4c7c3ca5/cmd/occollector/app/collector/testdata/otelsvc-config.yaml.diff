@@ -1,0 +1,28 @@
+diff --git a/cmd/occollector/app/collector/testdata/otelsvc-config.yaml b/cmd/occollector/app/collector/testdata/otelsvc-config.yaml
+deleted file mode 100644
+index e499552ca..000000000
+--- a/cmd/occollector/app/collector/testdata/otelsvc-config.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-receivers:
+-  jaeger:
+-    enabled: true
+-
+-exporters:
+-  opencensus:
+-    endpoint: "locahost:55678"
+-    enabled: true
+-
+-processors:
+-  attributes:
+-    enabled: true
+-  queued-retry:
+-    enabled: true
+-  batch:
+-    enabled: true
+-
+-pipelines:
+-  traces:
+-    receivers: [jaeger]
+-    processors: [attributes, batch, queued-retry]
+-    exporters: [opencensus]

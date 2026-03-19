@@ -1,0 +1,15 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index 758991b84..9a49d2ae2 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -39,8 +39,9 @@ service:
+   pipelines:
+     traces:
+       receivers: [opencensus]
+-      exporters: [logging, zipkin, jaeger]
+       processors: [batch, queued_retry]
++      exporters: [logging, zipkin, jaeger]
+     metrics:
+       receivers: [opencensus]
++      processors: [batch]
+       exporters: [logging,prometheus]

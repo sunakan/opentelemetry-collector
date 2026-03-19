@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 4da9678f7..468d8aff3 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -301,7 +301,7 @@ func testCollectorStartHelperWithReaders(t *testing.T, tc ownMetricsTestCase, ne
+ 		zpagesAddr = testutil.GetAvailableLocalIPv6Address(t)
+ 	}
+ 	require.NotZero(t, metricsAddr, "network must be either of tcp, tcp4 or tcp6")
+-	require.NotZero(t, zpagesAddr, "network must be either of tcp, tcp4 or tcp6")
++	require.NotEmpty(t, zpagesAddr, "network must be either of tcp, tcp4 or tcp6")
+ 
+ 	set := newNopSettings()
+ 	set.BuildInfo = component.BuildInfo{Version: "test version", Command: otelCommand}

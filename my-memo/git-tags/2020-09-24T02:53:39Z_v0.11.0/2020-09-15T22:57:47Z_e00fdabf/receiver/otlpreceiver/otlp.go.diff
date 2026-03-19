@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 75555c23a..70b1c34b8 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -75,6 +75,7 @@ func newOtlpReceiver(cfg *Config) (*otlpReceiver, error) {
+ 			OrigName:     true,
+ 		}
+ 		r.gatewayMux = gatewayruntime.NewServeMux(
++			gatewayruntime.WithProtoErrorHandler(gatewayruntime.DefaultHTTPProtoErrorHandler),
+ 			gatewayruntime.WithMarshalerOption("application/x-protobuf", &xProtobufMarshaler{}),
+ 			gatewayruntime.WithMarshalerOption(gatewayruntime.MIMEWildcard, jsonpb),
+ 		)

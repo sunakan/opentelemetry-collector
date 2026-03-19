@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_exportmetricsservicerequest.go b/pdata/internal/generated_proto_exportmetricsservicerequest.go
+index f4a4a0fa7..76cc8020c 100644
+--- a/pdata/internal/generated_proto_exportmetricsservicerequest.go
++++ b/pdata/internal/generated_proto_exportmetricsservicerequest.go
+@@ -44,11 +44,9 @@ func DeleteExportMetricsServiceRequest(orig *ExportMetricsServiceRequest, nullab
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceMetrics {
+ 		DeleteResourceMetrics(orig.ResourceMetrics[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolExportMetricsServiceRequest.Put(orig)

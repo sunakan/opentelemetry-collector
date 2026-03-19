@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+index 6f1c0b419..a0d2f3046 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+@@ -31,6 +31,12 @@ func New{{ .structName }}(orig *{{ .originName }}, state *State) {{ .structName
+ 	return {{ .structName }}{orig: orig, state: state}
+ }
+ 
++func CopyOrig{{ .structName }}(dest, src *{{ .originName }}) {
++    {{- range .fields }}
++    {{ .GenerateCopyOrig $.messageStruct }}
++    {{- end }}
++}
++
+ func GenerateTest{{ .structName }}() {{ .structName }} {
+ 	orig := {{ .originName }}{}
+ 	state := StateMutable

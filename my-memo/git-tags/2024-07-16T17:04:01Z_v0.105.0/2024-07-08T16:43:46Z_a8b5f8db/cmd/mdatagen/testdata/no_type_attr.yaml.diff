@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/testdata/no_type_attr.yaml b/cmd/mdatagen/testdata/no_type_attr.yaml
+index 914a9820b..c267d218e 100644
+--- a/cmd/mdatagen/testdata/no_type_attr.yaml
++++ b/cmd/mdatagen/testdata/no_type_attr.yaml
+@@ -17,7 +17,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
+-    unit: 1
++    unit: "1"
+     gauge:
+       value_type: double
+     attributes: [used_attr]

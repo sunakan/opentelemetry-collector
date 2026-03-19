@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-receiver.yaml b/config/configunmarshaler/testdata/duplicate-receiver.yaml
+index 275054e67..4e00b5fe6 100644
+--- a/config/configunmarshaler/testdata/duplicate-receiver.yaml
++++ b/config/configunmarshaler/testdata/duplicate-receiver.yaml
+@@ -1,6 +1,6 @@
+ receivers:
+-  examplereceiver/ 1:
+-  examplereceiver/1:
++  examplereceiver/ recv:
++  examplereceiver /recv :
+ exporters:
+   exampleexporter:
+ processors:

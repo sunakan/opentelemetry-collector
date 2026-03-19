@@ -1,0 +1,17 @@
+diff --git a/examples/local/otel-config.yaml b/examples/local/otel-config.yaml
+index b72880297..20cbf6973 100644
+--- a/examples/local/otel-config.yaml
++++ b/examples/local/otel-config.yaml
+@@ -1,6 +1,4 @@
+ extensions:
+-  memory_ballast:
+-    size_mib: 512
+   zpages:
+     endpoint: localhost:55679
+ 
+@@ -36,4 +34,4 @@ service:
+       processors: [memory_limiter, batch]
+       exporters: [debug]
+ 
+-  extensions: [memory_ballast, zpages]
++  extensions: [zpages]

@@ -1,0 +1,30 @@
+diff --git a/testutil/testutil.go b/testutil/testutil.go
+index 1a263c50b..1412aea88 100644
+--- a/testutil/testutil.go
++++ b/testutil/testutil.go
+@@ -18,7 +18,9 @@ import (
+ 	"encoding/json"
+ 	"errors"
+ 	"fmt"
++	"io/ioutil"
+ 	"net"
++	"os"
+ 	"strconv"
+ 	"strings"
+ 	"testing"
+@@ -43,6 +45,15 @@ func GenerateNormalizedJSON(t *testing.T, jsonStr string) string {
+ 	return string(n)
+ }
+ 
++func TempSocketName(t *testing.T) string {
++	tmpfile, err := ioutil.TempFile("", "sock")
++	require.NoError(t, err)
++	require.NoError(t, tmpfile.Close())
++	socket := tmpfile.Name()
++	require.NoError(t, os.Remove(socket))
++	return socket
++}
++
+ // GetAvailableLocalAddress finds an available local port and returns an endpoint
+ // describing it. The port is available for opening when this function returns
+ // provided that there is no race by some other code to grab the same port

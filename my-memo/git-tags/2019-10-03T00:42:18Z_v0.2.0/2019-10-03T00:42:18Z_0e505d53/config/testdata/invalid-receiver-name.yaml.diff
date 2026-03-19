@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-receiver-name.yaml b/config/testdata/invalid-receiver-name.yaml
+index 10627771b..ee71200b9 100644
+--- a/config/testdata/invalid-receiver-name.yaml
++++ b/config/testdata/invalid-receiver-name.yaml
+@@ -4,8 +4,9 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [1,2,3]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]
++service:
++  pipelines:
++    traces:
++      receivers: [1,2,3]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

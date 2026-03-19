@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespans.go b/pdata/internal/generated_wrapper_resourcespans.go
+index 8c8fc63b4..ac9322f6f 100644
+--- a/pdata/internal/generated_wrapper_resourcespans.go
++++ b/pdata/internal/generated_wrapper_resourcespans.go
+@@ -50,6 +50,10 @@ func DeleteOrigResourceSpans(orig *otlptrace.ResourceSpans, nullable bool) {
+ }
+ 
+ func CopyOrigResourceSpans(dest, src *otlptrace.ResourceSpans) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.ScopeSpans = CopyOrigScopeSpansSlice(dest.ScopeSpans, src.ScopeSpans)
+ 	dest.SchemaUrl = src.SchemaUrl

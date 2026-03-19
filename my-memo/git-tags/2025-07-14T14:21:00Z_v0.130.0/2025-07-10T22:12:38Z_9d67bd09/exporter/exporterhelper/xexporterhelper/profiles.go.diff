@@ -1,0 +1,25 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index 1f0840d85..3ac12d9e6 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -114,8 +114,8 @@ type profileExporter struct {
+ 	xconsumer.Profiles
+ }
+ 
+-// NewProfilesExporter creates an xexporter.Profiles that records observability metrics and wraps every request with a Span.
+-func NewProfilesExporter(
++// NewProfiles creates an xexporter.Profiles that records observability metrics and wraps every request with a Span.
++func NewProfiles(
+ 	ctx context.Context,
+ 	set exporter.Settings,
+ 	cfg component.Config,
+@@ -132,6 +132,9 @@ func NewProfilesExporter(
+ 		append([]exporterhelper.Option{internal.WithQueueBatchSettings(NewProfilesQueueBatchSettings())}, options...)...)
+ }
+ 
++// Deprecated: [v0.130.0] use NewProfiles.
++var NewProfilesExporter = NewProfiles
++
+ // requestConsumeFromProfiles returns a RequestConsumeFunc that consumes pprofile.Profiles.
+ func requestConsumeFromProfiles(pusher xconsumer.ConsumeProfilesFunc) exporterhelper.RequestConsumeFunc {
+ 	return func(ctx context.Context, request exporterhelper.Request) error {

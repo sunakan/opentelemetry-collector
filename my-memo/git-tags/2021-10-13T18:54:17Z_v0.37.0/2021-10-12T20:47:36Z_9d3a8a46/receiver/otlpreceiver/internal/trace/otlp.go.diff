@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp.go b/receiver/otlpreceiver/internal/trace/otlp.go
+index d6e5c25fd..1cfddf9fe 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp.go
++++ b/receiver/otlpreceiver/internal/trace/otlp.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package trace
++package trace // import "go.opentelemetry.io/collector/receiver/otlpreceiver/internal/trace"
+ 
+ import (
+ 	"context"

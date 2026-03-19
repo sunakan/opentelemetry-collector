@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 1fb5244bc..88921825e 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -151,7 +151,7 @@ func newConsumeLogs(converter RequestFromLogsFunc, be *internal.BaseExporter, lo
+ 	return func(ctx context.Context, ld plog.Logs) error {
+ 		req, err := converter(ctx, ld)
+ 		if err != nil {
+-			logger.Error("Failed to convert metrics. Dropping data.",
++			logger.Error("Failed to convert logs. Dropping data.",
+ 				zap.Int("dropped_log_records", ld.LogRecordCount()),
+ 				zap.Error(err))
+ 			return consumererror.NewPermanent(err)

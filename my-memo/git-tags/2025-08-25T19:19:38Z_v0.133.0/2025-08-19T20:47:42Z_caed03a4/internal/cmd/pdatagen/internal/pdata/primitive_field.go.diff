@@ -1,0 +1,26 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/primitive_field.go b/internal/cmd/pdatagen/internal/pdata/primitive_field.go
+index 1d700e894..1f98a73fd 100644
+--- a/internal/cmd/pdatagen/internal/pdata/primitive_field.go
++++ b/internal/cmd/pdatagen/internal/pdata/primitive_field.go
+@@ -51,9 +51,6 @@ const primitiveSetTestTemplate = `orig.{{ .originFieldName }} = {{ .testValue }}
+ 
+ const primitiveCopyOrigTemplate = `dest.{{ .originFieldName }} = src.{{ .originFieldName }}`
+ 
+-const primitiveUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
+-		orig.{{ .originFieldName }} = iter.Read{{ upperFirst .returnType }}()`
+-
+ type PrimitiveField struct {
+ 	fieldName string
+ 	protoType proto.Type
+@@ -92,9 +89,8 @@ func (pf *PrimitiveField) GenerateMarshalJSON(*messageStruct) string {
+ 	return pf.toProtoField().GenMarshalJSON()
+ }
+ 
+-func (pf *PrimitiveField) GenerateUnmarshalJSON(ms *messageStruct) string {
+-	t := template.Parse("primitiveUnmarshalJSONTemplate", []byte(primitiveUnmarshalJSONTemplate))
+-	return template.Execute(t, pf.templateFields(ms))
++func (pf *PrimitiveField) GenerateUnmarshalJSON(*messageStruct) string {
++	return pf.toProtoField().GenUnmarshalJSON()
+ }
+ 
+ func (pf *PrimitiveField) GenerateSizeProto(*messageStruct) string {

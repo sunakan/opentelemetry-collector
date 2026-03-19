@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index a362d2dcf..5d0460e72 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -41,6 +41,7 @@ var (
+ 	replaceModules = []string{
+ 		"",
+ 		"/component",
++		"/component/componenttest",
+ 		"/component/componentstatus",
+ 		"/client",
+ 		"/config/configauth",

@@ -1,0 +1,13 @@
+diff --git a/service/flags.go b/service/flags.go
+index 04bd36a86..449fc1bb1 100644
+--- a/service/flags.go
++++ b/service/flags.go
+@@ -18,7 +18,7 @@ import (
+ 	"flag"
+ 	"strings"
+ 
+-	"go.opentelemetry.io/collector/service/featuregate"
++	"go.opentelemetry.io/collector/featuregate"
+ )
+ 
+ const (

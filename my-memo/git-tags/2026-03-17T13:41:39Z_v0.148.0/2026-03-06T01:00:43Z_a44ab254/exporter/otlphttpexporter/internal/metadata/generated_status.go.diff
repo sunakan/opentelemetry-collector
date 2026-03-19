@@ -1,0 +1,16 @@
+diff --git a/exporter/otlphttpexporter/internal/metadata/generated_status.go b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+index 498f2332d..b74a3b10c 100644
+--- a/exporter/otlphttpexporter/internal/metadata/generated_status.go
++++ b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+@@ -7,8 +7,9 @@ import (
+ )
+ 
+ var (
+-	Type      = component.MustNewType("otlp_http")
+-	ScopeName = "go.opentelemetry.io/collector/exporter/otlphttpexporter"
++	Type           = component.MustNewType("otlp_http")
++	DeprecatedType = component.MustNewType("otlphttp")
++	ScopeName      = "go.opentelemetry.io/collector/exporter/otlphttpexporter"
+ )
+ 
+ const (

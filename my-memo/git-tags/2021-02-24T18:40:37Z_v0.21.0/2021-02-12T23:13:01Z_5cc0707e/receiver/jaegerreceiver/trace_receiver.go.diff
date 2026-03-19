@@ -1,0 +1,21 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index c88307b29..d1a06900b 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -49,6 +49,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	jaegertranslator "go.opentelemetry.io/collector/translator/trace/jaeger"
+ )
+@@ -233,7 +234,7 @@ func (jr *jReceiver) Shutdown(context.Context) error {
+ 			jr.grpc.Stop()
+ 			jr.grpc = nil
+ 		}
+-		err = componenterror.CombineErrors(errs)
++		err = consumererror.CombineErrors(errs)
+ 	})
+ 
+ 	return err

@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/resource_structs.go b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+index 249a07faf..d1850eeb6 100644
+--- a/pdata/internal/cmd/pdatagen/internal/resource_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+@@ -15,6 +15,7 @@
+ package internal // import "go.opentelemetry.io/collector/pdata/internal/cmd/pdatagen/internal"
+ 
+ var resourceFile = &File{
++	Path:        "pdata",
+ 	Name:        "resource",
+ 	PackageName: "pcommon",
+ 	imports: []string{

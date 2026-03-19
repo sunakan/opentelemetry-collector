@@ -1,0 +1,13 @@
+diff --git a/component/identifiable.go b/component/identifiable.go
+index d85e49aa2..0ad8fff8e 100644
+--- a/component/identifiable.go
++++ b/component/identifiable.go
+@@ -100,7 +100,7 @@ func NewIDWithName(typeVal Type, nameVal string) ID {
+ // MustNewIDWithName builds a Type and returns a new ID with the given Type and name.
+ // This is equivalent to NewIDWithName(MustNewType(typeVal), nameVal).
+ // See MustNewType to check the valid values of typeVal.
+-func MustNewIDWithName(typeVal string, nameVal string) ID {
++func MustNewIDWithName(typeVal, nameVal string) ID {
+ 	return NewIDWithName(MustNewType(typeVal), nameVal)
+ }
+ 

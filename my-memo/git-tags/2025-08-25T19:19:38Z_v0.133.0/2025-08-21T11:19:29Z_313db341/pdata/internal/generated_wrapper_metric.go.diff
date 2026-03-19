@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_metric.go b/pdata/internal/generated_wrapper_metric.go
+index 2bc5a352a..2b0ce36af 100644
+--- a/pdata/internal/generated_wrapper_metric.go
++++ b/pdata/internal/generated_wrapper_metric.go
+@@ -63,6 +63,10 @@ func DeleteOrigMetric(orig *otlpmetrics.Metric, nullable bool) {
+ }
+ 
+ func CopyOrigMetric(dest, src *otlpmetrics.Metric) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Name = src.Name
+ 	dest.Description = src.Description
+ 	dest.Unit = src.Unit

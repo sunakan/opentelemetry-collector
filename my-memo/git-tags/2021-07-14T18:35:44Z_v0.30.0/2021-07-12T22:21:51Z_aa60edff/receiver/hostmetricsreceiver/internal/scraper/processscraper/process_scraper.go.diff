@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
+index 87826bba1..c58911718 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
+@@ -188,7 +188,7 @@ func scrapeAndAppendCPUTimeMetric(metrics pdata.MetricSlice, startTime, now pdat
+ func initializeCPUTimeMetric(metric pdata.Metric, startTime, now pdata.Timestamp, times *cpu.TimesStat) {
+ 	metadata.Metrics.ProcessCPUTime.Init(metric)
+ 
+-	ddps := metric.DoubleSum().DataPoints()
++	ddps := metric.Sum().DataPoints()
+ 	ddps.Resize(cpuStatesLen)
+ 	appendCPUTimeStateDataPoints(ddps, startTime, now, times)
+ }

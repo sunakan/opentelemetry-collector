@@ -1,0 +1,55 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index 963c65185..85ef11b83 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -41,16 +41,7 @@ func (f *Factory) Type() string {
+ 
+ // CreateDefaultConfig creates the default configuration for exporter.
+ func (f *Factory) CreateDefaultConfig() configmodels.Processor {
+-	return &Config{
+-		ProcessorSettings: configmodels.ProcessorSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
+-		NumWorkers:     10,
+-		QueueSize:      5000,
+-		RetryOnFailure: true,
+-		BackoffDelay:   time.Second * 5,
+-	}
++	return generateDefaultConfig()
+ }
+ 
+ // CreateTraceProcessor creates a trace processor based on this config.
+@@ -60,14 +51,7 @@ func (f *Factory) CreateTraceProcessor(
+ 	cfg configmodels.Processor,
+ ) (component.TraceProcessorOld, error) {
+ 	oCfg := cfg.(*Config)
+-	return NewQueuedSpanProcessor(nextConsumer,
+-		Options.WithName(oCfg.Name()),
+-		Options.WithNumWorkers(oCfg.NumWorkers),
+-		Options.WithQueueSize(oCfg.QueueSize),
+-		Options.WithRetryOnProcessingFailures(oCfg.RetryOnFailure),
+-		Options.WithBackoffDelay(oCfg.BackoffDelay),
+-		Options.WithLogger(logger),
+-	), nil
++	return newQueuedSpanProcessor(logger, nextConsumer, oCfg), nil
+ }
+ 
+ // CreateMetricsProcessor creates a metrics processor based on this config.
+@@ -78,3 +62,16 @@ func (f *Factory) CreateMetricsProcessor(
+ ) (component.MetricsProcessorOld, error) {
+ 	return nil, configerror.ErrDataTypeIsNotSupported
+ }
++
++func generateDefaultConfig() *Config {
++	return &Config{
++		ProcessorSettings: configmodels.ProcessorSettings{
++			TypeVal: typeStr,
++			NameVal: typeStr,
++		},
++		NumWorkers:     10,
++		QueueSize:      5000,
++		RetryOnFailure: true,
++		BackoffDelay:   time.Second * 5,
++	}
++}

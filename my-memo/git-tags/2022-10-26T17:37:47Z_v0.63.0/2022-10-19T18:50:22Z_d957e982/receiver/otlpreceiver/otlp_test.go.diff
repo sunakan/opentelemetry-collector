@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 5f8c6ce5f..37039aba3 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -1002,7 +1002,7 @@ loop:
+ }
+ 
+ func exportTraces(cc *grpc.ClientConn, td ptrace.Traces) error {
+-	acc := ptraceotlp.NewClient(cc)
++	acc := ptraceotlp.NewGRPCClient(cc)
+ 	req := ptraceotlp.NewRequestFromTraces(td)
+ 	_, err := acc.Export(context.Background(), req)
+ 

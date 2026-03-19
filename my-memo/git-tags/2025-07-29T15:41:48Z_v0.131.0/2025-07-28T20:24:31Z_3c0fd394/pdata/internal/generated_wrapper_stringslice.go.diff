@@ -1,0 +1,25 @@
+diff --git a/pdata/internal/generated_wrapper_stringslice.go b/pdata/internal/generated_wrapper_stringslice.go
+index 2c29d7f79..2e5c7d510 100644
+--- a/pdata/internal/generated_wrapper_stringslice.go
++++ b/pdata/internal/generated_wrapper_stringslice.go
+@@ -44,7 +44,7 @@ func GenerateTestStringSlice() StringSlice {
+ 	return ms
+ }
+ 
+-// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++// MarshalJSONStreamStringSlice marshals all properties from the current struct to the destination stream.
+ func MarshalJSONStreamStringSlice(ms StringSlice, dest *json.Stream) {
+ 	dest.WriteArrayStart()
+ 	if len(*ms.orig) > 0 {
+@@ -56,3 +56,11 @@ func MarshalJSONStreamStringSlice(ms StringSlice, dest *json.Stream) {
+ 	}
+ 	dest.WriteArrayEnd()
+ }
++
++// UnmarshalJSONIterStringSlice unmarshals all properties from the current struct from the source iterator.
++func UnmarshalJSONIterStringSlice(ms StringSlice, iter *json.Iterator) {
++	iter.ReadArrayCB(func(iter *json.Iterator) bool {
++		*ms.orig = append(*ms.orig, iter.ReadString())
++		return true
++	})
++}

@@ -1,0 +1,32 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 490ab4a36..13c198ade 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -42,7 +42,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/configcompression"
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	"go.opentelemetry.io/collector/internal/middleware"
+ )
+ 
+ var errMetadataNotFound = errors.New("no request metadata found")
+@@ -389,9 +388,7 @@ func enhanceWithClientInformation(includeMetadata bool) func(ctx context.Context
+ 
+ func enhanceStreamWithClientInformation(includeMetadata bool) func(srv interface{}, ss grpc.ServerStream, _ *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
+ 	return func(srv interface{}, ss grpc.ServerStream, _ *grpc.StreamServerInfo, handler grpc.StreamHandler) error {
+-		wrapped := middleware.WrapServerStream(ss)
+-		wrapped.WrappedContext = contextWithClient(ss.Context(), includeMetadata)
+-		return handler(srv, wrapped)
++		return handler(srv, wrapServerStream(contextWithClient(ss.Context(), includeMetadata), ss))
+ 	}
+ }
+ 
+@@ -440,7 +437,5 @@ func authStreamServerInterceptor(srv interface{}, stream grpc.ServerStream, _ *g
+ 		return err
+ 	}
+ 
+-	wrapped := middleware.WrapServerStream(stream)
+-	wrapped.WrappedContext = ctx
+-	return handler(srv, wrapped)
++	return handler(srv, wrapServerStream(ctx, stream))
+ }

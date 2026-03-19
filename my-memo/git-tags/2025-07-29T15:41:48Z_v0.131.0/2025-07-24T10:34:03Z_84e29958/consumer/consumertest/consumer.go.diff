@@ -1,0 +1,19 @@
+diff --git a/consumer/consumertest/consumer.go b/consumer/consumertest/consumer.go
+index ec7a30306..efbf8232a 100644
+--- a/consumer/consumertest/consumer.go
++++ b/consumer/consumertest/consumer.go
+@@ -38,10 +38,10 @@ type Consumer interface {
+ }
+ 
+ var (
+-	_ consumer.Logs      = (Consumer)(nil)
+-	_ consumer.Metrics   = (Consumer)(nil)
+-	_ consumer.Traces    = (Consumer)(nil)
+-	_ xconsumer.Profiles = (Consumer)(nil)
++	_ consumer.Logs      = Consumer(nil)
++	_ consumer.Metrics   = Consumer(nil)
++	_ consumer.Traces    = Consumer(nil)
++	_ xconsumer.Profiles = Consumer(nil)
+ )
+ 
+ type nonMutatingConsumer struct{}

@@ -1,0 +1,20 @@
+diff --git a/model/pdata/traces_alias.go b/model/pdata/traces_alias.go
+index 8c8989c4c..db34296db 100644
+--- a/model/pdata/traces_alias.go
++++ b/model/pdata/traces_alias.go
+@@ -62,3 +62,15 @@ const (
+ 	StatusCodeOk    = pdata.StatusCodeOk
+ 	StatusCodeError = pdata.StatusCodeError
+ )
++
++// Deprecated: [v0.48.0] Use ScopeSpansSlice instead.
++type InstrumentationLibrarySpansSlice = pdata.ScopeSpansSlice
++
++// Deprecated: [v0.48.0] Use NewScopeSpansSlice instead.
++var NewInstrumentationLibrarySpansSlice = pdata.NewScopeSpansSlice
++
++// Deprecated: [v0.48.0] Use ScopeSpans instead.
++type InstrumentationLibrarySpans = pdata.ScopeSpans
++
++// Deprecated: [v0.48.0] Use NewScopeSpans instead.
++var NewInstrumentationLibrarySpans = pdata.NewScopeSpans

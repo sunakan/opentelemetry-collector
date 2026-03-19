@@ -1,0 +1,10 @@
+diff --git a/connector/forwardconnector/metadata.yaml b/connector/forwardconnector/metadata.yaml
+index 41fc27070..b3ea1d24c 100644
+--- a/connector/forwardconnector/metadata.yaml
++++ b/connector/forwardconnector/metadata.yaml
+@@ -4,4 +4,4 @@ status:
+   class: connector
+   stability:
+     beta: [traces_to_traces, metrics_to_metrics, logs_to_logs]
+-  distributions: [core, contrib]
++  distributions: [core, contrib, k8s]

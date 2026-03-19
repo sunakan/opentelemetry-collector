@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index e94f7a8a0..7855a7b00 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -27,7 +27,6 @@ import (
+ 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
+ 	_ "github.com/google/addlicense"
+ 	_ "github.com/jcchavezs/porto/cmd/porto"
+-	_ "github.com/mjibson/esc"
+ 	_ "github.com/ory/go-acc"
+ 	_ "github.com/pavius/impi/cmd/impi"
+ 	_ "github.com/tcnksm/ghr"

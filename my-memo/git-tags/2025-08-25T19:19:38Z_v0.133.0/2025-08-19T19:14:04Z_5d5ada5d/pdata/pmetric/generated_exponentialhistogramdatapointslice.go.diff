@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+index b73ddec93..81a29318e 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+@@ -99,7 +99,7 @@ func (es ExponentialHistogramDataPointSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ExponentialHistogramDataPoint.
+ func (es ExponentialHistogramDataPointSlice) AppendEmpty() ExponentialHistogramDataPoint {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrExponentialHistogramDataPoint())
++	*es.orig = append(*es.orig, internal.NewOrigExponentialHistogramDataPoint())
+ 	return es.At(es.Len() - 1)
+ }
+ 

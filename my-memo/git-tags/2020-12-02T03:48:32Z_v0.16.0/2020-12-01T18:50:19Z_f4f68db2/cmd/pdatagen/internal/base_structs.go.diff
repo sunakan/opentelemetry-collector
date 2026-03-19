@@ -1,0 +1,12 @@
+diff --git a/cmd/pdatagen/internal/base_structs.go b/cmd/pdatagen/internal/base_structs.go
+index 15aa1c858..21e7d0798 100644
+--- a/cmd/pdatagen/internal/base_structs.go
++++ b/cmd/pdatagen/internal/base_structs.go
+@@ -102,7 +102,6 @@ const messageValueTemplate = `${description}
+ // Must use New${structName} function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
+ type ${structName} struct {
+-	// orig points to the pointer ${originName} field contained somewhere else.
+ 	orig *${originName}
+ }
+ 

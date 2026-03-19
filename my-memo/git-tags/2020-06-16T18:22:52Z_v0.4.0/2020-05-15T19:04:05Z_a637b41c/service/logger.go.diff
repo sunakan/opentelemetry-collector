@@ -1,0 +1,13 @@
+diff --git a/service/logger.go b/service/logger.go
+index 3d7f390dc..a4f8897dc 100644
+--- a/service/logger.go
++++ b/service/logger.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/version"
++	"go.opentelemetry.io/collector/internal/version"
+ )
+ 
+ const (

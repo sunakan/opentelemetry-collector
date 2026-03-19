@@ -1,0 +1,19 @@
+diff --git a/internal/compression/grpc/grpc.go b/internal/compression/grpc/grpc.go
+index 16040cb99..8edcaa151 100644
+--- a/internal/compression/grpc/grpc.go
++++ b/internal/compression/grpc/grpc.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"google.golang.org/grpc/encoding/gzip"
+ 
+-	"github.com/census-instrumentation/opencensus-service/internal/compression"
++	"github.com/open-telemetry/opentelemetry-service/internal/compression"
+ )
+ 
+ var (

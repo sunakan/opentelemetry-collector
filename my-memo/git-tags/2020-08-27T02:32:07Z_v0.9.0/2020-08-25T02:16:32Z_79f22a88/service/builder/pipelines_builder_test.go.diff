@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index 053bd7f08..692c76241 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -70,7 +70,7 @@ func createExampleFactories() component.Factories {
+ 		Processors: map[configmodels.Type]component.ProcessorFactory{
+ 			exampleProcessorFactory.Type(): exampleProcessorFactory,
+ 		},
+-		Exporters: map[configmodels.Type]component.ExporterFactoryBase{
++		Exporters: map[configmodels.Type]component.ExporterFactory{
+ 			exampleExporterFactory.Type(): exampleExporterFactory,
+ 		},
+ 	}

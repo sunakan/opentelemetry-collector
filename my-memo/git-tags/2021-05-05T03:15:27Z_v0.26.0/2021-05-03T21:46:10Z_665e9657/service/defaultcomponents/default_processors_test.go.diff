@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/default_processors_test.go b/service/defaultcomponents/default_processors_test.go
+index cd20fad11..4b044ba6c 100644
+--- a/service/defaultcomponents/default_processors_test.go
++++ b/service/defaultcomponents/default_processors_test.go
+@@ -99,7 +99,7 @@ func TestDefaultProcessors(t *testing.T) {
+ 			factory, ok := procFactories[tt.processor]
+ 			require.True(t, ok)
+ 			assert.Equal(t, tt.processor, factory.Type())
+-			assert.Equal(t, tt.processor, factory.CreateDefaultConfig().Type())
++			assert.EqualValues(t, tt.processor, factory.CreateDefaultConfig().ID().String())
+ 
+ 			verifyProcessorLifecycle(t, factory, tt.getConfigFn)
+ 		})

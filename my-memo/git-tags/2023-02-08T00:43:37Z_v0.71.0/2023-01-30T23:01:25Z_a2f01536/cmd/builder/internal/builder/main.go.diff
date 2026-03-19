@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 300edc3a6..30216270f 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -143,7 +143,7 @@ func GetModules(cfg Config) error {
+ 	return fmt.Errorf("failed to download go modules: %s", failReason)
+ }
+ 
+-func processAndWrite(cfg Config, tmpl *template.Template, outFile string, tmplParams interface{}) error {
++func processAndWrite(cfg Config, tmpl *template.Template, outFile string, tmplParams any) error {
+ 	out, err := os.Create(filepath.Clean(filepath.Join(cfg.Distribution.OutputPath, outFile)))
+ 	if err != nil {
+ 		return err

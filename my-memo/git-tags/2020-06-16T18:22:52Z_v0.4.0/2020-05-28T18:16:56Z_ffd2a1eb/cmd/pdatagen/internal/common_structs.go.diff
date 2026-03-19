@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/common_structs.go b/cmd/pdatagen/internal/common_structs.go
+index 1b572f7d2..a1be50bc4 100644
+--- a/cmd/pdatagen/internal/common_structs.go
++++ b/cmd/pdatagen/internal/common_structs.go
+@@ -17,7 +17,7 @@ package internal
+ var commonFile = &File{
+ 	Name: "common",
+ 	imports: []string{
+-		`otlpcommon "github.com/open-telemetry/opentelemetry-proto/gen/go/common/v1"`,
++		`otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"`,
+ 	},
+ 	testImports: []string{
+ 		`"testing"`,

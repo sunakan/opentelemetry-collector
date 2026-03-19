@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index ea137a79a..1dac3a316 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -387,8 +387,8 @@ var exponentialHistogramDataPoint = &messageValueStruct{
+ }
+ 
+ var bucketsValues = &messageValueStruct{
+-	structName:     "Buckets",
+-	description:    "// Buckets are a set of bucket counts, encoded in a contiguous array of counts.",
++	structName:     "ExponentialHistogramDataPointBuckets",
++	description:    "// ExponentialHistogramDataPointBuckets are a set of bucket counts, encoded in a contiguous array of counts.",
+ 	originFullName: "otlpmetrics.ExponentialHistogramDataPoint_Buckets",
+ 	fields: []baseField{
+ 		&primitiveField{

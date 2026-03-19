@@ -1,0 +1,12 @@
+diff --git a/exporter/debugexporter/config_test.go b/exporter/debugexporter/config_test.go
+index ef204196e..e35419d51 100644
+--- a/exporter/debugexporter/config_test.go
++++ b/exporter/debugexporter/config_test.go
+@@ -79,7 +79,6 @@ func Test_UnmarshalMarshalled(t *testing.T) {
+ 		},
+ 	} {
+ 		t.Run(name, func(t *testing.T) {
+-
+ 			conf := confmap.New()
+ 			err := conf.Marshal(tc.inCfg)
+ 			require.NoError(t, err)

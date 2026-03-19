@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/internal/testdata/generated_package_name.yaml b/cmd/mdatagen/internal/testdata/generated_package_name.yaml
+new file mode 100644
+index 000000000..a880e69e6
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/generated_package_name.yaml
+@@ -0,0 +1,10 @@
++type: custom
++
++generated_package_name: customname
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
+\ No newline at end of file

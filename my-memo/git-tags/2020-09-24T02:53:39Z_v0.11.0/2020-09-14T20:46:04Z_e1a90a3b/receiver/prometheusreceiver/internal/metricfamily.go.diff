@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/metricfamily.go b/receiver/prometheusreceiver/internal/metricfamily.go
+index 50cb0e104..2ffe19b6a 100644
+--- a/receiver/prometheusreceiver/internal/metricfamily.go
++++ b/receiver/prometheusreceiver/internal/metricfamily.go
+@@ -184,7 +184,7 @@ func (mf *metricFamily) ToMetric() (*metricspb.Metric, int, int) {
+ 	timeseries := make([]*metricspb.TimeSeries, 0, len(mf.groups))
+ 	switch mf.mtype {
+ 	// not supported currently
+-	//case metricspb.MetricDescriptor_GAUGE_DISTRIBUTION:
++	// case metricspb.MetricDescriptor_GAUGE_DISTRIBUTION:
+ 	//	return nil
+ 	case metricspb.MetricDescriptor_CUMULATIVE_DISTRIBUTION:
+ 		for _, mg := range mf.getGroups() {

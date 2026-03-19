@@ -1,0 +1,35 @@
+diff --git a/pdata/pprofile/generated_resourceprofiles.go b/pdata/pprofile/generated_resourceprofiles.go
+index d696e2c15..bc24f7c0f 100644
+--- a/pdata/pprofile/generated_resourceprofiles.go
++++ b/pdata/pprofile/generated_resourceprofiles.go
+@@ -9,6 +9,7 @@ package pprofile
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -77,6 +78,22 @@ func (ms ResourceProfiles) CopyTo(dest ResourceProfiles) {
+ 	copyOrigResourceProfiles(dest.orig, ms.orig)
+ }
+ 
++// marshalJSONStream marshals all properties from the current struct to the destination stream.
++func (ms ResourceProfiles) marshalJSONStream(dest *json.Stream) {
++	dest.WriteObjectStart()
++	dest.WriteObjectField("resource")
++	internal.MarshalJSONStreamResource(internal.NewResource(&ms.orig.Resource, ms.state), dest)
++	if ms.orig.SchemaUrl != "" {
++		dest.WriteObjectField("schemaUrl")
++		dest.WriteString(ms.orig.SchemaUrl)
++	}
++	if len(ms.orig.ScopeProfiles) > 0 {
++		dest.WriteObjectField("scopeProfiles")
++		ms.ScopeProfiles().marshalJSONStream(dest)
++	}
++	dest.WriteObjectEnd()
++}
++
+ func copyOrigResourceProfiles(dest, src *otlpprofiles.ResourceProfiles) {
+ 	internal.CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.SchemaUrl = src.SchemaUrl

@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index c545b6cbe..5685f7b17 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -76,7 +76,7 @@ func New(addr string, tc consumer.TraceConsumer, mc consumer.MetricsConsumer, op
+ 	// TODO: (@odeke-em) use options to enable address binding changes.
+ 	ln, err := net.Listen("tcp", addr)
+ 	if err != nil {
+-		return nil, fmt.Errorf("Failed to bind to address %q: %v", addr, err)
++		return nil, fmt.Errorf("failed to bind to address %q: %v", addr, err)
+ 	}
+ 
+ 	ocr := &Receiver{

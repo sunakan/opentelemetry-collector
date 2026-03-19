@@ -1,0 +1,31 @@
+diff --git a/exporter/internal/common/factory.go b/exporter/internal/common/factory.go
+index 95eb888e8..b76e23f89 100644
+--- a/exporter/internal/common/factory.go
++++ b/exporter/internal/common/factory.go
+@@ -29,7 +29,7 @@ type Common struct {
+ 	SamplingThereafter int
+ }
+ 
+-func CreateTracesExporter(ctx context.Context, set exporter.CreateSettings, config component.Config, c *Common) (exporter.Traces, error) {
++func CreateTracesExporter(ctx context.Context, set exporter.Settings, config component.Config, c *Common) (exporter.Traces, error) {
+ 	exporterLogger := c.createLogger(set.TelemetrySettings.Logger)
+ 	s := newLoggingExporter(exporterLogger, c.Verbosity)
+ 	return exporterhelper.NewTracesExporter(ctx, set, config,
+@@ -40,7 +40,7 @@ func CreateTracesExporter(ctx context.Context, set exporter.CreateSettings, conf
+ 	)
+ }
+ 
+-func CreateMetricsExporter(ctx context.Context, set exporter.CreateSettings, config component.Config, c *Common) (exporter.Metrics, error) {
++func CreateMetricsExporter(ctx context.Context, set exporter.Settings, config component.Config, c *Common) (exporter.Metrics, error) {
+ 	exporterLogger := c.createLogger(set.TelemetrySettings.Logger)
+ 	s := newLoggingExporter(exporterLogger, c.Verbosity)
+ 	return exporterhelper.NewMetricsExporter(ctx, set, config,
+@@ -51,7 +51,7 @@ func CreateMetricsExporter(ctx context.Context, set exporter.CreateSettings, con
+ 	)
+ }
+ 
+-func CreateLogsExporter(ctx context.Context, set exporter.CreateSettings, config component.Config, c *Common) (exporter.Logs, error) {
++func CreateLogsExporter(ctx context.Context, set exporter.Settings, config component.Config, c *Common) (exporter.Logs, error) {
+ 	exporterLogger := c.createLogger(set.TelemetrySettings.Logger)
+ 	s := newLoggingExporter(exporterLogger, c.Verbosity)
+ 	return exporterhelper.NewLogsExporter(ctx, set, config,

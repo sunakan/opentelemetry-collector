@@ -1,0 +1,35 @@
+diff --git a/service/internal/metadatatest/generated_telemetrytest_test.go b/service/internal/metadatatest/generated_telemetrytest_test.go
+index 70f39cdcd..316f3a425 100644
+--- a/service/internal/metadatatest/generated_telemetrytest_test.go
++++ b/service/internal/metadatatest/generated_telemetrytest_test.go
+@@ -95,5 +95,30 @@ func TestSetupTelemetry(t *testing.T) {
+ 			},
+ 		},
+ 	}, metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessCPUSeconds(t, testTel.Telemetry,
++		[]metricdata.DataPoint[float64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessMemoryRss(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessRuntimeHeapAllocBytes(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessRuntimeTotalAllocBytes(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessRuntimeTotalSysMemoryBytes(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessUptime(t, testTel.Telemetry,
++		[]metricdata.DataPoint[float64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
+ 	require.NoError(t, testTel.Shutdown(context.Background()))
+ }

@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index ca629bb6e..6218e1f6c 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -403,7 +403,6 @@ func singleMetric() pdata.MetricSlice {
+ 	metrics := pdata.NewMetricSlice()
+ 	metrics.Resize(1)
+ 	metrics.At(0).SetDataType(pdata.MetricDataTypeIntGauge)
+-	metrics.At(0).IntGauge().InitEmpty()
+ 	metrics.At(0).IntGauge().DataPoints().Resize(1)
+ 	return metrics
+ }

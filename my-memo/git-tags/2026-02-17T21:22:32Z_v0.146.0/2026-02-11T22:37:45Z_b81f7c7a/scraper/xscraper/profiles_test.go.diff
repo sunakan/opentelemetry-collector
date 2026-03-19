@@ -1,0 +1,21 @@
+diff --git a/scraper/xscraper/profiles_test.go b/scraper/xscraper/profiles_test.go
+index ac98158ad..b97e978fa 100644
+--- a/scraper/xscraper/profiles_test.go
++++ b/scraper/xscraper/profiles_test.go
+@@ -59,14 +59,12 @@ func TestProfilesConcurrency(t *testing.T) {
+ 
+ 	var wg sync.WaitGroup
+ 	for range 10 {
+-		wg.Add(1)
+-		go func() {
+-			defer wg.Done()
++		wg.Go(func() {
+ 			for range 10000 {
+ 				_, errScrape := mp.ScrapeProfiles(context.Background())
+ 				assert.NoError(t, errScrape)
+ 			}
+-		}()
++		})
+ 	}
+ 	wg.Wait()
+ 	require.NoError(t, mp.Shutdown(context.Background()))

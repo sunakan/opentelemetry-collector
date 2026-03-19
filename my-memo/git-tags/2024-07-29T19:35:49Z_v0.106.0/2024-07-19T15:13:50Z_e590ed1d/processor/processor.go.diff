@@ -1,0 +1,16 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 8d17038d1..543d4869d 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -24,11 +24,6 @@ type Metrics = internal.Metrics
+ // Logs is a processor that can consume logs.
+ type Logs = internal.Logs
+ 
+-// CreateSettings is passed to Create* functions in Factory.
+-//
+-// Deprecated: [v0.103.0] Use processor.Settings instead.
+-type CreateSettings = internal.Settings
+-
+ // Settings is passed to Create* functions in Factory.
+ type Settings = internal.Settings
+ 

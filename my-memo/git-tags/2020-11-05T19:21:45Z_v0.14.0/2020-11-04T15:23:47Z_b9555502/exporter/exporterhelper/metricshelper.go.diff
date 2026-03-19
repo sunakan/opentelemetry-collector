@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index cb5d51135..c26b9fd33 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -54,9 +54,8 @@ func newMetricsRequest(ctx context.Context, md pdata.Metrics, pusher PushMetrics
+ 	}
+ }
+ 
+-func (req *metricsRequest) onPartialError(consumererror.PartialError) request {
+-	// TODO: implement this.
+-	return req
++func (req *metricsRequest) onPartialError(partialErr consumererror.PartialError) request {
++	return newMetricsRequest(req.ctx, partialErr.GetMetrics(), req.pusher)
+ }
+ 
+ func (req *metricsRequest) export(ctx context.Context) (int, error) {

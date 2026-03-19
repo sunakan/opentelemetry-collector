@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_proto_requestcontext.go b/pdata/internal/generated_proto_requestcontext.go
+index 0dd5d7e8c..eab9a270b 100644
+--- a/pdata/internal/generated_proto_requestcontext.go
++++ b/pdata/internal/generated_proto_requestcontext.go
+@@ -66,9 +66,9 @@ func (m *RequestContext) GetUnix() *UnixAddr {
+ }
+ 
+ type RequestContext struct {
++	ClientAddress  any
+ 	SpanContext    *SpanContext
+ 	ClientMetadata []KeyValue
+-	ClientAddress  any
+ }
+ 
+ var (

@@ -1,0 +1,19 @@
+diff --git a/config/configparser/testdata/unknown-pipeline-type.yaml b/config/configparser/testdata/unknown-pipeline-type.yaml
+new file mode 100644
+index 000000000..7c88405a9
+--- /dev/null
++++ b/config/configparser/testdata/unknown-pipeline-type.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    wrongdatatype:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

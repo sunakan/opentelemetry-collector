@@ -1,0 +1,16 @@
+diff --git a/service/builder/testdata/new_style_receiver_factory.yaml b/service/builder/testdata/new_style_receiver_factory.yaml
+deleted file mode 100644
+index 3a046862c..000000000
+--- a/service/builder/testdata/new_style_receiver_factory.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  newstylereceiver:
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [newstylereceiver]
+-      exporters: [exampleexporter]

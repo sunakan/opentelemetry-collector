@@ -1,0 +1,15 @@
+diff --git a/internal/processor/filtermatcher/filtermatcher.go b/internal/processor/filtermatcher/filtermatcher.go
+index 9f192318d..a80986769 100644
+--- a/internal/processor/filtermatcher/filtermatcher.go
++++ b/internal/processor/filtermatcher/filtermatcher.go
+@@ -17,9 +17,9 @@ package filtermatcher
+ import (
+ 	"fmt"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type instrumentationLibraryMatcher struct {

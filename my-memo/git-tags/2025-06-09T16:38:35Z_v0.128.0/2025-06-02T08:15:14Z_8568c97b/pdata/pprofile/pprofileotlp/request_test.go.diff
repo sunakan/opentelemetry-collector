@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/pprofileotlp/request_test.go b/pdata/pprofile/pprofileotlp/request_test.go
+index eedac7506..aee3f047a 100644
+--- a/pdata/pprofile/pprofileotlp/request_test.go
++++ b/pdata/pprofile/pprofileotlp/request_test.go
+@@ -39,7 +39,8 @@ var profilesRequestJSON = []byte(`
+ 					}
+ 				]
+ 			}
+-		]
++		],
++		"dictionary": {}
+ 	}`)
+ 
+ func TestRequestToPData(t *testing.T) {

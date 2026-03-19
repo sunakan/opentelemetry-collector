@@ -1,0 +1,13 @@
+diff --git a/service/logger.go b/service/logger.go
+index d1556c226..65eccdcf1 100644
+--- a/service/logger.go
++++ b/service/logger.go
+@@ -31,7 +31,7 @@ var (
+ )
+ 
+ func loggerFlags(flags *flag.FlagSet) {
+-	loggerLevelPtr = flags.String(logLevelCfg, "INFO", "Output level of logs (TRACE, DEBUG, INFO, WARN, ERROR, FATAL)")
++	loggerLevelPtr = flags.String(logLevelCfg, "INFO", "Output level of logs (DEBUG, INFO, WARN, ERROR, DPANIC, PANIC, FATAL)")
+ }
+ 
+ func newLogger() (*zap.Logger, error) {

@@ -1,0 +1,15 @@
+diff --git a/internal/auth/authenticator_test.go b/internal/auth/authenticator_test.go
+index 3476f3a64..285c47c95 100644
+--- a/internal/auth/authenticator_test.go
++++ b/internal/auth/authenticator_test.go
+@@ -36,8 +36,8 @@ func TestNew(t *testing.T) {
+ 	})
+ 
+ 	// verify
+-	assert.Nil(t, p)
+-	assert.Equal(t, errNotImplemented, err)
++	assert.NotNil(t, p)
++	assert.NoError(t, err)
+ }
+ 
+ func TestMissingOIDC(t *testing.T) {

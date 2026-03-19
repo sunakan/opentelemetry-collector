@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/config_test.go b/exporter/kafkaexporter/config_test.go
+index fee93e9f0..e09ee2e10 100644
+--- a/exporter/kafkaexporter/config_test.go
++++ b/exporter/kafkaexporter/config_test.go
+@@ -71,5 +71,8 @@ func TestLoadConfig(t *testing.T) {
+ 				Backoff: defaultMetadataRetryBackoff,
+ 			},
+ 		},
++		Producer: Producer{
++			MaxMessageBytes: 10000000,
++		},
+ 	}, c)
+ }

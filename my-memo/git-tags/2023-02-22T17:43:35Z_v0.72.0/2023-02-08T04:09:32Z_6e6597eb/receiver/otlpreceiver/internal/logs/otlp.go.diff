@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp.go b/receiver/otlpreceiver/internal/logs/otlp.go
+index c7228b52a..46d6c8bc3 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp.go
++++ b/receiver/otlpreceiver/internal/logs/otlp.go
+@@ -22,11 +22,9 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/plog/plogotlp"
+ )
+ 
+-const (
+-	dataFormatProtobuf = "protobuf"
+-)
++const dataFormatProtobuf = "protobuf"
+ 
+-// Receiver is the type used to handle spans from OpenTelemetry exporters.
++// Receiver is the type used to handle logs from OpenTelemetry exporters.
+ type Receiver struct {
+ 	plogotlp.UnimplementedGRPCServer
+ 	nextConsumer consumer.Logs

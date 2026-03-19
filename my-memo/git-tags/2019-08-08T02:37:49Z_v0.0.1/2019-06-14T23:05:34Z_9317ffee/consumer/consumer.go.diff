@@ -1,0 +1,14 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index e314773e3..d43b56bf2 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -35,3 +35,9 @@ type MetricsConsumer interface {
+ type TraceConsumer interface {
+ 	ConsumeTraceData(ctx context.Context, td data.TraceData) error
+ }
++
++// DataConsumer is a union type that can accept traces and/or metrics.
++type DataConsumer interface {
++	TraceConsumer
++	MetricsConsumer
++}

@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index dd32f0c08..ae3c21dbc 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -22,9 +22,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/receiver"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

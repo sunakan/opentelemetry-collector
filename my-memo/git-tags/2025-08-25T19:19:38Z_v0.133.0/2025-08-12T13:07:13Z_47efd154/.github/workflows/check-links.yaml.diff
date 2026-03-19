@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 6ec94f7f6..3df2e1b8e 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -47,7 +47,7 @@ jobs:
+ 
+       - name: Link Checker
+         id: lychee
+-        uses: lycheeverse/lychee-action@5c4ee84814c983aa7164eaee476f014e53ff3963
++        uses: lycheeverse/lychee-action@5c4ee84814c983aa7164eaee476f014e53ff3963 # v2.5.0
+         with:
+           args: "--verbose --no-progress ${{needs.changedfiles.outputs.files}} --config .github/lychee.toml"
+           failIfEmpty: false

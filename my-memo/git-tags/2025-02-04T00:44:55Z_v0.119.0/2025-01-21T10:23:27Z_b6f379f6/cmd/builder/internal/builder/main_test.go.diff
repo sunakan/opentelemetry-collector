@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 88e7cc704..0cc61a249 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -403,7 +403,7 @@ func TestReplaceStatementsAreComplete(t *testing.T) {
+ 
+ func verifyGoMod(t *testing.T, dir string, replaceMods map[string]bool) {
+ 	gomodpath := path.Join(dir, "go.mod")
+-	// #nosec G304 We control this path and generate the file inside, so we can assume it is safe.
++	//nolint:gosec // #nosec G304 We control this path and generate the file inside, so we can assume it is safe.
+ 	gomod, err := os.ReadFile(gomodpath)
+ 	require.NoError(t, err)
+ 

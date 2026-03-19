@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index b8cb5b99e..387b0961a 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -22,7 +22,7 @@ jobs:
+           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+         shell: bash
+       - name: Cache Go
+-        uses: actions/cache@v2
++        uses: actions/cache@v3
+         env:
+           cache-name: cache-go-modules
+         with:

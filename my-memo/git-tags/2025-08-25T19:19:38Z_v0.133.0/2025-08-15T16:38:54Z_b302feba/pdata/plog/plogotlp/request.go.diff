@@ -1,0 +1,16 @@
+diff --git a/pdata/plog/plogotlp/request.go b/pdata/plog/plogotlp/request.go
+index f802057e8..624063522 100644
+--- a/pdata/plog/plogotlp/request.go
++++ b/pdata/plog/plogotlp/request.go
+@@ -24,10 +24,9 @@ type ExportRequest struct {
+ 
+ // NewExportRequest returns an empty ExportRequest.
+ func NewExportRequest() ExportRequest {
+-	state := internal.StateMutable
+ 	return ExportRequest{
+ 		orig:  &otlpcollectorlog.ExportLogsServiceRequest{},
+-		state: &state,
++		state: internal.NewState(),
+ 	}
+ }
+ 

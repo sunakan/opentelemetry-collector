@@ -1,0 +1,17 @@
+diff --git a/receiver/scraperhelper/obsreport_test.go b/receiver/scraperhelper/obsreport_test.go
+index e5927a116..2240ce2ef 100644
+--- a/receiver/scraperhelper/obsreport_test.go
++++ b/receiver/scraperhelper/obsreport_test.go
+@@ -105,9 +105,9 @@ func TestCheckScraperMetricsViews(t *testing.T) {
+ 	require.NotNil(t, ctx)
+ 	s.EndMetricsOp(ctx, 7, nil)
+ 
+-	assert.NoError(t, tt.CheckScraperMetrics(receiverID, scraperID, 7, 0))
+-	assert.Error(t, tt.CheckScraperMetrics(receiverID, scraperID, 7, 7))
+-	assert.Error(t, tt.CheckScraperMetrics(receiverID, scraperID, 0, 0))
++	require.NoError(t, tt.CheckScraperMetrics(receiverID, scraperID, 7, 0))
++	require.Error(t, tt.CheckScraperMetrics(receiverID, scraperID, 7, 7))
++	require.Error(t, tt.CheckScraperMetrics(receiverID, scraperID, 0, 0))
+ 	assert.Error(t, tt.CheckScraperMetrics(receiverID, scraperID, 0, 7))
+ }
+ 

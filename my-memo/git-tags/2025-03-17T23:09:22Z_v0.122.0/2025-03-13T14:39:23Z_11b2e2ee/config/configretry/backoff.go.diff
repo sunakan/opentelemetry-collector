@@ -1,0 +1,13 @@
+diff --git a/config/configretry/backoff.go b/config/configretry/backoff.go
+index 476c350b0..b3d0a601b 100644
+--- a/config/configretry/backoff.go
++++ b/config/configretry/backoff.go
+@@ -7,7 +7,7 @@ import (
+ 	"errors"
+ 	"time"
+ 
+-	"github.com/cenkalti/backoff/v4"
++	"github.com/cenkalti/backoff/v5"
+ )
+ 
+ // NewDefaultBackOffConfig returns the default settings for RetryConfig.

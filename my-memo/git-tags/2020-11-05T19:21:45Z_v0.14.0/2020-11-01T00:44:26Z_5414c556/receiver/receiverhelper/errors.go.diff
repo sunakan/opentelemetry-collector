@@ -1,0 +1,18 @@
+diff --git a/receiver/receiverhelper/errors.go b/receiver/receiverhelper/errors.go
+index 3305dd3ec..1a364150d 100644
+--- a/receiver/receiverhelper/errors.go
++++ b/receiver/receiverhelper/errors.go
+@@ -48,6 +48,12 @@ func CombineScrapeErrors(errs []error) error {
+ 		errMsgs = append(errMsgs, err.Error())
+ 	}
+ 
+-	err := fmt.Errorf("[%s]", strings.Join(errMsgs, "; "))
++	var err error
++	if len(errs) == 1 {
++		err = errs[0]
++	} else {
++		err = fmt.Errorf("[%s]", strings.Join(errMsgs, "; "))
++	}
++
+ 	return consumererror.NewPartialScrapeError(err, failedScrapeCount)
+ }

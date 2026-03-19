@@ -1,0 +1,12 @@
+diff --git a/exporter/jaegerexporter/doc.go b/exporter/jaegerexporter/doc.go
+index e66a34822..aafcbf18c 100644
+--- a/exporter/jaegerexporter/doc.go
++++ b/exporter/jaegerexporter/doc.go
+@@ -12,6 +12,5 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package jaegerexporter implements an exporter that sends trace data to
+-// a Jaeger collector gRPC endpoint.
++// Package jaegerexporter sends trace data to a Jaeger Collector gRPC endpoint.
+ package jaegerexporter

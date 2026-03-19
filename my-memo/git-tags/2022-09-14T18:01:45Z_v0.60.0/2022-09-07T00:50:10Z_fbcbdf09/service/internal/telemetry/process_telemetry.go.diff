@@ -1,0 +1,14 @@
+diff --git a/service/internal/telemetry/process_telemetry.go b/service/internal/telemetry/process_telemetry.go
+index 1a2ff42bb..b6d0a9324 100644
+--- a/service/internal/telemetry/process_telemetry.go
++++ b/service/internal/telemetry/process_telemetry.go
+@@ -159,7 +159,8 @@ func (pm *processMetrics) updateCPUSeconds() float64 {
+ 		return 0
+ 	}
+ 
+-	return times.Total()
++	return times.User + times.System + times.Idle + times.Nice +
++		times.Iowait + times.Irq + times.Softirq + times.Steal
+ }
+ 
+ func (pm *processMetrics) updateRSSMemory() int64 {

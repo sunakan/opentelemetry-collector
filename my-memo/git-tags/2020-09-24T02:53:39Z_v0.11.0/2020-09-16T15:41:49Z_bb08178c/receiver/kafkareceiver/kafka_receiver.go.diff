@@ -1,0 +1,22 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver.go b/receiver/kafkareceiver/kafka_receiver.go
+index 9ec72841b..99a66a951 100644
+--- a/receiver/kafkareceiver/kafka_receiver.go
++++ b/receiver/kafkareceiver/kafka_receiver.go
+@@ -26,6 +26,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/exporter/kafkaexporter"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 
+@@ -67,6 +68,9 @@ func newReceiver(config Config, params component.ReceiverCreateParams, unmarshal
+ 		}
+ 		c.Version = version
+ 	}
++	if err := kafkaexporter.ConfigureAuthentication(config.Authentication, c); err != nil {
++		return nil, err
++	}
+ 	client, err := sarama.NewConsumerGroup(config.Brokers, config.GroupID, c)
+ 	if err != nil {
+ 		return nil, err

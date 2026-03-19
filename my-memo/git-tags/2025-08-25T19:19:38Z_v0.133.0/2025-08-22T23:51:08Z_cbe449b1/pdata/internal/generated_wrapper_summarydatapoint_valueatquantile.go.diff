@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+index be0d980d6..3195880d9 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+@@ -17,11 +17,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolSummaryDataPoint_ValueAtQuantile = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
+-	},
+-}
++var (
++	protoPoolSummaryDataPoint_ValueAtQuantile = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
++		},
++	}
++)
+ 
+ func NewOrigSummaryDataPoint_ValueAtQuantile() *otlpmetrics.SummaryDataPoint_ValueAtQuantile {
+ 	if !UseProtoPooling.IsEnabled() {

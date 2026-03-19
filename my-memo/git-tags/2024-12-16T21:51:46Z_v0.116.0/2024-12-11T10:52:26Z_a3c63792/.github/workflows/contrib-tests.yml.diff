@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 90e8067df..65432540e 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -11,7 +11,7 @@ on:
+     types: [checks_requested]
+ 
+ concurrency:
+-  group: ${{ github.workflow }}-${{ github.head_ref }}
++  group: ${{ github.workflow }}-${{ github.ref_name }}
+   cancel-in-progress: true
+ 
+ permissions:

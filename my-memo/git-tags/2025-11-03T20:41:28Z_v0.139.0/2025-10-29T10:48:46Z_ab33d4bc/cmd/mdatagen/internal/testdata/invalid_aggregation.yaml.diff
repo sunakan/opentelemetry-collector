@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/invalid_aggregation.yaml b/cmd/mdatagen/internal/testdata/invalid_aggregation.yaml
+index 3165d1a71..c86c2d626 100644
+--- a/cmd/mdatagen/internal/testdata/invalid_aggregation.yaml
++++ b/cmd/mdatagen/internal/testdata/invalid_aggregation.yaml
+@@ -15,6 +15,8 @@ metrics:
+     enabled: true
+     description: Monotonic cumulative sum int metric enabled by default.
+     extended_documentation: The metric will be become optional soon.
++    stability:
++      level: development
+     unit: s
+     sum:
+       value_type: int

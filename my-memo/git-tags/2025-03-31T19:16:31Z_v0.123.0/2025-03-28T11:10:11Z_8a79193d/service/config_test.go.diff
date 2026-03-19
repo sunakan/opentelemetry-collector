@@ -1,0 +1,25 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 187deb4da..d19c3f83d 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -154,12 +154,14 @@ func generateConfig() *Config {
+ 			},
+ 			Metrics: telemetry.MetricsConfig{
+ 				Level: configtelemetry.LevelNormal,
+-				Readers: []config.MetricReader{
+-					{
+-						Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
+-							Host: newPtr("localhost"),
+-							Port: newPtr(8080),
+-						}}},
++				MeterProvider: config.MeterProvider{
++					Readers: []config.MetricReader{
++						{
++							Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
++								Host: newPtr("localhost"),
++								Port: newPtr(8080),
++							}}},
++						},
+ 					},
+ 				},
+ 			},

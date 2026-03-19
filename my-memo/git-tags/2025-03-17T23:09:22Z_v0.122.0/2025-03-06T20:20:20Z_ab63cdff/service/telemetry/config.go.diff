@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/config.go b/service/telemetry/config.go
+index 41bbf5426..31a3f57e0 100644
+--- a/service/telemetry/config.go
++++ b/service/telemetry/config.go
+@@ -9,7 +9,7 @@ import (
+ 	"net"
+ 	"strconv"
+ 
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/confmap"

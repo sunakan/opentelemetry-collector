@@ -1,0 +1,13 @@
+diff --git a/config/configopaque/doc_test.go b/config/configopaque/doc_test.go
+index 774c02dde..d0df515eb 100644
+--- a/config/configopaque/doc_test.go
++++ b/config/configopaque/doc_test.go
+@@ -7,7 +7,7 @@ import (
+ 	"encoding/json"
+ 	"fmt"
+ 
+-	yaml "go.yaml.in/yaml/v3"
++	"go.yaml.in/yaml/v3"
+ 
+ 	"go.opentelemetry.io/collector/config/configopaque"
+ )

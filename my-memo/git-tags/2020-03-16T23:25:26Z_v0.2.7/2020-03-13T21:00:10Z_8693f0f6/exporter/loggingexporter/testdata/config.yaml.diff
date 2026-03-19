@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/testdata/config.yaml b/exporter/loggingexporter/testdata/config.yaml
+index 3e1c6004e..2d86aabbb 100644
+--- a/exporter/loggingexporter/testdata/config.yaml
++++ b/exporter/loggingexporter/testdata/config.yaml
+@@ -8,6 +8,8 @@ exporters:
+   logging:
+   logging/2:
+     loglevel: debug
++    sampling_initial: 10
++    sampling_thereafter: 50
+ 
+ service:
+   pipelines:

@@ -1,0 +1,18 @@
+diff --git a/config/testdata/pipeline-must-have-receiver-metrics.yaml b/config/testdata/pipeline-must-have-receiver-metrics.yaml
+new file mode 100644
+index 000000000..3d3000b17
+--- /dev/null
++++ b/config/testdata/pipeline-must-have-receiver-metrics.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  examplereceiver:
++    extra: "not present in the service pipeline"
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    metrics:
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

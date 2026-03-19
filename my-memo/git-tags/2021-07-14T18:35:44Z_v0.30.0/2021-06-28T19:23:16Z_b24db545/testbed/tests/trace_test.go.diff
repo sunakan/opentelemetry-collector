@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index b2b28de1d..11cfae70f 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -408,7 +408,7 @@ func TestTraceAttributesProcessor(t *testing.T) {
+ `,
+ 			}
+ 
+-			agentProc := &testbed.ChildProcess{}
++			agentProc := testbed.NewChildProcessCollector()
+ 			configStr := createConfigYaml(t, test.sender, test.receiver, resultDir, processors, nil)
+ 			configCleanup, err := agentProc.PrepareConfig(configStr)
+ 			require.NoError(t, err)

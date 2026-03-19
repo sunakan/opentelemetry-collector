@@ -1,0 +1,27 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index 5434a2edc..801161237 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -9,7 +9,6 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+-	"go.opentelemetry.io/collector/exporter/exporterqueue"
+ )
+ 
+ // Option apply changes to BaseExporter.
+@@ -46,14 +45,6 @@ func WithQueue(config QueueConfig) Option {
+ 	return internal.WithQueue(config)
+ }
+ 
+-// WithRequestQueue enables queueing for an exporter.
+-// This option should be used with the new exporter helpers New[Traces|Metrics|Logs]RequestExporter.
+-// Experimental: This API is at the early stage of development and may change without backward compatibility
+-// until https://github.com/open-telemetry/opentelemetry-collector/issues/8122 is resolved.
+-func WithRequestQueue(cfg exporterqueue.Config, encoding exporterqueue.Encoding[Request]) Option {
+-	return internal.WithRequestQueue(cfg, encoding)
+-}
+-
+ // WithCapabilities overrides the default Capabilities() function for a Consumer.
+ // The default is non-mutable data.
+ // TODO: Verify if we can change the default to be mutable as we do for processors.

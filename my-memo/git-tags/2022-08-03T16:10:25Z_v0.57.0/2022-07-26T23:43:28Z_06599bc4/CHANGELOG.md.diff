@@ -1,0 +1,19 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 7d56482c4..a3546cc73 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,11 +4,14 @@
+ 
+ ### 🛑 Breaking changes 🛑
+ 
++- Change`confighttp.ToClient` to accept a `component.Host` (#5737)
++
+ ### 🚩 Deprecations 🚩
+ 
+ ### 💡 Enhancements 💡
+ 
+ - `ocb` now exits with an error if it fails to load the build configuration. (#5731)
++- Deprecate `HTTPClientSettings.ToClientWithHost` (#5737)
+ 
+ ### 🧰 Bug fixes 🧰
+ 

@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/trace/otlp.go b/receiver/otlpreceiver/trace/otlp.go
+index 0d0ec88b0..d6b2050f8 100644
+--- a/receiver/otlpreceiver/trace/otlp.go
++++ b/receiver/otlpreceiver/trace/otlp.go
+@@ -17,12 +17,11 @@ package trace
+ import (
+ 	"context"
+ 
+-	collectortrace "github.com/open-telemetry/opentelemetry-proto/gen/go/collector/trace/v1"
+-
+ 	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	collectortrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 

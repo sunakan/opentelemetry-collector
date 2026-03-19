@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/ptraceotlp_structs.go b/pdata/internal/cmd/pdatagen/internal/ptraceotlp_structs.go
+index 73ecc0ec8..2985a30c5 100644
+--- a/pdata/internal/cmd/pdatagen/internal/ptraceotlp_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/ptraceotlp_structs.go
+@@ -42,10 +42,9 @@ var traceOtlpFile = &File{
+ }
+ 
+ var exportTracePartialSuccess = &messageValueStruct{
+-	structName:         "ExportPartialSuccess",
+-	internalStructName: "TracesExportPartialSuccess",
+-	description:        "// ExportPartialSuccess represents the details of a partially successful export request.",
+-	originFullName:     "otlpcollectortrace.ExportTracePartialSuccess",
++	structName:     "ExportPartialSuccess",
++	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",
++	originFullName: "otlpcollectortrace.ExportTracePartialSuccess",
+ 	fields: []baseField{
+ 		&primitiveField{
+ 			fieldName:  "RejectedSpans",

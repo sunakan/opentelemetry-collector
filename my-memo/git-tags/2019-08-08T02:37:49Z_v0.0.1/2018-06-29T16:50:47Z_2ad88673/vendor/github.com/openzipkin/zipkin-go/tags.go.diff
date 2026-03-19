@@ -1,0 +1,27 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/tags.go b/vendor/github.com/openzipkin/zipkin-go/tags.go
+new file mode 100644
+index 000000000..67a55c4fc
+--- /dev/null
++++ b/vendor/github.com/openzipkin/zipkin-go/tags.go
+@@ -0,0 +1,21 @@
++package zipkin
++
++// Tag holds available types
++type Tag string
++
++// Common Tag values
++const (
++	TagHTTPMethod       Tag = "http.method"
++	TagHTTPPath         Tag = "http.path"
++	TagHTTPUrl          Tag = "http.url"
++	TagHTTPStatusCode   Tag = "http.status_code"
++	TagHTTPRequestSize  Tag = "http.request.size"
++	TagHTTPResponseSize Tag = "http.response.size"
++	TagGRPCStatusCode   Tag = "grpc.status_code"
++	TagError            Tag = "error"
++)
++
++// Set a standard Tag with a payload on provided Span.
++func (t Tag) Set(s Span, value string) {
++	s.Tag(string(t), value)
++}

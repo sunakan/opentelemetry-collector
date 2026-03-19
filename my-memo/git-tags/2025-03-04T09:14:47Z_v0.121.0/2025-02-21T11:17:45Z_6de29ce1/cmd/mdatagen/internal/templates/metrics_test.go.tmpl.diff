@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/metrics_test.go.tmpl b/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
+index 615ba43cb..9a230f8ed 100644
+--- a/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
+@@ -63,7 +63,7 @@ func TestMetricsBuilder(t *testing.T) {
+ 			ts := pcommon.Timestamp(1_000_001_000)
+ 			observedZapCore, observedLogs := observer.New(zap.WarnLevel)
+         	{{- if or isReceiver isScraper }}
+-            settings := {{ .Status.Class }}test.NewNopSettingsWithType({{ .Status.Class }}test.NopType)
++            settings := {{ .Status.Class }}test.NewNopSettings({{ .Status.Class }}test.NopType)
+ 	        {{- end }}
+ 			settings.Logger = zap.New(observedZapCore)
+ 			mb := NewMetricsBuilder(loadMetricsBuilderConfig(t, tt.name), settings, WithStartTime(start))

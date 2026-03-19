@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 953eeceac..4bbaaac1a 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -24,7 +24,7 @@ import (
+ )
+ 
+ // AttributeValueType specifies the type of AttributeValue.
+-type AttributeValueType int
++type AttributeValueType int32
+ 
+ const (
+ 	AttributeValueNULL AttributeValueType = iota

@@ -1,0 +1,13 @@
+diff --git a/internal/fanoutconsumer/metrics.go b/internal/fanoutconsumer/metrics.go
+index 57cf10668..f77e3f5d2 100644
+--- a/internal/fanoutconsumer/metrics.go
++++ b/internal/fanoutconsumer/metrics.go
+@@ -23,7 +23,7 @@ func NewMetrics(mcs []consumer.Metrics) consumer.Metrics {
+ 	}
+ 
+ 	mc := &metricsConsumer{}
+-	for i := 0; i < len(mcs); i++ {
++	for i := range mcs {
+ 		if mcs[i].Capabilities().MutatesData {
+ 			mc.mutable = append(mc.mutable, mcs[i])
+ 		} else {

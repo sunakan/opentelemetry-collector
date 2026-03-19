@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/config_test.go b/receiver/prometheusreceiver/config_test.go
+index 2a32a993f..b3222c5ff 100644
+--- a/receiver/prometheusreceiver/config_test.go
++++ b/receiver/prometheusreceiver/config_test.go
+@@ -30,7 +30,7 @@ import (
+ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factory := receiver.GetReceiverFactory(typeStr)
++	factory := receiver.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

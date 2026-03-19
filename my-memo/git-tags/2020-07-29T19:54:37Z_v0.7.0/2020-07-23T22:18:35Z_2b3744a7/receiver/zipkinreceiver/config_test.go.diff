@@ -1,0 +1,24 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index 3cd1f2cda..8a0801cbb 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -22,9 +22,9 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -33,7 +33,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := &Factory{}
+ 	factories.Receivers[typeStr] = factory
+-	cfg, err := config.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)

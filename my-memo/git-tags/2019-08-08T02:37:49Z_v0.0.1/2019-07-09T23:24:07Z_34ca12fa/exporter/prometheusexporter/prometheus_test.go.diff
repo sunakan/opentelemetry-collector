@@ -1,0 +1,36 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index 68486e618..4fb73ec0c 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -34,11 +34,11 @@ import (
+ 
+ func TestPrometheusExporter(t *testing.T) {
+ 	tests := []struct {
+-		config  *ConfigV2
++		config  *Config
+ 		wantErr string
+ 	}{
+ 		{
+-			config: &ConfigV2{
++			config: &Config{
+ 				Namespace: "test",
+ 				ConstLabels: map[string]string{
+ 					"foo":  "bar",
+@@ -48,7 +48,7 @@ func TestPrometheusExporter(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			config:  &ConfigV2{},
++			config:  &Config{},
+ 			wantErr: "expecting a non-blank address to run the Prometheus metrics handler",
+ 		},
+ 	}
+@@ -96,7 +96,7 @@ prometheus:`)
+ }
+ 
+ func TestPrometheusExporter_endToEnd(t *testing.T) {
+-	config := &ConfigV2{
++	config := &Config{
+ 		Namespace: "test",
+ 		ConstLabels: map[string]string{
+ 			"foo":  "bar",

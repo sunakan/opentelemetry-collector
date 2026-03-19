@@ -1,0 +1,26 @@
+diff --git a/processor/filterprocessor/testdata/config_logs.yaml b/processor/filterprocessor/testdata/config_logs.yaml
+deleted file mode 100644
+index 051364c36..000000000
+--- a/processor/filterprocessor/testdata/config_logs.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-    nop:
+-
+-processors:
+-    filter:
+-        logs:
+-            resource_attributes:
+-                - key: should_exclude
+-                  value: "true"
+-
+-exporters:
+-    nop:
+-
+-service:
+-    pipelines:
+-        logs:
+-            receivers: [nop]
+-            processors: [filter]
+-            exporters: [nop]
+\ No newline at end of file

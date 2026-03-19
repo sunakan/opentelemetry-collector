@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_spancontext.go b/pdata/internal/generated_proto_spancontext.go
+index 210cdcff2..3b8185f0f 100644
+--- a/pdata/internal/generated_proto_spancontext.go
++++ b/pdata/internal/generated_proto_spancontext.go
+@@ -47,7 +47,6 @@ func DeleteSpanContext(orig *SpanContext, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteTraceID(&orig.TraceID, false)
+ 	DeleteSpanID(&orig.SpanID, false)
+ 

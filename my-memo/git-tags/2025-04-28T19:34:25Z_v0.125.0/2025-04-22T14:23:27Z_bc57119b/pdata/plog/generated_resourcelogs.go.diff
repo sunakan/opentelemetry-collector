@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/generated_resourcelogs.go b/pdata/plog/generated_resourcelogs.go
+index 1d240e039..6d3a0c7fd 100644
+--- a/pdata/plog/generated_resourcelogs.go
++++ b/pdata/plog/generated_resourcelogs.go
+@@ -42,6 +42,10 @@ func NewResourceLogs() ResourceLogs {
+ func (ms ResourceLogs) MoveTo(dest ResourceLogs) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlplogs.ResourceLogs{}
+ }

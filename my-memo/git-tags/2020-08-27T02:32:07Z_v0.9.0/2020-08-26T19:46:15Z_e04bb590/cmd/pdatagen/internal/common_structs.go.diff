@@ -1,0 +1,26 @@
+diff --git a/cmd/pdatagen/internal/common_structs.go b/cmd/pdatagen/internal/common_structs.go
+index 7089e347a..b44553899 100644
+--- a/cmd/pdatagen/internal/common_structs.go
++++ b/cmd/pdatagen/internal/common_structs.go
+@@ -23,9 +23,12 @@ var commonFile = &File{
+ 		`"testing"`,
+ 		``,
+ 		`"github.com/stretchr/testify/assert"`,
++		``,
++		`otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"`,
+ 	},
+ 	structs: []baseStruct{
+ 		instrumentationLibrary,
++		anyValueArray,
+ 	},
+ }
+ 
+@@ -114,3 +117,8 @@ var anyValue = &messageStruct{
+ 	structName:     "AttributeValue",
+ 	originFullName: "otlpcommon.AnyValue",
+ }
++
++var anyValueArray = &sliceStruct{
++	structName: "AnyValueArray",
++	element:    anyValue,
++}

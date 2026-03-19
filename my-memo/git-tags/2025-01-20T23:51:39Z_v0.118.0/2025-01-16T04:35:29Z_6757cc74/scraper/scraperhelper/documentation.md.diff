@@ -1,0 +1,34 @@
+diff --git a/scraper/scraperhelper/documentation.md b/scraper/scraperhelper/documentation.md
+index 48591f4af..abe567b3b 100644
+--- a/scraper/scraperhelper/documentation.md
++++ b/scraper/scraperhelper/documentation.md
+@@ -6,6 +6,14 @@
+ 
+ The following telemetry is emitted by this component.
+ 
++### otelcol_scraper_errored_log_records
++
++Number of log records that were unable to be scraped. [alpha]
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {datapoints} | Sum | Int | true |
++
+ ### otelcol_scraper_errored_metric_points
+ 
+ Number of metric points that were unable to be scraped. [alpha]
+@@ -14,6 +22,14 @@ Number of metric points that were unable to be scraped. [alpha]
+ | ---- | ----------- | ---------- | --------- |
+ | {datapoints} | Sum | Int | true |
+ 
++### otelcol_scraper_scraped_log_records
++
++Number of log records successfully scraped. [alpha]
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {datapoints} | Sum | Int | true |
++
+ ### otelcol_scraper_scraped_metric_points
+ 
+ Number of metric points successfully scraped. [alpha]

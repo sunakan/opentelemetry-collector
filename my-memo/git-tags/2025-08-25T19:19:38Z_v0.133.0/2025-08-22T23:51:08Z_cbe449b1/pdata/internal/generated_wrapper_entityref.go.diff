@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_entityref.go b/pdata/internal/generated_wrapper_entityref.go
+index 3d2d8b488..36b694815 100644
+--- a/pdata/internal/generated_wrapper_entityref.go
++++ b/pdata/internal/generated_wrapper_entityref.go
+@@ -32,11 +32,13 @@ func NewEntityRef(orig *otlpcommon.EntityRef, state *State) EntityRef {
+ 	return EntityRef{orig: orig, state: state}
+ }
+ 
+-var protoPoolEntityRef = sync.Pool{
+-	New: func() any {
+-		return &otlpcommon.EntityRef{}
+-	},
+-}
++var (
++	protoPoolEntityRef = sync.Pool{
++		New: func() any {
++			return &otlpcommon.EntityRef{}
++		},
++	}
++)
+ 
+ func NewOrigEntityRef() *otlpcommon.EntityRef {
+ 	if !UseProtoPooling.IsEnabled() {

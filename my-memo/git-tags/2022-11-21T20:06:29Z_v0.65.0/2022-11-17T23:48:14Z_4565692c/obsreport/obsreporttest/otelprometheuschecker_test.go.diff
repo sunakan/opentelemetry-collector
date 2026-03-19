@@ -1,0 +1,24 @@
+diff --git a/obsreport/obsreporttest/otelprometheuschecker_test.go b/obsreport/obsreporttest/otelprometheuschecker_test.go
+index cc8959fc7..bde065ce0 100644
+--- a/obsreport/obsreporttest/otelprometheuschecker_test.go
++++ b/obsreport/obsreporttest/otelprometheuschecker_test.go
+@@ -47,6 +47,7 @@ func TestPromChecker(t *testing.T) {
+ 	pc, err := newStubPromChecker()
+ 	require.NoError(t, err)
+ 
++	scraper := component.NewID("fakeScraper")
+ 	receiver := component.NewID("fakeReceiver")
+ 	exporter := component.NewID("fakeExporter")
+ 	transport := "fakeTransport"
+@@ -76,6 +77,11 @@ func TestPromChecker(t *testing.T) {
+ 		"invalid metric type should return error",
+ 	)
+ 
++	assert.NoError(t,
++		pc.checkScraperMetrics(receiver, scraper, 7, 41),
++		"metrics from Scraper Metrics should be valid",
++	)
++
+ 	assert.NoError(t,
+ 		pc.checkReceiverTraces(receiver, transport, 42, 13),
+ 		"metrics from Receiver Traces should be valid",

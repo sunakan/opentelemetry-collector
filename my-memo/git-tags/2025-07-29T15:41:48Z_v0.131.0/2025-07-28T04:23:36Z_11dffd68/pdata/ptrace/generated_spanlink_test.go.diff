@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/generated_spanlink_test.go b/pdata/ptrace/generated_spanlink_test.go
+index 75b25ebd4..56371dd74 100644
+--- a/pdata/ptrace/generated_spanlink_test.go
++++ b/pdata/ptrace/generated_spanlink_test.go
+@@ -49,13 +49,13 @@ func TestSpanLink_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestSpanLink()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewSpanLink()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

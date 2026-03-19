@@ -1,0 +1,18 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index 7acaceb22..89a966ba9 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -36,11 +36,11 @@ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.
+ 	ocNode := occommon.Node{}
+ 	ocResource := ocresource.Resource{}
+ 
+-	if attrs.Cap() == 0 {
++	if attrs.Len() == 0 {
+ 		return &ocNode, &ocResource
+ 	}
+ 
+-	labels := make(map[string]string, attrs.Cap())
++	labels := make(map[string]string, attrs.Len())
+ 	attrs.ForEach(func(k string, v pdata.AttributeValue) {
+ 		val := attributeValueToString(v)
+ 

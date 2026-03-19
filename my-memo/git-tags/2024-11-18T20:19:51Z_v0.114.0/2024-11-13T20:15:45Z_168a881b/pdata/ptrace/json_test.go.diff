@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/json_test.go b/pdata/ptrace/json_test.go
+index 1be7d0061..11af34578 100644
+--- a/pdata/ptrace/json_test.go
++++ b/pdata/ptrace/json_test.go
+@@ -104,7 +104,7 @@ func TestJSONMarshal(t *testing.T) {
+ 	encoder := &JSONMarshaler{}
+ 	jsonBuf, err := encoder.MarshalTraces(tracesOTLP)
+ 	require.NoError(t, err)
+-	assert.Equal(t, tracesJSON, string(jsonBuf))
++	assert.JSONEq(t, tracesJSON, string(jsonBuf))
+ }
+ 
+ func TestJSONUnmarshalInvalid(t *testing.T) {

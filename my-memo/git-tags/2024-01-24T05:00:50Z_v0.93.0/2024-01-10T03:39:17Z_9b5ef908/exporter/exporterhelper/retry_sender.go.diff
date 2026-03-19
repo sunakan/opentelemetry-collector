@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/retry_sender.go b/exporter/exporterhelper/retry_sender.go
+index 31baad459..1de3a23c5 100644
+--- a/exporter/exporterhelper/retry_sender.go
++++ b/exporter/exporterhelper/retry_sender.go
+@@ -21,12 +21,6 @@ import (
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+ )
+ 
+-// Deprecated: [0.92.0] use configretry.BackOffConfig
+-type RetrySettings = configretry.BackOffConfig
+-
+-// Deprecated: [0.92.0] use configretry.NewDefaultBackOffConfig
+-var NewDefaultRetrySettings = configretry.NewDefaultBackOffConfig
+-
+ // TODO: Clean this by forcing all exporters to return an internal error type that always include the information about retries.
+ type throttleRetry struct {
+ 	err   error

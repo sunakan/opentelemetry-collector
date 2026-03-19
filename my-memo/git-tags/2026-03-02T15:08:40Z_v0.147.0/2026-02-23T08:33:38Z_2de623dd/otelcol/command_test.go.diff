@@ -1,0 +1,16 @@
+diff --git a/otelcol/command_test.go b/otelcol/command_test.go
+index 56445eea4..46f8290f1 100644
+--- a/otelcol/command_test.go
++++ b/otelcol/command_test.go
+@@ -216,4 +216,11 @@ func TestNewFeatureGateCommand(t *testing.T) {
+ 		require.Error(t, err)
+ 		assert.Contains(t, err.Error(), "feature \"non.existent.feature\" not found")
+ 	})
++
++	t.Run("rejects multiple arguments", func(t *testing.T) {
++		cmd := newFeatureGateCommand()
++		cmd.SetArgs([]string{"gate1", "gate2"})
++		err := cmd.Execute()
++		require.Error(t, err)
++	})
+ }

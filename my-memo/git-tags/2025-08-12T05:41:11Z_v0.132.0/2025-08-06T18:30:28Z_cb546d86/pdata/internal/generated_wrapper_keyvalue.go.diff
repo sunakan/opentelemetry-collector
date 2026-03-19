@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_keyvalue.go b/pdata/internal/generated_wrapper_keyvalue.go
+index 8c578c5d2..f35fb1943 100644
+--- a/pdata/internal/generated_wrapper_keyvalue.go
++++ b/pdata/internal/generated_wrapper_keyvalue.go
+@@ -12,3 +12,8 @@ func CopyOrigKeyValue(dest, src *v1.KeyValue) {
+ 	dest.Key = src.Key
+ 	CopyOrigAnyValue(&dest.Value, &src.Value)
+ }
++
++func FillOrigTestKeyValue(orig *v1.KeyValue) {
++	orig.Key = "test_key"
++	FillOrigTestAnyValue(&orig.Value)
++}

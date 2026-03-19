@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_function.go b/pdata/internal/generated_wrapper_function.go
+index b5976a903..7ba4c289b 100644
+--- a/pdata/internal/generated_wrapper_function.go
++++ b/pdata/internal/generated_wrapper_function.go
+@@ -16,3 +16,10 @@ func CopyOrigFunction(dest, src *otlpprofiles.Function) {
+ 	dest.FilenameStrindex = src.FilenameStrindex
+ 	dest.StartLine = src.StartLine
+ }
++
++func FillOrigTestFunction(orig *otlpprofiles.Function) {
++	orig.NameStrindex = int32(13)
++	orig.SystemNameStrindex = int32(13)
++	orig.FilenameStrindex = int32(13)
++	orig.StartLine = int64(13)
++}

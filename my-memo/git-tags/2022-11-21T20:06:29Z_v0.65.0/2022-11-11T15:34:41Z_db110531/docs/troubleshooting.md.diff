@@ -1,0 +1,13 @@
+diff --git a/docs/troubleshooting.md b/docs/troubleshooting.md
+index 6e8f69115..6575a89bc 100644
+--- a/docs/troubleshooting.md
++++ b/docs/troubleshooting.md
+@@ -169,7 +169,7 @@ You can also configure the `logging` exporter so the entire payload is printed:
+ ```yaml
+ exporters:
+   logging:
+-    loglevel: debug
++    verbosity: detailed
+ ```
+ 
+ With the modified configuration if you re-run the test above the log output should look like:

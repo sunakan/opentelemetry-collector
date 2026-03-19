@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics.go b/pdata/pmetric/pmetricotlp/metrics.go
+index d2f6e5c36..7b36f543e 100644
+--- a/pdata/pmetric/pmetricotlp/metrics.go
++++ b/pdata/pmetric/pmetricotlp/metrics.go
+@@ -150,9 +150,6 @@ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectormetrics.RegisterMetricsServiceServer(s, &rawMetricsServer{srv: srv})
+ }
+ 
+-// Deprecated: [v0.62.0] Use RegisterGRPCServer instead
+-var RegisterServer = RegisterGRPCServer
+-
+ type rawMetricsServer struct {
+ 	srv GRPCServer
+ }

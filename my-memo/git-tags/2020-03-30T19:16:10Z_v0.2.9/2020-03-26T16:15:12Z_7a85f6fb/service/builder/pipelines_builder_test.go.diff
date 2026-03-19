@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index ab7123cc4..ee9a21b3e 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -142,7 +142,7 @@ func testPipeline(t *testing.T, pipelineName string, exporterNames []string) {
+ 			Type: "resourcetype",
+ 		},
+ 	}
+-	processor.firstTC.ConsumeTraceData(context.Background(), traceData)
++	processor.firstTC.(consumer.TraceConsumerOld).ConsumeTraceData(context.Background(), traceData)
+ 
+ 	// Now verify received data.
+ 	for _, consumer := range exporterConsumers {

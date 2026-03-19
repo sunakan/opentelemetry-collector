@@ -1,0 +1,14 @@
+diff --git a/service/settings.go b/service/settings.go
+index 10814719a..a634d6489 100644
+--- a/service/settings.go
++++ b/service/settings.go
+@@ -64,6 +64,9 @@ type CollectorSettings struct {
+ 	// LoggingOptions provides a way to change behavior of zap logging.
+ 	LoggingOptions []zap.Option
+ 
++	// SkipSettingGRPCLogger avoids setting the grpc logger
++	SkipSettingGRPCLogger bool
++
+ 	// For testing purpose only.
+ 	telemetry collectorTelemetryExporter
+ }

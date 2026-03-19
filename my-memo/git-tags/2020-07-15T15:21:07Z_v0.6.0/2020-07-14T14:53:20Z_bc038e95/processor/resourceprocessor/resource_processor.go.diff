@@ -1,0 +1,11 @@
+diff --git a/processor/resourceprocessor/resource_processor.go b/processor/resourceprocessor/resource_processor.go
+index b1e5c3cee..0b2597b01 100644
+--- a/processor/resourceprocessor/resource_processor.go
++++ b/processor/resourceprocessor/resource_processor.go
+@@ -106,5 +106,5 @@ func (rmp *resourceMetricProcessor) ConsumeMetrics(ctx context.Context, md pdata
+ 		}
+ 		rmp.attrProc.Process(resource.Attributes())
+ 	}
+-	return rmp.next.ConsumeMetrics(ctx, md)
++	return rmp.next.ConsumeMetrics(ctx, pdatautil.MetricsFromInternalMetrics(imd))
+ }

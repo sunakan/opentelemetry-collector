@@ -1,0 +1,14 @@
+diff --git a/otelcol/internal/configunmarshaler/configs_test.go b/otelcol/internal/configunmarshaler/configs_test.go
+index 56c48e773..c9cbdd9db 100644
+--- a/otelcol/internal/configunmarshaler/configs_test.go
++++ b/otelcol/internal/configunmarshaler/configs_test.go
+@@ -136,8 +136,7 @@ func TestUnmarshalError(t *testing.T) {
+ 				t.Run(tt.name, func(t *testing.T) {
+ 					cfgs := NewConfigs(tk.factories)
+ 					err := cfgs.Unmarshal(tt.conf)
+-					require.Error(t, err)
+-					assert.Contains(t, err.Error(), tt.expectedError)
++					assert.ErrorContains(t, err, tt.expectedError)
+ 				})
+ 			}
+ 		})

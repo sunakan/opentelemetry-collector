@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_summary.go b/pdata/pmetric/generated_summary.go
+index 64fbffbef..bc42675ab 100644
+--- a/pdata/pmetric/generated_summary.go
++++ b/pdata/pmetric/generated_summary.go
+@@ -41,6 +41,10 @@ func NewSummary() Summary {
+ func (ms Summary) MoveTo(dest Summary) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpmetrics.Summary{}
+ }

@@ -1,0 +1,18 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/enum.go b/internal/cmd/pdatagen/internal/proto/enum.go
+index f347c11cf..a176a9de7 100644
+--- a/internal/cmd/pdatagen/internal/proto/enum.go
++++ b/internal/cmd/pdatagen/internal/proto/enum.go
+@@ -53,13 +53,3 @@ type EnumField struct {
+ func (ms *Enum) GenerateEnum() []byte {
+ 	return []byte(template.Execute(template.Parse("enumMessageTemplate", []byte(enumMessageTemplate)), ms))
+ }
+-
+-func (ms *Enum) templateFields(imports, testImports []string) map[string]any {
+-	return map[string]any{
+-		"fields":      ms.Fields,
+-		"messageName": ms.Name,
+-		"description": ms.Description,
+-		"imports":     imports,
+-		"testImports": testImports,
+-	}
+-}

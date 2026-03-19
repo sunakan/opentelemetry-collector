@@ -1,0 +1,62 @@
+diff --git a/pdata/pmetric/json_test.go b/pdata/pmetric/json_test.go
+index 16ba801eb..74f4106cd 100644
+--- a/pdata/pmetric/json_test.go
++++ b/pdata/pmetric/json_test.go
+@@ -15,7 +15,6 @@
+ package pmetric
+ 
+ import (
+-	"fmt"
+ 	"testing"
+ 	"time"
+ 
+@@ -334,49 +333,6 @@ func Test_jsonUnmarshaler_UnmarshalMetrics(t *testing.T) {
+ 	}
+ }
+ 
+-func TestReadAggregationTemporality(t *testing.T) {
+-	tests := []struct {
+-		name    string
+-		jsonStr string
+-		want    otlpmetrics.AggregationTemporality
+-	}{
+-		{
+-			name: "string",
+-			jsonStr: fmt.Sprintf(`"%s"`,
+-				otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_CUMULATIVE.String()),
+-			want: otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_CUMULATIVE,
+-		},
+-		{
+-			name: "string",
+-			jsonStr: fmt.Sprintf(`"%s"`,
+-				otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_DELTA.String()),
+-			want: otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_DELTA,
+-		},
+-		{
+-			name: "int",
+-			jsonStr: fmt.Sprintf("%d",
+-				otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_CUMULATIVE),
+-			want: otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_CUMULATIVE,
+-		},
+-		{
+-			name: "int",
+-			jsonStr: fmt.Sprintf("%d",
+-				otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_DELTA),
+-			want: otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_DELTA,
+-		},
+-	}
+-	for _, tt := range tests {
+-		t.Run(tt.name, func(t *testing.T) {
+-			iter := jsoniter.ConfigFastest.BorrowIterator([]byte(tt.jsonStr))
+-			defer jsoniter.ConfigFastest.ReturnIterator(iter)
+-			unmarshaler := &jsonUnmarshaler{}
+-			if got := unmarshaler.readAggregationTemporality(iter); got != tt.want {
+-				t.Errorf("readSpanKind() = %v, want %v", got, tt.want)
+-			}
+-		})
+-	}
+-}
+-
+ func TestReadMetricsDataUnknownField(t *testing.T) {
+ 	jsonStr := `{"extra":""}`
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))

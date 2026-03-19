@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/otlp_metricfamily.go b/receiver/prometheusreceiver/internal/otlp_metricfamily.go
+index dd03a25f2..3b370b83b 100644
+--- a/receiver/prometheusreceiver/internal/otlp_metricfamily.go
++++ b/receiver/prometheusreceiver/internal/otlp_metricfamily.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/pkg/textparse"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type metricFamilyPdata struct {

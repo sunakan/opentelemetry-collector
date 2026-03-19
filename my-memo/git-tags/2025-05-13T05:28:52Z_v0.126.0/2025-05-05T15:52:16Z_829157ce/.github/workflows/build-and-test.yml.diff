@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 39fdb47bd..32107309a 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -111,6 +111,8 @@ jobs:
+         run: make misspell
+       - name: checkdoc
+         run: make checkdoc
++      - name: checkapi
++        run: make checkapi
+       - name: Check for go mod dependency changes
+         run: |
+           make gotidy

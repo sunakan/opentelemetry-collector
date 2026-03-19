@@ -1,0 +1,21 @@
+diff --git a/service/config_provider_test.go b/service/config_provider_test.go
+index b852453cc..2bbfba456 100644
+--- a/service/config_provider_test.go
++++ b/service/config_provider_test.go
+@@ -59,9 +59,13 @@ var configNop = &Config{
+ 		},
+ 		Telemetry: telemetry.Config{
+ 			Logs: telemetry.LogsConfig{
+-				Level:             zapcore.InfoLevel,
+-				Development:       false,
+-				Encoding:          "console",
++				Level:       zapcore.InfoLevel,
++				Development: false,
++				Encoding:    "console",
++				Sampling: &telemetry.LogsSamplingConfig{
++					Initial:    100,
++					Thereafter: 100,
++				},
+ 				OutputPaths:       []string{"stderr"},
+ 				ErrorOutputPaths:  []string{"stderr"},
+ 				DisableCaller:     false,

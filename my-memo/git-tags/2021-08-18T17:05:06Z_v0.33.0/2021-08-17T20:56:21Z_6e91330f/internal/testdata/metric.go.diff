@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index 3ba7fba01..f6bd9facc 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -244,7 +244,7 @@ func initDoubleHistogramMetric(hm pdata.Metric) {
+ 	exemplar := hdp1.Exemplars().AppendEmpty()
+ 	exemplar.SetTimestamp(TestMetricExemplarTimestamp)
+ 	exemplar.SetDoubleVal(15)
+-	initMetricAttachment(exemplar.FilteredLabels())
++	initMetricAttachment(exemplar.FilteredAttributes())
+ 	hdp1.SetExplicitBounds([]float64{1})
+ }
+ 

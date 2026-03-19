@@ -1,0 +1,16 @@
+diff --git a/service/internal/pipelines/testdata/not_supported_exporter_traces.yaml b/service/internal/pipelines/testdata/not_supported_exporter_traces.yaml
+deleted file mode 100644
+index 88aaba0a2..000000000
+--- a/service/internal/pipelines/testdata/not_supported_exporter_traces.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  bf:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      exporters: [bf]

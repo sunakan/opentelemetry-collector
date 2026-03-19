@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index a0afe0b99..93a407948 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -39,7 +39,7 @@ jobs:
+           fetch-depth: 0
+ 
+       - name: Install markdown-link-check
+-        run: npm install -g markdown-link-check
++        run: npm install -g markdown-link-check@3.11.2
+ 
+       - name: Run markdown-link-check
+         run: |

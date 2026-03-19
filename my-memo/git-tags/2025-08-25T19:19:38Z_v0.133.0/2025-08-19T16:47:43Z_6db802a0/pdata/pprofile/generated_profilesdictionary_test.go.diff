@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_profilesdictionary_test.go b/pdata/pprofile/generated_profilesdictionary_test.go
+index a4ce7002b..92a27c71b 100644
+--- a/pdata/pprofile/generated_profilesdictionary_test.go
++++ b/pdata/pprofile/generated_profilesdictionary_test.go
+@@ -92,7 +92,6 @@ func TestProfilesDictionary_AttributeUnits(t *testing.T) {
+ }
+ 
+ func generateTestProfilesDictionary() ProfilesDictionary {
+-	ms := NewProfilesDictionary()
+-	internal.FillOrigTestProfilesDictionary(ms.orig)
++	ms := newProfilesDictionary(internal.GenTestOrigProfilesDictionary(), internal.NewState())
+ 	return ms
+ }

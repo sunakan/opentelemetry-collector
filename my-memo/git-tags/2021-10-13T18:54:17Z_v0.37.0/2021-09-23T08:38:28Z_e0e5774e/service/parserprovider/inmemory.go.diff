@@ -1,0 +1,24 @@
+diff --git a/service/parserprovider/inmemory.go b/service/parserprovider/inmemory.go
+index 910f923fc..b9beaac72 100644
+--- a/service/parserprovider/inmemory.go
++++ b/service/parserprovider/inmemory.go
+@@ -18,7 +18,7 @@ import (
+ 	"context"
+ 	"io"
+ 
+-	"go.opentelemetry.io/collector/config/configparser"
++	"go.opentelemetry.io/collector/config"
+ )
+ 
+ type inMemoryProvider struct {
+@@ -30,8 +30,8 @@ func NewInMemory(buf io.Reader) ParserProvider {
+ 	return &inMemoryProvider{buf: buf}
+ }
+ 
+-func (inp *inMemoryProvider) Get(context.Context) (*configparser.ConfigMap, error) {
+-	return configparser.NewConfigMapFromBuffer(inp.buf)
++func (inp *inMemoryProvider) Get(context.Context) (*config.Map, error) {
++	return config.NewMapFromBuffer(inp.buf)
+ }
+ 
+ func (inp *inMemoryProvider) Close(context.Context) error {

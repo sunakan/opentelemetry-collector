@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go b/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
+index 2501481c6..15243f12d 100644
+--- a/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
++++ b/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
+@@ -16,8 +16,8 @@ import (
+ 
+ // ExponentialHistogramDataPointBuckets are a set of bucket counts, encoded in a contiguous array of counts.
+ type ExponentialHistogramDataPointBuckets struct {
+-	Offset       int32
+ 	BucketCounts []uint64
++	Offset       int32
+ }
+ 
+ var (

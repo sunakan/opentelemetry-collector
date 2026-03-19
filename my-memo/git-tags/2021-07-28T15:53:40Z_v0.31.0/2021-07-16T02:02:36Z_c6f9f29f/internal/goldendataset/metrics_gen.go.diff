@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/metrics_gen.go b/internal/goldendataset/metrics_gen.go
+index 2c4c297a3..f2120cdd2 100644
+--- a/internal/goldendataset/metrics_gen.go
++++ b/internal/goldendataset/metrics_gen.go
+@@ -167,7 +167,7 @@ func populateIntPoints(cfg MetricsCfg, pts pdata.IntDataPointSlice) {
+ 	}
+ }
+ 
+-func populateDoublePoints(cfg MetricsCfg, pts pdata.DoubleDataPointSlice) {
++func populateDoublePoints(cfg MetricsCfg, pts pdata.NumberDataPointSlice) {
+ 	pts.EnsureCapacity(cfg.NumPtsPerMetric)
+ 	for i := 0; i < cfg.NumPtsPerMetric; i++ {
+ 		pt := pts.AppendEmpty()

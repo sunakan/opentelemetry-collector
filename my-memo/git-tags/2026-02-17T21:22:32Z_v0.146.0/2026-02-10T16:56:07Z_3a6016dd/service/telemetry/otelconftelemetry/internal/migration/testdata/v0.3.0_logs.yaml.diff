@@ -1,0 +1,27 @@
+diff --git a/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.3.0_logs.yaml b/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.3.0_logs.yaml
+new file mode 100644
+index 000000000..6f9700b4e
+--- /dev/null
++++ b/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.3.0_logs.yaml
+@@ -0,0 +1,21 @@
++level: "info"
++processors:
++  - batch:
++      exporter:
++        otlp:
++          protocol: http/protobuf
++          endpoint: 127.0.0.1:4317
++          headers:
++          - name: "key1"
++            value: "value1"
++  - simple:
++      exporter:
++        console: {}
++  - simple:
++      exporter:
++        otlp:
++          protocol: http/protobuf
++          endpoint: http://127.0.0.1:4317
++          headers:
++          - name: "key1"
++            value: "value1"

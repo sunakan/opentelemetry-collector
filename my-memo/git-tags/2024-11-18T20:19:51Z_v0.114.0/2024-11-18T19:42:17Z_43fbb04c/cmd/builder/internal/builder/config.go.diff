@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index d0549e0d6..9c0f393dd 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -17,7 +17,7 @@ import (
+ 	"go.uber.org/zap"
+ )
+ 
+-const defaultBetaOtelColVersion = "v0.113.0"
++const defaultBetaOtelColVersion = "v0.114.0"
+ const defaultStableOtelColVersion = "v1.17.0"
+ 
+ var (

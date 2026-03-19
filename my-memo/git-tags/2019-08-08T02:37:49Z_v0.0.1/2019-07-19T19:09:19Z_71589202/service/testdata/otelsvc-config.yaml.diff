@@ -1,0 +1,24 @@
+diff --git a/service/testdata/otelsvc-config.yaml b/service/testdata/otelsvc-config.yaml
+index a1fd90329..c3a5dc59d 100644
+--- a/service/testdata/otelsvc-config.yaml
++++ b/service/testdata/otelsvc-config.yaml
+@@ -1,19 +1,14 @@
+ receivers:
+   jaeger:
+-    enabled: true
+ 
+ exporters:
+   opencensus:
+     endpoint: "locahost:55678"
+-    enabled: true
+ 
+ processors:
+   add-attributes:
+-    enabled: true
+   queued-retry:
+-    enabled: true
+   batch:
+-    enabled: true
+ 
+ pipelines:
+   traces:

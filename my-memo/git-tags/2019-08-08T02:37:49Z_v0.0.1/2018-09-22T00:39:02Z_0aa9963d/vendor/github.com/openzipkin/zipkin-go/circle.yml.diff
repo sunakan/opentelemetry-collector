@@ -1,0 +1,16 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/circle.yml b/vendor/github.com/openzipkin/zipkin-go/circle.yml
+deleted file mode 100644
+index 4365dbf9f..000000000
+--- a/vendor/github.com/openzipkin/zipkin-go/circle.yml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-dependencies:
+-  override:
+-    - sudo rm -rf /home/ubuntu/.go_workspace/src/github.com/openzipkin
+-    - mkdir -p /home/ubuntu/.go_workspace/src/github.com/openzipkin
+-    - mv /home/ubuntu/zipkin-go /home/ubuntu/.go_workspace/src/github.com/openzipkin
+-    - ln -s /home/ubuntu/.go_workspace/src/github.com/openzipkin/zipkin-go /home/ubuntu/zipkin-go
+-    - go get -u -t -v github.com/openzipkin/zipkin-go/...
+-test:
+-  override:
+-    - make test bench

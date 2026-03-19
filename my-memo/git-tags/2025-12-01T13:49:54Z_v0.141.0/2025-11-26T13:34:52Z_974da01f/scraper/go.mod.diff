@@ -1,0 +1,10 @@
+diff --git a/scraper/go.mod b/scraper/go.mod
+index 4591d792c..9cfde135d 100644
+--- a/scraper/go.mod
++++ b/scraper/go.mod
+@@ -43,3 +43,5 @@ replace go.opentelemetry.io/collector/component => ../component
+ replace go.opentelemetry.io/collector/component/componenttest => ../component/componenttest
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../internal/testutil

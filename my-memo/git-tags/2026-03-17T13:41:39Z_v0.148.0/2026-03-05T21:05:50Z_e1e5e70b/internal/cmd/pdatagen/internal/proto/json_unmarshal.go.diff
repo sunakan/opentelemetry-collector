@@ -1,0 +1,31 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/json_unmarshal.go b/internal/cmd/pdatagen/internal/proto/json_unmarshal.go
+index 699b8ee21..f721b3dde 100644
+--- a/internal/cmd/pdatagen/internal/proto/json_unmarshal.go
++++ b/internal/cmd/pdatagen/internal/proto/json_unmarshal.go
+@@ -20,7 +20,7 @@ const unmarshalJSONPrimitive = `	case {{ .allJSONTags }}:
+ {{ else if ne .oneOfGroup "" -}}
+ 	{
+ 		var ov *{{ .oneOfMessageName }}
+-		if !UseProtoPooling.IsEnabled() {
++		if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 			ov = &{{ .oneOfMessageName }}{}
+ 		} else {
+ 			ov = ProtoPool{{ .oneOfMessageName }}.Get().(*{{ .oneOfMessageName }})
+@@ -52,7 +52,7 @@ const unmarshalJSONMessage = `	case {{ .allJSONTags }}:
+ {{ else if ne .oneOfGroup "" -}}
+ 	{
+ 		var ov *{{ .oneOfMessageName }}
+-		if !UseProtoPooling.IsEnabled() {
++		if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 			ov = &{{ .oneOfMessageName }}{}
+ 		} else {
+ 			ov = ProtoPool{{ .oneOfMessageName }}.Get().(*{{ .oneOfMessageName }})
+@@ -74,7 +74,7 @@ const unmarshalJSONBytes = `	case {{ .allJSONTags }}:
+ {{ else if ne .oneOfGroup "" -}}
+ 	{
+ 		var ov *{{ .oneOfMessageName }}
+-		if !UseProtoPooling.IsEnabled() {
++		if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 			ov = &{{ .oneOfMessageName }}{}
+ 		} else {
+ 			ov = ProtoPool{{ .oneOfMessageName }}.Get().(*{{ .oneOfMessageName }})

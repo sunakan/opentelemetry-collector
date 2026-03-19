@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics_batch_test.go b/exporter/exporterhelper/metrics_batch_test.go
+index 704ed409a..9a5bc9815 100644
+--- a/exporter/exporterhelper/metrics_batch_test.go
++++ b/exporter/exporterhelper/metrics_batch_test.go
+@@ -10,8 +10,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestMergeMetrics(t *testing.T) {

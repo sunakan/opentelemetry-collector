@@ -1,0 +1,13 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index ee0a080c7..187deb4da 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -124,7 +124,7 @@ func TestConfmapMarshalConfig(t *testing.T) {
+ 									"host": "localhost",
+ 									"port": 8888,
+ 									"with_resource_constant_labels": map[string]any{
+-										"included": []any{},
++										"included": []any(nil),
+ 									},
+ 									"without_scope_info":  true,
+ 									"without_type_suffix": true,

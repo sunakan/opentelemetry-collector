@@ -1,0 +1,22 @@
+diff --git a/service/internal/status/statustest/statustest.go b/service/internal/status/statustest/statustest.go
+index 3ba40a162..881db196a 100644
+--- a/service/internal/status/statustest/statustest.go
++++ b/service/internal/status/statustest/statustest.go
+@@ -4,7 +4,7 @@
+ package statustest // import "go.opentelemetry.io/collector/service/internal/status/statustest"
+ 
+ import (
+-	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componentstatus"
+ 	"go.opentelemetry.io/collector/service/internal/status"
+ )
+ 
+@@ -16,6 +16,6 @@ type nopStatusReporter struct{}
+ 
+ func (r *nopStatusReporter) Ready() {}
+ 
+-func (r *nopStatusReporter) ReportStatus(*component.InstanceID, *component.StatusEvent) {}
++func (r *nopStatusReporter) ReportStatus(*componentstatus.InstanceID, *componentstatus.Event) {}
+ 
+-func (r *nopStatusReporter) ReportOKIfStarting(*component.InstanceID) {}
++func (r *nopStatusReporter) ReportOKIfStarting(*componentstatus.InstanceID) {}

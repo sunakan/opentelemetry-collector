@@ -1,0 +1,15 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 4e911b647..2345d5c70 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -17,8 +17,8 @@ package exportertest
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/exporter"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ // NopExporterOption represents options that can be applied to a NopExporter.

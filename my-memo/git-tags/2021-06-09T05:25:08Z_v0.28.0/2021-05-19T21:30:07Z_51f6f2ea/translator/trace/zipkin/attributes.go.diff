@@ -1,0 +1,14 @@
+diff --git a/translator/trace/zipkin/attributes.go b/translator/trace/zipkin/attributes.go
+index 236053e21..513b404ce 100644
+--- a/translator/trace/zipkin/attributes.go
++++ b/translator/trace/zipkin/attributes.go
+@@ -23,7 +23,8 @@ import (
+ // These constants are the attribute keys used when translating from zipkin
+ // format to the internal collector data format.
+ const (
+-	startTimeAbsent = "otel.zipkin.absentField.startTime"
++	startTimeAbsent      = "otel.zipkin.absentField.startTime"
++	tagServiceNameSource = "otlp.service.name.source"
+ )
+ 
+ var attrValDescriptions = getAttrValDescripts()

@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go b/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
+index 3342ae199..2501481c6 100644
+--- a/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
++++ b/pdata/internal/generated_proto_exponentialhistogramdatapointbuckets.go
+@@ -167,6 +167,7 @@ func (orig *ExponentialHistogramDataPointBuckets) SizeProto() int {
+ 	if orig.Offset != int32(0) {
+ 		n += 1 + proto.Soz(uint64(orig.Offset))
+ 	}
++
+ 	if len(orig.BucketCounts) > 0 {
+ 		l = 0
+ 		for _, e := range orig.BucketCounts {

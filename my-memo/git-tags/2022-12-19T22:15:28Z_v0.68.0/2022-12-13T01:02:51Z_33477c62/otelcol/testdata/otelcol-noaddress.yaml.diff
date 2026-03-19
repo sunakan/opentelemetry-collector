@@ -1,0 +1,20 @@
+diff --git a/otelcol/testdata/otelcol-noaddress.yaml b/otelcol/testdata/otelcol-noaddress.yaml
+new file mode 100644
+index 000000000..c363f848e
+--- /dev/null
++++ b/otelcol/testdata/otelcol-noaddress.yaml
+@@ -0,0 +1,14 @@
++receivers:
++  nop:
++
++exporters:
++  nop:
++
++service:
++  telemetry:
++    metrics:
++      address: ""
++  pipelines:
++    metrics:
++      receivers: [nop]
++      exporters: [nop]

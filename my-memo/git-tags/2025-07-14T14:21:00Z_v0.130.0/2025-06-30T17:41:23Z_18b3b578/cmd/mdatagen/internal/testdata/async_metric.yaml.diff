@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/testdata/async_metric.yaml b/cmd/mdatagen/internal/testdata/async_metric.yaml
+index 5c3440096..5d6949f28 100644
+--- a/cmd/mdatagen/internal/testdata/async_metric.yaml
++++ b/cmd/mdatagen/internal/testdata/async_metric.yaml
+@@ -3,7 +3,6 @@ type: metricreceiver
+ status:
+   class: receiver
+   stability:
+-    development: [logs]
+     beta: [traces]
+     stable: [metrics]
+   distributions: [contrib]

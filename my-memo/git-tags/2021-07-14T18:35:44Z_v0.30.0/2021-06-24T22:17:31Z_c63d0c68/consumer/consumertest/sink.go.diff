@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/sink.go b/consumer/consumertest/sink.go
+index 8d0232a7b..78eb2fbc7 100644
+--- a/consumer/consumertest/sink.go
++++ b/consumer/consumertest/sink.go
+@@ -19,7 +19,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // TracesSink is a consumer.Traces that acts like a sink that

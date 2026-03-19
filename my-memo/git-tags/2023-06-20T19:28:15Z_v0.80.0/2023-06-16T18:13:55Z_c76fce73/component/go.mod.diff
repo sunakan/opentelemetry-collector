@@ -1,0 +1,10 @@
+diff --git a/component/go.mod b/component/go.mod
+index 7b3617eea..2cad89f4e 100644
+--- a/component/go.mod
++++ b/component/go.mod
+@@ -66,3 +66,5 @@ retract (
+ replace go.opentelemetry.io/collector/connector => ../connector
+ 
+ replace go.opentelemetry.io/collector/config/configcompression => ../config/configcompression
++
++replace go.opentelemetry.io/collector/config/confignet => ../config/confignet

@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_anyvalueslice.go b/pdata/internal/generated_wrapper_anyvalueslice.go
+index a3d3fa741..ab3d1f895 100644
+--- a/pdata/internal/generated_wrapper_anyvalueslice.go
++++ b/pdata/internal/generated_wrapper_anyvalueslice.go
+@@ -8,7 +8,6 @@ package internal
+ 
+ import (
+ 	otlpcommon "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ type Slice struct {
+@@ -57,14 +56,3 @@ func GenerateOrigTestAnyValueSlice() []otlpcommon.AnyValue {
+ 	orig[3] = *GenTestOrigAnyValue()
+ 	return orig
+ }
+-
+-// UnmarshalJSONOrigAnyValueSlice unmarshals all properties from the current struct from the source iterator.
+-func UnmarshalJSONOrigAnyValueSlice(iter *json.Iterator) []otlpcommon.AnyValue {
+-	var orig []otlpcommon.AnyValue
+-	iter.ReadArrayCB(func(iter *json.Iterator) bool {
+-		orig = append(orig, otlpcommon.AnyValue{})
+-		UnmarshalJSONOrigAnyValue(&orig[len(orig)-1], iter)
+-		return true
+-	})
+-	return orig
+-}

@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_status.go b/pdata/internal/generated_wrapper_status.go
+index e86e4aa84..516f21544 100644
+--- a/pdata/internal/generated_wrapper_status.go
++++ b/pdata/internal/generated_wrapper_status.go
+@@ -45,6 +45,10 @@ func DeleteOrigStatus(orig *otlptrace.Status, nullable bool) {
+ }
+ 
+ func CopyOrigStatus(dest, src *otlptrace.Status) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Message = src.Message
+ 	dest.Code = src.Code
+ }

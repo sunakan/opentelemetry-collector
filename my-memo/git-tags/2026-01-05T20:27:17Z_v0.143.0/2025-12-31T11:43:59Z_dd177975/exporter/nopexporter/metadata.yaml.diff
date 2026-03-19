@@ -1,0 +1,10 @@
+diff --git a/exporter/nopexporter/metadata.yaml b/exporter/nopexporter/metadata.yaml
+index 8194c2ad2..8d7f7372a 100644
+--- a/exporter/nopexporter/metadata.yaml
++++ b/exporter/nopexporter/metadata.yaml
+@@ -9,4 +9,5 @@ status:
+   class: exporter
+   stability:
+     beta: [traces, metrics, logs]
++    development: [profiles]
+   distributions: [core, contrib, k8s]

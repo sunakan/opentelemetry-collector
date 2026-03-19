@@ -1,0 +1,21 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 791811991..c09f5c1d0 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -20,7 +20,6 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ type nopExporterOld struct {
+@@ -84,7 +83,7 @@ func (ne *nopExporter) ConsumeMetrics(context.Context, pdata.Metrics) error {
+ 	return ne.retError
+ }
+ 
+-func (ne *nopExporter) ConsumeLogs(context.Context, data.Logs) error {
++func (ne *nopExporter) ConsumeLogs(context.Context, pdata.Logs) error {
+ 	return ne.retError
+ }
+ 

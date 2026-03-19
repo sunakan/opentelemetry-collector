@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/profile.go b/pdata/pprofile/profile.go
+index 34690c6f9..dd92ee309 100644
+--- a/pdata/pprofile/profile.go
++++ b/pdata/pprofile/profile.go
+@@ -13,7 +13,7 @@ import (
+ // dictionary to another.
+ func (ms Profile) switchDictionary(src, dst ProfilesDictionary) error {
+ 	for i, v := range ms.AttributeIndices().All() {
+-		if src.AttributeTable().Len() < int(v) {
++		if src.AttributeTable().Len() <= int(v) {
+ 			return fmt.Errorf("invalid attribute index %d", v)
+ 		}
+ 

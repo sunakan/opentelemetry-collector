@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+index 15c0201cb..544bf5b12 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+@@ -149,6 +149,9 @@ func (es SummaryDataPointValueAtQuantileSlice) RemoveIf(f func(SummaryDataPointV
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es SummaryDataPointValueAtQuantileSlice) CopyTo(dest SummaryDataPointValueAtQuantileSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigSummaryDataPoint_ValueAtQuantileSlice(*dest.orig, *es.orig)
+ }
+ 

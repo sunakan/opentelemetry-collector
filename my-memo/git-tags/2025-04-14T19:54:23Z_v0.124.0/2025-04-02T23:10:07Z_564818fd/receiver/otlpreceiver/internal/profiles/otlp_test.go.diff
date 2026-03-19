@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/profiles/otlp_test.go b/receiver/otlpreceiver/internal/profiles/otlp_test.go
+index 86fd8f89c..8f04ff94f 100644
+--- a/receiver/otlpreceiver/internal/profiles/otlp_test.go
++++ b/receiver/otlpreceiver/internal/profiles/otlp_test.go
+@@ -34,7 +34,7 @@ func TestExport(t *testing.T) {
+ 	require.NotNil(t, resp, "The response is missing")
+ 
+ 	require.Len(t, profileSink.AllProfiles(), 1)
+-	assert.EqualValues(t, td, profileSink.AllProfiles()[0])
++	assert.Equal(t, td, profileSink.AllProfiles()[0])
+ }
+ 
+ func TestExport_EmptyRequest(t *testing.T) {

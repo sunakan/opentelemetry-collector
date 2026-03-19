@@ -1,0 +1,47 @@
+diff --git a/cmd/mdatagen/internal/loader_test.go b/cmd/mdatagen/internal/loader_test.go
+index b84b59c8e..21796b937 100644
+--- a/cmd/mdatagen/internal/loader_test.go
++++ b/cmd/mdatagen/internal/loader_test.go
+@@ -244,6 +244,14 @@ func TestLoadMetadata(t *testing.T) {
+ 						FullName:         "opt_in_bool_attr",
+ 						RequirementLevel: AttributeRequirementLevelOptIn,
+ 					},
++					"required_string_attr": {
++						Description: "A required attribute with a string value",
++						Type: ValueType{
++							ValueType: pcommon.ValueTypeStr,
++						},
++						FullName:         "required_string_attr",
++						RequirementLevel: AttributeRequirementLevelRequired,
++					},
+ 				},
+ 				Metrics: map[MetricName]Metric{
+ 					"default.metric": {
+@@ -267,7 +275,7 @@ func TestLoadMetadata(t *testing.T) {
+ 					"reaggregate.metric": {
+ 						Signal: Signal{
+ 							Enabled:     true,
+-							Description: "Metric for testing spacial reaggregation",
++							Description: "Metric for testing spatial reaggregation",
+ 							Stability:   Stability{Level: component.StabilityLevelBeta},
+ 							Attributes:  []AttributeName{"string_attr", "boolean_attr"},
+ 						},
+@@ -276,6 +284,18 @@ func TestLoadMetadata(t *testing.T) {
+ 							MetricValueType: MetricValueType{pmetric.NumberDataPointValueTypeDouble},
+ 						},
+ 					},
++					"reaggregate.metric.with_required": {
++						Signal: Signal{
++							Enabled:     true,
++							Description: "Metric for testing spatial reaggregation with required attributes",
++							Stability:   Stability{Level: component.StabilityLevelBeta},
++							Attributes:  []AttributeName{"required_string_attr", "string_attr", "boolean_attr"},
++						},
++						Unit: strPtr("1"),
++						Gauge: &Gauge{
++							MetricValueType: MetricValueType{pmetric.NumberDataPointValueTypeDouble},
++						},
++					},
+ 					"system.cpu.time": {
+ 						Signal: Signal{
+ 							Enabled:               true,

@@ -1,0 +1,19 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index d47bc13dd..7a56631f6 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -137,14 +137,6 @@ func TestMetricsDataToOC(t *testing.T) {
+ 			},
+ 		},
+ 
+-		{
+-			name:     "one-metric-labels-in-descriptor",
+-			internal: testdata.GenerateMetricDataOneMetricLabelsInDescriptor(),
+-			oc: []consumerdata.MetricsData{
+-				generateOCTestDataMetricsInDescriptor(),
+-			},
+-		},
+-
+ 		{
+ 			name:     "all-types-no-data-points",
+ 			internal: testdata.GenerateMetricDataAllTypesNoDataPoints(),

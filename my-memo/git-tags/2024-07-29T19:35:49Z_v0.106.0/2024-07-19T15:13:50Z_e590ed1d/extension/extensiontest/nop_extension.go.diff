@@ -1,0 +1,18 @@
+diff --git a/extension/extensiontest/nop_extension.go b/extension/extensiontest/nop_extension.go
+index 9378e6024..1fd483e5e 100644
+--- a/extension/extensiontest/nop_extension.go
++++ b/extension/extensiontest/nop_extension.go
+@@ -15,13 +15,6 @@ import (
+ 
+ var nopType = component.MustNewType("nop")
+ 
+-// NewNopCreateSettings returns a new nop settings for extension.Factory Create* functions.
+-//
+-// Deprecated: [v0.103.0] Use extensiontest.NewNopSettings instead.
+-func NewNopCreateSettings() extension.Settings {
+-	return NewNopSettings()
+-}
+-
+ // NewNopSettings returns a new nop settings for extension.Factory Create* functions.
+ func NewNopSettings() extension.Settings {
+ 	return extension.Settings{

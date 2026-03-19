@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_scopespans.go b/pdata/internal/generated_proto_scopespans.go
+index 73c373034..6a1966527 100644
+--- a/pdata/internal/generated_proto_scopespans.go
++++ b/pdata/internal/generated_proto_scopespans.go
+@@ -16,9 +16,9 @@ import (
+ 
+ // ScopeSpans is a collection of spans from a LibraryInstrumentation.
+ type ScopeSpans struct {
+-	Scope     InstrumentationScope
+-	Spans     []*Span
+ 	SchemaUrl string
++	Spans     []*Span
++	Scope     InstrumentationScope
+ }
+ 
+ var (

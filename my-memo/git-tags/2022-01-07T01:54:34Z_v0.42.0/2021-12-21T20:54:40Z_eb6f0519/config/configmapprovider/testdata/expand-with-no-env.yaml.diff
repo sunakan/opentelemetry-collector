@@ -1,0 +1,14 @@
+diff --git a/config/configmapprovider/testdata/expand-with-no-env.yaml b/config/configmapprovider/testdata/expand-with-no-env.yaml
+deleted file mode 100644
+index 5d2af19c7..000000000
+--- a/config/configmapprovider/testdata/expand-with-no-env.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-test_map:
+-  extra: "some string"
+-  extra_map:
+-    recv.1: "some map value_1"
+-    recv.2: "some map value_2"
+-  extra_list:
+-    - "some list value_1"
+-    - "some list value_2"

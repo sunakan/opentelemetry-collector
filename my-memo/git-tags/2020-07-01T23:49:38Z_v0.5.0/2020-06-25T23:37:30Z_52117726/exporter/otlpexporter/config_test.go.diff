@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 4dacabe1b..9df0859cd 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -63,7 +63,7 @@ func TestLoadConfig(t *testing.T) {
+ 					},
+ 					Insecure: false,
+ 				},
+-				KeepaliveParameters: &configgrpc.KeepaliveConfig{
++				Keepalive: &configgrpc.KeepaliveClientConfig{
+ 					Time:                20 * time.Second,
+ 					PermitWithoutStream: true,
+ 					Timeout:             30 * time.Second,

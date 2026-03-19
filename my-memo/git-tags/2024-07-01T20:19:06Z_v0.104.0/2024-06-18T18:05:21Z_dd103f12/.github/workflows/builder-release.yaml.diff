@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-release.yaml b/.github/workflows/builder-release.yaml
+index 36e3d3e23..5a704705a 100644
+--- a/.github/workflows/builder-release.yaml
++++ b/.github/workflows/builder-release.yaml
+@@ -3,7 +3,7 @@ name: Builder - Release
+ on:
+   push:
+     tags:
+-      - 'cmd/builder/v*'
++      - 'v*'
+ 
+ jobs:
+   goreleaser:

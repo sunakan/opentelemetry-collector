@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory_test.go b/receiver/prometheusreceiver/factory_test.go
+index 525d862bc..b527e0c0c 100644
+--- a/receiver/prometheusreceiver/factory_test.go
++++ b/receiver/prometheusreceiver/factory_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ 	"github.com/stretchr/testify/assert"
+ )

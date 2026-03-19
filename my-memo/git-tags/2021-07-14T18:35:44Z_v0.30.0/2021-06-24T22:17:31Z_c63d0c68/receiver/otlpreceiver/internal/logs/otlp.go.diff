@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp.go b/receiver/otlpreceiver/internal/logs/otlp.go
+index f854b594c..33d87ff65 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp.go
++++ b/receiver/otlpreceiver/internal/logs/otlp.go
+@@ -20,8 +20,8 @@ import (
+ 	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/pdatagrpc"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 

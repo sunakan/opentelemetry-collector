@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index 777a54fb7..3bca28337 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -1,6 +1,7 @@
+ # Sample metadata file with all available configurations for a receiver.
+ 
+ type: sample
++scope_name: go.opentelemetry.io/collector/internal/receiver/samplereceiver
+ 
+ sem_conv_version: 1.9.0
+ 

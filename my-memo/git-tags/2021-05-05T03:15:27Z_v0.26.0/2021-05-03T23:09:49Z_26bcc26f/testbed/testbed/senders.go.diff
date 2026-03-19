@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index 7929c6733..db59b24a7 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -96,7 +96,7 @@ func (dsb *DataSenderBase) GetFactory(_ component.Kind, _ config.Type) component
+ 	return nil
+ }
+ 
+-func (dsb *DataSenderBase) GetExtensions() map[config.NamedEntity]component.Extension {
++func (dsb *DataSenderBase) GetExtensions() map[config.ComponentID]component.Extension {
+ 	return nil
+ }
+ 

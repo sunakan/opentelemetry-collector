@@ -1,0 +1,29 @@
+diff --git a/pdata/pcommon/common.go b/pdata/pcommon/common.go
+index d70589824..35451dcac 100644
+--- a/pdata/pcommon/common.go
++++ b/pdata/pcommon/common.go
+@@ -95,9 +95,6 @@ func NewValueStr(v string) Value {
+ 	return newValue(&otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: v}})
+ }
+ 
+-// Deprecated: [v0.62.0] Use NewValueStr instead.
+-var NewValueString = NewValueStr
+-
+ // NewValueInt creates a new Value with the given int64 value.
+ func NewValueInt(v int64) Value {
+ 	return newValue(&otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_IntValue{IntValue: v}})
+@@ -650,14 +647,6 @@ func (m Map) PutStr(k string, v string) {
+ 	}
+ }
+ 
+-// PutString performs the Insert or Update action. The Value is
+-// inserted to the map that did not originally have the key. The key/value is
+-// updated to the map where the key already existed.
+-// Deprecated: [v0.62.0] Use PutStr instead.
+-func (m Map) PutString(k string, v string) {
+-	m.PutStr(k, v)
+-}
+-
+ // PutInt performs the Insert or Update action. The int Value is
+ // inserted to the map that did not originally have the key. The key/value is
+ // updated to the map where the key already existed.

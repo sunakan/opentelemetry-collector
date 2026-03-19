@@ -1,0 +1,14 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index ed0f0dd98..fbca5c136 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -428,7 +428,8 @@ func TestErrorResponses(t *testing.T) {
+ 				if test.responseBody != nil {
+ 					msg, err := proto.Marshal(test.responseBody.Proto())
+ 					require.NoError(t, err)
+-					writer.Write(msg)
++					_, err = writer.Write(msg)
++					require.NoError(t, err)
+ 				}
+ 			})
+ 			srv := http.Server{

@@ -1,0 +1,12 @@
+diff --git a/service/internal/servicetelemetry/nop_telemetry_settings.go b/service/internal/servicetelemetry/nop_telemetry_settings.go
+index 0ab94ace9..3e3722003 100644
+--- a/service/internal/servicetelemetry/nop_telemetry_settings.go
++++ b/service/internal/servicetelemetry/nop_telemetry_settings.go
+@@ -22,6 +22,6 @@ func NewNopTelemetrySettings() TelemetrySettings {
+ 		MeterProvider:  noopmetric.NewMeterProvider(),
+ 		MetricsLevel:   configtelemetry.LevelNone,
+ 		Resource:       pcommon.NewResource(),
+-		Status:         status.NewReporter(func(*component.InstanceID, *component.StatusEvent) {}),
++		Status:         status.NewReporter(func(*component.InstanceID, *component.StatusEvent) {}, func(err error) {}),
+ 	}
+ }

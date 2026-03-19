@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/sink_test.go b/consumer/consumertest/sink_test.go
+index 3a377345f..5d7f7f3bf 100644
+--- a/consumer/consumertest/sink_test.go
++++ b/consumer/consumertest/sink_test.go
+@@ -71,6 +71,8 @@ func TestProfilesSink(t *testing.T) {
+ 		want = append(want, td)
+ 	}
+ 	assert.Equal(t, want, sink.AllProfiles())
++	assert.Equal(t, len(want), sink.SampleCount())
+ 	sink.Reset()
+ 	assert.Empty(t, sink.AllProfiles())
++	assert.Empty(t, sink.SampleCount())
+ }

@@ -1,0 +1,12 @@
+diff --git a/exporter/internal/queue/default_batcher.go b/exporter/internal/queue/default_batcher.go
+index 092cf6a2b..1d64c5405 100644
+--- a/exporter/internal/queue/default_batcher.go
++++ b/exporter/internal/queue/default_batcher.go
+@@ -29,7 +29,6 @@ func (qb *DefaultBatcher) resetTimer() {
+ 
+ // startReadingFlushingGoroutine starts a goroutine that reads and then flushes.
+ func (qb *DefaultBatcher) startReadingFlushingGoroutine() {
+-
+ 	qb.stopWG.Add(1)
+ 	go func() {
+ 		defer qb.stopWG.Done()

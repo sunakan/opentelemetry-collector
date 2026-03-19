@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+index 27c62439f..841de0b37 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+@@ -57,7 +57,7 @@ func (s *scraper) shutdown(ctx context.Context) error {
+ func (s *scraper) scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 	metrics := pdata.NewMetricSlice()
+ 
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 	avgLoadValues, err := s.load()
+ 	if err != nil {
+ 		return metrics, scrapererror.NewPartialScrapeError(err, metricsLen)

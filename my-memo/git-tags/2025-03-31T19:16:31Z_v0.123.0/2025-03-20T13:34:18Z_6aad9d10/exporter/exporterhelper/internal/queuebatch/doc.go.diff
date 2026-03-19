@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/doc.go b/exporter/exporterhelper/internal/queuebatch/doc.go
+new file mode 100644
+index 000000000..3e474b857
+--- /dev/null
++++ b/exporter/exporterhelper/internal/queuebatch/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++// Package queuebatch provides helper functions for exporter's queueing and batching.
++package queuebatch // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"

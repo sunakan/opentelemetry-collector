@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/testdata/no_metric_type.yaml b/cmd/mdatagen/testdata/no_metric_type.yaml
+new file mode 100644
+index 000000000..1f0e0283f
+--- /dev/null
++++ b/cmd/mdatagen/testdata/no_metric_type.yaml
+@@ -0,0 +1,13 @@
++type: metricreceiver
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++metrics:
++  system.cpu.time:
++    enabled: true
++    description: Total CPU seconds broken down by different states.
++    unit: s
++    attributes:

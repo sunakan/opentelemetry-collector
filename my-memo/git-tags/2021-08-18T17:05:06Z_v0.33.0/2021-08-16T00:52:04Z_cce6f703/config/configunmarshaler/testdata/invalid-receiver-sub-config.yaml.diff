@@ -1,0 +1,19 @@
+diff --git a/config/configunmarshaler/testdata/invalid-receiver-sub-config.yaml b/config/configunmarshaler/testdata/invalid-receiver-sub-config.yaml
+new file mode 100644
+index 000000000..2fb171b21
+--- /dev/null
++++ b/config/configunmarshaler/testdata/invalid-receiver-sub-config.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++    tests
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

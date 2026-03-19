@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index b85aaef23..0d66ddc1c 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -326,7 +326,7 @@ func TestQueueBatchNoStartShutdown(t *testing.T) {
+ 	runTest := func(testName string, enableQueueBatcher bool) {
+ 		t.Run(testName, func(t *testing.T) {
+ 			setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)
+-			set := exportertest.NewNopSettings()
++			set := exportertest.NewNopSettingsWithType(exportertest.NopType)
+ 			set.ID = exporterID
+ 			qSet := exporterqueue.Settings{
+ 				Signal:           pipeline.SignalTraces,

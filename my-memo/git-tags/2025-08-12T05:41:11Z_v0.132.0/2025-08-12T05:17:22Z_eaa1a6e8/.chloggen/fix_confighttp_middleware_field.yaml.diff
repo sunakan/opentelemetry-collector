@@ -1,0 +1,10 @@
+diff --git a/.chloggen/fix_confighttp_middleware_field.yaml b/.chloggen/fix_confighttp_middleware_field.yaml
+deleted file mode 100644
+index 6a66679d4..000000000
+--- a/.chloggen/fix_confighttp_middleware_field.yaml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-change_type: bug_fix
+-component: confighttp
+-note: Fix middleware configuration field name from "middleware" to "middlewares" for consistency with configgrpc
+-issues: [13444]

@@ -1,0 +1,223 @@
+diff --git a/service/metadata.yaml b/service/metadata.yaml
+index 53f1a6683..344b7e587 100644
+--- a/service/metadata.yaml
++++ b/service/metadata.yaml
+@@ -10,17 +10,81 @@ status:
+ 
+ telemetry:
+   metrics:
+-    process_uptime:
++    connector.consumed.items:
++      prefix: otelcol.
++      enabled: true
++      description: Number of items passed to the connector.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    connector.consumed.size:
++      prefix: otelcol.
++      enabled: false
++      description: Size of items passed to the connector, based on ProtoMarshaler.Sizer.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    connector.produced.items:
++      prefix: otelcol.
++      enabled: true
++      description: Number of items emitted from the connector.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    connector.produced.size:
++      prefix: otelcol.
++      enabled: false
++      description: Size of items emitted from the connector, based on ProtoMarshaler.Sizer.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    exporter.consumed.items:
++      prefix: otelcol.
++      enabled: true
++      description: Number of items passed to the exporter.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    exporter.consumed.size:
++      prefix: otelcol.
++      enabled: false
++      description: Size of items passed to the exporter, based on ProtoMarshaler.Sizer.
++      unit: "{item}"
++      sum:
++        value_type: int
++        monotonic: true
++
++    process_cpu_seconds:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Uptime of the process
++      description: Total CPU user and system time in seconds
+       unit: s
+       sum:
+         async: true
+         value_type: double
+         monotonic: true
+ 
++    process_memory_rss:
++      enabled: true
++      stability:
++        level: alpha
++      description: Total physical memory (resident set size)
++      unit: By
++      gauge:
++        async: true
++        value_type: int
++
+     process_runtime_heap_alloc_bytes:
+       enabled: true
+       stability:
+@@ -52,35 +116,17 @@ telemetry:
+         async: true
+         value_type: int
+ 
+-    process_cpu_seconds:
++    process_uptime:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Total CPU user and system time in seconds
++      description: Uptime of the process
+       unit: s
+       sum:
+         async: true
+         value_type: double
+         monotonic: true
+ 
+-    process_memory_rss:
+-      enabled: true
+-      stability:
+-        level: alpha
+-      description: Total physical memory (resident set size)
+-      unit: By
+-      gauge:
+-        async: true
+-        value_type: int
+-
+-    receiver.produced.items:
+-      prefix: otelcol.
+-      enabled: true
+-      description: Number of items emitted from the receiver.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+     processor.consumed.items:
+       prefix: otelcol.
+       enabled: true
+@@ -89,47 +135,7 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
+-    processor.produced.items:
+-      prefix: otelcol.
+-      enabled: true
+-      description: Number of items emitted from the processor.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+-    connector.consumed.items:
+-      prefix: otelcol.
+-      enabled: true
+-      description: Number of items passed to the connector.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+-    connector.produced.items:
+-      prefix: otelcol.
+-      enabled: true
+-      description: Number of items emitted from the connector.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+-    exporter.consumed.items:
+-      prefix: otelcol.
+-      enabled: true
+-      description: Number of items passed to the exporter.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+ 
+-    receiver.produced.size:
+-      prefix: otelcol.
+-      enabled: false
+-      description: Size of items emitted from the receiver, based on ProtoMarshaler.Sizer.
+-      unit: "{item}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+     processor.consumed.size:
+       prefix: otelcol.
+       enabled: false
+@@ -138,34 +144,38 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
+-    processor.produced.size:
++
++    processor.produced.items:
+       prefix: otelcol.
+-      enabled: false
+-      description: Size of items emitted from the processor, based on ProtoMarshaler.Sizer.
++      enabled: true
++      description: Number of items emitted from the processor.
+       unit: "{item}"
+       sum:
+         value_type: int
+         monotonic: true
+-    connector.consumed.size:
++
++    processor.produced.size:
+       prefix: otelcol.
+       enabled: false
+-      description: Size of items passed to the connector, based on ProtoMarshaler.Sizer.
++      description: Size of items emitted from the processor, based on ProtoMarshaler.Sizer.
+       unit: "{item}"
+       sum:
+         value_type: int
+         monotonic: true
+-    connector.produced.size:
++
++    receiver.produced.items:
+       prefix: otelcol.
+-      enabled: false
+-      description: Size of items emitted from the connector, based on ProtoMarshaler.Sizer.
++      enabled: true
++      description: Number of items emitted from the receiver.
+       unit: "{item}"
+       sum:
+         value_type: int
+         monotonic: true
+-    exporter.consumed.size:
++
++    receiver.produced.size:
+       prefix: otelcol.
+       enabled: false
+-      description: Size of items passed to the exporter, based on ProtoMarshaler.Sizer.
++      description: Size of items emitted from the receiver, based on ProtoMarshaler.Sizer.
+       unit: "{item}"
+       sum:
+         value_type: int

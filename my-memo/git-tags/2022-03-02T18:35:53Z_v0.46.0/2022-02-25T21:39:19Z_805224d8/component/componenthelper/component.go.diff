@@ -1,0 +1,17 @@
+diff --git a/component/componenthelper/component.go b/component/componenthelper/component.go
+index f62905edf..9dedfe0c2 100644
+--- a/component/componenthelper/component.go
++++ b/component/componenthelper/component.go
+@@ -18,10 +18,10 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
+-// Deprecated: use component.StartFunc.
++// Deprecated: [v0.46.0] use component.StartFunc.
+ type StartFunc = component.StartFunc
+ 
+-// Deprecated: use component.ShutdownFunc.
++// Deprecated: [v0.46.0] use component.ShutdownFunc.
+ type ShutdownFunc = component.ShutdownFunc
+ 
+ // Option represents the possible options for New.

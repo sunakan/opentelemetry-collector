@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 6ee86ef69..40bfca37a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,7 @@
+ ## 🛑 Breaking changes 🛑
+ 
+ - Remove `configparser.DecodeTypeAndName`, use `config.IDFromString` (#2869)
++- Remove config.NewViper, users should use config.NewParser (#2917)
+ 
+ ## 💡 Enhancements 💡
+ 

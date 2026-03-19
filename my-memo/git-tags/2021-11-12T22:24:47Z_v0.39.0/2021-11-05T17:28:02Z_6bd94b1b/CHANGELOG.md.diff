@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 015d8d907..31b13f591 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -20,6 +20,9 @@
+ - otlpexporter: Do not retry on PermissionDenied and Unauthenticated (#4349)
+ - Remove deprecated funcs `consumererror.As[Traces|Metrics|Logs]` (#4364)
+ 
++## 💡 Enhancements 💡
++- Supports more compression methods(`snappy` and `zstd`) for configgrpc, in addition to current `gzip` (#4088)
++
+ ## v0.38.0 Beta
+ 
+ ## 🛑 Breaking changes 🛑

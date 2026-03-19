@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/field.go b/internal/cmd/pdatagen/internal/pdata/field.go
+index 743d1a1fa..3bc06a87f 100644
+--- a/internal/cmd/pdatagen/internal/pdata/field.go
++++ b/internal/cmd/pdatagen/internal/pdata/field.go
+@@ -14,6 +14,8 @@ type Field interface {
+ 
+ 	GenerateTestEncodingValues(ms *messageStruct) string
+ 
++	GenerateDeleteOrig(ms *messageStruct) string
++
+ 	GenerateCopyOrig(ms *messageStruct) string
+ 
+ 	GenerateMarshalJSON(ms *messageStruct) string

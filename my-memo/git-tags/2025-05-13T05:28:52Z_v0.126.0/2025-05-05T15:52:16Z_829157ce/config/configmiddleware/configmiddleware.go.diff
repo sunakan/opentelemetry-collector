@@ -1,0 +1,13 @@
+diff --git a/config/configmiddleware/configmiddleware.go b/config/configmiddleware/configmiddleware.go
+index de21ad844..831ba7766 100644
+--- a/config/configmiddleware/configmiddleware.go
++++ b/config/configmiddleware/configmiddleware.go
+@@ -29,6 +29,8 @@ var (
+ type Config struct {
+ 	// ID specifies the name of the extension to use.
+ 	ID component.ID `mapstructure:"id,omitempty"`
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // GetHTTPClientRoundTripper attempts to select the appropriate

@@ -1,0 +1,15 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 7bfd1265e..2a2a30966 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -269,7 +269,9 @@ func testCollectorStartHelper(t *testing.T, useOtel bool, tc ownMetricsTestCase)
+ 		// Sleep for 1 second to ensure the http server is started.
+ 		time.Sleep(1 * time.Second)
+ 		assert.True(t, loggingHookCalled)
+-		assertMetrics(t, metricsAddr, tc.expectedLabels)
++		if !useOtel {
++			assertMetrics(t, metricsAddr, tc.expectedLabels)
++		}
+ 		assertZPages(t, zpagesAddr)
+ 		require.NoError(t, srv.Shutdown(context.Background()))
+ 	}

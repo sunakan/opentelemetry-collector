@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/internal/metadata/generated_config_test.go b/cmd/mdatagen/internal/sampleprocessor/internal/metadata/generated_config_test.go
+index 7b14c1b96..66f4d0ad9 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/internal/metadata/generated_config_test.go
++++ b/cmd/mdatagen/internal/sampleprocessor/internal/metadata/generated_config_test.go
+@@ -52,9 +52,8 @@ func TestResourceAttributesConfig(t *testing.T) {
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			cfg := loadResourceAttributesConfig(t, tt.name)
+-			if diff := cmp.Diff(tt.want, cfg, cmpopts.IgnoreUnexported(ResourceAttributeConfig{})); diff != "" {
+-				t.Errorf("Config mismatch (-expected +actual):\n%s", diff)
+-			}
++			diff := cmp.Diff(tt.want, cfg, cmpopts.IgnoreUnexported(ResourceAttributeConfig{}))
++			require.Emptyf(t, diff, "Config mismatch (-expected +actual):\n%s", diff)
+ 		})
+ 	}
+ }

@@ -1,0 +1,15 @@
+diff --git a/docs/release.md b/docs/release.md
+index 47a494282..bb0001ce0 100644
+--- a/docs/release.md
++++ b/docs/release.md
+@@ -42,7 +42,9 @@ It is possible that a core approver isn't a contrib approver. In that case, the
+ 
+     * Update the version numbers in `cmd/builder/test/core.builder.yaml`
+ 
+-    * Run `make prepare-release PREVIOUS_VERSION=0.52.0 RELEASE_CANDIDATE=0.53.0`
++    * Run `make prepare-release PREVIOUS_VERSION=1.0.0 RELEASE_CANDIDATE=1.1.0 MODSET=stable`
++
++    * Run `make prepare-release PREVIOUS_VERSION=0.52.0 RELEASE_CANDIDATE=0.53.0 MODSET=beta`
+ 
+     * Ensure the `main` branch builds successfully.
+ 

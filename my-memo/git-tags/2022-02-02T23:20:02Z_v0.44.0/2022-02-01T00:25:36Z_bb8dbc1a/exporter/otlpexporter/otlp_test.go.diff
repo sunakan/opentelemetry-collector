@@ -1,0 +1,23 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index 9c0c5681d..90075c4c0 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -17,7 +17,6 @@ package otlpexporter
+ import (
+ 	"context"
+ 	"net"
+-	"path"
+ 	"path/filepath"
+ 	"runtime"
+ 	"sync"
+@@ -82,8 +81,8 @@ func otlpTracesReceiverOnGRPCServer(ln net.Listener, useTLS bool) (*mockTracesRe
+ 	if useTLS {
+ 		_, currentFile, _, _ := runtime.Caller(0)
+ 		basepath := filepath.Dir(currentFile)
+-		certpath := filepath.Join(basepath, path.Join("testdata", "test_cert.pem"))
+-		keypath := filepath.Join(basepath, path.Join("testdata", "test_key.pem"))
++		certpath := filepath.Join(basepath, filepath.Join("testdata", "test_cert.pem"))
++		keypath := filepath.Join(basepath, filepath.Join("testdata", "test_key.pem"))
+ 
+ 		creds, err := credentials.NewServerTLSFromFile(certpath, keypath)
+ 		if err != nil {

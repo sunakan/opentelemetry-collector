@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterhelper/filterhelper_test.go b/internal/processor/filterhelper/filterhelper_test.go
+index c5b3cd0a3..5ec065dd2 100644
+--- a/internal/processor/filterhelper/filterhelper_test.go
++++ b/internal/processor/filterhelper/filterhelper_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ func TestHelper_AttributeValue(t *testing.T) {

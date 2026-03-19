@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index e1f605a36..136986192 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -35,7 +35,7 @@ func TestApplication_Start(t *testing.T) {
+ 	factories, err := defaults.Components()
+ 	require.NoError(t, err)
+ 
+-	app, err := New(factories)
++	app, err := New(factories, ApplicationStartInfo{})
+ 	require.NoError(t, err)
+ 
+ 	metricsPort := testutils.GetAvailablePort(t)

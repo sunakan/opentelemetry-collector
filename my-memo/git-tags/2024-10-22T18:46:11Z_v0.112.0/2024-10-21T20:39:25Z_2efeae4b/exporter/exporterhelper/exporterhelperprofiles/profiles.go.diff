@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/exporterhelperprofiles/profiles.go b/exporter/exporterhelper/exporterhelperprofiles/profiles.go
+index 89410f228..069613dbe 100644
+--- a/exporter/exporterhelper/exporterhelperprofiles/profiles.go
++++ b/exporter/exporterhelper/exporterhelperprofiles/profiles.go
+@@ -88,7 +88,6 @@ func NewProfilesExporter(
+ 	}
+ 	profilesOpts := []exporterhelper.Option{
+ 		internal.WithMarshaler(profilesRequestMarshaler), internal.WithUnmarshaler(newProfileRequestUnmarshalerFunc(pusher)),
+-		internal.WithBatchFuncs(mergeProfiles, mergeSplitProfiles),
+ 	}
+ 	return NewProfilesRequestExporter(ctx, set, requestFromProfiles(pusher), append(profilesOpts, options...)...)
+ }

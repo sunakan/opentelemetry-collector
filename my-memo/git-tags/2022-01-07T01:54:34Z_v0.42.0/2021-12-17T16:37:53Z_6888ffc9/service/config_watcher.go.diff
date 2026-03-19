@@ -1,0 +1,13 @@
+diff --git a/service/config_watcher.go b/service/config_watcher.go
+index b8bff8a76..4d36ad3fd 100644
+--- a/service/config_watcher.go
++++ b/service/config_watcher.go
+@@ -62,7 +62,7 @@ func (cm *configWatcher) onChange(event *configmapprovider.ChangeEvent) {
+ 	}
+ }
+ 
+-func (cm *configWatcher) close(ctx context.Context) error {
++func (cm *configWatcher) shutdown(ctx context.Context) error {
+ 	close(cm.watcher)
+ 	return cm.ret.Close(ctx)
+ }

@@ -1,0 +1,13 @@
+diff --git a/pipeline/pipeline_test.go b/pipeline/pipeline_test.go
+index 8f897260f..23bb5c836 100644
+--- a/pipeline/pipeline_test.go
++++ b/pipeline/pipeline_test.go
+@@ -42,7 +42,7 @@ func TestMarshalText(t *testing.T) {
+ 
+ func TestUnmarshalText(t *testing.T) {
+ 	validSignal := globalsignal.MustNewSignal("valid")
+-	var testCases = []struct {
++	testCases := []struct {
+ 		idStr       string
+ 		expectedErr bool
+ 		expectedID  ID

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/wrapper_value.go b/pdata/internal/wrapper_value.go
+index 6cf36bb87..bedcc468d 100644
+--- a/pdata/internal/wrapper_value.go
++++ b/pdata/internal/wrapper_value.go
+@@ -68,8 +68,7 @@ func CopyOrigAnyValue(dest, src *otlpcommon.AnyValue) {
+ func GenerateTestValue() Value {
+ 	var orig otlpcommon.AnyValue
+ 	FillOrigTestAnyValue(&orig)
+-	state := StateMutable
+-	return NewValue(&orig, &state)
++	return NewValue(&orig, NewState())
+ }
+ 
+ // MarshalJSONOrigAnyValue marshals all properties from the current struct to the destination stream.

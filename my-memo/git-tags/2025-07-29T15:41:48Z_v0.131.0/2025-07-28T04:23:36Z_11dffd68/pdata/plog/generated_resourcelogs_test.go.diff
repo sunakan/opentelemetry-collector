@@ -1,0 +1,20 @@
+diff --git a/pdata/plog/generated_resourcelogs_test.go b/pdata/plog/generated_resourcelogs_test.go
+index 17251ef7f..713b8f1b4 100644
+--- a/pdata/plog/generated_resourcelogs_test.go
++++ b/pdata/plog/generated_resourcelogs_test.go
+@@ -48,13 +48,13 @@ func TestResourceLogs_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestResourceLogs()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewResourceLogs()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

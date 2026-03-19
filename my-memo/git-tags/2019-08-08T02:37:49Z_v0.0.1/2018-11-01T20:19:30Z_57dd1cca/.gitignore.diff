@@ -1,0 +1,13 @@
+diff --git a/.gitignore b/.gitignore
+index 67ab17349..f0e166e09 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -3,3 +3,8 @@ bin/
+ # Miscellaneous files
+ *.sw[op]
+ *.DS_Store
++
++# Binaries are copied (as needed) to the same location as their respective Dockerfile in
++# order to simplify docker build commands. Ignore these files if proper clean up fails.
++cmd/ocagent/ocagent_linux
++cmd/occollector/occollector_linux

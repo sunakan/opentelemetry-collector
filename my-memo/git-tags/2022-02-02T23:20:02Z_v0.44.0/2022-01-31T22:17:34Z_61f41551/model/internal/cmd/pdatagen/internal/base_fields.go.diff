@@ -1,0 +1,13 @@
+diff --git a/model/internal/cmd/pdatagen/internal/base_fields.go b/model/internal/cmd/pdatagen/internal/base_fields.go
+index c58974ac5..64e146191 100644
+--- a/model/internal/cmd/pdatagen/internal/base_fields.go
++++ b/model/internal/cmd/pdatagen/internal/base_fields.go
+@@ -168,8 +168,6 @@ func (mf *messageValueField) generateAccessors(ms baseStruct, sb *strings.Builde
+ 			return strings.ToLower(mf.fieldName)
+ 		case "returnType":
+ 			return mf.returnMessage.structName
+-		case "structOriginFullName":
+-			return mf.returnMessage.originFullName
+ 		case "originFieldName":
+ 			return mf.originFieldName
+ 		default:

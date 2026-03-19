@@ -1,0 +1,13 @@
+diff --git a/config/configtls/clientcasfilereloader_test.go b/config/configtls/clientcasfilereloader_test.go
+index 273a88782..0d67f519b 100644
+--- a/config/configtls/clientcasfilereloader_test.go
++++ b/config/configtls/clientcasfilereloader_test.go
+@@ -82,7 +82,7 @@ func createReloader(t *testing.T) (*clientCAsFileReloader, *testLoader, string)
+ }
+ 
+ func createTempFile(t *testing.T) string {
+-	tmpCa, err := os.CreateTemp("", "clientCAs.crt")
++	tmpCa, err := os.CreateTemp(t.TempDir(), "clientCAs.crt")
+ 	require.NoError(t, err)
+ 	tmpCaPath, err := filepath.Abs(tmpCa.Name())
+ 	assert.NoError(t, err)

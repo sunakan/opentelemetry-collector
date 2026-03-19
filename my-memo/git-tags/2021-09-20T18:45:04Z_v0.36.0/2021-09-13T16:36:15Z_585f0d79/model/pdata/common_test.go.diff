@@ -1,0 +1,24 @@
+diff --git a/model/pdata/common_test.go b/model/pdata/common_test.go
+index 96c17b804..e0ef358ba 100644
+--- a/model/pdata/common_test.go
++++ b/model/pdata/common_test.go
+@@ -15,6 +15,7 @@
+ package pdata
+ 
+ import (
++	"encoding/base64"
+ 	"strconv"
+ 	"testing"
+ 
+@@ -991,6 +992,11 @@ func TestAsString(t *testing.T) {
+ 			input:    NewAttributeValueEmpty(),
+ 			expected: "",
+ 		},
++		{
++			name:     "bytes",
++			input:    NewAttributeValueBytes([]byte("String bytes")),
++			expected: base64.StdEncoding.EncodeToString([]byte("String bytes")),
++		},
+ 	}
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {

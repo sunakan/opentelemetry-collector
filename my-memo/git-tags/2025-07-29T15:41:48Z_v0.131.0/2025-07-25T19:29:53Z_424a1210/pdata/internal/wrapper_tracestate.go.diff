@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/wrapper_tracestate.go b/pdata/internal/wrapper_tracestate.go
+index d1d5c3cf8..d210b9969 100644
+--- a/pdata/internal/wrapper_tracestate.go
++++ b/pdata/internal/wrapper_tracestate.go
+@@ -3,6 +3,10 @@
+ 
+ package internal // import "go.opentelemetry.io/collector/pdata/internal"
+ 
++import (
++	"go.opentelemetry.io/collector/pdata/internal/json"
++)
++
+ type TraceState struct {
+ 	orig  *string
+ 	state *State
+@@ -35,3 +39,8 @@ func GenerateTestTraceState() TraceState {
+ func FillTestTraceState(dest TraceState) {
+ 	*dest.orig = "rojo=00f067aa0ba902b7"
+ }
++
++// MarshalJSONStreamTraceState marshals all properties from the current struct to the destination stream.
++func MarshalJSONStreamTraceState(ms TraceState, dest *json.Stream) {
++	dest.WriteString(*ms.orig)
++}

@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_scopeprofilesslice.go b/pdata/pprofile/generated_scopeprofilesslice.go
+index d4cc685d2..c14c89938 100644
+--- a/pdata/pprofile/generated_scopeprofilesslice.go
++++ b/pdata/pprofile/generated_scopeprofilesslice.go
+@@ -149,6 +149,9 @@ func (es ScopeProfilesSlice) RemoveIf(f func(ScopeProfiles) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ScopeProfilesSlice) CopyTo(dest ScopeProfilesSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigScopeProfilesSlice(*dest.orig, *es.orig)
+ }
+ 

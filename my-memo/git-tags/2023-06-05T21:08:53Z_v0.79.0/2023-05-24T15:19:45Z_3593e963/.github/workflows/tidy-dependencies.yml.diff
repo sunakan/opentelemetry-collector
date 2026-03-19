@@ -1,0 +1,17 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index bb82a522f..d708a7735 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -13,11 +13,7 @@ jobs:
+     steps:
+       - uses: actions/checkout@v3
+         with:
+-          # currently the fork of this repo is from a personal fork
+-          # because of an issue when creating multiple forks using forking renovate
+-          #
+-          # see https://github.com/renovatebot/renovate/discussions/21057
+-          repository: "renovate-bot/codeboten-_-opentelemetry-collector"
++          repository: "renovate-bot/open-telemetry-_-opentelemetry-collector"
+           ref: ${{ github.head_ref }}
+           token: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+       - uses: actions/setup-go@v4

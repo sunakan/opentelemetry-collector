@@ -1,0 +1,13 @@
+diff --git a/receiver/README.md b/receiver/README.md
+index d8fa8edcf..983bf85bb 100644
+--- a/receiver/README.md
++++ b/receiver/README.md
+@@ -40,7 +40,7 @@ receivers:
+   # <receiver type>/<name>:
+   examplereceiver/settings:
+     # <setting two>: <value two>
+-    endpoint: localhost:9211
++    endpoint: 0.0.0.0:9211
+ ```
+ 
+ A receiver instance is referenced by its full name in other parts of the config,

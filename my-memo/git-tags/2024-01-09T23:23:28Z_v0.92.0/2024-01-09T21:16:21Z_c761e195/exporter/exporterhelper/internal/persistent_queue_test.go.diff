@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue_test.go b/exporter/exporterhelper/internal/persistent_queue_test.go
+index 10934c5be..166449bdb 100644
+--- a/exporter/exporterhelper/internal/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/persistent_queue_test.go
+@@ -590,6 +590,7 @@ func BenchmarkPersistentQueue_TraceSpans(b *testing.B) {
+ 
+ 			req := newTracesRequest(c.numTraces, c.numSpansPerTrace)
+ 
++			bb.ReportAllocs()
+ 			bb.ResetTimer()
+ 
+ 			for i := 0; i < bb.N; i++ {

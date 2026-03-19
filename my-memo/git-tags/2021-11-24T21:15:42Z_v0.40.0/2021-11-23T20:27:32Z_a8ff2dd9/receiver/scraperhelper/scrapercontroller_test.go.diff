@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index 78aaa1e6d..d2d89f534 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -140,7 +140,7 @@ func TestScrapeController(t *testing.T) {
+ 		t.Run(test.name, func(t *testing.T) {
+ 			tt, err := obsreporttest.SetupTelemetry()
+ 			require.NoError(t, err)
+-			defer tt.Shutdown(context.Background())
++			t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+ 			initializeChs := make([]chan bool, test.scrapers)
+ 			scrapeMetricsChs := make([]chan int, test.scrapers)

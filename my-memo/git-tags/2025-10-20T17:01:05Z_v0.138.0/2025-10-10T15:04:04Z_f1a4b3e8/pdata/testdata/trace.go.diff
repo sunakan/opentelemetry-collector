@@ -1,0 +1,13 @@
+diff --git a/pdata/testdata/trace.go b/pdata/testdata/trace.go
+index 779430af6..8f87a6a8b 100644
+--- a/pdata/testdata/trace.go
++++ b/pdata/testdata/trace.go
+@@ -21,7 +21,7 @@ func GenerateTraces(spanCount int) ptrace.Traces {
+ 	initResource(td.ResourceSpans().AppendEmpty().Resource())
+ 	ss := td.ResourceSpans().At(0).ScopeSpans().AppendEmpty().Spans()
+ 	ss.EnsureCapacity(spanCount)
+-	for i := 0; i < spanCount; i++ {
++	for i := range spanCount {
+ 		switch i % 2 {
+ 		case 0:
+ 			fillSpanOne(ss.AppendEmpty())

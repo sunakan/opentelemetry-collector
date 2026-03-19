@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index 369279f07..916c2f077 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -31,7 +31,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.6
++          go-version: ~1.19.9
+       
+       # Generate apidiff states of Main
+       - name: Generate-States

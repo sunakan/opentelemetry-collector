@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/factory.go b/exporter/debugexporter/factory.go
+index 5a61da417..0d4ee05ae 100644
+--- a/exporter/debugexporter/factory.go
++++ b/exporter/debugexporter/factory.go
+@@ -24,7 +24,7 @@ var componentType = component.MustNewType("debug")
+ 
+ const (
+ 	defaultSamplingInitial    = 2
+-	defaultSamplingThereafter = 500
++	defaultSamplingThereafter = 1
+ )
+ 
+ // NewFactory creates a factory for Debug exporter

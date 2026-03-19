@@ -1,0 +1,21 @@
+diff --git a/processor/attributesprocessor/testdata/config.yaml b/processor/attributesprocessor/testdata/config.yaml
+index 603be1456..e965e7994 100644
+--- a/processor/attributesprocessor/testdata/config.yaml
++++ b/processor/attributesprocessor/testdata/config.yaml
+@@ -198,10 +198,11 @@ receivers:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [attributes/insert]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [attributes/insert]
++      exporters: [exampleexporter]
+ 
+ 

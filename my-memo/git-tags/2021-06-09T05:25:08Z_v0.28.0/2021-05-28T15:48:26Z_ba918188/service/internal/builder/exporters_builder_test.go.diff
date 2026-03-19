@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/exporters_builder_test.go b/service/internal/builder/exporters_builder_test.go
+index 03a4e0641..8f254dd56 100644
+--- a/service/internal/builder/exporters_builder_test.go
++++ b/service/internal/builder/exporters_builder_test.go
+@@ -235,7 +235,7 @@ func TestBuildExporters_NotSupportedDataType(t *testing.T) {
+ 	for _, test := range tests {
+ 		t.Run(test.configFile, func(t *testing.T) {
+ 
+-			cfg, err := configtest.LoadConfigFile(t, path.Join("testdata", test.configFile), factories)
++			cfg, err := configtest.LoadConfigAndValidate(path.Join("testdata", test.configFile), factories)
+ 			require.Nil(t, err)
+ 
+ 			exporters, err := BuildExporters(zap.NewNop(), component.DefaultBuildInfo(), cfg, factories.Exporters)

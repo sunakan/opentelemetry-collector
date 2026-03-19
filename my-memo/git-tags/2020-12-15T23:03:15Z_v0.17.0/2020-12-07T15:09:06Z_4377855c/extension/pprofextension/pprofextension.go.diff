@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/pprofextension.go b/extension/pprofextension/pprofextension.go
+index b1c04700a..bb9db577c 100644
+--- a/extension/pprofextension/pprofextension.go
++++ b/extension/pprofextension/pprofextension.go
+@@ -58,7 +58,7 @@ func (p *pprofExtension) Start(_ context.Context, host component.Host) error {
+ 		if err != nil {
+ 			return err
+ 		}
+-		pprof.StartCPUProfile(f)
++		return pprof.StartCPUProfile(f)
+ 	}
+ 
+ 	return nil

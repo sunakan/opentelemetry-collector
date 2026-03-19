@@ -1,0 +1,18 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index d0ef4fc9a..ec059b603 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -104,11 +104,11 @@ func TestCreateTraceExporter(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			name: "KeepaliveParameters",
++			name: "Keepalive",
+ 			config: Config{
+ 				GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 					Endpoint: rcvCfg.Endpoint,
+-					KeepaliveParameters: &configgrpc.KeepaliveConfig{
++					Keepalive: &configgrpc.KeepaliveClientConfig{
+ 						Time:                30 * time.Second,
+ 						Timeout:             25 * time.Second,
+ 						PermitWithoutStream: true,

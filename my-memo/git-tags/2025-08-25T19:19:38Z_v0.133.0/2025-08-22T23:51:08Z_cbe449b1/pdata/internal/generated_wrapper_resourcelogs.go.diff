@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogs.go b/pdata/internal/generated_wrapper_resourcelogs.go
+index 924251f15..4c78e1246 100644
+--- a/pdata/internal/generated_wrapper_resourcelogs.go
++++ b/pdata/internal/generated_wrapper_resourcelogs.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolResourceLogs = sync.Pool{
+-	New: func() any {
+-		return &otlplogs.ResourceLogs{}
+-	},
+-}
++var (
++	protoPoolResourceLogs = sync.Pool{
++		New: func() any {
++			return &otlplogs.ResourceLogs{}
++		},
++	}
++)
+ 
+ func NewOrigResourceLogs() *otlplogs.ResourceLogs {
+ 	if !UseProtoPooling.IsEnabled() {

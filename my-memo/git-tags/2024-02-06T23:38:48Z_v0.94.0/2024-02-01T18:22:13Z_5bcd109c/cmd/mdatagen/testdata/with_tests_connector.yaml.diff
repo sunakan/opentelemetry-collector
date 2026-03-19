@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/testdata/with_tests_connector.yaml b/cmd/mdatagen/testdata/with_tests_connector.yaml
+new file mode 100644
+index 000000000..ad0587269
+--- /dev/null
++++ b/cmd/mdatagen/testdata/with_tests_connector.yaml
+@@ -0,0 +1,9 @@
++type: foobar
++
++status:
++  class: connector
++  stability:
++    beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
++
++tests:
++  config:

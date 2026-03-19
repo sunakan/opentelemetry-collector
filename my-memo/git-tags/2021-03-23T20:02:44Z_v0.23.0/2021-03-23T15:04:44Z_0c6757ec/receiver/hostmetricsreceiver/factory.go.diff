@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/factory.go b/receiver/hostmetricsreceiver/factory.go
+index 9530175fc..612b07cc8 100644
+--- a/receiver/hostmetricsreceiver/factory.go
++++ b/receiver/hostmetricsreceiver/factory.go
+@@ -145,7 +145,7 @@ func createMetricsReceiver(
+ 	ctx context.Context,
+ 	params component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+-	consumer consumer.MetricsConsumer,
++	consumer consumer.Metrics,
+ ) (component.MetricsReceiver, error) {
+ 	oCfg := cfg.(*Config)
+ 

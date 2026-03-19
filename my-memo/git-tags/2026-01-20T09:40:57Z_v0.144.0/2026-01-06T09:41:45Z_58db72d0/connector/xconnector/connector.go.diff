@@ -1,0 +1,74 @@
+diff --git a/connector/xconnector/connector.go b/connector/xconnector/connector.go
+index 3a516ad91..fbf7f3abe 100644
+--- a/connector/xconnector/connector.go
++++ b/connector/xconnector/connector.go
+@@ -268,6 +268,9 @@ func (f *factory) CreateTracesToProfiles(ctx context.Context, set connector.Sett
+ 	if f.createTracesToProfilesFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, pipeline.SignalTraces, xpipeline.SignalProfiles)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createTracesToProfilesFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -275,6 +278,9 @@ func (f *factory) CreateMetricsToProfiles(ctx context.Context, set connector.Set
+ 	if f.createMetricsToProfilesFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, pipeline.SignalMetrics, xpipeline.SignalProfiles)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createMetricsToProfilesFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -282,6 +288,9 @@ func (f *factory) CreateLogsToProfiles(ctx context.Context, set connector.Settin
+ 	if f.createLogsToProfilesFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, pipeline.SignalLogs, xpipeline.SignalProfiles)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createLogsToProfilesFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -289,6 +298,9 @@ func (f *factory) CreateProfilesToProfiles(ctx context.Context, set connector.Se
+ 	if f.createProfilesToProfilesFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, xpipeline.SignalProfiles, xpipeline.SignalProfiles)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesToProfilesFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -296,6 +308,9 @@ func (f *factory) CreateProfilesToTraces(ctx context.Context, set connector.Sett
+ 	if f.createProfilesToTracesFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, xpipeline.SignalProfiles, pipeline.SignalTraces)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesToTracesFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -303,6 +318,9 @@ func (f *factory) CreateProfilesToMetrics(ctx context.Context, set connector.Set
+ 	if f.createProfilesToMetricsFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, xpipeline.SignalProfiles, pipeline.SignalMetrics)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesToMetricsFunc(ctx, set, cfg, next)
+ }
+ 
+@@ -310,6 +328,9 @@ func (f *factory) CreateProfilesToLogs(ctx context.Context, set connector.Settin
+ 	if f.createProfilesToLogsFunc == nil {
+ 		return nil, internal.ErrDataTypes(set.ID, xpipeline.SignalProfiles, pipeline.SignalLogs)
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesToLogsFunc(ctx, set, cfg, next)
+ }
+ 

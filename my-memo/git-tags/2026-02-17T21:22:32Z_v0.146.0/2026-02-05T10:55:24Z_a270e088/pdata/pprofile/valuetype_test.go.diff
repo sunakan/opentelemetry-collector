@@ -1,0 +1,64 @@
+diff --git a/pdata/pprofile/valuetype_test.go b/pdata/pprofile/valuetype_test.go
+index 19539c5ab..999721a44 100644
+--- a/pdata/pprofile/valuetype_test.go
++++ b/pdata/pprofile/valuetype_test.go
+@@ -84,6 +84,29 @@ func TestValueTypeSwitchDictionary(t *testing.T) {
+ 			wantDictionary: NewProfilesDictionary(),
+ 			wantErr:        errors.New("invalid type index 1"),
+ 		},
++		{
++			name: "with a type index equal to the source table length (boundary condition)",
++			valueType: func() ValueType {
++				vt := NewValueType()
++				vt.SetTypeStrindex(2)
++				return vt
++			}(),
++
++			src: func() ProfilesDictionary {
++				d := NewProfilesDictionary()
++				d.StringTable().Append("", "test")
++				return d
++			}(),
++			dst: NewProfilesDictionary(),
++
++			wantValueType: func() ValueType {
++				vt := NewValueType()
++				vt.SetTypeStrindex(2)
++				return vt
++			}(),
++			wantDictionary: NewProfilesDictionary(),
++			wantErr:        errors.New("invalid type index 2"),
++		},
+ 		{
+ 			name: "with an existing unit",
+ 			valueType: func() ValueType {
+@@ -133,6 +156,29 @@ func TestValueTypeSwitchDictionary(t *testing.T) {
+ 			wantDictionary: NewProfilesDictionary(),
+ 			wantErr:        errors.New("invalid unit index 1"),
+ 		},
++		{
++			name: "with a unit index equal to the source table length (boundary condition)",
++			valueType: func() ValueType {
++				vt := NewValueType()
++				vt.SetUnitStrindex(2)
++				return vt
++			}(),
++
++			src: func() ProfilesDictionary {
++				d := NewProfilesDictionary()
++				d.StringTable().Append("", "test")
++				return d
++			}(),
++			dst: NewProfilesDictionary(),
++
++			wantValueType: func() ValueType {
++				vt := NewValueType()
++				vt.SetUnitStrindex(2)
++				return vt
++			}(),
++			wantDictionary: NewProfilesDictionary(),
++			wantErr:        errors.New("invalid unit index 2"),
++		},
+ 	} {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			vt := tt.valueType

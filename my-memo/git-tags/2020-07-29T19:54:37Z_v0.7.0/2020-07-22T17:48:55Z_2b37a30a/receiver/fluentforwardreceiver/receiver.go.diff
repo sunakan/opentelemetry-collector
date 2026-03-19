@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/receiver.go b/receiver/fluentforwardreceiver/receiver.go
+index 90291c814..e62025e8b 100644
+--- a/receiver/fluentforwardreceiver/receiver.go
++++ b/receiver/fluentforwardreceiver/receiver.go
+@@ -38,7 +38,7 @@ type Receiver struct {
+ 	cancel    context.CancelFunc
+ }
+ 
+-func New(ctx context.Context, logger *zap.Logger, conf *Config, next consumer.LogConsumer) (component.LogReceiver, error) {
++func New(ctx context.Context, logger *zap.Logger, conf *Config, next consumer.LogsConsumer) (component.LogsReceiver, error) {
+ 	eventCh := make(chan Event, eventChannelLength)
+ 
+ 	collector := newCollector(eventCh, next, logger)

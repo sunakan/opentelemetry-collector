@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 6e7b734ba..6172c962a 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -166,9 +166,7 @@ func zSpanToInternal(zspan *zipkinmodel.SpanModel, tags map[string]string, dest
+ 	dest.SetName(zspan.Name)
+ 	startNano := zspan.Timestamp.UnixNano()
+ 	dest.SetStartTime(pdata.TimestampUnixNano(startNano))
+-	if zspan.Duration.Nanoseconds() > 0 {
+-		dest.SetEndTime(pdata.TimestampUnixNano(startNano + zspan.Duration.Nanoseconds()))
+-	}
++	dest.SetEndTime(pdata.TimestampUnixNano(startNano + zspan.Duration.Nanoseconds()))
+ 	dest.SetKind(zipkinKindToSpanKind(zspan.Kind, tags))
+ 
+ 	populateSpanStatus(tags, dest.Status())

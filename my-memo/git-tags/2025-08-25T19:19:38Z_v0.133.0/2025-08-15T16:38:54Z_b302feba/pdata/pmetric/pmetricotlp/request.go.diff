@@ -1,0 +1,16 @@
+diff --git a/pdata/pmetric/pmetricotlp/request.go b/pdata/pmetric/pmetricotlp/request.go
+index 619d1cd59..3d6cf6cad 100644
+--- a/pdata/pmetric/pmetricotlp/request.go
++++ b/pdata/pmetric/pmetricotlp/request.go
+@@ -23,10 +23,9 @@ type ExportRequest struct {
+ 
+ // NewExportRequest returns an empty ExportRequest.
+ func NewExportRequest() ExportRequest {
+-	state := internal.StateMutable
+ 	return ExportRequest{
+ 		orig:  &otlpcollectormetrics.ExportMetricsServiceRequest{},
+-		state: &state,
++		state: internal.NewState(),
+ 	}
+ }
+ 

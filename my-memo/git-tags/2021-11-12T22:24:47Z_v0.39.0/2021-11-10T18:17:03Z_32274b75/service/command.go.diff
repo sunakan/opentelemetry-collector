@@ -1,0 +1,13 @@
+diff --git a/service/command.go b/service/command.go
+index 2fcdc0a17..c449b93ed 100644
+--- a/service/command.go
++++ b/service/command.go
+@@ -29,7 +29,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 		SilenceUsage: true,
+ 		RunE: func(cmd *cobra.Command, args []string) error {
+ 			if set.ConfigMapProvider == nil {
+-				set.ConfigMapProvider = configmapprovider.NewDefaultMapProvider(getConfigFlag(), getSetFlag())
++				set.ConfigMapProvider = configmapprovider.NewDefault(getConfigFlag(), getSetFlag())
+ 			}
+ 			col, err := New(set)
+ 			if err != nil {

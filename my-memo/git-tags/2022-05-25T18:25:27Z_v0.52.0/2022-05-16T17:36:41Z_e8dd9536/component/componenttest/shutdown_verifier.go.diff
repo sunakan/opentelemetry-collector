@@ -1,0 +1,21 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index d2ce1a6ef..fd55a51ee 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -16,6 +16,7 @@ package componenttest // import "go.opentelemetry.io/collector/component/compone
+ 
+ import (
+ 	"context"
++	"errors"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -38,7 +39,7 @@ func verifyTracesProcessorDoesntProduceAfterShutdown(t *testing.T, factory compo
+ 		nextSink,
+ 	)
+ 	if err != nil {
+-		if err == componenterror.ErrDataTypeIsNotSupported {
++		if errors.Is(err, componenterror.ErrDataTypeIsNotSupported) {
+ 			return
+ 		}
+ 		require.NoError(t, err)

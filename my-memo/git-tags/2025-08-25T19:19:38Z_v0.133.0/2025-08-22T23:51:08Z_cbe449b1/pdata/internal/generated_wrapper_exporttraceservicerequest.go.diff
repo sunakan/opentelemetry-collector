@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exporttraceservicerequest.go b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+index 4b80b2695..4ce9efc1e 100644
+--- a/pdata/internal/generated_wrapper_exporttraceservicerequest.go
++++ b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+@@ -32,11 +32,13 @@ func NewTraces(orig *otlpcollectortrace.ExportTraceServiceRequest, state *State)
+ 	return Traces{orig: orig, state: state}
+ }
+ 
+-var protoPoolExportTraceServiceRequest = sync.Pool{
+-	New: func() any {
+-		return &otlpcollectortrace.ExportTraceServiceRequest{}
+-	},
+-}
++var (
++	protoPoolExportTraceServiceRequest = sync.Pool{
++		New: func() any {
++			return &otlpcollectortrace.ExportTraceServiceRequest{}
++		},
++	}
++)
+ 
+ func NewOrigExportTraceServiceRequest() *otlpcollectortrace.ExportTraceServiceRequest {
+ 	if !UseProtoPooling.IsEnabled() {

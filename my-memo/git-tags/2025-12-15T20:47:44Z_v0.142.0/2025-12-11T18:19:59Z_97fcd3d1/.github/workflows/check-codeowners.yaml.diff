@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-codeowners.yaml b/.github/workflows/check-codeowners.yaml
+index 345368b2c..5aa9a707a 100644
+--- a/.github/workflows/check-codeowners.yaml
++++ b/.github/workflows/check-codeowners.yaml
+@@ -48,7 +48,7 @@ jobs:
+           repository: ${{github.event.pull_request.head.repo.full_name}}
+           path: pr
+ 
+-      - uses: actions/create-github-app-token@7e473efe3cb98aa54f8d4bac15400b15fad77d94 # v2.2.0
++      - uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf # v2.2.1
+         id: otelbot-token
+         with:
+           app-id: ${{ vars.OTELBOT_APP_ID }}

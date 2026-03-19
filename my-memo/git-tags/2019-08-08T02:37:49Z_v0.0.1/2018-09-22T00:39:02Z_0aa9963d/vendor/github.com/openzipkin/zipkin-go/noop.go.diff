@@ -1,0 +1,31 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/noop.go b/vendor/github.com/openzipkin/zipkin-go/noop.go
+deleted file mode 100644
+index d1e3f7514..000000000
+--- a/vendor/github.com/openzipkin/zipkin-go/noop.go
++++ /dev/null
+@@ -1,25 +0,0 @@
+-package zipkin
+-
+-import (
+-	"time"
+-
+-	"github.com/openzipkin/zipkin-go/model"
+-)
+-
+-type noopSpan struct {
+-	model.SpanContext
+-}
+-
+-func (n *noopSpan) Context() model.SpanContext { return n.SpanContext }
+-
+-func (n *noopSpan) SetName(string) {}
+-
+-func (*noopSpan) SetRemoteEndpoint(*model.Endpoint) {}
+-
+-func (*noopSpan) Annotate(time.Time, string) {}
+-
+-func (*noopSpan) Tag(string, string) {}
+-
+-func (*noopSpan) Finish() {}
+-
+-func (*noopSpan) Flush() {}

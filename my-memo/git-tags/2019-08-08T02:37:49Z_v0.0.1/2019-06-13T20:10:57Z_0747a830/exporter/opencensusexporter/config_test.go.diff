@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index eb5f8cdb0..a40412a19 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -43,6 +43,8 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Equal(t, e1,
+ 		&ConfigV2{
+ 			ExporterSettings: configmodels.ExporterSettings{
++				NameVal: "opencensus/2",
++				TypeVal: "opencensus",
+ 				Enabled: true,
+ 			},
+ 			Headers: map[string]string{

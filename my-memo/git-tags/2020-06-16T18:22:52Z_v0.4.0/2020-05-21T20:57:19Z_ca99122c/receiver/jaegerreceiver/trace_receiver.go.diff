@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 5c242edaf..7ee447217 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -69,7 +69,7 @@ type Configuration struct {
+ 	AgentCompactThriftPort       int
+ 	AgentBinaryThriftPort        int
+ 	AgentHTTPPort                int
+-	RemoteSamplingClientSettings configgrpc.GRPCSettings
++	RemoteSamplingClientSettings configgrpc.GRPCClientSettings
+ 	RemoteSamplingStrategyFile   string
+ }
+ 

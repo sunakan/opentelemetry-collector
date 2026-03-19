@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/factory_test.go b/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
+index 4d75c765f..e4aab14e4 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
+@@ -45,7 +45,7 @@ func TestCreateProcessor(t *testing.T) {
+ 		},
+ 	}
+ 
+-	tp, err := factory.CreateTraceProcessor(zap.NewNop(), exportertest.NewNopTraceExporter(), cfg)
++	tp, err := factory.CreateTraceProcessor(zap.NewNop(), exportertest.NewNopTraceExporterOld(), cfg)
+ 	assert.NotNil(t, tp)
+ 	assert.NoError(t, err, "cannot create trace processor")
+ 

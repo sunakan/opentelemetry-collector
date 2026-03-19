@@ -1,0 +1,15 @@
+diff --git a/config/confighttp/README.md b/config/confighttp/README.md
+index 460951f2f..5e443ac70 100644
+--- a/config/confighttp/README.md
++++ b/config/confighttp/README.md
+@@ -20,6 +20,10 @@ README](../configtls/README.md).
+ - [`read_buffer_size`](https://golang.org/pkg/net/http/#Transport)
+ - [`timeout`](https://golang.org/pkg/net/http/#Client)
+ - [`write_buffer_size`](https://golang.org/pkg/net/http/#Transport)
++- [`max_idle_conns`](https://golang.org/pkg/net/http/#Transport)
++- [`max_idle_conns_per_host`](https://golang.org/pkg/net/http/#Transport)
++- [`max_conns_per_host`](https://golang.org/pkg/net/http/#Transport)
++- [`idle_conn_timeout`](https://golang.org/pkg/net/http/#Transport)
+ 
+ Example:
+ 

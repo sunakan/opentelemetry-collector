@@ -1,0 +1,50 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index e36b80f7f..90d6cfbcc 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -28,10 +28,6 @@ import (
+ )
+ 
+ func TestOCToMetrics(t *testing.T) {
+-	// From OC we will generate Double Histogram always.
+-	allTypesNoDataPoints := testdata.GenerateMetricsAllTypesNoDataPoints()
+-	sampleMetricData := testdata.GeneratMetricsAllTypesWithSampleDatapoints()
+-
+ 	tests := []struct {
+ 		name     string
+ 		oc       *agentmetricspb.ExportMetricsServiceRequest
+@@ -58,12 +54,6 @@ func TestOCToMetrics(t *testing.T) {
+ 			internal: testdata.GenerateMetricsNoLibraries(),
+ 		},
+ 
+-		{
+-			name:     "all-types-no-data-points",
+-			oc:       generateOCTestDataNoPoints(),
+-			internal: allTypesNoDataPoints,
+-		},
+-
+ 		{
+ 			name:     "one-metric-no-labels",
+ 			oc:       generateOCTestDataNoLabels(),
+@@ -76,6 +66,12 @@ func TestOCToMetrics(t *testing.T) {
+ 			internal: testdata.GenerateMetricsOneMetric(),
+ 		},
+ 
++		{
++			name:     "all-types-no-data-points",
++			oc:       generateOCTestDataNoPoints(),
++			internal: testdata.GenerateMetricsAllTypesNoDataPoints(),
++		},
++
+ 		{
+ 			name: "one-metric-one-summary",
+ 			oc: &agentmetricspb.ExportMetricsServiceRequest{
+@@ -125,7 +121,7 @@ func TestOCToMetrics(t *testing.T) {
+ 					generateOCTestMetricDoubleSummary(),
+ 				},
+ 			},
+-			internal: sampleMetricData,
++			internal: testdata.GeneratMetricsAllTypesWithSampleDatapoints(),
+ 		},
+ 	}
+ 

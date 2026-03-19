@@ -1,0 +1,17 @@
+diff --git a/exporter/opencensusexporter/factory.go b/exporter/opencensusexporter/factory.go
+index c17332f16..faba97339 100644
+--- a/exporter/opencensusexporter/factory.go
++++ b/exporter/opencensusexporter/factory.go
+@@ -24,9 +24,9 @@ import (
+ 	"google.golang.org/grpc/credentials"
+ 	"google.golang.org/grpc/keepalive"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configgrpc"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configgrpc"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ const (

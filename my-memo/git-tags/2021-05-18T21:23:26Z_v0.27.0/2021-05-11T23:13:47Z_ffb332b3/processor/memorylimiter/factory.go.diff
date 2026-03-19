@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/factory.go b/processor/memorylimiter/factory.go
+index 5ace436ed..c240a9fc6 100644
+--- a/processor/memorylimiter/factory.go
++++ b/processor/memorylimiter/factory.go
+@@ -28,7 +28,7 @@ const (
+ 	typeStr = "memory_limiter"
+ )
+ 
+-var processorCapabilities = component.ProcessorCapabilities{MutatesConsumedData: false}
++var processorCapabilities = consumer.Capabilities{MutatesData: false}
+ 
+ // NewFactory returns a new factory for the Memory Limiter processor.
+ func NewFactory() component.ProcessorFactory {

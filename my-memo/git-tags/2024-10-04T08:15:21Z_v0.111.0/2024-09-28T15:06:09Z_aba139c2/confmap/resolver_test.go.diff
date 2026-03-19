@@ -1,0 +1,13 @@
+diff --git a/confmap/resolver_test.go b/confmap/resolver_test.go
+index bb93b4e26..80b92a920 100644
+--- a/confmap/resolver_test.go
++++ b/confmap/resolver_test.go
+@@ -309,7 +309,7 @@ func TestBackwardsCompatibilityForFilePath(t *testing.T) {
+ 			}
+ 			require.NoError(t, err)
+ 			_, err = resolver.Resolve(context.Background())
+-			assert.Contains(t, err.Error(), tt.errMessage, tt.name)
++			assert.ErrorContains(t, err, tt.errMessage, tt.name)
+ 		})
+ 	}
+ }

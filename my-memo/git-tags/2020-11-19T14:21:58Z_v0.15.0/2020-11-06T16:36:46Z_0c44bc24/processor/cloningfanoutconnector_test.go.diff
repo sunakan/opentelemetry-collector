@@ -1,0 +1,13 @@
+diff --git a/processor/cloningfanoutconnector_test.go b/processor/cloningfanoutconnector_test.go
+index 158a700fb..296f57952 100644
+--- a/processor/cloningfanoutconnector_test.go
++++ b/processor/cloningfanoutconnector_test.go
+@@ -81,7 +81,7 @@ func TestMetricsProcessorCloningMultiplexing(t *testing.T) {
+ 	}
+ 
+ 	mfc := NewMetricsCloningFanOutConnector(processors)
+-	md := testdata.GenerateMetricsWithCountersHistograms()
++	md := testdata.GeneratMetricsAllTypesWithSampleDatapoints()
+ 
+ 	var wantMetricsCount = 0
+ 	for i := 0; i < 2; i++ {

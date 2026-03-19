@@ -1,0 +1,35 @@
+diff --git a/internal/cmd/pdatagen/internal/pcommon_package.go b/internal/cmd/pdatagen/internal/pcommon_package.go
+index 35172d0f4..19fc260a7 100644
+--- a/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -8,6 +8,9 @@ var pcommon = &Package{
+ 		name: "pcommon",
+ 		path: "pcommon",
+ 		imports: []string{
++			`"iter"`,
++			`"sort"`,
++			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,
+ 			`"go.opentelemetry.io/collector/pdata/internal/json"`,
+ 			`otlpcommon "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"`,
+@@ -23,6 +26,7 @@ var pcommon = &Package{
+ 		},
+ 	},
+ 	structs: []baseStruct{
++		sliceStruct,
+ 		scope,
+ 		resource,
+ 		byteSlice,
+@@ -59,6 +63,12 @@ var mapStruct = &sliceOfPtrs{
+ 	packageName: "pcommon",
+ }
+ 
++var sliceStruct = &sliceOfValues{
++	structName:  "Slice",
++	packageName: "pcommon",
++	element:     anyValue,
++}
++
+ var scopeField = &MessageField{
+ 	fieldName:     "Scope",
+ 	returnMessage: scope,

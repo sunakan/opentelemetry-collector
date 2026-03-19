@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/factory.go b/exporter/exporterhelper/factory.go
+index 4e907130a..2cbe146df 100644
+--- a/exporter/exporterhelper/factory.go
++++ b/exporter/exporterhelper/factory.go
+@@ -48,7 +48,7 @@ type factory struct {
+ 	createLogsExporter    CreateLogsExporter
+ }
+ 
+-// WithTraces overrides the default "error not supported" implementation for CreateTraceReceiver.
++// WithTraces overrides the default "error not supported" implementation for CreateTracesReceiver.
+ func WithTraces(createTraceExporter CreateTraceExporter) FactoryOption {
+ 	return func(o *factory) {
+ 		o.createTraceExporter = createTraceExporter

@@ -1,0 +1,24 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index ae1780b63..d4309b23e 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -109,6 +109,19 @@ func TestOCToMetricData(t *testing.T) {
+ 		t.Run(test.name, func(t *testing.T) {
+ 			got := OCToMetricData(test.oc)
+ 			assert.EqualValues(t, test.internal, got)
++
++			ocslice := []consumerdata.MetricsData{
++				test.oc,
++				test.oc,
++			}
++			wantSlice := data.NewMetricData()
++			// Double the ResourceMetrics only if not empty.
++			if test.internal.ResourceMetrics().Len() != 0 {
++				test.internal.Clone().ResourceMetrics().MoveTo(wantSlice.ResourceMetrics())
++				test.internal.Clone().ResourceMetrics().MoveTo(wantSlice.ResourceMetrics())
++			}
++			gotSlice := OCSliceToMetricData(ocslice)
++			assert.EqualValues(t, wantSlice, gotSlice)
+ 		})
+ 	}
+ }

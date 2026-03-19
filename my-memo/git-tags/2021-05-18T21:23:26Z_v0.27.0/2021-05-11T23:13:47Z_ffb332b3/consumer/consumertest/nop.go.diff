@@ -1,0 +1,15 @@
+diff --git a/consumer/consumertest/nop.go b/consumer/consumertest/nop.go
+index 823de9d1f..9415aeed3 100644
+--- a/consumer/consumertest/nop.go
++++ b/consumer/consumertest/nop.go
+@@ -24,7 +24,9 @@ var (
+ 	nopInstance = &nopConsumer{}
+ )
+ 
+-type nopConsumer struct{}
++type nopConsumer struct {
++	nonMutatingConsumer
++}
+ 
+ func (nc *nopConsumer) unexported() {}
+ 

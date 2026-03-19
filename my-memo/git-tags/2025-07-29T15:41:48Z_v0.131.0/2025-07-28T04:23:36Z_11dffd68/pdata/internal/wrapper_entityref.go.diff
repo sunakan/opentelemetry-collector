@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/wrapper_entityref.go b/pdata/internal/wrapper_entityref.go
+index 9397b5bd0..f4b33c282 100644
+--- a/pdata/internal/wrapper_entityref.go
++++ b/pdata/internal/wrapper_entityref.go
+@@ -4,11 +4,11 @@
+ package internal // import "go.opentelemetry.io/collector/pdata/internal"
+ 
+ import (
+-	jsoniter "github.com/json-iterator/go"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+-func UnmarshalJSONIterEntityRef(ms EntityRef, iter *jsoniter.Iterator) {
+-	iter.ReadObjectCB(func(iter *jsoniter.Iterator, f string) bool {
++func UnmarshalJSONIterEntityRef(ms EntityRef, iter *json.Iterator) {
++	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
+ 		switch f {
+ 		case "schemaUrl", "schema_url":
+ 			ms.orig.SchemaUrl = iter.ReadString()

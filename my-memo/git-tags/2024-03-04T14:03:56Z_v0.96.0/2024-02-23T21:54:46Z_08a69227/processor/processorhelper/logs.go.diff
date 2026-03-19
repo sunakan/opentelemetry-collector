@@ -1,0 +1,15 @@
+diff --git a/processor/processorhelper/logs.go b/processor/processorhelper/logs.go
+index b39270258..ade2f45a3 100644
+--- a/processor/processorhelper/logs.go
++++ b/processor/processorhelper/logs.go
+@@ -39,10 +39,6 @@ func NewLogsProcessor(
+ 		return nil, errors.New("nil logsFunc")
+ 	}
+ 
+-	if nextConsumer == nil {
+-		return nil, component.ErrNilNextConsumer
+-	}
+-
+ 	eventOptions := spanAttributes(set.ID)
+ 	bs := fromOptions(options)
+ 	logsConsumer, err := consumer.NewLogs(func(ctx context.Context, ld plog.Logs) error {

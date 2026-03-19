@@ -1,0 +1,148 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 7467a9cd5..3a1c74857 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -112,22 +112,6 @@ func (rec *Receiver) StartTraceDataReceiveOp(
+ 		opt...)
+ }
+ 
+-// StartTraceDataReceiveOp is deprecated but is called when a request is received from a client.
+-// The returned context should be used in other calls to the obsreport functions
+-// dealing with the same receive operation.
+-func StartTraceDataReceiveOp(
+-	operationCtx context.Context,
+-	receiverID config.ComponentID,
+-	transport string,
+-	opt ...StartReceiveOption,
+-) context.Context {
+-	rec := NewReceiver(ReceiverSettings{ReceiverID: receiverID, Transport: transport})
+-	return rec.traceReceiveOp(
+-		operationCtx,
+-		obsmetrics.ReceiveTraceDataOperationSuffix,
+-		opt...)
+-}
+-
+ // EndTraceDataReceiveOp completes the receive operation that was started with
+ // StartTraceDataReceiveOp.
+ func (rec *Receiver) EndTraceDataReceiveOp(
+@@ -145,24 +129,6 @@ func (rec *Receiver) EndTraceDataReceiveOp(
+ 	)
+ }
+ 
+-// EndTraceDataReceiveOp is deprecated but completes the receive operation that was started with
+-// StartTraceDataReceiveOp.
+-func EndTraceDataReceiveOp(
+-	receiverCtx context.Context,
+-	format string,
+-	numReceivedSpans int,
+-	err error,
+-) {
+-	rec := NewReceiver(ReceiverSettings{})
+-	rec.endReceiveOp(
+-		receiverCtx,
+-		format,
+-		numReceivedSpans,
+-		err,
+-		config.TracesDataType,
+-	)
+-}
+-
+ // StartLogsReceiveOp is called when a request is received from a client.
+ // The returned context should be used in other calls to the obsreport functions
+ // dealing with the same receive operation.
+@@ -176,22 +142,6 @@ func (rec *Receiver) StartLogsReceiveOp(
+ 		opt...)
+ }
+ 
+-// StartLogsReceiveOp is deprecated but is called when a request is received from a client.
+-// The returned context should be used in other calls to the obsreport functions
+-// dealing with the same receive operation.
+-func StartLogsReceiveOp(
+-	operationCtx context.Context,
+-	receiverID config.ComponentID,
+-	transport string,
+-	opt ...StartReceiveOption,
+-) context.Context {
+-	rec := NewReceiver(ReceiverSettings{ReceiverID: receiverID, Transport: transport})
+-	return rec.traceReceiveOp(
+-		operationCtx,
+-		obsmetrics.ReceiverLogsOperationSuffix,
+-		opt...)
+-}
+-
+ // EndLogsReceiveOp completes the receive operation that was started with
+ // StartLogsReceiveOp.
+ func (rec *Receiver) EndLogsReceiveOp(
+@@ -209,24 +159,6 @@ func (rec *Receiver) EndLogsReceiveOp(
+ 	)
+ }
+ 
+-// EndLogsReceiveOp is deprecated but completes the receive operation that was started with
+-// StartLogsReceiveOp.
+-func EndLogsReceiveOp(
+-	receiverCtx context.Context,
+-	format string,
+-	numReceivedLogRecords int,
+-	err error,
+-) {
+-	rec := NewReceiver(ReceiverSettings{})
+-	rec.endReceiveOp(
+-		receiverCtx,
+-		format,
+-		numReceivedLogRecords,
+-		err,
+-		config.LogsDataType,
+-	)
+-}
+-
+ // StartMetricsReceiveOp is called when a request is received from a client.
+ // The returned context should be used in other calls to the obsreport functions
+ // dealing with the same receive operation.
+@@ -240,22 +172,6 @@ func (rec *Receiver) StartMetricsReceiveOp(
+ 		opt...)
+ }
+ 
+-// StartMetricsReceiveOp is deprecated but is called when a request is received from a client.
+-// The returned context should be used in other calls to the obsreport functions
+-// dealing with the same receive operation.
+-func StartMetricsReceiveOp(
+-	operationCtx context.Context,
+-	receiverID config.ComponentID,
+-	transport string,
+-	opt ...StartReceiveOption,
+-) context.Context {
+-	rec := NewReceiver(ReceiverSettings{ReceiverID: receiverID, Transport: transport})
+-	return rec.traceReceiveOp(
+-		operationCtx,
+-		obsmetrics.ReceiverMetricsOperationSuffix,
+-		opt...)
+-}
+-
+ // EndMetricsReceiveOp completes the receive operation that was started with
+ // StartMetricsReceiveOp.
+ func (rec *Receiver) EndMetricsReceiveOp(
+@@ -273,24 +189,6 @@ func (rec *Receiver) EndMetricsReceiveOp(
+ 	)
+ }
+ 
+-// EndMetricsReceiveOp is deprecated but completes the receive operation that was started with
+-// StartMetricsReceiveOp.
+-func EndMetricsReceiveOp(
+-	receiverCtx context.Context,
+-	format string,
+-	numReceivedPoints int,
+-	err error,
+-) {
+-	rec := NewReceiver(ReceiverSettings{})
+-	rec.endReceiveOp(
+-		receiverCtx,
+-		format,
+-		numReceivedPoints,
+-		err,
+-		config.MetricsDataType,
+-	)
+-}
+-
+ // ReceiverContext adds the keys used when recording observability metrics to
+ // the given context returning the newly created context. This context should
+ // be used in related calls to the obsreport functions so metrics are properly

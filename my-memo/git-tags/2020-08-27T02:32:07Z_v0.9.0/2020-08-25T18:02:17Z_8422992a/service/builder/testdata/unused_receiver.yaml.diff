@@ -1,0 +1,27 @@
+diff --git a/service/builder/testdata/unused_receiver.yaml b/service/builder/testdata/unused_receiver.yaml
+index 4b5a6f89f..4465c1e39 100644
+--- a/service/builder/testdata/unused_receiver.yaml
++++ b/service/builder/testdata/unused_receiver.yaml
+@@ -1,14 +1,7 @@
+ receivers:
+   examplereceiver:
+-  zipkin:
+-
++  multireceiver:
+ processors:
+-  attributes:
+-    actions:
+-      - key: attr1
+-        value: 12345
+-        action: insert
+-
+ exporters:
+   exampleexporter:
+ 
+@@ -16,5 +9,4 @@ service:
+   pipelines:
+     traces:
+       receivers: [examplereceiver]
+-      processors: [attributes]
+       exporters: [exampleexporter]
+\ No newline at end of file

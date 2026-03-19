@@ -1,0 +1,12 @@
+diff --git a/examples/demo/prometheus.yaml b/examples/demo/prometheus.yaml
+deleted file mode 100644
+index a8477547e..000000000
+--- a/examples/demo/prometheus.yaml
++++ /dev/null
+@@ -1,6 +0,0 @@
+-scrape_configs:
+-  - job_name: 'otel-collector'
+-    scrape_interval: 10s
+-    static_configs:
+-      - targets: ['otel-collector:8889']
+-      - targets: ['otel-collector:8888']

@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/internal/testdata/events/no_description.yaml b/cmd/mdatagen/internal/testdata/events/no_description.yaml
+new file mode 100644
+index 000000000..ec9e2a9c2
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/events/no_description.yaml
+@@ -0,0 +1,16 @@
++type: file
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++  distributions: [contrib]
++  warnings:
++    - Any additional information that should be brought to the consumer's attention
++
++events:
++  default.event:
++    enabled: true
++    extended_documentation: The event will be renamed soon.

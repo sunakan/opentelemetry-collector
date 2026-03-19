@@ -1,0 +1,40 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index d1bc58680..bad79e96c 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -61,7 +61,7 @@ func createTraces(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutConfig),
+ 		exporterhelper.WithRetry(oCfg.RetryConfig),
+ 		exporterhelper.WithQueue(oCfg.QueueConfig),
+-		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck
++		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck // SA1019
+ 		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)
+@@ -80,7 +80,7 @@ func createMetrics(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutConfig),
+ 		exporterhelper.WithRetry(oCfg.RetryConfig),
+ 		exporterhelper.WithQueue(oCfg.QueueConfig),
+-		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck
++		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck // SA1019
+ 		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)
+@@ -99,7 +99,7 @@ func createLogs(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutConfig),
+ 		exporterhelper.WithRetry(oCfg.RetryConfig),
+ 		exporterhelper.WithQueue(oCfg.QueueConfig),
+-		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck
++		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck // SA1019
+ 		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)
+@@ -118,7 +118,7 @@ func createProfilesExporter(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutConfig),
+ 		exporterhelper.WithRetry(oCfg.RetryConfig),
+ 		exporterhelper.WithQueue(oCfg.QueueConfig),
+-		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck
++		exporterhelper.WithBatcher(oCfg.BatcherConfig), //nolint:staticcheck // SA1019
+ 		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)

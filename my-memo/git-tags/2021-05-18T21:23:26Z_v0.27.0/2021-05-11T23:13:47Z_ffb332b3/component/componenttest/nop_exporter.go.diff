@@ -1,0 +1,20 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index 2eca071d3..1b5ae5878 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+ 
+@@ -86,3 +87,7 @@ type nopExporter struct {
+ 	component.Component
+ 	consumertest.Consumer
+ }
++
++func (ne *nopExporter) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}

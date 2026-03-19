@@ -1,0 +1,16 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 70e50e1a7..f5b49b7b7 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -183,11 +183,6 @@ func (hcs *HTTPClientSettings) ToClient(host component.Host, settings component.
+ 	}, nil
+ }
+ 
+-// Deprecated: [v0.57.0] use ToClient.
+-func (hcs *HTTPClientSettings) ToClientWithHost(host component.Host, settings component.TelemetrySettings) (*http.Client, error) {
+-	return hcs.ToClient(host, settings)
+-}
+-
+ // Custom RoundTripper that adds headers.
+ type headerRoundTripper struct {
+ 	transport http.RoundTripper

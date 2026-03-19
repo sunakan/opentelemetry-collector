@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage.go b/exporter/exporterhelper/internal/persistent_storage.go
+index 84312c5ee..5b32d82e6 100644
+--- a/exporter/exporterhelper/internal/persistent_storage.go
++++ b/exporter/exporterhelper/internal/persistent_storage.go
+@@ -82,7 +82,6 @@ func newPersistentContiguousStorage[T any](
+ 		putChan:     make(chan struct{}, capacity),
+ 		stopChan:    make(chan struct{}),
+ 	}
+-
+ }
+ 
+ func (pcs *persistentContiguousStorage[T]) start(ctx context.Context, client storage.Client) {
+@@ -123,8 +122,9 @@ func (pcs *persistentContiguousStorage[T]) initPersistentContiguousStorage(ctx c
+ 	}
+ }
+ 
+-// get returns the request channel that all the requests will be send on
+-func (pcs *persistentContiguousStorage[T]) get() (QueueRequest[T], bool) {
++// Poll returns the next available item from the queue, or blocks until one is available.
++// If the queue is stopped, returns (QueueRequest{}, false)
++func (pcs *persistentContiguousStorage[T]) Poll() (QueueRequest[T], bool) {
+ 	for {
+ 		select {
+ 		case <-pcs.stopChan:

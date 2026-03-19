@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config.go b/exporter/otlpexporter/config.go
+index 516894c07..7da4b19df 100644
+--- a/exporter/otlpexporter/config.go
++++ b/exporter/otlpexporter/config.go
+@@ -23,7 +23,7 @@ import (
+ type Config struct {
+ 	configmodels.ExporterSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 
+-	configgrpc.GRPCSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
++	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 
+ 	// The number of workers that send the gRPC requests.
+ 	NumWorkers int `mapstructure:"num_workers"`

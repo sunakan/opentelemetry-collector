@@ -1,0 +1,55 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 11cf3dc66..cce8b363c 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -68,9 +68,13 @@ func createTraces(
+ 	nextConsumer consumer.Traces,
+ ) (receiver.Traces, error) {
+ 	oCfg := cfg.(*Config)
+-	r, err := receivers.GetOrAdd(oCfg, func() (*otlpReceiver, error) {
+-		return newOtlpReceiver(oCfg, set)
+-	})
++	r, err := receivers.GetOrAdd(
++		oCfg,
++		func() (*otlpReceiver, error) {
++			return newOtlpReceiver(oCfg, &set)
++		},
++		&set.TelemetrySettings,
++	)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -89,9 +93,13 @@ func createMetrics(
+ 	consumer consumer.Metrics,
+ ) (receiver.Metrics, error) {
+ 	oCfg := cfg.(*Config)
+-	r, err := receivers.GetOrAdd(oCfg, func() (*otlpReceiver, error) {
+-		return newOtlpReceiver(oCfg, set)
+-	})
++	r, err := receivers.GetOrAdd(
++		oCfg,
++		func() (*otlpReceiver, error) {
++			return newOtlpReceiver(oCfg, &set)
++		},
++		&set.TelemetrySettings,
++	)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -110,9 +118,13 @@ func createLog(
+ 	consumer consumer.Logs,
+ ) (receiver.Logs, error) {
+ 	oCfg := cfg.(*Config)
+-	r, err := receivers.GetOrAdd(oCfg, func() (*otlpReceiver, error) {
+-		return newOtlpReceiver(oCfg, set)
+-	})
++	r, err := receivers.GetOrAdd(
++		oCfg,
++		func() (*otlpReceiver, error) {
++			return newOtlpReceiver(oCfg, &set)
++		},
++		&set.TelemetrySettings,
++	)
+ 	if err != nil {
+ 		return nil, err
+ 	}

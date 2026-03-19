@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index f8c0ad4dc..f708a82fb 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -599,7 +599,7 @@ func newConfigWatcherExtensionFactory(name component.Type) extension.Factory {
+ 		func() component.Config {
+ 			return &struct{}{}
+ 		},
+-		func(context.Context, extension.CreateSettings, component.Config) (extension.Extension, error) {
++		func(context.Context, extension.Settings, component.Config) (extension.Extension, error) {
+ 			return &configWatcherExtension{}, nil
+ 		},
+ 		component.StabilityLevelDevelopment,

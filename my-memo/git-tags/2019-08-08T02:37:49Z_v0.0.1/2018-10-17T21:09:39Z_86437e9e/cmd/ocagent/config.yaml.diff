@@ -1,0 +1,13 @@
+diff --git a/cmd/ocagent/config.yaml b/cmd/ocagent/config.yaml
+index 834bcd442..1349a82c1 100644
+--- a/cmd/ocagent/config.yaml
++++ b/cmd/ocagent/config.yaml
+@@ -3,7 +3,7 @@ opencensus_interceptor:
+ 
+ stackdriver:
+   project: "project-id"
+-  enableTraces: true
++  enable_tracing: true
+ 
+ zipkin:
+   endpoint: "http://localhost:9411/api/v2/spans"

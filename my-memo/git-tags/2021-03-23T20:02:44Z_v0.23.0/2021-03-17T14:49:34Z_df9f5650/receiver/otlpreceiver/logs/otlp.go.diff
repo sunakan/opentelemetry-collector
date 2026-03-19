@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/logs/otlp.go b/receiver/otlpreceiver/logs/otlp.go
+index ae9434893..ef41687d7 100644
+--- a/receiver/otlpreceiver/logs/otlp.go
++++ b/receiver/otlpreceiver/logs/otlp.go
+@@ -54,7 +54,7 @@ func (r *Receiver) Export(ctx context.Context, req *collectorlog.ExportLogsServi
+ 	// We need to ensure that it propagates the receiver name as a tag
+ 	ctxWithReceiverName := obsreport.ReceiverContext(ctx, r.instanceName, receiverTransport)
+ 
+-	ld := pdata.LogsFromInternalRep(internal.LogsFromOtlp(req.ResourceLogs))
++	ld := pdata.LogsFromInternalRep(internal.LogsFromOtlp(req))
+ 	err := r.sendToNextConsumer(ctxWithReceiverName, ld)
+ 	if err != nil {
+ 		return nil, err

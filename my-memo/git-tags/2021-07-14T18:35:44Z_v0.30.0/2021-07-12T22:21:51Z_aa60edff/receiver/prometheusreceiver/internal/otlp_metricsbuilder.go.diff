@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go b/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
+index f096fa3e7..0975592eb 100644
+--- a/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
++++ b/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
+@@ -60,7 +60,7 @@ func convToPdataMetricType(metricType textparse.MetricType) pdata.MetricDataType
+ 	switch metricType {
+ 	case textparse.MetricTypeCounter:
+ 		// always use float64, as it's the internal data type used in prometheus
+-		return pdata.MetricDataTypeDoubleSum
++		return pdata.MetricDataTypeSum
+ 	// textparse.MetricTypeUnknown is converted to gauge by default to fix Prometheus untyped metrics from being dropped
+ 	case textparse.MetricTypeGauge, textparse.MetricTypeUnknown:
+ 		return pdata.MetricDataTypeDoubleGauge

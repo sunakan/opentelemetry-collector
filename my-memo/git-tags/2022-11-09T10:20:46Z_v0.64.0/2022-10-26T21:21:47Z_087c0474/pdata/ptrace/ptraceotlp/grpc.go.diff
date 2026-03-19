@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/ptraceotlp/grpc.go b/pdata/ptrace/ptraceotlp/grpc.go
+index cbf07c7b5..4a077c639 100644
+--- a/pdata/ptrace/ptraceotlp/grpc.go
++++ b/pdata/ptrace/ptraceotlp/grpc.go
+@@ -39,9 +39,6 @@ func NewGRPCClient(cc *grpc.ClientConn) GRPCClient {
+ 	return &grpcClient{rawClient: otlpcollectortrace.NewTraceServiceClient(cc)}
+ }
+ 
+-// Deprecated: [v0.63.0]: use NewGRPCClient.
+-var NewClient = NewGRPCClient
+-
+ type grpcClient struct {
+ 	rawClient otlpcollectortrace.TraceServiceClient
+ }

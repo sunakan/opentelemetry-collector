@@ -1,0 +1,15 @@
+diff --git a/README.md b/README.md
+index 5fbf33a28..019ac4c6d 100644
+--- a/README.md
++++ b/README.md
+@@ -167,6 +167,10 @@ receivers:
+         endpoint: "localhost:14268"
+       thrift-tchannel:
+         endpoint: "localhost:14267"
++      thrift-compact:
++        endpoint: "localhost:6831"
++      thrift-binary:
++        endpoint: "localhost:6832"
+ 
+   prometheus:
+     config:

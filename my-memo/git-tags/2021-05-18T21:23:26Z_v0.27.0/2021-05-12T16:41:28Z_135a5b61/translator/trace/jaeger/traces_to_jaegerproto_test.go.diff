@@ -1,0 +1,17 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto_test.go b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+index 7546208a5..0cd2ec184 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+@@ -83,10 +83,10 @@ func TestGetErrorTagFromStatusCode(t *testing.T) {
+ }
+ 
+ func TestGetTagFromStatusMsg(t *testing.T) {
+-	got, ok := getTagFromStatusMsg("")
++	_, ok := getTagFromStatusMsg("")
+ 	assert.False(t, ok)
+ 
+-	got, ok = getTagFromStatusMsg("test-error")
++	got, ok := getTagFromStatusMsg("test-error")
+ 	assert.True(t, ok)
+ 	assert.EqualValues(t, model.KeyValue{
+ 		Key:   tracetranslator.TagStatusMsg,

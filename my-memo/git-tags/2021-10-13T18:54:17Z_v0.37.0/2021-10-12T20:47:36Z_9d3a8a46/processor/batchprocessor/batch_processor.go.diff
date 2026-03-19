@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index c7ccab580..c7974f08b 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package batchprocessor
++package batchprocessor // import "go.opentelemetry.io/collector/processor/batchprocessor"
+ 
+ import (
+ 	"context"

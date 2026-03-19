@@ -1,0 +1,13 @@
+diff --git a/scraper/scraperhelper/obs_metrics_test.go b/scraper/scraperhelper/obs_metrics_test.go
+index 3d72fcb74..1b458872d 100644
+--- a/scraper/scraperhelper/obs_metrics_test.go
++++ b/scraper/scraperhelper/obs_metrics_test.go
+@@ -62,7 +62,7 @@ func TestScrapeMetricsDataOp(t *testing.T) {
+ 	}
+ 
+ 	spans := tel.SpanRecorder.Ended()
+-	require.Equal(t, len(params), len(spans))
++	require.Len(t, spans, len(params))
+ 
+ 	var scrapedMetricPoints, erroredMetricPoints int
+ 	for i, span := range spans {

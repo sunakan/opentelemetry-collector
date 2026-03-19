@@ -1,0 +1,25 @@
+diff --git a/pdata/pcommon/generated_stringslice.go b/pdata/pcommon/generated_stringslice.go
+index 02a75c7a6..80c677721 100644
+--- a/pdata/pcommon/generated_stringslice.go
++++ b/pdata/pcommon/generated_stringslice.go
+@@ -7,6 +7,8 @@
+ package pcommon
+ 
+ import (
++	"slices"
++
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+@@ -102,6 +104,11 @@ func (ms StringSlice) CopyTo(dest StringSlice) {
+ 	*dest.getOrig() = copyStringSlice(*dest.getOrig(), *ms.getOrig())
+ }
+ 
++// Equal checks equality with another StringSlice
++func (ms StringSlice) Equal(val StringSlice) bool {
++	return slices.Equal(*ms.getOrig(), *val.getOrig())
++}
++
+ func copyStringSlice(dst, src []string) []string {
+ 	dst = dst[:0]
+ 	return append(dst, src...)

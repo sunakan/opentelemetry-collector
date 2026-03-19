@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/logger_test.go b/service/telemetry/logger_test.go
+index bc73b2de1..901c3fce7 100644
+--- a/service/telemetry/logger_test.go
++++ b/service/telemetry/logger_test.go
+@@ -62,7 +62,7 @@ func TestNewLogger(t *testing.T) {
+ 					},
+ 				},
+ 			},
+-			wantCoreType: "zapcore.multiCore",
++			wantCoreType: "*zapcore.levelFilterCore",
+ 		},
+ 	}
+ 	for _, tt := range tests {

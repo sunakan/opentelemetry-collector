@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 4c15e92ba..e6a1e3774 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -137,8 +137,6 @@ func (rb *receiversBuilder) findPipelinesToAttach(receiverID config.ComponentID)
+ 	// attached to this receiver according to configuration.
+ 
+ 	pipelinesToAttach := make(attachedPipelines)
+-	pipelinesToAttach[config.TracesDataType] = make([]*builtPipeline, 0)
+-	pipelinesToAttach[config.MetricsDataType] = make([]*builtPipeline, 0)
+ 
+ 	// Iterate over all pipelines.
+ 	for _, pipelineCfg := range rb.config.Service.Pipelines {

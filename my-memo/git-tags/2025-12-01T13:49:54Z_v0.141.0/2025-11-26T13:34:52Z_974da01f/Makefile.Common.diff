@@ -1,0 +1,20 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 04a29899e..9860da5f1 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -43,7 +43,7 @@ test-with-junit:
+ 
+ .PHONY: benchmark
+ benchmark:
+-	$(GO_TOOL) gotestsum \
++	MEMBENCH=yes $(GO_TOOL) gotestsum \
+ 		--packages="$(ALL_PKGS)" -- \
+ 		-bench=. -run=notests ./... | tee benchmark.txt
+ 
+@@ -100,5 +100,5 @@ impi:
+ moddownload:
+ 	$(GOCMD) mod download
+ 
+-benchmark:
++timebenchmark:
+ 	go test -bench=. -benchtime=1s ./...

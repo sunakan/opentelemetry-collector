@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan.go b/translator/trace/zipkin/zipkinv1_to_protospan.go
+index 412c911d1..a2bf05e11 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan.go
+@@ -253,7 +253,7 @@ func zipkinV1BinAnnotationsToOCAttributes(binAnnotations []*binaryAnnotation) (a
+ func parseAnnotationValue(value string) *tracepb.AttributeValue {
+ 	pbAttrib := &tracepb.AttributeValue{}
+ 
+-	switch determineValueType(value) {
++	switch tracetranslator.DetermineValueType(value, false) {
+ 	case pdata.AttributeValueINT:
+ 		iValue, _ := strconv.ParseInt(value, 10, 64)
+ 		pbAttrib.Value = &tracepb.AttributeValue_IntValue{IntValue: iValue}

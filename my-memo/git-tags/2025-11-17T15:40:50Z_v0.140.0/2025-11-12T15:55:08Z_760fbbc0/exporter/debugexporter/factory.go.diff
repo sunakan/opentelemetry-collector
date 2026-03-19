@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/factory.go b/exporter/debugexporter/factory.go
+index 3f843973a..e950d51ba 100644
+--- a/exporter/debugexporter/factory.go
++++ b/exporter/debugexporter/factory.go
+@@ -43,7 +43,7 @@ func NewFactory() exporter.Factory {
+ 
+ func createDefaultConfig() component.Config {
+ 	queueCfg := exporterhelper.NewDefaultQueueConfig()
+-	queueCfg.QueueSize = 1
++	queueCfg.Enabled = false
+ 
+ 	return &Config{
+ 		Verbosity:          configtelemetry.LevelBasic,

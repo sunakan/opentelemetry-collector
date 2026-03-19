@@ -1,0 +1,11 @@
+diff --git a/exporter/loggingexporter/go.mod b/exporter/loggingexporter/go.mod
+index 08bd7924a..082e5ae23 100644
+--- a/exporter/loggingexporter/go.mod
++++ b/exporter/loggingexporter/go.mod
+@@ -73,6 +73,4 @@ retract (
+ 	v0.69.0 // Release failed, use v0.69.1
+ )
+ 
+-replace go.opentelemetry.io/collector/connector => ../../connector
+-
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry

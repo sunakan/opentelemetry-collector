@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_resourceprofiles.go b/pdata/internal/generated_proto_resourceprofiles.go
+index 5114d7a89..85bf7b3b1 100644
+--- a/pdata/internal/generated_proto_resourceprofiles.go
++++ b/pdata/internal/generated_proto_resourceprofiles.go
+@@ -45,7 +45,6 @@ func DeleteResourceProfiles(orig *ResourceProfiles, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteResource(&orig.Resource, false)
+ 	for i := range orig.ScopeProfiles {
+ 		DeleteScopeProfiles(orig.ScopeProfiles[i], true)

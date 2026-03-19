@@ -1,0 +1,12 @@
+diff --git a/internal/cgroups/subsys.go b/internal/cgroups/subsys.go
+index 458d34c16..0eb68f758 100644
+--- a/internal/cgroups/subsys.go
++++ b/internal/cgroups/subsys.go
+@@ -34,6 +34,7 @@
+ // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ // THE SOFTWARE.
+ 
++//go:build linux
+ // +build linux
+ 
+ package cgroups

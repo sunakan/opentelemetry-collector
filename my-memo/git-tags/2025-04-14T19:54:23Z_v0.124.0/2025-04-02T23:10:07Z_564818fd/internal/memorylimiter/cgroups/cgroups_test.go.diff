@@ -1,0 +1,13 @@
+diff --git a/internal/memorylimiter/cgroups/cgroups_test.go b/internal/memorylimiter/cgroups/cgroups_test.go
+index 1ead434f1..c40400dc7 100644
+--- a/internal/memorylimiter/cgroups/cgroups_test.go
++++ b/internal/memorylimiter/cgroups/cgroups_test.go
+@@ -50,7 +50,7 @@ func TestNewCGroups(t *testing.T) {
+ 	}
+ 
+ 	cgroups, err := NewCGroups(cgroupsProcMountInfoPath, cgroupsProcCGroupPath)
+-	assert.Equal(t, len(testTable), len(cgroups))
++	assert.Len(t, cgroups, len(testTable))
+ 	require.NoError(t, err)
+ 
+ 	for _, tt := range testTable {

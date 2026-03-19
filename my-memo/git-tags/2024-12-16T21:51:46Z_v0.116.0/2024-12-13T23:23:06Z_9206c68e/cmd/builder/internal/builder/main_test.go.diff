@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 16e035bdf..6887e5f27 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -88,7 +88,7 @@ var replaceModules = []string{
+ 	"/internal/sharedcomponent",
+ 	"/otelcol",
+ 	"/pipeline",
+-	"/pipeline/pipelineprofiles",
++	"/pipeline/xpipeline",
+ 	"/processor",
+ 	"/processor/processortest",
+ 	"/processor/batchprocessor",

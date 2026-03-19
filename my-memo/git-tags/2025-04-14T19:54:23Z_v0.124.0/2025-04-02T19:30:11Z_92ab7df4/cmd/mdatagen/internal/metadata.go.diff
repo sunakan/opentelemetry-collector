@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/metadata.go b/cmd/mdatagen/internal/metadata.go
+index 9f326bed0..6f6ed9925 100644
+--- a/cmd/mdatagen/internal/metadata.go
++++ b/cmd/mdatagen/internal/metadata.go
+@@ -136,6 +136,10 @@ func (md *Metadata) validateAttributes(usedAttrs map[AttributeName]bool) error {
+ }
+ 
+ func (md *Metadata) supportsSignal(signal string) bool {
++	if md.Status == nil {
++		return false
++	}
++
+ 	for _, signals := range md.Status.Stability {
+ 		for _, s := range signals {
+ 			if s == signal {

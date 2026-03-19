@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/testdata/config.yaml b/receiver/jaegerreceiver/testdata/config.yaml
+index 61f515035..386193873 100644
+--- a/receiver/jaegerreceiver/testdata/config.yaml
++++ b/receiver/jaegerreceiver/testdata/config.yaml
+@@ -37,7 +37,7 @@ receivers:
+   jaeger/tls:
+     protocols:
+       grpc:
+-        tls_credentials:
++        tls_settings:
+           cert_file: /test.crt
+           key_file: /test.key
+         endpoint: "localhost:9876"

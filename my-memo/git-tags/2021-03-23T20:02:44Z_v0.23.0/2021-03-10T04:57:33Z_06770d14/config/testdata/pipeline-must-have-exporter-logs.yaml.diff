@@ -1,0 +1,18 @@
+diff --git a/config/testdata/pipeline-must-have-exporter-logs.yaml b/config/testdata/pipeline-must-have-exporter-logs.yaml
+new file mode 100644
+index 000000000..0ba7bfb98
+--- /dev/null
++++ b/config/testdata/pipeline-must-have-exporter-logs.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++    extra: "not present in the service pipeline"
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    logs:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]

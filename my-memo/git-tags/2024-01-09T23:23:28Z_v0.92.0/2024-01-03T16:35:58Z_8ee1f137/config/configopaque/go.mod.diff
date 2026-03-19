@@ -1,0 +1,12 @@
+diff --git a/config/configopaque/go.mod b/config/configopaque/go.mod
+index c5242b315..b6d5cc055 100644
+--- a/config/configopaque/go.mod
++++ b/config/configopaque/go.mod
+@@ -4,6 +4,7 @@ go 1.20
+ 
+ require (
+ 	github.com/stretchr/testify v1.8.4
++	go.uber.org/goleak v1.3.0
+ 	gopkg.in/yaml.v3 v3.0.1
+ )
+ 

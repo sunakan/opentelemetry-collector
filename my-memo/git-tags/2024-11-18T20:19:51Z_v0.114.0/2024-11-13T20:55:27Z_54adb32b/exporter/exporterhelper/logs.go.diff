@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 772a5673e..fc04e6d73 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -90,9 +90,6 @@ func NewLogs(
+ 	return NewLogsRequest(ctx, set, requestFromLogs(pusher), append(logsOpts, options...)...)
+ }
+ 
+-// Deprecated: [v0.112.0] use NewLogs.
+-var NewLogsExporter = NewLogs
+-
+ // RequestFromLogsFunc converts plog.Logs data into a user-defined request.
+ // Experimental: This API is at the early stage of development and may change without backward compatibility
+ // until https://github.com/open-telemetry/opentelemetry-collector/issues/8122 is resolved.
+@@ -148,9 +145,6 @@ func NewLogsRequest(
+ 	}, err
+ }
+ 
+-// Deprecated: [v0.112.0] use NewLogsRequest.
+-var NewLogsRequestExporter = NewLogsRequest
+-
+ type logsExporterWithObservability struct {
+ 	internal.BaseRequestSender
+ 	obsrep *internal.ObsReport

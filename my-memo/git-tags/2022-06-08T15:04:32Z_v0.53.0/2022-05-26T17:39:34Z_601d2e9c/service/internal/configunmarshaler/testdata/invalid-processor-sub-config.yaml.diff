@@ -1,0 +1,24 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml
+index 862fd86ab..0596ab333 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+     tests
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      exporters: [nop]
++      processors: [nop]

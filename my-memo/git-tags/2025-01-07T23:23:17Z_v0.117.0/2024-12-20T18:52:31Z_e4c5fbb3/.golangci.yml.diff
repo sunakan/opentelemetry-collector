@@ -1,0 +1,16 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 97d040690..86ad90d36 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -90,11 +90,6 @@ linters-settings:
+     locale: US
+     ignore-words:
+       - cancelled
+-      - metre
+-      - meter
+-      - metres
+-      - kilometre
+-      - kilometres
+ 
+   perfsprint:
+     # Optimizes even if it requires an int or uint type cast.

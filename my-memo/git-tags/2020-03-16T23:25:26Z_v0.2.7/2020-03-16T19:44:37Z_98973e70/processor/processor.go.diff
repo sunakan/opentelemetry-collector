@@ -1,0 +1,23 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 88497a986..9cf348131 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -41,6 +41,18 @@ type MetricsProcessor interface {
+ 	Processor
+ }
+ 
++// TraceProcessorV2 composes TraceConsumerV2 with some additional processor-specific functions.
++type TraceProcessorV2 interface {
++	consumer.TraceConsumerV2
++	Processor
++}
++
++// MetricsProcessorV2 composes MetricsConsumerV2 with some additional processor-specific functions.
++type MetricsProcessorV2 interface {
++	consumer.MetricsConsumerV2
++	Processor
++}
++
+ type DualTypeProcessor interface {
+ 	consumer.TraceConsumer
+ 	consumer.MetricsConsumer

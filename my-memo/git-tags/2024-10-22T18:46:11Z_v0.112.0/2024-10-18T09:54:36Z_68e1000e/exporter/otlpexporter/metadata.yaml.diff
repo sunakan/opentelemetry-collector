@@ -1,0 +1,16 @@
+diff --git a/exporter/otlpexporter/metadata.yaml b/exporter/otlpexporter/metadata.yaml
+index 4ab3e8d74..ff08c4f0f 100644
+--- a/exporter/otlpexporter/metadata.yaml
++++ b/exporter/otlpexporter/metadata.yaml
+@@ -6,8 +6,9 @@ status:
+   stability:
+     stable: [traces, metrics]
+     beta: [logs]
++    development: [profiles]
+   distributions: [core, contrib, k8s]
+ 
+ tests:
+   config:
+-    endpoint: otelcol:4317
+\ No newline at end of file
++    endpoint: otelcol:4317

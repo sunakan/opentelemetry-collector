@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml b/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml
+index 6e4bad5e2..8f27faab1 100644
+--- a/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml
++++ b/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml
+@@ -6,13 +6,12 @@ status:
+     development: [logs]
+     beta: [traces]
+     stable: [metrics]
+-    
++
+ metrics:
+   system.cpu.time:
+     enabled: true
+     description: Total CPU seconds broken down by different states.
+-    stability:
+-      level: development
++    stability: development
+     unit: s
+     sum:
+       value_type: double

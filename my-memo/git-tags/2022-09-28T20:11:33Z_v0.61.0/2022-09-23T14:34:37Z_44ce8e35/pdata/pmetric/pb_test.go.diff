@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pb_test.go b/pdata/pmetric/pb_test.go
+index a5146d645..7aea0c0f5 100644
+--- a/pdata/pmetric/pb_test.go
++++ b/pdata/pmetric/pb_test.go
+@@ -89,7 +89,7 @@ func generateBenchmarkMetrics(metricsCount int) Metrics {
+ 		idp := im.SetEmptySum().DataPoints().AppendEmpty()
+ 		idp.SetStartTimestamp(startTime)
+ 		idp.SetTimestamp(endTime)
+-		idp.SetIntVal(123)
++		idp.SetIntValue(123)
+ 	}
+ 	return md
+ }

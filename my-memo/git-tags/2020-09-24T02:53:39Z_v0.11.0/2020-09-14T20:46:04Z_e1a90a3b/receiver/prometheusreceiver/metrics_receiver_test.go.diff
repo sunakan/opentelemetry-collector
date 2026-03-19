@@ -1,0 +1,16 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver_test.go b/receiver/prometheusreceiver/metrics_receiver_test.go
+index 505267d52..1a9d976f8 100644
+--- a/receiver/prometheusreceiver/metrics_receiver_test.go
++++ b/receiver/prometheusreceiver/metrics_receiver_test.go
+@@ -99,9 +99,9 @@ func (mp *mockPrometheus) Close() {
+ 	mp.srv.Close()
+ }
+ 
+-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++// -------------------------
+ // EndToEnd Test and related
+-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++// -------------------------
+ 
+ var srvPlaceHolder = "__SERVER_ADDRESS__"
+ 

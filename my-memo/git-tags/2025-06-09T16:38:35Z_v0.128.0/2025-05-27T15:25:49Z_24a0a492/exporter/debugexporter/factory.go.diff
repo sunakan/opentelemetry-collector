@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/factory.go b/exporter/debugexporter/factory.go
+index 0461221e9..10328ad45 100644
+--- a/exporter/debugexporter/factory.go
++++ b/exporter/debugexporter/factory.go
+@@ -29,7 +29,7 @@ const (
+ 	defaultSamplingThereafter = 1
+ )
+ 
+-// NewFactory creates a factory for Debug exporter
++// NewFactory creates and returns a new factory for the Debug exporter.
+ func NewFactory() exporter.Factory {
+ 	return xexporter.NewFactory(
+ 		componentType,

@@ -1,0 +1,17 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+index 6ecc9f1ea..50b95daf0 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+@@ -225,11 +225,7 @@ func (s *scraper) ScrapeMetrics(_ context.Context) (pdata.MetricSlice, error) {
+ 		errors = append(errors, err)
+ 	}
+ 
+-	if len(errors) > 0 {
+-		return metrics, componenterror.CombineErrors(errors)
+-	}
+-
+-	return metrics, nil
++	return metrics, componenterror.CombineErrors(errors)
+ }
+ 
+ func (s *scraper) scrapeAndAppendDiskIOMetric(metrics pdata.MetricSlice, durationSinceLastScraped float64) error {

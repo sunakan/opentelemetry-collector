@@ -1,0 +1,11 @@
+diff --git a/exporter/exporterhelper/constants.go b/exporter/exporterhelper/constants.go
+index 07e7f368f..71d143b3c 100644
+--- a/exporter/exporterhelper/constants.go
++++ b/exporter/exporterhelper/constants.go
+@@ -25,4 +25,6 @@ var (
+ 	errNilPushTraceData = errors.New("nil traceDataPusher")
+ 	// errNilPushMetricsData is returned when a nil pushMetricsData is given.
+ 	errNilPushMetricsData = errors.New("nil pushMetricsData")
++	// errNilPushLogsData is returned when a nil pushLogsData is given.
++	errNilPushLogsData = errors.New("nil pushLogsData")
+ )

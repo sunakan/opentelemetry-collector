@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/cfggen/loader.go b/cmd/mdatagen/internal/cfggen/loader.go
+index 35b0a19b5..e9020e2d0 100644
+--- a/cmd/mdatagen/internal/cfggen/loader.go
++++ b/cmd/mdatagen/internal/cfggen/loader.go
+@@ -64,7 +64,7 @@ func (sl *schemaLoader) Load(ref Ref) (*ConfigMetadata, error) {
+ func (sl *schemaLoader) load(ref Ref) (*ConfigMetadata, error) {
+ 	repoRoot, err := sl.repoRoot(sl.cd)
+ 	if err != nil {
+-		return nil, err
++		return nil, fmt.Errorf("failed to determine repo root: %w", err)
+ 	}
+ 
+ 	if ref.isLocal() {

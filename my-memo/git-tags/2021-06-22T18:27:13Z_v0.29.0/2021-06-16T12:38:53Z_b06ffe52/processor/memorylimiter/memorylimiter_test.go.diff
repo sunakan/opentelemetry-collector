@@ -1,0 +1,14 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index 1665537f3..50b7aebe1 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -29,8 +29,8 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/iruntime"
+ 	"go.opentelemetry.io/collector/obsreport"
+-	"go.opentelemetry.io/collector/processor/memorylimiter/internal/iruntime"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 

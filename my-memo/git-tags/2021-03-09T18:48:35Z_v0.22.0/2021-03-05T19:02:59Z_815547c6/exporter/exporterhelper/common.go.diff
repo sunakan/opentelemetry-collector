@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index 08a79ae87..a4fe5fb3d 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -18,7 +18,6 @@ import (
+ 	"context"
+ 	"time"
+ 
+-	"go.opencensus.io/trace"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -27,10 +26,6 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ )
+ 
+-var (
+-	okStatus = trace.Status{Code: trace.StatusCodeOK}
+-)
+-
+ // ComponentSettings for timeout. The timeout applies to individual attempts to send data to the backend.
+ type TimeoutSettings struct {
+ 	// Timeout is the timeout for every attempt to send data to the backend.

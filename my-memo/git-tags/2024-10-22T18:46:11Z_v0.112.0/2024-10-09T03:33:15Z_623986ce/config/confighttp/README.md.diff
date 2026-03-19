@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/README.md b/config/confighttp/README.md
+index 8b0c40a9b..160041d8a 100644
+--- a/config/confighttp/README.md
++++ b/config/confighttp/README.md
+@@ -111,7 +111,7 @@ processors:
+   attributes:
+     actions:
+       - key: http.client_ip
+-        from_context: X-Forwarded-For
++        from_context: metadata.x-forwarded-for
+         action: upsert
+ ```
+ 

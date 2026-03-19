@@ -1,0 +1,10 @@
+diff --git a/config/confighttp/xconfighttp/go.mod b/config/confighttp/xconfighttp/go.mod
+index b1cb4bb93..6d0ad5ff0 100644
+--- a/config/confighttp/xconfighttp/go.mod
++++ b/config/confighttp/xconfighttp/go.mod
+@@ -109,3 +109,5 @@ replace go.opentelemetry.io/collector/confmap => ../../../confmap
+ replace go.opentelemetry.io/collector/confmap/xconfmap => ../../../confmap/xconfmap
+ 
+ replace go.opentelemetry.io/collector/internal/testutil => ../../../internal/testutil
++
++replace go.opentelemetry.io/collector/internal/componentalias => ../../../internal/componentalias

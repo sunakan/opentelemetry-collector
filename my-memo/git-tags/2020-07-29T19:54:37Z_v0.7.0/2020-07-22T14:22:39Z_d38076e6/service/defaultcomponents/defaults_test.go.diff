@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index de2b68051..047f6dab3 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -38,6 +38,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"opencensus",
+ 		"otlp",
+ 		"hostmetrics",
++		"fluentforward",
+ 	}
+ 	expectedProcessors := []configmodels.Type{
+ 		"attributes",

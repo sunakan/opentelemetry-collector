@@ -1,0 +1,17 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 89d3dc946..9ac1577fa 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -19,9 +19,9 @@ package main
+ import (
+ 	"log"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/version"
+-	"github.com/open-telemetry/opentelemetry-collector/service"
+-	"github.com/open-telemetry/opentelemetry-collector/service/defaultcomponents"
++	"go.opentelemetry.io/collector/internal/version"
++	"go.opentelemetry.io/collector/service"
++	"go.opentelemetry.io/collector/service/defaultcomponents"
+ )
+ 
+ func main() {

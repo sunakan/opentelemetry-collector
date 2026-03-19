@@ -1,0 +1,23 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 8f2fe6c7f..a1a9d6a8a 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -103,8 +103,7 @@ func TestToStringMap(t *testing.T) {
+ 	}
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {
+-			conf := newConfFromFile(t, test.fileName)
+-			assert.Equal(t, test.stringMap, conf)
++			assert.Equal(t, test.stringMap, newConfFromFile(t, test.fileName))
+ 		})
+ 	}
+ }
+@@ -221,7 +220,7 @@ func TestMapKeyStringToMapKeyTextUnmarshalerHookFuncErrorUnmarshal(t *testing.T)
+ }
+ 
+ // newConfFromFile creates a new Conf by reading the given file.
+-func newConfFromFile(t *testing.T, fileName string) map[string]interface{} {
++func newConfFromFile(t testing.TB, fileName string) map[string]interface{} {
+ 	content, err := ioutil.ReadFile(filepath.Clean(fileName))
+ 	require.NoErrorf(t, err, "unable to read the file %v", fileName)
+ 

@@ -1,0 +1,24 @@
+diff --git a/exporter/prometheusexporter/factory_test.go b/exporter/prometheusexporter/factory_test.go
+index ee808a77d..d463b033d 100644
+--- a/exporter/prometheusexporter/factory_test.go
++++ b/exporter/prometheusexporter/factory_test.go
+@@ -20,9 +20,9 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+ )
+ 
+@@ -38,7 +38,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ 	oCfg.Endpoint = ""
+ 	exp, err := createMetricsExporter(
+ 		context.Background(),
+-		component.ExporterCreateSettings{Logger: zap.NewNop()},
++		componenttest.NewNopExporterCreateSettings(),
+ 		cfg)
+ 	require.Equal(t, errBlankPrometheusAddress, err)
+ 	require.Nil(t, exp)

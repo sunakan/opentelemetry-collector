@@ -1,0 +1,13 @@
+diff --git a/receiver/go.mod b/receiver/go.mod
+index f8d6d72de..ae4b9f0d9 100644
+--- a/receiver/go.mod
++++ b/receiver/go.mod
+@@ -69,8 +69,6 @@ replace go.opentelemetry.io/collector/config/configtelemetry => ../config/config
+ 
+ replace go.opentelemetry.io/collector/pdata/pprofile => ../pdata/pprofile
+ 
+-replace go.opentelemetry.io/collector/internal/globalgates => ../internal/globalgates
+-
+ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../consumer/consumerprofiles
+ 
+ replace go.opentelemetry.io/collector/consumer/consumertest => ../consumer/consumertest

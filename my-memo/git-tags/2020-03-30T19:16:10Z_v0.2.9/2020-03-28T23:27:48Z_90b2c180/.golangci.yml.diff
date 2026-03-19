@@ -1,0 +1,13 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 922976333..c53382f16 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -65,6 +65,8 @@ linters-settings:
+           - (github.com/golangci/golangci-lint/pkg/logutils.Log).Errorf
+           - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+ 
++    enable-all: true
++
+   golint:
+     # minimal confidence for issues, default is 0.8
+     min-confidence: 0.8

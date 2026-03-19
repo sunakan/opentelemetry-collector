@@ -1,0 +1,20 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index 7d694195d..2d0ba10b3 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -10,14 +10,13 @@ processors:
+   batch:
+ 
+ extensions:
+-  health_check:
+   pprof:
+     endpoint: :1888
+   zpages:
+     endpoint: :55679
+ 
+ service:
+-  extensions: [pprof, zpages, health_check]
++  extensions: [pprof, zpages]
+   pipelines:
+     traces:
+       receivers: [otlp]

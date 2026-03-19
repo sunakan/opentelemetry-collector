@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index fed36ee6d..20799a33d 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -41,7 +41,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/internal"
+ 	"go.opentelemetry.io/collector/observability"
+-	"go.opentelemetry.io/collector/testutils"
++	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+ func TestReceiver_endToEnd(t *testing.T) {
+@@ -471,7 +471,7 @@ func ocReceiverOnGRPCServer(t *testing.T, sr consumer.TraceConsumerOld, opts ...
+ 		}
+ 	}
+ 
+-	_, port, err = testutils.HostPortFromAddr(ln.Addr())
++	_, port, err = testutil.HostPortFromAddr(ln.Addr())
+ 	if err != nil {
+ 		done()
+ 		t.Fatalf("Failed to parse host:port from listener address: %s error: %v", ln.Addr(), err)

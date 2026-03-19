@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/ptraceotlp/fuzz_test.go b/pdata/ptrace/ptraceotlp/fuzz_test.go
+index d6d866e9d..c40310f49 100644
+--- a/pdata/ptrace/ptraceotlp/fuzz_test.go
++++ b/pdata/ptrace/ptraceotlp/fuzz_test.go
+@@ -8,9 +8,7 @@ import (
+ 	"testing"
+ )
+ 
+-var (
+-	unexpectedBytes = "expected the same bytes from unmarshaling and marshaling."
+-)
++var unexpectedBytes = "expected the same bytes from unmarshaling and marshaling."
+ 
+ func FuzzRequestUnmarshalJSON(f *testing.F) {
+ 	f.Fuzz(func(t *testing.T, data []byte) {

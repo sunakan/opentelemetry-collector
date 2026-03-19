@@ -1,0 +1,13 @@
+diff --git a/extension/experimental/storage/go.mod b/extension/experimental/storage/go.mod
+index d5a911fe8..31f6cffdf 100644
+--- a/extension/experimental/storage/go.mod
++++ b/extension/experimental/storage/go.mod
+@@ -28,8 +28,6 @@ replace go.opentelemetry.io/collector/extension => ../../
+ 
+ replace go.opentelemetry.io/collector/component => ../../../component
+ 
+-replace go.opentelemetry.io/collector/component/componenttest => ../../../component/componenttest
+-
+ replace go.opentelemetry.io/collector/pdata => ../../../pdata
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../../config/configtelemetry

@@ -1,0 +1,13 @@
+diff --git a/examples/local/otel-config.yaml b/examples/local/otel-config.yaml
+index 35bba1ba5..c6a64d703 100644
+--- a/examples/local/otel-config.yaml
++++ b/examples/local/otel-config.yaml
+@@ -21,7 +21,7 @@ processors:
+ 
+ exporters:
+   logging:
+-    logLevel: debug
++    loglevel: debug
+ 
+ service:
+   pipelines:

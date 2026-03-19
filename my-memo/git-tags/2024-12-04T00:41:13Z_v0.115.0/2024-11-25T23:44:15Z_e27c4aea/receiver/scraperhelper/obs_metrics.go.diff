@@ -1,0 +1,21 @@
+diff --git a/receiver/scraperhelper/obs_metrics.go b/receiver/scraperhelper/obs_metrics.go
+index 370625385..3f7fac385 100644
+--- a/receiver/scraperhelper/obs_metrics.go
++++ b/receiver/scraperhelper/obs_metrics.go
+@@ -18,6 +18,7 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/internal"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"
+ 	"go.opentelemetry.io/collector/receiver/scraperhelper/internal/metadata"
++	"go.opentelemetry.io/collector/scraper"
+ )
+ 
+ const (
+@@ -31,7 +32,7 @@ const (
+ 	erroredMetricPointsKey = "errored_metric_points"
+ )
+ 
+-func newObsMetrics(delegate ScrapeFunc, receiverID component.ID, scraperID component.ID, telSettings component.TelemetrySettings) (ScrapeFunc, error) {
++func newObsMetrics(delegate scraper.ScrapeMetricsFunc, receiverID component.ID, scraperID component.ID, telSettings component.TelemetrySettings) (scraper.ScrapeMetricsFunc, error) {
+ 	telemetryBuilder, errBuilder := metadata.NewTelemetryBuilder(telSettings)
+ 	if errBuilder != nil {
+ 		return nil, errBuilder

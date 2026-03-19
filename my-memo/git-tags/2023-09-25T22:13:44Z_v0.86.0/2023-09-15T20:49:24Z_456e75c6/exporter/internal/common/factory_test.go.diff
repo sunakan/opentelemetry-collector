@@ -1,0 +1,42 @@
+diff --git a/exporter/internal/common/factory_test.go b/exporter/internal/common/factory_test.go
+new file mode 100644
+index 000000000..a8bbc6060
+--- /dev/null
++++ b/exporter/internal/common/factory_test.go
+@@ -0,0 +1,36 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package common
++
++import (
++	"context"
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/exporter/exportertest"
++)
++
++func createDefaultConfig() component.Config {
++	return &struct{}{}
++}
++
++func TestCreateMetricsExporter(t *testing.T) {
++	me, err := CreateMetricsExporter(context.Background(), exportertest.NewNopCreateSettings(), createDefaultConfig(), &Common{})
++	assert.NoError(t, err)
++	assert.NotNil(t, me)
++}
++
++func TestCreateTracesExporter(t *testing.T) {
++	te, err := CreateTracesExporter(context.Background(), exportertest.NewNopCreateSettings(), createDefaultConfig(), &Common{})
++	assert.NoError(t, err)
++	assert.NotNil(t, te)
++}
++
++func TestCreateLogsExporter(t *testing.T) {
++	te, err := CreateLogsExporter(context.Background(), exportertest.NewNopCreateSettings(), createDefaultConfig(), &Common{})
++	assert.NoError(t, err)
++	assert.NotNil(t, te)
++}

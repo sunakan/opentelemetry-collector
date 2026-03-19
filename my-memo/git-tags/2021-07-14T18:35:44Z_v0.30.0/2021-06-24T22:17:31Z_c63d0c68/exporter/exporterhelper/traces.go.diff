@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index 8f67b4484..b25cada8b 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -25,7 +25,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/consumerhelper"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type tracesRequest struct {

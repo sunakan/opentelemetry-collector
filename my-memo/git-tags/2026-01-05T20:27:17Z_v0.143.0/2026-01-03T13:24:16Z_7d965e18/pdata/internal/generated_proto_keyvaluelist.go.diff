@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_keyvaluelist.go b/pdata/internal/generated_proto_keyvaluelist.go
+index 1cb1fef73..9e01d808a 100644
+--- a/pdata/internal/generated_proto_keyvaluelist.go
++++ b/pdata/internal/generated_proto_keyvaluelist.go
+@@ -43,11 +43,9 @@ func DeleteKeyValueList(orig *KeyValueList, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.Values {
+ 		DeleteKeyValue(&orig.Values[i], false)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolKeyValueList.Put(orig)

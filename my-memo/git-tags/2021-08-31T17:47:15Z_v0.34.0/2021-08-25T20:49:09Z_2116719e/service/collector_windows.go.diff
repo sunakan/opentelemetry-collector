@@ -1,0 +1,12 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 99e1f5e8a..814a453ad 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++//go:build windows
+ // +build windows
+ 
+ package service

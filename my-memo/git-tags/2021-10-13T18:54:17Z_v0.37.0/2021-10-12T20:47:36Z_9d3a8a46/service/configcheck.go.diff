@@ -1,0 +1,13 @@
+diff --git a/service/configcheck.go b/service/configcheck.go
+index a7485049f..9e068b6b8 100644
+--- a/service/configcheck.go
++++ b/service/configcheck.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package service
++package service // import "go.opentelemetry.io/collector/service"
+ 
+ import (
+ 	"go.uber.org/multierr"

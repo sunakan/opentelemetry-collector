@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index eefc7f965..a738fb1c1 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -123,7 +123,7 @@ configuration is provided, ocb will generate a default Collector.
+ 
+ func initConfig(flags *flag.FlagSet) error {
+ 	cfg.Logger.Info("OpenTelemetry Collector Builder",
+-		zap.String("version", version), zap.String("date", date))
++		zap.String("version", version))
+ 
+ 	var provider koanf.Provider
+ 

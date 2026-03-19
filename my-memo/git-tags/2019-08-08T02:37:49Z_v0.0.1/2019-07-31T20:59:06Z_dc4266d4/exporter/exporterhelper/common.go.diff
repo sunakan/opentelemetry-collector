@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index db503e655..e6ef78bfc 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -24,7 +24,7 @@ var (
+ 
+ // ExporterOptions contains options concerning how an Exporter is configured.
+ type ExporterOptions struct {
+-	// TOOD: Retry logic must be in the same place as metrics recording because
++	// TODO: Retry logic must be in the same place as metrics recording because
+ 	// if a request is retried we should not record metrics otherwise number of
+ 	// spans received + dropped will be different than the number of received spans
+ 	// in the receiver.

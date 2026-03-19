@@ -1,0 +1,15 @@
+diff --git a/extension/pprofextension/pprofextension_test.go b/extension/pprofextension/pprofextension_test.go
+index 7f8205e46..01708e5d2 100644
+--- a/extension/pprofextension/pprofextension_test.go
++++ b/extension/pprofextension/pprofextension_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/extension/extensiontest"
+-	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-collector/extension/extensiontest"
++	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
+ )
+ 
+ func TestPerformanceProfilerExtensionUsage(t *testing.T) {

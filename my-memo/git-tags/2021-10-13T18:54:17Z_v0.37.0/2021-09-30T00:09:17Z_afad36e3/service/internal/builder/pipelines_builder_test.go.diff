@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index b29e3d717..f7ae7808f 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -45,7 +45,7 @@ func TestBuildPipelines(t *testing.T) {
+ 		{
+ 			name:          "multi-exporter",
+ 			pipelineName:  "traces/2",
+-			exporterNames: []config.ComponentID{config.NewComponentID("exampleexporter"), config.NewIDWithName("exampleexporter", "2")},
++			exporterNames: []config.ComponentID{config.NewComponentID("exampleexporter"), config.NewComponentIDWithName("exampleexporter", "2")},
+ 		},
+ 	}
+ 

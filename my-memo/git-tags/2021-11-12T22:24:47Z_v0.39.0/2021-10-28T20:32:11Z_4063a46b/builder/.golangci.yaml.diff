@@ -1,0 +1,24 @@
+diff --git a/builder/.golangci.yaml b/builder/.golangci.yaml
+new file mode 100644
+index 000000000..7a659b2ad
+--- /dev/null
++++ b/builder/.golangci.yaml
+@@ -0,0 +1,18 @@
++# all available settings of specific linters
++linters-settings:
++  goheader:
++    template-path: header.txt
++  goimports:
++    local-prefixes: github.com/open-telemetry/opentelemetry-collector-builder
++  maligned:
++    suggest-new: true
++  misspell:
++    locale: US
++
++linters:
++  enable:
++    - goheader
++    - goimports
++    - maligned
++    - misspell
++    - gosec

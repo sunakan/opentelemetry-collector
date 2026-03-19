@@ -1,0 +1,11 @@
+diff --git a/extension/zpagesextension/factory.go b/extension/zpagesextension/factory.go
+index 5d262a280..56483705e 100644
+--- a/extension/zpagesextension/factory.go
++++ b/extension/zpagesextension/factory.go
+@@ -45,5 +45,5 @@ func createDefaultConfig() config.Extension {
+ 
+ // createExtension creates the extension based on this config.
+ func createExtension(_ context.Context, set component.ExtensionCreateSettings, cfg config.Extension) (component.Extension, error) {
+-	return newServer(cfg.(*Config), set.Logger), nil
++	return newServer(cfg.(*Config), set.TelemetrySettings), nil
+ }

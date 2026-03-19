@@ -1,0 +1,23 @@
+diff --git a/consumer/pdata/generated_metrics_test.go b/consumer/pdata/generated_metrics_test.go
+index 74699e515..2addd2ade 100644
+--- a/consumer/pdata/generated_metrics_test.go
++++ b/consumer/pdata/generated_metrics_test.go
+@@ -489,6 +489,8 @@ func TestMetric_Unit(t *testing.T) {
+ 	assert.EqualValues(t, testValUnit, ms.Unit())
+ }
+ 
++
++
+ func TestIntGauge_InitEmpty(t *testing.T) {
+ 	ms := NewIntGauge()
+ 	assert.True(t, ms.IsNil())
+@@ -1849,6 +1851,9 @@ func fillTestMetric(tv Metric) {
+ 	tv.SetName("test_name")
+ 	tv.SetDescription("test_description")
+ 	tv.SetUnit("1")
++	(*tv.orig).Data = &otlpmetrics.Metric_IntGauge{}
++	tv.IntGauge().InitEmpty()
++	fillTestIntGauge(tv.IntGauge())
+ }
+ 
+ func generateTestIntGauge() IntGauge {

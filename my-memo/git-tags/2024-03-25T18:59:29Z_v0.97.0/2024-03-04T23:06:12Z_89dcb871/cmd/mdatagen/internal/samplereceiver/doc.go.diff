@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/doc.go b/cmd/mdatagen/internal/samplereceiver/doc.go
+new file mode 100644
+index 000000000..7b7505667
+--- /dev/null
++++ b/cmd/mdatagen/internal/samplereceiver/doc.go
+@@ -0,0 +1,10 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++// Generate a test metrics builder from a sample metrics set covering all configuration options.
++//go:generate mdatagen metadata.yaml
++
++// Deprecated: This package is moving to https://github.com/open-telemetry/opentelemetry-collector and will eventually be removed.
++// Please see https://github.com/open-telemetry/opentelemetry-collector-contrib/issues/30497
++// This is a sample receiver package used to showcase how mdatagen is applied.
++package samplereceiver // import "go.opentelemetry.io/collector/cmd/mdatagen/internal/samplereceiver"

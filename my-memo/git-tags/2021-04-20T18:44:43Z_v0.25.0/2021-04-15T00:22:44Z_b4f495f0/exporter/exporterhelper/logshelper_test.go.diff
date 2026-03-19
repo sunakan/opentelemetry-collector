@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/logshelper_test.go b/exporter/exporterhelper/logshelper_test.go
+index 01ccdf64d..679cc4ca5 100644
+--- a/exporter/exporterhelper/logshelper_test.go
++++ b/exporter/exporterhelper/logshelper_test.go
+@@ -167,9 +167,9 @@ func checkRecordedMetricsForLogsExporter(t *testing.T, le component.LogsExporter
+ 
+ 	// TODO: When the new metrics correctly count partial dropped fix this.
+ 	if wantError != nil {
+-		obsreporttest.CheckExporterLogsViews(t, fakeLogsExporterName, 0, int64(numBatches*ld.LogRecordCount()))
++		obsreporttest.CheckExporterLogs(t, fakeLogsExporterName, 0, int64(numBatches*ld.LogRecordCount()))
+ 	} else {
+-		obsreporttest.CheckExporterLogsViews(t, fakeLogsExporterName, int64(numBatches*ld.LogRecordCount()), 0)
++		obsreporttest.CheckExporterLogs(t, fakeLogsExporterName, int64(numBatches*ld.LogRecordCount()), 0)
+ 	}
+ }
+ 

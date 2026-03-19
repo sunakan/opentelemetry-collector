@@ -1,0 +1,10 @@
+diff --git a/exporter/nopexporter/go.mod b/exporter/nopexporter/go.mod
+index 9df7e9765..67c28621f 100644
+--- a/exporter/nopexporter/go.mod
++++ b/exporter/nopexporter/go.mod
+@@ -97,3 +97,5 @@ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ replace go.opentelemetry.io/collector/exporter/exportertest => ../exportertest
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror
++
++replace go.opentelemetry.io/collector/extension/extensiontest => ../../extension/extensiontest

@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/wrapper_tracestate.go b/pdata/internal/wrapper_tracestate.go
+index 1a2f79f89..d1d5c3cf8 100644
+--- a/pdata/internal/wrapper_tracestate.go
++++ b/pdata/internal/wrapper_tracestate.go
+@@ -20,6 +20,10 @@ func NewTraceState(orig *string, state *State) TraceState {
+ 	return TraceState{orig: orig, state: state}
+ }
+ 
++func CopyOrigTraceState(dest, src *string) {
++	*dest = *src
++}
++
+ func GenerateTestTraceState() TraceState {
+ 	var orig string
+ 	state := StateMutable

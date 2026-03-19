@@ -1,0 +1,20 @@
+diff --git a/config/configtls/configtls.go b/config/configtls/configtls.go
+index 4f97346e6..623d15ffb 100644
+--- a/config/configtls/configtls.go
++++ b/config/configtls/configtls.go
+@@ -373,6 +373,7 @@ func (c ClientConfig) LoadTLSConfigContext(_ context.Context) (*tls.Config, erro
+ }
+ 
+ // LoadTLSConfig loads the TLS configuration.
++//
+ // Deprecated: [v0.97.0] Use LoadTLSConfigContext instead.
+ func (c ClientConfig) LoadTLSConfig() (*tls.Config, error) {
+ 	return c.LoadTLSConfigContext(context.Background())
+@@ -403,6 +404,7 @@ func (c ServerConfig) LoadTLSConfigContext(_ context.Context) (*tls.Config, erro
+ }
+ 
+ // LoadTLSConfig loads the TLS configuration.
++//
+ // Deprecated: [v0.97.0] Use LoadTLSConfigContext instead.
+ func (c ServerConfig) LoadTLSConfig() (*tls.Config, error) {
+ 	return c.LoadTLSConfigContext(context.Background())

@@ -1,0 +1,13 @@
+diff --git a/processor/metrics_test.go b/processor/metrics_test.go
+index 61fe4e70f..a3c45b677 100644
+--- a/processor/metrics_test.go
++++ b/processor/metrics_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ func TestSpanCountByResourceStringAttribute(t *testing.T) {

@@ -1,0 +1,14 @@
+diff --git a/processor/addattributesprocessor/factory.go b/processor/addattributesprocessor/factory.go
+index 93a500e52..d29dc54a8 100644
+--- a/processor/addattributesprocessor/factory.go
++++ b/processor/addattributesprocessor/factory.go
+@@ -40,6 +40,9 @@ func (f *processorFactory) Type() string {
+ // CreateDefaultConfig creates the default configuration for exporter.
+ func (f *processorFactory) CreateDefaultConfig() configmodels.Processor {
+ 	return &ConfigV2{
++		ProcessorSettings: configmodels.ProcessorSettings{
++			TypeVal: typeStr,
++		},
+ 		Values: map[string]interface{}{},
+ 	}
+ }

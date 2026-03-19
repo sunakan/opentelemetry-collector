@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/message_field.go b/internal/cmd/pdatagen/internal/pdata/message_field.go
+index 059fe53c2..bcfa23de5 100644
+--- a/internal/cmd/pdatagen/internal/pdata/message_field.go
++++ b/internal/cmd/pdatagen/internal/pdata/message_field.go
+@@ -72,6 +72,10 @@ func (mf *MessageField) GenerateCopyOrig(ms *messageStruct) string {
+ 	return template.Execute(t, mf.templateFields(ms))
+ }
+ 
++func (mf *MessageField) GeneratePoolOrig(*messageStruct) string {
++	return ""
++}
++
+ func (mf *MessageField) GenerateMarshalJSON(*messageStruct) string {
+ 	return mf.toProtoField().GenMarshalJSON()
+ }

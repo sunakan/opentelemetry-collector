@@ -1,0 +1,34 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces_test.go b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+index 553139ff6..de9eca22c 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+@@ -195,12 +195,12 @@ func generateThriftSpan() *jaeger.Span {
+ 		},
+ 		Tags: []*jaeger.Tag{
+ 			{
+-				Key:   tracetranslator.TagStatusCode,
++				Key:   conventions.OtelStatusCode,
+ 				VType: jaeger.TagType_LONG,
+ 				VLong: &statusCode,
+ 			},
+ 			{
+-				Key:   tracetranslator.TagStatusMsg,
++				Key:   conventions.OtelStatusDescription,
+ 				VType: jaeger.TagType_STRING,
+ 				VStr:  &statusMsg,
+ 			},
+@@ -256,12 +256,12 @@ func generateThriftFollowerSpan() *jaeger.Span {
+ 		Duration:      1000,
+ 		Tags: []*jaeger.Tag{
+ 			{
+-				Key:   tracetranslator.TagStatusCode,
++				Key:   conventions.OtelStatusCode,
+ 				VType: jaeger.TagType_LONG,
+ 				VLong: &statusCode,
+ 			},
+ 			{
+-				Key:   tracetranslator.TagStatusMsg,
++				Key:   conventions.OtelStatusDescription,
+ 				VType: jaeger.TagType_STRING,
+ 				VStr:  &statusMsg,
+ 			},

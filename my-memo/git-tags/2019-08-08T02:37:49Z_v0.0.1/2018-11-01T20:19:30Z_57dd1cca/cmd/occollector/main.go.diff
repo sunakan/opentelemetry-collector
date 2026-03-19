@@ -1,0 +1,27 @@
+diff --git a/cmd/occollector/main.go b/cmd/occollector/main.go
+index 3287995c4..3e8cbe5d0 100644
+--- a/cmd/occollector/main.go
++++ b/cmd/occollector/main.go
+@@ -42,7 +42,7 @@ import (
+ )
+ 
+ const (
+-	defaultOCAddress = "localhost:55678"
++	defaultOCAddress = ":55678"
+ )
+ 
+ func main() {
+@@ -103,7 +103,12 @@ func runOCServerWithInterceptor(addr string, logger *zap.Logger) (func() error,
+ 		}
+ 	}()
+ 
+-	return lis.Close, nil
++	closeFn := func() error {
++		grpcSrv.Stop()
++		return nil
++	}
++
++	return closeFn, nil
+ }
+ 
+ type fakeSpanReceiver struct {

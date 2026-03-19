@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_class.yaml b/cmd/mdatagen/internal/testdata/no_class.yaml
+new file mode 100644
+index 000000000..8d33f9c01
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/no_class.yaml
+@@ -0,0 +1,7 @@
++type: test
++
++status:
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
+\ No newline at end of file

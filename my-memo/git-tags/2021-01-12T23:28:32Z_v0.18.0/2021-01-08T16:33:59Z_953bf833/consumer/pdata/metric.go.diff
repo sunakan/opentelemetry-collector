@@ -1,0 +1,15 @@
+diff --git a/consumer/pdata/metric.go b/consumer/pdata/metric.go
+index d415c9f20..12d8c10e6 100644
+--- a/consumer/pdata/metric.go
++++ b/consumer/pdata/metric.go
+@@ -15,8 +15,8 @@
+ package pdata
+ 
+ import (
+-	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/metrics/v1"
+-	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/protogen/collector/metrics/v1"
++	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ )
+ 
+ type AggregationTemporality otlpmetrics.AggregationTemporality

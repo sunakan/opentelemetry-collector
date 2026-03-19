@@ -1,0 +1,13 @@
+diff --git a/build_binaries.sh b/build_binaries.sh
+index 8a9344a5c..4c9bb1480 100755
+--- a/build_binaries.sh
++++ b/build_binaries.sh
+@@ -43,7 +43,7 @@ fi
+ function build() {
+     GOOS="$1"
+     LDFLAGS="\"-X github.com/census-instrumentation/opencensus-service/internal/version.GitHash=`git rev-parse --short HEAD` \
+-        -X github.com/census-instrumentation/opencensus-service/internal/version.version=$VERSION\""
++        -X github.com/census-instrumentation/opencensus-service/internal/version.Version=$VERSION\""
+     CMD="GO111MODULE=on GOOS=$GOOS go build -ldflags $LDFLAGS -o bin/ocagent_$GOOS ./cmd/ocagent"
+     echo $CMD
+     eval $CMD

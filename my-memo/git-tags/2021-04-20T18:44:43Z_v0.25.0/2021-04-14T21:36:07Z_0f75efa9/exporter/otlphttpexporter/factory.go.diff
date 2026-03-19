@@ -1,0 +1,31 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index daedfabd6..eab5a52dd 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -36,7 +36,7 @@ func NewFactory() component.ExporterFactory {
+ 	return exporterhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		exporterhelper.WithTraces(createTraceExporter),
++		exporterhelper.WithTraces(createTracesExporter),
+ 		exporterhelper.WithMetrics(createMetricsExporter),
+ 		exporterhelper.WithLogs(createLogsExporter))
+ }
+@@ -71,7 +71,7 @@ func composeSignalURL(oCfg *Config, signalOverrideURL string, signalName string)
+ 	}
+ }
+ 
+-func createTraceExporter(
++func createTracesExporter(
+ 	_ context.Context,
+ 	params component.ExporterCreateParams,
+ 	cfg config.Exporter,
+@@ -87,7 +87,7 @@ func createTraceExporter(
+ 		return nil, err
+ 	}
+ 
+-	return exporterhelper.NewTraceExporter(
++	return exporterhelper.NewTracesExporter(
+ 		cfg,
+ 		params.Logger,
+ 		oce.pushTraceData,

@@ -1,0 +1,33 @@
+diff --git a/vendor/golang.org/x/text/unicode/norm/example_test.go b/vendor/golang.org/x/text/unicode/norm/example_test.go
+new file mode 100644
+index 000000000..8f3b15653
+--- /dev/null
++++ b/vendor/golang.org/x/text/unicode/norm/example_test.go
+@@ -0,0 +1,27 @@
++// Copyright 2016 The Go Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style
++// license that can be found in the LICENSE file.
++
++package norm_test
++
++import (
++	"fmt"
++
++	"golang.org/x/text/unicode/norm"
++)
++
++func ExampleForm_NextBoundary() {
++	s := norm.NFD.String("Mêlée")
++
++	for i := 0; i < len(s); {
++		d := norm.NFC.NextBoundaryInString(s[i:], true)
++		fmt.Printf("%[1]s: %+[1]q\n", s[i:i+d])
++		i += d
++	}
++	// Output:
++	// M: "M"
++	// ê: "e\u0302"
++	// l: "l"
++	// é: "e\u0301"
++	// e: "e"
++}

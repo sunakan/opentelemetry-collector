@@ -1,0 +1,12 @@
+diff --git a/exporter/opencensusexporter/README.md b/exporter/opencensusexporter/README.md
+index fe98b1ca0..84d9af316 100644
+--- a/exporter/opencensusexporter/README.md
++++ b/exporter/opencensusexporter/README.md
+@@ -37,7 +37,6 @@ Example:
+ exporters:
+   opencensus:
+     endpoint: otelcol2:55678
+-    reconnection_delay: 60s
+ ```
+ 
+ The full list of settings exposed for this exporter are documented [here](./config.go)

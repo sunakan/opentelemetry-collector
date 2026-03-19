@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_histogram.go b/pdata/internal/generated_wrapper_histogram.go
+index 5b76ca5c8..006c222bf 100644
+--- a/pdata/internal/generated_wrapper_histogram.go
++++ b/pdata/internal/generated_wrapper_histogram.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolHistogram = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.Histogram{}
+-	},
+-}
++var (
++	protoPoolHistogram = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.Histogram{}
++		},
++	}
++)
+ 
+ func NewOrigHistogram() *otlpmetrics.Histogram {
+ 	if !UseProtoPooling.IsEnabled() {

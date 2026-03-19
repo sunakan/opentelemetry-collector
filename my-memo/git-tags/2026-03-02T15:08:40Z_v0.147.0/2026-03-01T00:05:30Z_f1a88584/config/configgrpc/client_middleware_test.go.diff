@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/client_middleware_test.go b/config/configgrpc/client_middleware_test.go
+index 7ddb99ba1..58fedd609 100644
+--- a/config/configgrpc/client_middleware_test.go
++++ b/config/configgrpc/client_middleware_test.go
+@@ -40,7 +40,7 @@ func newTestMiddlewareConfig(name string) configmiddleware.Config {
+ func newTestClientMiddleware(name string) extension.Extension {
+ 	return &testClientMiddleware{
+ 		Extension: extensionmiddlewaretest.NewNop(),
+-		GetGRPCClientOptionsFunc: func() ([]grpc.DialOption, error) {
++		GetGRPCClientOptionsFunc: func(_ context.Context) ([]grpc.DialOption, error) {
+ 			return []grpc.DialOption{
+ 				grpc.WithChainUnaryInterceptor(
+ 					func(

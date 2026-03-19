@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml
+deleted file mode 100644
+index d67a44c03..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-  nop/:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

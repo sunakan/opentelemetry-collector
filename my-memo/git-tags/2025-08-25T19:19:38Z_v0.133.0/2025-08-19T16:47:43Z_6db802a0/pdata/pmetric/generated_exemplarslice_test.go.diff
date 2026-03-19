@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exemplarslice_test.go b/pdata/pmetric/generated_exemplarslice_test.go
+index 44b892aa2..31e758061 100644
+--- a/pdata/pmetric/generated_exemplarslice_test.go
++++ b/pdata/pmetric/generated_exemplarslice_test.go
+@@ -26,7 +26,7 @@ func TestExemplarSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestExemplar(&(*es.orig)[i])
++		(*es.orig)[i] = *internal.GenTestOrigExemplar()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

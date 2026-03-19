@@ -1,0 +1,21 @@
+diff --git a/processor/internal/traces.go b/processor/internal/traces.go
+new file mode 100644
+index 000000000..a1fe0ced3
+--- /dev/null
++++ b/processor/internal/traces.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/processor/internal"
++
++import (
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/consumer"
++)
++
++// Traces is a processor that can consume traces.
++type Traces interface {
++	component.Component
++	consumer.Traces
++}

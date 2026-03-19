@@ -1,0 +1,12 @@
+diff --git a/internal/data/testdata/trace_test.go b/internal/data/testdata/trace_test.go
+index be6da0c01..a29747c25 100644
+--- a/internal/data/testdata/trace_test.go
++++ b/internal/data/testdata/trace_test.go
+@@ -18,6 +18,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"

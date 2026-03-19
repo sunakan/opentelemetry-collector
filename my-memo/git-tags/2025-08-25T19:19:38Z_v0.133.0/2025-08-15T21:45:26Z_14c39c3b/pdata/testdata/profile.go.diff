@@ -1,0 +1,13 @@
+diff --git a/pdata/testdata/profile.go b/pdata/testdata/profile.go
+index b5f7c38d6..822eaf0b5 100644
+--- a/pdata/testdata/profile.go
++++ b/pdata/testdata/profile.go
+@@ -21,7 +21,7 @@ func GenerateProfiles(profilesCount int) pprofile.Profiles {
+ 	initResource(td.ResourceProfiles().AppendEmpty().Resource())
+ 	ss := td.ResourceProfiles().At(0).ScopeProfiles().AppendEmpty().Profiles()
+ 
+-	dic := td.ProfilesDictionary()
++	dic := td.Dictionary()
+ 	dic.StringTable().Append("")
+ 	attr := dic.AttributeTable().AppendEmpty()
+ 	attr.SetKey("key")

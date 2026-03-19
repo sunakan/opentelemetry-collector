@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index ed7e78149..770a906c8 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -270,7 +270,7 @@ func validateBalancerName(balancerName string) bool {
+ 
+ // ToListener returns the net.Listener constructed from the settings.
+ func (gss *GRPCServerSettings) ToListener() (net.Listener, error) {
+-	return gss.NetAddr.Listen()
++	return gss.NetAddr.Listen(context.Background())
+ }
+ 
+ func (gss *GRPCServerSettings) ToServer(host component.Host, settings component.TelemetrySettings, extraOpts ...grpc.ServerOption) (*grpc.Server, error) {

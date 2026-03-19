@@ -1,0 +1,17 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_traces.go b/translator/trace/zipkin/zipkinv1_to_traces.go
+index 4362efb9a..a32312376 100644
+--- a/translator/trace/zipkin/zipkinv1_to_traces.go
++++ b/translator/trace/zipkin/zipkinv1_to_traces.go
+@@ -19,10 +19,10 @@ import (
+ 	"go.opentelemetry.io/collector/translator/internaldata"
+ )
+ 
+-func V1JSONBatchToInternalTraces(blob []byte) (pdata.Traces, error) {
++func V1JSONBatchToInternalTraces(blob []byte, parseStringTags bool) (pdata.Traces, error) {
+ 	traces := pdata.NewTraces()
+ 
+-	ocTraces, err := v1JSONBatchToOCProto(blob)
++	ocTraces, err := v1JSONBatchToOCProto(blob, parseStringTags)
+ 	if err != nil {
+ 		return traces, err
+ 	}

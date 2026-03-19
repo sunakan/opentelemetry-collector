@@ -1,0 +1,21 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 3718a7170..6719492bb 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -138,6 +138,16 @@ func TestConfigValidate(t *testing.T) {
+ 			},
+ 			expected: errors.New(`pipeline "traces" references processor "nop/2" which does not exist`),
+ 		},
++		{
++			name: "duplicate-processor-reference",
++			cfgFn: func() *Config {
++				cfg := generateConfig()
++				pipe := cfg.Service.Pipelines[component.NewID("traces")]
++				pipe.Processors = append(pipe.Processors, pipe.Processors...)
++				return cfg
++			},
++			expected: errors.New(`pipeline "traces" references processor "nop" multiple times`),
++		},
+ 		{
+ 			name: "invalid-exporter-reference",
+ 			cfgFn: func() *Config {

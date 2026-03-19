@@ -1,0 +1,23 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index 98d2e7392..a2dbb1ef3 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -209,6 +209,9 @@ func TestMutualTLS(t *testing.T) {
+ 	// Create gRPC trace exporter
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)
++	// Disable queuing to ensure that we execute the request when calling ConsumeTraces
++	// otherwise we will have to wait.
++	cfg.QueueSettings.Enabled = false
+ 	cfg.GRPCClientSettings = configgrpc.GRPCClientSettings{
+ 		Endpoint: serverAddr.String(),
+ 		TLSSetting: configtls.TLSClientSetting{
+@@ -238,6 +241,8 @@ func TestMutualTLS(t *testing.T) {
+ 	assert.Equal(t, 1, len(requestes))
+ 	jTraceID, err := model.TraceIDFromBytes(traceID.Bytes())
+ 	require.NoError(t, err)
++	require.Len(t, requestes, 1)
++	require.Len(t, requestes[0].GetBatch().Spans, 1)
+ 	assert.Equal(t, jTraceID, requestes[0].GetBatch().Spans[0].TraceID)
+ }
+ 

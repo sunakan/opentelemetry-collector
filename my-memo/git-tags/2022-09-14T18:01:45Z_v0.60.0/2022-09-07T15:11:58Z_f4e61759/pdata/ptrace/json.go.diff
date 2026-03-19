@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/json.go b/pdata/ptrace/json.go
+index 99572a97f..75e6733a0 100644
+--- a/pdata/ptrace/json.go
++++ b/pdata/ptrace/json.go
+@@ -54,7 +54,7 @@ func NewJSONUnmarshaler() Unmarshaler {
+ type jsonUnmarshaler struct {
+ }
+ 
+-func (d *jsonUnmarshaler) UnmarshalTraces(buf []byte) (Traces, error) {
++func (jsonUnmarshaler) UnmarshalTraces(buf []byte) (Traces, error) {
+ 	iter := jsoniter.ConfigFastest.BorrowIterator(buf)
+ 	defer jsoniter.ConfigFastest.ReturnIterator(iter)
+ 	td := readTraceData(iter)

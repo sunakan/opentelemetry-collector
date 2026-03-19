@@ -1,0 +1,41 @@
+diff --git a/pdata/pmetric/generated_metrics.go b/pdata/pmetric/generated_metrics.go
+index d7587015f..d0e15e458 100644
+--- a/pdata/pmetric/generated_metrics.go
++++ b/pdata/pmetric/generated_metrics.go
+@@ -1547,23 +1547,11 @@ func (ms HistogramDataPoint) BucketCounts() pcommon.UInt64Slice {
+ 	return pcommon.UInt64Slice(internal.NewUInt64Slice(&ms.getOrig().BucketCounts))
+ }
+ 
+-// SetBucketCounts replaces the bucketcounts associated with this HistogramDataPoint.
+-// Deprecated: [0.60.0] Use BucketCounts().FromRaw() instead
+-func (ms HistogramDataPoint) SetBucketCounts(v pcommon.UInt64Slice) {
+-	ms.getOrig().BucketCounts = *internal.GetOrigUInt64Slice(internal.UInt64Slice(v))
+-}
+-
+ // ExplicitBounds returns the explicitbounds associated with this HistogramDataPoint.
+ func (ms HistogramDataPoint) ExplicitBounds() pcommon.Float64Slice {
+ 	return pcommon.Float64Slice(internal.NewFloat64Slice(&ms.getOrig().ExplicitBounds))
+ }
+ 
+-// SetExplicitBounds replaces the explicitbounds associated with this HistogramDataPoint.
+-// Deprecated: [0.60.0] Use ExplicitBounds().FromRaw() instead
+-func (ms HistogramDataPoint) SetExplicitBounds(v pcommon.Float64Slice) {
+-	ms.getOrig().ExplicitBounds = *internal.GetOrigFloat64Slice(internal.Float64Slice(v))
+-}
+-
+ // Exemplars returns the Exemplars associated with this HistogramDataPoint.
+ func (ms HistogramDataPoint) Exemplars() ExemplarSlice {
+ 	return ExemplarSlice(internal.NewExemplarSlice(&ms.getOrig().Exemplars))
+@@ -2013,12 +2001,6 @@ func (ms Buckets) BucketCounts() pcommon.UInt64Slice {
+ 	return pcommon.UInt64Slice(internal.NewUInt64Slice(&ms.getOrig().BucketCounts))
+ }
+ 
+-// SetBucketCounts replaces the bucketcounts associated with this Buckets.
+-// Deprecated: [0.60.0] Use BucketCounts().FromRaw() instead
+-func (ms Buckets) SetBucketCounts(v pcommon.UInt64Slice) {
+-	ms.getOrig().BucketCounts = *internal.GetOrigUInt64Slice(internal.UInt64Slice(v))
+-}
+-
+ // CopyTo copies all properties from the current struct to the dest.
+ func (ms Buckets) CopyTo(dest Buckets) {
+ 	dest.SetOffset(ms.Offset())

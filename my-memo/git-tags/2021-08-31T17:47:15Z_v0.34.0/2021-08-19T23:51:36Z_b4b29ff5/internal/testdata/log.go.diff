@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/log.go b/internal/testdata/log.go
+index cd055885c..d21a80f08 100644
+--- a/internal/testdata/log.go
++++ b/internal/testdata/log.go
+@@ -22,7 +22,7 @@ import (
+ 
+ var (
+ 	TestLogTime      = time.Date(2020, 2, 11, 20, 26, 13, 789, time.UTC)
+-	TestLogTimestamp = pdata.TimestampFromTime(TestLogTime)
++	TestLogTimestamp = pdata.NewTimestampFromTime(TestLogTime)
+ )
+ 
+ func GenerateLogsOneEmptyResourceLogs() pdata.Logs {

@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportresponse.go b/pdata/pprofile/pprofileotlp/generated_exportresponse.go
+index 6236b2ece..836104f0d 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportresponse.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportresponse.go
+@@ -44,8 +44,8 @@ func (ms ExportResponse) MoveTo(dest ExportResponse) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpcollectorprofiles.ExportProfilesServiceResponse{}
++	internal.DeleteOrigExportProfilesServiceResponse(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // PartialSuccess returns the partialsuccess associated with this ExportResponse.

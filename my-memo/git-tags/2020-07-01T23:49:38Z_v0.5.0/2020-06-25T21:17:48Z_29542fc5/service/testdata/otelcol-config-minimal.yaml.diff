@@ -1,0 +1,19 @@
+diff --git a/service/testdata/otelcol-config-minimal.yaml b/service/testdata/otelcol-config-minimal.yaml
+new file mode 100644
+index 000000000..448973ae1
+--- /dev/null
++++ b/service/testdata/otelcol-config-minimal.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  otlp:
++
++exporters:
++  otlp:
++    endpoint: "locahost:14250"
++
++service:
++  pipelines:
++    traces:
++      receivers: [otlp]
++      exporters: [otlp]
++

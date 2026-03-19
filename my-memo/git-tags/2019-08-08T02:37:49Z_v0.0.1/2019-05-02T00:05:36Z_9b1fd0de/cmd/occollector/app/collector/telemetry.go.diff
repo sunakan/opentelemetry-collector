@@ -1,0 +1,14 @@
+diff --git a/cmd/occollector/app/collector/telemetry.go b/cmd/occollector/app/collector/telemetry.go
+index fa18fca68..7214bd09d 100644
+--- a/cmd/occollector/app/collector/telemetry.go
++++ b/cmd/occollector/app/collector/telemetry.go
+@@ -20,8 +20,8 @@ import (
+ 	"net/http"
+ 	"strconv"
+ 
++	"contrib.go.opencensus.io/exporter/prometheus"
+ 	"github.com/spf13/viper"
+-	"go.opencensus.io/exporter/prometheus"
+ 	"go.opencensus.io/stats/view"
+ 	"go.uber.org/zap"
+ 

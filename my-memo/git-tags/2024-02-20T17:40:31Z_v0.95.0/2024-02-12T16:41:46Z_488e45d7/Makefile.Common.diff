@@ -1,0 +1,13 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 23c41826d..38d1044dd 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -63,7 +63,7 @@ fmt: $(GOIMPORTS)
+ .PHONY: tidy
+ tidy:
+ 	rm -fr go.sum
+-	$(GOCMD) mod tidy -compat=1.20
++	$(GOCMD) mod tidy -compat=1.21
+ 
+ .PHONY: lint
+ lint: $(LINT)

@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/factory.go b/exporter/fileexporter/factory.go
+index eb433cf6c..1f40a5302 100644
+--- a/exporter/fileexporter/factory.go
++++ b/exporter/fileexporter/factory.go
+@@ -40,7 +40,7 @@ func NewFactory() component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings: config.NewExporterSettings(typeStr),
++		ExporterSettings: config.NewExporterSettings(config.NewID(typeStr)),
+ 	}
+ }
+ 

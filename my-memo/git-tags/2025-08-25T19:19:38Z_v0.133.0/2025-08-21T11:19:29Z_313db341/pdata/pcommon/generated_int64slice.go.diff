@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_int64slice.go b/pdata/pcommon/generated_int64slice.go
+index cc338e2a4..8a2607bf3 100644
+--- a/pdata/pcommon/generated_int64slice.go
++++ b/pdata/pcommon/generated_int64slice.go
+@@ -130,6 +130,9 @@ func (ms Int64Slice) MoveAndAppendTo(dest Int64Slice) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (ms Int64Slice) CopyTo(dest Int64Slice) {
+ 	dest.getState().AssertMutable()
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = internal.CopyOrigInt64Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 

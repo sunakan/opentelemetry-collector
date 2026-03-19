@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index e22e4bfc8..f40052ec3 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlpreceiver
++package otlpreceiver // import "go.opentelemetry.io/collector/receiver/otlpreceiver"
+ 
+ import (
+ 	"fmt"

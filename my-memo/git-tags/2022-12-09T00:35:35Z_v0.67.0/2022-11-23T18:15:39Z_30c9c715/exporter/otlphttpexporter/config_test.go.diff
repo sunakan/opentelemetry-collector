@@ -1,0 +1,22 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index 8764ce2f2..5a746062e 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -34,7 +34,7 @@ import (
+ func TestUnmarshalDefaultConfig(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.NoError(t, component.UnmarshalExporterConfig(confmap.New(), cfg))
++	assert.NoError(t, component.UnmarshalConfig(confmap.New(), cfg))
+ 	assert.Equal(t, factory.CreateDefaultConfig(), cfg)
+ 	// Default/Empty config is invalid.
+ 	assert.Error(t, component.ValidateConfig(cfg))
+@@ -45,7 +45,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.NoError(t, component.UnmarshalExporterConfig(cm, cfg))
++	assert.NoError(t, component.UnmarshalConfig(cm, cfg))
+ 	assert.Equal(t,
+ 		&Config{
+ 			ExporterSettings: config.NewExporterSettings(component.NewID(typeStr)),

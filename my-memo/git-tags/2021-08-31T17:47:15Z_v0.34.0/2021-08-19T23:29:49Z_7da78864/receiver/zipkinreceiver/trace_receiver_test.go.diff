@@ -1,0 +1,22 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index f24c47201..742f0327d 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -170,7 +170,7 @@ func TestConversionRoundtrip(t *testing.T) {
+   "tags": {
+     "http.path": "/api",
+     "clnt/finagle.version": "6.45.0",
+-	"status.code": "STATUS_CODE_UNSET"
++	"otel.status_code": "STATUS_CODE_UNSET"
+   }
+ },
+ {
+@@ -203,7 +203,7 @@ func TestConversionRoundtrip(t *testing.T) {
+   "tags": {
+     "http.path": "/api",
+     "clnt/finagle.version": "6.45.0",
+-	"status.code": "STATUS_CODE_UNSET"
++	"otel.status_code": "STATUS_CODE_UNSET"
+   }
+ }]`)
+ 

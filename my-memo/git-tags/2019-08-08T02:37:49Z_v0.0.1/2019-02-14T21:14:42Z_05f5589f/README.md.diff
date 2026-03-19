@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 2c9896fcc..48dc7bee8 100644
+--- a/README.md
++++ b/README.md
+@@ -152,6 +152,8 @@ please see the [exporter README.md](exporter/exporterparser/README.md).
+ ```yaml
+ exporters:
+   opencensus:
++    headers: {"X-test-header": "test-header"}
++    compression: "gzip"
+     endpoint: "127.0.0.1:55678"
+ 
+   jaeger:

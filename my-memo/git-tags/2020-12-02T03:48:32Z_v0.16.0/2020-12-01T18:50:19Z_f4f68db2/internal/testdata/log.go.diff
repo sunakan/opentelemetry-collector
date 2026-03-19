@@ -1,0 +1,116 @@
+diff --git a/internal/testdata/log.go b/internal/testdata/log.go
+index 4c4377244..232ef728e 100644
+--- a/internal/testdata/log.go
++++ b/internal/testdata/log.go
+@@ -17,13 +17,10 @@ package testdata
+ import (
+ 	"time"
+ 
+-	"go.opentelemetry.io/collector/internal/data"
+-	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
+-	otlpresource "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/resource/v1"
+-
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal"
++	"go.opentelemetry.io/collector/internal/data"
+ 	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
++	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
+ )
+ 
+ var (
+@@ -31,10 +28,6 @@ var (
+ 	TestLogTimestamp = pdata.TimestampUnixNano(TestLogTime.UnixNano())
+ )
+ 
+-const (
+-	NumLogTests = 11
+-)
+-
+ func GenerateLogDataEmpty() pdata.Logs {
+ 	ld := pdata.NewLogs()
+ 	return ld
+@@ -56,30 +49,6 @@ func generateLogOtlpOneEmptyResourceLogs() []*otlplogs.ResourceLogs {
+ 	}
+ }
+ 
+-func GenerateLogDataOneEmptyOneNilResourceLogs() pdata.Logs {
+-	return pdata.LogsFromInternalRep(internal.LogsFromOtlp(generateLogOtlpOneEmptyOneNilResourceLogs()))
+-
+-}
+-
+-func generateLogOtlpOneEmptyOneNilResourceLogs() []*otlplogs.ResourceLogs {
+-	return []*otlplogs.ResourceLogs{
+-		{},
+-		nil,
+-	}
+-}
+-
+-func GenerateLogDataOneEmptyOneNilInstrumentationLibrary() pdata.Logs {
+-	return pdata.LogsFromInternalRep(internal.LogsFromOtlp(generateLogOtlpOneEmptyOneNilInstrumentationLibrary()))
+-
+-}
+-
+-func generateLogOtlpOneEmptyOneNilInstrumentationLibrary() []*otlplogs.ResourceLogs {
+-	return []*otlplogs.ResourceLogs{
+-		{},
+-		{otlpresource.Resource{}, []*otlplogs.InstrumentationLibraryLogs{nil}},
+-	}
+-}
+-
+ func GenerateLogDataNoLogRecords() pdata.Logs {
+ 	ld := GenerateLogDataOneEmptyResourceLogs()
+ 	rs0 := ld.ResourceLogs().At(0)
+@@ -118,26 +87,6 @@ func generateLogOtlpOneEmptyLogs() []*otlplogs.ResourceLogs {
+ 	}
+ }
+ 
+-func GenerateLogDataOneEmptyOneNilLogRecord() pdata.Logs {
+-	return pdata.LogsFromInternalRep(internal.LogsFromOtlp(generateLogOtlpOneEmptyOneNilLogRecord()))
+-}
+-
+-func generateLogOtlpOneEmptyOneNilLogRecord() []*otlplogs.ResourceLogs {
+-	return []*otlplogs.ResourceLogs{
+-		{
+-			Resource: generateOtlpResource1(),
+-			InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{
+-				{
+-					Logs: []*otlplogs.LogRecord{
+-						{},
+-						nil,
+-					},
+-				},
+-			},
+-		},
+-	}
+-}
+-
+ func GenerateLogDataOneLogNoResource() pdata.Logs {
+ 	ld := GenerateLogDataOneEmptyResourceLogs()
+ 	rs0 := ld.ResourceLogs().At(0)
+@@ -187,26 +136,6 @@ func generateLogOtlpOneLog() []*otlplogs.ResourceLogs {
+ 	}
+ }
+ 
+-func GenerateLogDataOneLogOneNil() pdata.Logs {
+-	return pdata.LogsFromInternalRep(internal.LogsFromOtlp(generateLogOtlpOneLogOneNil()))
+-}
+-
+-func generateLogOtlpOneLogOneNil() []*otlplogs.ResourceLogs {
+-	return []*otlplogs.ResourceLogs{
+-		{
+-			Resource: generateOtlpResource1(),
+-			InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{
+-				{
+-					Logs: []*otlplogs.LogRecord{
+-						generateOtlpLogOne(),
+-						nil,
+-					},
+-				},
+-			},
+-		},
+-	}
+-}
+-
+ func GenerateLogDataTwoLogsSameResource() pdata.Logs {
+ 	ld := GenerateLogDataOneEmptyLogs()
+ 	rs0 := ld.ResourceLogs().At(0)

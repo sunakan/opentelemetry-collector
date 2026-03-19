@@ -1,0 +1,28 @@
+diff --git a/consumer/pdata/metric.go b/consumer/pdata/metric.go
+index 952934756..525f0c88d 100644
+--- a/consumer/pdata/metric.go
++++ b/consumer/pdata/metric.go
+@@ -17,6 +17,7 @@ package pdata
+ import (
+ 	"github.com/gogo/protobuf/proto"
+ 
++	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/metrics/v1"
+ 	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
+ )
+ 
+@@ -51,6 +52,15 @@ func MetricsToOtlp(md Metrics) []*otlpmetrics.ResourceMetrics {
+ 	return *md.orig
+ }
+ 
++// ToOtlpProtoBytes returns the internal MetricData to the OTLP Collector
++// ExportMetricsServiceRequest ProtoBuf bytes. This is intended to export
++// OTLP Protobuf bytes for OTLP/HTTP transports.
++func (md Metrics) ToOtlpProtoBytes() ([]byte, error) {
++	return proto.Marshal(&otlpcollectormetrics.ExportMetricsServiceRequest{
++		ResourceMetrics: *md.orig,
++	})
++}
++
+ // NewMetricData creates a new MetricData.
+ func NewMetrics() Metrics {
+ 	orig := []*otlpmetrics.ResourceMetrics(nil)

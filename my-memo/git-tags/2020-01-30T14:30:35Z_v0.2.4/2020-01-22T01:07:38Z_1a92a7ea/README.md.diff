@@ -1,0 +1,19 @@
+diff --git a/README.md b/README.md
+index d27999cef..79c24d6bc 100644
+--- a/README.md
++++ b/README.md
+@@ -167,10 +167,10 @@ receivers:
+   jaeger:
+     protocols:
+       grpc:
+-      thrift-http:
+-      thrift-tchannel:
+-      thrift-compact:
+-      thrift-binary:
++      thrift_http:
++      thrift_tchannel:
++      thrift_compact:
++      thrift_binary:
+ 
+   prometheus:
+     config:

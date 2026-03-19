@@ -1,0 +1,13 @@
+diff --git a/pdata/xpdata/pref/logs.go b/pdata/xpdata/pref/logs.go
+index 752019d6f..ef19e15be 100644
+--- a/pdata/xpdata/pref/logs.go
++++ b/pdata/xpdata/pref/logs.go
+@@ -27,7 +27,7 @@ func UnrefLogs(ld plog.Logs) {
+ 		if !internal.GetLogsState(internal.LogsWrapper(ld)).Unref() {
+ 			return
+ 		}
+-		// Don't call DeleteOrigExportLogsServiceRequest without the gate because we reset the data and that may still cause issues.
++		// Don't call DeleteExportLogsServiceRequest without the gate because we reset the data and that may still cause issues.
+ 		if internal.UseProtoPooling.IsEnabled() {
+ 			internal.DeleteExportLogsServiceRequest(internal.GetLogsOrig(internal.LogsWrapper(ld)), true)
+ 		}

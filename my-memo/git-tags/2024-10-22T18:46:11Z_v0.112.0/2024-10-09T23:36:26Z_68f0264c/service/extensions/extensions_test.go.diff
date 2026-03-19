@@ -1,0 +1,13 @@
+diff --git a/service/extensions/extensions_test.go b/service/extensions/extensions_test.go
+index e778845c7..5a8b3ea46 100644
+--- a/service/extensions/extensions_test.go
++++ b/service/extensions/extensions_test.go
+@@ -436,8 +436,6 @@ func TestStatusReportedOnStartupShutdown(t *testing.T) {
+ 			)
+ 			require.NoError(t, err)
+ 
+-			rep.Ready()
+-
+ 			assert.Equal(t, tt.startErr, extensions.Start(context.Background(), componenttest.NewNopHost()))
+ 			if tt.startErr == nil {
+ 				assert.Equal(t, tt.shutdownErr, extensions.Shutdown(context.Background()))

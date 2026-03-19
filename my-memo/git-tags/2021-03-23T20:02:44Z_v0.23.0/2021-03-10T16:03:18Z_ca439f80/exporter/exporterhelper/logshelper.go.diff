@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index cb79d2b0f..a0271bcd4 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -90,7 +90,7 @@ func NewLogsExporter(
+ 	be := newBaseExporter(cfg, logger, options...)
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &logsExporterWithObservability{
+-			obsrep:     obsreport.NewExporterObsReport(configtelemetry.GetMetricsLevelFlagValue(), cfg.Name()),
++			obsrep:     obsreport.NewExporter(configtelemetry.GetMetricsLevelFlagValue(), cfg.Name()),
+ 			nextSender: nextSender,
+ 		}
+ 	})
+@@ -102,7 +102,7 @@ func NewLogsExporter(
+ }
+ 
+ type logsExporterWithObservability struct {
+-	obsrep     *obsreport.ExporterObsReport
++	obsrep     *obsreport.Exporter
+ 	nextSender requestSender
+ }
+ 

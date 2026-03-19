@@ -1,0 +1,23 @@
+diff --git a/internal/cmd/pdatagen/internal/templates.go b/internal/cmd/pdatagen/internal/templates.go
+index 9f8721248..e43870cb5 100644
+--- a/internal/cmd/pdatagen/internal/templates.go
++++ b/internal/cmd/pdatagen/internal/templates.go
+@@ -79,6 +79,7 @@ func templateNew(name string) *template.Template {
+ 		"lowerFirst": lowerFirst,
+ 		"add":        add,
+ 		"sub":        sub,
++		"div":        div,
+ 		"needSnake":  needSnake,
+ 		"toSnake":    strcase.ToSnake,
+ 	})
+@@ -100,6 +101,10 @@ func sub(a, b int) int {
+ 	return a - b
+ }
+ 
++func div(a, b int) int {
++	return a / b
++}
++
+ func needSnake(str string) bool {
+ 	return strings.ToLower(str) != strcase.ToSnake(str)
+ }

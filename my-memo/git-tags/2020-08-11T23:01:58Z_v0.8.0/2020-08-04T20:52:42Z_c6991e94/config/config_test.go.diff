@@ -1,0 +1,30 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index 0d8d5d399..d28f31664 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -421,8 +421,10 @@ func TestDecodeConfig_MultiProto(t *testing.T) {
+ 
+ 	assert.Equal(t,
+ 		&componenttest.MultiProtoReceiver{
+-			TypeVal: "multireceiver",
+-			NameVal: "multireceiver",
++			ReceiverSettings: configmodels.ReceiverSettings{
++				TypeVal: "multireceiver",
++				NameVal: "multireceiver",
++			},
+ 			Protocols: map[string]componenttest.MultiProtoReceiverOneCfg{
+ 				"http": {
+ 					Endpoint:     "example.com:8888",
+@@ -439,8 +441,10 @@ func TestDecodeConfig_MultiProto(t *testing.T) {
+ 
+ 	assert.Equal(t,
+ 		&componenttest.MultiProtoReceiver{
+-			TypeVal: "multireceiver",
+-			NameVal: "multireceiver/myreceiver",
++			ReceiverSettings: configmodels.ReceiverSettings{
++				TypeVal: "multireceiver",
++				NameVal: "multireceiver/myreceiver",
++			},
+ 			Protocols: map[string]componenttest.MultiProtoReceiverOneCfg{
+ 				"http": {
+ 					Endpoint:     "localhost:12345",

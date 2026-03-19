@@ -1,0 +1,18 @@
+diff --git a/exporter/prometheusexporter/README.md b/exporter/prometheusexporter/README.md
+index 5f77e7118..f8d755af7 100644
+--- a/exporter/prometheusexporter/README.md
++++ b/exporter/prometheusexporter/README.md
+@@ -16,6 +16,7 @@ The following settings can be optionally configured:
+ - `namespace` (no default): if set, exports metrics under the provided value.
+ - `send_timestamps` (default = `false`): if true, sends the timestamp of the underlying
+   metric sample in the response.
++- `metric_expiration` (default = `5m`): defines how long metrics are exposed without updates
+ 
+ Example:
+ 
+@@ -28,4 +29,5 @@ exporters:
+       label1: value1
+       "another label": spaced value
+     send_timestamps: true
++    metric_expiration: 180m
+ ```

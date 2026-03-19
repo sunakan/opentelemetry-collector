@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index 86a11ac77..9c33ae564 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -33,7 +33,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Receivers[typeStr] = factory
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)

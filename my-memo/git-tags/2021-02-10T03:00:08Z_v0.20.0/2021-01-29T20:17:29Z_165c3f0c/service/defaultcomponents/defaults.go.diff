@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index bc30c59c1..157b9a7ce 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -36,8 +36,8 @@ import (
+ 	"go.opentelemetry.io/collector/processor/batchprocessor"
+ 	"go.opentelemetry.io/collector/processor/filterprocessor"
+ 	"go.opentelemetry.io/collector/processor/memorylimiter"
++	"go.opentelemetry.io/collector/processor/probabilisticsamplerprocessor"
+ 	"go.opentelemetry.io/collector/processor/resourceprocessor"
+-	"go.opentelemetry.io/collector/processor/samplingprocessor/probabilisticsamplerprocessor"
+ 	"go.opentelemetry.io/collector/processor/spanprocessor"
+ 	"go.opentelemetry.io/collector/receiver/fluentforwardreceiver"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver"

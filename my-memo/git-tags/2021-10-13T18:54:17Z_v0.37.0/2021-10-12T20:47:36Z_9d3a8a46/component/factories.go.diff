@@ -1,0 +1,13 @@
+diff --git a/component/factories.go b/component/factories.go
+index 373bbdfc6..972e10353 100644
+--- a/component/factories.go
++++ b/component/factories.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package component
++package component // import "go.opentelemetry.io/collector/component"
+ 
+ import (
+ 	"fmt"

@@ -1,0 +1,25 @@
+diff --git a/cmd/occollector/app/builder/testdata/queued_exporters.yaml b/cmd/occollector/app/builder/testdata/queued_exporters.yaml
+new file mode 100644
+index 000000000..fb692f5be
+--- /dev/null
++++ b/cmd/occollector/app/builder/testdata/queued_exporters.yaml
+@@ -0,0 +1,19 @@
++ queued-exporters:
++  proc-tchannel:
++    num-workers: 13
++    queue-size: 1300
++    sender-type: jaeger-thrift-tchannel
++    jaeger-thrift-tchannel:
++      collector-host-ports: [ ":123", ":321" ]
++      discovery-min-peers: 7
++      discovery-conn-check-timeout: 7s
++
++  proc-http:
++    retry-on-failure: false
++    backoff-delay: 3s
++    sender-type: jaeger-thrift-http
++    jaeger-thrift-http:
++      collector-endpoint: https://somedomain.com/api/traces
++      headers: { "x-header-key":"00000000-0000-0000-0000-000000000001" }
++      timeout: 5s
++

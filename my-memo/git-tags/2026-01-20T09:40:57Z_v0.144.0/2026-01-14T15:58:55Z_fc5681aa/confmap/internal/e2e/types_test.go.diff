@@ -1,0 +1,13 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index dd706463e..311a05bd1 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -568,7 +568,7 @@ func TestIndirectSliceEnvVar(t *testing.T) {
+ 		Exporters struct {
+ 			OTLP struct {
+ 				Endpoint string `mapstructure:"endpoint"`
+-			} `mapstructure:"otlp"`
++			} `mapstructure:"otlp_grpc"`
+ 			Nop struct{} `mapstructure:"nop"`
+ 		} `mapstructure:"exporters"`
+ 		Receivers struct {

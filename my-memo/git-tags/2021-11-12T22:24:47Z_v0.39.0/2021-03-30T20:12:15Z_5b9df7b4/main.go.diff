@@ -1,0 +1,21 @@
+diff --git a/main.go b/main.go
+index 2399c22a6..0ef002a58 100644
+--- a/main.go
++++ b/main.go
+@@ -15,9 +15,15 @@
+ package main
+ 
+ import (
++	"fmt"
++	"os"
++
+ 	"github.com/open-telemetry/opentelemetry-collector-builder/cmd"
+ )
+ 
+ func main() {
+-	cmd.Execute()
++	if err := cmd.Execute(); err != nil {
++		fmt.Println(err.Error())
++		os.Exit(1)
++	}
+ }

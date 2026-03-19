@@ -1,0 +1,22 @@
+diff --git a/.chloggen/config.yaml b/.chloggen/config.yaml
+index 0e25fe851..d5d46d800 100644
+--- a/.chloggen/config.yaml
++++ b/.chloggen/config.yaml
+@@ -24,6 +24,17 @@ components:
+     - extension/zpages
+     - pdata/pprofile
+     - pdata/xpdata
++    - pkg/config/configauth
++    - pkg/config/configcompression
++    - pkg/config/configgrpc
++    - pkg/config/confighttp
++    - pkg/config/configmiddleware
++    - pkg/config/confignet
++    - pkg/config/configopaque
++    - pkg/config/configoptional
++    - pkg/config/configretry
++    - pkg/config/configtelemetry
++    - pkg/config/configtls
+     - pkg/confmap
+     - pkg/exporterhelper
+     - pkg/otelcol

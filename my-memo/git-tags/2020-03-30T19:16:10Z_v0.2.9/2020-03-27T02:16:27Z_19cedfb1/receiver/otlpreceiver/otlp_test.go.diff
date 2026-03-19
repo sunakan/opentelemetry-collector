@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 3990b7fde..e5000cabe 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -163,6 +163,9 @@ func TestGrpcGateway_endToEnd(t *testing.T) {
+ 							},
+ 						},
+ 					},
++					// TODO: Remove this after PR:691 is merged
++					// https://github.com/open-telemetry/opentelemetry-collector/pull/691
++					Status: &octrace.Status{},
+ 				},
+ 			},
+ 			SourceFormat: "otlp_trace",

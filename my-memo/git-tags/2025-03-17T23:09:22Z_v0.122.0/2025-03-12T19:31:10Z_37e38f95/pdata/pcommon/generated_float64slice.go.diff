@@ -1,0 +1,25 @@
+diff --git a/pdata/pcommon/generated_float64slice.go b/pdata/pcommon/generated_float64slice.go
+index 83a07ccf4..056e79e51 100644
+--- a/pdata/pcommon/generated_float64slice.go
++++ b/pdata/pcommon/generated_float64slice.go
+@@ -7,6 +7,8 @@
+ package pcommon
+ 
+ import (
++	"slices"
++
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+@@ -102,6 +104,11 @@ func (ms Float64Slice) CopyTo(dest Float64Slice) {
+ 	*dest.getOrig() = copyFloat64Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 
++// Equal checks equality with another Float64Slice
++func (ms Float64Slice) Equal(val Float64Slice) bool {
++	return slices.Equal(*ms.getOrig(), *val.getOrig())
++}
++
+ func copyFloat64Slice(dst, src []float64) []float64 {
+ 	dst = dst[:0]
+ 	return append(dst, src...)

@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index c5d0131fa..3efc1d852 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -608,6 +608,6 @@ func (pds *PrometheusDataSender) ProtocolName() string {
+ 	return "prometheus"
+ }
+ 
+-func defaultExporterParams() component.ExporterCreateParams {
+-	return component.ExporterCreateParams{Logger: zap.L()}
++func defaultExporterParams() component.ExporterCreateSettings {
++	return component.ExporterCreateSettings{Logger: zap.L()}
+ }

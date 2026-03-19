@@ -1,0 +1,20 @@
+diff --git a/confmap/confmaptest/provider_settings.go b/confmap/confmaptest/provider_settings.go
+new file mode 100644
+index 000000000..8d36b36ef
+--- /dev/null
++++ b/confmap/confmaptest/provider_settings.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package confmaptest // import "go.opentelemetry.io/collector/confmap/confmaptest"
++
++import (
++	"go.uber.org/zap"
++
++	"go.opentelemetry.io/collector/confmap"
++)
++
++func NewNopProviderSettings() confmap.ProviderSettings {
++	return confmap.ProviderSettings{Logger: zap.NewNop()}
++}

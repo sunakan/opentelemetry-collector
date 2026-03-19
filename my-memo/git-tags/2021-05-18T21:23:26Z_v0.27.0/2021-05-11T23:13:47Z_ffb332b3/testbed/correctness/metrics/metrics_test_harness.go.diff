@@ -1,0 +1,23 @@
+diff --git a/testbed/correctness/metrics/metrics_test_harness.go b/testbed/correctness/metrics/metrics_test_harness.go
+index 40296a8d5..71bbf971d 100644
+--- a/testbed/correctness/metrics/metrics_test_harness.go
++++ b/testbed/correctness/metrics/metrics_test_harness.go
+@@ -20,6 +20,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/testbed/testbed"
+ )
+@@ -59,6 +60,10 @@ func newTestHarness(
+ 	}
+ }
+ 
++func (h *testHarness) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ func (h *testHarness) ConsumeMetrics(_ context.Context, pdm pdata.Metrics) error {
+ 	h.compare(pdm)
+ 	if h.metricIndex.allReceived() {

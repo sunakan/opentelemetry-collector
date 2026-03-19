@@ -1,0 +1,26 @@
+diff --git a/receiver/hostmetricsreceiver/metadata.yaml b/receiver/hostmetricsreceiver/metadata.yaml
+index 1233137be..d0afcfba2 100644
+--- a/receiver/hostmetricsreceiver/metadata.yaml
++++ b/receiver/hostmetricsreceiver/metadata.yaml
+@@ -32,3 +32,21 @@ metrics:
+       type: int sum
+       aggregation: cumulative
+       monotonic: false
++
++  system.cpu.load_average.1m:
++    description: Average CPU Load over 1 minute.
++    unit: 1
++    data:
++      type: double gauge
++
++  system.cpu.load_average.5m:
++    description: Average CPU Load over 5 minutes.
++    unit: 1
++    data:
++      type: double gauge
++
++  system.cpu.load_average.15m:
++    description: Average CPU Load over 15 minutes.
++    unit: 1
++    data:
++      type: double gauge

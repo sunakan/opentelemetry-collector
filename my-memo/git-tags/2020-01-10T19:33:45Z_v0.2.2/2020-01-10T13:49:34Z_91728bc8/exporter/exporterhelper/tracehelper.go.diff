@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index b379b9d9e..2bbad5056 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -19,6 +19,7 @@ import (
+ 
+ 	"go.opencensus.io/trace"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter"
+@@ -37,7 +38,7 @@ type traceExporter struct {
+ 
+ var _ (exporter.TraceExporter) = (*traceExporter)(nil)
+ 
+-func (te *traceExporter) Start(host exporter.Host) error {
++func (te *traceExporter) Start(host component.Host) error {
+ 	return nil
+ }
+ 

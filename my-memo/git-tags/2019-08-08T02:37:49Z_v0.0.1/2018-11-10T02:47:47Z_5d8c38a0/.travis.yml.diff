@@ -1,0 +1,10 @@
+diff --git a/.travis.yml b/.travis.yml
+index cb0fae2fb..efece754c 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -11,4 +11,4 @@ env:
+ 
+ install:
+   - make install-tools
+-  - go get -v ./...
++  - go get -t -v ./...

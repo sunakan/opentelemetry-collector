@@ -1,0 +1,13 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index d0730a7ec..68934b63c 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -282,7 +282,7 @@ func TestCollector_reloadService(t *testing.T) {
+ 
+ 	tests := []struct {
+ 		name           string
+-		parserProvider parserprovider.MapProvider
++		parserProvider config.MapProvider
+ 		service        *service
+ 	}{
+ 		{

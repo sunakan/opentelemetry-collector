@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/nop.go b/consumer/consumertest/nop.go
+index 106b1c090..f48123677 100644
+--- a/consumer/consumertest/nop.go
++++ b/consumer/consumertest/nop.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package consumertest
++package consumertest // import "go.opentelemetry.io/collector/consumer/consumertest"
+ 
+ import (
+ 	"context"

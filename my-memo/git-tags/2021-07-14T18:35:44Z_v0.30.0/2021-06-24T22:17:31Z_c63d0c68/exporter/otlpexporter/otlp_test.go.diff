@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index 4f147ae38..4ee6612cf 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -31,9 +31,9 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/pdatagrpc"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type mockReceiver struct {

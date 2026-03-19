@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index eed33fd21..7ed92497e 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -103,7 +103,7 @@ func NewScraperControllerReceiver(
+ 
+ 	sc.obsScrapers = make([]*ObsReport, len(sc.scrapers))
+ 	for i, scraper := range sc.scrapers {
+-		scrp, err := NewObsReport(ObsReportSettings{
++		scrp, err := newScraper(ObsReportSettings{
+ 			ReceiverID:             sc.id,
+ 			Scraper:                scraper.ID(),
+ 			ReceiverCreateSettings: sc.recvSettings,

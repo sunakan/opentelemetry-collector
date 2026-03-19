@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index de16328d9..e0bba7d42 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -30,7 +30,7 @@ require (
+ 	go.uber.org/zap v1.27.0
+ 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250825161204-c5933d9347a5
+ 	google.golang.org/grpc v1.75.1
+-	google.golang.org/protobuf v1.36.9
++	google.golang.org/protobuf v1.36.10
+ )
+ 
+ require (

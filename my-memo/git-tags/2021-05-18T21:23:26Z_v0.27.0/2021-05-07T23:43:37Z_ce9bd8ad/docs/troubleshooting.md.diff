@@ -1,0 +1,26 @@
+diff --git a/docs/troubleshooting.md b/docs/troubleshooting.md
+index 30bbace4f..290b15158 100644
+--- a/docs/troubleshooting.md
++++ b/docs/troubleshooting.md
+@@ -194,6 +194,14 @@ Collector as it runs. This is an advanced use-case that should not be needed in
+ 
+ ## Common Issues
+ 
++To see logs for the Collector:
++
++On a Linux systemd system, logs can be found using `journalctl`:  
++`journalctl | grep otelcol`
++
++or to find only errors:  
++`journalctl | grep otelcol | grep Error`
++
+ ### Collector exit/restart
+ 
+ The Collector may exit/restart because:
+@@ -265,4 +273,4 @@ The process may fail to start in a Windows Docker container with the following
+ error: `The service process could not connect to the service controller`. In
+ this case the `NO_WINDOWS_SERVICE=1` environment variable should be set to force
+ the collector to be started as if it were running in an interactive terminal,
+-without attempting to run as a Windows service.
+\ No newline at end of file
++without attempting to run as a Windows service.

@@ -1,0 +1,11 @@
+diff --git a/cmd/builder/internal/config/default.yaml b/cmd/builder/internal/config/default.yaml
+index 2a0b9c3a6..b6eca4cbd 100644
+--- a/cmd/builder/internal/config/default.yaml
++++ b/cmd/builder/internal/config/default.yaml
+@@ -17,4 +17,5 @@ extensions:
+ processors:
+   - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.69.1
+   - gomod: go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.69.1
+-
++connectors:
++  - gomod: go.opentelemetry.io/collector/connector/forwardconnector v0.69.1

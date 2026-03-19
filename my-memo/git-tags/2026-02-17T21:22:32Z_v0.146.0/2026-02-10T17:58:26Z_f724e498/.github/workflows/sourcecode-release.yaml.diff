@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/sourcecode-release.yaml b/.github/workflows/sourcecode-release.yaml
+index 88793743b..dc783c707 100644
+--- a/.github/workflows/sourcecode-release.yaml
++++ b/.github/workflows/sourcecode-release.yaml
+@@ -16,7 +16,7 @@ jobs:
+       issues: write # Grant write permissions to PR milestones
+     steps:
+       - name: Checkout Repo
+-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
++        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+         with:
+           fetch-depth: 0
+ 

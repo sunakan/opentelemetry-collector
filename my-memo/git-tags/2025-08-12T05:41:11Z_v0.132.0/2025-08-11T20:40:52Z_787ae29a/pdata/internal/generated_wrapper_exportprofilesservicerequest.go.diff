@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+index 3bf6bae6c..8de404744 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+@@ -51,7 +51,13 @@ func MarshalJSONOrigExportProfilesServiceRequest(orig *otlpcollectorprofile.Expo
+ 	dest.WriteObjectStart()
+ 	if len(orig.ResourceProfiles) > 0 {
+ 		dest.WriteObjectField("resourceProfiles")
+-		MarshalJSONOrigResourceProfilesSlice(orig.ResourceProfiles, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigResourceProfiles(orig.ResourceProfiles[0], dest)
++		for i := 1; i < len(orig.ResourceProfiles); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigResourceProfiles(orig.ResourceProfiles[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	dest.WriteObjectField("dictionary")
+ 	MarshalJSONOrigProfilesDictionary(&orig.Dictionary, dest)

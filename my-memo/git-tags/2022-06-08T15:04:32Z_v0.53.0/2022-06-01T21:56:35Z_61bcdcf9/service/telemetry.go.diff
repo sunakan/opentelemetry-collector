@@ -1,0 +1,13 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index dfe154dd7..0fa8a88f4 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -124,7 +124,7 @@ func (tel *colTelemetry) initOnce(svc *service) error {
+ 		if _, ok := telemetryConf.Resource[semconv.AttributeServiceVersion]; !ok {
+ 			// AttributeServiceVersion is not specified in the config. Use the actual
+ 			// build version.
+-			telAttrs[semconv.AttributeServiceVersion] = col.set.BuildInfo.Version
++			telAttrs[semconv.AttributeServiceVersion] = svc.buildInfo.Version
+ 		}
+ 	}
+ 

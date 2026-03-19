@@ -1,0 +1,9 @@
+diff --git a/service/telemetry/otelconftelemetry/testdata/config_metrics_empty_readers.yaml b/service/telemetry/otelconftelemetry/testdata/config_metrics_empty_readers.yaml
+new file mode 100644
+index 000000000..b57c081fb
+--- /dev/null
++++ b/service/telemetry/otelconftelemetry/testdata/config_metrics_empty_readers.yaml
+@@ -0,0 +1,3 @@
++metrics:
++  level: "none"
++  readers: []

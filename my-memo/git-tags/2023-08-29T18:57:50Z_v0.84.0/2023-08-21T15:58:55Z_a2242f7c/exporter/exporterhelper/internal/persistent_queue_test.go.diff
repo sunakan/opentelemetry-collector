@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue_test.go b/exporter/exporterhelper/internal/persistent_queue_test.go
+index 135054405..8b1ffb767 100644
+--- a/exporter/exporterhelper/internal/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/persistent_queue_test.go
+@@ -28,7 +28,15 @@ func createTestQueue(extension storage.Extension, capacity int) *persistentQueue
+ 		panic(err)
+ 	}
+ 
+-	wq := NewPersistentQueue(context.Background(), "foo", component.DataTypeTraces, capacity, logger, client, newFakeTracesRequestUnmarshalerFunc())
++	wq := NewPersistentQueue(context.Background(), PersistentQueueSettings{
++		Name:        "foo",
++		Signal:      component.DataTypeTraces,
++		Capacity:    uint64(capacity),
++		Logger:      logger,
++		Client:      client,
++		Unmarshaler: newFakeTracesRequestUnmarshalerFunc(),
++		Marshaler:   newFakeTracesRequestMarshalerFunc(),
++	})
+ 	return wq.(*persistentQueue)
+ }
+ 

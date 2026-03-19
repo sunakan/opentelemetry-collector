@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 6dc5ed828..81dbd8e52 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -177,6 +177,7 @@ func (bp *batchProcessor[T]) Shutdown(context.Context) error {
+ 
+ 	// Wait until all goroutines are done.
+ 	bp.goroutines.Wait()
++
+ 	return nil
+ }
+ 

@@ -1,0 +1,42 @@
+diff --git a/config/configauth/configauth_test.go b/config/configauth/configauth_test.go
+index 6ef9bb75a..009fd4789 100644
+--- a/config/configauth/configauth_test.go
++++ b/config/configauth/configauth_test.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/extension/auth"
+ )
+ 
+ func TestGetServer(t *testing.T) {
+@@ -30,12 +31,12 @@ func TestGetServer(t *testing.T) {
+ 	}{
+ 		{
+ 			desc:          "obtain server authenticator",
+-			authenticator: NewServerAuthenticator(),
++			authenticator: auth.NewServer(),
+ 			expected:      nil,
+ 		},
+ 		{
+ 			desc:          "not a server authenticator",
+-			authenticator: NewClientAuthenticator(),
++			authenticator: auth.NewClient(),
+ 			expected:      errNotServer,
+ 		},
+ 	}
+@@ -81,12 +82,12 @@ func TestGetClient(t *testing.T) {
+ 	}{
+ 		{
+ 			desc:          "obtain client authenticator",
+-			authenticator: NewClientAuthenticator(),
++			authenticator: auth.NewClient(),
+ 			expected:      nil,
+ 		},
+ 		{
+ 			desc:          "not a client authenticator",
+-			authenticator: NewServerAuthenticator(),
++			authenticator: auth.NewServer(),
+ 			expected:      errNotClient,
+ 		},
+ 	}

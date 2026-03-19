@@ -1,0 +1,37 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 74337afc0..76176c1e3 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -19,7 +19,6 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ // NopExporterOption represents options that can be applied to a NopExporter.
+@@ -30,9 +29,6 @@ type nopExporter struct {
+ 	retError error
+ }
+ 
+-var _ exporter.TraceExporter = (*nopExporter)(nil)
+-var _ exporter.MetricsExporter = (*nopExporter)(nil)
+-
+ func (ne *nopExporter) Start(host component.Host) error {
+ 	return nil
+ }
+@@ -56,12 +52,12 @@ const (
+ )
+ 
+ // NewNopTraceExporter creates an TraceExporter that just drops the received data.
+-func NewNopTraceExporter(options ...NopExporterOption) exporter.TraceExporter {
++func NewNopTraceExporter(options ...NopExporterOption) component.TraceExporterOld {
+ 	return newNopTraceExporter(options...)
+ }
+ 
+ // NewNopMetricsExporter creates an MetricsExporter that just drops the received data.
+-func NewNopMetricsExporter(options ...NopExporterOption) exporter.MetricsExporter {
++func NewNopMetricsExporter(options ...NopExporterOption) component.MetricsExporterOld {
+ 	return newNopMetricsExporter(options...)
+ }
+ 

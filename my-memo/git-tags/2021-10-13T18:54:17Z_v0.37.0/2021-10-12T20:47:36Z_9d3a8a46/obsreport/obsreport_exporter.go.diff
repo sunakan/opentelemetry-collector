@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_exporter.go b/obsreport/obsreport_exporter.go
+index def6a90f6..6eb716adb 100644
+--- a/obsreport/obsreport_exporter.go
++++ b/obsreport/obsreport_exporter.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package obsreport
++package obsreport // import "go.opentelemetry.io/collector/obsreport"
+ 
+ import (
+ 	"context"

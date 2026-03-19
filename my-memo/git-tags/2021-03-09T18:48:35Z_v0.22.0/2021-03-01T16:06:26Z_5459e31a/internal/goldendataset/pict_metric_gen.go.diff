@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metric_gen.go b/internal/goldendataset/pict_metric_gen.go
+index 53b8e8535..5592a01b2 100644
+--- a/internal/goldendataset/pict_metric_gen.go
++++ b/internal/goldendataset/pict_metric_gen.go
+@@ -39,7 +39,7 @@ func GenerateMetricDatas(metricPairsFile string) ([]pdata.Metrics, error) {
+ 		}
+ 		cfg := pictToCfg(metricInputs)
+ 		cfg.MetricNamePrefix = fmt.Sprintf("pict_%d_", i)
+-		md := MetricDataFromCfg(cfg)
++		md := MetricsFromCfg(cfg)
+ 		out = append(out, md)
+ 	}
+ 	return out, nil

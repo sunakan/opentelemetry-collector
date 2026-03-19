@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/proto_parse_test.go b/receiver/zipkinreceiver/proto_parse_test.go
+index be1ba99c2..bf7459c70 100644
+--- a/receiver/zipkinreceiver/proto_parse_test.go
++++ b/receiver/zipkinreceiver/proto_parse_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"google.golang.org/protobuf/proto"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ 	"go.opentelemetry.io/collector/translator/trace/zipkinv2"

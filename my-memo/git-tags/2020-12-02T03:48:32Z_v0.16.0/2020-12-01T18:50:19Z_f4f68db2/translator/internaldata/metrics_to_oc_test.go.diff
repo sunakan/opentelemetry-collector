@@ -1,0 +1,57 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index 7d367d098..e6488e966 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -59,14 +59,6 @@ func TestMetricsToOC(t *testing.T) {
+ 			},
+ 		},
+ 
+-		{
+-			name:     "one-empty-one-nil-resource-metrics",
+-			internal: testdata.GenerateMetricsOneEmptyOneNilResourceMetrics(),
+-			oc: []consumerdata.MetricsData{
+-				{},
+-			},
+-		},
+-
+ 		{
+ 			name:     "no-libraries",
+ 			internal: testdata.GenerateMetricsNoLibraries(),
+@@ -83,14 +75,6 @@ func TestMetricsToOC(t *testing.T) {
+ 			},
+ 		},
+ 
+-		{
+-			name:     "one-empty-one-nil-instrumentation-library",
+-			internal: testdata.GenerateMetricsOneEmptyOneNilInstrumentationLibrary(),
+-			oc: []consumerdata.MetricsData{
+-				generateOCTestDataNoMetrics(),
+-			},
+-		},
+-
+ 		{
+ 			name:     "one-metric-no-resource",
+ 			internal: testdata.GenerateMetricsOneMetricNoResource(),
+@@ -111,22 +95,6 @@ func TestMetricsToOC(t *testing.T) {
+ 			},
+ 		},
+ 
+-		{
+-			name:     "one-metric-one-nil",
+-			internal: testdata.GenerateMetricsOneMetricOneNil(),
+-			oc: []consumerdata.MetricsData{
+-				generateOCTestDataMetricsOneMetric(),
+-			},
+-		},
+-
+-		{
+-			name:     "one-metric-one-nil-point",
+-			internal: testdata.GenerateMetricsOneMetricOneNilPoint(),
+-			oc: []consumerdata.MetricsData{
+-				generateOCTestDataMetricsOneMetric(),
+-			},
+-		},
+-
+ 		{
+ 			name:     "one-metric-no-labels",
+ 			internal: testdata.GenerateMetricsOneMetricNoLabels(),

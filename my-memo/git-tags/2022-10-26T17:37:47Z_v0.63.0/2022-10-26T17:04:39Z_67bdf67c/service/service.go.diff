@@ -1,0 +1,12 @@
+diff --git a/service/service.go b/service/service.go
+index eca81b427..77e56db5b 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -84,6 +84,7 @@ func newService(set *settings) (*service, error) {
+ 	return srv, nil
+ }
+ 
++// Start starts the extensions and pipelines. If Start fails Shutdown should be called to ensure a clean state.
+ func (srv *service) Start(ctx context.Context) error {
+ 	srv.telemetrySettings.Logger.Info("Starting "+srv.buildInfo.Command+"...",
+ 		zap.String("Version", srv.buildInfo.Version),

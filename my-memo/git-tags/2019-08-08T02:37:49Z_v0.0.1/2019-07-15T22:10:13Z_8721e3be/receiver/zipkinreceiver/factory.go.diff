@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index e1afab385..d5bf35766 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -70,7 +70,7 @@ func (f *factory) CreateTraceReceiver(
+ ) (receiver.TraceReceiver, error) {
+ 
+ 	rCfg := cfg.(*Config)
+-	return New(rCfg.Endpoint, nextConsumer)
++	return New(rCfg.Endpoint, rCfg.BackPressureSetting(), nextConsumer)
+ }
+ 
+ // CreateMetricsReceiver creates a metrics receiver based on provided config.

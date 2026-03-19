@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/traces_test.go b/internal/otlptext/traces_test.go
+index cf70eb537..87b1b3200 100644
+--- a/internal/otlptext/traces_test.go
++++ b/internal/otlptext/traces_test.go
+@@ -33,7 +33,7 @@ func TestTraces(t *testing.T) {
+ 		empty bool
+ 	}{
+ 		{"empty traces", args{pdata.NewTraces()}, true},
+-		{"traces with two spans", args{testdata.GenerateTraceDataTwoSpansSameResourceOneDifferent()}, false},
++		{"traces with two spans", args{testdata.GenerateTracesTwoSpansSameResource()}, false},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {

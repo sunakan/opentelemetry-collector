@@ -1,0 +1,58 @@
+diff --git a/pdata/pmetric/generated_metric.go b/pdata/pmetric/generated_metric.go
+index 6aea2fd4a..6002a76b9 100644
+--- a/pdata/pmetric/generated_metric.go
++++ b/pdata/pmetric/generated_metric.go
+@@ -9,6 +9,7 @@ package pmetric
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -243,6 +244,45 @@ func (ms Metric) CopyTo(dest Metric) {
+ 	copyOrigMetric(dest.orig, ms.orig)
+ }
+ 
++// marshalJSONStream marshals all properties from the current struct to the destination stream.
++func (ms Metric) marshalJSONStream(dest *json.Stream) {
++	dest.WriteObjectStart()
++	if ms.orig.Name != "" {
++		dest.WriteObjectField("name")
++		dest.WriteString(ms.orig.Name)
++	}
++	if ms.orig.Description != "" {
++		dest.WriteObjectField("description")
++		dest.WriteString(ms.orig.Description)
++	}
++	if ms.orig.Unit != "" {
++		dest.WriteObjectField("unit")
++		dest.WriteString(ms.orig.Unit)
++	}
++	if len(ms.orig.Metadata) > 0 {
++		dest.WriteObjectField("metadata")
++		internal.MarshalJSONStreamMap(internal.NewMap(&ms.orig.Metadata, ms.state), dest)
++	}
++	switch ov := ms.orig.Data.(type) {
++	case *otlpmetrics.Metric_Gauge:
++		dest.WriteObjectField("gauge")
++		newGauge(ov.Gauge, ms.state).marshalJSONStream(dest)
++	case *otlpmetrics.Metric_Sum:
++		dest.WriteObjectField("sum")
++		newSum(ov.Sum, ms.state).marshalJSONStream(dest)
++	case *otlpmetrics.Metric_Histogram:
++		dest.WriteObjectField("histogram")
++		newHistogram(ov.Histogram, ms.state).marshalJSONStream(dest)
++	case *otlpmetrics.Metric_ExponentialHistogram:
++		dest.WriteObjectField("exponentialHistogram")
++		newExponentialHistogram(ov.ExponentialHistogram, ms.state).marshalJSONStream(dest)
++	case *otlpmetrics.Metric_Summary:
++		dest.WriteObjectField("summary")
++		newSummary(ov.Summary, ms.state).marshalJSONStream(dest)
++	}
++	dest.WriteObjectEnd()
++}
++
+ func copyOrigMetric(dest, src *otlpmetrics.Metric) {
+ 	dest.Name = src.Name
+ 	dest.Description = src.Description

@@ -1,0 +1,25 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
+index 24d9bb757..c8b2ed8d7 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/virtualmemoryscraper/virtualmemory_scraper_windows.go
+@@ -21,8 +21,6 @@ import (
+ 	"math"
+ 	"time"
+ 
+-	"go.opencensus.io/trace"
+-
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/windows/pdh"
+@@ -89,10 +87,7 @@ func (s *scraper) Close(_ context.Context) error {
+ }
+ 
+ // ScrapeMetrics
+-func (s *scraper) ScrapeMetrics(ctx context.Context) (pdata.MetricSlice, error) {
+-	_, span := trace.StartSpan(ctx, "virtualmemoryscraper.ScrapeMetrics")
+-	defer span.End()
+-
++func (s *scraper) ScrapeMetrics(_ context.Context) (pdata.MetricSlice, error) {
+ 	metrics := pdata.NewMetricSlice()
+ 
+ 	var errors []error

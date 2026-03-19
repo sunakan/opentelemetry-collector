@@ -1,0 +1,19 @@
+diff --git a/obsreport/obsreport_exporter.go b/obsreport/obsreport_exporter.go
+index 66fd6bfa8..3d723bfb5 100644
+--- a/obsreport/obsreport_exporter.go
++++ b/obsreport/obsreport_exporter.go
+@@ -89,7 +89,13 @@ type Exporter struct {
+ 	mutators     []tag.Mutator
+ }
+ 
+-func NewExporter(level configtelemetry.Level, exporterName string) *Exporter {
++type ExporterSettings struct {
++	Level        configtelemetry.Level
++	ExporterName string
++}
++
++func NewExporter(cfg ExporterSettings) *Exporter {
++	level, exporterName := cfg.Level, cfg.ExporterName
+ 	return &Exporter{
+ 		level:        level,
+ 		exporterName: exporterName,

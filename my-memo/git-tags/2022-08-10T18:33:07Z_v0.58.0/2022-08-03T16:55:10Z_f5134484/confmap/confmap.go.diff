@@ -1,0 +1,14 @@
+diff --git a/confmap/confmap.go b/confmap/confmap.go
+index 663453494..3aba02757 100644
+--- a/confmap/confmap.go
++++ b/confmap/confmap.go
+@@ -145,7 +145,8 @@ func decoderConfig(result interface{}) *mapstructure.DecoderConfig {
+ //
+ // and yaml of:
+ // config:
+-//   thing:
++//
++//	thing:
+ //
+ // we want an unmarshaled Config to be equivalent to
+ // Config{Thing: &SomeStruct{}} instead of Config{Thing: nil}

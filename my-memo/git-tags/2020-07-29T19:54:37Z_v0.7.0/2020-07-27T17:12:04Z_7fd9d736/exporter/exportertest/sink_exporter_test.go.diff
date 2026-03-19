@@ -1,0 +1,15 @@
+diff --git a/exporter/exportertest/sink_exporter_test.go b/exporter/exportertest/sink_exporter_test.go
+index 9716c7232..2d17adac1 100644
+--- a/exporter/exportertest/sink_exporter_test.go
++++ b/exporter/exportertest/sink_exporter_test.go
+@@ -146,6 +146,10 @@ func TestSinkLogsExporter(t *testing.T) {
+ 	}
+ 	assert.Equal(t, want, sink.AllLogs())
+ 	assert.Equal(t, len(want), sink.LogRecordsCount())
++
++	sink.Reset()
++	assert.Equal(t, 0, len(sink.AllLogs()))
++
+ 	require.NoError(t, sink.Shutdown(context.Background()))
+ }
+ 

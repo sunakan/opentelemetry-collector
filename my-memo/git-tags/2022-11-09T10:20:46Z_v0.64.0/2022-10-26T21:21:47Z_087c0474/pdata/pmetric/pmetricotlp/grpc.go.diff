@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/pmetricotlp/grpc.go b/pdata/pmetric/pmetricotlp/grpc.go
+index fc24529d7..ed4784107 100644
+--- a/pdata/pmetric/pmetricotlp/grpc.go
++++ b/pdata/pmetric/pmetricotlp/grpc.go
+@@ -39,9 +39,6 @@ func NewGRPCClient(cc *grpc.ClientConn) GRPCClient {
+ 	return &grpcClient{rawClient: otlpcollectormetrics.NewMetricsServiceClient(cc)}
+ }
+ 
+-// Deprecated: [v0.63.0]: use NewGRPCClient.
+-var NewClient = NewGRPCClient
+-
+ type grpcClient struct {
+ 	rawClient otlpcollectormetrics.MetricsServiceClient
+ }

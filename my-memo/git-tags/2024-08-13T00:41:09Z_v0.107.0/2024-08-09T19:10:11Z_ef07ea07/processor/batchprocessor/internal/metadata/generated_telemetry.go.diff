@@ -1,0 +1,21 @@
+diff --git a/processor/batchprocessor/internal/metadata/generated_telemetry.go b/processor/batchprocessor/internal/metadata/generated_telemetry.go
+index 9b64048ac..554da0686 100644
+--- a/processor/batchprocessor/internal/metadata/generated_telemetry.go
++++ b/processor/batchprocessor/internal/metadata/generated_telemetry.go
+@@ -14,14 +14,12 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+-const ScopeName = "go.opentelemetry.io/collector/processor/batchprocessor"
+-
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter(ScopeName)
++	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/processor/batchprocessor")
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer(ScopeName)
++	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/processor/batchprocessor")
+ }
+ 
+ // TelemetryBuilder provides an interface for components to report telemetry

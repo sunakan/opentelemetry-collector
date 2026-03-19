@@ -1,0 +1,13 @@
+diff --git a/otelcol/internal/grpclog/logger.go b/otelcol/internal/grpclog/logger.go
+index 39b56f748..8f48fe720 100644
+--- a/otelcol/internal/grpclog/logger.go
++++ b/otelcol/internal/grpclog/logger.go
+@@ -27,7 +27,7 @@ func SetLogger(baseLogger *zap.Logger, loglevel zapcore.Level) *zapgrpc.Logger {
+ 			c = core
+ 		}
+ 		return c.With([]zapcore.Field{zap.Bool("grpc_log", true)})
+-	})))
++	}), zap.AddCallerSkip(5)))
+ 
+ 	grpclog.SetLoggerV2(logger)
+ 	return logger

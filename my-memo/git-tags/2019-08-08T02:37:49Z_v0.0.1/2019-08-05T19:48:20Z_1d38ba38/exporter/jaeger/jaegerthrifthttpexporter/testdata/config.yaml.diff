@@ -1,0 +1,28 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/testdata/config.yaml b/exporter/jaeger/jaegerthrifthttpexporter/testdata/config.yaml
+new file mode 100644
+index 000000000..937ca7f9d
+--- /dev/null
++++ b/exporter/jaeger/jaegerthrifthttpexporter/testdata/config.yaml
+@@ -0,0 +1,21 @@
++receivers:
++  examplereceiver:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  jaeger-thrift-http:
++    url: "http://some.location:14268/api/traces"
++  jaeger-thrift-http/2:
++    url: "http://some.other.location/api/traces"
++    timeout: 2s
++    headers:
++      added-entry: "added value"
++      dot.test: test
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [exampleprocessor]
++    exporters: [jaeger-thrift-http, jaeger-thrift-http/2]
+\ No newline at end of file

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/queued_retry_inmemory.go b/exporter/exporterhelper/queued_retry_inmemory.go
+index 7dc3a23b8..ca9a46d44 100644
+--- a/exporter/exporterhelper/queued_retry_inmemory.go
++++ b/exporter/exporterhelper/queued_retry_inmemory.go
+@@ -44,9 +44,6 @@ type QueueSettings struct {
+ 	QueueSize int `mapstructure:"queue_size"`
+ }
+ 
+-// Deprecated: [v0.46.0] use NewDefaultQueueSettings instead.
+-var DefaultQueueSettings = NewDefaultQueueSettings
+-
+ // NewDefaultQueueSettings returns the default settings for QueueSettings.
+ func NewDefaultQueueSettings() QueueSettings {
+ 	return QueueSettings{

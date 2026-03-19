@@ -1,0 +1,20 @@
+diff --git a/model/pdata/traces_test.go b/model/pdata/traces_test.go
+index a6c1832c0..b6be7b258 100644
+--- a/model/pdata/traces_test.go
++++ b/model/pdata/traces_test.go
+@@ -116,6 +116,15 @@ func TestResourceSpansWireCompatibility(t *testing.T) {
+ 	assert.EqualValues(t, traces.orig, &gogoprotoRS2)
+ }
+ 
++func TestTracesMoveTo(t *testing.T) {
++	traces := NewTraces()
++	fillTestResourceSpansSlice(traces.ResourceSpans())
++	dest := NewTraces()
++	traces.MoveTo(dest)
++	assert.EqualValues(t, NewTraces(), traces)
++	assert.EqualValues(t, generateTestResourceSpansSlice(), dest.ResourceSpans())
++}
++
+ func TestTracesClone(t *testing.T) {
+ 	traces := NewTraces()
+ 	fillTestResourceSpansSlice(traces.ResourceSpans())

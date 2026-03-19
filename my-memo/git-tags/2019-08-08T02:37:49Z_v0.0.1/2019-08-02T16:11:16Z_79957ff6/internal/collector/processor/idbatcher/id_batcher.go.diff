@@ -1,0 +1,21 @@
+diff --git a/internal/collector/processor/idbatcher/id_batcher.go b/internal/collector/processor/idbatcher/id_batcher.go
+index 6b04437d3..bd50d2aed 100644
+--- a/internal/collector/processor/idbatcher/id_batcher.go
++++ b/internal/collector/processor/idbatcher/id_batcher.go
+@@ -67,7 +67,6 @@ type batcher struct {
+ 	cbMutex      sync.Mutex
+ 	currentBatch Batch
+ 
+-	numBatches                uint64
+ 	newBatchesInitialCapacity uint64
+ 	stopchan                  chan bool
+ 	stopped                   bool
+@@ -120,7 +119,7 @@ func (b *batcher) AddToCurrentBatch(id ID) {
+ }
+ 
+ func (b *batcher) CloseCurrentAndTakeFirstBatch() (Batch, bool) {
+-	for readBatch := range b.batches {
++	if readBatch, ok := <-b.batches; ok {
+ 		if !b.stopped {
+ 			nextBatch := make(Batch, 0, b.newBatchesInitialCapacity)
+ 			b.cbMutex.Lock()

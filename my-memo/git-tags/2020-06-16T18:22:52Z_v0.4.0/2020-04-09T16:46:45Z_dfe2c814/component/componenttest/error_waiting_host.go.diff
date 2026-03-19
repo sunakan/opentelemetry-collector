@@ -1,0 +1,20 @@
+diff --git a/component/componenttest/error_waiting_host.go b/component/componenttest/error_waiting_host.go
+index 03f91a452..b134f995f 100644
+--- a/component/componenttest/error_waiting_host.go
++++ b/component/componenttest/error_waiting_host.go
+@@ -18,6 +18,7 @@ import (
+ 	"time"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // ErrorWaitingHost mocks an component.Host for test purposes.
+@@ -59,3 +60,7 @@ func (ews *ErrorWaitingHost) WaitForFatalError(timeout time.Duration) (receivedE
+ func (ews *ErrorWaitingHost) GetFactory(_ component.Kind, _ string) component.Factory {
+ 	return nil
+ }
++
++func (ews *ErrorWaitingHost) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++	return nil
++}

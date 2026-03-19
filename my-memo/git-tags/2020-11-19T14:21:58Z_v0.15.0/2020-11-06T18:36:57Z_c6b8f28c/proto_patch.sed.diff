@@ -1,0 +1,13 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+index c89d52234..e5d48a1ea 100644
+--- a/proto_patch.sed
++++ b/proto_patch.sed
+@@ -32,3 +32,8 @@ s+repeated opentelemetry.proto.common.v1.StringKeyValue \(.*\);+repeated opentel
+   [\
+   (gogoproto.nullable) = false\
+   ];+g
++
++s+opentelemetry.proto.resource.v1.Resource resource = \(.*\);+opentelemetry.proto.resource.v1.Resource resource = \1\
++  [\
++  (gogoproto.nullable) = false\
++  ];+g

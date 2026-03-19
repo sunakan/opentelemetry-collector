@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/otlphttp_test.go b/internal/e2e/otlphttp_test.go
+index 6a47752ac..f5f7b4648 100644
+--- a/internal/e2e/otlphttp_test.go
++++ b/internal/e2e/otlphttp_test.go
+@@ -67,7 +67,7 @@ func TestTraceNoBackend(t *testing.T) {
+ 	assert.Error(t, exp.ConsumeTraces(context.Background(), td))
+ }
+ 
+-func TestTraceInvalidUrl(t *testing.T) {
++func TestTraceInvalidURL(t *testing.T) {
+ 	exp := startTraces(t, "http:/\\//this_is_an/*/invalid_url", "")
+ 	td := testdata.GenerateTraces(1)
+ 	require.Error(t, exp.ConsumeTraces(context.Background(), td))

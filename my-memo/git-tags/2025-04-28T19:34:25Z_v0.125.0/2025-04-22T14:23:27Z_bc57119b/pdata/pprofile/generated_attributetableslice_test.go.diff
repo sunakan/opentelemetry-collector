@@ -1,0 +1,18 @@
+diff --git a/pdata/pprofile/generated_attributetableslice_test.go b/pdata/pprofile/generated_attributetableslice_test.go
+index fe04fecd2..53259abf8 100644
+--- a/pdata/pprofile/generated_attributetableslice_test.go
++++ b/pdata/pprofile/generated_attributetableslice_test.go
+@@ -102,6 +102,13 @@ func TestAttributeTableSlice_MoveAndAppendTo(t *testing.T) {
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i))
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
+ 	}
++
++	dest.MoveAndAppendTo(dest)
++	assert.Equal(t, 2*expectedSlice.Len(), dest.Len())
++	for i := 0; i < expectedSlice.Len(); i++ {
++		assert.Equal(t, expectedSlice.At(i), dest.At(i))
++		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
++	}
+ }
+ 
+ func TestAttributeTableSlice_RemoveIf(t *testing.T) {

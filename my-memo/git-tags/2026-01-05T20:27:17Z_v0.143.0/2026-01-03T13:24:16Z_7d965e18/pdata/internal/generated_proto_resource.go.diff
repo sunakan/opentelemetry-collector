@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/generated_proto_resource.go b/pdata/internal/generated_proto_resource.go
+index f23bbfc0d..c1b1986d4 100644
+--- a/pdata/internal/generated_proto_resource.go
++++ b/pdata/internal/generated_proto_resource.go
+@@ -45,14 +45,13 @@ func DeleteResource(orig *Resource, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.Attributes {
+ 		DeleteKeyValue(&orig.Attributes[i], false)
+ 	}
++
+ 	for i := range orig.EntityRefs {
+ 		DeleteEntityRef(orig.EntityRefs[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolResource.Put(orig)

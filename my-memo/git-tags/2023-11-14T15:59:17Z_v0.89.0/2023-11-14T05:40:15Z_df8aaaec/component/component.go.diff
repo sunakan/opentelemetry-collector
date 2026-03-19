@@ -1,0 +1,27 @@
+diff --git a/component/component.go b/component/component.go
+index 3b3fe3fc7..e5f9e78c9 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -96,6 +96,22 @@ const (
+ 	KindConnector
+ )
+ 
++func (k Kind) String() string {
++	switch k {
++	case KindReceiver:
++		return "Receiver"
++	case KindProcessor:
++		return "Processor"
++	case KindExporter:
++		return "Exporter"
++	case KindExtension:
++		return "Extension"
++	case KindConnector:
++		return "Connector"
++	}
++	return ""
++}
++
+ // StabilityLevel represents the stability level of the component created by the factory.
+ // The stability level is used to determine if the component should be used in production
+ // or not. For more details see:

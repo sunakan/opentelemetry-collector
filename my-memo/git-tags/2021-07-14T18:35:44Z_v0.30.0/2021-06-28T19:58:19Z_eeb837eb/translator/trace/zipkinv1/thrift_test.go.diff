@@ -1,0 +1,24 @@
+diff --git a/translator/trace/zipkinv1/thrift_test.go b/translator/trace/zipkinv1/thrift_test.go
+index 8747827fa..8d2dba0d8 100644
+--- a/translator/trace/zipkinv1/thrift_test.go
++++ b/translator/trace/zipkinv1/thrift_test.go
+@@ -51,17 +51,9 @@ func TestV1ThriftToTraces(t *testing.T) {
+ 	require.NoError(t, json.Unmarshal(blob, &zSpans), "failed to unmarshal json test file")
+ 	thriftBytes := zipkin.SerializeThrift(zSpans)
+ 
+-	got, err := thriftDecoder{}.DecodeTraces(thriftBytes)
++	td, err := thriftUnmarshaler{}.UnmarshalTraces(thriftBytes)
+ 	require.NoError(t, err, "Failed to translate zipkinv1 thrift to OC proto")
+-
+-	td := got.([]traceData)
+-	spanCount := 0
+-
+-	for _, data := range td {
+-		spanCount += len(data.Spans)
+-	}
+-
+-	assert.Equal(t, 5, spanCount)
++	assert.Equal(t, 5, td.SpanCount())
+ }
+ 
+ func TestZipkinThriftFallbackToLocalComponent(t *testing.T) {

@@ -1,0 +1,28 @@
+diff --git a/cmd/builder/test/default.otel.yaml b/cmd/builder/test/default.otel.yaml
+deleted file mode 100644
+index e87c0fc67..000000000
+--- a/cmd/builder/test/default.otel.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-extensions:
+-  zpages:
+-
+-receivers:
+-  otlp:
+-    protocols:
+-      grpc:
+-
+-processors:
+-
+-exporters:
+-  debug:
+-
+-service:
+-  extensions: [zpages]
+-  pipelines:
+-    traces:
+-      receivers:
+-        - otlp
+-      processors: []
+-      exporters:
+-        - debug

@@ -1,0 +1,27 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 87e5f3b4c..3ab2bb6dc 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -22,6 +22,7 @@ import (
+ 	"fmt"
+ 	"os"
+ 	"syscall"
++	"time"
+ 
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+@@ -103,11 +104,13 @@ func (s *WindowsService) start(elog *eventlog.Log, colErrorChannel chan error) e
+ 
+ 	// wait until the collector server is in the Running state
+ 	go func() {
+-		for state := range s.col.GetStateChannel() {
++		for {
++			state := s.col.GetState()
+ 			if state == Running {
+ 				colErrorChannel <- nil
+ 				break
+ 			}
++			time.Sleep(time.Millisecond * 200)
+ 		}
+ 	}()
+ 

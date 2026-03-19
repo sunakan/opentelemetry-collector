@@ -1,0 +1,33 @@
+diff --git a/pdata/ptrace/json.go b/pdata/ptrace/json.go
+index 75e6733a0..ccc194f6c 100644
+--- a/pdata/ptrace/json.go
++++ b/pdata/ptrace/json.go
+@@ -28,17 +28,13 @@ import (
+ 
+ // NewJSONMarshaler returns a model.Marshaler. Marshals to OTLP json bytes.
+ func NewJSONMarshaler() Marshaler {
+-	return newJSONMarshaler()
++	return &jsonMarshaler{delegate: jsonpb.Marshaler{}}
+ }
+ 
+ type jsonMarshaler struct {
+ 	delegate jsonpb.Marshaler
+ }
+ 
+-func newJSONMarshaler() *jsonMarshaler {
+-	return &jsonMarshaler{delegate: jsonpb.Marshaler{}}
+-}
+-
+ func (e *jsonMarshaler) MarshalTraces(td Traces) ([]byte, error) {
+ 	buf := bytes.Buffer{}
+ 	pb := internal.TracesToProto(internal.Traces(td))
+@@ -51,8 +47,7 @@ func NewJSONUnmarshaler() Unmarshaler {
+ 	return &jsonUnmarshaler{}
+ }
+ 
+-type jsonUnmarshaler struct {
+-}
++type jsonUnmarshaler struct{}
+ 
+ func (jsonUnmarshaler) UnmarshalTraces(buf []byte) (Traces, error) {
+ 	iter := jsoniter.ConfigFastest.BorrowIterator(buf)

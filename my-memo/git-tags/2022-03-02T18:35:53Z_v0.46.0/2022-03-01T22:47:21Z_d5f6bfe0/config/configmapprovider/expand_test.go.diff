@@ -1,0 +1,12 @@
+diff --git a/config/configmapprovider/expand_test.go b/config/configmapprovider/expand_test.go
+index f421ce7dd..5f427ffd8 100644
+--- a/config/configmapprovider/expand_test.go
++++ b/config/configmapprovider/expand_test.go
+@@ -120,6 +120,5 @@ func loadConfigMap(fileName string) (*config.Map, error) {
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-
+-	return ret.Get(context.Background())
++	return ret.Map, nil
+ }

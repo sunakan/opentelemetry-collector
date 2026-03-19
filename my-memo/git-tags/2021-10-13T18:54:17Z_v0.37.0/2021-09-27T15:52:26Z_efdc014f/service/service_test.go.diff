@@ -1,0 +1,21 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 415105cbd..b1875c790 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -21,7 +21,6 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+@@ -107,7 +106,7 @@ func createExampleService(t *testing.T) *service {
+ 	srv, err := newService(&svcSettings{
+ 		BuildInfo: component.DefaultBuildInfo(),
+ 		Factories: factories,
+-		Logger:    zap.NewNop(),
++		Telemetry: componenttest.NewNopTelemetrySettings(),
+ 		Config:    cfg,
+ 	})
+ 	require.NoError(t, err)

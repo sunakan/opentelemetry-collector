@@ -1,0 +1,17 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 19fc97b93..24d5202d1 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -21,9 +21,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/config/configcheck"
++	"go.opentelemetry.io/collector/config/configerror"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

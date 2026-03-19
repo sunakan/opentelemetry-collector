@@ -1,0 +1,27 @@
+diff --git a/processor/processorhelper/internal/metadata/generated_telemetry_test.go b/processor/processorhelper/internal/metadata/generated_telemetry_test.go
+index 21457f0a3..c63bd7048 100644
+--- a/processor/processorhelper/internal/metadata/generated_telemetry_test.go
++++ b/processor/processorhelper/internal/metadata/generated_telemetry_test.go
+@@ -14,6 +14,7 @@ import (
+ 	nooptrace "go.opentelemetry.io/otel/trace/noop"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+@@ -67,13 +68,7 @@ func TestProviders(t *testing.T) {
+ }
+ 
+ func TestNewTelemetryBuilder(t *testing.T) {
+-	set := component.TelemetrySettings{
+-		LeveledMeterProvider: func(_ configtelemetry.Level) metric.MeterProvider {
+-			return mockMeterProvider{}
+-		},
+-		MeterProvider:  mockMeterProvider{},
+-		TracerProvider: mockTracerProvider{},
+-	}
++	set := componenttest.NewNopTelemetrySettings()
+ 	applied := false
+ 	_, err := NewTelemetryBuilder(set, telemetryBuilderOptionFunc(func(b *TelemetryBuilder) {
+ 		applied = true

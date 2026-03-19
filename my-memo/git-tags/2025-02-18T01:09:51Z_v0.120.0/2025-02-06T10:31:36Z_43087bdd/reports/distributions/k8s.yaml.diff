@@ -1,0 +1,24 @@
+diff --git a/reports/distributions/k8s.yaml b/reports/distributions/k8s.yaml
+new file mode 100644
+index 000000000..7b7844012
+--- /dev/null
++++ b/reports/distributions/k8s.yaml
+@@ -0,0 +1,18 @@
++name: k8s
++url: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-k8s
++maintainers: []
++components:
++    connector:
++        - forward
++    exporter:
++        - debug
++        - nop
++        - otlp
++        - otlphttp
++    extension:
++        - zpages
++    processor:
++        - batch
++        - memory_limiter
++    receiver:
++        - otlp

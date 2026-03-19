@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
+index 3a9bb6448..c74045885 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
+@@ -26,8 +26,8 @@ const (
+ )
+ 
+ const (
+-	receiveDirectionLabelValue  = "receive"
+-	transmitDirectionLabelValue = "transmit"
++	readDirectionLabelValue  = "read"
++	writeDirectionLabelValue = "write"
+ )
+ 
+ var metricDiskBytesDescriptor = createMetricDiskBytesDescriptor()

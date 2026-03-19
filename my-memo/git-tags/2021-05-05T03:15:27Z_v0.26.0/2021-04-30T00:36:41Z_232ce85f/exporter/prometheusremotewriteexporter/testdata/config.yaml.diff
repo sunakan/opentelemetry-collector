@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/testdata/config.yaml b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+index 56e8302a6..0a64a130f 100644
+--- a/exporter/prometheusremotewriteexporter/testdata/config.yaml
++++ b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+@@ -26,6 +26,8 @@ exporters:
+         external_labels:
+             key1: value1
+             key2: value2
++        resource_to_telemetry_conversion:
++            enabled: true
+ 
+ service:
+     pipelines:

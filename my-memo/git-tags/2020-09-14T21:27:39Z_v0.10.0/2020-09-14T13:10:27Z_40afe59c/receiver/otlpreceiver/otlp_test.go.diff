@@ -1,0 +1,25 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index cf9c33165..8fa46a6f1 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -17,6 +17,7 @@ package otlpreceiver
+ import (
+ 	"bytes"
+ 	"context"
++	"encoding/json"
+ 	"fmt"
+ 	"io/ioutil"
+ 	"net"
+@@ -126,7 +127,11 @@ func TestGrpcGateway_endToEnd(t *testing.T) {
+ 		t.Errorf("Unexpected status from trace grpc-gateway: %v", resp.StatusCode)
+ 	}
+ 
+-	if respStr != "{}" {
++	var respJSON map[string]interface{}
++	err = json.Unmarshal([]byte(respStr), &respJSON)
++	assert.NoError(t, err)
++
++	if len(respJSON) != 0 {
+ 		t.Errorf("Got unexpected response from trace grpc-gateway: %v", respStr)
+ 	}
+ 

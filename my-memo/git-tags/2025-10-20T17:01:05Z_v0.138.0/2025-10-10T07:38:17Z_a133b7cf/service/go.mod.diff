@@ -1,0 +1,24 @@
+diff --git a/service/go.mod b/service/go.mod
+index 0dffc4cf9..2e7946130 100644
+--- a/service/go.mod
++++ b/service/go.mod
+@@ -242,8 +242,6 @@ replace go.opentelemetry.io/collector/extension/xextension => ../extension/xexte
+ 
+ replace go.opentelemetry.io/collector/otelcol => ../otelcol
+ 
+-replace go.opentelemetry.io/collector/confmap/provider/yamlprovider => ../confmap/provider/yamlprovider
+-
+ replace go.opentelemetry.io/collector/confmap/provider/fileprovider => ../confmap/provider/fileprovider
+ 
+ replace go.opentelemetry.io/collector/extension/extensionmiddleware => ../extension/extensionmiddleware
+@@ -252,8 +250,8 @@ replace go.opentelemetry.io/collector/config/configmiddleware => ../config/confi
+ 
+ replace go.opentelemetry.io/collector/extension/extensionmiddleware/extensionmiddlewaretest => ../extension/extensionmiddleware/extensionmiddlewaretest
+ 
+-replace go.opentelemetry.io/collector/config/configoptional => ../config/configoptional
+-
+ replace go.opentelemetry.io/collector/pdata/xpdata => ../pdata/xpdata
+ 
+ replace go.opentelemetry.io/collector/exporter/exporterhelper => ../exporter/exporterhelper
++
++replace go.opentelemetry.io/collector/config/configoptional => ../config/configoptional

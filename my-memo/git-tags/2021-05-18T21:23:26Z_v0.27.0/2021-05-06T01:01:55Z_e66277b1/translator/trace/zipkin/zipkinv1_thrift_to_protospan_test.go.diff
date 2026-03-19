@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+index 6920e994f..9da4db8a7 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+@@ -419,7 +419,7 @@ func TestZipkinThriftAnnotationsToOCStatus(t *testing.T) {
+ 
+ func TestThriftHTTPToGRPCStatusCode(t *testing.T) {
+ 	for i := int32(100); i <= 600; i++ {
+-		wantStatus := tracetranslator.OCStatusCodeFromHTTP(i)
++		wantStatus := ocStatusCodeFromHTTP(i)
+ 		gb, err := v1ThriftBatchToOCProto([]*zipkincore.Span{{
+ 			ID:      1,
+ 			TraceID: 1,

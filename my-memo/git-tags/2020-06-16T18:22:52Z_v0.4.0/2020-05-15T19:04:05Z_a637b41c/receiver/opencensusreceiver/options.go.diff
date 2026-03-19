@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/options.go b/receiver/opencensusreceiver/options.go
+index 7e4766fc9..a28eb7813 100644
+--- a/receiver/opencensusreceiver/options.go
++++ b/receiver/opencensusreceiver/options.go
+@@ -17,7 +17,7 @@ package opencensusreceiver
+ import (
+ 	"google.golang.org/grpc"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/opencensusreceiver/octrace"
++	"go.opentelemetry.io/collector/receiver/opencensusreceiver/octrace"
+ )
+ 
+ // Option interface defines for configuration settings to be applied to receivers.

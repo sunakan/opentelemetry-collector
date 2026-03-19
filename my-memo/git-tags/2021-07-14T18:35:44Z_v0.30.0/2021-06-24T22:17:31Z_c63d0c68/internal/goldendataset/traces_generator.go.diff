@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/traces_generator.go b/internal/goldendataset/traces_generator.go
+index dcc1c0036..16d544b20 100644
+--- a/internal/goldendataset/traces_generator.go
++++ b/internal/goldendataset/traces_generator.go
+@@ -19,7 +19,7 @@ import (
+ 	"io"
+ 	"math/rand"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // GenerateTraces generates a slice of OTLP ResourceSpans objects based on the PICT-generated pairwise

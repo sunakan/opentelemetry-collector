@@ -1,0 +1,12 @@
+diff --git a/receiver/nopreceiver/metadata.yaml b/receiver/nopreceiver/metadata.yaml
+index 1a2de246a..6a03166e7 100644
+--- a/receiver/nopreceiver/metadata.yaml
++++ b/receiver/nopreceiver/metadata.yaml
+@@ -3,5 +3,5 @@ type: nop
+ status:
+   class: receiver
+   stability:
+-    development: [traces, metrics, logs]
+-  distributions: []
++    beta: [traces, metrics, logs]
++  distributions: [core, contrib]

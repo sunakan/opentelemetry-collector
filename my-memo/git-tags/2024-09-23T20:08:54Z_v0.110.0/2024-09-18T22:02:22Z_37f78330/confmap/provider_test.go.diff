@@ -1,0 +1,22 @@
+diff --git a/confmap/provider_test.go b/confmap/provider_test.go
+index 32554a524..e82ddf903 100644
+--- a/confmap/provider_test.go
++++ b/confmap/provider_test.go
+@@ -60,7 +60,7 @@ func TestNewRetrievedFromYAMLInvalidYAMLBytes(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	_, err = ret.AsConf()
+-	assert.Error(t, err)
++	require.Error(t, err)
+ 
+ 	str, err := ret.AsString()
+ 	require.NoError(t, err)
+@@ -76,7 +76,7 @@ func TestNewRetrievedFromYAMLInvalidAsMap(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	_, err = ret.AsConf()
+-	assert.Error(t, err)
++	require.Error(t, err)
+ 
+ 	str, err := ret.AsString()
+ 	require.NoError(t, err)

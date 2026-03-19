@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_sum.go b/pdata/internal/generated_wrapper_sum.go
+index 3b03f1bd8..0814a7e66 100644
+--- a/pdata/internal/generated_wrapper_sum.go
++++ b/pdata/internal/generated_wrapper_sum.go
+@@ -28,10 +28,12 @@ func CopyOrigSum(dest, src *otlpmetrics.Sum) {
+ 	dest.IsMonotonic = src.IsMonotonic
+ }
+ 
+-func FillOrigTestSum(orig *otlpmetrics.Sum) {
++func GenTestOrigSum() *otlpmetrics.Sum {
++	orig := NewOrigPtrSum()
+ 	orig.DataPoints = GenerateOrigTestNumberDataPointSlice()
+ 	orig.AggregationTemporality = otlpmetrics.AggregationTemporality(1)
+ 	orig.IsMonotonic = true
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

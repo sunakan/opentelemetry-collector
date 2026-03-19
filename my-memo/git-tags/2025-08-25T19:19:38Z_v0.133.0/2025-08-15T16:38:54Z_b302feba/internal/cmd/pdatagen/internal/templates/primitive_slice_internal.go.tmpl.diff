@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/primitive_slice_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/primitive_slice_internal.go.tmpl
+index eaf1f64d4..46e473b36 100644
+--- a/internal/cmd/pdatagen/internal/templates/primitive_slice_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/primitive_slice_internal.go.tmpl
+@@ -31,8 +31,7 @@ func New{{ .structName }}(orig *[]{{ .itemType }}, state *State) {{ .structName
+ 
+ func GenerateTest{{ .structName }}() {{ .structName }} {
+ 	orig := GenerateOrigTest{{ .elementOriginName }}Slice()
+-	state := StateMutable
+-	return New{{ .structName }}(&orig, &state)
++	return New{{ .structName }}(&orig, NewState())
+ }
+ 
+ func CopyOrig{{ .elementOriginName }}Slice(dst, src []{{ .itemType }}) []{{ .itemType }} {

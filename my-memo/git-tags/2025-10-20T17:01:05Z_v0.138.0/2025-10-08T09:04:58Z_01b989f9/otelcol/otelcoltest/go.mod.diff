@@ -1,0 +1,13 @@
+diff --git a/otelcol/otelcoltest/go.mod b/otelcol/otelcoltest/go.mod
+index 085edd7a0..15b64adbf 100644
+--- a/otelcol/otelcoltest/go.mod
++++ b/otelcol/otelcoltest/go.mod
+@@ -211,6 +211,8 @@ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extensi
+ 
+ replace go.opentelemetry.io/collector/service => ../../service
+ 
++replace go.opentelemetry.io/collector/service/telemetry/telemetrytest => ../../service/telemetry/telemetrytest
++
+ replace go.opentelemetry.io/collector/service/hostcapabilities => ../../service/hostcapabilities
+ 
+ replace go.opentelemetry.io/collector/internal/fanoutconsumer => ../../internal/fanoutconsumer

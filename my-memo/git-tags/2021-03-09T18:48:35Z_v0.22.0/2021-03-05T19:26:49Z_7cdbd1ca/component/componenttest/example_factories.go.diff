@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/example_factories.go b/component/componenttest/example_factories.go
+index c79f7bed5..d607693fd 100644
+--- a/component/componenttest/example_factories.go
++++ b/component/componenttest/example_factories.go
+@@ -473,7 +473,7 @@ func (f *ExampleExtensionFactory) CreateDefaultConfig() configmodels.Extension {
+ }
+ 
+ // CreateExtension creates an Extension based on this config.
+-func (f *ExampleExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateParams, _ configmodels.Extension) (component.ServiceExtension, error) {
++func (f *ExampleExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateParams, _ configmodels.Extension) (component.Extension, error) {
+ 	if f.FailCreation {
+ 		return nil, fmt.Errorf("cannot create %q extension type", f.Type())
+ 	}

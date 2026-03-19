@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/processors.go b/service/internal/configunmarshaler/processors.go
+index 7a51720d0..9b49799be 100644
+--- a/service/internal/configunmarshaler/processors.go
++++ b/service/internal/configunmarshaler/processors.go
+@@ -52,7 +52,7 @@ func (p *Processors) Unmarshal(conf *confmap.Conf) error {
+ 
+ 		// Create the default config for this processor.
+ 		processorCfg := factory.CreateDefaultConfig()
+-		processorCfg.SetIDName(id.Name())
++		processorCfg.SetIDName(id.Name()) //nolint:staticcheck
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it,
+ 		// and it will apply user-defined config on top of the default.

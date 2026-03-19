@@ -1,0 +1,13 @@
+diff --git a/extension/oidcauthextension/factory.go b/extension/oidcauthextension/factory.go
+index 62f594e7a..d27fc6386 100644
+--- a/extension/oidcauthextension/factory.go
++++ b/extension/oidcauthextension/factory.go
+@@ -44,6 +44,6 @@ func createDefaultConfig() config.Extension {
+ 	}
+ }
+ 
+-func createExtension(_ context.Context, params component.ExtensionCreateParams, cfg config.Extension) (component.Extension, error) {
+-	return newExtension(cfg.(*Config), params.Logger)
++func createExtension(_ context.Context, set component.ExtensionCreateSettings, cfg config.Extension) (component.Extension, error) {
++	return newExtension(cfg.(*Config), set.Logger)
+ }

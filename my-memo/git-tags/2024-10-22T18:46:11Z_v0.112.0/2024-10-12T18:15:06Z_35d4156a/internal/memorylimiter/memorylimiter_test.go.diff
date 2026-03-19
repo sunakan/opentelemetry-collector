@@ -1,0 +1,13 @@
+diff --git a/internal/memorylimiter/memorylimiter_test.go b/internal/memorylimiter/memorylimiter_test.go
+index 89924484e..6096877cc 100644
+--- a/internal/memorylimiter/memorylimiter_test.go
++++ b/internal/memorylimiter/memorylimiter_test.go
+@@ -12,7 +12,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/internal/iruntime"
++	"go.opentelemetry.io/collector/internal/memorylimiter/iruntime"
+ )
+ 
+ // TestMemoryPressureResponse manipulates results from querying memory and

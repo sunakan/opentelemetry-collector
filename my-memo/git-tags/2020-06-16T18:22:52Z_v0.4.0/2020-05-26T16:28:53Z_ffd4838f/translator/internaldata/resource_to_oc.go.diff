@@ -1,0 +1,22 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index 80cfcb7af..fb0a36e24 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -79,7 +79,7 @@ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.
+ 				ocNode.Identifier = &occommon.ProcessIdentifier{}
+ 			}
+ 			ocNode.Identifier.Pid = uint32(pid)
+-		case conventions.AttributeLibraryVersion:
++		case conventions.AttributeTelemetrySDKVersion:
+ 			if ocNode.LibraryInfo == nil {
+ 				ocNode.LibraryInfo = &occommon.LibraryInfo{}
+ 			}
+@@ -89,7 +89,7 @@ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.
+ 				ocNode.LibraryInfo = &occommon.LibraryInfo{}
+ 			}
+ 			ocNode.LibraryInfo.ExporterVersion = val
+-		case conventions.AttributeLibraryLanguage:
++		case conventions.AttributeTelemetrySDKLanguage:
+ 			if code, ok := occommon.LibraryInfo_Language_value[val]; ok {
+ 				if ocNode.LibraryInfo == nil {
+ 					ocNode.LibraryInfo = &occommon.LibraryInfo{}

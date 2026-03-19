@@ -1,0 +1,17 @@
+diff --git a/internal/testcomponents/example_receiver.go b/internal/testcomponents/example_receiver.go
+index 22e0ca2c2..be899a27a 100644
+--- a/internal/testcomponents/example_receiver.go
++++ b/internal/testcomponents/example_receiver.go
+@@ -33,9 +33,9 @@ type ExampleReceiverConfig struct {
+ var ExampleReceiverFactory = component.NewReceiverFactory(
+ 	receiverType,
+ 	createReceiverDefaultConfig,
+-	component.WithTracesReceiver(createTracesReceiver),
+-	component.WithMetricsReceiver(createMetricsReceiver),
+-	component.WithLogsReceiver(createLogsReceiver))
++	component.WithTracesReceiverAndStabilityLevel(createTracesReceiver, component.StabilityLevelInDevelopment),
++	component.WithMetricsReceiverAndStabilityLevel(createMetricsReceiver, component.StabilityLevelInDevelopment),
++	component.WithLogsReceiverAndStabilityLevel(createLogsReceiver, component.StabilityLevelInDevelopment))
+ 
+ func createReceiverDefaultConfig() config.Receiver {
+ 	return &ExampleReceiverConfig{

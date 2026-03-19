@@ -1,0 +1,12 @@
+diff --git a/extension/experimental/storage/storage.go b/extension/experimental/storage/storage.go
+index 184787db0..901b6fdd8 100644
+--- a/extension/experimental/storage/storage.go
++++ b/extension/experimental/storage/storage.go
+@@ -35,7 +35,6 @@ type Extension interface {
+ //
+ //	[overwrite | not-found | no-op] from "real" problems
+ type Client interface {
+-
+ 	// Get will retrieve data from storage that corresponds to the
+ 	// specified key. It should return (nil, nil) if not found
+ 	Get(ctx context.Context, key string) ([]byte, error)

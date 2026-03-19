@@ -1,0 +1,43 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+index f40369d8c..e6530a97a 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+@@ -6,6 +6,7 @@ import (
+ 	"context"
+ 	"errors"
+ 
++	"go.opentelemetry.io/otel/attribute"
+ 	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
+@@ -30,6 +31,7 @@ type TelemetryBuilder struct {
+ 	observeProcessRuntimeTotalAllocBytes func() int64
+ 	RequestDuration                      metric.Float64Histogram
+ 	level                                configtelemetry.Level
++	attributeSet                         attribute.Set
+ }
+ 
+ // telemetryBuilderOption applies changes to default builder.
+@@ -42,6 +44,13 @@ func WithLevel(lvl configtelemetry.Level) telemetryBuilderOption {
+ 	}
+ }
+ 
++// WithAttributeSet applies a set of attributes for asynchronous instruments.
++func WithAttributeSet(set attribute.Set) telemetryBuilderOption {
++	return func(builder *TelemetryBuilder) {
++		builder.attributeSet = set
++	}
++}
++
+ // WithProcessRuntimeTotalAllocBytesCallback sets callback for observable ProcessRuntimeTotalAllocBytes metric.
+ func WithProcessRuntimeTotalAllocBytesCallback(cb func() int64) telemetryBuilderOption {
+ 	return func(builder *TelemetryBuilder) {
+@@ -76,7 +85,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...teleme
+ 		metric.WithDescription("Cumulative bytes allocated for heap objects (see 'go doc runtime.MemStats.TotalAlloc')"),
+ 		metric.WithUnit("By"),
+ 		metric.WithInt64Callback(func(_ context.Context, o metric.Int64Observer) error {
+-			o.Observe(builder.observeProcessRuntimeTotalAllocBytes())
++			o.Observe(builder.observeProcessRuntimeTotalAllocBytes(), metric.WithAttributeSet(builder.attributeSet))
+ 			return nil
+ 		}),
+ 	)

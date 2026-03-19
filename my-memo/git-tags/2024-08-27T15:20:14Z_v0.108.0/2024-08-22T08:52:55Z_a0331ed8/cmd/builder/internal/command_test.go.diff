@@ -1,0 +1,59 @@
+diff --git a/cmd/builder/internal/command_test.go b/cmd/builder/internal/command_test.go
+index d071efb31..c7d1b27e5 100644
+--- a/cmd/builder/internal/command_test.go
++++ b/cmd/builder/internal/command_test.go
+@@ -248,6 +248,54 @@ func Test_applyCfgFromFile(t *testing.T) {
+ 			},
+ 			wantErr: false,
+ 		},
++		{
++			name: "Skip new go mod false",
++			args: args{
++				flags: flag.NewFlagSet("version=1.0.0", 1),
++				cfgFromFile: builder.Config{
++					Logger:          zap.NewNop(),
++					SkipGenerate:    true,
++					SkipCompilation: true,
++					SkipGetModules:  true,
++					SkipNewGoModule: false,
++					Distribution:    testDistribution,
++				},
++			},
++			want: builder.Config{
++				Logger:               zap.NewNop(),
++				SkipGenerate:         true,
++				SkipCompilation:      true,
++				SkipGetModules:       true,
++				SkipStrictVersioning: true,
++				SkipNewGoModule:      false,
++				Distribution:         testDistribution,
++			},
++			wantErr: false,
++		},
++		{
++			name: "Skip new go mod true",
++			args: args{
++				flags: flag.NewFlagSet("version=1.0.0", 1),
++				cfgFromFile: builder.Config{
++					Logger:          zap.NewNop(),
++					SkipGenerate:    true,
++					SkipCompilation: true,
++					SkipGetModules:  true,
++					SkipNewGoModule: true,
++					Distribution:    testDistribution,
++				},
++			},
++			want: builder.Config{
++				Logger:               zap.NewNop(),
++				SkipGenerate:         true,
++				SkipCompilation:      true,
++				SkipGetModules:       true,
++				SkipStrictVersioning: true,
++				SkipNewGoModule:      true,
++				Distribution:         testDistribution,
++			},
++			wantErr: false,
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {

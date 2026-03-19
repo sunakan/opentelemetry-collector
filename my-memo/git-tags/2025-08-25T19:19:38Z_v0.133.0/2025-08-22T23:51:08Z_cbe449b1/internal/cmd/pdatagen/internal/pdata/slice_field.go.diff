@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/slice_field.go b/internal/cmd/pdatagen/internal/pdata/slice_field.go
+index 38164595f..97ccd004f 100644
+--- a/internal/cmd/pdatagen/internal/pdata/slice_field.go
++++ b/internal/cmd/pdatagen/internal/pdata/slice_field.go
+@@ -69,6 +69,10 @@ func (sf *SliceField) GenerateTestEncodingValues(*messageStruct) string {
+ 	return sf.toProtoField().GenTestEncodingValues()
+ }
+ 
++func (sf *SliceField) GeneratePoolOrig(*messageStruct) string {
++	return ""
++}
++
+ func (sf *SliceField) GenerateDeleteOrig(*messageStruct) string {
+ 	return sf.toProtoField().GenDeleteOrig()
+ }

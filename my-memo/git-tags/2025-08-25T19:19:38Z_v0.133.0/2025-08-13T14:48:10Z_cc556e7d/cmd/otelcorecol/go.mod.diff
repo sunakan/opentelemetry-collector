@@ -1,0 +1,15 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 0b74f3a0e..d9d512946 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -2,9 +2,7 @@
+ 
+ module go.opentelemetry.io/collector/cmd/otelcorecol
+ 
+-go 1.23.0
+-
+-toolchain go1.23.12
++go 1.24
+ 
+ require (
+ 	go.opentelemetry.io/collector/component v1.38.0

@@ -1,0 +1,15 @@
+diff --git a/internal/data/testdata/resource.go b/internal/data/testdata/resource.go
+index 7bee6d70f..68a93fc21 100644
+--- a/internal/data/testdata/resource.go
++++ b/internal/data/testdata/resource.go
+@@ -15,8 +15,9 @@
+ package testdata
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data"
+ 	otlpresource "github.com/open-telemetry/opentelemetry-proto/gen/go/resource/v1"
++
++	"github.com/open-telemetry/opentelemetry-collector/internal/data"
+ )
+ 
+ func initResource1(r data.Resource) {

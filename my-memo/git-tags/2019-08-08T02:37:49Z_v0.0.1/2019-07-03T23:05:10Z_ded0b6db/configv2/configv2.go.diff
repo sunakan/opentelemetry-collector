@@ -1,0 +1,13 @@
+diff --git a/configv2/configv2.go b/configv2/configv2.go
+index 9d485e6a4..f78dc13c7 100644
+--- a/configv2/configv2.go
++++ b/configv2/configv2.go
+@@ -183,7 +183,7 @@ func loadReceivers(v *viper.Viper) (models.Receivers, error) {
+ 		}
+ 
+ 		// Find receiver factory based on "type" that we read from config source
+-		factory := receiver.GetReceiverFactory(typeStr)
++		factory := receiver.GetFactory(typeStr)
+ 		if factory == nil {
+ 			return nil, &configError{
+ 				code: errUnknownReceiverType,

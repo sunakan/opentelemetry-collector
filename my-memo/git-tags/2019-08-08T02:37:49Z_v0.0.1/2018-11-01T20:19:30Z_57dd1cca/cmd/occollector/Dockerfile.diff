@@ -1,0 +1,10 @@
+diff --git a/cmd/occollector/Dockerfile b/cmd/occollector/Dockerfile
+new file mode 100644
+index 000000000..1eeaa2903
+--- /dev/null
++++ b/cmd/occollector/Dockerfile
+@@ -0,0 +1,4 @@
++FROM scratch
++COPY occollector_linux /
++ENTRYPOINT ["/occollector_linux"]
++EXPOSE 55678

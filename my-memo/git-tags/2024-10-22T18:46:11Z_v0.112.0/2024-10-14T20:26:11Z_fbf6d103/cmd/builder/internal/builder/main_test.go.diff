@@ -1,0 +1,21 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 5d26f372d..666901bb5 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -76,6 +76,8 @@ var (
+ 		"/extension/extensioncapabilities",
+ 		"/extension/zpagesextension",
+ 		"/featuregate",
++		"/internal/memorylimiter",
++		"/otelcol",
+ 		"/pipeline",
+ 		"/pipeline/pipelineprofiles",
+ 		"/processor",
+@@ -86,7 +88,6 @@ var (
+ 		"/receiver/nopreceiver",
+ 		"/receiver/otlpreceiver",
+ 		"/receiver/receiverprofiles",
+-		"/otelcol",
+ 		"/pdata",
+ 		"/pdata/testdata",
+ 		"/pdata/pprofile",

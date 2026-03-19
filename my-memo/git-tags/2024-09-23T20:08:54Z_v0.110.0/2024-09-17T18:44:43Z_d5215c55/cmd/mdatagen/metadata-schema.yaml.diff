@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index eb15a9775..4e30a31b7 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -138,6 +138,8 @@ telemetry:
+       enabled: bool
+       # Required: metric description.
+       description:
++      # Optional: the stability level of the metric. Set to alpha by default.
++      stability: [alpha|stable|deprecated]
+       # Optional: extended documentation of the metric.
+       extended_documentation:
+       # Optional: whether or not this metric is optional. Optional metrics may only be initialized

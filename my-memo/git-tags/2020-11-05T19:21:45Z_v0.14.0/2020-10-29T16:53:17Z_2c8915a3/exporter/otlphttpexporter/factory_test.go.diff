@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory_test.go b/exporter/otlphttpexporter/factory_test.go
+index 7500d4639..c9c76a3e2 100644
+--- a/exporter/otlphttpexporter/factory_test.go
++++ b/exporter/otlphttpexporter/factory_test.go
+@@ -130,7 +130,7 @@ func TestCreateTraceExporter(t *testing.T) {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			factory := NewFactory()
+ 			creationParams := component.ExporterCreateParams{Logger: zap.NewNop()}
+-			consumer, err := factory.CreateTraceExporter(context.Background(), creationParams, &tt.config)
++			consumer, err := factory.CreateTracesExporter(context.Background(), creationParams, &tt.config)
+ 
+ 			if tt.mustFail {
+ 				assert.Error(t, err)

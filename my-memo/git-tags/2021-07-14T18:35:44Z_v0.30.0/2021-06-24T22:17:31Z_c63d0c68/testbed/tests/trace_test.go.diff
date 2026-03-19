@@ -1,0 +1,14 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index d581a379f..b2b28de1d 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -29,8 +29,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/idutils"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/testbed/testbed"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )

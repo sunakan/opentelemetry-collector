@@ -1,0 +1,22 @@
+diff --git a/processor/processorhelper/documentation.md b/processor/processorhelper/documentation.md
+index 4f57c096a..1f91fb037 100644
+--- a/processor/processorhelper/documentation.md
++++ b/processor/processorhelper/documentation.md
+@@ -56,7 +56,7 @@ Number of spans that were dropped.
+ 
+ ### otelcol_processor_incoming_items
+ 
+-Number of items passed to the processor.
++Number of items passed to the processor. [alpha]
+ 
+ | Unit | Metric Type | Value Type | Monotonic |
+ | ---- | ----------- | ---------- | --------- |
+@@ -64,7 +64,7 @@ Number of items passed to the processor.
+ 
+ ### otelcol_processor_outgoing_items
+ 
+-Number of items emitted from the processor.
++Number of items emitted from the processor. [alpha]
+ 
+ | Unit | Metric Type | Value Type | Monotonic |
+ | ---- | ----------- | ---------- | --------- |

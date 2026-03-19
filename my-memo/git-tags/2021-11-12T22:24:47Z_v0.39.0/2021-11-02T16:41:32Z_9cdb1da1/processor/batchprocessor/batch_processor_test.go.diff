@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index 1d1dc1dab..578baa617 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -395,7 +395,7 @@ func TestBatchMetricsProcessor_Timeout(t *testing.T) {
+ 	cfg := Config{
+ 		ProcessorSettings: config.NewProcessorSettings(config.NewComponentID(typeStr)),
+ 		Timeout:           100 * time.Millisecond,
+-		SendBatchSize:     100,
++		SendBatchSize:     101,
+ 	}
+ 	requestCount := 5
+ 	metricsPerRequest := 10

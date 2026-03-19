@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/log_structs.go b/cmd/pdatagen/internal/log_structs.go
+index 3b29744c7..fcb442902 100644
+--- a/cmd/pdatagen/internal/log_structs.go
++++ b/cmd/pdatagen/internal/log_structs.go
+@@ -17,6 +17,8 @@ package internal
+ var logFile = &File{
+ 	Name: "log",
+ 	imports: []string{
++		`"sort"`,
++		``,
+ 		`otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"`,
+ 	},
+ 	testImports: []string{

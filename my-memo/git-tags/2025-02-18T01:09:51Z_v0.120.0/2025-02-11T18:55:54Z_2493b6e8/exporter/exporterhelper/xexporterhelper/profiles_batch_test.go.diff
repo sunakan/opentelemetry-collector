@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go b/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
+index cca1949ec..ff2a8e725 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
+@@ -12,7 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+-	"go.opentelemetry.io/collector/exporter/internal/requesttest"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
+ 	"go.opentelemetry.io/collector/pdata/pprofile"
+ 	"go.opentelemetry.io/collector/pdata/testdata"
+ )

@@ -1,0 +1,20 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index b54d4a9b5..33c262dcc 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -9,6 +9,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/internal/testutil"
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+@@ -736,6 +737,7 @@ func TestMapEqual(t *testing.T) {
+ }
+ 
+ func BenchmarkMapEqual(b *testing.B) {
++	testutil.SkipMemoryBench(b)
+ 	m := NewMap()
+ 	m.PutStr("hello", "world")
+ 	cmp := NewMap()

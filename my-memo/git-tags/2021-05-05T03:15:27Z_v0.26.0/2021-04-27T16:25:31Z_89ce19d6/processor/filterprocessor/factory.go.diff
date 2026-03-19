@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/factory.go b/processor/filterprocessor/factory.go
+index 7abebd474..828b046ea 100644
+--- a/processor/filterprocessor/factory.go
++++ b/processor/filterprocessor/factory.go
+@@ -28,7 +28,7 @@ const (
+ 	typeStr = "filter"
+ )
+ 
+-var processorCapabilities = component.ProcessorCapabilities{MutatesConsumedData: false}
++var processorCapabilities = component.ProcessorCapabilities{MutatesConsumedData: true}
+ 
+ // NewFactory returns a new factory for the Filter processor.
+ func NewFactory() component.ProcessorFactory {

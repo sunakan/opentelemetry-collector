@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index 0c4c20e1a..b3706dc8a 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -311,7 +311,7 @@ func TestOcToInternal(t *testing.T) {
+ 	}{
+ 		{
+ 			name: "empty",
+-			td:   testdata.GenerateTraceDataEmpty(),
++			td:   pdata.NewTraces(),
+ 		},
+ 
+ 		{

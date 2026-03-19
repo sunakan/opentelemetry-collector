@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index a409e5adc..59fa35b1f 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -186,7 +186,7 @@ func TestPipelinesBuilder_BuildVarious(t *testing.T) {
+ 
+ 			// Send one custom data.
+ 			log := idata.Logs{}
+-			processor.firstLC.(consumer.LogConsumer).ConsumeLogs(context.Background(), log)
++			processor.firstLC.(consumer.LogsConsumer).ConsumeLogs(context.Background(), log)
+ 
+ 			// Now verify received data.
+ 			for _, consumer := range exporterConsumers {

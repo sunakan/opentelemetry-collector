@@ -1,0 +1,20 @@
+diff --git a/internal/processor/filtermatcher/filtermatcher_test.go b/internal/processor/filtermatcher/filtermatcher_test.go
+index e52ea97f4..d538c86c8 100644
+--- a/internal/processor/filtermatcher/filtermatcher_test.go
++++ b/internal/processor/filtermatcher/filtermatcher_test.go
+@@ -368,7 +368,6 @@ func Test_Matching_True(t *testing.T) {
+ 	})
+ 
+ 	resource := pdata.NewResource()
+-	resource.InitEmpty()
+ 	resource.Attributes().InitFromMap(map[string]pdata.AttributeValue{
+ 		conventions.AttributeServiceName: pdata.NewAttributeValueString("svcA"),
+ 		"resString":                      pdata.NewAttributeValueString("arithmetic"),
+@@ -392,7 +391,6 @@ func Test_Matching_True(t *testing.T) {
+ 
+ func resource(service string) pdata.Resource {
+ 	r := pdata.NewResource()
+-	r.InitEmpty()
+ 	r.Attributes().InitFromMap(map[string]pdata.AttributeValue{conventions.AttributeServiceName: pdata.NewAttributeValueString(service)})
+ 	return r
+ }

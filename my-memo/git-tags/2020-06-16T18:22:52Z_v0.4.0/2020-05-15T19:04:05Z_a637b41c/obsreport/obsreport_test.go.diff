@@ -1,0 +1,15 @@
+diff --git a/obsreport/obsreport_test.go b/obsreport/obsreport_test.go
+index 9ed9d8780..20d9b595a 100644
+--- a/obsreport/obsreport_test.go
++++ b/obsreport/obsreport_test.go
+@@ -29,8 +29,8 @@ import (
+ 	"go.opencensus.io/tag"
+ 	"go.opencensus.io/trace"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/observability"
+-	"github.com/open-telemetry/opentelemetry-collector/observability/observabilitytest"
++	"go.opentelemetry.io/collector/observability"
++	"go.opentelemetry.io/collector/observability/observabilitytest"
+ )
+ 
+ const (

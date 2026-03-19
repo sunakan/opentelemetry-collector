@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapointslice.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapointslice.go
+index 67022d596..52d205f75 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapointslice.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapointslice.go
+@@ -38,3 +38,12 @@ func CopyOrigExponentialHistogramDataPointSlice(dest, src []*otlpmetrics.Exponen
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestExponentialHistogramDataPointSlice() []*otlpmetrics.ExponentialHistogramDataPoint {
++	orig := make([]*otlpmetrics.ExponentialHistogramDataPoint, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpmetrics.ExponentialHistogramDataPoint{}
++		FillOrigTestExponentialHistogramDataPoint(orig[i])
++	}
++	return orig
++}

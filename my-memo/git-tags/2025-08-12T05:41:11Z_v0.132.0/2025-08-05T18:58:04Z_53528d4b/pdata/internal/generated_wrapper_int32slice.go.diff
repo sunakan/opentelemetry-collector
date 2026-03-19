@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_int32slice.go b/pdata/internal/generated_wrapper_int32slice.go
+index 77d4c4e9c..fb9d72885 100644
+--- a/pdata/internal/generated_wrapper_int32slice.go
++++ b/pdata/internal/generated_wrapper_int32slice.go
+@@ -27,11 +27,6 @@ func NewInt32Slice(orig *[]int32, state *State) Int32Slice {
+ 	return Int32Slice{orig: orig, state: state}
+ }
+ 
+-func CopyOrigInt32Slice(dst, src []int32) []int32 {
+-	dst = dst[:0]
+-	return append(dst, src...)
+-}
+-
+ func FillTestInt32Slice(ms Int32Slice) {
+ 	*ms.orig = []int32{1, 2, 3}
+ }
+@@ -64,3 +59,7 @@ func UnmarshalJSONIterInt32Slice(ms Int32Slice, iter *json.Iterator) {
+ 		return true
+ 	})
+ }
++
++func CopyOrigInt32Slice(dst, src []int32) []int32 {
++	return append(dst[:0], src...)
++}

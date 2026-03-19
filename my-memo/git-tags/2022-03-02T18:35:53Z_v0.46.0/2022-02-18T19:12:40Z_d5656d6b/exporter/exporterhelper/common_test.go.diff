@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 95c13a3a2..ef9e2523d 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -53,7 +53,7 @@ func TestBaseExporterWithOptions(t *testing.T) {
+ 		fromOptions(
+ 			WithStart(func(ctx context.Context, host component.Host) error { return want }),
+ 			WithShutdown(func(ctx context.Context) error { return want }),
+-			WithTimeout(DefaultTimeoutSettings())),
++			WithTimeout(NewDefaultTimeoutSettings())),
+ 		"",
+ 		nopRequestUnmarshaler(),
+ 	)

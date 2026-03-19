@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver.go b/receiver/prometheusreceiver/metrics_receiver.go
+index eec001c9f..639e3546b 100644
+--- a/receiver/prometheusreceiver/metrics_receiver.go
++++ b/receiver/prometheusreceiver/metrics_receiver.go
+@@ -56,7 +56,7 @@ func (pr *pReceiver) Start(_ context.Context, host component.Host) error {
+ 		ctx := context.Background()
+ 		c, cancel := context.WithCancel(ctx)
+ 		pr.cancel = cancel
+-		c = obsreport.ReceiverContext(c, pr.cfg.Name(), "http", pr.cfg.Name())
++		c = obsreport.ReceiverContext(c, pr.cfg.Name(), "http")
+ 		var jobsMap *internal.JobsMap
+ 		if !pr.cfg.UseStartTimeMetric {
+ 			jobsMap = internal.NewJobsMap(2 * time.Minute)

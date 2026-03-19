@@ -1,0 +1,21 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config.yaml b/receiver/hostmetricsreceiver/testdata/config.yaml
+index 298990054..87014216e 100644
+--- a/receiver/hostmetricsreceiver/testdata/config.yaml
++++ b/receiver/hostmetricsreceiver/testdata/config.yaml
+@@ -3,11 +3,14 @@ receivers:
+     scrapers:
+       cpu:
+   hostmetrics/customname:
+-    default_collection_interval: 10s
++    collection_interval: 30s
+     scrapers:
+       cpu:
+-        collection_interval: 5s
+         report_per_cpu: true
++      disk:
++      filesystem:
++      memory:
++      network:
+ 
+ processors:
+   exampleprocessor:

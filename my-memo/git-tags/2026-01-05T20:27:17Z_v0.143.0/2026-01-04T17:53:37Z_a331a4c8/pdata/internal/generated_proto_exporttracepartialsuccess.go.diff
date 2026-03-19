@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_exporttracepartialsuccess.go b/pdata/internal/generated_proto_exporttracepartialsuccess.go
+index c971f7cd7..6df4657fa 100644
+--- a/pdata/internal/generated_proto_exporttracepartialsuccess.go
++++ b/pdata/internal/generated_proto_exporttracepartialsuccess.go
+@@ -16,8 +16,8 @@ import (
+ 
+ // ExportPartialSuccess represents the details of a partially successful export request.
+ type ExportTracePartialSuccess struct {
+-	RejectedSpans int64
+ 	ErrorMessage  string
++	RejectedSpans int64
+ }
+ 
+ var (

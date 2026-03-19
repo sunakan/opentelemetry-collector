@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/testdata/status_only.yaml b/cmd/mdatagen/testdata/status_only.yaml
+deleted file mode 100644
+index d66977249..000000000
+--- a/cmd/mdatagen/testdata/status_only.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-type: metricreceiver
+-status:
+-  class: exporter
+-  stability:
+-    beta: [traces, metrics, logs]
+-  distributions: [contrib]
+-
+-tests:
+-  skip_lifecycle: true
+-  skip_shutdown: true

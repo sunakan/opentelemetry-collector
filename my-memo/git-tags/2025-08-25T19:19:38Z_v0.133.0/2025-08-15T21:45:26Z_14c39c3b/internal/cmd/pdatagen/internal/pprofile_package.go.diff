@@ -1,0 +1,18 @@
+diff --git a/internal/cmd/pdatagen/internal/pprofile_package.go b/internal/cmd/pdatagen/internal/pprofile_package.go
+index 4ef4f7781..09a8e8da1 100644
+--- a/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -83,10 +83,9 @@ var profiles = &messageStruct{
+ 			returnSlice: resourceProfilesSlice,
+ 		},
+ 		&MessageField{
+-			fieldName:           "ProfilesDictionary",
+-			fieldOriginFullName: "Dictionary",
+-			protoID:             2,
+-			returnMessage:       profilesDictionary,
++			fieldName:     "Dictionary",
++			protoID:       2,
++			returnMessage: profilesDictionary,
+ 		},
+ 	},
+ 	hasWrapper: true,

@@ -1,0 +1,13 @@
+diff --git a/otelcol/configprovider_test.go b/otelcol/configprovider_test.go
+index 39bcce8ce..300ad4967 100644
+--- a/otelcol/configprovider_test.go
++++ b/otelcol/configprovider_test.go
+@@ -11,7 +11,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	yaml "sigs.k8s.io/yaml/goyaml.v3"
++	yaml "go.yaml.in/yaml/v3"
+ 
+ 	"go.opentelemetry.io/collector/confmap"
+ )

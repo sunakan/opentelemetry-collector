@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/plog_package.go b/pdata/internal/cmd/pdatagen/internal/plog_package.go
+index f9bfeca8d..ea94e4fec 100644
+--- a/pdata/internal/cmd/pdatagen/internal/plog_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/plog_package.go
+@@ -27,6 +27,7 @@ var plog = &Package{
+ 	},
+ 	testImports: []string{
+ 		`"testing"`,
++		`"unsafe"`,
+ 		``,
+ 		`"github.com/stretchr/testify/assert"`,
+ 		``,

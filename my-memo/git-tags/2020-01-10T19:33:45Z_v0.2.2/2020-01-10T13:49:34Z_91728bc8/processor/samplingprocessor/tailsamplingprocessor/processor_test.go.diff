@@ -1,0 +1,24 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/processor_test.go b/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
+index 539646cc1..c044addac 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
+@@ -24,6 +24,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor"
+@@ -322,6 +323,11 @@ func (p *mockSpanProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
+ 
++// Start is invoked during service startup.
++func (p *mockSpanProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (p *mockSpanProcessor) Shutdown() error {
+ 	return nil

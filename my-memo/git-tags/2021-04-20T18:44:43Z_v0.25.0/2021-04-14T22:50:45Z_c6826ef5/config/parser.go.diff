@@ -1,0 +1,12 @@
+diff --git a/config/parser.go b/config/parser.go
+index 3b66f221e..84977617c 100644
+--- a/config/parser.go
++++ b/config/parser.go
+@@ -90,7 +90,6 @@ func (l *Parser) Unmarshal(rawVal interface{}) error {
+ 
+ // UnmarshalExact unmarshals the config into a struct, erroring if a field is nonexistent.
+ func (l *Parser) UnmarshalExact(intoCfg interface{}) error {
+-	l.v.AllKeys()
+ 	return l.v.UnmarshalExact(intoCfg)
+ }
+ 

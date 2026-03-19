@@ -1,0 +1,12 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index 1f1aad83a..00e0ca050 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -66,6 +66,7 @@ func (f *Factory) CreateTraceProcessor(
+ 		Options.WithQueueSize(oCfg.QueueSize),
+ 		Options.WithRetryOnProcessingFailures(oCfg.RetryOnFailure),
+ 		Options.WithBackoffDelay(oCfg.BackoffDelay),
++		Options.WithLogger(logger),
+ 	), nil
+ }
+ 

@@ -1,0 +1,10 @@
+diff --git a/exporter/otlpexporter/doc.go b/exporter/otlpexporter/doc.go
+index 41d4b7662..23df8da1d 100644
+--- a/exporter/otlpexporter/doc.go
++++ b/exporter/otlpexporter/doc.go
+@@ -13,4 +13,4 @@
+ // limitations under the License.
+ 
+ // Package otlpexporter exports data by using the OTLP format to a gPRC endpoint.
+-package otlpexporter
++package otlpexporter // import "go.opentelemetry.io/collector/exporter/otlpexporter"

@@ -1,0 +1,15 @@
+diff --git a/Makefile b/Makefile
+index 0b7d211db..71c3ca2bf 100644
+--- a/Makefile
++++ b/Makefile
+@@ -96,6 +96,10 @@ gogenerate:
+ 	@$(MAKE) for-all-target TARGET="generate"
+ 	$(MAKE) fmt
+ 
++.PHONY: govulncheck
++govulncheck:
++	@$(MAKE) for-all-target TARGET="vulncheck"
++
+ .PHONY: addlicense
+ addlicense: $(ADDLICENSE)
+ 	@ADDLICENSEOUT=`$(ADDLICENSE) -s=only -y "" -c "The OpenTelemetry Authors" $(ALL_SRC) 2>&1`; \

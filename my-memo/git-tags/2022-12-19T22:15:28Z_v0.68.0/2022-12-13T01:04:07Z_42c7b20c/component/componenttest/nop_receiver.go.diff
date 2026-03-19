@@ -1,0 +1,19 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index e1479a05a..bee1ab274 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -22,14 +22,6 @@ import (
+ 	"go.opentelemetry.io/collector/receiver"
+ )
+ 
+-// Deprecated: [v0.67.0] use receivertest.NewNopCreateSettings.
+-func NewNopReceiverCreateSettings() receiver.CreateSettings {
+-	return receiver.CreateSettings{
+-		TelemetrySettings: NewNopTelemetrySettings(),
+-		BuildInfo:         component.NewDefaultBuildInfo(),
+-	}
+-}
+-
+ // Deprecated: [v0.67.0] use receivertest.NewNopFactory
+ func NewNopReceiverFactory() receiver.Factory {
+ 	return receiver.NewFactory(

@@ -1,0 +1,30 @@
+diff --git a/service/service.go b/service/service.go
+index cd2dd30de..74af23043 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -197,8 +197,6 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 		err = multierr.Append(err, sdk.Shutdown(ctx))
+ 		return nil, fmt.Errorf("failed to create meter provider: %w", err)
+ 	}
+-
+-	logsAboutMeterProvider(logger, cfg.Telemetry.Metrics, mp)
+ 	srv.telemetrySettings = component.TelemetrySettings{
+ 		Logger:         logger,
+ 		MeterProvider:  mp,
+@@ -224,10 +222,14 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 		return nil, err
+ 	}
+ 
+-	if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
+-		return nil, fmt.Errorf("failed to register process metrics: %w", err)
++	if cfg.Telemetry.Metrics.Level != configtelemetry.LevelNone && (len(readers) != 0 || cfg.Telemetry.Metrics.Address != "") {
++		if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
++			return nil, fmt.Errorf("failed to register process metrics: %w", err)
++		}
+ 	}
+ 
++	logsAboutMeterProvider(logger, cfg.Telemetry.Metrics, mp)
++
+ 	return srv, nil
+ }
+ 

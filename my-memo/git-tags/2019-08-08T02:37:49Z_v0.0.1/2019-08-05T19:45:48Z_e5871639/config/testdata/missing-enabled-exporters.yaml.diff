@@ -1,0 +1,21 @@
+diff --git a/config/testdata/missing-enabled-exporters.yaml b/config/testdata/missing-enabled-exporters.yaml
+new file mode 100644
+index 000000000..9f377780b
+--- /dev/null
++++ b/config/testdata/missing-enabled-exporters.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  examplereceiver/one:
++
++exporters:
++  exampleexporter/disabled:
++    disabled: true
++
++processors:
++  exampleprocessor:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver/one]
++    processors: [exampleprocessor]
++    exporters: [exampleexporter/disabled]

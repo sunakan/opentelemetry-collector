@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_span_test.go b/pdata/ptrace/generated_span_test.go
+index 4503278b7..2572ef463 100644
+--- a/pdata/ptrace/generated_span_test.go
++++ b/pdata/ptrace/generated_span_test.go
+@@ -23,6 +23,8 @@ func TestSpan_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewSpan(), ms)
+ 	assert.Equal(t, generateTestSpan(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestSpan(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newSpan(&otlptrace.Span{}, &sharedState)) })
+ 	assert.Panics(t, func() { newSpan(&otlptrace.Span{}, &sharedState).MoveTo(dest) })

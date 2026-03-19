@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 86843928e..a6832c7b7 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -17,6 +17,7 @@
+ 
+ - Invalid requests now return an appropriate unsupported (`405`) or method not allowed (`415`) response (#4735)
+ - `client.Info`: Add Host property for Metadata (#4736)
++- Add support for reloading TLS certificates (#4737)
+ 
+ ## v0.43.1 Beta
+ 

@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_message_value.go b/internal/cmd/pdatagen/internal/one_of_message_value.go
+index 553a7b69d..00bb1dba5 100644
+--- a/internal/cmd/pdatagen/internal/one_of_message_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_message_value.go
+@@ -41,8 +41,9 @@ const oneOfMessageAccessorsTestTemplate = `func Test{{ .structName }}_{{ .fieldN
+ 	internal.FillOrigTest{{ .returnType }}(ms.orig.Get{{ .originOneOfFieldName }}().(*{{ .originStructType }}).{{ .fieldName }})
+ 	assert.Equal(t, {{ .typeName }}, ms.{{ .originOneOfTypeFuncName }}())
+ 	assert.Equal(t, generateTest{{ .returnType }}(), ms.{{ .fieldName }}())
+-	sharedState := internal.StateReadOnly
+-	assert.Panics(t, func() { new{{ .structName }}(&{{ .originStructName }}{}, &sharedState).SetEmpty{{ .fieldName }}() })
++	sharedState := internal.NewState()
++	sharedState.MarkReadOnly()
++	assert.Panics(t, func() { new{{ .structName }}(&{{ .originStructName }}{}, sharedState).SetEmpty{{ .fieldName }}() })
+ }
+ `
+ 

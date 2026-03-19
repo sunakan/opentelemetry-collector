@@ -1,0 +1,56 @@
+diff --git a/service/internal/graph/host.go b/service/internal/graph/host.go
+index 3aaef5e05..601cc3947 100644
+--- a/service/internal/graph/host.go
++++ b/service/internal/graph/host.go
+@@ -11,11 +11,11 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componentstatus"
+-	"go.opentelemetry.io/collector/extension"
+ 	"go.opentelemetry.io/collector/featuregate"
+ 	"go.opentelemetry.io/collector/pipeline"
+ 	"go.opentelemetry.io/collector/service/extensions"
+ 	"go.opentelemetry.io/collector/service/internal/builders"
++	"go.opentelemetry.io/collector/service/internal/moduleinfo"
+ 	"go.opentelemetry.io/collector/service/internal/status"
+ 	"go.opentelemetry.io/collector/service/internal/zpages"
+ )
+@@ -25,9 +25,16 @@ type getExporters interface {
+ 	GetExporters() map[pipeline.Signal]map[component.ID]component.Component
+ }
+ 
++// TODO: expose GetModuleInfo as part of a service/hostcapabilities package.
++type getModuleInfos interface {
++	// GetModuleInfo returns the module information for the host.
++	GetModuleInfos() moduleinfo.ModuleInfos
++}
++
+ var (
+ 	_ getExporters   = (*Host)(nil)
+ 	_ component.Host = (*Host)(nil)
++	_ getModuleInfos = (*Host)(nil)
+ )
+ 
+ type Host struct {
+@@ -38,8 +45,8 @@ type Host struct {
+ 	Connectors        *builders.ConnectorBuilder
+ 	Extensions        *builders.ExtensionBuilder
+ 
+-	ModuleInfo extension.ModuleInfo
+-	BuildInfo  component.BuildInfo
++	ModuleInfos moduleinfo.ModuleInfos
++	BuildInfo   component.BuildInfo
+ 
+ 	Pipelines         *Graph
+ 	ServiceExtensions *extensions.Extensions
+@@ -67,6 +74,10 @@ func (host *Host) GetExtensions() map[component.ID]component.Component {
+ 	return host.ServiceExtensions.GetExtensions()
+ }
+ 
++func (host *Host) GetModuleInfos() moduleinfo.ModuleInfos {
++	return host.ModuleInfos
++}
++
+ // Deprecated: [0.79.0] This function will be removed in the future.
+ // Several components in the contrib repository use this function so it cannot be removed
+ // before those cases are removed. In most cases, use of this function can be replaced by a

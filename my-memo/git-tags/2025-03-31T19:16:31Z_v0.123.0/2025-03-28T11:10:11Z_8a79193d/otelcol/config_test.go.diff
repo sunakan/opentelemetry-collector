@@ -1,0 +1,29 @@
+diff --git a/otelcol/config_test.go b/otelcol/config_test.go
+index 654125750..9825b2dd2 100644
+--- a/otelcol/config_test.go
++++ b/otelcol/config_test.go
+@@ -301,14 +301,16 @@ func generateConfig() *Config {
+ 				},
+ 				Metrics: telemetry.MetricsConfig{
+ 					Level: configtelemetry.LevelNormal,
+-					Readers: []config.MetricReader{
+-						{
+-							Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{
+-								Prometheus: &config.Prometheus{
+-									Host: newPtr("localhost"),
+-									Port: newPtr(8080),
+-								},
+-							}},
++					MeterProvider: config.MeterProvider{
++						Readers: []config.MetricReader{
++							{
++								Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{
++									Prometheus: &config.Prometheus{
++										Host: newPtr("localhost"),
++										Port: newPtr(8080),
++									},
++								}},
++							},
+ 						},
+ 					},
+ 				},

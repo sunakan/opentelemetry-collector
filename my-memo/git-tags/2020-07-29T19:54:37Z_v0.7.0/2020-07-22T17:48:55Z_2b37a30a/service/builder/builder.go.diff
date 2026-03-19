@@ -1,0 +1,25 @@
+diff --git a/service/builder/builder.go b/service/builder/builder.go
+index e397d6240..6ccf2b135 100644
+--- a/service/builder/builder.go
++++ b/service/builder/builder.go
+@@ -24,13 +24,13 @@ const (
+ 	configCfg      = "config"
+ 	memBallastFlag = "mem-ballast-size-mib"
+ 
+-	kindLogKey       = "component_kind"
+-	kindLogReceiver  = "receiver"
+-	kindLogProcessor = "processor"
+-	kindLogExporter  = "exporter"
+-	kindLogExtension = "extension"
+-	typeLogKey       = "component_type"
+-	nameLogKey       = "component_name"
++	kindLogKey        = "component_kind"
++	kindLogsReceiver  = "receiver"
++	kindLogsProcessor = "processor"
++	kindLogsExporter  = "exporter"
++	kindLogExtension  = "extension"
++	typeLogKey        = "component_type"
++	nameLogKey        = "component_name"
+ )
+ 
+ var (

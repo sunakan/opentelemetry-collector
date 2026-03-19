@@ -1,0 +1,22 @@
+diff --git a/.github/workflows/shellcheck.yml b/.github/workflows/shellcheck.yml
+index 99ad4d487..d11c9e76a 100644
+--- a/.github/workflows/shellcheck.yml
++++ b/.github/workflows/shellcheck.yml
+@@ -1,14 +1,13 @@
+ name: Shellcheck lint
+ on:
+   push:
+-    branches: [ main ]
++    branches: [main]
+   pull_request:
+-    branches: [ main ]
++    branches: [main]
+   merge_group:
+     types: [checks_requested]
+ 
+-permissions:
+-  contents: read
++permissions: read-all
+ 
+ jobs:
+   shellcheck:

@@ -1,0 +1,17 @@
+diff --git a/consumer/consumererror/go.mod b/consumer/consumererror/go.mod
+index 39412ae39..020bc914e 100644
+--- a/consumer/consumererror/go.mod
++++ b/consumer/consumererror/go.mod
+@@ -4,9 +4,9 @@ go 1.23.0
+ 
+ require (
+ 	github.com/stretchr/testify v1.10.0
+-	go.opentelemetry.io/collector/pdata v1.34.0
+-	go.opentelemetry.io/collector/pdata/pprofile v0.128.0
+-	go.opentelemetry.io/collector/pdata/testdata v0.128.0
++	go.opentelemetry.io/collector/pdata v1.35.0
++	go.opentelemetry.io/collector/pdata/pprofile v0.129.0
++	go.opentelemetry.io/collector/pdata/testdata v0.129.0
+ 	go.uber.org/goleak v1.3.0
+ )
+ 

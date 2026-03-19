@@ -1,0 +1,17 @@
+diff --git a/component/componenttest/nop_telemetry.go b/component/componenttest/nop_telemetry.go
+index 7d5c6e7a0..b9e680240 100644
+--- a/component/componenttest/nop_telemetry.go
++++ b/component/componenttest/nop_telemetry.go
+@@ -21,9 +21,9 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
+-// NewNopTelemetryCreateSettings returns a new nop telemetry settings for Create* functions.
+-func NewNopTelemetryCreateSettings() component.TelemetryCreateSettings {
+-	return component.TelemetryCreateSettings{
++// NewNopTelemetrySettings returns a new nop telemetry settings for Create* functions.
++func NewNopTelemetrySettings() component.TelemetrySettings {
++	return component.TelemetrySettings{
+ 		Logger:         zap.NewNop(),
+ 		TracerProvider: trace.NewNoopTracerProvider(),
+ 	}

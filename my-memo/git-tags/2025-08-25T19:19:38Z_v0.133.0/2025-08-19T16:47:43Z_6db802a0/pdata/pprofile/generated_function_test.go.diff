@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_function_test.go b/pdata/pprofile/generated_function_test.go
+index c7d7311b8..5fb250fe5 100644
+--- a/pdata/pprofile/generated_function_test.go
++++ b/pdata/pprofile/generated_function_test.go
+@@ -83,7 +83,6 @@ func TestFunction_StartLine(t *testing.T) {
+ }
+ 
+ func generateTestFunction() Function {
+-	ms := NewFunction()
+-	internal.FillOrigTestFunction(ms.orig)
++	ms := newFunction(internal.GenTestOrigFunction(), internal.NewState())
+ 	return ms
+ }

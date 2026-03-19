@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index 571f4fb53..4c7fac2f5 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/loggingexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/opencensusexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/prometheusexporter"
++	"github.com/open-telemetry/opentelemetry-service/exporter/zipkinexporter"
+ 	"github.com/open-telemetry/opentelemetry-service/oterr"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/addattributesprocessor"
+@@ -58,6 +59,7 @@ func Components() (
+ 		&opencensusexporter.Factory{},
+ 		&prometheusexporter.Factory{},
+ 		&loggingexporter.Factory{},
++		&zipkinexporter.Factory{},
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

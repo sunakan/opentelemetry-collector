@@ -1,0 +1,14 @@
+diff --git a/translator/internaldata/oc_to_traces.go b/translator/internaldata/oc_to_traces.go
+index 760fc6ab9..e73ee41b7 100644
+--- a/translator/internaldata/oc_to_traces.go
++++ b/translator/internaldata/oc_to_traces.go
+@@ -23,8 +23,8 @@ import (
+ 	"go.opencensus.io/trace"
+ 	"google.golang.org/protobuf/types/known/wrapperspb"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )

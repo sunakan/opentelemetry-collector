@@ -1,0 +1,14 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index 384ec0927..a820d7060 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -408,7 +408,8 @@ func TestRecursiveMaps(t *testing.T) {
+ 			Env: ENV2{
+ 				Env2: Value{
+ 					Value: 123,
+-				}},
++				},
++			},
+ 			Inline: "inline {env2: \"{value: 123}\"}",
+ 		}},
+ 		cfg,

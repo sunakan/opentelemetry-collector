@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/perf_test.go b/testbed/tests/perf_test.go
+index 893ad46dc..5711eebd3 100644
+--- a/testbed/tests/perf_test.go
++++ b/testbed/tests/perf_test.go
+@@ -25,7 +25,7 @@ import (
+ 	"testing"
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/testbed/testbed"
++	"github.com/open-telemetry/opentelemetry-collector/testbed/testbed"
+ )
+ 
+ func TestMain(m *testing.M) {

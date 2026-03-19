@@ -1,0 +1,43 @@
+diff --git a/exporter/debugexporter/internal/otlptext/metrics_test.go b/exporter/debugexporter/internal/otlptext/metrics_test.go
+index 1d2b26c3f..7048e2d0d 100644
+--- a/exporter/debugexporter/internal/otlptext/metrics_test.go
++++ b/exporter/debugexporter/internal/otlptext/metrics_test.go
+@@ -47,6 +47,11 @@ func TestMetricsText(t *testing.T) {
+ 			in:   generateMetricsWithEntityRefs(),
+ 			out:  "metrics_with_entity_refs.out",
+ 		},
++		{
++			name: "metrics_with_metadata",
++			in:   generateMetricsWithMetadata(),
++			out:  "metrics_with_metadata.out",
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+@@ -80,3 +85,26 @@ func generateMetricsWithEntityRefs() pmetric.Metrics {
+ 
+ 	return md
+ }
++
++func generateMetricsWithMetadata() pmetric.Metrics {
++	md := pmetric.NewMetrics()
++	rm := md.ResourceMetrics().AppendEmpty()
++	rm.Resource().Attributes().PutStr("service.name", "test-service")
++
++	sm := rm.ScopeMetrics().AppendEmpty()
++	sm.Scope().SetName("test-scope")
++
++	metric := sm.Metrics().AppendEmpty()
++	metric.SetName("test-metric-metadata")
++	metric.SetDescription("A test metric with metadata")
++	metric.SetUnit("1")
++
++	metric.Metadata().PutStr("meta.key", "meta-value")
++	metric.Metadata().PutInt("meta.id", 101)
++
++	gauge := metric.SetEmptyGauge()
++	dp := gauge.DataPoints().AppendEmpty()
++	dp.SetIntValue(1)
++
++	return md
++}

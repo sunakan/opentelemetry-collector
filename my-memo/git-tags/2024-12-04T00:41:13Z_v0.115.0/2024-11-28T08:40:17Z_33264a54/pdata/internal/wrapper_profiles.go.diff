@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/wrapper_profiles.go b/pdata/internal/wrapper_profiles.go
+index 564c89458..2230b079c 100644
+--- a/pdata/internal/wrapper_profiles.go
++++ b/pdata/internal/wrapper_profiles.go
+@@ -4,8 +4,8 @@
+ package internal // import "go.opentelemetry.io/collector/pdata/internal"
+ 
+ import (
+-	otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1experimental"
+-	otlpprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1development"
++	otlpprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ type Profiles struct {

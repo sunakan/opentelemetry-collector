@@ -1,0 +1,22 @@
+diff --git a/internal/collector/jaeger/receiver.go b/internal/collector/jaeger/receiver.go
+index 8c6c8af8a..b65835cee 100644
+--- a/internal/collector/jaeger/receiver.go
++++ b/internal/collector/jaeger/receiver.go
+@@ -30,7 +30,6 @@ import (
+ 
+ 	"github.com/census-instrumentation/opencensus-service/cmd/occollector/app/builder"
+ 	"github.com/census-instrumentation/opencensus-service/consumer"
+-	"github.com/census-instrumentation/opencensus-service/internal/collector/processor"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+ 	"github.com/census-instrumentation/opencensus-service/receiver/jaegerreceiver"
+ )
+@@ -51,8 +50,7 @@ func Start(logger *zap.Logger, v *viper.Viper, traceConsumer consumer.TraceConsu
+ 		return nil, err
+ 	}
+ 
+-	ss := processor.WithSourceName("jaeger", traceConsumer)
+-	if err := jtr.StartTraceReception(ctx, ss); err != nil {
++	if err := jtr.StartTraceReception(ctx, traceConsumer); err != nil {
+ 		return nil, err
+ 	}
+ 

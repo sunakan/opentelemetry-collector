@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/config.go b/exporter/zipkinexporter/config.go
+index c6db6f09e..a613457e8 100644
+--- a/exporter/zipkinexporter/config.go
++++ b/exporter/zipkinexporter/config.go
+@@ -22,7 +22,7 @@ import (
+ 
+ // Config defines configuration settings for the Zipkin exporter.
+ type Config struct {
+-	config.ExporterSettings      `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
++	config.ExporterSettings      `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ 	exporterhelper.QueueSettings `mapstructure:"sending_queue"`
+ 	exporterhelper.RetrySettings `mapstructure:"retry_on_failure"`
+ 

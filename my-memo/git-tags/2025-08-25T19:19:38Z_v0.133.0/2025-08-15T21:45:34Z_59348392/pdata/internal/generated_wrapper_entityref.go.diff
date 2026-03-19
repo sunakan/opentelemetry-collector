@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_entityref.go b/pdata/internal/generated_wrapper_entityref.go
+index 5de601f66..3792cf34c 100644
+--- a/pdata/internal/generated_wrapper_entityref.go
++++ b/pdata/internal/generated_wrapper_entityref.go
+@@ -32,9 +32,9 @@ func NewEntityRef(orig *otlpcommon.EntityRef, state *State) EntityRef {
+ }
+ 
+ func GenerateTestEntityRef() EntityRef {
+-	orig := otlpcommon.EntityRef{}
+-	FillOrigTestEntityRef(&orig)
+-	return NewEntityRef(&orig, NewState())
++	orig := NewOrigPtrEntityRef()
++	FillOrigTestEntityRef(orig)
++	return NewEntityRef(orig, NewState())
+ }
+ 
+ func NewOrigEntityRef() otlpcommon.EntityRef {

@@ -1,0 +1,19 @@
+diff --git a/processor/queuedprocessor/testdata/config.yaml b/processor/queuedprocessor/testdata/config.yaml
+index 52918ad3b..095948de2 100644
+--- a/processor/queuedprocessor/testdata/config.yaml
++++ b/processor/queuedprocessor/testdata/config.yaml
+@@ -12,8 +12,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [queued_retry/2]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [queued_retry/2]
++      exporters: [exampleexporter]

@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index 0cd9430b1..5641e9872 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package componenttest
++package componenttest // import "go.opentelemetry.io/collector/component/componenttest"
+ 
+ import (
+ 	"context"

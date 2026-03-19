@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_mappingslice_test.go b/pdata/pprofile/generated_mappingslice_test.go
+index c57161c21..db8edeffa 100644
+--- a/pdata/pprofile/generated_mappingslice_test.go
++++ b/pdata/pprofile/generated_mappingslice_test.go
+@@ -52,6 +52,8 @@ func TestMappingSlice_CopyTo(t *testing.T) {
+ 	src := generateTestMappingSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestMappingSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestMappingSlice(), dest)
+ }
+ 
+ func TestMappingSlice_EnsureCapacity(t *testing.T) {

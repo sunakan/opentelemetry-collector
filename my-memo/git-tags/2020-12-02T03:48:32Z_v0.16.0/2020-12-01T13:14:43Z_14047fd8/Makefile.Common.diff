@@ -1,0 +1,20 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 4d88428d8..cfa9892c9 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -79,11 +79,15 @@ lint: lint-static-check
+ 
+ .PHONY: misspell
+ misspell:
++ifdef ALL_DOC
+ 	$(MISSPELL) $(ALL_DOC)
++endif
+ 
+ .PHONY: misspell-correction
+ misspell-correction:
++ifdef ALL_DOC
+ 	$(MISSPELL_CORRECTION) $(ALL_DOC)
++endif
+ 
+ .PHONY: impi
+ impi:

@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/factory.go b/processor/filterprocessor/factory.go
+index 383d16a22..6ae0d5ee2 100644
+--- a/processor/filterprocessor/factory.go
++++ b/processor/filterprocessor/factory.go
+@@ -51,7 +51,7 @@ func createMetricsProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.MetricsConsumer,
++	nextConsumer consumer.Metrics,
+ ) (component.MetricsProcessor, error) {
+ 	fp, err := newFilterMetricProcessor(params.Logger, cfg.(*Config))
+ 	if err != nil {

@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/generated_scopespansslice.go b/pdata/ptrace/generated_scopespansslice.go
+index 2afdcf4df..8fd0b4b8e 100644
+--- a/pdata/ptrace/generated_scopespansslice.go
++++ b/pdata/ptrace/generated_scopespansslice.go
+@@ -119,7 +119,6 @@ func (es ScopeSpansSlice) RemoveIf(f func(ScopeSpans) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

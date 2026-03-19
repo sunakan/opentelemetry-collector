@@ -1,0 +1,13 @@
+diff --git a/config/configmapprovider/provider.go b/config/configmapprovider/provider.go
+index 93d8d55bc..614fcf949 100644
+--- a/config/configmapprovider/provider.go
++++ b/config/configmapprovider/provider.go
+@@ -99,7 +99,7 @@ type Retrieved struct {
+ type CloseFunc func(context.Context) error
+ 
+ // Close calls the func only if not nil.
+-// Deprecated: Not needed, will be removed soon. You have access to the func.
++// Deprecated: [v0.45.0] Not needed, will be removed soon. You have access to the func.
+ func (f CloseFunc) Close(ctx context.Context) error {
+ 	if f == nil {
+ 		return nil

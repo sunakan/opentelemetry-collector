@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/trace/otlp_test.go b/receiver/otlpreceiver/trace/otlp_test.go
+index 1f1a62098..4d31f480f 100644
+--- a/receiver/otlpreceiver/trace/otlp_test.go
++++ b/receiver/otlpreceiver/trace/otlp_test.go
+@@ -167,7 +167,7 @@ func TestExport(t *testing.T) {
+ 							},
+ 						},
+ 					},
+-					DroppedMessageEventsCount: 2,
++					DroppedAnnotationsCount: 2,
+ 				},
+ 				Links: &octrace.Span_Links{
+ 					Link: []*octrace.Span_Link{

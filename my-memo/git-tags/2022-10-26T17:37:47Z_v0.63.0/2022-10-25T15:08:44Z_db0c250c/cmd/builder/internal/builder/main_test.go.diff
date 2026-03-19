@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 03057bb4b..b8131aa09 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -53,6 +53,7 @@ func TestGenerateAndCompileDefault(t *testing.T) {
+ 	cfg.Distribution.OtelColVersion = "0.52.0"
+ 
+ 	assert.NoError(t, cfg.Validate())
++	assert.NoError(t, cfg.SetGoPath())
+ 	require.NoError(t, GenerateAndCompile(cfg))
+ 
+ 	// Sleep for 1 second to make sure all processes using the files are completed

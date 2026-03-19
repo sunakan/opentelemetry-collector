@@ -1,0 +1,22 @@
+diff --git a/extension/zpagesextension/factory.go b/extension/zpagesextension/factory.go
+index dd6dda586..b307de182 100644
+--- a/extension/zpagesextension/factory.go
++++ b/extension/zpagesextension/factory.go
+@@ -7,7 +7,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config/confignet"
++	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/extension"
+ 	"go.opentelemetry.io/collector/extension/zpagesextension/internal/metadata"
+ )
+@@ -23,7 +23,7 @@ func NewFactory() extension.Factory {
+ 
+ func createDefaultConfig() component.Config {
+ 	return &Config{
+-		TCPAddr: confignet.TCPAddrConfig{
++		ServerConfig: confighttp.ServerConfig{
+ 			Endpoint: defaultEndpoint,
+ 		},
+ 	}

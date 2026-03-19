@@ -1,0 +1,15 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 941f0ac40..19fc97b93 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -18,9 +18,8 @@ import (
+ 	"context"
+ 	"testing"
+ 
+-	"go.uber.org/zap"
+-
+ 	"github.com/stretchr/testify/assert"
++	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configerror"

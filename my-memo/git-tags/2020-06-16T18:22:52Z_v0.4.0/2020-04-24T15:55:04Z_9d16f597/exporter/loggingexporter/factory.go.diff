@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index 641bdbbc5..ba01114b8 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -36,7 +36,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the Exporter config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

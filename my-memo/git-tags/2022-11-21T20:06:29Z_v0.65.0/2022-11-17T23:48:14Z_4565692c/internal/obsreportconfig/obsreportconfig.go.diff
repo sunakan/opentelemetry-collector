@@ -1,0 +1,39 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index 6636e9464..483a93dab 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -71,12 +71,7 @@ func allViews() []*view.View {
+ 	views = append(views, receiverViews()...)
+ 
+ 	// Scraper views.
+-	measures = []*stats.Int64Measure{
+-		obsmetrics.ScraperScrapedMetricPoints,
+-		obsmetrics.ScraperErroredMetricPoints,
+-	}
+-	tagKeys = []tag.Key{obsmetrics.TagKeyReceiver, obsmetrics.TagKeyScraper}
+-	views = append(views, genViews(measures, tagKeys, view.Sum())...)
++	views = append(views, scraperViews()...)
+ 
+ 	// Exporter views.
+ 	measures = []*stats.Int64Measure{
+@@ -136,6 +131,20 @@ func receiverViews() []*view.View {
+ 	return genViews(measures, tagKeys, view.Sum())
+ }
+ 
++func scraperViews() []*view.View {
++	if featuregate.GetRegistry().IsEnabled(UseOtelForInternalMetricsfeatureGateID) {
++		return nil
++	}
++
++	measures := []*stats.Int64Measure{
++		obsmetrics.ScraperScrapedMetricPoints,
++		obsmetrics.ScraperErroredMetricPoints,
++	}
++	tagKeys := []tag.Key{obsmetrics.TagKeyReceiver, obsmetrics.TagKeyScraper}
++
++	return genViews(measures, tagKeys, view.Sum())
++}
++
+ func genViews(
+ 	measures []*stats.Int64Measure,
+ 	tagKeys []tag.Key,

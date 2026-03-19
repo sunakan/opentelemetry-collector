@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_span_event_test.go b/pdata/internal/generated_wrapper_span_event_test.go
+index 6bd7284c3..c0d3d793e 100644
+--- a/pdata/internal/generated_wrapper_span_event_test.go
++++ b/pdata/internal/generated_wrapper_span_event_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigSpan_Event(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigSpan_Event(t *testing.T) {
++	src := &otlptrace.Span_Event{}
++	FillOrigTestSpan_Event(src)
++	buf, err := MarshalProtoOrigSpan_Event(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigSpan_Event(src))
++
++	dest := &otlptrace.Span_Event{}
++	require.NoError(t, UnmarshalProtoOrigSpan_Event(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptySpan_Event(t *testing.T) {
++	src := &otlptrace.Span_Event{}
++	buf, err := MarshalProtoOrigSpan_Event(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigSpan_Event(src))
++
++	dest := &otlptrace.Span_Event{}
++	require.NoError(t, UnmarshalProtoOrigSpan_Event(dest, buf))
++	assert.Equal(t, src, dest)
++}

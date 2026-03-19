@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/generated_scopespansslice.go b/pdata/ptrace/generated_scopespansslice.go
+index 93f7752b5..8e2fbf657 100644
+--- a/pdata/ptrace/generated_scopespansslice.go
++++ b/pdata/ptrace/generated_scopespansslice.go
+@@ -149,6 +149,9 @@ func (es ScopeSpansSlice) RemoveIf(f func(ScopeSpans) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ScopeSpansSlice) CopyTo(dest ScopeSpansSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigScopeSpansSlice(*dest.orig, *es.orig)
+ }
+ 

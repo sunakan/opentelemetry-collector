@@ -1,0 +1,34 @@
+diff --git a/pdata/pcommon/common.go b/pdata/pcommon/common.go
+index 24e479145..09647f50d 100644
+--- a/pdata/pcommon/common.go
++++ b/pdata/pcommon/common.go
+@@ -48,21 +48,21 @@ const (
+ func (avt ValueType) String() string {
+ 	switch avt {
+ 	case ValueTypeEmpty:
+-		return "EMPTY"
++		return "Empty"
+ 	case ValueTypeStr:
+-		return "STRING"
++		return "Str"
+ 	case ValueTypeBool:
+-		return "BOOL"
++		return "Bool"
+ 	case ValueTypeInt:
+-		return "INT"
++		return "Int"
+ 	case ValueTypeDouble:
+-		return "DOUBLE"
++		return "Double"
+ 	case ValueTypeMap:
+-		return "MAP"
++		return "Map"
+ 	case ValueTypeSlice:
+-		return "SLICE"
++		return "Slice"
+ 	case ValueTypeBytes:
+-		return "BYTES"
++		return "Bytes"
+ 	}
+ 	return ""
+ }

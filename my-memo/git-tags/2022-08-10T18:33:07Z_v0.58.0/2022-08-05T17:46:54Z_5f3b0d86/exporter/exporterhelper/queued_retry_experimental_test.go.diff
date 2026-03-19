@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/queued_retry_experimental_test.go b/exporter/exporterhelper/queued_retry_experimental_test.go
+index 9deb641b3..4065b0943 100644
+--- a/exporter/exporterhelper/queued_retry_experimental_test.go
++++ b/exporter/exporterhelper/queued_retry_experimental_test.go
+@@ -12,9 +12,6 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-//go:build enable_unstable
+-// +build enable_unstable
+-
+ package exporterhelper
+ 
+ import (

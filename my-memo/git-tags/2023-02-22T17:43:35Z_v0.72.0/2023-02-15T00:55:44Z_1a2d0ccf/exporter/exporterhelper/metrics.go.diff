@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index aefa6586f..6507cbc63 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -79,7 +79,7 @@ type metricsExporter struct {
+ 	consumer.Metrics
+ }
+ 
+-// NewMetricsExporter creates a exporter.Metrics that records observability metrics and wraps every request with a Span.
++// NewMetricsExporter creates an exporter.Metrics that records observability metrics and wraps every request with a Span.
+ func NewMetricsExporter(
+ 	_ context.Context,
+ 	set exporter.CreateSettings,

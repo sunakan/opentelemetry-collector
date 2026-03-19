@@ -1,0 +1,13 @@
+diff --git a/service/command.go b/service/command.go
+index d9f96eab8..ac2e24fc1 100644
+--- a/service/command.go
++++ b/service/command.go
+@@ -30,7 +30,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 		Version:      set.BuildInfo.Version,
+ 		SilenceUsage: true,
+ 		RunE: func(cmd *cobra.Command, args []string) error {
+-			if err := featuregate.GetRegistry().Apply(gatesList); err != nil {
++			if err := featuregate.GetRegistry().Apply(getFeatureGatesFlag(flagSet)); err != nil {
+ 				return err
+ 			}
+ 			if set.ConfigProvider == nil {

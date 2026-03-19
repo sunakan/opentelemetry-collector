@@ -1,0 +1,194 @@
+diff --git a/consumer/pdata/generated_trace.go b/consumer/pdata/generated_trace.go
+index de04355af..f017858eb 100644
+--- a/consumer/pdata/generated_trace.go
++++ b/consumer/pdata/generated_trace.go
+@@ -63,18 +63,6 @@ func (es ResourceSpansSlice) At(ix int) ResourceSpans {
+ 	return newResourceSpans((*es.orig)[ix])
+ }
+ 
+-// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
+-// The current slice will be cleared.
+-func (es ResourceSpansSlice) MoveAndAppendTo(dest ResourceSpansSlice) {
+-	if *dest.orig == nil {
+-		// We can simply move the entire vector and avoid any allocations.
+-		*dest.orig = *es.orig
+-	} else {
+-		*dest.orig = append(*dest.orig, *es.orig...)
+-	}
+-	*es.orig = nil
+-}
+-
+ // CopyTo copies all elements from the current slice to the dest.
+ func (es ResourceSpansSlice) CopyTo(dest ResourceSpansSlice) {
+ 	srcLen := es.Len()
+@@ -143,6 +131,18 @@ func (es ResourceSpansSlice) AppendEmpty() ResourceSpans {
+ 	return es.At(es.Len() - 1)
+ }
+ 
++// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
++// The current slice will be cleared.
++func (es ResourceSpansSlice) MoveAndAppendTo(dest ResourceSpansSlice) {
++	if *dest.orig == nil {
++		// We can simply move the entire vector and avoid any allocations.
++		*dest.orig = *es.orig
++	} else {
++		*dest.orig = append(*dest.orig, *es.orig...)
++	}
++	*es.orig = nil
++}
++
+ // InstrumentationLibrarySpans is a collection of spans from a LibraryInstrumentation.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -223,18 +223,6 @@ func (es InstrumentationLibrarySpansSlice) At(ix int) InstrumentationLibrarySpan
+ 	return newInstrumentationLibrarySpans((*es.orig)[ix])
+ }
+ 
+-// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
+-// The current slice will be cleared.
+-func (es InstrumentationLibrarySpansSlice) MoveAndAppendTo(dest InstrumentationLibrarySpansSlice) {
+-	if *dest.orig == nil {
+-		// We can simply move the entire vector and avoid any allocations.
+-		*dest.orig = *es.orig
+-	} else {
+-		*dest.orig = append(*dest.orig, *es.orig...)
+-	}
+-	*es.orig = nil
+-}
+-
+ // CopyTo copies all elements from the current slice to the dest.
+ func (es InstrumentationLibrarySpansSlice) CopyTo(dest InstrumentationLibrarySpansSlice) {
+ 	srcLen := es.Len()
+@@ -303,6 +291,18 @@ func (es InstrumentationLibrarySpansSlice) AppendEmpty() InstrumentationLibraryS
+ 	return es.At(es.Len() - 1)
+ }
+ 
++// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
++// The current slice will be cleared.
++func (es InstrumentationLibrarySpansSlice) MoveAndAppendTo(dest InstrumentationLibrarySpansSlice) {
++	if *dest.orig == nil {
++		// We can simply move the entire vector and avoid any allocations.
++		*dest.orig = *es.orig
++	} else {
++		*dest.orig = append(*dest.orig, *es.orig...)
++	}
++	*es.orig = nil
++}
++
+ // InstrumentationLibrarySpans is a collection of spans from a LibraryInstrumentation.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -383,18 +383,6 @@ func (es SpanSlice) At(ix int) Span {
+ 	return newSpan((*es.orig)[ix])
+ }
+ 
+-// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
+-// The current slice will be cleared.
+-func (es SpanSlice) MoveAndAppendTo(dest SpanSlice) {
+-	if *dest.orig == nil {
+-		// We can simply move the entire vector and avoid any allocations.
+-		*dest.orig = *es.orig
+-	} else {
+-		*dest.orig = append(*dest.orig, *es.orig...)
+-	}
+-	*es.orig = nil
+-}
+-
+ // CopyTo copies all elements from the current slice to the dest.
+ func (es SpanSlice) CopyTo(dest SpanSlice) {
+ 	srcLen := es.Len()
+@@ -463,6 +451,18 @@ func (es SpanSlice) AppendEmpty() Span {
+ 	return es.At(es.Len() - 1)
+ }
+ 
++// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
++// The current slice will be cleared.
++func (es SpanSlice) MoveAndAppendTo(dest SpanSlice) {
++	if *dest.orig == nil {
++		// We can simply move the entire vector and avoid any allocations.
++		*dest.orig = *es.orig
++	} else {
++		*dest.orig = append(*dest.orig, *es.orig...)
++	}
++	*es.orig = nil
++}
++
+ // Span represents a single operation within a trace.
+ // See Span definition in OTLP: https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto#L37
+ //
+@@ -677,18 +677,6 @@ func (es SpanEventSlice) At(ix int) SpanEvent {
+ 	return newSpanEvent((*es.orig)[ix])
+ }
+ 
+-// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
+-// The current slice will be cleared.
+-func (es SpanEventSlice) MoveAndAppendTo(dest SpanEventSlice) {
+-	if *dest.orig == nil {
+-		// We can simply move the entire vector and avoid any allocations.
+-		*dest.orig = *es.orig
+-	} else {
+-		*dest.orig = append(*dest.orig, *es.orig...)
+-	}
+-	*es.orig = nil
+-}
+-
+ // CopyTo copies all elements from the current slice to the dest.
+ func (es SpanEventSlice) CopyTo(dest SpanEventSlice) {
+ 	srcLen := es.Len()
+@@ -757,6 +745,18 @@ func (es SpanEventSlice) AppendEmpty() SpanEvent {
+ 	return es.At(es.Len() - 1)
+ }
+ 
++// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
++// The current slice will be cleared.
++func (es SpanEventSlice) MoveAndAppendTo(dest SpanEventSlice) {
++	if *dest.orig == nil {
++		// We can simply move the entire vector and avoid any allocations.
++		*dest.orig = *es.orig
++	} else {
++		*dest.orig = append(*dest.orig, *es.orig...)
++	}
++	*es.orig = nil
++}
++
+ // SpanEvent is a time-stamped annotation of the span, consisting of user-supplied
+ // text description and key-value pairs. See OTLP for event definition.
+ //
+@@ -865,18 +865,6 @@ func (es SpanLinkSlice) At(ix int) SpanLink {
+ 	return newSpanLink((*es.orig)[ix])
+ }
+ 
+-// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
+-// The current slice will be cleared.
+-func (es SpanLinkSlice) MoveAndAppendTo(dest SpanLinkSlice) {
+-	if *dest.orig == nil {
+-		// We can simply move the entire vector and avoid any allocations.
+-		*dest.orig = *es.orig
+-	} else {
+-		*dest.orig = append(*dest.orig, *es.orig...)
+-	}
+-	*es.orig = nil
+-}
+-
+ // CopyTo copies all elements from the current slice to the dest.
+ func (es SpanLinkSlice) CopyTo(dest SpanLinkSlice) {
+ 	srcLen := es.Len()
+@@ -945,6 +933,18 @@ func (es SpanLinkSlice) AppendEmpty() SpanLink {
+ 	return es.At(es.Len() - 1)
+ }
+ 
++// MoveAndAppendTo moves all elements from the current slice and appends them to the dest.
++// The current slice will be cleared.
++func (es SpanLinkSlice) MoveAndAppendTo(dest SpanLinkSlice) {
++	if *dest.orig == nil {
++		// We can simply move the entire vector and avoid any allocations.
++		*dest.orig = *es.orig
++	} else {
++		*dest.orig = append(*dest.orig, *es.orig...)
++	}
++	*es.orig = nil
++}
++
+ // SpanLink is a pointer from the current span to another span in the same trace or in a
+ // different trace. See OTLP for link definition.
+ //

@@ -1,0 +1,15 @@
+diff --git a/config/configgrpc/configgrpc_benchmark_test.go b/config/configgrpc/configgrpc_benchmark_test.go
+index 13dea1795..d1fc95f77 100644
+--- a/config/configgrpc/configgrpc_benchmark_test.go
++++ b/config/configgrpc/configgrpc_benchmark_test.go
+@@ -9,8 +9,8 @@ import (
+ 	"fmt"
+ 	"testing"
+ 
+-	"github.com/mostynb/go-grpc-compression/snappy"
+-	"github.com/mostynb/go-grpc-compression/zstd"
++	"github.com/mostynb/go-grpc-compression/nonclobbering/snappy"
++	"github.com/mostynb/go-grpc-compression/nonclobbering/zstd"
+ 	"google.golang.org/grpc/codes"
+ 	"google.golang.org/grpc/encoding"
+ 	"google.golang.org/grpc/encoding/gzip"

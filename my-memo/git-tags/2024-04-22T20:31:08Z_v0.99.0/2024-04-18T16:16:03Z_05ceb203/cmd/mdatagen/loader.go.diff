@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index 245a71f1d..20b20d0dc 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -207,8 +207,10 @@ type ignore struct {
+ }
+ 
+ type goLeak struct {
+-	Skip   bool   `mapstructure:"skip"`
+-	Ignore ignore `mapstructure:"ignore"`
++	Skip     bool   `mapstructure:"skip"`
++	Ignore   ignore `mapstructure:"ignore"`
++	Setup    string `mapstructure:"setup"`
++	Teardown string `mapstructure:"teardown"`
+ }
+ 
+ type tests struct {

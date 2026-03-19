@@ -1,0 +1,22 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 55ba6bdb0..997e1efd5 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -69,7 +69,7 @@ func (rcvs Receivers) StartAll(ctx context.Context, host component.Host) error {
+ 	for _, rcv := range rcvs {
+ 		rcv.logger.Info("Receiver is starting...")
+ 
+-		if err := rcv.Start(ctx, host); err != nil {
++		if err := rcv.Start(ctx, newHostWrapper(host, rcv.logger)); err != nil {
+ 			return err
+ 		}
+ 		rcv.logger.Info("Receiver started.")
+@@ -227,7 +227,7 @@ func (rb *receiversBuilder) attachReceiverToPipelines(
+ 	}
+ 	rcv.receiver = createdReceiver
+ 
+-	logger.Info("Receiver is enabled.", zap.String("datatype", string(dataType)))
++	logger.Info("Receiver was built.", zap.String("datatype", string(dataType)))
+ 
+ 	return nil
+ }

@@ -1,0 +1,26 @@
+diff --git a/receiver/fluentforwardreceiver/observ/metrics.go b/receiver/fluentforwardreceiver/observ/metrics.go
+index a59b18580..40dad5e1f 100644
+--- a/receiver/fluentforwardreceiver/observ/metrics.go
++++ b/receiver/fluentforwardreceiver/observ/metrics.go
+@@ -19,8 +19,6 @@ package observ
+ import (
+ 	"go.opencensus.io/stats"
+ 	"go.opencensus.io/stats/view"
+-
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ var (
+@@ -80,11 +78,7 @@ var (
+ 	}
+ )
+ 
+-func Views(level configtelemetry.Level) []*view.View {
+-	if level == configtelemetry.LevelNone {
+-		return nil
+-	}
+-
++func MetricViews() []*view.View {
+ 	return []*view.View{
+ 		connectionsOpenedView,
+ 		connectionsClosedView,

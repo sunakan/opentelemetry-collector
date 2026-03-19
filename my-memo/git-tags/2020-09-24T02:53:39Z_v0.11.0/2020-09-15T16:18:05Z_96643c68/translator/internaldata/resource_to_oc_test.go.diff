@@ -1,0 +1,23 @@
+diff --git a/translator/internaldata/resource_to_oc_test.go b/translator/internaldata/resource_to_oc_test.go
+index 5007d9c1f..002ed3dd5 100644
+--- a/translator/internaldata/resource_to_oc_test.go
++++ b/translator/internaldata/resource_to_oc_test.go
+@@ -133,14 +133,10 @@ func TestAttributeValueToString(t *testing.T) {
+ 	assert.EqualValues(t, `{"a\"\\":"b\"\\","c":123,"d":null,"e":{"a\"\\":"b\"\\","c":123,"d":null}}`, attributeValueToString(v, false))
+ 
+ 	v = pdata.NewAttributeValueArray()
+-	av := pdata.NewAttributeValueString(`b"\`)
+-	v.ArrayVal().Append(&av)
+-	av = pdata.NewAttributeValueInt(123)
+-	v.ArrayVal().Append(&av)
+-	av = pdata.NewAttributeValueNull()
+-	v.ArrayVal().Append(&av)
+-	av = pdata.NewAttributeValueArray()
+-	v.ArrayVal().Append(&av)
++	v.ArrayVal().Append(pdata.NewAttributeValueString(`b"\`))
++	v.ArrayVal().Append(pdata.NewAttributeValueInt(123))
++	v.ArrayVal().Append(pdata.NewAttributeValueNull())
++	v.ArrayVal().Append(pdata.NewAttributeValueArray())
+ 	assert.EqualValues(t, `["b\"\\",123,null,[]]`, attributeValueToString(v, false))
+ }
+ 

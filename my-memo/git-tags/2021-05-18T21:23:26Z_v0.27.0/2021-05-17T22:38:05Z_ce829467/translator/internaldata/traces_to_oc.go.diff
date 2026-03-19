@@ -1,0 +1,18 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index ae1360d2c..fdba9a70f 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -145,11 +145,11 @@ func attributeValueToOC(attr pdata.AttributeValue) *octrace.AttributeValue {
+ 		}
+ 	case pdata.AttributeValueMAP:
+ 		a.Value = &octrace.AttributeValue_StringValue{
+-			StringValue: stringToTruncatableString(tracetranslator.AttributeValueToString(attr, false)),
++			StringValue: stringToTruncatableString(tracetranslator.AttributeValueToString(attr)),
+ 		}
+ 	case pdata.AttributeValueARRAY:
+ 		a.Value = &octrace.AttributeValue_StringValue{
+-			StringValue: stringToTruncatableString(tracetranslator.AttributeValueToString(attr, false)),
++			StringValue: stringToTruncatableString(tracetranslator.AttributeValueToString(attr)),
+ 		}
+ 	default:
+ 		a.Value = &octrace.AttributeValue_StringValue{

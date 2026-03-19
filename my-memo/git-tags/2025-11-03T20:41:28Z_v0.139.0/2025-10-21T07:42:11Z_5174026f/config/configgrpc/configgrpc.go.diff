@@ -1,0 +1,26 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 1d329eaca..493b02f58 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -611,6 +611,10 @@ func authUnaryServerInterceptor(server extensionauth.Server) grpc.UnaryServerInt
+ 
+ 		ctx, err := server.Authenticate(ctx, headers)
+ 		if err != nil {
++			if s, ok := status.FromError(err); ok {
++				return nil, s.Err()
++			}
++
+ 			return nil, status.Error(codes.Unauthenticated, err.Error())
+ 		}
+ 
+@@ -628,6 +632,10 @@ func authStreamServerInterceptor(server extensionauth.Server) grpc.StreamServerI
+ 
+ 		ctx, err := server.Authenticate(ctx, headers)
+ 		if err != nil {
++			if s, ok := status.FromError(err); ok {
++				return s.Err()
++			}
++
+ 			return status.Error(codes.Unauthenticated, err.Error())
+ 		}
+ 

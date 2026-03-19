@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterwrapper/exporterwrapper.go b/exporter/exporterwrapper/exporterwrapper.go
+index ec8607781..a2a8552ee 100644
+--- a/exporter/exporterwrapper/exporterwrapper.go
++++ b/exporter/exporterwrapper/exporterwrapper.go
+@@ -28,7 +28,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/exporterhelper"
+-	"github.com/open-telemetry/opentelemetry-service/internal"
++	"github.com/open-telemetry/opentelemetry-service/oterr"
+ 	spandatatranslator "github.com/open-telemetry/opentelemetry-service/translator/trace/spandata"
+ )
+ 
+@@ -68,5 +68,5 @@ func PushOcProtoSpansToOCTraceExporter(ocExporter trace.Exporter, td consumerdat
+ 		}
+ 	}
+ 
+-	return len(td.Spans) - len(goodSpans), internal.CombineErrors(errs)
++	return len(td.Spans) - len(goodSpans), oterr.CombineErrors(errs)
+ }

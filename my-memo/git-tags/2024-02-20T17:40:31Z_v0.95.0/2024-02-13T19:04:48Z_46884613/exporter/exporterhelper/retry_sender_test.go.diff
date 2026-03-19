@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender_test.go b/exporter/exporterhelper/retry_sender_test.go
+index 319b1cfdc..9a7327d22 100644
+--- a/exporter/exporterhelper/retry_sender_test.go
++++ b/exporter/exporterhelper/retry_sender_test.go
+@@ -26,7 +26,7 @@ import (
+ )
+ 
+ func mockRequestUnmarshaler(mr Request) exporterqueue.Unmarshaler[Request] {
+-	return func(bytes []byte) (Request, error) {
++	return func(_ []byte) (Request, error) {
+ 		return mr, nil
+ 	}
+ }

@@ -1,0 +1,13 @@
+diff --git a/docs/processing.md b/docs/processing.md
+index 63e5e21b7..331fa16c6 100644
+--- a/docs/processing.md
++++ b/docs/processing.md
+@@ -57,7 +57,7 @@ expectations.
+ - Create new metrics based on information in spans, for example to create a duration metric that is not implemented in the SDK yet
+ - Apply arithmetic between multiple incoming metrics to produce an output one, for example divide an `amount` and a `capacity` to create a `utilization` metric
+ 
+-The processors implementing this use case are `metricsgenerationprocessor`, `spanmetricsprocessor`.
++The components implementing this use case are `metricsgenerationprocessor` and the former `spanmetricsprocessor` (now `spanmetricsconnector`).
+ 
+ ### Grouping
+ 

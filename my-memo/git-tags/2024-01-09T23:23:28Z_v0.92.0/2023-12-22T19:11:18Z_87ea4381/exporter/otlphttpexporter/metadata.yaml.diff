@@ -1,0 +1,14 @@
+diff --git a/exporter/otlphttpexporter/metadata.yaml b/exporter/otlphttpexporter/metadata.yaml
+new file mode 100644
+index 000000000..14cae78d1
+--- /dev/null
++++ b/exporter/otlphttpexporter/metadata.yaml
+@@ -0,0 +1,8 @@
++type: otlphttp
++
++status:
++  class: exporter
++  stability:
++    stable: [traces, metrics]
++    beta: [logs]
++  distributions: [core, contrib]

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/packages.go b/internal/cmd/pdatagen/internal/packages.go
+index 37793ed14..fdd96f76a 100644
+--- a/internal/cmd/pdatagen/internal/packages.go
++++ b/internal/cmd/pdatagen/internal/packages.go
+@@ -37,7 +37,7 @@ var AllPackages = []*Package{
+ // Package is a struct used to generate files.
+ type Package struct {
+ 	info *PackageInfo
+-	// Can be any of sliceOfPtrs, sliceOfValues, messageStruct.
++	// Can be any of sliceStruct, sliceOfValues, messageStruct.
+ 	structs []baseStruct
+ }
+ 

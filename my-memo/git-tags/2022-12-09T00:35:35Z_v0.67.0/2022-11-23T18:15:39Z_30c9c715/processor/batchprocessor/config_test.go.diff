@@ -1,0 +1,22 @@
+diff --git a/processor/batchprocessor/config_test.go b/processor/batchprocessor/config_test.go
+index 4119714a9..90464c1b3 100644
+--- a/processor/batchprocessor/config_test.go
++++ b/processor/batchprocessor/config_test.go
+@@ -31,7 +31,7 @@ import (
+ func TestUnmarshalDefaultConfig(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.NoError(t, component.UnmarshalProcessorConfig(confmap.New(), cfg))
++	assert.NoError(t, component.UnmarshalConfig(confmap.New(), cfg))
+ 	assert.Equal(t, factory.CreateDefaultConfig(), cfg)
+ }
+ 
+@@ -40,7 +40,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.NoError(t, component.UnmarshalProcessorConfig(cm, cfg))
++	assert.NoError(t, component.UnmarshalConfig(cm, cfg))
+ 	assert.Equal(t,
+ 		&Config{
+ 			ProcessorSettings: config.NewProcessorSettings(component.NewID(typeStr)),

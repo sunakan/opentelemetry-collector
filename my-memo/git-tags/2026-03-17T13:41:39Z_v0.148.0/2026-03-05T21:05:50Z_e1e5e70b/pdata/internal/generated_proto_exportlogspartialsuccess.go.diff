@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_exportlogspartialsuccess.go b/pdata/internal/generated_proto_exportlogspartialsuccess.go
+index bccd38e7d..2e3eb5060 100644
+--- a/pdata/internal/generated_proto_exportlogspartialsuccess.go
++++ b/pdata/internal/generated_proto_exportlogspartialsuccess.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -29,7 +30,7 @@ var (
+ )
+ 
+ func NewExportLogsPartialSuccess() *ExportLogsPartialSuccess {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &ExportLogsPartialSuccess{}
+ 	}
+ 	return protoPoolExportLogsPartialSuccess.Get().(*ExportLogsPartialSuccess)
+@@ -40,7 +41,7 @@ func DeleteExportLogsPartialSuccess(orig *ExportLogsPartialSuccess, nullable boo
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

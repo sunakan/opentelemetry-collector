@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index c2315bb59..0b7d211db 100644
+--- a/Makefile
++++ b/Makefile
+@@ -152,8 +152,7 @@ endif
+ # Build the Collector executable.
+ .PHONY: otelcorecol
+ otelcorecol:
+-	pushd cmd/otelcorecol && CGO_ENABLED=0 $(GOCMD) build -trimpath -o ../../bin/otelcorecol_$(GOOS)_$(GOARCH) \
+-		-tags $(GO_BUILD_TAGS) ./cmd/otelcorecol && popd
++	pushd cmd/otelcorecol && CGO_ENABLED=0 $(GOCMD) build -trimpath -o ../../bin/otelcorecol_$(GOOS)_$(GOARCH) -tags "grpcnotrace" ./... && popd
+ 
+ .PHONY: genotelcorecol
+ genotelcorecol: install-tools

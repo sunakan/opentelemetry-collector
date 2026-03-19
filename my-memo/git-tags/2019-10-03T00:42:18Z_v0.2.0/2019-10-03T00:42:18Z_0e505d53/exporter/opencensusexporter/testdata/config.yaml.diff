@@ -1,0 +1,19 @@
+diff --git a/exporter/opencensusexporter/testdata/config.yaml b/exporter/opencensusexporter/testdata/config.yaml
+index a64a41c59..3dfb34dcf 100644
+--- a/exporter/opencensusexporter/testdata/config.yaml
++++ b/exporter/opencensusexporter/testdata/config.yaml
+@@ -22,8 +22,9 @@ exporters:
+       timeout: 30
+       permit_without_stream: true
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [opencensus]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [opencensus]

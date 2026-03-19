@@ -1,0 +1,16 @@
+diff --git a/pdata/pcommon/value_test.go b/pdata/pcommon/value_test.go
+index ac424a56a..b5cb6c10b 100644
+--- a/pdata/pcommon/value_test.go
++++ b/pdata/pcommon/value_test.go
+@@ -250,9 +250,9 @@ func TestValue_MoveTo(t *testing.T) {
+ 
+ func TestValue_CopyTo(t *testing.T) {
+ 	dest := NewValueEmpty()
+-	orig := internal.GenTestOrigAnyValue()
++	orig := internal.GenTestAnyValue()
+ 	newValue(orig, internal.NewState()).CopyTo(dest)
+-	assert.Equal(t, internal.GenTestOrigAnyValue(), dest.getOrig())
++	assert.Equal(t, internal.GenTestAnyValue(), dest.getOrig())
+ }
+ 
+ func TestSliceWithNilValues(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/kafka_exporter.go b/exporter/kafkaexporter/kafka_exporter.go
+index c9398034a..00a43c5c4 100644
+--- a/exporter/kafkaexporter/kafka_exporter.go
++++ b/exporter/kafkaexporter/kafka_exporter.go
+@@ -36,7 +36,7 @@ type kafkaTracesProducer struct {
+ 	logger    *zap.Logger
+ }
+ 
+-func (e *kafkaTracesProducer) traceDataPusher(_ context.Context, td pdata.Traces) error {
++func (e *kafkaTracesProducer) tracesPusher(_ context.Context, td pdata.Traces) error {
+ 	messages, err := e.marshaler.Marshal(td, e.topic)
+ 	if err != nil {
+ 		return consumererror.Permanent(err)

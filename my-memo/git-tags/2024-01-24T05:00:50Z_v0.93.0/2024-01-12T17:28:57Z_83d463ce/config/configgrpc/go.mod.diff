@@ -1,0 +1,26 @@
+diff --git a/config/configgrpc/go.mod b/config/configgrpc/go.mod
+index fd1fe6b12..28e7612dd 100644
+--- a/config/configgrpc/go.mod
++++ b/config/configgrpc/go.mod
+@@ -86,8 +86,6 @@ replace go.opentelemetry.io/collector/config/configopaque => ../configopaque
+ 
+ replace go.opentelemetry.io/collector/config/configtls => ../configtls
+ 
+-replace go.opentelemetry.io/collector/config/configretry => ../../config/configretry
+-
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../configtelemetry
+ 
+ replace go.opentelemetry.io/collector/config/internal => ../internal
+@@ -98,12 +96,6 @@ replace go.opentelemetry.io/collector/extension/auth => ../../extension/auth
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+-replace go.opentelemetry.io/collector/processor => ../../processor
+-
+-replace go.opentelemetry.io/collector/exporter => ../../exporter
+-
+-replace go.opentelemetry.io/collector/receiver => ../../receiver
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata

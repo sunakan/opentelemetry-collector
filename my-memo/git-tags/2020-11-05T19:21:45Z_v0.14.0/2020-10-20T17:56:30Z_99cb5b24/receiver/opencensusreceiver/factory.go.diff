@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index 5159a1036..7116d4f70 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -59,7 +59,7 @@ func createTraceReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceReceiver, error) {
+ 	r, err := createReceiver(cfg)
+ 	if err != nil {

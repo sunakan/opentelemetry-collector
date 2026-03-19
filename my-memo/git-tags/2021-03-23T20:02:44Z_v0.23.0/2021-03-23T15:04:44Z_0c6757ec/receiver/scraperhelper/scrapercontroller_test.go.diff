@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index f2ef6a386..a211c69d6 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -201,7 +201,7 @@ func TestScrapeController(t *testing.T) {
+ 			tickerCh := make(chan time.Time)
+ 			options = append(options, WithTickerChannel(tickerCh))
+ 
+-			var nextConsumer consumer.MetricsConsumer
++			var nextConsumer consumer.Metrics
+ 			sink := new(consumertest.MetricsSink)
+ 			if !test.nilNextConsumer {
+ 				nextConsumer = sink

@@ -1,0 +1,13 @@
+diff --git a/config/testdata/valid-config.yaml b/config/testdata/valid-config.yaml
+index 2976ec3dc..5f4d389e9 100644
+--- a/config/testdata/valid-config.yaml
++++ b/config/testdata/valid-config.yaml
+@@ -1,7 +1,7 @@
+ receivers:
+   examplereceiver:
+   examplereceiver/myreceiver:
+-    endpoint: "127.0.0.1:12345"
++    endpoint: "localhost:12345"
+     extra: "some string"
+   examplereceiver/disabled:
+     disabled: true

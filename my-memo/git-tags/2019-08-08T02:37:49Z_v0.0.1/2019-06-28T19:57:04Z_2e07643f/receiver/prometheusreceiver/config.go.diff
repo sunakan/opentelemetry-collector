@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/config.go b/receiver/prometheusreceiver/config.go
+index eca2a108e..056e2e929 100644
+--- a/receiver/prometheusreceiver/config.go
++++ b/receiver/prometheusreceiver/config.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/prometheus/prometheus/config"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
+ )
+ 
+ // ConfigV2 defines configuration for Prometheus receiver.

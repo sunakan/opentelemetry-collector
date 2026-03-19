@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_numberdatapoint.go b/pdata/internal/generated_wrapper_numberdatapoint.go
+index f9e94cae6..a1d2ef9c3 100644
+--- a/pdata/internal/generated_wrapper_numberdatapoint.go
++++ b/pdata/internal/generated_wrapper_numberdatapoint.go
+@@ -55,6 +55,10 @@ func DeleteOrigNumberDataPoint(orig *otlpmetrics.NumberDataPoint, nullable bool)
+ }
+ 
+ func CopyOrigNumberDataPoint(dest, src *otlpmetrics.NumberDataPoint) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)
+ 	dest.StartTimeUnixNano = src.StartTimeUnixNano
+ 	dest.TimeUnixNano = src.TimeUnixNano

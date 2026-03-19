@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index a26b73d5a..9b5d80edd 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,10 @@
+ 
+ ## Unreleased
+ 
++## 💡 Enhancements 💡
++
++- `confighttp` and `configgrpc`: New config option `include_metadata` to persist request metadata/headers in `client.Info.Metadata` (experimental) (#4547)
++
+ ## 🛑 Breaking changes 🛑
+ 
+ - Change configmapprovider.Provider to accept a location for retrieve (#4657)

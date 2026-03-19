@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 0ff401c18..1abe324d0 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -5,7 +5,7 @@ go 1.21
+ require (
+ 	github.com/gogo/protobuf v1.3.2
+ 	github.com/klauspost/compress v1.17.7
+-	github.com/stretchr/testify v1.8.4
++	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector v0.96.0
+ 	go.opentelemetry.io/collector/component v0.96.0
+ 	go.opentelemetry.io/collector/config/configgrpc v0.96.0

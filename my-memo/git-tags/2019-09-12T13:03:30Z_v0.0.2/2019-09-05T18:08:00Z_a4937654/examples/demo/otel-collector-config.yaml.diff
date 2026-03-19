@@ -1,0 +1,19 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index b712a6f5f..fd2670889 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -37,3 +37,14 @@ pipelines:
+   metrics:
+     receivers: [opencensus]
+     exporters: [logging,prometheus]
++
++extensions:
++  health-check:
++  pprof:
++    endpoint: :1888
++  zpages:
++    endpoint: :55679
++
++service:
++  extensions: [pprof, zpages, health-check]
++

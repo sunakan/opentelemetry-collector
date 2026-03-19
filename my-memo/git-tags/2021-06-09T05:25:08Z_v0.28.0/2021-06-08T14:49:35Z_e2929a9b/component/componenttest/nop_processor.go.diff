@@ -1,0 +1,28 @@
+diff --git a/component/componenttest/nop_processor.go b/component/componenttest/nop_processor.go
+index 4b744b373..ef8c2be1e 100644
+--- a/component/componenttest/nop_processor.go
++++ b/component/componenttest/nop_processor.go
+@@ -17,6 +17,8 @@ package componenttest
+ import (
+ 	"context"
+ 
++	"go.uber.org/zap"
++
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+@@ -24,6 +26,14 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+ 
++// NewNopProcessorCreateSettings returns a new nop settings for Create*Processor functions.
++func NewNopProcessorCreateSettings() component.ProcessorCreateSettings {
++	return component.ProcessorCreateSettings{
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
++	}
++}
++
+ type nopProcessorConfig struct {
+ 	config.ProcessorSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ }

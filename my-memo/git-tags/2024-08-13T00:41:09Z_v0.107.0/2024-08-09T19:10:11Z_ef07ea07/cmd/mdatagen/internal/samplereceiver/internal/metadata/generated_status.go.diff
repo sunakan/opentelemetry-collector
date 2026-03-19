@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
+index e3e8df2ad..7f86f1d8f 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("sample")
++	Type      = component.MustNewType("sample")
++	ScopeName = "go.opentelemetry.io/collector/internal/receiver/samplereceiver"
+ )
+ 
+ const (

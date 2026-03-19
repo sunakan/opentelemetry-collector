@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index d0ff423a1..6eff02866 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -503,7 +503,7 @@ func (app *Application) handleServicezRequest(w http.ResponseWriter, r *http.Req
+ 		ComponentEndpoint: extensionzPath,
+ 		Link:              true,
+ 	})
+-	internal.WriteHTMLPropertiesTable(w, internal.PropertiesTableData{Name: "Build And Runtime", Properties: version.InfoVar})
++	internal.WriteHTMLPropertiesTable(w, internal.PropertiesTableData{Name: "Build And Runtime", Properties: version.RuntimeVar()})
+ 	internal.WriteHTMLFooter(w)
+ }
+ 

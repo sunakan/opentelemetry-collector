@@ -1,0 +1,40 @@
+diff --git a/exporter/fileexporter/file_exporter_test.go b/exporter/fileexporter/file_exporter_test.go
+index 2b5724209..a50931476 100644
+--- a/exporter/fileexporter/file_exporter_test.go
++++ b/exporter/fileexporter/file_exporter_test.go
+@@ -79,7 +79,7 @@ func TestFileLogsExporterNoErrors(t *testing.T) {
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key:   "attr1",
+-						Value: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value1"}},
++						Value: otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value1"}},
+ 					},
+ 				},
+ 			},
+@@ -103,7 +103,7 @@ func TestFileLogsExporterNoErrors(t *testing.T) {
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key:   "attr2",
+-						Value: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value2"}},
++						Value: otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value2"}},
+ 					},
+ 				},
+ 			},
+@@ -138,7 +138,7 @@ func TestFileLogsExporterErrors(t *testing.T) {
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key:   "attr1",
+-						Value: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value1"}},
++						Value: otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value1"}},
+ 					},
+ 				},
+ 			},
+@@ -162,7 +162,7 @@ func TestFileLogsExporterErrors(t *testing.T) {
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key:   "attr2",
+-						Value: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value2"}},
++						Value: otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "value2"}},
+ 					},
+ 				},
+ 			},

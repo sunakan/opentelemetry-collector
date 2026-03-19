@@ -1,0 +1,13 @@
+diff --git a/internal/collector/processor/nodebatcher/config_test.go b/internal/collector/processor/nodebatcher/config_test.go
+index ecd401a2e..6ae9639f5 100644
+--- a/internal/collector/processor/nodebatcher/config_test.go
++++ b/internal/collector/processor/nodebatcher/config_test.go
+@@ -31,7 +31,7 @@ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+ 
+-	factory := processor.GetProcessorFactory(typeStr)
++	factory := processor.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

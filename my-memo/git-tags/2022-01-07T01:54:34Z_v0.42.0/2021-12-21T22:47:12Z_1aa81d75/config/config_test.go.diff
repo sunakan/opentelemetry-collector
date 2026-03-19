@@ -1,0 +1,36 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index adfe391f0..c9d6e33ca 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -85,6 +85,15 @@ func TestConfigValidate(t *testing.T) {
+ 			cfgFn:    generateConfig,
+ 			expected: nil,
+ 		},
++		{
++			name: "custom-service-telemetry-encoding",
++			cfgFn: func() *Config {
++				cfg := generateConfig()
++				cfg.Service.Telemetry.Logs.Encoding = "test_encoding"
++				return cfg
++			},
++			expected: nil,
++		},
+ 		{
+ 			name: "missing-exporters",
+ 			cfgFn: func() *Config {
+@@ -215,15 +224,6 @@ func TestConfigValidate(t *testing.T) {
+ 			},
+ 			expected: fmt.Errorf(`extension "nop" has invalid configuration: %w`, errInvalidExtConfig),
+ 		},
+-		{
+-			name: "invalid-service-telemetry-encoding",
+-			cfgFn: func() *Config {
+-				cfg := generateConfig()
+-				cfg.Service.Telemetry.Logs.Encoding = "unknown"
+-				return cfg
+-			},
+-			expected: errors.New(`service telemetry logs invalid encoding: "unknown", valid values are "json" and "console"`),
+-		},
+ 	}
+ 
+ 	for _, test := range testCases {

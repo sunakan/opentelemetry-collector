@@ -1,0 +1,52 @@
+diff --git a/receiver/receiverhelper/metadata.yaml b/receiver/receiverhelper/metadata.yaml
+index e5854f996..6696d5b68 100644
+--- a/receiver/receiverhelper/metadata.yaml
++++ b/receiver/receiverhelper/metadata.yaml
+@@ -25,6 +25,15 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
++    receiver_accepted_profile_samples:
++      enabled: true
++      stability:
++        level: alpha
++      description: Number of profile samples successfully pushed into the pipeline.
++      unit: "{samples}"
++      sum:
++        value_type: int
++        monotonic: true
+     receiver_accepted_spans:
+       enabled: true
+       stability:
+@@ -52,6 +61,15 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
++    receiver_failed_profile_samples:
++      enabled: true
++      stability:
++        level: alpha
++      description: The number of profile samples that failed to be processed by the receiver due to internal errors.
++      unit: "{samples}"
++      sum:
++        value_type: int
++        monotonic: true
+     receiver_failed_spans:
+       enabled: true
+       stability:
+@@ -79,6 +97,15 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
++    receiver_refused_profile_samples:
++      enabled: true
++      stability:
++        level: alpha
++      description: Number of profile samples that could not be pushed into the pipeline.
++      unit: "{samples}"
++      sum:
++        value_type: int
++        monotonic: true
+     receiver_refused_spans:
+       enabled: true
+       stability:

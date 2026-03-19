@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/span.go b/processor/spanprocessor/span.go
+index 0e0415007..9a9be8d8c 100644
+--- a/processor/spanprocessor/span.go
++++ b/processor/spanprocessor/span.go
+@@ -79,7 +79,7 @@ func newSpanProcessor(config Config) (*spanProcessor, error) {
+ 	return sp, nil
+ }
+ 
+-func (sp *spanProcessor) ProcessTraces(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
++func (sp *spanProcessor) processTraces(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
+ 	rss := td.ResourceSpans()
+ 	for i := 0; i < rss.Len(); i++ {
+ 		rs := rss.At(i)

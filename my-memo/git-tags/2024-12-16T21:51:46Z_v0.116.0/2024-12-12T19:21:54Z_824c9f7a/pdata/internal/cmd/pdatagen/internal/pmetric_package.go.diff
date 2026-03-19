@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pmetric_package.go b/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
+index e6e8e3a19..87cde55da 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
+@@ -517,6 +517,7 @@ var sumField = &optionalPrimitiveValue{
+ 	defaultVal: "float64(0.0)",
+ 	testVal:    "float64(17.13)",
+ }
++
+ var minField = &optionalPrimitiveValue{
+ 	fieldName:  "Min",
+ 	returnType: "float64",

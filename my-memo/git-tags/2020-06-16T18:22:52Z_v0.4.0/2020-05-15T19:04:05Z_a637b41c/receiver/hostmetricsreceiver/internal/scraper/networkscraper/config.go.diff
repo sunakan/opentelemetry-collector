@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/config.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/config.go
+index c2f53d220..18b372009 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/config.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/config.go
+@@ -14,7 +14,7 @@
+ 
+ package networkscraper
+ 
+-import "github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++import "go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 
+ // Config relating to Network Metric Scraper.
+ type Config struct {

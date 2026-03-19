@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/testutils.go b/receiver/hostmetricsreceiver/internal/testutils.go
+index a2946b4ab..69f8ee2a0 100644
+--- a/receiver/hostmetricsreceiver/internal/testutils.go
++++ b/receiver/hostmetricsreceiver/internal/testutils.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ func AssertDescriptorEqual(t *testing.T, expected pdata.MetricDescriptor, actual pdata.MetricDescriptor) {

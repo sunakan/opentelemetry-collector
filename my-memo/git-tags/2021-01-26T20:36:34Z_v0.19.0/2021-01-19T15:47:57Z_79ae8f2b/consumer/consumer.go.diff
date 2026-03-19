@@ -1,0 +1,13 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index aa867f629..e2b6b7707 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -21,7 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+-// MetricsConsumer is the new metrics consumer interface that receives pdata.MetricData, processes it
++// MetricsConsumer is the new metrics consumer interface that receives pdata.Metrics, processes it
+ // as needed, and sends it to the next processing node if any or to the destination.
+ type MetricsConsumer interface {
+ 	ConsumeMetrics(ctx context.Context, md pdata.Metrics) error

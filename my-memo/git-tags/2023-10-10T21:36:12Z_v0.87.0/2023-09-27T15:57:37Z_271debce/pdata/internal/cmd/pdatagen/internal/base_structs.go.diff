@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_structs.go b/pdata/internal/cmd/pdatagen/internal/base_structs.go
+index d96657028..fe247969c 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_structs.go
+@@ -117,7 +117,6 @@ func New{{ .structName }}(orig *{{ .originName }}) {{ .structName }} {
+ 
+ type baseStruct interface {
+ 	getName() string
+-	getPackageName() string
+ 	generateStruct(sb *bytes.Buffer)
+ 	generateTests(sb *bytes.Buffer)
+ 	generateTestValueHelpers(sb *bytes.Buffer)
+@@ -138,10 +137,6 @@ func (ms *messageValueStruct) getName() string {
+ 	return ms.structName
+ }
+ 
+-func (ms *messageValueStruct) getPackageName() string {
+-	return ms.packageName
+-}
+-
+ func (ms *messageValueStruct) generateStruct(sb *bytes.Buffer) {
+ 	t := template.Must(template.New("messageValueTemplate").Parse(messageValueTemplate))
+ 	if err := t.Execute(sb, ms.templateFields()); err != nil {

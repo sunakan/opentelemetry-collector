@@ -1,0 +1,13 @@
+diff --git a/model/otlp/pb_unmarshaler.go b/model/otlp/pb_unmarshaler.go
+index 6fc8d2fa3..1b36b1b12 100644
+--- a/model/otlp/pb_unmarshaler.go
++++ b/model/otlp/pb_unmarshaler.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlp
++package otlp // import "go.opentelemetry.io/collector/model/otlp"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/model/internal"

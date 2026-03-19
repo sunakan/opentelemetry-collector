@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/json_test.go b/pdata/pmetric/json_test.go
+index 043641372..f2128d1ce 100644
+--- a/pdata/pmetric/json_test.go
++++ b/pdata/pmetric/json_test.go
+@@ -43,8 +43,7 @@ func TestMetricsJSON(t *testing.T) {
+ 	assert.NoError(t, err)
+ 
+ 	decoder := &JSONUnmarshaler{}
+-	var got interface{}
+-	got, err = decoder.UnmarshalMetrics(jsonBuf)
++	got, err := decoder.UnmarshalMetrics(jsonBuf)
+ 	assert.NoError(t, err)
+ 
+ 	assert.EqualValues(t, metricsOTLP, got)

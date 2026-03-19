@@ -1,0 +1,13 @@
+diff --git a/service/builder/exporters_builder.go b/service/builder/exporters_builder.go
+index d2cb2e9bc..f58e34368 100644
+--- a/service/builder/exporters_builder.go
++++ b/service/builder/exporters_builder.go
+@@ -232,7 +232,7 @@ func (eb *ExportersBuilder) buildExporter(
+ 
+ 	inputDataTypes := exportersInputDataTypes[config]
+ 	if inputDataTypes == nil {
+-		logger.Info("Ignoring exporter as it is not used by any pipeline")
++		eb.logger.Info("Ignoring exporter as it is not used by any pipeline")
+ 		return exporter, nil
+ 	}
+ 

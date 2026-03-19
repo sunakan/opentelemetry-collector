@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/main_test.go b/cmd/mdatagen/main_test.go
+index dfdcabab7..707f9bc45 100644
+--- a/cmd/mdatagen/main_test.go
++++ b/cmd/mdatagen/main_test.go
+@@ -567,7 +567,6 @@ package metadata
+ 
+ import (
+ 	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -606,7 +605,6 @@ package metadata
+ 
+ import (
+ 	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
+ 
+ 	"go.opentelemetry.io/collector/component"

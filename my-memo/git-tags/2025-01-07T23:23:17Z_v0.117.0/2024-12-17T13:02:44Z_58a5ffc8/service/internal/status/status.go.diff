@@ -1,0 +1,17 @@
+diff --git a/service/internal/status/status.go b/service/internal/status/status.go
+index a27bff618..5a44a0266 100644
+--- a/service/internal/status/status.go
++++ b/service/internal/status/status.go
+@@ -70,8 +70,10 @@ func newFSM(onTransition onTransitionFunc) *fsm {
+ 				componentstatus.StatusFatalError:     {},
+ 				componentstatus.StatusStopping:       {},
+ 			},
+-			componentstatus.StatusPermanentError: {},
+-			componentstatus.StatusFatalError:     {},
++			componentstatus.StatusPermanentError: {
++				componentstatus.StatusStopping: {},
++			},
++			componentstatus.StatusFatalError: {},
+ 			componentstatus.StatusStopping: {
+ 				componentstatus.StatusRecoverableError: {},
+ 				componentstatus.StatusPermanentError:   {},

@@ -1,0 +1,23 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index 5641e9872..d133342fd 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
++	"go.opentelemetry.io/collector/internal/internalinterface"
+ )
+ 
+ // NewNopExporterCreateSettings returns a new nop settings for Create*Exporter functions.
+@@ -36,7 +37,9 @@ type nopExporterConfig struct {
+ }
+ 
+ // nopExporterFactory is factory for nopExporter.
+-type nopExporterFactory struct{}
++type nopExporterFactory struct {
++	internalinterface.BaseInternal
++}
+ 
+ var nopExporterFactoryInstance = &nopExporterFactory{}
+ 

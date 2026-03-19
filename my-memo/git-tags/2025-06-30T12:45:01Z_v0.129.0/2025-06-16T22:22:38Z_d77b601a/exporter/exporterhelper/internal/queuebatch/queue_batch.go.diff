@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index f22fdf58c..68fa9dfa5 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -54,10 +54,6 @@ func newQueueBatch(
+ 	next sender.SendFunc[request.Request],
+ 	oldBatcher bool,
+ ) (*QueueBatch, error) {
+-	if cfg.hasBlocking {
+-		set.Telemetry.Logger.Error("using deprecated field `blocking`")
+-	}
+-
+ 	sizer, ok := set.Sizers[cfg.Sizer]
+ 	if !ok {
+ 		return nil, fmt.Errorf("queue_batch: unsupported sizer %q", cfg.Sizer)

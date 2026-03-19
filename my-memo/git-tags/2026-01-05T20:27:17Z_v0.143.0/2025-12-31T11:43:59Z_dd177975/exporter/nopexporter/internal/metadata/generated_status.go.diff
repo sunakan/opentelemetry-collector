@@ -1,0 +1,16 @@
+diff --git a/exporter/nopexporter/internal/metadata/generated_status.go b/exporter/nopexporter/internal/metadata/generated_status.go
+index d7336115c..9d6e4c91a 100644
+--- a/exporter/nopexporter/internal/metadata/generated_status.go
++++ b/exporter/nopexporter/internal/metadata/generated_status.go
+@@ -12,7 +12,8 @@ var (
+ )
+ 
+ const (
+-	TracesStability  = component.StabilityLevelBeta
+-	MetricsStability = component.StabilityLevelBeta
+-	LogsStability    = component.StabilityLevelBeta
++	ProfilesStability = component.StabilityLevelDevelopment
++	TracesStability   = component.StabilityLevelBeta
++	MetricsStability  = component.StabilityLevelBeta
++	LogsStability     = component.StabilityLevelBeta
+ )

@@ -1,0 +1,46 @@
+diff --git a/internal/cmd/pdatagen/internal/plog_package.go b/internal/cmd/pdatagen/internal/plog_package.go
+index 0a226f90d..7595bfcc9 100644
+--- a/internal/cmd/pdatagen/internal/plog_package.go
++++ b/internal/cmd/pdatagen/internal/plog_package.go
+@@ -66,9 +66,10 @@ var logs = &messageStruct{
+ 	hasWrapper: true,
+ }
+ 
+-var resourceLogsSlice = &sliceOfPtrs{
+-	structName: "ResourceLogsSlice",
+-	element:    resourceLogs,
++var resourceLogsSlice = &messageSlice{
++	structName:      "ResourceLogsSlice",
++	elementNullable: true,
++	element:         resourceLogs,
+ }
+ 
+ var resourceLogs = &messageStruct{
+@@ -95,9 +96,10 @@ var resourceLogs = &messageStruct{
+ 	},
+ }
+ 
+-var scopeLogsSlice = &sliceOfPtrs{
+-	structName: "ScopeLogsSlice",
+-	element:    scopeLogs,
++var scopeLogsSlice = &messageSlice{
++	structName:      "ScopeLogsSlice",
++	elementNullable: true,
++	element:         scopeLogs,
+ }
+ 
+ var scopeLogs = &messageStruct{
+@@ -124,9 +126,10 @@ var scopeLogs = &messageStruct{
+ 	},
+ }
+ 
+-var logSlice = &sliceOfPtrs{
+-	structName: "LogRecordSlice",
+-	element:    logRecord,
++var logSlice = &messageSlice{
++	structName:      "LogRecordSlice",
++	elementNullable: true,
++	element:         logRecord,
+ }
+ 
+ var logRecord = &messageStruct{

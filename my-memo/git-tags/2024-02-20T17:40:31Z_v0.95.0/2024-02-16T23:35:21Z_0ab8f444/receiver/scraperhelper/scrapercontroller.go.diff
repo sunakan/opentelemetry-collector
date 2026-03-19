@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index fb6da0a3d..d2b7410da 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -65,7 +65,7 @@ type controller struct {
+ 
+ // NewScraperControllerReceiver creates a Receiver with the configured options, that can control multiple scrapers.
+ func NewScraperControllerReceiver(
+-	cfg *ScraperControllerSettings,
++	cfg *ControllerConfig,
+ 	set receiver.CreateSettings,
+ 	nextConsumer consumer.Metrics,
+ 	options ...ScraperControllerOption,

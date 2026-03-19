@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/persistent_storage_test.go b/exporter/exporterhelper/persistent_storage_test.go
+index 72420ddc0..d818b50d3 100644
+--- a/exporter/exporterhelper/persistent_storage_test.go
++++ b/exporter/exporterhelper/persistent_storage_test.go
+@@ -34,7 +34,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/extension/storage"
++	"go.opentelemetry.io/collector/extension/experimental/storage"
+ )
+ 
+ func createStorageExtension(_ string) storage.Extension {

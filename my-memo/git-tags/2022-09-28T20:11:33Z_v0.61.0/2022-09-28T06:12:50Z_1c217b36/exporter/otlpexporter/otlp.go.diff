@@ -1,0 +1,17 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 3533de0f3..38529a432 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -44,9 +44,9 @@ type exporter struct {
+ 	config *Config
+ 
+ 	// gRPC clients and connection.
+-	traceExporter  ptraceotlp.Client
+-	metricExporter pmetricotlp.Client
+-	logExporter    plogotlp.Client
++	traceExporter  ptraceotlp.GRPCClient
++	metricExporter pmetricotlp.GRPCClient
++	logExporter    plogotlp.GRPCClient
+ 	clientConn     *grpc.ClientConn
+ 	metadata       metadata.MD
+ 	callOptions    []grpc.CallOption

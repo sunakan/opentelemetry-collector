@@ -1,0 +1,19 @@
+diff --git a/processor/processortest/nop_processor.go b/processor/processortest/nop_processor.go
+index b29126ab6..7b74457ad 100644
+--- a/processor/processortest/nop_processor.go
++++ b/processor/processortest/nop_processor.go
+@@ -19,10 +19,10 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
+ )
+ 
+ type nopProcessor struct {

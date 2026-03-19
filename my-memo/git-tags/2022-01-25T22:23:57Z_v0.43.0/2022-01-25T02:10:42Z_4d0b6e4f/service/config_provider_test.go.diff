@@ -1,0 +1,13 @@
+diff --git a/service/config_provider_test.go b/service/config_provider_test.go
+index ae5b38de8..27e449121 100644
+--- a/service/config_provider_test.go
++++ b/service/config_provider_test.go
+@@ -354,7 +354,7 @@ func TestBackwardsCompatibilityForFilePath(t *testing.T) {
+ 		},
+ 	}
+ 	for _, tt := range tests {
+-		provider := NewDefaultConfigProvider(tt.location, []string{})
++		provider := NewDefaultConfigProvider([]string{tt.location}, []string{})
+ 		_, err := provider.Get(context.Background(), factories)
+ 		assert.Contains(t, err.Error(), tt.errMessage, tt.name)
+ 	}

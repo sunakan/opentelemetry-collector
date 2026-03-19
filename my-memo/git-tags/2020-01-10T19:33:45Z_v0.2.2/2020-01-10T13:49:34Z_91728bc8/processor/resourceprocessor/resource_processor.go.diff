@@ -1,0 +1,36 @@
+diff --git a/processor/resourceprocessor/resource_processor.go b/processor/resourceprocessor/resource_processor.go
+index e1e814b48..8968cd359 100644
+--- a/processor/resourceprocessor/resource_processor.go
++++ b/processor/resourceprocessor/resource_processor.go
+@@ -19,6 +19,7 @@ import (
+ 
+ 	resourcepb "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor"
+@@ -54,6 +55,11 @@ func (rtp *resourceTraceProcessor) GetCapabilities() processor.Capabilities {
+ 	return rtp.capabilities
+ }
+ 
++// Start is invoked during service startup.
++func (*resourceTraceProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (*resourceTraceProcessor) Shutdown() error {
+ 	return nil
+@@ -79,6 +85,11 @@ func (rmp *resourceMetricProcessor) GetCapabilities() processor.Capabilities {
+ 	return rmp.capabilities
+ }
+ 
++// Start is invoked during service startup.
++func (*resourceMetricProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (*resourceMetricProcessor) Shutdown() error {
+ 	return nil

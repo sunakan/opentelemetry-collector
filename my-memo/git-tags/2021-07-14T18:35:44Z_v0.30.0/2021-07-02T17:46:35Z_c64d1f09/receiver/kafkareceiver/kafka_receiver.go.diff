@@ -1,0 +1,16 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver.go b/receiver/kafkareceiver/kafka_receiver.go
+index e01db09ad..c9cf0fc27 100644
+--- a/receiver/kafkareceiver/kafka_receiver.go
++++ b/receiver/kafkareceiver/kafka_receiver.go
+@@ -416,9 +416,9 @@ func (c *metricsConsumerGroupHandler) ConsumeClaim(session sarama.ConsumerGroupS
+ 			return err
+ 		}
+ 
+-		metricCount := metrics.MetricCount()
++		dataPointCount := metrics.DataPointCount()
+ 		err = c.nextConsumer.ConsumeMetrics(session.Context(), metrics)
+-		c.obsrecv.EndMetricsOp(ctx, c.unmarshaler.Encoding(), metricCount, err)
++		c.obsrecv.EndMetricsOp(ctx, c.unmarshaler.Encoding(), dataPointCount, err)
+ 		if err != nil {
+ 			return err
+ 		}

@@ -1,0 +1,12 @@
+diff --git a/exporter/kafkaexporter/kafka_exporter.go b/exporter/kafkaexporter/kafka_exporter.go
+index 940aeff4f..a3e076ac8 100644
+--- a/exporter/kafkaexporter/kafka_exporter.go
++++ b/exporter/kafkaexporter/kafka_exporter.go
+@@ -148,6 +148,7 @@ func producerMessages(messages []Message, topic string) []*sarama.ProducerMessag
+ 		producerMessages[i] = &sarama.ProducerMessage{
+ 			Topic: topic,
+ 			Value: sarama.ByteEncoder(messages[i].Value),
++			Key:   sarama.ByteEncoder(messages[i].Key),
+ 		}
+ 	}
+ 	return producerMessages

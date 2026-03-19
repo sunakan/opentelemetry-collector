@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/constants.go b/exporter/exporterhelper/constants.go
+index 2fb7511a4..661943963 100644
+--- a/exporter/exporterhelper/constants.go
++++ b/exporter/exporterhelper/constants.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package exporterhelper
++package exporterhelper // import "go.opentelemetry.io/collector/exporter/exporterhelper"
+ 
+ import (
+ 	"errors"

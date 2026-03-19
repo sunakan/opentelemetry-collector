@@ -1,0 +1,23 @@
+diff --git a/otelcol/unmarshaler_test.go b/otelcol/unmarshaler_test.go
+index c4ef21906..1e7881a8a 100644
+--- a/otelcol/unmarshaler_test.go
++++ b/otelcol/unmarshaler_test.go
+@@ -5,6 +5,7 @@ package otelcol
+ 
+ import (
+ 	"testing"
++	"time"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+@@ -45,7 +46,9 @@ func TestUnmarshalEmptyAllSections(t *testing.T) {
+ 		Development: zapProdCfg.Development,
+ 		Encoding:    "console",
+ 		Sampling: &telemetry.LogsSamplingConfig{
+-			Initial:    100,
++			Enabled:    true,
++			Tick:       10 * time.Second,
++			Initial:    10,
+ 			Thereafter: 100,
+ 		},
+ 		DisableCaller:     zapProdCfg.DisableCaller,

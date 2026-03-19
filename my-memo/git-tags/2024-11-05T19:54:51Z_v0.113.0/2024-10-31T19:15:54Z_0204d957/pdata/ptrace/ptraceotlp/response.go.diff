@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/ptraceotlp/response.go b/pdata/ptrace/ptraceotlp/response.go
+index 78096bff7..a5017e276 100644
+--- a/pdata/ptrace/ptraceotlp/response.go
++++ b/pdata/ptrace/ptraceotlp/response.go
+@@ -65,7 +65,6 @@ func (ms ExportResponse) unmarshalJsoniter(iter *jsoniter.Iterator) {
+ 		}
+ 		return true
+ 	})
+-
+ }
+ 
+ // PartialSuccess returns the ExportLogsPartialSuccess associated with this ExportResponse.

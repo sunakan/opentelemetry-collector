@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index 558ac5f46..df80fc4a1 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -250,7 +250,7 @@ func (zr *ZipkinReceiver) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+ 	if consumerErr != nil {
+ 		// Transient error, due to some internal condition.
+ 		w.WriteHeader(http.StatusInternalServerError)
+-		w.Write(errNextConsumerRespBody)
++		w.Write(errNextConsumerRespBody) // nolint:errcheck
+ 		return
+ 	}
+ 

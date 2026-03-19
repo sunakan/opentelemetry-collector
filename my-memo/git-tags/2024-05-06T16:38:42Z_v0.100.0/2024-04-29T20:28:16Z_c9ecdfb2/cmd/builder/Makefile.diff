@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/Makefile b/cmd/builder/Makefile
+index aed509584..988ed9e64 100644
+--- a/cmd/builder/Makefile
++++ b/cmd/builder/Makefile
+@@ -2,7 +2,7 @@ include ../../Makefile.Common
+ 
+ .PHONY: ocb
+ ocb:
+-	GO111MODULE=on CGO_ENABLED=0 $(GOCMD) build -trimpath -o ../../bin/ocb_$(GOOS)_$(GOARCH) .
++	CGO_ENABLED=0 $(GOCMD) build -trimpath -o ../../bin/ocb_$(GOOS)_$(GOARCH) .
+ 
+ # Generate the default build config from otelcorecol, by removing the
+ # "replaces" stanza, which is assumed to be at the end of the file.

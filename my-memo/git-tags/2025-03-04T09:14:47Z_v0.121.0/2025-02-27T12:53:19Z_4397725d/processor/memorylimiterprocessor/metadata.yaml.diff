@@ -1,0 +1,12 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+index d0fb4dfc6..870b22863 100644
+--- a/processor/memorylimiterprocessor/metadata.yaml
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -4,6 +4,7 @@ github_project: open-telemetry/opentelemetry-collector
+ status:
+   class: processor
+   stability:
++    alpha: [profiles]
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib, k8s]
+ 

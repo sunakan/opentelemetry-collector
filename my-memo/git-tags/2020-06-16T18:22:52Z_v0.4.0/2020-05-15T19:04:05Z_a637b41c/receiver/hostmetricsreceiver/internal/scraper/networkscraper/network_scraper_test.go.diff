@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper_test.go
+index fee27aff3..d9aef0fed 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ )
+ 
+ type validationFn func(*testing.T, pdata.MetricSlice)

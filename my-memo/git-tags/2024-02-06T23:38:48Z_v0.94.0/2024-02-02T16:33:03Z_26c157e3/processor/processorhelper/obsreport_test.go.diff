@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/obsreport_test.go b/processor/processorhelper/obsreport_test.go
+index 41a395c37..2cd4500e2 100644
+--- a/processor/processorhelper/obsreport_test.go
++++ b/processor/processorhelper/obsreport_test.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ var (
+-	processorID = component.NewID("fakeProcessor")
++	processorID = component.MustNewID("fakeProcessor")
+ )
+ 
+ func TestProcessorTraceData(t *testing.T) {

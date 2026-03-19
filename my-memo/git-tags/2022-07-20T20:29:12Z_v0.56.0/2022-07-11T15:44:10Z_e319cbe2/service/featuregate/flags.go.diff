@@ -1,0 +1,15 @@
+diff --git a/service/featuregate/flags.go b/service/featuregate/flags.go
+index 2e7389fea..6d4b9fa48 100644
+--- a/service/featuregate/flags.go
++++ b/service/featuregate/flags.go
+@@ -44,6 +44,10 @@ func (f FlagValue) String() string {
+ 
+ // Set applies the FlagValue encoded in the input string
+ func (f FlagValue) Set(s string) error {
++	if s == "" {
++		return nil
++	}
++
+ 	return f.setSlice(strings.Split(s, ","))
+ }
+ 

@@ -1,0 +1,23 @@
+diff --git a/pdata/pprofile/generated_resourceprofiles.go b/pdata/pprofile/generated_resourceprofiles.go
+index fda06697a..3f31fffc4 100644
+--- a/pdata/pprofile/generated_resourceprofiles.go
++++ b/pdata/pprofile/generated_resourceprofiles.go
+@@ -75,7 +75,7 @@ func (ms ResourceProfiles) ScopeProfiles() ScopeProfilesSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ResourceProfiles) CopyTo(dest ResourceProfiles) {
+ 	dest.state.AssertMutable()
+-	copyOrigResourceProfiles(dest.orig, ms.orig)
++	internal.CopyOrigResourceProfiles(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -110,9 +110,3 @@ func (ms ResourceProfiles) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigResourceProfiles(dest, src *otlpprofiles.ResourceProfiles) {
+-	internal.CopyOrigResource(&dest.Resource, &src.Resource)
+-	dest.SchemaUrl = src.SchemaUrl
+-	dest.ScopeProfiles = copyOrigScopeProfilesSlice(dest.ScopeProfiles, src.ScopeProfiles)
+-}

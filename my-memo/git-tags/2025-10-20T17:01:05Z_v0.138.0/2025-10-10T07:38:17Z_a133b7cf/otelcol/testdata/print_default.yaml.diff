@@ -1,0 +1,16 @@
+diff --git a/otelcol/testdata/print_default.yaml b/otelcol/testdata/print_default.yaml
+new file mode 100644
+index 000000000..0fbd95500
+--- /dev/null
++++ b/otelcol/testdata/print_default.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  r:
++    other: lala
++exporters:
++  e:
++service:
++  pipelines:
++    logs:
++      receivers: [r]
++      exporters: [e]

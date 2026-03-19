@@ -1,0 +1,18 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 525b534ac..578a8b4ac 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,13 @@
+ 
+ ## Unreleased
+ 
++### 🛑 Breaking changes 🛑
++
++- Remove deprecated components helpers funcs (#6006)
++  - `exporterhelper.New[Traces|Metrics|Logs]ExporterWithContext`
++  - `processorhelper.New[Traces|Metrics|Logs]ProcessorWithCreateSettings`
++  - `component.NewExtensionFactoryWithStabilityLevel`
++
+ ## v0.59.0 Beta
+ 
+ ### 🛑 Breaking changes 🛑

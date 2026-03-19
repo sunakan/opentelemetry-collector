@@ -1,0 +1,22 @@
+diff --git a/exporter/exporter_test.go b/exporter/exporter_test.go
+index 21f547947..d363e2af6 100644
+--- a/exporter/exporter_test.go
++++ b/exporter/exporter_test.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ func TestNewFactory(t *testing.T) {
+-	var testType = component.MustNewType("test")
++	testType := component.MustNewType("test")
+ 	defaultCfg := struct{}{}
+ 	f := NewFactory(
+ 		testType,
+@@ -32,7 +32,7 @@ func TestNewFactory(t *testing.T) {
+ }
+ 
+ func TestNewFactoryWithOptions(t *testing.T) {
+-	var testType = component.MustNewType("test")
++	testType := component.MustNewType("test")
+ 	defaultCfg := struct{}{}
+ 	f := NewFactory(
+ 		testType,

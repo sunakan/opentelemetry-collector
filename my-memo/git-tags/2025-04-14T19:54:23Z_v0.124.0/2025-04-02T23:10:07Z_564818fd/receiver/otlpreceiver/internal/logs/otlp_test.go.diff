@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp_test.go b/receiver/otlpreceiver/internal/logs/otlp_test.go
+index 2941d7d5c..b2acd69ac 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp_test.go
++++ b/receiver/otlpreceiver/internal/logs/otlp_test.go
+@@ -39,7 +39,7 @@ func TestExport(t *testing.T) {
+ 
+ 	lds := logSink.AllLogs()
+ 	require.Len(t, lds, 1)
+-	assert.EqualValues(t, ld, lds[0])
++	assert.Equal(t, ld, lds[0])
+ }
+ 
+ func TestExport_EmptyRequest(t *testing.T) {

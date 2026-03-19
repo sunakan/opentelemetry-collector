@@ -1,0 +1,20 @@
+diff --git a/config/configmapprovider/properties.go b/config/configmapprovider/properties.go
+index 726ac7c06..85b3e333c 100644
+--- a/config/configmapprovider/properties.go
++++ b/config/configmapprovider/properties.go
+@@ -34,13 +34,14 @@ type propertiesMapProvider struct {
+ // Properties must follow the Java properties format, key-value list separated by equal sign with a "."
+ // as key delimiter.
+ //  ["processors.batch.timeout=2s", "processors.batch/foo.timeout=3s"]
++// TODO: Change this to be a service.ConfigMapConverterFunc.
+ func NewProperties(properties []string) Provider {
+ 	return &propertiesMapProvider{
+ 		properties: properties,
+ 	}
+ }
+ 
+-func (pmp *propertiesMapProvider) Retrieve(context.Context, WatcherFunc) (Retrieved, error) {
++func (pmp *propertiesMapProvider) Retrieve(context.Context, string, WatcherFunc) (Retrieved, error) {
+ 	if len(pmp.properties) == 0 {
+ 		return NewRetrieved(func(ctx context.Context) (*config.Map, error) {
+ 			return config.NewMap(), nil

@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index b52aa32d6..42ab06514 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -63,9 +63,7 @@ type traceExporter struct {
+ }
+ 
+ func (texp *traceExporter) ConsumeTraces(ctx context.Context, td pdata.Traces) error {
+-	exporterCtx := obsreport.ExporterContext(ctx, texp.cfg.Name())
+-	req := newTracesRequest(exporterCtx, td, texp.pusher)
+-	_, err := texp.sender.send(req)
++	_, err := texp.sender.send(newTracesRequest(ctx, td, texp.pusher))
+ 	return err
+ }
+ 

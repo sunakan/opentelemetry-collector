@@ -1,0 +1,40 @@
+diff --git a/component/receiver_test.go b/component/receiver_test.go
+index f37769960..33c12f43c 100644
+--- a/component/receiver_test.go
++++ b/component/receiver_test.go
+@@ -69,7 +69,6 @@ func TestBuildReceivers(t *testing.T) {
+ 	type testCase struct {
+ 		in  []ReceiverFactoryBase
+ 		out map[configmodels.Type]ReceiverFactoryBase
+-		err bool
+ 	}
+ 
+ 	testCases := []testCase{
+@@ -82,24 +81,22 @@ func TestBuildReceivers(t *testing.T) {
+ 				"e1": &TestReceiverFactory{"e1"},
+ 				"e2": &TestReceiverFactory{"e2"},
+ 			},
+-			err: false,
+ 		},
+ 		{
+ 			in: []ReceiverFactoryBase{
+ 				&TestReceiverFactory{"e1"},
+ 				&TestReceiverFactory{"e1"},
+ 			},
+-			err: true,
+ 		},
+ 	}
+ 
+ 	for _, c := range testCases {
+ 		out, err := MakeReceiverFactoryMap(c.in...)
+-		if c.err {
+-			assert.NotNil(t, err)
++		if c.out == nil {
++			assert.Error(t, err)
+ 			continue
+ 		}
+-		assert.Nil(t, err)
++		assert.NoError(t, err)
+ 		assert.Equal(t, c.out, out)
+ 	}
+ }

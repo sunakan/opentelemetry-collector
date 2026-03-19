@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterset/regexp/config_test.go b/internal/processor/filterset/regexp/config_test.go
+index 409a0bf2c..56b04b4cf 100644
+--- a/internal/processor/filterset/regexp/config_test.go
++++ b/internal/processor/filterset/regexp/config_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configtest"
++	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+ func TestConfig(t *testing.T) {

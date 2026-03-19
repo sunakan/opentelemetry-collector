@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint_test.go b/pdata/pmetric/generated_numberdatapoint_test.go
+index c20e6e38a..4a7c9ded4 100644
+--- a/pdata/pmetric/generated_numberdatapoint_test.go
++++ b/pdata/pmetric/generated_numberdatapoint_test.go
+@@ -139,6 +139,6 @@ func fillTestNumberDataPoint(tv NumberDataPoint) {
+ 	tv.orig.StartTimeUnixNano = 1234567890
+ 	tv.orig.TimeUnixNano = 1234567890
+ 	tv.orig.Value = &otlpmetrics.NumberDataPoint_AsDouble{AsDouble: float64(17.13)}
+-	fillTestExemplarSlice(newExemplarSlice(&tv.orig.Exemplars, tv.state))
++	fillTestExemplarSlice(tv.Exemplars())
+ 	tv.orig.Flags = 1
+ }

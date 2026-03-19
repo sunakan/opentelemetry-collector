@@ -1,0 +1,17 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index 9cdc17e9e..08eaf1204 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -289,3 +289,12 @@ func TestMetricResourceProcessor(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func attributesToMap(attributes pdata.AttributeMap) map[string]pdata.AttributeValue {
++	out := map[string]pdata.AttributeValue{}
++	attributes.Range(func(k string, v pdata.AttributeValue) bool {
++		out[k] = v
++		return true
++	})
++	return out
++}

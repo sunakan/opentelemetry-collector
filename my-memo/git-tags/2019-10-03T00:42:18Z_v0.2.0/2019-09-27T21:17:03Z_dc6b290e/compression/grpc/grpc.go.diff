@@ -1,0 +1,13 @@
+diff --git a/compression/grpc/grpc.go b/compression/grpc/grpc.go
+index dce0161cf..e9416b184 100644
+--- a/compression/grpc/grpc.go
++++ b/compression/grpc/grpc.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"google.golang.org/grpc/encoding/gzip"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/compression"
++	"github.com/open-telemetry/opentelemetry-collector/compression"
+ )
+ 
+ var (

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index 71525f6d3..a3bf75772 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -67,7 +67,7 @@ func (lexp *logsExporter) ConsumeLogs(ctx context.Context, ld data.Logs) error {
+ }
+ 
+ // NewLogsExporter creates an LogsExporter that records observability metrics and wraps every request with a Span.
+-func NewLogsExporter(cfg configmodels.Exporter, pushLogsData PushLogsData, options ...ExporterOption) (component.LogExporter, error) {
++func NewLogsExporter(cfg configmodels.Exporter, pushLogsData PushLogsData, options ...ExporterOption) (component.LogsExporter, error) {
+ 	if cfg == nil {
+ 		return nil, errNilConfig
+ 	}

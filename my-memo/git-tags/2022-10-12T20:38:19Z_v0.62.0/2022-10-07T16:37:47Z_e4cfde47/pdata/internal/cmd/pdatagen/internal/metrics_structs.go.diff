@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index c9a07ec9c..ea137a79a 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -568,7 +568,7 @@ var aggregationTemporalityField = &primitiveTypedField{
+ 	fieldName:       "AggregationTemporality",
+ 	originFieldName: "AggregationTemporality",
+ 	returnType: &primitiveType{
+-		structName: "MetricAggregationTemporality",
++		structName: "AggregationTemporality",
+ 		rawType:    "otlpmetrics.AggregationTemporality",
+ 		defaultVal: "otlpmetrics.AggregationTemporality(0)",
+ 		testVal:    "otlpmetrics.AggregationTemporality(1)",

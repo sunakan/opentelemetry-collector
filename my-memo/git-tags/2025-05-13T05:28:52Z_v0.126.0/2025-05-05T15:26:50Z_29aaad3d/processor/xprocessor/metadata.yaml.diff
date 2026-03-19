@@ -1,0 +1,12 @@
+diff --git a/processor/xprocessor/metadata.yaml b/processor/xprocessor/metadata.yaml
+index 8f0430c58..640cba477 100644
+--- a/processor/xprocessor/metadata.yaml
++++ b/processor/xprocessor/metadata.yaml
+@@ -2,6 +2,7 @@ type: xprocessor
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   codeowners:
+     active:

@@ -1,0 +1,17 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogram.go b/pdata/pmetric/generated_exponentialhistogram.go
+index f884b24d3..ceddeacc3 100644
+--- a/pdata/pmetric/generated_exponentialhistogram.go
++++ b/pdata/pmetric/generated_exponentialhistogram.go
+@@ -69,6 +69,10 @@ func (ms ExponentialHistogram) DataPoints() ExponentialHistogramDataPointSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ExponentialHistogram) CopyTo(dest ExponentialHistogram) {
+ 	dest.state.AssertMutable()
+-	dest.SetAggregationTemporality(ms.AggregationTemporality())
+-	ms.DataPoints().CopyTo(dest.DataPoints())
++	copyOrigExponentialHistogram(dest.orig, ms.orig)
++}
++
++func copyOrigExponentialHistogram(dest, src *otlpmetrics.ExponentialHistogram) {
++	dest.AggregationTemporality = src.AggregationTemporality
++	dest.DataPoints = copyOrigExponentialHistogramDataPointSlice(dest.DataPoints, src.DataPoints)
+ }

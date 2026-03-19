@@ -1,0 +1,21 @@
+diff --git a/service/parserprovider/merge.go b/service/parserprovider/merge.go
+index 499d091e6..f59d643dd 100644
+--- a/service/parserprovider/merge.go
++++ b/service/parserprovider/merge.go
+@@ -25,13 +25,13 @@ import (
+ // TODO: Add support to "merge" watchable interface.
+ 
+ type mergeMapProvider struct {
+-	providers []MapProvider
++	providers []config.MapProvider
+ }
+ 
+-// NewMergeMapProvider returns a config.MapProvider, that merges the result from multiple MapProvider.
++// NewMergeMapProvider returns a config.MapProvider, that merges the result from multiple config.MapProvider.
+ //
+ // The ConfigMaps are merged in the given order, by merging all of them in order into an initial empty map.
+-func NewMergeMapProvider(ps ...MapProvider) MapProvider {
++func NewMergeMapProvider(ps ...config.MapProvider) config.MapProvider {
+ 	return &mergeMapProvider{providers: ps}
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_resourcespansslice_test.go b/pdata/ptrace/generated_resourcespansslice_test.go
+index 7e2f8fe96..1feb8c17a 100644
+--- a/pdata/ptrace/generated_resourcespansslice_test.go
++++ b/pdata/ptrace/generated_resourcespansslice_test.go
+@@ -52,6 +52,8 @@ func TestResourceSpansSlice_CopyTo(t *testing.T) {
+ 	src := generateTestResourceSpansSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestResourceSpansSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestResourceSpansSlice(), dest)
+ }
+ 
+ func TestResourceSpansSlice_EnsureCapacity(t *testing.T) {

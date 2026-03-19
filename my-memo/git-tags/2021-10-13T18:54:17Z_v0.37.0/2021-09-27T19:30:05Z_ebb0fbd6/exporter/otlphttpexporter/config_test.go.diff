@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index 31a6eecef..c1689211a 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -66,7 +66,7 @@ func TestLoadConfig(t *testing.T) {
+ 					"another":                "somevalue",
+ 				},
+ 				Endpoint: "https://1.2.3.4:1234",
+-				TLSSetting: configtls.TLSClientSetting{
++				TLSSetting: &configtls.TLSClientSetting{
+ 					TLSSetting: configtls.TLSSetting{
+ 						CAFile:   "/var/lib/mycert.pem",
+ 						CertFile: "certfile",

@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+index e009e62d3..7b74eb837 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigExponentialHistogramDataPoint_Buckets() otlpmetrics.ExponentialHistogramDataPoint_Buckets {
+-	return otlpmetrics.ExponentialHistogramDataPoint_Buckets{}
+-}
+-
+-func NewOrigPtrExponentialHistogramDataPoint_Buckets() *otlpmetrics.ExponentialHistogramDataPoint_Buckets {
++func NewOrigExponentialHistogramDataPoint_Buckets() *otlpmetrics.ExponentialHistogramDataPoint_Buckets {
+ 	return &otlpmetrics.ExponentialHistogramDataPoint_Buckets{}
+ }
+ 
+@@ -28,7 +24,7 @@ func CopyOrigExponentialHistogramDataPoint_Buckets(dest, src *otlpmetrics.Expone
+ }
+ 
+ func GenTestOrigExponentialHistogramDataPoint_Buckets() *otlpmetrics.ExponentialHistogramDataPoint_Buckets {
+-	orig := NewOrigPtrExponentialHistogramDataPoint_Buckets()
++	orig := NewOrigExponentialHistogramDataPoint_Buckets()
+ 	orig.Offset = int32(13)
+ 	orig.BucketCounts = GenerateOrigTestUint64Slice()
+ 	return orig

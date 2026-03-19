@@ -1,0 +1,54 @@
+diff --git a/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go b/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
+index 13da45327..8644c813a 100644
+--- a/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
++++ b/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
+@@ -11,6 +11,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++	gootlpcollectortrace "go.opentelemetry.io/proto/slim/otlp/collector/trace/v1"
++	"google.golang.org/protobuf/proto"
+ 
+ 	otlpcollectortrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/trace/v1"
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
+@@ -54,6 +56,13 @@ func TestMarshalAndUnmarshalJSONOrigExportTracePartialSuccess(t *testing.T) {
+ 	}
+ }
+ 
++func TestMarshalAndUnmarshalProtoOrigExportTracePartialSuccessUnknown(t *testing.T) {
++	dest := &otlpcollectortrace.ExportTracePartialSuccess{}
++	// message Test { required int64 field = 1313; } encoding { "field": "1234" }
++	require.NoError(t, UnmarshalProtoOrigExportTracePartialSuccess(dest, []byte{0x88, 0x52, 0xD2, 0x09}))
++	assert.Equal(t, &otlpcollectortrace.ExportTracePartialSuccess{}, dest)
++}
++
+ func TestMarshalAndUnmarshalProtoOrigExportTracePartialSuccess(t *testing.T) {
+ 	for name, src := range getEncodingTestValuesExportTracePartialSuccess() {
+ 		t.Run(name, func(t *testing.T) {
+@@ -68,6 +77,26 @@ func TestMarshalAndUnmarshalProtoOrigExportTracePartialSuccess(t *testing.T) {
+ 	}
+ }
+ 
++func TestMarshalAndUnmarshalProtoViaProtobufExportTracePartialSuccess(t *testing.T) {
++	for name, src := range getEncodingTestValuesExportTracePartialSuccess() {
++		t.Run(name, func(t *testing.T) {
++			buf := make([]byte, SizeProtoOrigExportTracePartialSuccess(src))
++			gotSize := MarshalProtoOrigExportTracePartialSuccess(src, buf)
++			assert.Equal(t, len(buf), gotSize)
++
++			goDest := &gootlpcollectortrace.ExportTracePartialSuccess{}
++			require.NoError(t, proto.Unmarshal(buf, goDest))
++
++			goBuf, err := proto.Marshal(goDest)
++			require.NoError(t, err)
++
++			dest := &otlpcollectortrace.ExportTracePartialSuccess{}
++			require.NoError(t, UnmarshalProtoOrigExportTracePartialSuccess(dest, goBuf))
++			assert.Equal(t, src, dest)
++		})
++	}
++}
++
+ func getEncodingTestValuesExportTracePartialSuccess() map[string]*otlpcollectortrace.ExportTracePartialSuccess {
+ 	return map[string]*otlpcollectortrace.ExportTracePartialSuccess{
+ 		"empty": {},

@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_extensions_test.go b/service/defaultcomponents/default_extensions_test.go
+index 0c512bc37..f9cbf2f8f 100644
+--- a/service/defaultcomponents/default_extensions_test.go
++++ b/service/defaultcomponents/default_extensions_test.go
+@@ -66,9 +66,6 @@ func TestDefaultExtensions(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
+-		{
+-			extension: "fluentbit",
+-		},
+ 	}
+ 
+ 	assert.Equal(t, len(tests), len(extFactories))

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/wrapper_map.go b/pdata/internal/wrapper_map.go
+index 32e3836d2..a97527484 100644
+--- a/pdata/internal/wrapper_map.go
++++ b/pdata/internal/wrapper_map.go
+@@ -38,8 +38,7 @@ func CopyOrigMap(dest, src []otlpcommon.KeyValue) []otlpcommon.KeyValue {
+ 		}
+ 	}
+ 	for i := range src {
+-		newDest[i].Key = src[i].Key
+-		CopyOrigValue(&newDest[i].Value, &src[i].Value)
++		CopyOrigKeyValue(&newDest[i], &src[i])
+ 	}
+ 	return newDest
+ }

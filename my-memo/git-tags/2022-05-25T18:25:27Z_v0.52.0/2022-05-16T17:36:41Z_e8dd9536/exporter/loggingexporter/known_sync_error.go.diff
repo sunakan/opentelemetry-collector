@@ -1,0 +1,23 @@
+diff --git a/exporter/loggingexporter/known_sync_error.go b/exporter/loggingexporter/known_sync_error.go
+index da1eb9c65..86c8b6a11 100644
+--- a/exporter/loggingexporter/known_sync_error.go
++++ b/exporter/loggingexporter/known_sync_error.go
+@@ -18,6 +18,7 @@
+ package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"
+ 
+ import (
++	"errors"
+ 	"syscall"
+ )
+ 
+@@ -31,9 +32,5 @@ import (
+ // - sync /dev/stdout: inappropriate ioctl for device
+ //
+ func knownSyncError(err error) bool {
+-	switch err {
+-	case syscall.EINVAL, syscall.ENOTSUP, syscall.ENOTTY:
+-		return true
+-	}
+-	return false
++	return errors.Is(err, syscall.EINVAL) || errors.Is(err, syscall.ENOTSUP) || errors.Is(err, syscall.ENOTTY)
+ }

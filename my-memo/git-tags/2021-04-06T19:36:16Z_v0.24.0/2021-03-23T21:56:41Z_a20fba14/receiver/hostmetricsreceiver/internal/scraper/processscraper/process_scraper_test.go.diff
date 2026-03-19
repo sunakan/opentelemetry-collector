@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
+index 756e5c4f2..f53af7b31 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
+@@ -181,7 +181,7 @@ type processHandlesMock struct {
+ 	handles []*processHandleMock
+ }
+ 
+-func (p *processHandlesMock) Pid(index int) int32 {
++func (p *processHandlesMock) Pid(int) int32 {
+ 	return 1
+ }
+ 

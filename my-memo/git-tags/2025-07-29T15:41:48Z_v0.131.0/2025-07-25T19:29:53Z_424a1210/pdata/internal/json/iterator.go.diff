@@ -1,0 +1,21 @@
+diff --git a/pdata/internal/json/iterator.go b/pdata/internal/json/iterator.go
+new file mode 100644
+index 000000000..8bfb3f1d3
+--- /dev/null
++++ b/pdata/internal/json/iterator.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package json // import "go.opentelemetry.io/collector/pdata/internal/json"
++import (
++	jsoniter "github.com/json-iterator/go"
++)
++
++func BorrowIterator(data []byte) *jsoniter.Iterator {
++	return jsoniter.ConfigFastest.BorrowIterator(data)
++}
++
++func ReturnIterator(s *jsoniter.Iterator) {
++	jsoniter.ConfigFastest.ReturnIterator(s)
++}

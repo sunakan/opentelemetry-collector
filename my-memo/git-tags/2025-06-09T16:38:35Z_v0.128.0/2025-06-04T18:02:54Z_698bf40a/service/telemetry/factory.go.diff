@@ -1,0 +1,20 @@
+diff --git a/service/telemetry/factory.go b/service/telemetry/factory.go
+index 825744316..a521eb1f9 100644
+--- a/service/telemetry/factory.go
++++ b/service/telemetry/factory.go
+@@ -10,6 +10,7 @@ import (
+ 	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.opentelemetry.io/otel/log"
+ 	"go.opentelemetry.io/otel/metric"
++	"go.opentelemetry.io/otel/sdk/resource"
+ 	"go.opentelemetry.io/otel/trace"
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+@@ -32,6 +33,7 @@ type Settings struct {
+ 	AsyncErrorChannel chan error
+ 	ZapOptions        []zap.Option
+ 	SDK               *config.SDK
++	Resource          *resource.Resource
+ }
+ 
+ // Factory is factory interface for telemetry.

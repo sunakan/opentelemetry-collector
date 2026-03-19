@@ -1,0 +1,16 @@
+diff --git a/internal/buildscripts/builder-config.yaml b/internal/buildscripts/builder-config.yaml
+new file mode 100644
+index 000000000..abf1d9f1d
+--- /dev/null
++++ b/internal/buildscripts/builder-config.yaml
+@@ -0,0 +1,10 @@
++dist:
++  module: github.com/open-telemetry/opentelemetry-collector-releases/core
++  name: cmd-otelcol
++  description: OpenTelemetry Collector Replacing cmd/otelcol
++  version: 0.38.0-dev
++  otelcol_version: 0.38.0
++
++replaces:
++  - go.opentelemetry.io/collector => ../
++  - go.opentelemetry.io/collector/model => ../model

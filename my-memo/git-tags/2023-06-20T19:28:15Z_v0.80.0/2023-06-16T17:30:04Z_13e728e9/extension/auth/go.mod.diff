@@ -1,0 +1,10 @@
+diff --git a/extension/auth/go.mod b/extension/auth/go.mod
+index add68c8d4..9d4d33aa8 100644
+--- a/extension/auth/go.mod
++++ b/extension/auth/go.mod
+@@ -61,3 +61,5 @@ replace go.opentelemetry.io/collector/receiver => ../../receiver
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/connector => ../../connector
++
++replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression

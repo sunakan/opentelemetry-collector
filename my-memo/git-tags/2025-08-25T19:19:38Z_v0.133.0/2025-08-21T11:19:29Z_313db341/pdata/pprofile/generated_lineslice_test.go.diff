@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_lineslice_test.go b/pdata/pprofile/generated_lineslice_test.go
+index 275cf0013..40f24afd7 100644
+--- a/pdata/pprofile/generated_lineslice_test.go
++++ b/pdata/pprofile/generated_lineslice_test.go
+@@ -52,6 +52,8 @@ func TestLineSlice_CopyTo(t *testing.T) {
+ 	src := generateTestLineSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestLineSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestLineSlice(), dest)
+ }
+ 
+ func TestLineSlice_EnsureCapacity(t *testing.T) {

@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_sample.go b/pdata/pprofile/generated_sample.go
+index 44138f9f4..573c3183a 100644
+--- a/pdata/pprofile/generated_sample.go
++++ b/pdata/pprofile/generated_sample.go
+@@ -42,6 +42,10 @@ func NewSample() Sample {
+ func (ms Sample) MoveTo(dest Sample) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpprofiles.Sample{}
+ }

@@ -1,0 +1,20 @@
+diff --git a/service/internal/zpages/templates.go b/service/internal/zpages/templates.go
+index 945166584..25efd48fe 100644
+--- a/service/internal/zpages/templates.go
++++ b/service/internal/zpages/templates.go
+@@ -16,7 +16,6 @@ package zpages // import "go.opentelemetry.io/collector/service/internal/zpages"
+ 
+ import (
+ 	_ "embed"
+-	"fmt"
+ 	"html/template"
+ 	"io"
+ 	"log"
+@@ -55,7 +54,6 @@ var (
+ )
+ 
+ func parseTemplate(name string, bytes []byte) *template.Template {
+-	fmt.Println(string(bytes))
+ 	return template.Must(template.New(name).Funcs(templateFunctions).Parse(string(bytes)))
+ }
+ 

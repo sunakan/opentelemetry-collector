@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_exporter_test.go b/component/componenttest/nop_exporter_test.go
+index d586f21f3..d1182ff2a 100644
+--- a/component/componenttest/nop_exporter_test.go
++++ b/component/componenttest/nop_exporter_test.go
+@@ -30,7 +30,7 @@ func TestNewNopExporterFactory(t *testing.T) {
+ 	require.NotNil(t, factory)
+ 	assert.Equal(t, config.Type("nop"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.Equal(t, &nopExporterConfig{ExporterSettings: config.NewExporterSettings(config.NewID("nop"))}, cfg)
++	assert.Equal(t, &nopExporterConfig{ExporterSettings: config.NewExporterSettings(config.NewComponentID("nop"))}, cfg)
+ 
+ 	traces, err := factory.CreateTracesExporter(context.Background(), NewNopExporterCreateSettings(), cfg)
+ 	require.NoError(t, err)

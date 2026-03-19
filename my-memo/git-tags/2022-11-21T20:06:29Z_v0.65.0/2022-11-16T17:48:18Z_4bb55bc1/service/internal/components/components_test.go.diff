@@ -1,0 +1,13 @@
+diff --git a/service/internal/components/components_test.go b/service/internal/components/components_test.go
+index 221092da8..0b559f6d7 100644
+--- a/service/internal/components/components_test.go
++++ b/service/internal/components/components_test.go
+@@ -47,7 +47,7 @@ func TestLogStabilityLevel(t *testing.T) {
+ 		LogStabilityLevel(logger, component.StabilityLevelUndefined)
+ 		LogStabilityLevel(logger, component.StabilityLevelUnmaintained)
+ 		LogStabilityLevel(logger, component.StabilityLevelDeprecated)
+-		LogStabilityLevel(logger, component.StabilityLevelInDevelopment)
++		LogStabilityLevel(logger, component.StabilityLevelDevelopment)
+ 		LogStabilityLevel(logger, component.StabilityLevelAlpha)
+ 		LogStabilityLevel(logger, component.StabilityLevelBeta)
+ 		LogStabilityLevel(logger, component.StabilityLevelStable)

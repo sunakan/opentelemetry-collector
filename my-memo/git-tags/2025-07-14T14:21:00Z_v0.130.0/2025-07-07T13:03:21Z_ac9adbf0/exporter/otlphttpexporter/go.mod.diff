@@ -1,0 +1,21 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index 25dafd8e9..37e0698e4 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -60,6 +60,7 @@ require (
+ 	go.opentelemetry.io/collector/client v1.35.0 // indirect
+ 	go.opentelemetry.io/collector/config/configauth v0.129.0 // indirect
+ 	go.opentelemetry.io/collector/config/configmiddleware v0.129.0 // indirect
++	go.opentelemetry.io/collector/config/configoptional v0.129.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumererror/xconsumererror v0.129.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.129.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/xconsumer v0.129.0 // indirect
+@@ -106,6 +107,8 @@ replace go.opentelemetry.io/collector/config/confighttp => ../../config/confight
+ 
+ replace go.opentelemetry.io/collector/config/configopaque => ../../config/configopaque
+ 
++replace go.opentelemetry.io/collector/config/configoptional => ../../config/configoptional
++
+ replace go.opentelemetry.io/collector/config/configtls => ../../config/configtls
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap

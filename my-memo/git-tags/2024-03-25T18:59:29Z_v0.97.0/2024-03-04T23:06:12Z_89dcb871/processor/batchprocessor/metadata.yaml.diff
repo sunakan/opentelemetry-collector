@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/metadata.yaml b/processor/batchprocessor/metadata.yaml
+index f535dc6c6..bbb94347c 100644
+--- a/processor/batchprocessor/metadata.yaml
++++ b/processor/batchprocessor/metadata.yaml
+@@ -5,3 +5,7 @@ status:
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib]
++
++tests:
++  # TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/9688
++  skip_lifecycle: true

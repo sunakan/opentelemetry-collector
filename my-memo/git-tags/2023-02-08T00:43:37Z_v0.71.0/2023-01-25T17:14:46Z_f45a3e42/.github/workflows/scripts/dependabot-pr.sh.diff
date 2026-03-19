@@ -1,0 +1,10 @@
+diff --git a/.github/workflows/scripts/dependabot-pr.sh b/.github/workflows/scripts/dependabot-pr.sh
+index 2ffe520ba..5b84e49ac 100755
+--- a/.github/workflows/scripts/dependabot-pr.sh
++++ b/.github/workflows/scripts/dependabot-pr.sh
+@@ -41,4 +41,4 @@ git commit -m "dependabot updates $(date)
+ $message"
+ git push origin "$PR_NAME"
+ 
+-gh pr create --title "[chore] dependabot updates $(date)" --body "$message" -l "dependencies"
++gh pr create --title "[chore] dependabot updates $(date)" --body "$message"

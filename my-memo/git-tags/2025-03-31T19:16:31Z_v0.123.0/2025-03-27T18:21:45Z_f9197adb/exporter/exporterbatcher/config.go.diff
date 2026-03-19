@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterbatcher/config.go b/exporter/exporterbatcher/config.go
+index 6b2d9d34c..57381c3e3 100644
+--- a/exporter/exporterbatcher/config.go
++++ b/exporter/exporterbatcher/config.go
+@@ -11,7 +11,7 @@ import (
+ type Config = exporterhelper.BatcherConfig //nolint:staticcheck
+ 
+ // Deprecated: [v0.123.0] use exporterhelper.SizeConfig
+-type SizeConfig = exporterhelper.SizeConfig
++type SizeConfig = exporterhelper.SizeConfig //nolint:staticcheck
+ 
+ // Deprecated: [v0.123.0] use exporterhelper.RequestSizerType
+ type SizerType = exporterhelper.RequestSizerType

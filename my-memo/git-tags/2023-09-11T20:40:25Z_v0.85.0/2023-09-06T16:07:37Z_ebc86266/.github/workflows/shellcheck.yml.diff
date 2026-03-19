@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/shellcheck.yml b/.github/workflows/shellcheck.yml
+index 80382c143..723bbbf77 100644
+--- a/.github/workflows/shellcheck.yml
++++ b/.github/workflows/shellcheck.yml
+@@ -10,6 +10,6 @@ jobs:
+     name: Shellcheck
+     runs-on: ubuntu-latest
+     steps:
+-      - uses: actions/checkout@v3
++      - uses: actions/checkout@v4
+       - name: Run ShellCheck
+         uses: ludeeus/action-shellcheck@2.0.0

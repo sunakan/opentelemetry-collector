@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index 7e9845694..05261b23d 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -955,7 +955,7 @@ func verifyCorsResp(t *testing.T, url string, origin string, set *CORSConfig, ex
+ 	req.Header.Set("Origin", origin)
+ 	if extraHeader {
+ 		req.Header.Set("ExtraHeader", "foo")
+-		req.Header.Set("Access-Control-Request-Headers", "ExtraHeader")
++		req.Header.Set("Access-Control-Request-Headers", "extraheader")
+ 	}
+ 	req.Header.Set("Access-Control-Request-Method", "POST")
+ 

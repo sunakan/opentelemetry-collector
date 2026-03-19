@@ -1,0 +1,15 @@
+diff --git a/confmap/provider_test.go b/confmap/provider_test.go
+index ebbd5562e..e168b49fa 100644
+--- a/confmap/provider_test.go
++++ b/confmap/provider_test.go
+@@ -85,8 +85,8 @@ func TestNewRetrievedFromYAMLString(t *testing.T) {
+ 		},
+ 		{
+ 			yaml:       "\"string\"",
+-			value:      "string",
+-			altStrRepr: "string",
++			value:      "\"string\"",
++			altStrRepr: "\"string\"",
+ 		},
+ 		{
+ 			yaml:  "123",

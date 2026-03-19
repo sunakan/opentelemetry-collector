@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index a094d8815..405776d4b 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -161,7 +161,7 @@ type GRPCServerSettings struct {
+ 
+ // ToServerOption maps configgrpc.GRPCClientSettings to a slice of dial options for gRPC
+ func (gcs *GRPCClientSettings) ToDialOptions() ([]grpc.DialOption, error) {
+-	opts := []grpc.DialOption{}
++	var opts []grpc.DialOption
+ 	if gcs.Compression != "" {
+ 		if compressionKey := GetGRPCCompressionKey(gcs.Compression); compressionKey != CompressionUnsupported {
+ 			opts = append(opts, grpc.WithDefaultCallOptions(grpc.UseCompressor(compressionKey)))

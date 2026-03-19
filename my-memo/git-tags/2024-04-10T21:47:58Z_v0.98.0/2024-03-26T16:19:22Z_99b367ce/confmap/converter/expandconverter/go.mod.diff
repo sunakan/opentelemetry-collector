@@ -1,0 +1,12 @@
+diff --git a/confmap/converter/expandconverter/go.mod b/confmap/converter/expandconverter/go.mod
+index 00240e71b..e484513b9 100644
+--- a/confmap/converter/expandconverter/go.mod
++++ b/confmap/converter/expandconverter/go.mod
+@@ -6,6 +6,7 @@ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/confmap v0.97.0
+ 	go.uber.org/goleak v1.3.0
++	go.uber.org/zap v1.26.0
+ )
+ 
+ require (

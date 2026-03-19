@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exemplar_test.go b/pdata/pmetric/generated_exemplar_test.go
+index 045535bf3..fdf44bebf 100644
+--- a/pdata/pmetric/generated_exemplar_test.go
++++ b/pdata/pmetric/generated_exemplar_test.go
+@@ -23,6 +23,8 @@ func TestExemplar_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewExemplar(), ms)
+ 	assert.Equal(t, generateTestExemplar(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestExemplar(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newExemplar(&otlpmetrics.Exemplar{}, &sharedState)) })
+ 	assert.Panics(t, func() { newExemplar(&otlpmetrics.Exemplar{}, &sharedState).MoveTo(dest) })

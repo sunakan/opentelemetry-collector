@@ -1,0 +1,26 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index d6bc7a88e..d8ad251a9 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -36,8 +36,8 @@ var (
+ 		m.SetName("metric-name")
+ 		m.SetDescription("metric-description")
+ 		m.SetUnit("metric-unit")
+-		m.SetDataType(pdata.MetricDataTypeIntGauge)
+-		m.IntGauge().DataPoints().AppendEmpty().SetValue(0)
++		m.SetDataType(pdata.MetricDataTypeGauge)
++		m.Gauge().DataPoints().AppendEmpty().SetIntVal(0)
+ 		return md
+ 	}()
+ 
+@@ -48,8 +48,8 @@ var (
+ 		m.SetName("metric-name")
+ 		m.SetDescription("metric-description")
+ 		m.SetUnit("metric-unit")
+-		m.SetDataType(pdata.MetricDataTypeIntGauge)
+-		m.IntGauge().DataPoints().AppendEmpty().SetValue(0)
++		m.SetDataType(pdata.MetricDataTypeGauge)
++		m.Gauge().DataPoints().AppendEmpty().SetIntVal(0)
+ 		return md
+ 	}()
+ )

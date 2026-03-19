@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+index 77966a10a..7298375b7 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+@@ -14,3 +14,8 @@ func CopyOrigSummaryDataPoint_ValueAtQuantile(dest, src *otlpmetrics.SummaryData
+ 	dest.Quantile = src.Quantile
+ 	dest.Value = src.Value
+ }
++
++func FillOrigTestSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDataPoint_ValueAtQuantile) {
++	orig.Quantile = float64(3.1415926)
++	orig.Value = float64(3.1415926)
++}

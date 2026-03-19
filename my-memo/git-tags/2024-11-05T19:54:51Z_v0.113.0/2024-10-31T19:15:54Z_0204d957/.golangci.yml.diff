@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index da3e07f56..7865174d1 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -144,6 +144,7 @@ linters:
+     - unused
+     - unparam
+     - usestdlibvars
++    - whitespace
+ 
+ issues:
+   # Excluding configuration per-path, per-linter, per-text and per-source

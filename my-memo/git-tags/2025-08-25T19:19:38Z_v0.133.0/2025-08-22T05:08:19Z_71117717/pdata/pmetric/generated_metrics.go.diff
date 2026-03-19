@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_metrics.go b/pdata/pmetric/generated_metrics.go
+index 4a86c6674..09c6600cc 100644
+--- a/pdata/pmetric/generated_metrics.go
++++ b/pdata/pmetric/generated_metrics.go
+@@ -42,8 +42,8 @@ func (ms Metrics) MoveTo(dest Metrics) {
+ 	if ms.getOrig() == dest.getOrig() {
+ 		return
+ 	}
+-	*dest.getOrig() = *ms.getOrig()
+-	*ms.getOrig() = otlpcollectormetrics.ExportMetricsServiceRequest{}
++	internal.DeleteOrigExportMetricsServiceRequest(dest.getOrig(), false)
++	*dest.getOrig(), *ms.getOrig() = *ms.getOrig(), *dest.getOrig()
+ }
+ 
+ // ResourceMetrics returns the ResourceMetrics associated with this Metrics.

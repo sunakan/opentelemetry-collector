@@ -1,0 +1,25 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-metrics-level.yaml b/service/internal/configunmarshaler/testdata/invalid-metrics-level.yaml
+deleted file mode 100644
+index d57a14d0f..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-metrics-level.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-extensions:
+-  nop:
+-service:
+-  telemetry:
+-    metrics:
+-      level: "unknown"
+-  extensions: [nop]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-

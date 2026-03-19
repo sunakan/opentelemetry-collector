@@ -1,0 +1,19 @@
+diff --git a/config/configloader/testdata/invalid-pipeline-type.yaml b/config/configloader/testdata/invalid-pipeline-type.yaml
+new file mode 100644
+index 000000000..889dd6b1b
+--- /dev/null
++++ b/config/configloader/testdata/invalid-pipeline-type.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    /metrics:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

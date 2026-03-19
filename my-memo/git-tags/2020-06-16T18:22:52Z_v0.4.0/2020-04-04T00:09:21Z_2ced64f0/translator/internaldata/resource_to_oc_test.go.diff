@@ -1,0 +1,34 @@
+diff --git a/translator/internaldata/resource_to_oc_test.go b/translator/internaldata/resource_to_oc_test.go
+index fe0b15bb7..a2cc37ba3 100644
+--- a/translator/internaldata/resource_to_oc_test.go
++++ b/translator/internaldata/resource_to_oc_test.go
+@@ -18,7 +18,9 @@ import (
+ 	"testing"
+ 
+ 	occommon "github.com/census-instrumentation/opencensus-proto/gen-go/agent/common/v1"
++	agenttracepb "github.com/census-instrumentation/opencensus-proto/gen-go/agent/trace/v1"
+ 	ocresource "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
++	"github.com/golang/protobuf/proto"
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/internal/data"
+@@ -83,3 +85,19 @@ func BenchmarkInternalResourceToOC(b *testing.B) {
+ 		}
+ 	}
+ }
++
++func BenchmarkOcResourceNodeMarshal(b *testing.B) {
++	oc := &agenttracepb.ExportTraceServiceRequest{
++		Node:     generateOcNode(),
++		Spans:    nil,
++		Resource: generateOcResource(),
++	}
++
++	b.ResetTimer()
++	for n := 0; n < b.N; n++ {
++		buf := proto.Buffer{}
++		if err := buf.Marshal(oc); err != nil {
++			b.Fail()
++		}
++	}
++}

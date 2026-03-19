@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index 0c7af7a3b..cc06b11ff 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -76,10 +76,6 @@ func (mb *MockBackend) ReportFatalError(err error) {
+ 	log.Printf("Fatal error reported: %v", err)
+ }
+ 
+-func (mb *MockBackend) OkToIngest() bool {
+-	return true
+-}
+-
+ // Start a backend of specified type. Only one backend type
+ // can be started at a time.
+ func (mb *MockBackend) Start(backendType BackendType) error {

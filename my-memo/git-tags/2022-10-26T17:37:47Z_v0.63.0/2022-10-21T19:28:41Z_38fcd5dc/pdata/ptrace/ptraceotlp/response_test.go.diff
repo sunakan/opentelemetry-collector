@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/ptraceotlp/response_test.go b/pdata/ptrace/ptraceotlp/response_test.go
+index b06495e07..79ae7e049 100644
+--- a/pdata/ptrace/ptraceotlp/response_test.go
++++ b/pdata/ptrace/ptraceotlp/response_test.go
+@@ -18,5 +18,5 @@ import (
+ 	"encoding/json"
+ )
+ 
+-var _ json.Unmarshaler = Response{}
+-var _ json.Marshaler = Response{}
++var _ json.Unmarshaler = ExportResponse{}
++var _ json.Marshaler = ExportResponse{}

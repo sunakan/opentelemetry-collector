@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_goleak_skip.yaml b/cmd/mdatagen/internal/testdata/with_goleak_skip.yaml
+index 583d8af18..1a1d7ece6 100644
+--- a/cmd/mdatagen/internal/testdata/with_goleak_skip.yaml
++++ b/cmd/mdatagen/internal/testdata/with_goleak_skip.yaml
+@@ -1,10 +1,11 @@
+ type: foobar
+ 
+ status:
++  disable_codecov_badge: true
+   class: connector
+   stability:
+     beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
+ 
+ tests:
+   goleak:
+-    skip: true
+\ No newline at end of file
++    skip: true

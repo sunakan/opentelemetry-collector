@@ -1,0 +1,20 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 4019c7a5c..8169436ce 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/exporter/fileexporter"
+ 	"go.opentelemetry.io/collector/exporter/jaegerexporter"
++	"go.opentelemetry.io/collector/exporter/kafkaexporter"
+ 	"go.opentelemetry.io/collector/exporter/loggingexporter"
+ 	"go.opentelemetry.io/collector/exporter/opencensusexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlpexporter"
+@@ -86,6 +87,7 @@ func Components() (
+ 		jaegerexporter.NewFactory(),
+ 		&fileexporter.Factory{},
+ 		otlpexporter.NewFactory(),
++		kafkaexporter.NewFactory(),
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

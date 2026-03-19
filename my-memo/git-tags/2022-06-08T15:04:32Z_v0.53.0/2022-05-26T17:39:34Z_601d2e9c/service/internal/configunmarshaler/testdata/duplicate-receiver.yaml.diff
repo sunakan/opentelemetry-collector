@@ -1,0 +1,25 @@
+diff --git a/service/internal/configunmarshaler/testdata/duplicate-receiver.yaml b/service/internal/configunmarshaler/testdata/duplicate-receiver.yaml
+index 4e00b5fe6..9d844bccd 100644
+--- a/service/internal/configunmarshaler/testdata/duplicate-receiver.yaml
++++ b/service/internal/configunmarshaler/testdata/duplicate-receiver.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver/ recv:
+-  examplereceiver /recv :
++  nop/ recv:
++  nop /recv :
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      exporters: [nop]
++      processors: [nop]

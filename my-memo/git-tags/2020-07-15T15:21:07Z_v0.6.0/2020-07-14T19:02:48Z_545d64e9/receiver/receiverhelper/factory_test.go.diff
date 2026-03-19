@@ -1,0 +1,15 @@
+diff --git a/receiver/receiverhelper/factory_test.go b/receiver/receiverhelper/factory_test.go
+index 2f11a76f3..f97951494 100644
+--- a/receiver/receiverhelper/factory_test.go
++++ b/receiver/receiverhelper/factory_test.go
+@@ -50,8 +50,8 @@ func TestNewFactory_WithConstructors(t *testing.T) {
+ 	factory := NewFactory(
+ 		typeStr,
+ 		defaultConfig,
+-		WithTraceReceiver(createTraceReceiver),
+-		WithMetricsReceiver(createMetricsReceiver),
++		WithTraces(createTraceReceiver),
++		WithMetrics(createMetricsReceiver),
+ 		WithCustomUnmarshaler(customUnmarshaler))
+ 	assert.EqualValues(t, typeStr, factory.Type())
+ 	assert.EqualValues(t, defaultCfg, factory.CreateDefaultConfig())

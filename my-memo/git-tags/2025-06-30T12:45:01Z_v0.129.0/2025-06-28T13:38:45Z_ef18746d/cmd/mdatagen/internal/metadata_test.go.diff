@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metadata_test.go b/cmd/mdatagen/internal/metadata_test.go
+index 55c0bdb29..ab1a2e4bb 100644
+--- a/cmd/mdatagen/internal/metadata_test.go
++++ b/cmd/mdatagen/internal/metadata_test.go
+@@ -55,7 +55,7 @@ func TestValidate(t *testing.T) {
+ 		},
+ 		{
+ 			name:    "testdata/invalid_stability.yaml",
+-			wantErr: "decoding failed due to the following error(s):\n\nerror decoding 'status.stability': unsupported stability level: \"incorrectstability\"",
++			wantErr: "decoding failed due to the following error(s):\n\n'status.stability' unsupported stability level: \"incorrectstability\"",
+ 		},
+ 		{
+ 			name:    "testdata/no_stability_component.yaml",

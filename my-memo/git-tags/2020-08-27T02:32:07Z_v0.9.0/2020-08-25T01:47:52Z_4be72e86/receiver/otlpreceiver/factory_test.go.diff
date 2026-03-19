@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index c5ce93433..1e7136f97 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -334,7 +334,7 @@ func TestCreateLogReceiver(t *testing.T) {
+ 	creationParams := component.ReceiverCreateParams{Logger: zap.NewNop()}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			mr, err := factory.(component.LogsReceiverFactory).CreateLogsReceiver(ctx, creationParams, tt.cfg, tt.sink)
++			mr, err := factory.CreateLogsReceiver(ctx, creationParams, tt.cfg, tt.sink)
+ 			if tt.wantErr {
+ 				assert.Error(t, err)
+ 				return

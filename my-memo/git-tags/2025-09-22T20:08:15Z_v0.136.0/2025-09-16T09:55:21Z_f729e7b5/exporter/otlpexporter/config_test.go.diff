@@ -1,0 +1,29 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 01cdca941..f19d87961 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -129,6 +129,10 @@ func TestUnmarshalInvalidConfig(t *testing.T) {
+ 			name:     "invalid_port",
+ 			errorMsg: `invalid port "port"`,
+ 		},
++		{
++			name:     "invalid_unix_socket",
++			errorMsg: "unix socket path cannot be empty",
++		},
+ 	} {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			cfg := factory.CreateDefaultConfig()
+@@ -147,6 +151,13 @@ func TestValidDNSEndpoint(t *testing.T) {
+ 	assert.NoError(t, cfg.Validate())
+ }
+ 
++func TestValidUnixSocketEndpoint(t *testing.T) {
++	factory := NewFactory()
++	cfg := factory.CreateDefaultConfig().(*Config)
++	cfg.ClientConfig.Endpoint = "unix:///my/unix/socket.sock"
++	assert.NoError(t, cfg.Validate())
++}
++
+ func TestSanitizeEndpoint(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)

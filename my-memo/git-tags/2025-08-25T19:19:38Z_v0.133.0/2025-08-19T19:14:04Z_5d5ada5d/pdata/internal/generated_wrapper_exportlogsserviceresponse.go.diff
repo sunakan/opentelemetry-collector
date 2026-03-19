@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogsserviceresponse.go b/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
+index 766c8c489..8a32ab9f7 100644
+--- a/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigExportLogsServiceResponse() otlpcollectorlogs.ExportLogsServiceResponse {
+-	return otlpcollectorlogs.ExportLogsServiceResponse{}
+-}
+-
+-func NewOrigPtrExportLogsServiceResponse() *otlpcollectorlogs.ExportLogsServiceResponse {
++func NewOrigExportLogsServiceResponse() *otlpcollectorlogs.ExportLogsServiceResponse {
+ 	return &otlpcollectorlogs.ExportLogsServiceResponse{}
+ }
+ 
+@@ -27,7 +23,7 @@ func CopyOrigExportLogsServiceResponse(dest, src *otlpcollectorlogs.ExportLogsSe
+ }
+ 
+ func GenTestOrigExportLogsServiceResponse() *otlpcollectorlogs.ExportLogsServiceResponse {
+-	orig := NewOrigPtrExportLogsServiceResponse()
++	orig := NewOrigExportLogsServiceResponse()
+ 	orig.PartialSuccess = *GenTestOrigExportLogsPartialSuccess()
+ 	return orig
+ }

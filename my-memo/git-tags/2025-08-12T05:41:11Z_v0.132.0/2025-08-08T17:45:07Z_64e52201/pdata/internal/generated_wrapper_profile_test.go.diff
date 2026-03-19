@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_profile_test.go b/pdata/internal/generated_wrapper_profile_test.go
+index 21c6d2db5..448483f26 100644
+--- a/pdata/internal/generated_wrapper_profile_test.go
++++ b/pdata/internal/generated_wrapper_profile_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigProfile(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigProfile(t *testing.T) {
++	src := &otlpprofiles.Profile{}
++	FillOrigTestProfile(src)
++	buf, err := MarshalProtoOrigProfile(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigProfile(src))
++
++	dest := &otlpprofiles.Profile{}
++	require.NoError(t, UnmarshalProtoOrigProfile(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptyProfile(t *testing.T) {
++	src := &otlpprofiles.Profile{}
++	buf, err := MarshalProtoOrigProfile(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigProfile(src))
++
++	dest := &otlpprofiles.Profile{}
++	require.NoError(t, UnmarshalProtoOrigProfile(dest, buf))
++	assert.Equal(t, src, dest)
++}

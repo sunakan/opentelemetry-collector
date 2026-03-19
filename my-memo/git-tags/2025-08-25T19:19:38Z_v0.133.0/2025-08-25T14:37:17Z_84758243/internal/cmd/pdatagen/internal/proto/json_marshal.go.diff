@@ -1,0 +1,21 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/json_marshal.go b/internal/cmd/pdatagen/internal/proto/json_marshal.go
+index 102fc1b52..8f9dd4330 100644
+--- a/internal/cmd/pdatagen/internal/proto/json_marshal.go
++++ b/internal/cmd/pdatagen/internal/proto/json_marshal.go
+@@ -80,12 +80,14 @@ const marshalJSONBytes = `{{ if .repeated -}}
+ 		}
+ 		dest.WriteArrayEnd()
+ 	}
+-{{- else }}
++{{- else }}{{ if not .nullable }}
+ 	if len(orig.{{ .fieldName }}) > 0 {
++{{- end }}
+ 		dest.WriteObjectField("{{ .jsonTag }}")
+ 		dest.WriteBytes(orig.{{ .fieldName }})
++{{- if not .nullable -}}
+ 	}
+-{{- end }}`
++{{- end }}{{- end }}`
+ 
+ func (pf *Field) GenMarshalJSON() string {
+ 	tf := pf.getTemplateFields()

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/logs_batch_test.go b/exporter/exporterhelper/logs_batch_test.go
+index ee60152b4..782266b31 100644
+--- a/exporter/exporterhelper/logs_batch_test.go
++++ b/exporter/exporterhelper/logs_batch_test.go
+@@ -246,6 +246,9 @@ func TestMergeSplitLogsBasedOnByteSize(t *testing.T) {
+ 			assert.Len(t, res, len(tt.expected))
+ 			for i := range res {
+ 				assert.Equal(t, tt.expected[i].(*logsRequest).ld, res[i].(*logsRequest).ld)
++				assert.Equal(t,
++					logsMarshaler.LogsSize(tt.expected[i].(*logsRequest).ld),
++					logsMarshaler.LogsSize(res[i].(*logsRequest).ld))
+ 			}
+ 		})
+ 	}

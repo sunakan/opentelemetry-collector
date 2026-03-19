@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pprofileotlp_package.go b/pdata/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+index 9a94f3945..84d754e7d 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pprofileotlp_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+@@ -11,7 +11,7 @@ var pprofileotlp = &Package{
+ 		name: "pprofileotlp",
+ 		path: filepath.Join("pprofile", "pprofileotlp"),
+ 		imports: []string{
+-			`otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1experimental"`,
++			`otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1development"`,
+ 		},
+ 		testImports: []string{
+ 			`"testing"`,

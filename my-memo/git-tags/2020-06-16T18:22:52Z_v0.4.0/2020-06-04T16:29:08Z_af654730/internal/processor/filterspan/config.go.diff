@@ -1,0 +1,14 @@
+diff --git a/internal/processor/filterspan/config.go b/internal/processor/filterspan/config.go
+index 3e0505973..347a0364f 100644
+--- a/internal/processor/filterspan/config.go
++++ b/internal/processor/filterspan/config.go
+@@ -88,9 +88,6 @@ type MatchProperties struct {
+ 	Attributes []Attribute `mapstructure:"attributes"`
+ }
+ 
+-// MatchTypeFieldName is the mapstructure field name for MatchProperties.MatchType field.
+-const MatchTypeFieldName = "match_type"
+-
+ // MatchTypeFieldName is the mapstructure field name for MatchProperties.Attributes field.
+ const AttributesFieldName = "attributes"
+ 

@@ -1,0 +1,22 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml b/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml
+index 02230c9d5..37a1ea4b3 100644
+--- a/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml
++++ b/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml
+@@ -1,12 +1,12 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+   nosuchprocessor:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      exporters: [nop]
++      processors: [nop]

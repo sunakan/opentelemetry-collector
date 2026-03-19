@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+index cbb9d4409..ba28730ec 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+@@ -21,6 +21,8 @@ func TestExportPartialSuccess_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewExportPartialSuccess(), ms)
+ 	assert.Equal(t, generateTestExportPartialSuccess(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestExportPartialSuccess(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() {
+ 		ms.MoveTo(newExportPartialSuccess(&otlpcollectorprofile.ExportProfilesPartialSuccess{}, &sharedState))

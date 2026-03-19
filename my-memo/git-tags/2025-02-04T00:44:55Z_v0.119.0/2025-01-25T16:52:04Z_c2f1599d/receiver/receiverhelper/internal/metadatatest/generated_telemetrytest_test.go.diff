@@ -1,0 +1,35 @@
+diff --git a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
+index 96eb0b195..651e96aa2 100644
+--- a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
++++ b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
+@@ -101,5 +101,30 @@ func TestSetupTelemetry(t *testing.T) {
+ 			},
+ 		},
+ 	}, metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverAcceptedLogRecords(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverAcceptedMetricPoints(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverAcceptedSpans(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverRefusedLogRecords(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverRefusedMetricPoints(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualReceiverRefusedSpans(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
+ 	require.NoError(t, testTel.Shutdown(context.Background()))
+ }

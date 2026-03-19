@@ -1,0 +1,10 @@
+diff --git a/config/configmiddleware/go.mod b/config/configmiddleware/go.mod
+index 52460ca2b..8df56adbf 100644
+--- a/config/configmiddleware/go.mod
++++ b/config/configmiddleware/go.mod
+@@ -44,3 +44,5 @@ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/extension => ../../extension
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

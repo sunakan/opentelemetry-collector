@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/files.go b/pdata/internal/cmd/pdatagen/internal/files.go
+index 0e35e27af..a66f2f719 100644
+--- a/pdata/internal/cmd/pdatagen/internal/files.go
++++ b/pdata/internal/cmd/pdatagen/internal/files.go
+@@ -42,7 +42,7 @@ var AllFiles = []*File{
+ 	commonFile,
+ 	metricsFile,
+ 	resourceFile,
+-	immutableSliceFile,
++	primitiveSliceFile,
+ 	traceFile,
+ 	logFile,
+ }

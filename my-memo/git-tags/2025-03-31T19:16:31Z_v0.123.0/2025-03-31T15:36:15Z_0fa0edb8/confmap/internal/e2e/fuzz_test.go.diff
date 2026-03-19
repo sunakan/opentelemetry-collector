@@ -1,0 +1,17 @@
+diff --git a/confmap/internal/e2e/fuzz_test.go b/confmap/internal/e2e/fuzz_test.go
+index 51a544a0c..60c2bae03 100644
+--- a/confmap/internal/e2e/fuzz_test.go
++++ b/confmap/internal/e2e/fuzz_test.go
+@@ -38,10 +38,10 @@ func targetNested[T any](t *testing.T, value string) {
+ 		return
+ 	}
+ 
+-	var cfgNested TargetConfig[T]
++	var cfgNested targetConfig[T]
+ 	errNested := confNested.Unmarshal(cfgNested)
+ 
+-	var cfgSimple TargetConfig[T]
++	var cfgSimple targetConfig[T]
+ 	errSimple := confSimple.Unmarshal(cfgSimple)
+ 
+ 	require.Equal(t, errNested, errSimple)

@@ -1,0 +1,12 @@
+diff --git a/.gitignore b/.gitignore
+index e193120b7..7356fced1 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -18,3 +18,7 @@ bin/
+ # order to simplify docker build commands. Ignore these files if proper clean up fails.
+ cmd/ocagent/ocagent_linux
+ cmd/occollector/occollector_linux
++
++# Coverage
++coverage.txt
++coverage.html

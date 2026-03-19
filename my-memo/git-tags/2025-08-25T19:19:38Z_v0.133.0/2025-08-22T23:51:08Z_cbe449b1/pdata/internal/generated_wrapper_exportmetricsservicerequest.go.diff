@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+index 5929197ab..b3c06e55e 100644
+--- a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+@@ -32,11 +32,13 @@ func NewMetrics(orig *otlpcollectormetrics.ExportMetricsServiceRequest, state *S
+ 	return Metrics{orig: orig, state: state}
+ }
+ 
+-var protoPoolExportMetricsServiceRequest = sync.Pool{
+-	New: func() any {
+-		return &otlpcollectormetrics.ExportMetricsServiceRequest{}
+-	},
+-}
++var (
++	protoPoolExportMetricsServiceRequest = sync.Pool{
++		New: func() any {
++			return &otlpcollectormetrics.ExportMetricsServiceRequest{}
++		},
++	}
++)
+ 
+ func NewOrigExportMetricsServiceRequest() *otlpcollectormetrics.ExportMetricsServiceRequest {
+ 	if !UseProtoPooling.IsEnabled() {

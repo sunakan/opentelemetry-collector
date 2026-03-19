@@ -1,0 +1,32 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+index 6bfdd7828..f5f841490 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+@@ -12,6 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ // ExponentialHistogramDataPointSlice logically represents a slice of ExponentialHistogramDataPoint.
+@@ -156,6 +157,19 @@ func (es ExponentialHistogramDataPointSlice) Sort(less func(a, b ExponentialHist
+ 	sort.SliceStable(*es.orig, func(i, j int) bool { return less(es.At(i), es.At(j)) })
+ }
+ 
++// marshalJSONStream marshals all properties from the current struct to the destination stream.
++func (ms ExponentialHistogramDataPointSlice) marshalJSONStream(dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(*ms.orig) > 0 {
++		ms.At(0).marshalJSONStream(dest)
++	}
++	for i := 1; i < len(*ms.orig); i++ {
++		dest.WriteMore()
++		ms.At(i).marshalJSONStream(dest)
++	}
++	dest.WriteArrayEnd()
++}
++
+ func copyOrigExponentialHistogramDataPointSlice(dest, src []*otlpmetrics.ExponentialHistogramDataPoint) []*otlpmetrics.ExponentialHistogramDataPoint {
+ 	if cap(dest) < len(src) {
+ 		dest = make([]*otlpmetrics.ExponentialHistogramDataPoint, len(src))

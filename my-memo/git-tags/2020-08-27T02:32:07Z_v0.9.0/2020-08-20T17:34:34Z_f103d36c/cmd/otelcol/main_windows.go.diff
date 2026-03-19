@@ -1,0 +1,32 @@
+diff --git a/cmd/otelcol/main_windows.go b/cmd/otelcol/main_windows.go
+index 327f791fc..e30e866e9 100644
+--- a/cmd/otelcol/main_windows.go
++++ b/cmd/otelcol/main_windows.go
+@@ -17,7 +17,8 @@
+ package main
+ 
+ import (
+-	"github.com/pkg/errors"
++	"fmt"
++
+ 	"golang.org/x/sys/windows/svc"
+ 
+ 	"go.opentelemetry.io/collector/service"
+@@ -26,7 +27,7 @@ import (
+ func run(params service.Parameters) error {
+ 	isInteractive, err := svc.IsAnInteractiveSession()
+ 	if err != nil {
+-		return errors.Wrap(err, "failed to determine if we are running in an interactive session")
++		return fmt.Errorf("failed to determine if we are running in an interactive session %w", err)
+ 	}
+ 
+ 	if isInteractive {
+@@ -39,7 +40,7 @@ func run(params service.Parameters) error {
+ func runService(params service.Parameters) error {
+ 	// do not need to supply service name when startup is invoked through Service Control Manager directly
+ 	if err := svc.Run("", service.NewWindowsService(params)); err != nil {
+-		return errors.Wrap(err, "failed to start service")
++		return fmt.Errorf("failed to start service %w", err)
+ 	}
+ 
+ 	return nil

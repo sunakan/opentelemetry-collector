@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+index b4899e6db..f9a6f28a0 100644
+--- a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigExportLogsPartialSuccess() otlpcollectorlogs.ExportLogsPartialSuccess {
+-	return otlpcollectorlogs.ExportLogsPartialSuccess{}
+-}
+-
+-func NewOrigPtrExportLogsPartialSuccess() *otlpcollectorlogs.ExportLogsPartialSuccess {
++func NewOrigExportLogsPartialSuccess() *otlpcollectorlogs.ExportLogsPartialSuccess {
+ 	return &otlpcollectorlogs.ExportLogsPartialSuccess{}
+ }
+ 
+@@ -28,7 +24,7 @@ func CopyOrigExportLogsPartialSuccess(dest, src *otlpcollectorlogs.ExportLogsPar
+ }
+ 
+ func GenTestOrigExportLogsPartialSuccess() *otlpcollectorlogs.ExportLogsPartialSuccess {
+-	orig := NewOrigPtrExportLogsPartialSuccess()
++	orig := NewOrigExportLogsPartialSuccess()
+ 	orig.RejectedLogRecords = int64(13)
+ 	orig.ErrorMessage = "test_errormessage"
+ 	return orig

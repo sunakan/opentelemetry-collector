@@ -1,0 +1,15 @@
+diff --git a/cmd/occollector/app/builder/receivers_builder.go b/cmd/occollector/app/builder/receivers_builder.go
+index d8c97c804..a64baefbb 100644
+--- a/cmd/occollector/app/builder/receivers_builder.go
++++ b/cmd/occollector/app/builder/receivers_builder.go
+@@ -20,8 +20,8 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/internal"
+ 	"github.com/open-telemetry/opentelemetry-service/processor/multiconsumer"

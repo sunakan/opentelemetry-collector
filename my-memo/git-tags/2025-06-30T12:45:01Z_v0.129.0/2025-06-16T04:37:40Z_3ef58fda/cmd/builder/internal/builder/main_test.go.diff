@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index caa4cae5d..b75d67bd9 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -95,6 +95,7 @@ var replaceModules = []string{
+ 	"/pdata",
+ 	"/pdata/testdata",
+ 	"/pdata/pprofile",
++	"/pdata/xpdata",
+ 	"/pipeline",
+ 	"/pipeline/xpipeline",
+ 	"/processor",

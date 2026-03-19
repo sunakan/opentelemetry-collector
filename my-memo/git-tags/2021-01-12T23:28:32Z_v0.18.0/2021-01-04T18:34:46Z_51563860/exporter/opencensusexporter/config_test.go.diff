@@ -1,0 +1,38 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index ad9f71701..ecd2cec51 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -17,6 +17,7 @@ package opencensusexporter
+ import (
+ 	"path"
+ 	"testing"
++	"time"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+@@ -26,6 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/config/configtest"
+ 	"go.opentelemetry.io/collector/config/configtls"
++	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -49,6 +51,17 @@ func TestLoadConfig(t *testing.T) {
+ 				NameVal: "opencensus/2",
+ 				TypeVal: "opencensus",
+ 			},
++			RetrySettings: exporterhelper.RetrySettings{
++				Enabled:         true,
++				InitialInterval: 10 * time.Second,
++				MaxInterval:     1 * time.Minute,
++				MaxElapsedTime:  10 * time.Minute,
++			},
++			QueueSettings: exporterhelper.QueueSettings{
++				Enabled:      true,
++				NumConsumers: 2,
++				QueueSize:    10,
++			},
+ 			GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 				Headers: map[string]string{
+ 					"can you have a . here?": "F0000000-0000-0000-0000-000000000000",

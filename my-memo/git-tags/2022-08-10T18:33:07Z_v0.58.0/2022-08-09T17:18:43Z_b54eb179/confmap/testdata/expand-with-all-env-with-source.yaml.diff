@@ -1,0 +1,17 @@
+diff --git a/confmap/testdata/expand-with-all-env-with-source.yaml b/confmap/testdata/expand-with-all-env-with-source.yaml
+deleted file mode 100644
+index 5386e0515..000000000
+--- a/confmap/testdata/expand-with-all-env-with-source.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-test_map:
+-  extra: "${env:EXTRA}"
+-  extra_map:
+-    recv.1: "${env:EXTRA_MAP_VALUE_1}"
+-    recv.2: "${env:EXTRA_MAP_VALUE_2}"
+-  extra_list_map:
+-    - { recv.1: "${env:EXTRA_LIST_MAP_VALUE_1}",recv.2: "${env:EXTRA_LIST_MAP_VALUE_2}" }
+-  extra_list:
+-    - "${env:EXTRA_LIST_VALUE_1}"
+-    - "${env:EXTRA_LIST_VALUE_2}"
+-    

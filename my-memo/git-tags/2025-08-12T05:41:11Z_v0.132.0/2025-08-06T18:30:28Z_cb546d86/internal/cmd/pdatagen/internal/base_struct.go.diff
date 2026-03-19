@@ -1,0 +1,23 @@
+diff --git a/internal/cmd/pdatagen/internal/base_struct.go b/internal/cmd/pdatagen/internal/base_struct.go
+index 5a87ad90a..40df0a621 100644
+--- a/internal/cmd/pdatagen/internal/base_struct.go
++++ b/internal/cmd/pdatagen/internal/base_struct.go
+@@ -12,6 +12,7 @@ type baseStruct interface {
+ 	generate(packageInfo *PackageInfo) []byte
+ 	generateTests(packageInfo *PackageInfo) []byte
+ 	generateInternal(packageInfo *PackageInfo) []byte
++	generateInternalTests(packageInfo *PackageInfo) []byte
+ }
+ 
+ // messageStruct generates a struct for a proto message. The struct can be generated both as a common struct
+@@ -40,6 +41,10 @@ func (ms *messageStruct) generateInternal(packageInfo *PackageInfo) []byte {
+ 	return []byte(executeTemplate(messageInternalTemplate, ms.templateFields(packageInfo)))
+ }
+ 
++func (ms *messageStruct) generateInternalTests(packageInfo *PackageInfo) []byte {
++	return []byte(executeTemplate(messageInternalTestTemplate, ms.templateFields(packageInfo)))
++}
++
+ func (ms *messageStruct) templateFields(packageInfo *PackageInfo) map[string]any {
+ 	return map[string]any{
+ 		"messageStruct":  ms,

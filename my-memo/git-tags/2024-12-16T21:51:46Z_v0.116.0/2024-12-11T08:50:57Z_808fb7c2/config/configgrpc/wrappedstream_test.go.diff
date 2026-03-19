@@ -1,0 +1,17 @@
+diff --git a/config/configgrpc/wrappedstream_test.go b/config/configgrpc/wrappedstream_test.go
+index e08ba6442..36a0dbfd3 100644
+--- a/config/configgrpc/wrappedstream_test.go
++++ b/config/configgrpc/wrappedstream_test.go
+@@ -14,8 +14,10 @@ import (
+ 
+ type ctxKey struct{}
+ 
+-var oneCtxKey = ctxKey{}
+-var otherCtxKey = ctxKey{}
++var (
++	oneCtxKey   = ctxKey{}
++	otherCtxKey = ctxKey{}
++)
+ 
+ func TestWrapServerStream(t *testing.T) {
+ 	ctx := context.WithValue(context.TODO(), oneCtxKey, 1)

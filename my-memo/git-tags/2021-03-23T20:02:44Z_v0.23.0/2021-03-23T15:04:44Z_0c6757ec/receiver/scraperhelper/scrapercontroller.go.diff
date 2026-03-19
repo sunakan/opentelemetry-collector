@@ -1,0 +1,22 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index 5d07ffb97..1c76b3479 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -90,7 +90,7 @@ type controller struct {
+ 	name               string
+ 	logger             *zap.Logger
+ 	collectionInterval time.Duration
+-	nextConsumer       consumer.MetricsConsumer
++	nextConsumer       consumer.Metrics
+ 
+ 	metricsScrapers        *multiMetricScraper
+ 	resourceMetricScrapers []ResourceMetricsScraper
+@@ -106,7 +106,7 @@ type controller struct {
+ func NewScraperControllerReceiver(
+ 	cfg *ScraperControllerSettings,
+ 	logger *zap.Logger,
+-	nextConsumer consumer.MetricsConsumer,
++	nextConsumer consumer.Metrics,
+ 	options ...ScraperControllerOption,
+ ) (component.Receiver, error) {
+ 	if nextConsumer == nil {

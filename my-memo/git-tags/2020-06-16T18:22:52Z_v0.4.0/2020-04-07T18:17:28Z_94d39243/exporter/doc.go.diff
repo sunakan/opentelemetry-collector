@@ -1,0 +1,11 @@
+diff --git a/exporter/doc.go b/exporter/doc.go
+index 2411848f5..1e669b9f6 100644
+--- a/exporter/doc.go
++++ b/exporter/doc.go
+@@ -18,5 +18,5 @@
+ // interface and component.Exporter interface.
+ //
+ // To make the custom exporter part of the Collector build the factory must be added
+-// to defaults.Components() function.
++// to defaultcomponents.Components() function.
+ package exporter

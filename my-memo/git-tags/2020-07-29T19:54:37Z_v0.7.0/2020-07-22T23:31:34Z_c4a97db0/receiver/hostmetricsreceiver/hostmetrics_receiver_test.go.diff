@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+index 66a17b6b8..942c322d2 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+@@ -62,7 +62,8 @@ var standardMetrics = []string{
+ 
+ var resourceMetrics = []string{
+ 	"process.cpu.time",
+-	"process.memory.usage",
++	"process.memory.physical_usage",
++	"process.memory.virtual_usage",
+ 	"process.disk.io",
+ }
+ 

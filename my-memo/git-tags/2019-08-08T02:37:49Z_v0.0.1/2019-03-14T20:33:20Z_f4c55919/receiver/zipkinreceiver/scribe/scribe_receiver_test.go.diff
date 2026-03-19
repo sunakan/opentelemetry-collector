@@ -1,0 +1,10 @@
+diff --git a/receiver/zipkinreceiver/scribe/scribe_receiver_test.go b/receiver/zipkinreceiver/scribe/scribe_receiver_test.go
+index 9d5eb00e1..ce923b302 100644
+--- a/receiver/zipkinreceiver/scribe/scribe_receiver_test.go
++++ b/receiver/zipkinreceiver/scribe/scribe_receiver_test.go
+@@ -264,4 +264,5 @@ var wantTraceData = data.TraceData{
+ 			},
+ 		},
+ 	},
++	SourceFormat: "zipkin-scribe",
+ }

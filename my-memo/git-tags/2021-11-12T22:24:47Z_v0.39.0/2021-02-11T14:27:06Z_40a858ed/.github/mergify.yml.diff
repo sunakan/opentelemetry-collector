@@ -1,0 +1,13 @@
+diff --git a/.github/mergify.yml b/.github/mergify.yml
+index 084d9f068..ca5b7649f 100644
+--- a/.github/mergify.yml
++++ b/.github/mergify.yml
+@@ -1,7 +1,7 @@
+ pull_request_rules:
+   - name: remove outdated reviews
+     conditions:
+-      - base=master
++      - base=main
+     actions:
+       dismiss_reviews: {}
+ 

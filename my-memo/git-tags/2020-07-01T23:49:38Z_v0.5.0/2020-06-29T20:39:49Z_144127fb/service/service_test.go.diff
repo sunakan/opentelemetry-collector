@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index c6a850539..2b93fdc90 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -520,6 +520,8 @@ func constructMimumalOpConfig(t *testing.T, factories config.Factories) *configm
+ 	configStr := `
+ receivers:
+   otlp:
++    protocols:
++      grpc:
+ exporters:
+   logging:
+ processors:

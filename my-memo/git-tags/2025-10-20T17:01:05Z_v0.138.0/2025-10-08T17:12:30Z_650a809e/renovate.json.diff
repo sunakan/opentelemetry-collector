@@ -1,0 +1,13 @@
+diff --git a/renovate.json b/renovate.json
+index f1d17f32f..d6eb38a63 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -142,5 +142,8 @@
+   "prConcurrentLimit": 200,
+   "suppressNotifications": [
+     "prEditedNotification"
++  ],
++  "postUpdateOptions": [
++    "gomodTidy",
+   ]
+ }

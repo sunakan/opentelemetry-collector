@@ -1,0 +1,19 @@
+diff --git a/exporter/debugexporter/generated_component_test.go b/exporter/debugexporter/generated_component_test.go
+index 34ca9eaed..3e18e6e88 100644
+--- a/exporter/debugexporter/generated_component_test.go
++++ b/exporter/debugexporter/generated_component_test.go
+@@ -20,6 +20,14 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
++func TestComponentFactoryType(t *testing.T) {
++	require.Equal(t, "debug", NewFactory().Type().String())
++}
++
++func TestComponentConfigStruct(t *testing.T) {
++	require.NoError(t, componenttest.CheckConfigStruct(NewFactory().CreateDefaultConfig()))
++}
++
+ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 

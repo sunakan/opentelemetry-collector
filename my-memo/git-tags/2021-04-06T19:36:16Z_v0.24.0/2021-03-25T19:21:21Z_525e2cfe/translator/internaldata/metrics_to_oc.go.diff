@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index 39ffd824b..cb3bbf47e 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -440,7 +440,7 @@ func summaryPercentilesToOC(qtls pdata.ValueAtQuantileSlice) []*ocmetrics.Summar
+ 	return ocPercentiles
+ }
+ 
+-func doubleExemplarsToOC(bounds []float64, ocBuckets []*ocmetrics.DistributionValue_Bucket, exemplars pdata.DoubleExemplarSlice) {
++func doubleExemplarsToOC(bounds []float64, ocBuckets []*ocmetrics.DistributionValue_Bucket, exemplars pdata.ExemplarSlice) {
+ 	if exemplars.Len() == 0 {
+ 		return
+ 	}

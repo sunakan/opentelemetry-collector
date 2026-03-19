@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunitslice.go b/pdata/internal/generated_wrapper_attributeunitslice.go
+index 453dbd741..181ad04d0 100644
+--- a/pdata/internal/generated_wrapper_attributeunitslice.go
++++ b/pdata/internal/generated_wrapper_attributeunitslice.go
+@@ -38,3 +38,12 @@ func CopyOrigAttributeUnitSlice(dest, src []*otlpprofiles.AttributeUnit) []*otlp
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestAttributeUnitSlice() []*otlpprofiles.AttributeUnit {
++	orig := make([]*otlpprofiles.AttributeUnit, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpprofiles.AttributeUnit{}
++		FillOrigTestAttributeUnit(orig[i])
++	}
++	return orig
++}

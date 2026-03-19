@@ -1,0 +1,10 @@
+diff --git a/.chloggen/mdatagen-no-panic.yaml b/.chloggen/mdatagen-no-panic.yaml
+new file mode 100644
+index 000000000..b8f5bdbb9
+--- /dev/null
++++ b/.chloggen/mdatagen-no-panic.yaml
+@@ -0,0 +1,4 @@
++change_type: bug_fix
++component: cmd/mdatagen
++note: Fix panic when mdatagen is run without arguments.
++issues: [14506]

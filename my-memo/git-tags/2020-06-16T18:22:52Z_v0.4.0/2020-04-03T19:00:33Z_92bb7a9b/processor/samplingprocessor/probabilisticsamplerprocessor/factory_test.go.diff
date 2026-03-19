@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/factory_test.go b/processor/samplingprocessor/probabilisticsamplerprocessor/factory_test.go
+index 8d8a3a3d5..06d7b77d7 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/factory_test.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/factory_test.go
+@@ -37,7 +37,7 @@ func TestCreateProcessor(t *testing.T) {
+ 
+ 	cfg := factory.CreateDefaultConfig()
+ 
+-	tp, err := factory.CreateTraceProcessor(zap.NewNop(), exportertest.NewNopTraceExporter(), cfg)
++	tp, err := factory.CreateTraceProcessor(zap.NewNop(), exportertest.NewNopTraceExporterOld(), cfg)
+ 	assert.NotNil(t, tp)
+ 	assert.NoError(t, err, "cannot create trace processor")
+ 

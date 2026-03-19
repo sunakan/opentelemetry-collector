@@ -1,0 +1,22 @@
+diff --git a/processor/resourceprocessor/testdata/config.yaml b/processor/resourceprocessor/testdata/config.yaml
+index e9e8fcaf2..66d1b7031 100644
+--- a/processor/resourceprocessor/testdata/config.yaml
++++ b/processor/resourceprocessor/testdata/config.yaml
+@@ -3,14 +3,14 @@ receivers:
+ 
+ processors:
+   # The following specifies a resource configuration doing the changes on resource attributes:
+-  # 1. Set "cloud.zone" attributes with "zone-1" value ignoring existing values.
++  # 1. Set "cloud.availability_zone" attributes with "zone-1" value ignoring existing values.
+   # 2. Copy "k8s-cluster" attribute value to "k8s.cluster.name" attribute, nothing happens if "k8s-cluster" not found.
+   # 3. Remove "redundant-attribute" attribute.
+-  # There are many more attribute modification actions supported, 
++  # There are many more attribute modification actions supported,
+   # check processor/attributesprocessor/testdata/config.yaml for reference.
+   resource:
+     attributes:
+-    - key: cloud.zone
++    - key: cloud.availability_zone
+       value: zone-1
+       action: upsert
+     - key: k8s.cluster.name

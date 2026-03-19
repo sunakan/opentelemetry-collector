@@ -1,0 +1,35 @@
+diff --git a/testbed/tests/testdata/memory-limiter.yaml b/testbed/tests/testdata/memory-limiter.yaml
+deleted file mode 100644
+index ec07c8c2e..000000000
+--- a/testbed/tests/testdata/memory-limiter.yaml
++++ /dev/null
+@@ -1,29 +0,0 @@
+-receivers:
+-  jaeger:
+-    protocols:
+-      grpc:
+-        endpoint: "localhost:14250"
+-  opencensus:
+-    endpoint: "localhost:55678"
+-
+-exporters:
+-  opencensus:
+-    endpoint: "localhost:56565"
+-    insecure: true
+-  logging:
+-    loglevel: info
+-
+-processors:
+-  memory_limiter:
+-    check_interval: 1s
+-    limit_mib: 10
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [jaeger]
+-      processors: [memory_limiter]
+-      exporters: [opencensus,logging]
+-    metrics:
+-      receivers: [opencensus]
+-      exporters: [opencensus,logging]

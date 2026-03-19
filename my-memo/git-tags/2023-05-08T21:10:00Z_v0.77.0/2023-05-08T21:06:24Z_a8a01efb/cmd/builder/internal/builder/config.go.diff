@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 31b385e06..38ee7835b 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.uber.org/zap"
+ )
+ 
+-const defaultOtelColVersion = "0.76.1"
++const defaultOtelColVersion = "0.77.0"
+ 
+ // ErrInvalidGoMod indicates an invalid gomod
+ var ErrInvalidGoMod = errors.New("invalid gomod specification for module")

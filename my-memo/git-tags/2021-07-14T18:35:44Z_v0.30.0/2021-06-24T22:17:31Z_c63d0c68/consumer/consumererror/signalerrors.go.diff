@@ -1,0 +1,13 @@
+diff --git a/consumer/consumererror/signalerrors.go b/consumer/consumererror/signalerrors.go
+index a1924f134..a1b1f47c1 100644
+--- a/consumer/consumererror/signalerrors.go
++++ b/consumer/consumererror/signalerrors.go
+@@ -17,7 +17,7 @@ package consumererror
+ import (
+ 	"errors"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Traces is an error that may carry associated Trace data for a subset of received data

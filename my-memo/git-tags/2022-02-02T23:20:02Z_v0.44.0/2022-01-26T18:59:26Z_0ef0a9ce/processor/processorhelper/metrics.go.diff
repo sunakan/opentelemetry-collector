@@ -1,0 +1,25 @@
+diff --git a/processor/processorhelper/metrics.go b/processor/processorhelper/metrics.go
+index abbde8348..a27579704 100644
+--- a/processor/processorhelper/metrics.go
++++ b/processor/processorhelper/metrics.go
+@@ -34,7 +34,8 @@ import (
+ type ProcessMetricsFunc func(context.Context, pdata.Metrics) (pdata.Metrics, error)
+ 
+ type metricsProcessor struct {
+-	component.Component
++	componenthelper.StartFunc
++	componenthelper.ShutdownFunc
+ 	consumer.Metrics
+ }
+ 
+@@ -75,7 +76,8 @@ func NewMetricsProcessor(
+ 	}
+ 
+ 	return &metricsProcessor{
+-		Component: componenthelper.New(bs.componentOptions...),
+-		Metrics:   metricsConsumer,
++		StartFunc:    bs.StartFunc,
++		ShutdownFunc: bs.ShutdownFunc,
++		Metrics:      metricsConsumer,
+ 	}, nil
+ }

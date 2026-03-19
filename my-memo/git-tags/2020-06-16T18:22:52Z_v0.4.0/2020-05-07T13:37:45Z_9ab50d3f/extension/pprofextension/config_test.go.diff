@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/config_test.go b/extension/pprofextension/config_test.go
+index e5dba87ba..0ccb2e579 100644
+--- a/extension/pprofextension/config_test.go
++++ b/extension/pprofextension/config_test.go
+@@ -27,7 +27,7 @@ import (
+ 
+ func TestLoadConfig(t *testing.T) {
+ 	factories, err := config.ExampleComponents()
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}
+ 	factories.Extensions[typeStr] = factory

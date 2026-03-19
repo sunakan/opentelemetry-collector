@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/internal/templates/config_test.go.tmpl b/cmd/mdatagen/internal/templates/config_test.go.tmpl
+index aafe65d08..e3d5c0b6b 100644
+--- a/cmd/mdatagen/internal/templates/config_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/config_test.go.tmpl
+@@ -31,7 +31,7 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 			want: MetricsBuilderConfig{
+ 				Metrics: MetricsConfig{
+ 					{{- range $name, $metric := .Metrics }}
+-					{{- if $reag }}
++					{{- if and $reag (hasAggregatableAttributes $metric.Attributes) }}
+ 					{{ $name.Render }}: MetricConfig{
+ 						Enabled: true,
+ 						{{- if eq $metric.Data.Type "Sum" }}
+@@ -60,7 +60,7 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 			want: MetricsBuilderConfig{
+ 				Metrics: MetricsConfig{
+ 					{{- range $name, $metric := .Metrics }}
+-					{{- if $reag }}
++                    {{- if and $reag (hasAggregatableAttributes $metric.Attributes) }}
+ 					{{ $name.Render }}: MetricConfig{
+ 						Enabled: false,
+ 						{{- if eq $metric.Data.Type "Sum" }}

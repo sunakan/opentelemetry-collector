@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go b/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
+index d93dd2e3c..f5cca092c 100644
+--- a/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
++++ b/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
+@@ -91,6 +91,10 @@ func (opv *OneOfPrimitiveValue) GenerateTestEncodingValues(ms *messageStruct, of
+ 	return opv.toProtoField(ms, of, false).GenTestEncodingValues()
+ }
+ 
++func (opv *OneOfPrimitiveValue) GeneratePoolOrig(ms *messageStruct, of *OneOfField) string {
++	return opv.toProtoField(ms, of, false).GenPoolVarOrig()
++}
++
+ func (opv *OneOfPrimitiveValue) GenerateDeleteOrig(ms *messageStruct, of *OneOfField) string {
+ 	return opv.toProtoField(ms, of, false).GenDeleteOrig()
+ }

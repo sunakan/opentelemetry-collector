@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index 6fb812d1f..8a38a4861 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -417,7 +417,7 @@ func TestStartTraceReception(t *testing.T) {
+ 
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			sink := new(exportertest.SinkTraceExporter)
++			sink := new(exportertest.SinkTraceExporterOld)
+ 			zr, err := New(zipkinReceiver, "localhost:0", sink)
+ 			require.Nil(t, err)
+ 			require.NotNil(t, zr)

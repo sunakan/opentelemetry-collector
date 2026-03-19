@@ -1,0 +1,18 @@
+diff --git a/exporter/debugexporter/go.mod b/exporter/debugexporter/go.mod
+index 3d7483e45..323767d01 100644
+--- a/exporter/debugexporter/go.mod
++++ b/exporter/debugexporter/go.mod
+@@ -35,6 +35,7 @@ require (
+ 	github.com/modern-go/reflect2 v1.0.2 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/collector/config/configretry v1.17.0 // indirect
++	go.opentelemetry.io/collector/consumer/consumererror v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/exporter/exporterprofiles v0.111.0 // indirect
+@@ -90,3 +91,5 @@ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../../receive
+ replace go.opentelemetry.io/collector/exporter/exporterprofiles => ../exporterprofiles
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
++
++replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror

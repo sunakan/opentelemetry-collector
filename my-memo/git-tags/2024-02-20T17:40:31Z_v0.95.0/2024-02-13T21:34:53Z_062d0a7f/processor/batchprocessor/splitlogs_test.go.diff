@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splitlogs_test.go b/processor/batchprocessor/splitlogs_test.go
+index 62c1b8783..d112cd106 100644
+--- a/processor/batchprocessor/splitlogs_test.go
++++ b/processor/batchprocessor/splitlogs_test.go
+@@ -19,7 +19,7 @@ func TestSplitLogs_noop(t *testing.T) {
+ 	assert.Equal(t, td, split)
+ 
+ 	i := 0
+-	td.ResourceLogs().At(0).ScopeLogs().At(0).LogRecords().RemoveIf(func(_ plog.LogRecord) bool {
++	td.ResourceLogs().At(0).ScopeLogs().At(0).LogRecords().RemoveIf(func(plog.LogRecord) bool {
+ 		i++
+ 		return i > 5
+ 	})

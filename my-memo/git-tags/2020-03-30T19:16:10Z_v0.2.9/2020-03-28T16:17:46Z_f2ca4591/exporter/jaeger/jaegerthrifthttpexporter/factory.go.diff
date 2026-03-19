@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/factory.go b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+index 184bdab5d..726e62264 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/factory.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+@@ -68,7 +68,7 @@ func (f *Factory) CreateTraceExporter(
+ 	}
+ 
+ 	if expCfg.Timeout <= 0 {
+-		err := fmt.Errorf(
++		err = fmt.Errorf(
+ 			"%q config requires a positive value for \"timeout\"",
+ 			expCfg.Name())
+ 		return nil, err

@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/testdata/with_tests_exporter.yaml b/cmd/mdatagen/testdata/with_tests_exporter.yaml
+new file mode 100644
+index 000000000..e110f3d10
+--- /dev/null
++++ b/cmd/mdatagen/testdata/with_tests_exporter.yaml
+@@ -0,0 +1,9 @@
++type: metric
++
++status:
++  class: exporter
++  stability:
++    beta: [traces, logs, metrics]
++
++tests:
++  config:

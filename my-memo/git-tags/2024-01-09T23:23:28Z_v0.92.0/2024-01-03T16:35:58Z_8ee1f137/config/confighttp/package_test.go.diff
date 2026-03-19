@@ -1,0 +1,20 @@
+diff --git a/config/confighttp/package_test.go b/config/confighttp/package_test.go
+new file mode 100644
+index 000000000..30797439b
+--- /dev/null
++++ b/config/confighttp/package_test.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package confighttp
++
++import (
++	"testing"
++
++	"go.uber.org/goleak"
++)
++
++func TestMain(m *testing.M) {
++	goleak.VerifyTestMain(m)
++}

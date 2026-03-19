@@ -1,0 +1,21 @@
+diff --git a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
+index 94cb5f466..181d66ff3 100644
+--- a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
++++ b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
+@@ -46,6 +46,16 @@
+         "key": "a.binary",
+         "vType": "STRING",
+         "vStr": "AQIDBAMCAQ=="
++      },
++      {
++        "key": "resource_key1",
++        "vType": "STRING",
++        "vStr": "resource_val1"
++      },
++      {
++        "key": "opencensus.resourcetype",
++        "vType": "STRING",
++        "vStr": "k8s.io/container"
+       }
+     ]
+   },

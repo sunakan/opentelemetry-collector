@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/factory.go b/exporter/jaegerexporter/factory.go
+index 7b570b251..3039f990e 100644
+--- a/exporter/jaegerexporter/factory.go
++++ b/exporter/jaegerexporter/factory.go
+@@ -33,7 +33,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the Exporter config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

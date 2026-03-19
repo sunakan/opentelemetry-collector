@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/metrics_batch.go b/exporter/exporterhelper/metrics_batch.go
+index a710254ea..57e00f58b 100644
+--- a/exporter/exporterhelper/metrics_batch.go
++++ b/exporter/exporterhelper/metrics_batch.go
+@@ -24,6 +24,8 @@ func (req *metricsRequest) MergeSplit(_ context.Context, cfg exporterbatcher.Max
+ 	}
+ 
+ 	if cfg.MaxSizeItems == 0 {
++		req.setCachedItemsCount(req.ItemsCount() + req2.ItemsCount())
++		req2.setCachedItemsCount(0)
+ 		req2.md.ResourceMetrics().MoveAndAppendTo(req.md.ResourceMetrics())
+ 		return []Request{req}, nil
+ 	}
+@@ -43,7 +45,7 @@ func (req *metricsRequest) MergeSplit(_ context.Context, cfg exporterbatcher.Max
+ 			if destReq == nil {
+ 				destReq = srcReq
+ 			} else {
+-				destReq.setCachedItemsCount(srcCount)
++				destReq.setCachedItemsCount(destReq.ItemsCount() + srcCount)
+ 				srcReq.setCachedItemsCount(0)
+ 				srcReq.md.ResourceMetrics().MoveAndAppendTo(destReq.md.ResourceMetrics())
+ 			}

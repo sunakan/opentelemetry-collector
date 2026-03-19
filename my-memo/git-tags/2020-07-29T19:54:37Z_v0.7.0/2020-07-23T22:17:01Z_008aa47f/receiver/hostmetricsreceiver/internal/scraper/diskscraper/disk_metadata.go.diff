@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_metadata.go
+index 701f83509..442a909ff 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_metadata.go
+@@ -59,8 +59,8 @@ var diskTimeDescriptor = func() pdata.MetricDescriptor {
+ 	descriptor.InitEmpty()
+ 	descriptor.SetName("system.disk.time")
+ 	descriptor.SetDescription("Time spent in disk operations.")
+-	descriptor.SetUnit("ms")
+-	descriptor.SetType(pdata.MetricTypeMonotonicInt64)
++	descriptor.SetUnit("s")
++	descriptor.SetType(pdata.MetricTypeMonotonicDouble)
+ 	return descriptor
+ }()
+ 

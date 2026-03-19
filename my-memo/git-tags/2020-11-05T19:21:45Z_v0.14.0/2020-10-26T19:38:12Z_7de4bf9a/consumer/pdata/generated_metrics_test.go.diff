@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_metrics_test.go b/consumer/pdata/generated_metrics_test.go
+index b73aa5f74..c15e6377d 100644
+--- a/consumer/pdata/generated_metrics_test.go
++++ b/consumer/pdata/generated_metrics_test.go
+@@ -489,6 +489,8 @@ func TestMetric_Unit(t *testing.T) {
+ 	assert.EqualValues(t, testValUnit, ms.Unit())
+ }
+ 
++
++
+ func TestIntGauge_InitEmpty(t *testing.T) {
+ 	ms := NewIntGauge()
+ 	assert.True(t, ms.IsNil())

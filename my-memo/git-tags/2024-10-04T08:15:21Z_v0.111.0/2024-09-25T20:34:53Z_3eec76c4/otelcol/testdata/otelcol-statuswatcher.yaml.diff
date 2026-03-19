@@ -1,0 +1,18 @@
+diff --git a/otelcol/testdata/otelcol-statuswatcher.yaml b/otelcol/testdata/otelcol-statuswatcher.yaml
+index 2dcc322d3..90970a234 100644
+--- a/otelcol/testdata/otelcol-statuswatcher.yaml
++++ b/otelcol/testdata/otelcol-statuswatcher.yaml
+@@ -14,7 +14,12 @@ extensions:
+ service:
+   telemetry:
+     metrics:
+-      address: localhost:8888
++      readers:
++        - pull:
++            exporter:
++              prometheus:
++                host: "localhost"
++                port: 8888
+   extensions: [statuswatcher]
+   pipelines:
+     traces:

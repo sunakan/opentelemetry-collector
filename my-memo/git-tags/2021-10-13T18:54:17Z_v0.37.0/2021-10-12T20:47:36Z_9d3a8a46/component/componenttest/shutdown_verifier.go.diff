@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index 1c26575e1..d2ce1a6ef 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package componenttest
++package componenttest // import "go.opentelemetry.io/collector/component/componenttest"
+ 
+ import (
+ 	"context"

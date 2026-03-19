@@ -1,0 +1,12 @@
+diff --git a/exporter/debugexporter/go.mod b/exporter/debugexporter/go.mod
+index eaeb976f8..275a72b7e 100644
+--- a/exporter/debugexporter/go.mod
++++ b/exporter/debugexporter/go.mod
+@@ -10,6 +10,7 @@ require (
+ 	go.opentelemetry.io/collector/exporter v0.91.0
+ 	go.opentelemetry.io/otel/metric v1.21.0
+ 	go.opentelemetry.io/otel/trace v1.21.0
++	go.uber.org/goleak v1.3.0
+ )
+ 
+ require (

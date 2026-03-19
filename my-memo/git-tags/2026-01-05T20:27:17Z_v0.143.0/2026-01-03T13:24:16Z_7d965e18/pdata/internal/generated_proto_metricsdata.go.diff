@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_metricsdata.go b/pdata/internal/generated_proto_metricsdata.go
+index ad560d67b..aa7900f67 100644
+--- a/pdata/internal/generated_proto_metricsdata.go
++++ b/pdata/internal/generated_proto_metricsdata.go
+@@ -45,11 +45,9 @@ func DeleteMetricsData(orig *MetricsData, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceMetrics {
+ 		DeleteResourceMetrics(orig.ResourceMetrics[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolMetricsData.Put(orig)

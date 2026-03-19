@@ -1,0 +1,17 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 2ee2a459f..c588ffd5f 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -22,9 +22,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configgrpc"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configgrpc"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

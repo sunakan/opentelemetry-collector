@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
+index 69f700dc1..40e7c48b5 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_test.go
+@@ -24,8 +24,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"

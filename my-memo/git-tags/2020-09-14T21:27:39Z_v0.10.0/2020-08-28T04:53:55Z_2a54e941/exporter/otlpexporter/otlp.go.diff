@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 0d8e6b680..ae3e705d7 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -90,7 +90,7 @@ func (e *exporterImp) pushTraceData(ctx context.Context, td pdata.Traces) (int,
+ }
+ 
+ func (e *exporterImp) pushMetricsData(ctx context.Context, md pdata.Metrics) (int, error) {
+-	imd := pdatautil.MetricsToInternalMetrics(md)
++	imd := pdatautil.MetricsToOldInternalMetrics(md)
+ 	request := &otlpmetrics.ExportMetricsServiceRequest{
+ 		ResourceMetrics: dataold.MetricDataToOtlp(imd),
+ 	}

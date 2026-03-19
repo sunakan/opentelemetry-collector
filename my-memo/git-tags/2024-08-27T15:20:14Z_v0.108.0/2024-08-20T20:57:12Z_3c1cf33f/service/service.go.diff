@@ -1,0 +1,25 @@
+diff --git a/service/service.go b/service/service.go
+index a4d186904..5496021b2 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -12,6 +12,7 @@ import (
+ 	"runtime"
+ 
+ 	"go.opentelemetry.io/otel/metric"
++	"go.opentelemetry.io/otel/metric/noop"
+ 	sdkresource "go.opentelemetry.io/otel/sdk/resource"
+ 	"go.uber.org/multierr"
+ 	"go.uber.org/zap"
+@@ -127,6 +128,12 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 
+ 	logsAboutMeterProvider(logger, cfg.Telemetry.Metrics, mp, extendedConfig)
+ 	srv.telemetrySettings = component.TelemetrySettings{
++		LeveledMeterProvider: func(level configtelemetry.Level) metric.MeterProvider {
++			if level <= cfg.Telemetry.Metrics.Level {
++				return mp
++			}
++			return noop.MeterProvider{}
++		},
+ 		Logger:         logger,
+ 		MeterProvider:  mp,
+ 		TracerProvider: tracerProvider,

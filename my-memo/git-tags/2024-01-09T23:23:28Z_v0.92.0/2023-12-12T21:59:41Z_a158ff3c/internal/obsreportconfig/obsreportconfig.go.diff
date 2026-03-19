@@ -1,0 +1,13 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index 7b970d81b..28ec8510d 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -17,7 +17,7 @@ import (
+ // telemetrySettings for internal metrics.
+ var UseOtelForInternalMetricsfeatureGate = featuregate.GlobalRegistry().MustRegister(
+ 	"telemetry.useOtelForInternalMetrics",
+-	featuregate.StageAlpha,
++	featuregate.StageBeta,
+ 	featuregate.WithRegisterDescription("controls whether the collector uses OpenTelemetry for internal metrics"))
+ 
+ // DisableHighCardinalityMetricsfeatureGate is the feature gate that controls whether the collector should enable

@@ -1,0 +1,13 @@
+diff --git a/model/internal/cmd/pdatagen/internal/metrics_structs.go b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+index 6d91ed174..05916e3c0 100644
+--- a/model/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -438,7 +438,7 @@ var exemplar = &messageValueStruct{
+ 		&sliceField{
+ 			fieldName:       "FilteredAttributes",
+ 			originFieldName: "FilteredAttributes",
+-			returnSlice:     attributeMap,
++			returnSlice:     mapStruct,
+ 		},
+ 		traceIDField,
+ 		spanIDField,

@@ -1,0 +1,20 @@
+diff --git a/service/telemetry/internal/migration/normalize.go b/service/telemetry/internal/migration/normalize.go
+index 2e1fd8b7f..1f7ff8dfa 100644
+--- a/service/telemetry/internal/migration/normalize.go
++++ b/service/telemetry/internal/migration/normalize.go
+@@ -5,9 +5,13 @@ package migration // import "go.opentelemetry.io/collector/service/telemetry/int
+ 
+ import "strings"
+ 
+-func normalizeEndpoint(endpoint string) *string {
++func normalizeEndpoint(endpoint string, insecure *bool) *string {
+ 	if !strings.HasPrefix(endpoint, "https://") && !strings.HasPrefix(endpoint, "http://") {
+-		endpoint = "http://" + endpoint
++		if insecure != nil && *insecure {
++			endpoint = "http://" + endpoint
++		} else {
++			endpoint = "https://" + endpoint
++		}
+ 	}
+ 	return &endpoint
+ }

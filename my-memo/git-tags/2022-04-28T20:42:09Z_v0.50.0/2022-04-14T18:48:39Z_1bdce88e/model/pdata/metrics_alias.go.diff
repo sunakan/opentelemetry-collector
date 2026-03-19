@@ -1,0 +1,20 @@
+diff --git a/model/pdata/metrics_alias.go b/model/pdata/metrics_alias.go
+index fb4a643a6..adfdba265 100644
+--- a/model/pdata/metrics_alias.go
++++ b/model/pdata/metrics_alias.go
+@@ -116,15 +116,3 @@ const (
+ 	// Deprecated: [v0.49.0] Use pmetric.MetricValueTypeDouble instead.
+ 	MetricValueTypeDouble = pmetric.MetricValueTypeDouble
+ )
+-
+-// Deprecated: [v0.48.0] Use ScopeMetricsSlice instead.
+-type InstrumentationLibraryMetricsSlice = pmetric.ScopeMetricsSlice
+-
+-// Deprecated: [v0.48.0] Use NewScopeMetricsSlice instead.
+-var NewInstrumentationLibraryMetricsSlice = pmetric.NewScopeMetricsSlice
+-
+-// Deprecated: [v0.48.0] Use ScopeMetrics instead.
+-type InstrumentationLibraryMetrics = pmetric.ScopeMetrics
+-
+-// Deprecated: [v0.48.0] Use NewScopeMetrics instead.
+-var NewInstrumentationLibraryMetrics = pmetric.NewScopeMetrics

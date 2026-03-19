@@ -1,0 +1,22 @@
+diff --git a/config/config.go b/config/config.go
+index 1be5d9e3d..99ac6fb38 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -17,6 +17,8 @@ package config
+ import (
+ 	"errors"
+ 	"fmt"
++
++	"go.opentelemetry.io/collector/config/configparser"
+ )
+ 
+ var (
+@@ -173,7 +175,7 @@ type CustomUnmarshable interface {
+ 	// Unmarshal is a function that un-marshals a Parser into the unmarshable struct in a custom way.
+ 	// componentSection *Parser
+ 	//   The config for this specific component. May be nil or empty if no config available.
+-	Unmarshal(componentSection *Parser) error
++	Unmarshal(componentSection *configparser.Parser) error
+ }
+ 
+ // DataType is the data type that is supported for collection. We currently support

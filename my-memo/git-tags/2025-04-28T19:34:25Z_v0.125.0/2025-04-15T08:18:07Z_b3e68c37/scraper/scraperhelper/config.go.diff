@@ -1,0 +1,13 @@
+diff --git a/scraper/scraperhelper/config.go b/scraper/scraperhelper/config.go
+index 4c70742be..ebcb68644 100644
+--- a/scraper/scraperhelper/config.go
++++ b/scraper/scraperhelper/config.go
+@@ -26,6 +26,8 @@ type ControllerConfig struct {
+ 	InitialDelay time.Duration `mapstructure:"initial_delay"`
+ 	// Timeout is an optional value used to set scraper's context deadline.
+ 	Timeout time.Duration `mapstructure:"timeout"`
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // NewDefaultControllerConfig returns default scraper controller

@@ -1,0 +1,31 @@
+diff --git a/model/otlpgrpc/traces_test.go b/model/otlpgrpc/traces_test.go
+index ef5efc2f2..107fe5e8c 100644
+--- a/model/otlpgrpc/traces_test.go
++++ b/model/otlpgrpc/traces_test.go
+@@ -66,7 +66,7 @@ var tracesRequestJSON = []byte(`
+ func TestTracesRequestJSON(t *testing.T) {
+ 	tr := NewTracesRequest()
+ 	assert.NoError(t, tr.UnmarshalJSON(tracesRequestJSON))
+-	assert.Equal(t, "test_span", tr.Traces().ResourceSpans().At(0).InstrumentationLibrarySpans().At(0).Spans().At(0).Name())
++	assert.Equal(t, "test_span", tr.Traces().ResourceSpans().At(0).ScopeSpans().At(0).Spans().At(0).Name())
+ 
+ 	got, err := tr.MarshalJSON()
+ 	assert.NoError(t, err)
+@@ -76,7 +76,7 @@ func TestTracesRequestJSON(t *testing.T) {
+ func TestTracesRequestJSON_Deprecated(t *testing.T) {
+ 	tr, err := UnmarshalJSONTracesRequest(tracesRequestJSON)
+ 	assert.NoError(t, err)
+-	assert.Equal(t, "test_span", tr.Traces().ResourceSpans().At(0).InstrumentationLibrarySpans().At(0).Spans().At(0).Name())
++	assert.Equal(t, "test_span", tr.Traces().ResourceSpans().At(0).ScopeSpans().At(0).Spans().At(0).Name())
+ 
+ 	got, err := tr.MarshalJSON()
+ 	assert.NoError(t, err)
+@@ -164,7 +164,7 @@ func (f fakeTracesServer) Export(_ context.Context, request TracesRequest) (Trac
+ 
+ func generateTracesRequest() TracesRequest {
+ 	td := pdata.NewTraces()
+-	td.ResourceSpans().AppendEmpty().InstrumentationLibrarySpans().AppendEmpty().Spans().AppendEmpty().SetName("test_span")
++	td.ResourceSpans().AppendEmpty().ScopeSpans().AppendEmpty().Spans().AppendEmpty().SetName("test_span")
+ 
+ 	tr := NewTracesRequest()
+ 	tr.SetTraces(td)

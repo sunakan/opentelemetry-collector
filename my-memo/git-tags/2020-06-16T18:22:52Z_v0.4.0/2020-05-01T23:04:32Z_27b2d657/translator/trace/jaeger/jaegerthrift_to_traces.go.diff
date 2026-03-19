@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces.go b/translator/trace/jaeger/jaegerthrift_to_traces.go
+index 39f765162..3913ce002 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces.go
+@@ -119,7 +119,7 @@ func jThriftSpanToInternal(span *jaeger.Span, dest pdata.Span) {
+ 	}
+ 
+ 	// drop the attributes slice if all of them were replaced during translation
+-	if attrs.Cap() == 0 {
++	if attrs.Len() == 0 {
+ 		attrs.InitFromMap(nil)
+ 	}
+ 

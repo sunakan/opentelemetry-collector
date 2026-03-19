@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/release-branch.yml b/.github/workflows/release-branch.yml
+index 90c0ad09f..67aacd4a9 100644
+--- a/.github/workflows/release-branch.yml
++++ b/.github/workflows/release-branch.yml
+@@ -24,7 +24,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5.3.0
+         with:
+-          go-version: 1.23.9
++          go-version: 1.23.10
+ 
+       - name: Setup Git config
+         run: |

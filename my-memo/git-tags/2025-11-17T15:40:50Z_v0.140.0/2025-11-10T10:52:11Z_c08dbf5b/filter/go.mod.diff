@@ -1,0 +1,10 @@
+diff --git a/filter/go.mod b/filter/go.mod
+index 74c9306d0..9211f2ff7 100644
+--- a/filter/go.mod
++++ b/filter/go.mod
+@@ -28,3 +28,5 @@ require (
+ replace go.opentelemetry.io/collector/confmap => ../confmap
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../internal/testutil

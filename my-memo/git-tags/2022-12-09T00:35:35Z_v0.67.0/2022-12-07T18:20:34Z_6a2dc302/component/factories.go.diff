@@ -1,0 +1,15 @@
+diff --git a/component/factories.go b/component/factories.go
+index fd1902b57..21b031e60 100644
+--- a/component/factories.go
++++ b/component/factories.go
+@@ -62,9 +62,7 @@ func MakeProcessorFactoryMap(factories ...ProcessorFactory) (map[Type]ProcessorF
+ 	return fMap, nil
+ }
+ 
+-// MakeExporterFactoryMap takes a list of exporter factories and returns a map
+-// with factory type as keys. It returns a non-nil error when more than one factories
+-// have the same type.
++// Deprecated: [v0.67.0] use exporter.MakeFactoryMap
+ func MakeExporterFactoryMap(factories ...ExporterFactory) (map[Type]ExporterFactory, error) {
+ 	fMap := map[Type]ExporterFactory{}
+ 	for _, f := range factories {

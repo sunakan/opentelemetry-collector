@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_linkslice_test.go b/pdata/pprofile/generated_linkslice_test.go
+index bec39e870..269cc8068 100644
+--- a/pdata/pprofile/generated_linkslice_test.go
++++ b/pdata/pprofile/generated_linkslice_test.go
+@@ -13,7 +13,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ func TestLinkSlice(t *testing.T) {

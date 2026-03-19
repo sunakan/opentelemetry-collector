@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_status_test.go b/pdata/ptrace/generated_status_test.go
+index 4fecedf52..1b20182e4 100644
+--- a/pdata/ptrace/generated_status_test.go
++++ b/pdata/ptrace/generated_status_test.go
+@@ -61,7 +61,6 @@ func TestStatus_Code(t *testing.T) {
+ }
+ 
+ func generateTestStatus() Status {
+-	ms := NewStatus()
+-	internal.FillOrigTestStatus(ms.orig)
++	ms := newStatus(internal.GenTestOrigStatus(), internal.NewState())
+ 	return ms
+ }

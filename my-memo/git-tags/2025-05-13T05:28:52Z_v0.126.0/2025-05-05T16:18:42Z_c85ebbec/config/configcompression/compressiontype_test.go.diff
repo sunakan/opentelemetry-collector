@@ -1,0 +1,35 @@
+diff --git a/config/configcompression/compressiontype_test.go b/config/configcompression/compressiontype_test.go
+index 2fb9976eb..8225c8806 100644
+--- a/config/configcompression/compressiontype_test.go
++++ b/config/configcompression/compressiontype_test.go
+@@ -42,6 +42,12 @@ func TestUnmarshalText(t *testing.T) {
+ 			shouldError:     false,
+ 			isCompressed:    true,
+ 		},
++		{
++			name:            "ValidSnappyFramed",
++			compressionName: []byte("x-snappy-framed"),
++			shouldError:     false,
++			isCompressed:    true,
++		},
+ 		{
+ 			name:            "ValidZstd",
+ 			compressionName: []byte("zstd"),
+@@ -128,6 +134,17 @@ func TestValidateParams(t *testing.T) {
+ 			compressionLevel: 1,
+ 			shouldError:      true,
+ 		},
++		{
++			name:            "ValidSnappyFramed",
++			compressionName: []byte("x-snappy-framed"),
++			shouldError:     false,
++		},
++		{
++			name:             "InvalidSnappyFramed",
++			compressionName:  []byte("x-snappy-framed"),
++			compressionLevel: 1,
++			shouldError:      true,
++		},
+ 		{
+ 			name:             "ValidZstd",
+ 			compressionName:  []byte("zstd"),

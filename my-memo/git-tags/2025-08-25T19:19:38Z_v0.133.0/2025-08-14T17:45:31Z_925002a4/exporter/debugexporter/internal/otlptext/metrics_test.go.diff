@@ -1,0 +1,41 @@
+diff --git a/exporter/debugexporter/internal/otlptext/metrics_test.go b/exporter/debugexporter/internal/otlptext/metrics_test.go
+index 4e6337569..1d2b26c3f 100644
+--- a/exporter/debugexporter/internal/otlptext/metrics_test.go
++++ b/exporter/debugexporter/internal/otlptext/metrics_test.go
+@@ -42,6 +42,11 @@ func TestMetricsText(t *testing.T) {
+ 			in:   testdata.GenerateMetricsMetricTypeInvalid(),
+ 			out:  "invalid_metric_type.out",
+ 		},
++		{
++			name: "metrics_with_entity_refs",
++			in:   generateMetricsWithEntityRefs(),
++			out:  "metrics_with_entity_refs.out",
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+@@ -54,3 +59,24 @@ func TestMetricsText(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func generateMetricsWithEntityRefs() pmetric.Metrics {
++	md := pmetric.NewMetrics()
++	rm := md.ResourceMetrics().AppendEmpty()
++
++	setupResourceWithEntityRefs(rm.Resource())
++
++	sm := rm.ScopeMetrics().AppendEmpty()
++	sm.Scope().SetName("test-scope")
++	metric := sm.Metrics().AppendEmpty()
++	metric.SetName("test-metric")
++	metric.SetDescription("A test metric")
++	metric.SetUnit("1")
++
++	gauge := metric.SetEmptyGauge()
++	dp := gauge.DataPoints().AppendEmpty()
++	dp.SetDoubleValue(123.45)
++	dp.Attributes().PutStr("test.attribute", "test-value")
++
++	return md
++}

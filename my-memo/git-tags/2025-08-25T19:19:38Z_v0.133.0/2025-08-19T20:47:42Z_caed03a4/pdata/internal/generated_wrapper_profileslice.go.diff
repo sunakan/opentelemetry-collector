@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_profileslice.go b/pdata/internal/generated_wrapper_profileslice.go
+index b52ff49ab..9bfbec3aa 100644
+--- a/pdata/internal/generated_wrapper_profileslice.go
++++ b/pdata/internal/generated_wrapper_profileslice.go
+@@ -8,7 +8,6 @@ package internal
+ 
+ import (
+ 	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func CopyOrigProfileSlice(dest, src []*otlpprofiles.Profile) []*otlpprofiles.Profile {
+@@ -49,14 +48,3 @@ func GenerateOrigTestProfileSlice() []*otlpprofiles.Profile {
+ 	orig[4] = NewOrigProfile()
+ 	return orig
+ }
+-
+-// UnmarshalJSONOrigProfileSlice unmarshals all properties from the current struct from the source iterator.
+-func UnmarshalJSONOrigProfileSlice(iter *json.Iterator) []*otlpprofiles.Profile {
+-	var orig []*otlpprofiles.Profile
+-	iter.ReadArrayCB(func(iter *json.Iterator) bool {
+-		orig = append(orig, NewOrigProfile())
+-		UnmarshalJSONOrigProfile(orig[len(orig)-1], iter)
+-		return true
+-	})
+-	return orig
+-}

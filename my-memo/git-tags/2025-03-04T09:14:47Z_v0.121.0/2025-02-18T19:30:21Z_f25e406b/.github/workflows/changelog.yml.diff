@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/changelog.yml b/.github/workflows/changelog.yml
+index d1911f8d6..6dea5356f 100644
+--- a/.github/workflows/changelog.yml
++++ b/.github/workflows/changelog.yml
+@@ -36,7 +36,7 @@ jobs:
+           go-version: ~1.23.6
+       - name: Cache Go
+         id: go-cache
+-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
++        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f # v4.2.1
+         with:
+           path: |
+             ~/go/bin

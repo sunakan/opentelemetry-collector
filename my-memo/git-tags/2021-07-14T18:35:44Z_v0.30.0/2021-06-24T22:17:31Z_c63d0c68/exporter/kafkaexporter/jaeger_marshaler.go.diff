@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/jaeger_marshaler.go b/exporter/kafkaexporter/jaeger_marshaler.go
+index 6943a6ff2..c118df8c8 100644
+--- a/exporter/kafkaexporter/jaeger_marshaler.go
++++ b/exporter/kafkaexporter/jaeger_marshaler.go
+@@ -22,7 +22,7 @@ import (
+ 	jaegerproto "github.com/jaegertracing/jaeger/model"
+ 
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	jaegertranslator "go.opentelemetry.io/collector/translator/trace/jaeger"
+ )
+ 

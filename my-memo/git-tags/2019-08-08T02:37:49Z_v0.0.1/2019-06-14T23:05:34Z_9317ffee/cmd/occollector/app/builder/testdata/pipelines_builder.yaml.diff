@@ -1,0 +1,32 @@
+diff --git a/cmd/occollector/app/builder/testdata/pipelines_builder.yaml b/cmd/occollector/app/builder/testdata/pipelines_builder.yaml
+new file mode 100644
+index 000000000..f85a630fb
+--- /dev/null
++++ b/cmd/occollector/app/builder/testdata/pipelines_builder.yaml
+@@ -0,0 +1,26 @@
++receivers:
++  examplereceiver:
++    enabled: true
++
++processors:
++  attributes:
++    values:
++      attr1: 12345
++
++exporters:
++  exampleexporter:
++    enabled: true
++
++  exampleexporter/2:
++    enabled: true
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [attributes]
++    exporters: [exampleexporter]
++
++  traces/2:
++    receivers: [examplereceiver]
++    processors: [attributes]
++    exporters: [exampleexporter, exampleexporter/2]

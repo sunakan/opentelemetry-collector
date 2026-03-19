@@ -1,0 +1,12 @@
+diff --git a/pdata/xpdata/entity/generated_entityref_test.go b/pdata/xpdata/entity/generated_entityref_test.go
+index 1291da6a8..d06ac3a72 100644
+--- a/pdata/xpdata/entity/generated_entityref_test.go
++++ b/pdata/xpdata/entity/generated_entityref_test.go
+@@ -78,5 +78,6 @@ func TestEntityRef_DescriptionKeys(t *testing.T) {
+ }
+ 
+ func generateTestEntityRef() EntityRef {
+-	return EntityRef(internal.GenerateTestEntityRef())
++	ms := newEntityRef(internal.GenTestOrigEntityRef(), internal.NewState())
++	return ms
+ }

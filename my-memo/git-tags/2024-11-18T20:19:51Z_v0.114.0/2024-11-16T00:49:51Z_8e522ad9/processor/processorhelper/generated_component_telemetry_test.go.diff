@@ -1,0 +1,21 @@
+diff --git a/processor/processorhelper/generated_component_telemetry_test.go b/processor/processorhelper/generated_component_telemetry_test.go
+index 2424d1ce6..fa517fc19 100644
+--- a/processor/processorhelper/generated_component_telemetry_test.go
++++ b/processor/processorhelper/generated_component_telemetry_test.go
+@@ -26,14 +26,15 @@ type componentTestTelemetry struct {
+ 
+ func (tt *componentTestTelemetry) NewSettings() processor.Settings {
+ 	set := processortest.NewNopSettings()
+-	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	set.ID = component.NewID(component.MustNewType("processorhelper"))
++	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	return set
+ }
+ 
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

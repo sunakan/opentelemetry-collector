@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_metrics.go b/translator/internaldata/oc_to_metrics.go
+index e78832e24..99c0a3139 100644
+--- a/translator/internaldata/oc_to_metrics.go
++++ b/translator/internaldata/oc_to_metrics.go
+@@ -369,7 +369,7 @@ func exemplarToMetrics(ocExemplar *ocmetrics.DistributionValue_Exemplar, exempla
+ 		exemplar.SetTimestamp(pdata.TimestampFromTime(ocExemplar.GetTimestamp().AsTime()))
+ 	}
+ 	ocAttachments := ocExemplar.GetAttachments()
+-	exemplar.SetValue(ocExemplar.GetValue())
++	exemplar.SetDoubleVal(ocExemplar.GetValue())
+ 	filteredLabels := exemplar.FilteredLabels()
+ 	filteredLabels.Clear()
+ 	filteredLabels.EnsureCapacity(len(ocAttachments))

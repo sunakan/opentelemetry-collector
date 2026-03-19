@@ -1,0 +1,27 @@
+diff --git a/cmd/builder/test/test.sh b/cmd/builder/test/test.sh
+index c0b35afed..434102ea4 100755
+--- a/cmd/builder/test/test.sh
++++ b/cmd/builder/test/test.sh
+@@ -25,11 +25,7 @@ test_build_config() {
+ 
+     echo "Starting test '${test}' at `date`" >> "${out}/test.log"
+ 
+-    if [ -z "$build_config" ] ; then
+-        go run . --go "${GOBIN}" --output-path "${out}" --name otelcol-built-test > "${out}/builder.log" 2>&1
+-    else
+-        go run . --go "${GOBIN}" --config "$build_config" --output-path "${out}" --name otelcol-built-test > "${out}/builder.log" 2>&1
+-    fi
++    go run . --go "${GOBIN}" --config "$build_config" --output-path "${out}" --name otelcol-built-test > "${out}/builder.log" 2>&1
+ 
+     if [ $? != 0 ]; then
+         echo "❌ FAIL ${test}. Failed to compile the test ${test}. Build logs:"
+@@ -112,9 +108,6 @@ echo "Running the tests in ${base}"
+ 
+ failed=false
+ 
+-# Test that an empty build configuration builds a working default collector.
+-test_build_config "default"
+-
+ for test in $tests
+ do
+     test_build_config "$test" "./test/${test}.builder.yaml"

@@ -1,0 +1,40 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 311f4b838..a3232a409 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -33,7 +33,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	assert.Equal(t, ocfg.RetryConfig, configretry.NewDefaultBackOffConfig())
+ 	assert.Equal(t, ocfg.QueueConfig, exporterhelper.NewDefaultQueueSettings())
+ 	assert.Equal(t, ocfg.TimeoutSettings, exporterhelper.NewDefaultTimeoutSettings())
+-	assert.Equal(t, ocfg.Compression, configcompression.Gzip)
++	assert.Equal(t, ocfg.Compression, configcompression.TypeGzip)
+ }
+ 
+ func TestCreateMetricsExporter(t *testing.T) {
+@@ -102,7 +102,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 			config: &Config{
+ 				ClientConfig: configgrpc.ClientConfig{
+ 					Endpoint:    endpoint,
+-					Compression: configcompression.Gzip,
++					Compression: configcompression.TypeGzip,
+ 				},
+ 			},
+ 		},
+@@ -111,7 +111,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 			config: &Config{
+ 				ClientConfig: configgrpc.ClientConfig{
+ 					Endpoint:    endpoint,
+-					Compression: configcompression.Snappy,
++					Compression: configcompression.TypeSnappy,
+ 				},
+ 			},
+ 		},
+@@ -120,7 +120,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 			config: &Config{
+ 				ClientConfig: configgrpc.ClientConfig{
+ 					Endpoint:    endpoint,
+-					Compression: configcompression.Zstd,
++					Compression: configcompression.TypeZstd,
+ 				},
+ 			},
+ 		},

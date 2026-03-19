@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/metadata.yaml b/processor/processorhelper/metadata.yaml
+index bd1dd0f22..b6197f1e4 100644
+--- a/processor/processorhelper/metadata.yaml
++++ b/processor/processorhelper/metadata.yaml
+@@ -2,8 +2,7 @@ type: processorhelper
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
+-  class: processor
+-  not_component: true
++  class: pkg
+   stability:
+     beta: [traces, metrics, logs]
+ 

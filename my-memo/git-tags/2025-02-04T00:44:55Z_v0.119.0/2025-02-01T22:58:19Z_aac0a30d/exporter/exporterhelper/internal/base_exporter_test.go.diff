@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter_test.go b/exporter/exporterhelper/internal/base_exporter_test.go
+index 12c56bb76..11dc47b4d 100644
+--- a/exporter/exporterhelper/internal/base_exporter_test.go
++++ b/exporter/exporterhelper/internal/base_exporter_test.go
+@@ -33,8 +33,14 @@ var (
+ 	}()
+ )
+ 
+-func newNoopObsrepSender(*ObsReport) Sender[internal.Request] {
+-	return &BaseSender[internal.Request]{}
++type noopSender struct {
++	component.StartFunc
++	component.ShutdownFunc
++	SendFunc[internal.Request]
++}
++
++func newNoopObsrepSender(_ *ObsReport, next Sender[internal.Request]) Sender[internal.Request] {
++	return &noopSender{SendFunc: next.Send}
+ }
+ 
+ func TestBaseExporter(t *testing.T) {

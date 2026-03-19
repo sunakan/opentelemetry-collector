@@ -1,0 +1,27 @@
+diff --git a/internal/sharedcomponent/sharedcomponent_test.go b/internal/sharedcomponent/sharedcomponent_test.go
+index c65e59918..bb4d1e884 100644
+--- a/internal/sharedcomponent/sharedcomponent_test.go
++++ b/internal/sharedcomponent/sharedcomponent_test.go
+@@ -82,7 +82,8 @@ func TestSharedComponent(t *testing.T) {
+ 		ShutdownFunc: func(context.Context) error {
+ 			calledStop++
+ 			return wantErr
+-		}}
++		},
++	}
+ 
+ 	comps := NewMap[component.ID, *baseComponent]()
+ 	got, err := comps.LoadOrStore(
+@@ -198,8 +199,10 @@ func TestReportStatusOnStartShutdown(t *testing.T) {
+ 	}
+ }
+ 
+-var _ component.Host = (*testHost)(nil)
+-var _ componentstatus.Reporter = (*testHost)(nil)
++var (
++	_ component.Host           = (*testHost)(nil)
++	_ componentstatus.Reporter = (*testHost)(nil)
++)
+ 
+ type testHost struct {
+ 	component.Host

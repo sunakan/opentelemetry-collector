@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 4c133e5e0..039534438 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -52,7 +52,7 @@ import (
+ 	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport/obsreporttest"
+ 	"go.opentelemetry.io/collector/testutil"
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ )
+ 
+ const otlpReceiverName = "receiver_test"

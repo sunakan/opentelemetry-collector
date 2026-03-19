@@ -1,0 +1,28 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index 1abdad544..023fd8d47 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -71,7 +71,6 @@ func createTracesExporter(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutSettings),
+ 		exporterhelper.WithRetry(oCfg.RetrySettings),
+ 		exporterhelper.WithQueue(oCfg.QueueSettings),
+-		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown))
+ }
+ 
+@@ -93,7 +92,6 @@ func createMetricsExporter(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutSettings),
+ 		exporterhelper.WithRetry(oCfg.RetrySettings),
+ 		exporterhelper.WithQueue(oCfg.QueueSettings),
+-		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)
+ }
+@@ -116,7 +114,6 @@ func createLogsExporter(
+ 		exporterhelper.WithTimeout(oCfg.TimeoutSettings),
+ 		exporterhelper.WithRetry(oCfg.RetrySettings),
+ 		exporterhelper.WithQueue(oCfg.QueueSettings),
+-		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithShutdown(oce.shutdown),
+ 	)
+ }

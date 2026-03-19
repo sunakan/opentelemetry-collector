@@ -1,0 +1,28 @@
+diff --git a/README.md b/README.md
+index 79c24d6bc..685a53b9c 100644
+--- a/README.md
++++ b/README.md
+@@ -25,6 +25,7 @@ We hold regular meetings. See details at [community page](https://github.com/ope
+   - [Exporters](#config-exporters)
+   - [Extensions](#config-extensions)
+   - [Service](#config-service)
++- [Extending the collector](#extending-the-collector)
+ - [Owners](#owners)
+ 
+ ## Introduction
+@@ -312,6 +313,15 @@ service:
+       exporters: [opencensus, zipkin]
+ ```
+ 
++## Extensions
++
++The OpenTelemetry collector can be extended or embedded into other applications.
++
++The list of applications extending the collector:
++
++* [opentelemetry-collector-contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib)
++* [jaeger-opentelemetry-collector](https://github.com/jaegertracing/jaeger-opentemenetry-collector)
++
+ ## Owners
+ 
+ Approvers ([@open-telemetry/collector-approvers](https://github.com/orgs/open-telemetry/teams/collector-approvers)):

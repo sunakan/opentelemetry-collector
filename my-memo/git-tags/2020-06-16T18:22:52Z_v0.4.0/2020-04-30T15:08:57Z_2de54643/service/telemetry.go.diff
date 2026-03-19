@@ -1,0 +1,46 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index ec1141a3a..aa6bdc7bc 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -16,7 +16,6 @@ package service
+ 
+ import (
+ 	"net/http"
+-	"strconv"
+ 	"strings"
+ 	"unicode"
+ 
+@@ -50,12 +49,12 @@ func (tel *appTelemetry) init(asyncErrorChannel chan<- error, ballastSizeBytes u
+ 		return errors.Wrap(err, "failed to parse metrics level")
+ 	}
+ 
+-	if level == telemetry.None {
++	metricsAddr := telemetry.GetMetricsAddr()
++
++	if level == telemetry.None || metricsAddr == "" {
+ 		return nil
+ 	}
+ 
+-	port := telemetry.GetMetricsPort()
+-
+ 	var views []*view.View
+ 	views = append(views, obsreport.Configure(telemetry.UseLegacyMetrics(), telemetry.UseNewMetrics())...)
+ 	views = append(views, processor.MetricViews(level)...)
+@@ -94,7 +93,7 @@ func (tel *appTelemetry) init(asyncErrorChannel chan<- error, ballastSizeBytes u
+ 
+ 	logger.Info(
+ 		"Serving Prometheus metrics",
+-		zap.Int("port", port),
++		zap.String("address", metricsAddr),
+ 		zap.Bool("legacy_metrics", telemetry.UseLegacyMetrics()),
+ 		zap.Bool("new_metrics", telemetry.UseNewMetrics()),
+ 		zap.Int8("level", int8(level)), // TODO: make it human friendly
+@@ -104,7 +103,7 @@ func (tel *appTelemetry) init(asyncErrorChannel chan<- error, ballastSizeBytes u
+ 	go func() {
+ 		mux := http.NewServeMux()
+ 		mux.Handle("/metrics", pe)
+-		serveErr := http.ListenAndServe(":"+strconv.Itoa(port), mux)
++		serveErr := http.ListenAndServe(metricsAddr, mux)
+ 		if serveErr != nil && serveErr != http.ErrServerClosed {
+ 			asyncErrorChannel <- serveErr
+ 		}

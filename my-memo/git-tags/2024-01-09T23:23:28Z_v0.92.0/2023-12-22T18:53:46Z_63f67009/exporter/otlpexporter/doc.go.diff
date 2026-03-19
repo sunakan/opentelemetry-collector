@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/doc.go b/exporter/otlpexporter/doc.go
+index 5fad358a6..3f09a7532 100644
+--- a/exporter/otlpexporter/doc.go
++++ b/exporter/otlpexporter/doc.go
+@@ -1,5 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ // Package otlpexporter exports data by using the OTLP format to a gPRC endpoint.
+ package otlpexporter // import "go.opentelemetry.io/collector/exporter/otlpexporter"

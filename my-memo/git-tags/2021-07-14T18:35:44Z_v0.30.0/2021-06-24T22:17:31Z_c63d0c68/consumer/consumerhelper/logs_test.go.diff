@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerhelper/logs_test.go b/consumer/consumerhelper/logs_test.go
+index d71262826..695a398b7 100644
+--- a/consumer/consumerhelper/logs_test.go
++++ b/consumer/consumerhelper/logs_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestDefaultLogs(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/logs/otlp_test.go b/receiver/otlpreceiver/logs/otlp_test.go
+index 07f313c95..b3ba55c4c 100644
+--- a/receiver/otlpreceiver/logs/otlp_test.go
++++ b/receiver/otlpreceiver/logs/otlp_test.go
+@@ -105,7 +105,7 @@ func TestExport_EmptyRequest(t *testing.T) {
+ }
+ 
+ func TestExport_ErrorConsumer(t *testing.T) {
+-	port, doneFn := otlpReceiverOnGRPCServer(t, consumertest.NewLogsErr(errors.New("my error")))
++	port, doneFn := otlpReceiverOnGRPCServer(t, consumertest.NewErr(errors.New("my error")))
+ 	defer doneFn()
+ 
+ 	logClient, logClientDoneFn, err := makeLogsServiceClient(port)

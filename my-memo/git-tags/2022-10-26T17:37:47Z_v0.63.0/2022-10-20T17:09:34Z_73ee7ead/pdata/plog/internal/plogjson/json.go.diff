@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/internal/plogjson/json.go b/pdata/plog/internal/plogjson/json.go
+index be6a1bb84..7a6cfa4f8 100644
+--- a/pdata/plog/internal/plogjson/json.go
++++ b/pdata/plog/internal/plogjson/json.go
+@@ -172,8 +172,8 @@ func readSeverityNumber(iter *jsoniter.Iterator) otlplogs.SeverityNumber {
+ 	return otlplogs.SeverityNumber(json.ReadEnumValue(iter, otlplogs.SeverityNumber_value))
+ }
+ 
+-func readExportLogsPartialSuccess(iter *jsoniter.Iterator) *otlpcollectorlog.ExportLogsPartialSuccess {
+-	lpr := &otlpcollectorlog.ExportLogsPartialSuccess{}
++func readExportLogsPartialSuccess(iter *jsoniter.Iterator) otlpcollectorlog.ExportLogsPartialSuccess {
++	lpr := otlpcollectorlog.ExportLogsPartialSuccess{}
+ 	iter.ReadObjectCB(func(iterator *jsoniter.Iterator, f string) bool {
+ 		switch f {
+ 		case "rejected_log_records", "rejectedLogRecords":

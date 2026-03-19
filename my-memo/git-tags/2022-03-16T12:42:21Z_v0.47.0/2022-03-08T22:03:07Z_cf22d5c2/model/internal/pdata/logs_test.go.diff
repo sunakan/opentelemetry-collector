@@ -1,0 +1,22 @@
+diff --git a/model/internal/pdata/logs_test.go b/model/internal/pdata/logs_test.go
+index 929e6d32d..c5c42c2f1 100644
+--- a/model/internal/pdata/logs_test.go
++++ b/model/internal/pdata/logs_test.go
+@@ -22,7 +22,6 @@ import (
+ 	goproto "google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/types/known/emptypb"
+ 
+-	"go.opentelemetry.io/collector/model/internal"
+ 	otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"
+ )
+ 
+@@ -76,8 +75,7 @@ func TestLogRecordCountWithEmpty(t *testing.T) {
+ }
+ 
+ func TestToFromLogProto(t *testing.T) {
+-	wrapper := internal.LogsFromOtlp(&otlplogs.LogsData{})
+-	logs := LogsFromInternalRep(wrapper)
++	logs := LogsFromOtlp(&otlplogs.LogsData{})
+ 	assert.EqualValues(t, NewLogs(), logs)
+ 	assert.EqualValues(t, &otlplogs.LogsData{}, logs.orig)
+ }

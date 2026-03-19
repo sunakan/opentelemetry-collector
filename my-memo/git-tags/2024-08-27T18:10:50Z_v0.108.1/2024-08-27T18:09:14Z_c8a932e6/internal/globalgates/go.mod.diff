@@ -1,0 +1,13 @@
+diff --git a/internal/globalgates/go.mod b/internal/globalgates/go.mod
+index ef4156bc5..9d54cd990 100644
+--- a/internal/globalgates/go.mod
++++ b/internal/globalgates/go.mod
+@@ -2,7 +2,7 @@ module go.opentelemetry.io/collector/internal/globalgates
+ 
+ go 1.22.0
+ 
+-require go.opentelemetry.io/collector/featuregate v1.14.0
++require go.opentelemetry.io/collector/featuregate v1.14.1
+ 
+ require (
+ 	github.com/hashicorp/go-version v1.7.0 // indirect

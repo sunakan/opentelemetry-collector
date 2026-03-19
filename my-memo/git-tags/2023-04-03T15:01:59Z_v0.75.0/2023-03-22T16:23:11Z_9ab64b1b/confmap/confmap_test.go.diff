@@ -1,0 +1,13 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 3a04df94d..626273b91 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -404,7 +404,7 @@ type errConfig struct {
+ 	Foo string `mapstructure:"foo"`
+ }
+ 
+-func (tc *errConfig) Unmarshal(component *Conf) error {
++func (tc *errConfig) Unmarshal(_ *Conf) error {
+ 	return errors.New("never works")
+ }
+ 

@@ -1,0 +1,40 @@
+diff --git a/service/service.go b/service/service.go
+index 124f9d0e8..0f9a97872 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -20,7 +20,6 @@ import (
+ 
+ 	"go.opentelemetry.io/otel/metric/nonrecording"
+ 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+-	"go.opentelemetry.io/otel/trace"
+ 	"go.uber.org/multierr"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -43,9 +42,12 @@ func newService(set *settings) (*service, error) {
+ 		buildInfo: set.BuildInfo,
+ 		config:    set.Config,
+ 		telemetry: component.TelemetrySettings{
+-			TracerProvider: trace.NewNoopTracerProvider(),
+-			MeterProvider:  nonrecording.NewNoopMeterProvider(),
+-			MetricsLevel:   set.Config.Telemetry.Metrics.Level,
++			TracerProvider: sdktrace.NewTracerProvider(
++				// needed for supporting the zpages extension
++				sdktrace.WithSampler(internal.AlwaysRecord()),
++			),
++			MeterProvider: nonrecording.NewNoopMeterProvider(),
++			MetricsLevel:  set.Config.Telemetry.Metrics.Level,
+ 		},
+ 		host: &serviceHost{
+ 			factories:         set.Factories,
+@@ -54,11 +56,6 @@ func newService(set *settings) (*service, error) {
+ 		},
+ 	}
+ 
+-	srv.telemetry.TracerProvider = sdktrace.NewTracerProvider(
+-		// needed for supporting the zpages extension
+-		sdktrace.WithSampler(internal.AlwaysRecord()),
+-	)
+-
+ 	var err error
+ 	if srv.telemetry.Logger, err = telemetrylogs.NewLogger(set.Config.Service.Telemetry.Logs, set.LoggingOptions); err != nil {
+ 		return nil, fmt.Errorf("failed to get logger: %w", err)

@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv2/json.go b/translator/trace/zipkinv2/json.go
+index c9b5a774d..b480a8361 100644
+--- a/translator/trace/zipkinv2/json.go
++++ b/translator/trace/zipkinv2/json.go
+@@ -20,7 +20,7 @@ import (
+ 	zipkinmodel "github.com/openzipkin/zipkin-go/model"
+ 	zipkinreporter "github.com/openzipkin/zipkin-go/reporter"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var _ pdata.TracesDecoder = (*jsonDecoder)(nil)

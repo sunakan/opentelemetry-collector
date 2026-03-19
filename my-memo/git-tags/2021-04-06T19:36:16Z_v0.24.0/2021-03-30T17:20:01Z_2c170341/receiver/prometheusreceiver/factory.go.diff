@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index c195497ce..5e2d3b7b0 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -102,8 +102,5 @@ func createMetricsReceiver(
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsReceiver, error) {
+ 	config := cfg.(*Config)
+-	if config.PrometheusConfig == nil || len(config.PrometheusConfig.ScrapeConfigs) == 0 {
+-		return nil, errNilScrapeConfig
+-	}
+ 	return newPrometheusReceiver(params.Logger, config, nextConsumer), nil
+ }

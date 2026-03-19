@@ -1,0 +1,28 @@
+diff --git a/component/componenttest/error_waiting_host_test.go b/component/componenttest/error_waiting_host_test.go
+index 2b7c1477b..1f9f5e9d1 100644
+--- a/component/componenttest/error_waiting_host_test.go
++++ b/component/componenttest/error_waiting_host_test.go
+@@ -19,7 +19,10 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/component"
+ )
+ 
+ func TestNewErrorWaitingHost(t *testing.T) {
+@@ -36,3 +39,12 @@ func TestNewErrorWaitingHost(t *testing.T) {
+ 	receivedError, _ = mh.WaitForFatalError(100 * time.Millisecond)
+ 	require.False(t, receivedError)
+ }
++
++func TestNewErrorWaitingHost_Noop(t *testing.T) {
++	mh := NewErrorWaitingHost()
++	require.NotNil(t, mh)
++
++	assert.Nil(t, mh.GetExporters())
++	assert.Nil(t, mh.GetExtensions())
++	assert.Nil(t, mh.GetFactory(component.KindReceiver, "test"))
++}

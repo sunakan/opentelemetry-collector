@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_keyvalue.go b/pdata/internal/generated_wrapper_keyvalue.go
+index 28e73ba09..1ce4ad5ce 100644
+--- a/pdata/internal/generated_wrapper_keyvalue.go
++++ b/pdata/internal/generated_wrapper_keyvalue.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigKeyValue() otlpcommon.KeyValue {
+-	return otlpcommon.KeyValue{}
+-}
+-
+-func NewOrigPtrKeyValue() *otlpcommon.KeyValue {
++func NewOrigKeyValue() *otlpcommon.KeyValue {
+ 	return &otlpcommon.KeyValue{}
+ }
+ 
+@@ -28,7 +24,7 @@ func CopyOrigKeyValue(dest, src *otlpcommon.KeyValue) {
+ }
+ 
+ func GenTestOrigKeyValue() *otlpcommon.KeyValue {
+-	orig := NewOrigPtrKeyValue()
++	orig := NewOrigKeyValue()
+ 	orig.Key = "test_key"
+ 	orig.Value = *GenTestOrigAnyValue()
+ 	return orig

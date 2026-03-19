@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_location.go b/pdata/internal/generated_wrapper_location.go
+index 0c4be4375..f6e71b178 100644
+--- a/pdata/internal/generated_wrapper_location.go
++++ b/pdata/internal/generated_wrapper_location.go
+@@ -148,7 +148,7 @@ func MarshalProtoOrigLocation(orig *otlpprofiles.Location, buf []byte) int {
+ 		pos--
+ 		buf[pos] = 0x10
+ 	}
+-	for i := range orig.Line {
++	for i := len(orig.Line) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigLine(orig.Line[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

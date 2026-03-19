@@ -1,0 +1,13 @@
+diff --git a/otelcol/unmarshaler_test.go b/otelcol/unmarshaler_test.go
+index 8a82da874..309e6e4c1 100644
+--- a/otelcol/unmarshaler_test.go
++++ b/otelcol/unmarshaler_test.go
+@@ -133,7 +133,7 @@ func TestPipelineConfigUnmarshalError(t *testing.T) {
+ 
+ 	for _, tt := range testCases {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			pips := new(pipelines.ConfigWithPipelineID)
++			pips := new(pipelines.Config)
+ 			err := tt.conf.Unmarshal(&pips)
+ 			assert.ErrorContains(t, err, tt.expectError)
+ 		})

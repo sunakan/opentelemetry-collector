@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/utils/cspell.json b/.github/workflows/utils/cspell.json
+index 30b49870d..2ba25cc60 100644
+--- a/.github/workflows/utils/cspell.json
++++ b/.github/workflows/utils/cspell.json
+@@ -468,5 +468,9 @@
+       "zpages",
+       "zpagesextension",
+       "zstd"
++    ],
++    "ignorePaths": [
++      ".golanci.yml",
++      ".github/**/*"
+     ]
+   }

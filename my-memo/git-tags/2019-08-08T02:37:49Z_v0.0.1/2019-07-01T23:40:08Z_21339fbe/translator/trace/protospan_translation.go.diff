@@ -1,0 +1,16 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 1f32786ab..9e60b00f5 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -22,4 +22,11 @@ const (
+ 	MessageEventTypeKey             = "message.type"
+ 	MessageEventCompressedSizeKey   = "message.compressed_size"
+ 	MessageEventUncompressedSizeKey = "message.uncompressed_size"
++
++	TagStatusCode       = "status.code"
++	TagStatusMsg        = "status.message"
++	TagHTTPStatusCode   = "http.status_code"
++	TagHTTPStatusMsg    = "http.status_message"
++	TagZipkinCensusCode = "census.status_code"
++	TagZipkinCensusMsg  = "census.status_description"
+ )

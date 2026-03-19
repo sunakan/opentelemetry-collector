@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/config.go b/receiver/hostmetricsreceiver/config.go
+index 8dfcfb141..6e22c3e46 100644
+--- a/receiver/hostmetricsreceiver/config.go
++++ b/receiver/hostmetricsreceiver/config.go
+@@ -17,8 +17,8 @@ package hostmetricsreceiver
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ )
+ 
+ // Config defines configuration for HostMetrics receiver.

@@ -1,0 +1,10 @@
+diff --git a/component/componenttest/nop_component.go b/component/componenttest/nop_component.go
+index ac56476e7..8c33bda82 100644
+--- a/component/componenttest/nop_component.go
++++ b/component/componenttest/nop_component.go
+@@ -22,3 +22,5 @@ type nopComponent struct {
+ 	component.StartFunc
+ 	component.ShutdownFunc
+ }
++
++type nopConfig struct{}

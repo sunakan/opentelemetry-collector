@@ -1,0 +1,18 @@
+diff --git a/service/internal/zpages/templates/extensions_table.html b/service/internal/zpages/templates/extensions_table.html
+index 0b39ee933..ec76cc3c3 100644
+--- a/service/internal/zpages/templates/extensions_table.html
++++ b/service/internal/zpages/templates/extensions_table.html
+@@ -1,11 +1,10 @@
+ <table style="border-spacing: 0">
+-    {{$a := .ComponentEndpoint}}
+     {{range $rowindex, $row := .Rows}}
+         {{- if even $rowindex}}
+             <tr style="background: #eee">
+         {{else}}
+             <tr>{{end -}}
+-        <td align="center"><a href="{{$a}}?zextensionname={{.FullName}}">{{.FullName}}</a></td>
++        <td style="text-align: center"><a href="?zextensionname={{.FullName}}">{{.FullName}}</a></td>
+         </tr>
+     {{end}}
+ </table>
+\ No newline at end of file

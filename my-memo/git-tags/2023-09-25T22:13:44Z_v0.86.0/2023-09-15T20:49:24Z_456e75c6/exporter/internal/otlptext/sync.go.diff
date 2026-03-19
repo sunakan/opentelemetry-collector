@@ -1,0 +1,34 @@
+diff --git a/exporter/internal/otlptext/sync.go b/exporter/internal/otlptext/sync.go
+new file mode 100644
+index 000000000..2d5dfd387
+--- /dev/null
++++ b/exporter/internal/otlptext/sync.go
+@@ -0,0 +1,28 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package otlptext // import "go.opentelemetry.io/collector/exporter/internal/otlptext"
++
++import (
++	"context"
++	"errors"
++	"os"
++
++	"go.uber.org/zap"
++)
++
++func LoggerSync(logger *zap.Logger) func(context.Context) error {
++	return func(context.Context) error {
++		// Currently Sync() return a different error depending on the OS.
++		// Since these are not actionable ignore them.
++		err := logger.Sync()
++		osErr := &os.PathError{}
++		if errors.As(err, &osErr) {
++			wrappedErr := osErr.Unwrap()
++			if knownSyncError(wrappedErr) {
++				err = nil
++			}
++		}
++		return err
++	}
++}

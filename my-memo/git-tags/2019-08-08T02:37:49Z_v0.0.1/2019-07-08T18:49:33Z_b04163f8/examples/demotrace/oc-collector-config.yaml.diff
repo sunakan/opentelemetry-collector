@@ -1,0 +1,23 @@
+diff --git a/examples/demotrace/oc-collector-config.yaml b/examples/demotrace/oc-collector-config.yaml
+deleted file mode 100644
+index 4c0831596..000000000
+--- a/examples/demotrace/oc-collector-config.yaml
++++ /dev/null
+@@ -1,17 +0,0 @@
+-receivers:
+-  opencensus:
+-    port: 55678
+-
+-exporters:
+-  zipkin:
+-    endpoint: "http://zipkin-all-in-one:9411/api/v2/spans"
+-
+-queued-exporters:
+-  jaeger-all-in-one:
+-    num-workers: 4
+-    queue-size: 100
+-    retry-on-failure: true
+-    sender-type: jaeger-thrift-http
+-    jaeger-thrift-http:
+-      collector-endpoint: http://jaeger-all-in-one:14268/api/traces
+-      timeout: 5s

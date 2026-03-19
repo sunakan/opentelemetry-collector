@@ -1,0 +1,12 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index c1ffd89c3..5362a2ed7 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -160,7 +160,6 @@ func generateOCTestData() *agentmetricspb.ExportMetricsServiceRequest {
+ 			generateOCTestMetricCumulativeInt(),
+ 			generateOCTestMetricCumulativeDouble(),
+ 			generateOCTestMetricDoubleHistogram(),
+-			generateOCTestMetricIntHistogram(),
+ 			generateOCTestMetricDoubleSummary(),
+ 		},
+ 	}

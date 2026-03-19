@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/factory_test.go b/exporter/fileexporter/factory_test.go
+index 4b744fc67..258dc6d2e 100644
+--- a/exporter/fileexporter/factory_test.go
++++ b/exporter/fileexporter/factory_test.go
+@@ -52,7 +52,7 @@ func TestCreateLogsExporter(t *testing.T) {
+ 	factory := &Factory{}
+ 	cfg := factory.CreateDefaultConfig()
+ 
+-	_, err := factory.CreateLogExporter(
++	_, err := factory.CreateLogsExporter(
+ 		context.Background(),
+ 		component.ExporterCreateParams{Logger: zap.NewNop()},
+ 		cfg)

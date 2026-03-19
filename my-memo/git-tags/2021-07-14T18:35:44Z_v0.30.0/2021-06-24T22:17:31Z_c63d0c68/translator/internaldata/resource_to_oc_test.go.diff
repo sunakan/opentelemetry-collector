@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/resource_to_oc_test.go b/translator/internaldata/resource_to_oc_test.go
+index 113572749..c47021c84 100644
+--- a/translator/internaldata/resource_to_oc_test.go
++++ b/translator/internaldata/resource_to_oc_test.go
+@@ -27,9 +27,9 @@ import (
+ 	"google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/testing/protocmp"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

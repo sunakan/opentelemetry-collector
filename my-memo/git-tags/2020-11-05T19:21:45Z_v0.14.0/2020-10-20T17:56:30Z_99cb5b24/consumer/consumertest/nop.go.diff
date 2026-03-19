@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/nop.go b/consumer/consumertest/nop.go
+index 315a2a08d..74af9d90c 100644
+--- a/consumer/consumertest/nop.go
++++ b/consumer/consumertest/nop.go
+@@ -40,7 +40,7 @@ func (nc *nopConsumer) ConsumeLogs(context.Context, pdata.Logs) error {
+ }
+ 
+ // NewTracesNop creates an TraceConsumer that just drops the received data.
+-func NewTracesNop() consumer.TraceConsumer {
++func NewTracesNop() consumer.TracesConsumer {
+ 	return nopInstance
+ }
+ 

@@ -1,0 +1,15 @@
+diff --git a/extension/fluentbitextension/process_others.go b/extension/fluentbitextension/process_others.go
+index 281b98b71..40920c0b3 100644
+--- a/extension/fluentbitextension/process_others.go
++++ b/extension/fluentbitextension/process_others.go
+@@ -16,6 +16,8 @@
+ 
+ package fluentbitextension
+ 
+-import "os/exec"
++import (
++	"os/exec"
++)
+ 
+-func applyOSSpecificCmdModifications(cmd *exec.Cmd) {}
++func applyOSSpecificCmdModifications(_ *exec.Cmd) {}

@@ -1,0 +1,13 @@
+diff --git a/exporter/exportertest/mock_consumer.go b/exporter/exportertest/mock_consumer.go
+index b513e5247..6781f68e7 100644
+--- a/exporter/exportertest/mock_consumer.go
++++ b/exporter/exportertest/mock_consumer.go
+@@ -5,7 +5,7 @@ package exportertest // import "go.opentelemetry.io/collector/exporter/exportert
+ import (
+ 	"context"
+ 	"fmt"
+-	"math/rand"
++	"math/rand/v2"
+ 	"sync"
+ 
+ 	"google.golang.org/grpc/codes"

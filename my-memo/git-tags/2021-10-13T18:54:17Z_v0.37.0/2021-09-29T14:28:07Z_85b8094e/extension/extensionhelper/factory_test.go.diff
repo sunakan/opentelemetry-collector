@@ -1,0 +1,13 @@
+diff --git a/extension/extensionhelper/factory_test.go b/extension/extensionhelper/factory_test.go
+index f47dc1e01..9dc3737dd 100644
+--- a/extension/extensionhelper/factory_test.go
++++ b/extension/extensionhelper/factory_test.go
+@@ -28,7 +28,7 @@ import (
+ const typeStr = "test"
+ 
+ var (
+-	defaultCfg           = config.NewExtensionSettings(config.NewID(typeStr))
++	defaultCfg           = config.NewExtensionSettings(config.NewComponentID(typeStr))
+ 	nopExtensionInstance = new(nopExtension)
+ )
+ 

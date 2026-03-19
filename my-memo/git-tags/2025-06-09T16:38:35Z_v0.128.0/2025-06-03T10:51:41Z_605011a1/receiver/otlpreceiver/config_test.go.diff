@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 400143d80..88882239f 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -94,7 +94,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 						Endpoint:  "localhost:4317",
+ 						Transport: confignet.TransportTypeTCP,
+ 					},
+-					TLSSetting: &configtls.ServerConfig{
++					TLS: &configtls.ServerConfig{
+ 						Config: configtls.Config{
+ 							CertFile: "test.crt",
+ 							KeyFile:  "test.key",
+@@ -126,7 +126,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 							},
+ 						},
+ 						Endpoint: "localhost:4318",
+-						TLSSetting: &configtls.ServerConfig{
++						TLS: &configtls.ServerConfig{
+ 							Config: configtls.Config{
+ 								CertFile: "test.crt",
+ 								KeyFile:  "test.key",

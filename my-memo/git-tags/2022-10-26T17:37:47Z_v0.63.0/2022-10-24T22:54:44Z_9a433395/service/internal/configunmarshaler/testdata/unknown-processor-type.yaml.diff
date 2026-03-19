@@ -1,0 +1,18 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml b/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml
+deleted file mode 100644
+index 37a1ea4b3..000000000
+--- a/service/internal/configunmarshaler/testdata/unknown-processor-type.yaml
++++ /dev/null
+@@ -1,12 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nosuchprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]

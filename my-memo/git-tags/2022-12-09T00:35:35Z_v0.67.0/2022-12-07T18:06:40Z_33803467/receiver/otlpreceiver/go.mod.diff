@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 78c0a15ea..9af5570ee 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -9,7 +9,7 @@ require (
+ 	go.opentelemetry.io/collector/component v0.66.0
+ 	go.opentelemetry.io/collector/confmap v0.0.0-20221201172708-2bdff61fa52a
+ 	go.opentelemetry.io/collector/consumer v0.66.0
+-	go.opentelemetry.io/collector/pdata v0.66.0
++	go.opentelemetry.io/collector/pdata v1.0.0-rc1
+ 	go.opentelemetry.io/collector/semconv v0.66.0
+ 	go.uber.org/zap v1.24.0
+ 	google.golang.org/genproto v0.0.0-20221027153422-115e99e71e1c

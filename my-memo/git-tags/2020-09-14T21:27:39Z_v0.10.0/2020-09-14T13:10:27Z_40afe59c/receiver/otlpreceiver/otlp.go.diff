@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 2938ab90d..27f0c743c 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -65,8 +65,17 @@ func newOtlpReceiver(cfg *Config) (*otlpReceiver, error) {
+ 		r.serverGRPC = grpc.NewServer(opts...)
+ 	}
+ 	if cfg.HTTP != nil {
++		// Use our custom JSON marshaler instead of default Protobuf JSON marshaler.
++		// This is needed because OTLP spec defines encoding for trace and span id
++		// and it is only possible to do using Gogoproto-compatible JSONPb marshaler.
++		jsonpb := &JSONPb{
++			EmitDefaults: true,
++			Indent:       "  ",
++			OrigName:     true,
++		}
+ 		r.gatewayMux = gatewayruntime.NewServeMux(
+ 			gatewayruntime.WithMarshalerOption("application/x-protobuf", &xProtobufMarshaler{}),
++			gatewayruntime.WithMarshalerOption(gatewayruntime.MIMEWildcard, jsonpb),
+ 		)
+ 	}
+ 

@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_extension.go b/internal/testcomponents/example_extension.go
+index 1a55a8643..9471d2c4f 100644
+--- a/internal/testcomponents/example_extension.go
++++ b/internal/testcomponents/example_extension.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package testcomponents
++package testcomponents // import "go.opentelemetry.io/collector/internal/testcomponents"
+ 
+ import (
+ 	"context"

@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 9c76bca99..b7faebf20 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -8,6 +8,10 @@ on:
+     paths-ignore:
+       - 'cmd/builder/**'
+ 
++concurrency:
++  group: ${{ github.workflow }}-${{ github.head_ref }}
++  cancel-in-progress: true
++
+ jobs:
+   changedfiles:
+     name: changed files

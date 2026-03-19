@@ -1,0 +1,18 @@
+diff --git a/CONTRIBUTING.md b/CONTRIBUTING.md
+index 17b6a4218..ae106ac57 100644
+--- a/CONTRIBUTING.md
++++ b/CONTRIBUTING.md
+@@ -168,13 +168,9 @@ $ git remote add fork git@github.com:YOUR_GITHUB_USERNAME/opentelemetry-collecto
+ Run tests, fmt and lint:
+ 
+ ```shell
+-$ make install-tools # Only first time.
+ $ make
+ ```
+ 
+-*Note:* the default build target requires tools that are installed at `$(go env
+-GOPATH)/bin`, ensure that `$(go env GOPATH)/bin` is included in your `PATH`.
+-
+ ## Creating a PR
+ 
+ Checkout a new branch, make modifications, build locally, and push the branch to your fork

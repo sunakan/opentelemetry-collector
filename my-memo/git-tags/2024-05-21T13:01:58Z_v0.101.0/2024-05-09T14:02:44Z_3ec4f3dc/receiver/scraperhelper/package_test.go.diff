@@ -1,0 +1,20 @@
+diff --git a/receiver/scraperhelper/package_test.go b/receiver/scraperhelper/package_test.go
+deleted file mode 100644
+index a9a536a78..000000000
+--- a/receiver/scraperhelper/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package scraperhelper
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

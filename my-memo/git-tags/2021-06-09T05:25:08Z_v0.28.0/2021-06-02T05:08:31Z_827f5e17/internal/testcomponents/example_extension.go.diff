@@ -1,0 +1,12 @@
+diff --git a/internal/testcomponents/example_extension.go b/internal/testcomponents/example_extension.go
+index 9d674cc64..f233dbc17 100644
+--- a/internal/testcomponents/example_extension.go
++++ b/internal/testcomponents/example_extension.go
+@@ -48,6 +48,6 @@ func createExtensionDefaultConfig() config.Extension {
+ }
+ 
+ // CreateExtension creates an Extension based on this config.
+-func createExtension(context.Context, component.ExtensionCreateParams, config.Extension) (component.Extension, error) {
++func createExtension(context.Context, component.ExtensionCreateSettings, config.Extension) (component.Extension, error) {
+ 	return componenthelper.New(), nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+index dea840a87..cbb9d4409 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+@@ -57,7 +57,7 @@ func TestExportPartialSuccess_RejectedProfiles(t *testing.T) {
+ 
+ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ 	ms := NewExportPartialSuccess()
+-	assert.Equal(t, "", ms.ErrorMessage())
++	assert.Empty(t, ms.ErrorMessage())
+ 	ms.SetErrorMessage("error message")
+ 	assert.Equal(t, "error message", ms.ErrorMessage())
+ 	sharedState := internal.StateReadOnly

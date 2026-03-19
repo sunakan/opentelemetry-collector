@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/nop.go b/consumer/consumertest/nop.go
+index 9415aeed3..106b1c090 100644
+--- a/consumer/consumertest/nop.go
++++ b/consumer/consumertest/nop.go
+@@ -17,7 +17,7 @@ package consumertest
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var (

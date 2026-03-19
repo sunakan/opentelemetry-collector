@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/ptraceotlp/request_test.go b/pdata/ptrace/ptraceotlp/request_test.go
+index d73e882b2..58df3402a 100644
+--- a/pdata/ptrace/ptraceotlp/request_test.go
++++ b/pdata/ptrace/ptraceotlp/request_test.go
+@@ -65,7 +65,7 @@ func TestTracesProtoWireCompatibility(t *testing.T) {
+ 	// this repository are wire compatible.
+ 
+ 	// Generate Traces as pdata struct.
+-	td := NewExportRequestFromTraces(ptrace.Traces(internal.NewTraces(internal.GenTestOrigExportTraceServiceRequest(), internal.NewState())))
++	td := NewExportRequestFromTraces(ptrace.Traces(internal.NewTracesWrapper(internal.GenTestExportTraceServiceRequest(), internal.NewState())))
+ 
+ 	// Marshal its underlying ProtoBuf to wire.
+ 	wire1, err := td.MarshalProto()

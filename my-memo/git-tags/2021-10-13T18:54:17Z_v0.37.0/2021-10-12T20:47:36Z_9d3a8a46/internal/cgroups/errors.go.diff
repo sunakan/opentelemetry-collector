@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/errors.go b/internal/cgroups/errors.go
+index c28bbab53..31d967674 100644
+--- a/internal/cgroups/errors.go
++++ b/internal/cgroups/errors.go
+@@ -37,7 +37,7 @@
+ //go:build linux
+ // +build linux
+ 
+-package cgroups
++package cgroups // import "go.opentelemetry.io/collector/internal/cgroups"
+ 
+ import "fmt"
+ 

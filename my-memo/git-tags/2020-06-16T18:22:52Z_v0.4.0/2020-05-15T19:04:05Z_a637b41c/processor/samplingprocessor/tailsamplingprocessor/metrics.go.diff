@@ -1,0 +1,15 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/metrics.go b/processor/samplingprocessor/tailsamplingprocessor/metrics.go
+index 44b3ad5fa..e6230a28a 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/metrics.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/metrics.go
+@@ -19,8 +19,8 @@ import (
+ 	"go.opencensus.io/stats/view"
+ 	"go.opencensus.io/tag"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/collector/telemetry"
+-	"github.com/open-telemetry/opentelemetry-collector/obsreport"
++	"go.opentelemetry.io/collector/internal/collector/telemetry"
++	"go.opentelemetry.io/collector/obsreport"
+ )
+ 
+ // Variables related to metrics specific to tail sampling.

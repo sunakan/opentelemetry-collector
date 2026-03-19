@@ -1,0 +1,24 @@
+diff --git a/pdata/pprofile/generated_sample_test.go b/pdata/pprofile/generated_sample_test.go
+index 77da8bd59..a5bbf2025 100644
+--- a/pdata/pprofile/generated_sample_test.go
++++ b/pdata/pprofile/generated_sample_test.go
+@@ -26,8 +26,8 @@ func TestSample_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestSample(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newSample(internal.NewOrigPtrSample(), sharedState)) })
+-	assert.Panics(t, func() { newSample(internal.NewOrigPtrSample(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newSample(internal.NewOrigSample(), sharedState)) })
++	assert.Panics(t, func() { newSample(internal.NewOrigSample(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestSample_CopyTo(t *testing.T) {
+@@ -40,7 +40,7 @@ func TestSample_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newSample(internal.NewOrigPtrSample(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newSample(internal.NewOrigSample(), sharedState)) })
+ }
+ 
+ func TestSample_LocationsStartIndex(t *testing.T) {

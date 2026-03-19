@@ -1,0 +1,22 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto.go b/translator/trace/jaeger/traces_to_jaegerproto.go
+index 48b7a792d..5bd370cec 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto.go
+@@ -427,7 +427,7 @@ func getTagsFromInstrumentationLibrary(il pdata.InstrumentationLibrary) ([]model
+ 	keyValues := make([]model.KeyValue, 0)
+ 	if ilName := il.Name(); ilName != "" {
+ 		kv := model.KeyValue{
+-			Key:   tracetranslator.TagInstrumentationName,
++			Key:   conventions.InstrumentationLibraryName,
+ 			VStr:  ilName,
+ 			VType: model.ValueType_STRING,
+ 		}
+@@ -435,7 +435,7 @@ func getTagsFromInstrumentationLibrary(il pdata.InstrumentationLibrary) ([]model
+ 	}
+ 	if ilVersion := il.Version(); ilVersion != "" {
+ 		kv := model.KeyValue{
+-			Key:   tracetranslator.TagInstrumentationVersion,
++			Key:   conventions.InstrumentationLibraryVersion,
+ 			VStr:  ilVersion,
+ 			VType: model.ValueType_STRING,
+ 		}

@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 51f99bb4c..14eecbcda 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -726,7 +726,8 @@ func TestGRPCMaxRecvSize(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	td := testdata.GenerateTraces(50000)
+-	require.Error(t, exportTraces(cc, td))
++	err = exportTraces(cc, td)
++	require.Error(t, err)
+ 	assert.NoError(t, cc.Close())
+ 	require.NoError(t, recv.Shutdown(context.Background()))
+ 

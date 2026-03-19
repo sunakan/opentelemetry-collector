@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_scopeprofiles.go b/pdata/internal/generated_proto_scopeprofiles.go
+index f75741d36..b88f3b1e1 100644
+--- a/pdata/internal/generated_proto_scopeprofiles.go
++++ b/pdata/internal/generated_proto_scopeprofiles.go
+@@ -16,9 +16,9 @@ import (
+ 
+ // ScopeProfiles is a collection of profiles from a LibraryInstrumentation.
+ type ScopeProfiles struct {
+-	Scope     InstrumentationScope
+-	Profiles  []*Profile
+ 	SchemaUrl string
++	Profiles  []*Profile
++	Scope     InstrumentationScope
+ }
+ 
+ var (

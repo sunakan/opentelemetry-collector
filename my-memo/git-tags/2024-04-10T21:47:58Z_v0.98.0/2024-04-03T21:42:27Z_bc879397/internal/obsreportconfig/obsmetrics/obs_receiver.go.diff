@@ -1,0 +1,18 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obs_receiver.go b/internal/obsreportconfig/obsmetrics/obs_receiver.go
+index d70148c1f..bcb6306f8 100644
+--- a/internal/obsreportconfig/obsmetrics/obs_receiver.go
++++ b/internal/obsreportconfig/obsmetrics/obs_receiver.go
+@@ -30,8 +30,9 @@ const (
+ )
+ 
+ var (
+-	ReceiverPrefix                  = ReceiverKey + NameSep
+-	ReceiveTraceDataOperationSuffix = NameSep + "TraceDataReceived"
+-	ReceiverMetricsOperationSuffix  = NameSep + "MetricsReceived"
+-	ReceiverLogsOperationSuffix     = NameSep + "LogsReceived"
++	ReceiverPrefix                  = ReceiverKey + SpanNameSep
++	ReceiverMetricPrefix            = ReceiverKey + MetricNameSep
++	ReceiveTraceDataOperationSuffix = SpanNameSep + "TraceDataReceived"
++	ReceiverMetricsOperationSuffix  = SpanNameSep + "MetricsReceived"
++	ReceiverLogsOperationSuffix     = SpanNameSep + "LogsReceived"
+ )

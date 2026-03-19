@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-integration-test.yaml b/.github/workflows/builder-integration-test.yaml
+index e22809370..e1f4af265 100644
+--- a/.github/workflows/builder-integration-test.yaml
++++ b/.github/workflows/builder-integration-test.yaml
+@@ -28,7 +28,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v3
+       - name: Setup Go
+-        uses: actions/setup-go@v3
++        uses: actions/setup-go@v4
+         with:
+           go-version: ~1.19.6
+       - name: Test

@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index aa8bee2ed..4d6d9b9c4 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -27,7 +27,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 

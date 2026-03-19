@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index 5a186424f..b5222baa6 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -78,7 +78,7 @@ func TestResourceMetricsToMetricsData(t *testing.T) {
+ 		"str1":                                  data.NewAttributeValueString("text"),
+ 		"int2":                                  data.NewAttributeValueInt(123),
+ 	}
+-	resource.SetAttributes(attrs)
++	resource.SetAttributes(data.NewAttributeMap(attrs))
+ 
+ 	ilm := data.NewInstrumentationLibraryMetricsSlice(1)
+ 	ilm[0].SetMetrics(metrics)

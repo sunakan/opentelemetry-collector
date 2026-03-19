@@ -1,0 +1,12 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 881ce5b7c..e40c0148b 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -167,6 +167,7 @@ jobs:
+   loadtest:
+     executor: golang
+     parallelism: 10
++    resource_class: medium+
+     steps:
+       - attach_to_workspace
+       - run:

@@ -1,0 +1,17 @@
+diff --git a/.chloggen/rmconfigauth.yaml b/.chloggen/rmconfigauth.yaml
+new file mode 100755
+index 000000000..56d1b6cfa
+--- /dev/null
++++ b/.chloggen/rmconfigauth.yaml
+@@ -0,0 +1,11 @@
++# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
++change_type: breaking
++
++# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
++component: configauth
++
++# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
++note: Remove deprecated funcs/types from `configauth`
++
++# One or more tracking issues or pull requests related to the change
++issues: [6719]

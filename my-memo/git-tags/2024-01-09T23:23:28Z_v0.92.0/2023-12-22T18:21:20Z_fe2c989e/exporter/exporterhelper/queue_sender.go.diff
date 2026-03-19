@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterhelper/queue_sender.go b/exporter/exporterhelper/queue_sender.go
+index 9f5794fc2..c68918258 100644
+--- a/exporter/exporterhelper/queue_sender.go
++++ b/exporter/exporterhelper/queue_sender.go
+@@ -90,11 +90,12 @@ func newQueueSender(config QueueSettings, set exporter.CreateSettings, signal co
+ 
+ 	isPersistent := config.StorageID != nil
+ 	var queue internal.Queue[Request]
++	queueSizer := &internal.RequestSizer[Request]{}
+ 	if isPersistent {
+-		queue = internal.NewPersistentQueue[Request](
+-			config.QueueSize, signal, *config.StorageID, marshaler, unmarshaler, set)
++		queue = internal.NewPersistentQueue[Request](queueSizer, config.QueueSize, signal, *config.StorageID, marshaler,
++			unmarshaler, set)
+ 	} else {
+-		queue = internal.NewBoundedMemoryQueue[Request](config.QueueSize)
++		queue = internal.NewBoundedMemoryQueue[Request](queueSizer, config.QueueSize)
+ 	}
+ 	qs := &queueSender{
+ 		fullName:       set.ID.String(),

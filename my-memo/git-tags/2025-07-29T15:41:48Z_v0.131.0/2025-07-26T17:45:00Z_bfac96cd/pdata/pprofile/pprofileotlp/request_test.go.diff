@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/pprofileotlp/request_test.go b/pdata/pprofile/pprofileotlp/request_test.go
+index aee3f047a..3831b83cd 100644
+--- a/pdata/pprofile/pprofileotlp/request_test.go
++++ b/pdata/pprofile/pprofileotlp/request_test.go
+@@ -32,8 +32,7 @@ var profilesRequestJSON = []byte(`
+ 										"locationsStartIndex": 42
+ 									}
+ 								],
+-								"periodType": {},
+-								"profileId": ""
++								"periodType": {}
+ 							}
+ 						]
+ 					}

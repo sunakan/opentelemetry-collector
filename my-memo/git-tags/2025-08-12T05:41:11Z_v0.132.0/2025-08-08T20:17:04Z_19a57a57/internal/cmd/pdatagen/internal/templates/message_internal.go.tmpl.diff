@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+index a49c49510..ca489293b 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+@@ -8,10 +8,8 @@ package internal
+ 
+ import (
+ 	{{ range $index, $element := .imports -}}
+-	{{ if ne $element "\"go.opentelemetry.io/collector/pdata/internal\"" }}
+ 	{{ $element }}
+-	{{- end }}
+-	{{- end }}
++	{{ end }}
+ )
+ {{ if .isCommon }}
+ 

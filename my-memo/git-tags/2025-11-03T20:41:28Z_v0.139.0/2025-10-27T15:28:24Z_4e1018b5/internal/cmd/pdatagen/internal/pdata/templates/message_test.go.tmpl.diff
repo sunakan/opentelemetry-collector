@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/message_test.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/message_test.go.tmpl
+index e0e7fe1a6..ecb93ebc8 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/message_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/message_test.go.tmpl
+@@ -44,6 +44,5 @@ func Test{{ .structName }}_CopyTo(t *testing.T) {
+ {{ end }}
+ 
+ func generateTest{{ .structName }}() {{ .structName }} {
+-	ms := new{{ .structName }}(internal.GenTest{{ .originName }}(), internal.NewState())
+-	return ms
++	return new{{ .structName }}(internal.GenTest{{ .originName }}(), internal.NewState())
+ }

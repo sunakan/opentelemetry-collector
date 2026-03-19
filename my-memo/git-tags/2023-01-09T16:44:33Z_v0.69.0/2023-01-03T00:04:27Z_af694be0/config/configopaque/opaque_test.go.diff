@@ -1,0 +1,20 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index 020b9fabb..5f4a0e58a 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -22,9 +22,10 @@ import (
+ )
+ 
+ func TestStringMarshalText(t *testing.T) {
+-	var example String = "opaque"
+-
+-	opaque, err := example.MarshalText()
+-	require.NoError(t, err)
+-	assert.Equal(t, "******", string(opaque))
++	examples := []String{"opaque", "s", "veryveryveryveryveryveryveryveryveryverylong"}
++	for _, example := range examples {
++		opaque, err := example.MarshalText()
++		require.NoError(t, err)
++		assert.Equal(t, "[REDACTED]", string(opaque))
++	}
+ }

@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index b2b76df31..bcde61c85 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -296,7 +296,7 @@ func (bm *batchMetrics) size() int {
+ func (bm *batchMetrics) add(item interface{}) {
+ 	md := item.(pdata.Metrics)
+ 
+-	_, newDataPointCount := md.MetricAndDataPointCount()
++	newDataPointCount := md.DataPointCount()
+ 	if newDataPointCount == 0 {
+ 		return
+ 	}

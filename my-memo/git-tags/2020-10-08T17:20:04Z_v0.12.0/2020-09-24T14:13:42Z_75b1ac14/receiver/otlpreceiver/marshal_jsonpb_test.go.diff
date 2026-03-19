@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/marshal_jsonpb_test.go b/receiver/otlpreceiver/marshal_jsonpb_test.go
+index 5e5d25d57..8d151043d 100644
+--- a/receiver/otlpreceiver/marshal_jsonpb_test.go
++++ b/receiver/otlpreceiver/marshal_jsonpb_test.go
+@@ -39,6 +39,7 @@ const expectedJSON = `{
+     {
+       "spans": [
+         {
++          "traceId": "",
+           "name": "operationA",
+           "startTimeUnixNano": "1581452772000000321",
+           "endTimeUnixNano": "1581452773000000789",

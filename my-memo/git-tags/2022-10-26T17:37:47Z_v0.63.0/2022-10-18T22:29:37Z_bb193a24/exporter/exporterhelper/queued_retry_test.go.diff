@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index 3c1ecd5ee..1c182029e 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -611,7 +611,8 @@ func (m *mockRequest) Export(ctx context.Context) error {
+ }
+ 
+ func (m *mockRequest) Marshal() ([]byte, error) {
+-	return ptrace.NewProtoMarshaler().MarshalTraces(ptrace.NewTraces())
++	marshaler := &ptrace.ProtoMarshaler{}
++	return marshaler.MarshalTraces(ptrace.NewTraces())
+ }
+ 
+ func (m *mockRequest) OnError(error) internal.Request {

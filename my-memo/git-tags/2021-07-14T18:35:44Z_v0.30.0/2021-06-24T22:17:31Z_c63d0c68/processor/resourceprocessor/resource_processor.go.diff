@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/resource_processor.go b/processor/resourceprocessor/resource_processor.go
+index 7b5915250..77465a528 100644
+--- a/processor/resourceprocessor/resource_processor.go
++++ b/processor/resourceprocessor/resource_processor.go
+@@ -17,7 +17,7 @@ package resourceprocessor
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 

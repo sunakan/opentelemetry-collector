@@ -1,0 +1,21 @@
+diff --git a/service/telemetry/internal/migration/v0.2.0.go b/service/telemetry/internal/migration/v0.2.0.go
+index e38a1902b..2f1203e4a 100644
+--- a/service/telemetry/internal/migration/v0.2.0.go
++++ b/service/telemetry/internal/migration/v0.2.0.go
+@@ -37,13 +37,12 @@ type logsConfigV020 struct {
+ }
+ 
+ func headersV02ToV03(in configv02.Headers) []config.NameStringValuePair {
+-	headers := make([]config.NameStringValuePair, len(in))
+-	idx := 0
++	headers := make([]config.NameStringValuePair, 0, len(in))
+ 	for k, v := range in {
+-		headers[idx] = config.NameStringValuePair{
++		headers = append(headers, config.NameStringValuePair{
+ 			Name:  k,
+ 			Value: &v,
+-		}
++		})
+ 	}
+ 	return headers
+ }

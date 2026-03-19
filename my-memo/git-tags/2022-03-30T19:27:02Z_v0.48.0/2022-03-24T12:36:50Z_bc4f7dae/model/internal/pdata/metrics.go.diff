@@ -1,0 +1,27 @@
+diff --git a/model/internal/pdata/metrics.go b/model/internal/pdata/metrics.go
+index 8d2cdd62a..1ce076c49 100644
+--- a/model/internal/pdata/metrics.go
++++ b/model/internal/pdata/metrics.go
+@@ -239,3 +239,22 @@ func (mdt MetricValueType) String() string {
+ 	}
+ 	return ""
+ }
++
++// OptionalType wraps optional fields into oneof fields
++type OptionalType int32
++
++const (
++	OptionalTypeNone OptionalType = iota
++	OptionalTypeDouble
++)
++
++// String returns the string representation of the OptionalType.
++func (ot OptionalType) String() string {
++	switch ot {
++	case OptionalTypeNone:
++		return "None"
++	case OptionalTypeDouble:
++		return "Double"
++	}
++	return ""
++}

@@ -1,0 +1,26 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index 9ab451d6e..6b8b99f65 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -58,7 +58,7 @@ func TestOCToMetrics(t *testing.T) {
+ 				Node:     &occommon.Node{},
+ 				Resource: &ocresource.Resource{},
+ 			},
+-			internal: wrapMetricsWithEmptyResource(testdata.GenerateMetricsOneEmptyResourceMetrics()),
++			internal: testdata.GenerateMetricsOneEmptyResourceMetrics(),
+ 		},
+ 
+ 		{
+@@ -158,12 +158,6 @@ func TestOCToMetrics(t *testing.T) {
+ 	}
+ }
+ 
+-// TODO: Try to avoid unnecessary Resource object allocation.
+-func wrapMetricsWithEmptyResource(md pdata.Metrics) pdata.Metrics {
+-	md.ResourceMetrics().At(0).Resource().InitEmpty()
+-	return md
+-}
+-
+ func TestOCToMetrics_ResourceInMetric(t *testing.T) {
+ 	internal := testdata.GenerateMetricsOneMetric()
+ 	want := pdata.NewMetrics()

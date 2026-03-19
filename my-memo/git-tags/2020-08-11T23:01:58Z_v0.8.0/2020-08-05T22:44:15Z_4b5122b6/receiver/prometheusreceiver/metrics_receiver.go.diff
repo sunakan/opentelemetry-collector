@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver.go b/receiver/prometheusreceiver/metrics_receiver.go
+index f64781fd3..0d42f6b7e 100644
+--- a/receiver/prometheusreceiver/metrics_receiver.go
++++ b/receiver/prometheusreceiver/metrics_receiver.go
+@@ -52,7 +52,7 @@ func newPrometheusReceiver(logger *zap.Logger, cfg *Config, next consumer.Metric
+ 
+ // Start is the method that starts Prometheus scraping and it
+ // is controlled by having previously defined a Configuration using perhaps New.
+-func (pr *pReceiver) Start(ctx context.Context, host component.Host) error {
++func (pr *pReceiver) Start(_ context.Context, host component.Host) error {
+ 	pr.startOnce.Do(func() {
+ 		ctx := context.Background()
+ 		c, cancel := context.WithCancel(ctx)

@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/processor.go b/processor/processorhelper/processor.go
+index c505e36e5..73f08adda 100644
+--- a/processor/processorhelper/processor.go
++++ b/processor/processorhelper/processor.go
+@@ -74,7 +74,7 @@ func WithShutdown(shutdown componenthelper.Shutdown) Option {
+ 	}
+ }
+ 
+-// WithShutdown overrides the default GetCapabilities function for an processor.
++// WithCapabilities overrides the default GetCapabilities function for an processor.
+ // The default GetCapabilities function returns mutable capabilities.
+ func WithCapabilities(capabilities component.ProcessorCapabilities) Option {
+ 	return func(o *baseSettings) {

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/dependabot.yml b/.github/workflows/dependabot.yml
+index 2f9db53b3..8460dc731 100644
+--- a/.github/workflows/dependabot.yml
++++ b/.github/workflows/dependabot.yml
+@@ -14,7 +14,7 @@ jobs:
+           ref: ${{ github.head_ref }}
+       - uses: actions/setup-go@v2
+         with:
+-          go-version: '^1.16.0'
++          go-version: '^1.17.0'
+       - uses: evantorrie/mott-the-tidier@v1-beta
+         id: modtidy
+         with:

@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/file_exporter_test.go b/exporter/fileexporter/file_exporter_test.go
+index dce3fd5a1..45c25c9de 100644
+--- a/exporter/fileexporter/file_exporter_test.go
++++ b/exporter/fileexporter/file_exporter_test.go
+@@ -34,7 +34,7 @@ import (
+ 	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+-func TestFileTraceExporterNoErrors(t *testing.T) {
++func TestFileTracesExporterNoErrors(t *testing.T) {
+ 	mf := &testutil.LimitedWriter{}
+ 	lte := &fileExporter{file: mf}
+ 	require.NotNil(t, lte)

@@ -1,0 +1,13 @@
+diff --git a/config/configloader/config.go b/config/configloader/config.go
+index fe51e84f7..3b1416ecf 100644
+--- a/config/configloader/config.go
++++ b/config/configloader/config.go
+@@ -526,7 +526,7 @@ func expandEnv(s string) string {
+ }
+ 
+ func unmarshal(componentSection *configparser.Parser, intoCfg interface{}) error {
+-	if cu, ok := intoCfg.(config.CustomUnmarshable); ok {
++	if cu, ok := intoCfg.(config.Unmarshallable); ok {
+ 		return cu.Unmarshal(componentSection)
+ 	}
+ 

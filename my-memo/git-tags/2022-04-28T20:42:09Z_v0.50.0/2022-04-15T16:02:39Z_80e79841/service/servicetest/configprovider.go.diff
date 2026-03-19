@@ -1,0 +1,13 @@
+diff --git a/service/servicetest/configprovider.go b/service/servicetest/configprovider.go
+index 9bd6a258c..921e8b5c4 100644
+--- a/service/servicetest/configprovider.go
++++ b/service/servicetest/configprovider.go
+@@ -18,7 +18,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtest"
+-	"go.opentelemetry.io/collector/config/configunmarshaler"
++	"go.opentelemetry.io/collector/internal/configunmarshaler"
+ )
+ 
+ // LoadConfig loads a config.Config  from file, and does NOT validate the configuration.

@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/testdata/agent-config.yaml b/testbed/tests/testdata/agent-config.yaml
+index b3410044d..32814d77e 100644
+--- a/testbed/tests/testdata/agent-config.yaml
++++ b/testbed/tests/testdata/agent-config.yaml
+@@ -7,7 +7,7 @@ receivers:
+ 
+ exporters:
+   opencensus:
+-    endpoint: "127.0.0.1:56565"
++    endpoint: "localhost:56565"
+ 
+ processors:
+   queued-retry:

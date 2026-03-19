@@ -1,0 +1,23 @@
+diff --git a/vendor/github.com/tinylib/msgp/msgp/advise_other.go b/vendor/github.com/tinylib/msgp/msgp/advise_other.go
+new file mode 100644
+index 000000000..da65ea541
+--- /dev/null
++++ b/vendor/github.com/tinylib/msgp/msgp/advise_other.go
+@@ -0,0 +1,17 @@
++// +build !linux appengine
++
++package msgp
++
++import (
++	"os"
++)
++
++// TODO: darwin, BSD support
++
++func adviseRead(mem []byte) {}
++
++func adviseWrite(mem []byte) {}
++
++func fallocate(f *os.File, sz int64) error {
++	return f.Truncate(sz)
++}

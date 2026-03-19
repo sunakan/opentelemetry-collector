@@ -1,0 +1,15 @@
+diff --git a/exporter/opencensusexporter/opencensusexporter_test.go b/exporter/opencensusexporter/opencensusexporter_test.go
+index 90cc7d77f..3ba92a77a 100644
+--- a/exporter/opencensusexporter/opencensusexporter_test.go
++++ b/exporter/opencensusexporter/opencensusexporter_test.go
+@@ -20,8 +20,9 @@ import (
+ 	"time"
+ 
+ 	"github.com/google/go-cmp/cmp"
+-	"github.com/open-telemetry/opentelemetry-service/data"
+ 	"github.com/spf13/viper"
++
++	"github.com/open-telemetry/opentelemetry-service/data"
+ )
+ 
+ func TestOpenCensusTraceExportersFromViper(t *testing.T) {

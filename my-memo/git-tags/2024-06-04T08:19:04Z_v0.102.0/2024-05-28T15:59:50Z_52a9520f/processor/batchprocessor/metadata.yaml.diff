@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/metadata.yaml b/processor/batchprocessor/metadata.yaml
+index 986ada2ae..c90e03120 100644
+--- a/processor/batchprocessor/metadata.yaml
++++ b/processor/batchprocessor/metadata.yaml
+@@ -9,6 +9,7 @@ status:
+ tests:
+ 
+ telemetry:
++  level: normal
+   metrics:
+     processor_batch_batch_size_trigger_send:
+       enabled: true

@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index 686c4fe13..181ba978e 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -61,7 +61,7 @@ const (
+ 	maxHTTPResponseReadBytes = 64 * 1024
+ )
+ 
+-// Crete new exporter.
++// Create new exporter.
+ func newExporter(cfg config.Exporter, set component.ExporterCreateSettings) (*exporter, error) {
+ 	oCfg := cfg.(*Config)
+ 

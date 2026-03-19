@@ -1,0 +1,16 @@
+diff --git a/model/otlp/pb_unmarshaler.go b/model/otlp/pb_unmarshaler.go
+index 1140a092e..5a5fc1b89 100644
+--- a/model/otlp/pb_unmarshaler.go
++++ b/model/otlp/pb_unmarshaler.go
+@@ -15,10 +15,10 @@
+ package otlp // import "go.opentelemetry.io/collector/model/otlp"
+ 
+ import (
++	ipdata "go.opentelemetry.io/collector/model/internal"
+ 	otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"
+ 	otlpmetrics "go.opentelemetry.io/collector/model/internal/data/protogen/metrics/v1"
+ 	otlptrace "go.opentelemetry.io/collector/model/internal/data/protogen/trace/v1"
+-	ipdata "go.opentelemetry.io/collector/model/internal/pdata"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

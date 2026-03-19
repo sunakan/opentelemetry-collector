@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+index 99c7017b5..b44d14a8c 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+@@ -7,7 +7,7 @@ import (
+ 	"errors"
+ 
+ 	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/metric/noop"
++	noopmetric "go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -109,5 +109,5 @@ func getLeveledMeter(meter metric.Meter, cfgLevel, srvLevel configtelemetry.Leve
+ 	if cfgLevel <= srvLevel {
+ 		return meter
+ 	}
+-	return noop.Meter{}
++	return noopmetric.Meter{}
+ }

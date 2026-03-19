@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_scopelogsslice.go b/pdata/internal/generated_wrapper_scopelogsslice.go
+index f2b21dc6f..ed0b6cc78 100644
+--- a/pdata/internal/generated_wrapper_scopelogsslice.go
++++ b/pdata/internal/generated_wrapper_scopelogsslice.go
+@@ -25,6 +25,7 @@ func CopyOrigScopeLogsSlice(dest, src []*otlplogs.ScopeLogs) []*otlplogs.ScopeLo
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
++			DeleteOrigScopeLogs(dest[i], true)
+ 			dest[i] = nil
+ 		}
+ 		// Add new pointers for missing elements.

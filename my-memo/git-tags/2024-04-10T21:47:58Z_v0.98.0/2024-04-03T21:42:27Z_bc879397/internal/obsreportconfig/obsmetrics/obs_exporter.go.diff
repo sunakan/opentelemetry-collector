@@ -1,0 +1,18 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obs_exporter.go b/internal/obsreportconfig/obsmetrics/obs_exporter.go
+index 50a272407..b87270f5e 100644
+--- a/internal/obsreportconfig/obsmetrics/obs_exporter.go
++++ b/internal/obsreportconfig/obsmetrics/obs_exporter.go
+@@ -30,8 +30,9 @@ const (
+ )
+ 
+ var (
+-	ExporterPrefix                 = ExporterKey + NameSep
+-	ExportTraceDataOperationSuffix = NameSep + "traces"
+-	ExportMetricsOperationSuffix   = NameSep + "metrics"
+-	ExportLogsOperationSuffix      = NameSep + "logs"
++	ExporterPrefix                 = ExporterKey + SpanNameSep
++	ExporterMetricPrefix           = ExporterKey + MetricNameSep
++	ExportTraceDataOperationSuffix = SpanNameSep + "traces"
++	ExportMetricsOperationSuffix   = SpanNameSep + "metrics"
++	ExportLogsOperationSuffix      = SpanNameSep + "logs"
+ )

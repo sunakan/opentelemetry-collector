@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 8642c6668..c31bd71d8 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -171,7 +171,7 @@ func processError(err error) error {
+ 
+ 	if !shouldRetry(st.Code()) {
+ 		// It is not a retryable error, we should not retry.
+-		return consumererror.Permanent(err)
++		return consumererror.NewPermanent(err)
+ 	}
+ 
+ 	// Need to retry.

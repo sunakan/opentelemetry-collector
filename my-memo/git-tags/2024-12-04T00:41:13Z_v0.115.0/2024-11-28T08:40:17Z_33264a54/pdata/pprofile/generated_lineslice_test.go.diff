@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_lineslice_test.go b/pdata/pprofile/generated_lineslice_test.go
+index fd53c0237..afa5dbb20 100644
+--- a/pdata/pprofile/generated_lineslice_test.go
++++ b/pdata/pprofile/generated_lineslice_test.go
+@@ -13,7 +13,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ func TestLineSlice(t *testing.T) {

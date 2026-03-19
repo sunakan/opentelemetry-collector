@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+index dea1a679b..3a9f17039 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+@@ -34,8 +34,7 @@ func newExponentialHistogramDataPointSlice(orig *[]*otlpmetrics.ExponentialHisto
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewExponentialHistogramDataPointSlice() ExponentialHistogramDataPointSlice {
+ 	orig := []*otlpmetrics.ExponentialHistogramDataPoint(nil)
+-	state := internal.StateMutable
+-	return newExponentialHistogramDataPointSlice(&orig, &state)
++	return newExponentialHistogramDataPointSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

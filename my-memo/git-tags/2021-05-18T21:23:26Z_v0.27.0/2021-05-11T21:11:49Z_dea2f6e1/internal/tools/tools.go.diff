@@ -1,0 +1,11 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 23ef3cc4d..6d3599e88 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -30,5 +30,6 @@ import (
+ 	_ "github.com/ory/go-acc"
+ 	_ "github.com/pavius/impi/cmd/impi"
+ 	_ "github.com/tcnksm/ghr"
++	_ "golang.org/x/exp/cmd/apidiff"
+ 	_ "golang.org/x/tools/cmd/goimports"
+ )

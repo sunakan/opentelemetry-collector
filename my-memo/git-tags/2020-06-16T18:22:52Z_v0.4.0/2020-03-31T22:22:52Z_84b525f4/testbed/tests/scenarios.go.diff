@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/scenarios.go b/testbed/tests/scenarios.go
+index dcca3d344..7dea738df 100644
+--- a/testbed/tests/scenarios.go
++++ b/testbed/tests/scenarios.go
+@@ -219,7 +219,7 @@ func Scenario1kSPSWithAttrs(t *testing.T, args []string, tests []TestCase, opts
+ 
+ 			tc := testbed.NewTestCase(
+ 				t,
+-				testbed.NewJaegerThriftDataSender(testbed.DefaultJaegerPort),
++				testbed.NewJaegerGRPCDataSender(testbed.DefaultJaegerPort),
+ 				testbed.NewOCDataReceiver(testbed.DefaultOCPort),
+ 				opts...,
+ 			)

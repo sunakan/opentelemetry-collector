@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_locationslice.go b/pdata/pprofile/generated_locationslice.go
+index b9c24059d..0aa908bbe 100644
+--- a/pdata/pprofile/generated_locationslice.go
++++ b/pdata/pprofile/generated_locationslice.go
+@@ -99,7 +99,7 @@ func (es LocationSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Location.
+ func (es LocationSlice) AppendEmpty() Location {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpprofiles.Location{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrLocation())
+ 	return es.At(es.Len() - 1)
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 2af06faaa..96a7f419f 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -129,7 +129,7 @@ func (mr *Resolver) Resolve(ctx context.Context) (*Conf, error) {
+ 		if err != nil {
+ 			return nil, err
+ 		}
+-		retCfgMap, err := ret.AsMap()
++		retCfgMap, err := ret.AsConf()
+ 		if err != nil {
+ 			return nil, err
+ 		}

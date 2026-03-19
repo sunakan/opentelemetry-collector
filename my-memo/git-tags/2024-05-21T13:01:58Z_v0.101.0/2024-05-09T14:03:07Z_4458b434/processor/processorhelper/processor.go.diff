@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/processor.go b/processor/processorhelper/processor.go
+index 3aeb70a41..8bdaa4fbf 100644
+--- a/processor/processorhelper/processor.go
++++ b/processor/processorhelper/processor.go
+@@ -1,6 +1,8 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ package processorhelper // import "go.opentelemetry.io/collector/processor/processorhelper"
+ 
+ import (

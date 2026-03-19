@@ -1,0 +1,14 @@
+diff --git a/service/internal/builder/receivers_builder_test.go b/service/internal/builder/receivers_builder_test.go
+index 425f889fa..c2558d3b0 100644
+--- a/service/internal/builder/receivers_builder_test.go
++++ b/service/internal/builder/receivers_builder_test.go
+@@ -334,7 +334,8 @@ func TestBuildReceivers_NotSupportedDataType(t *testing.T) {
+ 		t.Run(test.configFile, func(t *testing.T) {
+ 
+ 			cfg, err := configtest.LoadConfigFile(t, path.Join("testdata", test.configFile), factories)
+-			assert.Error(t, err)
++			assert.NoError(t, err)
++			require.NotNil(t, cfg)
+ 
+ 			allExporters, err := BuildExporters(zap.NewNop(), component.DefaultApplicationStartInfo(), cfg, factories.Exporters)
+ 			assert.NoError(t, err)

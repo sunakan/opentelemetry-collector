@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/builder-integration-test.yaml b/.github/workflows/builder-integration-test.yaml
+index 6d80c7217..1a512410f 100644
+--- a/.github/workflows/builder-integration-test.yaml
++++ b/.github/workflows/builder-integration-test.yaml
+@@ -30,6 +30,6 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v3
+         with:
+-          go-version: 1.17
++          go-version: 1.18
+       - name: Test
+         run: cd ./cmd/builder && ./test/test.sh

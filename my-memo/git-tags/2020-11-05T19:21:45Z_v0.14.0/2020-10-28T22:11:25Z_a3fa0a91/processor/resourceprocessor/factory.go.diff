@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/factory.go b/processor/resourceprocessor/factory.go
+index a70cc0fc2..b76ef5739 100644
+--- a/processor/resourceprocessor/factory.go
++++ b/processor/resourceprocessor/factory.go
+@@ -58,7 +58,7 @@ func createTraceProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.TracesConsumer) (component.TraceProcessor, error) {
++	nextConsumer consumer.TracesConsumer) (component.TracesProcessor, error) {
+ 	attrProc, err := createAttrProcessor(cfg.(*Config), params.Logger)
+ 	if err != nil {
+ 		return nil, err

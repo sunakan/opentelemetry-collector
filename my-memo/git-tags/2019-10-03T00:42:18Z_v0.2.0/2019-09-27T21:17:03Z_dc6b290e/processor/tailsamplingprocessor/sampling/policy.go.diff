@@ -1,0 +1,13 @@
+diff --git a/processor/tailsamplingprocessor/sampling/policy.go b/processor/tailsamplingprocessor/sampling/policy.go
+index ff9e86368..a2b5c5466 100644
+--- a/processor/tailsamplingprocessor/sampling/policy.go
++++ b/processor/tailsamplingprocessor/sampling/policy.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ // TraceData stores the sampling related trace data.

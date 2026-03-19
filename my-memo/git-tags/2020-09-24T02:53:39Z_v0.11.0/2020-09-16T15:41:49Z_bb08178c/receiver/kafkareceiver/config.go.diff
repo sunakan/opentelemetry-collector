@@ -1,0 +1,11 @@
+diff --git a/receiver/kafkareceiver/config.go b/receiver/kafkareceiver/config.go
+index aa274b10f..fe03de1bb 100644
+--- a/receiver/kafkareceiver/config.go
++++ b/receiver/kafkareceiver/config.go
+@@ -39,5 +39,5 @@ type Config struct {
+ 	// Client, and shared by the Producer/Consumer.
+ 	Metadata kafkaexporter.Metadata `mapstructure:"metadata"`
+ 
+-	// TODO authentication
++	Authentication kafkaexporter.Authentication `mapstructure:"auth"`
+ }

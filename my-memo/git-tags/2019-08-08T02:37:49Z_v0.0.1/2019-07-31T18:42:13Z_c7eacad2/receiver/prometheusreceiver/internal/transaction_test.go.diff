@@ -1,0 +1,19 @@
+diff --git a/receiver/prometheusreceiver/internal/transaction_test.go b/receiver/prometheusreceiver/internal/transaction_test.go
+index 40a7e5aea..4cdd0911e 100644
+--- a/receiver/prometheusreceiver/internal/transaction_test.go
++++ b/receiver/prometheusreceiver/internal/transaction_test.go
+@@ -16,11 +16,12 @@ package internal
+ 
+ import (
+ 	"context"
+-	"github.com/prometheus/prometheus/pkg/labels"
+-	"github.com/prometheus/prometheus/scrape"
+ 	"reflect"
+ 	"testing"
+ 	"time"
++
++	"github.com/prometheus/prometheus/pkg/labels"
++	"github.com/prometheus/prometheus/scrape"
+ )
+ 
+ func Test_transaction(t *testing.T) {

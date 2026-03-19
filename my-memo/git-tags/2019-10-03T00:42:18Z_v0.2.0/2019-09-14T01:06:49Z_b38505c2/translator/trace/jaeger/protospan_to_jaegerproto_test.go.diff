@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerproto_test.go b/translator/trace/jaeger/protospan_to_jaegerproto_test.go
+index efdf16028..d9bee49d5 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/protospan_to_jaegerproto_test.go
+@@ -368,7 +368,7 @@ var ocBatches = []consumerdata.TraceData{
+ 				Attributes: &tracepb.Span_Attributes{
+ 					AttributeMap: map[string]*tracepb.AttributeValue{
+ 						"http.url": {
+-							Value: &tracepb.AttributeValue_StringValue{StringValue: &tracepb.TruncatableString{Value: "http://127.0.0.1:15598/client_transactions"}},
++							Value: &tracepb.AttributeValue_StringValue{StringValue: &tracepb.TruncatableString{Value: "http://localhost:15598/client_transactions"}},
+ 						},
+ 						"peer.ipv4": {
+ 							Value: &tracepb.AttributeValue_IntValue{IntValue: 3224716605},

@@ -1,0 +1,12 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index fe3f70140..c458faa6c 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package exporter contains interfaces that wraps trace/metrics exporter.
+ package exporter
+ 
+ import (

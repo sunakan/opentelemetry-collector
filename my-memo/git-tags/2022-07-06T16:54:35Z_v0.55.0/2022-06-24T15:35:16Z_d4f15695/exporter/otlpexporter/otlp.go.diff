@@ -1,0 +1,14 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 8d6c9d3bf..3533de0f3 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -125,9 +125,6 @@ func (e *exporter) enhanceContext(ctx context.Context) context.Context {
+ 	return ctx
+ }
+ 
+-// Send a trace or metrics request to the server. "perform" function is expected to make
+-// the actual gRPC unary call that sends the request. This function implements the
+-// common OTLP logic around request handling such as retries and throttling.
+ func processError(err error) error {
+ 	if err == nil {
+ 		// Request is successful, we are done.

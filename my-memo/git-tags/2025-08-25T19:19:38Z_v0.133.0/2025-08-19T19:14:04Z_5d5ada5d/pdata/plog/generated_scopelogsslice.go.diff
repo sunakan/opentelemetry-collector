@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_scopelogsslice.go b/pdata/plog/generated_scopelogsslice.go
+index 9a5b33846..a658a1ca1 100644
+--- a/pdata/plog/generated_scopelogsslice.go
++++ b/pdata/plog/generated_scopelogsslice.go
+@@ -99,7 +99,7 @@ func (es ScopeLogsSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ScopeLogs.
+ func (es ScopeLogsSlice) AppendEmpty() ScopeLogs {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrScopeLogs())
++	*es.orig = append(*es.orig, internal.NewOrigScopeLogs())
+ 	return es.At(es.Len() - 1)
+ }
+ 

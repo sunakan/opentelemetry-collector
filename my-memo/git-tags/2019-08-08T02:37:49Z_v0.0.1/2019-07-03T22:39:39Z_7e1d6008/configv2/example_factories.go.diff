@@ -1,0 +1,13 @@
+diff --git a/configv2/example_factories.go b/configv2/example_factories.go
+index 169a0df10..7f96c7d4a 100644
+--- a/configv2/example_factories.go
++++ b/configv2/example_factories.go
+@@ -329,7 +329,7 @@ func (f *ExampleProcessorFactory) CreateMetricsProcessor(
+ func RegisterTestFactories() error {
+ 	_ = receiver.RegisterReceiverFactory(&ExampleReceiverFactory{})
+ 	_ = receiver.RegisterReceiverFactory(&MultiProtoReceiverFactory{})
+-	_ = exporter.RegisterExporterFactory(&ExampleExporterFactory{})
++	_ = exporter.RegisterFactory(&ExampleExporterFactory{})
+ 	_ = factories.RegisterProcessorFactory(&ExampleProcessorFactory{})
+ 	return nil
+ }

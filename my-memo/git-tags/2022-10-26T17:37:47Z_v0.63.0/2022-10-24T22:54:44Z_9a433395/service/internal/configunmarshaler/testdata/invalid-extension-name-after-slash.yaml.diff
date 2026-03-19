@@ -1,0 +1,20 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
+deleted file mode 100644
+index a56a80829..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-extensions:
+-  nop/:
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

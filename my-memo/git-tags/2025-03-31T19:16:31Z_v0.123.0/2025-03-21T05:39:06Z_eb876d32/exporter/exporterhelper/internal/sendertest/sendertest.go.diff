@@ -1,0 +1,28 @@
+diff --git a/exporter/exporterhelper/internal/sendertest/sendertest.go b/exporter/exporterhelper/internal/sendertest/sendertest.go
+new file mode 100644
+index 000000000..575e405db
+--- /dev/null
++++ b/exporter/exporterhelper/internal/sendertest/sendertest.go
+@@ -0,0 +1,22 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package sendertest // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/sendertest"
++
++import (
++	"context"
++
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
++)
++
++func NewNopSenderFunc[K any]() sender.SendFunc[K] {
++	return func(context.Context, K) error {
++		return nil
++	}
++}
++
++func NewErrSenderFunc[K any](err error) sender.SendFunc[K] {
++	return func(context.Context, K) error {
++		return err
++	}
++}

@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_metrics_test.go b/consumer/pdata/generated_metrics_test.go
+index c99bce130..86c985257 100644
+--- a/consumer/pdata/generated_metrics_test.go
++++ b/consumer/pdata/generated_metrics_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ )
+ 
+ func TestResourceMetricsSlice(t *testing.T) {

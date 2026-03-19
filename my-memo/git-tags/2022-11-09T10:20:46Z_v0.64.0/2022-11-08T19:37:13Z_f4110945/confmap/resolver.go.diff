@@ -1,0 +1,20 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 381f3f43b..cf8a8c3e5 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -20,7 +20,6 @@ import (
+ 	"fmt"
+ 	"regexp"
+ 	"strings"
+-	"sync"
+ 
+ 	"go.uber.org/multierr"
+ 
+@@ -57,7 +56,6 @@ type Resolver struct {
+ 	providers  map[string]Provider
+ 	converters []Converter
+ 
+-	sync.Mutex
+ 	closers []CloseFunc
+ 	watcher chan error
+ }

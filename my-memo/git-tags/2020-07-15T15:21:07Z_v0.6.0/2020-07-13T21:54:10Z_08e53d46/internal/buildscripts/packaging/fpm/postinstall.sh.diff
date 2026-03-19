@@ -1,0 +1,15 @@
+diff --git a/internal/buildscripts/packaging/fpm/postinstall.sh b/internal/buildscripts/packaging/fpm/postinstall.sh
+new file mode 100755
+index 000000000..42f65782c
+--- /dev/null
++++ b/internal/buildscripts/packaging/fpm/postinstall.sh
+@@ -0,0 +1,8 @@
++#!/bin/sh
++
++if command -v systemctl >/dev/null 2>&1; then
++    systemctl enable otel-collector.service
++    if [ -f /etc/otel-collector/config.yaml ]; then
++        systemctl start otel-collector.service
++    fi
++fi
+\ No newline at end of file

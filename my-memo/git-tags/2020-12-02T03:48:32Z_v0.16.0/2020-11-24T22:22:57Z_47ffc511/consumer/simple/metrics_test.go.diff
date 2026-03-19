@@ -1,0 +1,12 @@
+diff --git a/consumer/simple/metrics_test.go b/consumer/simple/metrics_test.go
+index fa294300a..70c3f6e13 100644
+--- a/consumer/simple/metrics_test.go
++++ b/consumer/simple/metrics_test.go
+@@ -498,7 +498,6 @@ func BenchmarkPdataMetrics(b *testing.B) {
+ 			metric.SetName("gauge" + strconv.Itoa(i))
+ 			metric.SetDataType(pdata.MetricDataTypeIntGauge)
+ 			mAsType := metric.IntGauge()
+-			mAsType.InitEmpty()
+ 			dps := mAsType.DataPoints()
+ 			dps.Resize(2)
+ 			{

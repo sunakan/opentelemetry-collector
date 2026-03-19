@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/ptraceotlp/generated_exportresponse.go b/pdata/ptrace/ptraceotlp/generated_exportresponse.go
+index 84996b38b..be9d94eea 100644
+--- a/pdata/ptrace/ptraceotlp/generated_exportresponse.go
++++ b/pdata/ptrace/ptraceotlp/generated_exportresponse.go
+@@ -44,8 +44,8 @@ func (ms ExportResponse) MoveTo(dest ExportResponse) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpcollectortrace.ExportTraceServiceResponse{}
++	internal.DeleteOrigExportTraceServiceResponse(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // PartialSuccess returns the partialsuccess associated with this ExportResponse.

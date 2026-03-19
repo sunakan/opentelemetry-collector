@@ -1,0 +1,17 @@
+diff --git a/exporter/exportertest/sink_exporter.go b/exporter/exportertest/sink_exporter.go
+index 4a9c80fd8..1fc7fb751 100644
+--- a/exporter/exportertest/sink_exporter.go
++++ b/exporter/exportertest/sink_exporter.go
+@@ -18,9 +18,9 @@ import (
+ 	"context"
+ 	"sync"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // SinkTraceExporterOld acts as a trace receiver for use in tests.

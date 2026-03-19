@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/generated_logrecord.go b/pdata/plog/generated_logrecord.go
+index 492d7d7bb..4585c326a 100644
+--- a/pdata/plog/generated_logrecord.go
++++ b/pdata/plog/generated_logrecord.go
+@@ -46,8 +46,8 @@ func (ms LogRecord) MoveTo(dest LogRecord) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlplogs.LogRecord{}
++	internal.DeleteOrigLogRecord(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Timestamp returns the timestamp associated with this LogRecord.

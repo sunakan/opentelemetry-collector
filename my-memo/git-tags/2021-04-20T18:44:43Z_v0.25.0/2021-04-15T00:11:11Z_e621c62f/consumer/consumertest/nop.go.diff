@@ -1,0 +1,34 @@
+diff --git a/consumer/consumertest/nop.go b/consumer/consumertest/nop.go
+index 505d81ba7..823de9d1f 100644
+--- a/consumer/consumertest/nop.go
++++ b/consumer/consumertest/nop.go
+@@ -17,7 +17,6 @@ package consumertest
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+@@ -45,21 +44,3 @@ func (nc *nopConsumer) ConsumeLogs(context.Context, pdata.Logs) error {
+ func NewNop() Consumer {
+ 	return nopInstance
+ }
+-
+-// NewTracesNop returns a consumer.Traces that just drops all received data and returns no error.
+-// Deprecated: Use NewNop().
+-func NewTracesNop() consumer.Traces {
+-	return nopInstance
+-}
+-
+-// NewMetricsNop returns a consumer.Metrics that just drops all received data and returns no error.
+-// Deprecated: Use NewNop().
+-func NewMetricsNop() consumer.Metrics {
+-	return nopInstance
+-}
+-
+-// NewLogsNop returns a consumer.Logs that just drops all received data and returns no error.
+-// Deprecated: Use NewNop().
+-func NewLogsNop() consumer.Logs {
+-	return nopInstance
+-}

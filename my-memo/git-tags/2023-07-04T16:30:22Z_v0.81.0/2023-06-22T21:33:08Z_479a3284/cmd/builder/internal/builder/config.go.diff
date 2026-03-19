@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index ccb0accb6..2a821cbf6 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -23,6 +23,7 @@ var ErrInvalidGoMod = errors.New("invalid gomod specification for module")
+ // Config holds the builder's configuration
+ type Config struct {
+ 	Logger          *zap.Logger
++	SkipGenerate    bool   `mapstructure:"-"`
+ 	SkipCompilation bool   `mapstructure:"-"`
+ 	SkipGetModules  bool   `mapstructure:"-"`
+ 	LDFlags         string `mapstructure:"-"`

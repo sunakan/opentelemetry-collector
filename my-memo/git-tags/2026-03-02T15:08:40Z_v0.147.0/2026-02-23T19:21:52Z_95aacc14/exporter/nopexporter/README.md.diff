@@ -1,0 +1,11 @@
+diff --git a/exporter/nopexporter/README.md b/exporter/nopexporter/README.md
+index 0ed383f8e..f4c5f3ef3 100644
+--- a/exporter/nopexporter/README.md
++++ b/exporter/nopexporter/README.md
+@@ -26,5 +26,5 @@ exporter definitions. It takes no configuration.
+ 
+ ```yaml
+ exporters:
+-  nop:
++  nop: {} # Explicitly set in case the config is re-serialized (e.g. with the Operator)
+ ```

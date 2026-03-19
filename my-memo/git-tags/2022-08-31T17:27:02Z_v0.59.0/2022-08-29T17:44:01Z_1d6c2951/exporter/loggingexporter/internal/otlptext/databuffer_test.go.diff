@@ -1,0 +1,19 @@
+diff --git a/exporter/loggingexporter/internal/otlptext/databuffer_test.go b/exporter/loggingexporter/internal/otlptext/databuffer_test.go
+index 2e1c92dec..d6d08d2f7 100644
+--- a/exporter/loggingexporter/internal/otlptext/databuffer_test.go
++++ b/exporter/loggingexporter/internal/otlptext/databuffer_test.go
+@@ -41,12 +41,9 @@ func TestNestedArraySerializesCorrectly(t *testing.T) {
+ func TestNestedMapSerializesCorrectly(t *testing.T) {
+ 	ava := pcommon.NewValueMap()
+ 	av := ava.MapVal()
+-	av.Insert("foo", pcommon.NewValueString("test"))
++	av.UpsertString("foo", "test")
+ 
+-	ava2 := pcommon.NewValueMap()
+-	av2 := ava2.MapVal()
+-	av2.InsertInt("bar", 13)
+-	av.Insert("zoo", ava2)
++	av.UpsertEmptyMap("zoo").UpsertInt("bar", 13)
+ 
+ 	expected := `{
+      -> foo: STRING(test)

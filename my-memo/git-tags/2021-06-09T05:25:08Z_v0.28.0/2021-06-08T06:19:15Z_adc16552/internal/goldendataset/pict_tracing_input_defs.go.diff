@@ -1,0 +1,28 @@
+diff --git a/internal/goldendataset/pict_tracing_input_defs.go b/internal/goldendataset/pict_tracing_input_defs.go
+index 32ef38ff9..4d45fb27f 100644
+--- a/internal/goldendataset/pict_tracing_input_defs.go
++++ b/internal/goldendataset/pict_tracing_input_defs.go
+@@ -27,7 +27,6 @@ const (
+ type PICTInputResource string
+ 
+ const (
+-	ResourceNil       PICTInputResource = "Nil"
+ 	ResourceEmpty     PICTInputResource = "Empty"
+ 	ResourceVMOnPrem  PICTInputResource = "VMOnPrem"
+ 	ResourceVMCloud   PICTInputResource = "VMCloud"
+@@ -112,7 +111,6 @@ const (
+ type PICTInputAttributes string
+ 
+ const (
+-	SpanAttrNil               PICTInputAttributes = "Nil"
+ 	SpanAttrEmpty             PICTInputAttributes = "Empty"
+ 	SpanAttrDatabaseSQL       PICTInputAttributes = "DatabaseSQL"
+ 	SpanAttrDatabaseNoSQL     PICTInputAttributes = "DatabaseNoSQL"
+@@ -135,7 +133,6 @@ const (
+ type PICTInputSpanChild string
+ 
+ const (
+-	SpanChildCountNil   PICTInputSpanChild = "Nil"
+ 	SpanChildCountEmpty PICTInputSpanChild = "Empty"
+ 	SpanChildCountOne   PICTInputSpanChild = "One"
+ 	SpanChildCountTwo   PICTInputSpanChild = "Two"

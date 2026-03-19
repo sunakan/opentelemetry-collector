@@ -1,0 +1,10 @@
+diff --git a/confmap/internal/e2e/testdata/issue-10787-main.yaml b/confmap/internal/e2e/testdata/issue-10787-main.yaml
+index 08bb0e617..80d583dd5 100644
+--- a/confmap/internal/e2e/testdata/issue-10787-main.yaml
++++ b/confmap/internal/e2e/testdata/issue-10787-main.yaml
+@@ -19,4 +19,4 @@ service:
+     traces:
+       receivers: [otlp]
+       processors: [batch]
+-      exporters: [logging]
++      exporters: [debug]

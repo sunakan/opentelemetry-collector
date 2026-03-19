@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkinv1_to_protospan.go b/translator/trace/zipkinv1_to_protospan.go
+index 4ec14e50e..ce6cab28d 100644
+--- a/translator/trace/zipkinv1_to_protospan.go
++++ b/translator/trace/zipkinv1_to_protospan.go
+@@ -194,10 +194,6 @@ type annotationParseResult struct {
+ }
+ 
+ func parseZipkinV1Annotations(annotations []*annotation) *annotationParseResult {
+-	if len(annotations) == 0 {
+-		return nil
+-	}
+-
+ 	// Unknown service name works both as a default value and a flag to indicate that a valid endpoint was found.
+ 	const unknownServiceName = "unknown-service"
+ 

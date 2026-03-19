@@ -1,0 +1,84 @@
+diff --git a/internal/testdata/trace.go b/internal/testdata/trace.go
+index b8be8f904..efd74cf37 100644
+--- a/internal/testdata/trace.go
++++ b/internal/testdata/trace.go
+@@ -33,10 +33,6 @@ var (
+ 	TestSpanEndTimestamp = pdata.TimestampUnixNano(TestSpanEndTime.UnixNano())
+ )
+ 
+-const (
+-	NumTraceTests = 11
+-)
+-
+ func GenerateTraceDataEmpty() pdata.Traces {
+ 	td := pdata.NewTraces()
+ 	return td
+@@ -58,18 +54,6 @@ func generateTraceOtlpOneEmptyResourceSpans() []*otlptrace.ResourceSpans {
+ 	}
+ }
+ 
+-func GenerateTraceDataOneEmptyOneNilResourceSpans() pdata.Traces {
+-	return pdata.TracesFromOtlp(generateTraceOtlpOneEmptyOneNilResourceSpans())
+-
+-}
+-
+-func generateTraceOtlpOneEmptyOneNilResourceSpans() []*otlptrace.ResourceSpans {
+-	return []*otlptrace.ResourceSpans{
+-		{},
+-		nil,
+-	}
+-}
+-
+ func GenerateTraceDataNoLibraries() pdata.Traces {
+ 	td := GenerateTraceDataOneEmptyResourceSpans()
+ 	rs0 := td.ResourceSpans().At(0)
+@@ -103,22 +87,6 @@ func generateTraceOtlpOneEmptyInstrumentationLibrary() []*otlptrace.ResourceSpan
+ 	}
+ }
+ 
+-func GenerateTraceDataOneEmptyOneNilInstrumentationLibrary() pdata.Traces {
+-	return pdata.TracesFromOtlp(generateTraceOtlpOneEmptyOneNilInstrumentationLibrary())
+-}
+-
+-func generateTraceOtlpOneEmptyOneNilInstrumentationLibrary() []*otlptrace.ResourceSpans {
+-	return []*otlptrace.ResourceSpans{
+-		{
+-			Resource: generateOtlpResource1(),
+-			InstrumentationLibrarySpans: []*otlptrace.InstrumentationLibrarySpans{
+-				{},
+-				nil,
+-			},
+-		},
+-	}
+-}
+-
+ func GenerateTraceDataOneSpanNoResource() pdata.Traces {
+ 	td := GenerateTraceDataOneEmptyResourceSpans()
+ 	rs0 := td.ResourceSpans().At(0)
+@@ -166,26 +134,6 @@ func generateTraceOtlpOneSpan() []*otlptrace.ResourceSpans {
+ 	}
+ }
+ 
+-func GenerateTraceDataOneSpanOneNil() pdata.Traces {
+-	return pdata.TracesFromOtlp(generateTraceOtlpOneSpanOneNil())
+-}
+-
+-func generateTraceOtlpOneSpanOneNil() []*otlptrace.ResourceSpans {
+-	return []*otlptrace.ResourceSpans{
+-		{
+-			Resource: generateOtlpResource1(),
+-			InstrumentationLibrarySpans: []*otlptrace.InstrumentationLibrarySpans{
+-				{
+-					Spans: []*otlptrace.Span{
+-						generateOtlpSpanOne(),
+-						nil,
+-					},
+-				},
+-			},
+-		},
+-	}
+-}
+-
+ func GenerateTraceDataTwoSpansSameResource() pdata.Traces {
+ 	td := GenerateTraceDataOneEmptyInstrumentationLibrary()
+ 	rs0ils0 := td.ResourceSpans().At(0).InstrumentationLibrarySpans().At(0)

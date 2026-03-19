@@ -1,0 +1,65 @@
+diff --git a/cmd/occollector/app/builder/builder_test.go b/cmd/occollector/app/builder/builder_test.go
+index 4f19c1ebb..74dc471b5 100644
+--- a/cmd/occollector/app/builder/builder_test.go
++++ b/cmd/occollector/app/builder/builder_test.go
+@@ -17,6 +17,7 @@ package builder
+ import (
+ 	"reflect"
+ 	"testing"
++	"time"
+ 
+ 	"github.com/spf13/viper"
+ )
+@@ -69,6 +70,52 @@ func TestReceiversDisabledByPresenceWithDefaultSettings(t *testing.T) {
+ 	}
+ }
+ 
++func TestMultiAndQueuedSpanProcessorConfig(t *testing.T) {
++	v, err := loadViperFromFile("./testdata/processor_config.yaml")
++	if err != nil {
++		t.Fatalf("Failed to load viper from test file: %v", err)
++	}
++
++	fst := NewDefaultQueuedSpanProcessorCfg()
++	fst.Name = "proc-tchannel"
++	fst.NumWorkers = 13
++	fst.QueueSize = 1300
++	fst.SenderType = ThriftTChannelSenderType
++	fst.SenderConfig = &JaegerThriftTChannelSenderCfg{
++		CollectorHostPorts:        []string{":123", ":321"},
++		DiscoveryMinPeers:         7,
++		DiscoveryConnCheckTimeout: time.Second * 7,
++	}
++	snd := NewDefaultQueuedSpanProcessorCfg()
++	snd.Name = "proc-http"
++	snd.RetryOnFailure = false
++	snd.BackoffDelay = 3 * time.Second
++	snd.SenderType = ThriftHTTPSenderType
++	snd.SenderConfig = &JaegerThriftHTTPSenderCfg{
++		CollectorEndpoint: "https://somedomain.com/api/traces",
++		Headers:           map[string]string{"x-header-key": "00000000-0000-0000-0000-000000000001"},
++		Timeout:           time.Second * 5,
++	}
++
++	wCfg := &MultiSpanProcessorCfg{
++		Processors: []*QueuedSpanProcessorCfg{fst, snd},
++	}
++
++	gCfg := NewDefaultMultiSpanProcessorCfg().InitFromViper(v)
++
++	// Viper sometimes gets these out of order, which is not an issue for production, but
++	// a problem for tests. Enforce that the order matches the expected one.
++	if gCfg.Processors[0].Name == snd.Name {
++		gCfg.Processors[0], gCfg.Processors[1] = gCfg.Processors[1], gCfg.Processors[0]
++	}
++
++	for i := range wCfg.Processors {
++		if !reflect.DeepEqual(*wCfg.Processors[i], *gCfg.Processors[i]) {
++			t.Errorf("Wanted %+v but got %+v", *wCfg.Processors[i], *gCfg.Processors[i])
++		}
++	}
++}
++
+ func loadViperFromFile(file string) (*viper.Viper, error) {
+ 	v := viper.New()
+ 	v.SetConfigFile(file)

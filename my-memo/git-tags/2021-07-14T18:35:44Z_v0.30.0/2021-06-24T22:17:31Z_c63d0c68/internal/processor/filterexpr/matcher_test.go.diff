@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterexpr/matcher_test.go b/internal/processor/filterexpr/matcher_test.go
+index f05b5481a..fee907c66 100644
+--- a/internal/processor/filterexpr/matcher_test.go
++++ b/internal/processor/filterexpr/matcher_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestCompileExprError(t *testing.T) {

@@ -1,0 +1,12 @@
+diff --git a/exporter/internal/otlptext/known_sync_error_windows.go b/exporter/internal/otlptext/known_sync_error_windows.go
+index 780f9e653..b7e0dc472 100644
+--- a/exporter/internal/otlptext/known_sync_error_windows.go
++++ b/exporter/internal/otlptext/known_sync_error_windows.go
+@@ -2,7 +2,6 @@
+ // SPDX-License-Identifier: Apache-2.0
+ 
+ //go:build windows
+-// +build windows
+ 
+ package otlptext // import "go.opentelemetry.io/collector/exporter/internal/otlptext"
+ 

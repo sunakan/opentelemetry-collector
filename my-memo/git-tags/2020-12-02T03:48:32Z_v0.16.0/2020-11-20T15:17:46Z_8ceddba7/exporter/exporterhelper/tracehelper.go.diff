@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 5238bf34b..a94ca63b5 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -74,7 +74,7 @@ func NewTraceExporter(
+ 	cfg configmodels.Exporter,
+ 	logger *zap.Logger,
+ 	dataPusher traceDataPusher,
+-	options ...ExporterOption,
++	options ...Option,
+ ) (component.TracesExporter, error) {
+ 
+ 	if cfg == nil {

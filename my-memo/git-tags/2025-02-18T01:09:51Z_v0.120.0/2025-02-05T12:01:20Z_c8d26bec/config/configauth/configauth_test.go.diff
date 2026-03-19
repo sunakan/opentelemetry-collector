@@ -1,0 +1,17 @@
+diff --git a/config/configauth/configauth_test.go b/config/configauth/configauth_test.go
+index 89551d952..77cc1c8bb 100644
+--- a/config/configauth/configauth_test.go
++++ b/config/configauth/configauth_test.go
+@@ -17,12 +17,6 @@ import (
+ 
+ var mockID = component.MustNewID("mock")
+ 
+-func TestNewDefaultAuthentication(t *testing.T) {
+-	auth := NewDefaultAuthentication()
+-	assert.NotNil(t, auth)
+-	assert.Empty(t, auth)
+-}
+-
+ func TestGetServer(t *testing.T) {
+ 	testCases := []struct {
+ 		name          string

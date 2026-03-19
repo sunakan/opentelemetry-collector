@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/profiles_test.go b/pdata/pprofile/profiles_test.go
+index a03398967..1ed167391 100644
+--- a/pdata/pprofile/profiles_test.go
++++ b/pdata/pprofile/profiles_test.go
+@@ -71,7 +71,7 @@ func TestSampleCountWithEmpty(t *testing.T) {
+ 						Profiles: []*otlpprofile.ProfileContainer{
+ 							{
+ 								Profile: otlpprofile.Profile{
+-									Sample: []otlpprofile.Sample{
++									Sample: []*otlpprofile.Sample{
+ 										{},
+ 									},
+ 								},

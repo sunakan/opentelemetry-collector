@@ -1,0 +1,19 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-receiver.yaml b/config/configunmarshaler/testdata/duplicate-receiver.yaml
+deleted file mode 100644
+index 4e00b5fe6..000000000
+--- a/config/configunmarshaler/testdata/duplicate-receiver.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver/ recv:
+-  examplereceiver /recv :
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

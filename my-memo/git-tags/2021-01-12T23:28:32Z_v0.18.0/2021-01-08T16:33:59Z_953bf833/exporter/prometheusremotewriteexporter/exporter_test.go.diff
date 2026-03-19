@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 2333f40ed..9cceade76 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -33,7 +33,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+-	otlp "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlp "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/internal/version"
+ )

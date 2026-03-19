@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 45a4e8261..731c134b9 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -18,8 +18,8 @@ import (
+ )
+ 
+ const (
+-	defaultBetaOtelColVersion   = "v0.122.1"
+-	defaultStableOtelColVersion = "v1.28.1"
++	defaultBetaOtelColVersion   = "v0.123.0"
++	defaultStableOtelColVersion = "v1.29.0"
+ )
+ 
+ // errMissingGoMod indicates an empty gomod field

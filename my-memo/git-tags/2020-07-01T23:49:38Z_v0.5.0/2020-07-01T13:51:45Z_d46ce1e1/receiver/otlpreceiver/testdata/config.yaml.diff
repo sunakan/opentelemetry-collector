@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index 990cb2cbf..29ab7bfa1 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -65,7 +65,7 @@ receivers:
+   otlp/uds:
+     protocols:
+       grpc:
+-        # transport: unix
++        transport: unix
+         endpoint: /tmp/grpc_otlp.sock
+       http:
+         # transport: unix

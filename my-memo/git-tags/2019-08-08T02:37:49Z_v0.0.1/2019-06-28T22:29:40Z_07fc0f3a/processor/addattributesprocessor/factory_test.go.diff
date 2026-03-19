@@ -1,0 +1,13 @@
+diff --git a/processor/addattributesprocessor/factory_test.go b/processor/addattributesprocessor/factory_test.go
+index 12763bcee..1f13eb97d 100644
+--- a/processor/addattributesprocessor/factory_test.go
++++ b/processor/addattributesprocessor/factory_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
++	"github.com/open-telemetry/opentelemetry-service/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

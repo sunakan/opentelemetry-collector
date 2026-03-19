@@ -1,0 +1,13 @@
+diff --git a/processor/tailsamplingprocessor/idbatcher/id_batcher_test.go b/processor/tailsamplingprocessor/idbatcher/id_batcher_test.go
+index 54a2673b0..867940c80 100644
+--- a/processor/tailsamplingprocessor/idbatcher/id_batcher_test.go
++++ b/processor/tailsamplingprocessor/idbatcher/id_batcher_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"testing"
+ 	"time"
+ 
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ func TestBatcherNew(t *testing.T) {

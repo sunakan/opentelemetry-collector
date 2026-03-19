@@ -1,0 +1,12 @@
+diff --git a/service/testdata/otelcol-config-minimal.yaml b/service/testdata/otelcol-config-minimal.yaml
+index 448973ae1..372bd08d5 100644
+--- a/service/testdata/otelcol-config-minimal.yaml
++++ b/service/testdata/otelcol-config-minimal.yaml
+@@ -1,5 +1,7 @@
+ receivers:
+   otlp:
++    protocols:
++      grpc:
+ 
+ exporters:
+   otlp:

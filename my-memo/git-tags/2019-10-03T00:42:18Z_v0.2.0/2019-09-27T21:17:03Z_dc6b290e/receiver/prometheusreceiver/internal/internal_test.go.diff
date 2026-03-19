@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/internal_test.go b/receiver/prometheusreceiver/internal/internal_test.go
+index b5d8c5ba4..a02c0602d 100644
+--- a/receiver/prometheusreceiver/internal/internal_test.go
++++ b/receiver/prometheusreceiver/internal/internal_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/prometheus/prometheus/scrape"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ // test helpers

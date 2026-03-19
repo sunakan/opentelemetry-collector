@@ -1,0 +1,15 @@
+diff --git a/pdata/testdata/log.go b/pdata/testdata/log.go
+index 5d2a0a194..be9c8b2bc 100644
+--- a/pdata/testdata/log.go
++++ b/pdata/testdata/log.go
+@@ -10,9 +10,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ )
+ 
+-var (
+-	logTimestamp = pcommon.NewTimestampFromTime(time.Date(2020, 2, 11, 20, 26, 13, 789, time.UTC))
+-)
++var logTimestamp = pcommon.NewTimestampFromTime(time.Date(2020, 2, 11, 20, 26, 13, 789, time.UTC))
+ 
+ func GenerateLogs(count int) plog.Logs {
+ 	ld := plog.NewLogs()

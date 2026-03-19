@@ -1,0 +1,15 @@
+diff --git a/exporter/jaegerexporter/config_test.go b/exporter/jaegerexporter/config_test.go
+index 3b020d67b..a68e6d75f 100644
+--- a/exporter/jaegerexporter/config_test.go
++++ b/exporter/jaegerexporter/config_test.go
+@@ -71,8 +71,8 @@ func TestLoadConfig(t *testing.T) {
+ 			},
+ 		})
+ 
+-	params := component.ExporterCreateParams{Logger: zap.NewNop()}
+-	te, err := factory.CreateTracesExporter(context.Background(), params, e1)
++	set := component.ExporterCreateSettings{Logger: zap.NewNop()}
++	te, err := factory.CreateTracesExporter(context.Background(), set, e1)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, te)
+ }

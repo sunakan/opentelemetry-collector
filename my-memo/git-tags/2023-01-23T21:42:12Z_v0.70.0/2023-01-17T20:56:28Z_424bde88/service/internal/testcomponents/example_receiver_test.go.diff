@@ -1,0 +1,20 @@
+diff --git a/service/internal/testcomponents/example_receiver_test.go b/service/internal/testcomponents/example_receiver_test.go
+index 32f415cc0..53ce6e93d 100644
+--- a/service/internal/testcomponents/example_receiver_test.go
++++ b/service/internal/testcomponents/example_receiver_test.go
+@@ -26,11 +26,11 @@ import (
+ func TestExampleReceiver(t *testing.T) {
+ 	rcv := &ExampleReceiver{}
+ 	host := componenttest.NewNopHost()
+-	assert.False(t, rcv.Started)
++	assert.False(t, rcv.Started())
+ 	assert.NoError(t, rcv.Start(context.Background(), host))
+-	assert.True(t, rcv.Started)
++	assert.True(t, rcv.Started())
+ 
+-	assert.False(t, rcv.Stopped)
++	assert.False(t, rcv.Stopped())
+ 	assert.NoError(t, rcv.Shutdown(context.Background()))
+-	assert.True(t, rcv.Stopped)
++	assert.True(t, rcv.Stopped())
+ }

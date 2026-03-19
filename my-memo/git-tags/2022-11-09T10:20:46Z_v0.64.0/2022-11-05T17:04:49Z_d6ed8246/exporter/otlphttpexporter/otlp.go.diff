@@ -1,0 +1,21 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index d940b6825..95ea2c411 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -31,7 +31,6 @@ import (
+ 	"google.golang.org/protobuf/proto"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+@@ -61,7 +60,7 @@ const (
+ )
+ 
+ // Create new exporter.
+-func newExporter(cfg config.Exporter, set component.ExporterCreateSettings) (*exporter, error) {
++func newExporter(cfg component.ExporterConfig, set component.ExporterCreateSettings) (*exporter, error) {
+ 	oCfg := cfg.(*Config)
+ 
+ 	if oCfg.Endpoint != "" {

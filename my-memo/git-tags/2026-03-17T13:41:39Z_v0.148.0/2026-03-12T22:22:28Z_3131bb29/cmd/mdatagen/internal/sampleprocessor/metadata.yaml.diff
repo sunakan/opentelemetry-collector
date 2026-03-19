@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/metadata.yaml b/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
+index ccc5745aa..c4b7e3a24 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleprocessor/metadata.yaml
+@@ -13,7 +13,7 @@ status:
+   disable_codecov_badge: true
+   class: processor
+   stability:
+-    development: [logs]
++    development: [logs, profiles]
+     beta: [traces]
+     stable: [metrics]
+   distributions: []

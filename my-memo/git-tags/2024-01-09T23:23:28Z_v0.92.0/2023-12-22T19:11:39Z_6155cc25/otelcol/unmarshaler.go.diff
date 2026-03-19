@@ -1,0 +1,11 @@
+diff --git a/otelcol/unmarshaler.go b/otelcol/unmarshaler.go
+index 66b2a87a0..643e396db 100644
+--- a/otelcol/unmarshaler.go
++++ b/otelcol/unmarshaler.go
+@@ -66,5 +66,5 @@ func unmarshal(v *confmap.Conf, factories Factories) (*configSettings, error) {
+ 		},
+ 	}
+ 
+-	return cfg, v.Unmarshal(&cfg, confmap.WithErrorUnused())
++	return cfg, v.Unmarshal(&cfg)
+ }

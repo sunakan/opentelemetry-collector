@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv2/protobuf_test.go b/translator/trace/zipkinv2/protobuf_test.go
+index f0a8be430..d9b5764df 100644
+--- a/translator/trace/zipkinv2/protobuf_test.go
++++ b/translator/trace/zipkinv2/protobuf_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestProtobufDecoder_DecodeTraces(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/prom_to_otlp.go b/receiver/prometheusreceiver/internal/prom_to_otlp.go
+index 9f8aa13ca..4e96998bb 100644
+--- a/receiver/prometheusreceiver/internal/prom_to_otlp.go
++++ b/receiver/prometheusreceiver/internal/prom_to_otlp.go
+@@ -18,7 +18,7 @@ import (
+ 	"net"
+ 
+ 	"go.opentelemetry.io/collector/model/pdata"
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ )
+ 
+ func createNodeAndResourcePdata(job, instance, scheme string) pdata.Resource {

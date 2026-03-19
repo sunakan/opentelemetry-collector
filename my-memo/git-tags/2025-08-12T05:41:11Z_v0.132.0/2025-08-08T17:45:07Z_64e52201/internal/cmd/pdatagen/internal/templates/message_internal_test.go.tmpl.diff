@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
+index 7aea84650..a52a45ffe 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal_test.go.tmpl
+@@ -43,4 +43,27 @@ func TestMarshalAndUnmarshalJSONOrig{{ .originName }}(t *testing.T) {
+ 	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+-}
+\ No newline at end of file
++}
++
++func TestMarshalAndUnmarshalProtoOrig{{ .originName }}(t *testing.T) {
++	src := &{{ .originFullName }}{}
++	FillOrigTest{{ .originName }}(src)
++	buf, err := MarshalProtoOrig{{ .originName }}(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrig{{ .originName }}(src))
++
++	dest := &{{ .originFullName }}{}
++	require.NoError(t, UnmarshalProtoOrig{{ .originName }}(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmpty{{ .originName }}(t *testing.T) {
++	src := &{{ .originFullName }}{}
++	buf, err := MarshalProtoOrig{{ .originName }}(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrig{{ .originName }}(src))
++
++	dest := &{{ .originFullName }}{}
++	require.NoError(t, UnmarshalProtoOrig{{ .originName }}(dest, buf))
++	assert.Equal(t, src, dest)
++}

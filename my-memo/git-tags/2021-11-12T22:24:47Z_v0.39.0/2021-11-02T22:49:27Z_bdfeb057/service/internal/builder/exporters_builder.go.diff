@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index 27fb081b1..ca0ff12cf 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -194,7 +194,7 @@ func calcExportersRequiredDataTypes(cfg *config.Config) exportersRequiredDataTyp
+ 
+ 			// Remember that this data type is required for the expCfg and also which
+ 			// pipeline the requirement is coming from.
+-			result[expID][pipeline.InputType] = pipelineID
++			result[expID][pipelineID.Type()] = pipelineID
+ 		}
+ 	}
+ 	return result

@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 1058bebaf..6f77ae73f 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -99,7 +99,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.115.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumererror/consumererrorprofiles v0.115.0 // indirect
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.115.0 // indirect
+-	go.opentelemetry.io/collector/consumer/xconsumer v0.115.0 // indirect
++	go.opentelemetry.io/collector/consumer/xconsumer v0.115.1-0.20241213185000-4593ba7de234 // indirect
+ 	go.opentelemetry.io/collector/exporter/exporterhelper/exporterhelperprofiles v0.115.0 // indirect
+ 	go.opentelemetry.io/collector/exporter/exporterprofiles v0.115.0 // indirect
+ 	go.opentelemetry.io/collector/exporter/exportertest v0.115.0 // indirect

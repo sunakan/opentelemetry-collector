@@ -1,0 +1,13 @@
+diff --git a/.chloggen/cgroup-subsys-line-parse.yaml b/.chloggen/cgroup-subsys-line-parse.yaml
+new file mode 100644
+index 000000000..c637017d9
+--- /dev/null
++++ b/.chloggen/cgroup-subsys-line-parse.yaml
+@@ -0,0 +1,7 @@
++change_type: bug_fix
++
++component: cgroups
++
++note: split line into exactly 3 parts while parsing /proc/{pid}/cgroup
++
++issues: [6389]

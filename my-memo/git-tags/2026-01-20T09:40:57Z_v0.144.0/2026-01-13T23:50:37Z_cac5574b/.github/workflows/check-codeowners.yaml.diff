@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-codeowners.yaml b/.github/workflows/check-codeowners.yaml
+index 5aa9a707a..a265dc2de 100644
+--- a/.github/workflows/check-codeowners.yaml
++++ b/.github/workflows/check-codeowners.yaml
+@@ -36,7 +36,7 @@ jobs:
+     steps:
+       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
+ 
+-      - uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6
++      - uses: actions/setup-go@7a3fe6cf4cb3a834922a1244abfce67bcef6a0c5 # v6
+         id: go-setup
+         with:
+           go-version: oldstable

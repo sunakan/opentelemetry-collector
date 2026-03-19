@@ -1,0 +1,13 @@
+diff --git a/model/pdata/common.go b/model/pdata/common.go
+index c295da1b2..85a907cf2 100644
+--- a/model/pdata/common.go
++++ b/model/pdata/common.go
+@@ -854,6 +854,8 @@ func (es AnyValueArray) asRaw() []interface{} {
+ 			rawSlice = append(rawSlice, v.DoubleVal())
+ 		case AttributeValueTypeBool:
+ 			rawSlice = append(rawSlice, v.BoolVal())
++		case AttributeValueTypeBytes:
++			rawSlice = append(rawSlice, v.BytesVal())
+ 		case AttributeValueTypeEmpty:
+ 			rawSlice = append(rawSlice, nil)
+ 		default:

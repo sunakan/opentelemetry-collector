@@ -1,0 +1,34 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index adc7417fc..c26582e69 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -260,6 +260,14 @@ func (am AttributeMap) InitFromMap(attrMap map[string]AttributeValue) AttributeM
+ 	return am
+ }
+ 
++// InitEmptyWithCapacity constructs an empty AttributeMap with predefined slice capacity.
++func (am AttributeMap) InitEmptyWithCapacity(cap int) {
++	if cap == 0 {
++		*am.orig = []*otlpcommon.AttributeKeyValue(nil)
++	}
++	*am.orig = make([]*otlpcommon.AttributeKeyValue, 0, cap)
++}
++
+ // Get returns the AttributeKeyValue associated with the key and true,
+ // otherwise an invalid instance of the AttributeKeyValue and false.
+ // Calling any functions on the returned invalid instance will cause a panic.
+@@ -563,6 +571,14 @@ func (sm StringMap) InitFromMap(attrMap map[string]string) StringMap {
+ 	return sm
+ }
+ 
++// InitEmptyWithCapacity constructs an empty StringMap with predefined slice capacity.
++func (sm StringMap) InitEmptyWithCapacity(cap int) {
++	if cap == 0 {
++		*sm.orig = []*otlpcommon.StringKeyValue(nil)
++	}
++	*sm.orig = make([]*otlpcommon.StringKeyValue, 0, cap)
++}
++
+ // Get returns the StringValue associated with the key and true,
+ // otherwise an invalid instance of the StringKeyValue and false.
+ // Calling any functions on the returned invalid instance will cause a panic.

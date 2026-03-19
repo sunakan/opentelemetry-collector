@@ -1,0 +1,20 @@
+diff --git a/config/configauth/mock_serverauth_test.go b/config/configauth/mock_serverauth_test.go
+index 4854febf9..c22852862 100644
+--- a/config/configauth/mock_serverauth_test.go
++++ b/config/configauth/mock_serverauth_test.go
+@@ -51,13 +51,13 @@ func TestNilOperations(t *testing.T) {
+ 	}
+ 
+ 	{
+-		ret, err := m.GrpcUnaryServerInterceptor(origCtx, nil, nil, nil)
++		ret, err := m.GRPCUnaryServerInterceptor(origCtx, nil, nil, nil)
+ 		assert.Nil(t, ret)
+ 		assert.NoError(t, err)
+ 	}
+ 
+ 	{
+-		err := m.GrpcStreamServerInterceptor(nil, nil, nil, nil)
++		err := m.GRPCStreamServerInterceptor(nil, nil, nil, nil)
+ 		assert.NoError(t, err)
+ 	}
+ 

@@ -1,0 +1,24 @@
+diff --git a/component/component.go b/component/component.go
+index e21c26253..9eab76e36 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -14,8 +14,6 @@
+ 
+ package component
+ 
+-import "context"
+-
+ // Component is either a receiver, exporter, processor or extension.
+ type Component interface {
+ 	// Start tells the component to start. Host parameter can be used for communicating
+@@ -48,10 +46,6 @@ type Host interface {
+ 	// from) after its start function had already returned.
+ 	ReportFatalError(err error)
+ 
+-	// Context returns a context provided by the host to be used on the component
+-	// operations.
+-	Context() context.Context
+-
+ 	// GetFactory of the specified kind. Returns the factory for a component type.
+ 	// This allows components to create other components. For example:
+ 	//   func (r MyReceiver) Start(host component.Host) error {

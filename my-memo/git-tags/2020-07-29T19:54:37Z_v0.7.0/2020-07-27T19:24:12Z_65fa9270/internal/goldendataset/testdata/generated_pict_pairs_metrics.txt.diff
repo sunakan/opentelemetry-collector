@@ -1,0 +1,26 @@
+diff --git a/internal/goldendataset/testdata/generated_pict_pairs_metrics.txt b/internal/goldendataset/testdata/generated_pict_pairs_metrics.txt
+new file mode 100644
+index 000000000..0afba82a5
+--- /dev/null
++++ b/internal/goldendataset/testdata/generated_pict_pairs_metrics.txt
+@@ -0,0 +1,20 @@
++NumPtsPerMetric	MetricType	NumLabels	NumResourceAttrs
++OnePt	MonotonicInt	ManyLabels	NoAttrs
++ManyPts	Histogram	NoLabels	TwoAttrs
++ManyPts	MonotonicInt	OneLabel	TwoAttrs
++OnePt	MonotonicDouble	OneLabel	OneAttr
++ManyPts	Summary	OneLabel	NoAttrs
++ManyPts	Histogram	ManyLabels	NoAttrs
++OnePt	MonotonicDouble	NoLabels	NoAttrs
++ManyPts	Int	OneLabel	OneAttr
++OnePt	MonotonicDouble	ManyLabels	TwoAttrs
++ManyPts	MonotonicInt	NoLabels	OneAttr
++ManyPts	Double	OneLabel	OneAttr
++OnePt	Int	ManyLabels	NoAttrs
++OnePt	Summary	NoLabels	TwoAttrs
++ManyPts	Int	NoLabels	TwoAttrs
++ManyPts	Summary	ManyLabels	OneAttr
++ManyPts	MonotonicDouble	NoLabels	OneAttr
++OnePt	Double	NoLabels	NoAttrs
++OnePt	Histogram	OneLabel	OneAttr
++OnePt	Double	ManyLabels	TwoAttrs

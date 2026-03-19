@@ -1,0 +1,13 @@
+diff --git a/defaults/defaults_test.go b/defaults/defaults_test.go
+index 98fe62ace..9e341170d 100644
+--- a/defaults/defaults_test.go
++++ b/defaults/defaults_test.go
+@@ -56,7 +56,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"pprof":        &pprofextension.Factory{},
+ 		"zpages":       &zpagesextension.Factory{},
+ 	}
+-	expectedReceivers := map[string]receiver.Factory{
++	expectedReceivers := map[string]receiver.BaseFactory{
+ 		"jaeger":     &jaegerreceiver.Factory{},
+ 		"zipkin":     &zipkinreceiver.Factory{},
+ 		"prometheus": &prometheusreceiver.Factory{},

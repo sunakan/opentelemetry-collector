@@ -1,0 +1,13 @@
+diff --git a/internal/testutil/testutil.go b/internal/testutil/testutil.go
+index 204627540..6b8ac9d40 100644
+--- a/internal/testutil/testutil.go
++++ b/internal/testutil/testutil.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package testutil
++package testutil // import "go.opentelemetry.io/collector/internal/testutil"
+ 
+ import (
+ 	"net"

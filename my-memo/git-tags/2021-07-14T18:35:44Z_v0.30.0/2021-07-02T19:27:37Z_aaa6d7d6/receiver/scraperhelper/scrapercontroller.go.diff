@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index 5680a043f..a7f994ea1 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -179,7 +179,6 @@ func (sc *controller) startScraping() {
+ // Scrapers, records observability information, and passes the scraped metrics
+ // to the next component.
+ func (sc *controller) scrapeMetricsAndReport(ctx context.Context) {
+-	ctx = obsreport.ReceiverContext(ctx, sc.id, "")
+ 	metrics := pdata.NewMetrics()
+ 
+ 	for _, scraper := range sc.scrapers {

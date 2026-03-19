@@ -1,0 +1,15 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 37ff82ed6..ec64d66d5 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -29,3 +29,10 @@ updates:
+       interval: "daily"
+     assignees:
+       - "bogdandrutu"
++  - package-ecosystem: "gomod"
++    directory: "/internal/tools"
++    schedule:
++      interval: "daily"
++    # Add assignees
++    assignees:
++      - "bogdandrutu"

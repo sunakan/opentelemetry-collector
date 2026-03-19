@@ -1,0 +1,12 @@
+diff --git a/config/service.go b/config/service.go
+index 9d149baed..6cf4098ac 100644
+--- a/config/service.go
++++ b/config/service.go
+@@ -82,7 +82,6 @@ const (
+ 
+ // Pipeline defines a single pipeline.
+ type Pipeline struct {
+-	Name       string
+ 	InputType  DataType
+ 	Receivers  []ComponentID `mapstructure:"receivers"`
+ 	Processors []ComponentID `mapstructure:"processors"`

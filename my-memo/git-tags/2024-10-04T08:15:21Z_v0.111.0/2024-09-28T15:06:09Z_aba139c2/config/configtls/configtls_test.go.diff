@@ -1,0 +1,14 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index 1bd871b3e..50d290d1c 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -251,8 +251,7 @@ func TestOptionsToConfig(t *testing.T) {
+ 		t.Run(test.name, func(t *testing.T) {
+ 			cfg, err := test.options.loadTLSConfig()
+ 			if test.expectError != "" {
+-				require.Error(t, err)
+-				assert.Contains(t, err.Error(), test.expectError)
++				assert.ErrorContains(t, err, test.expectError)
+ 			} else {
+ 				require.NoError(t, err)
+ 				assert.NotNil(t, cfg)

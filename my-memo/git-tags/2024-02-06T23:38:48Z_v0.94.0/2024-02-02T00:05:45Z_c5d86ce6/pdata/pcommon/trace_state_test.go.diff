@@ -1,0 +1,17 @@
+diff --git a/pdata/pcommon/trace_state_test.go b/pdata/pcommon/trace_state_test.go
+index 74627a70c..4e56dffa1 100644
+--- a/pdata/pcommon/trace_state_test.go
++++ b/pdata/pcommon/trace_state_test.go
+@@ -35,3 +35,12 @@ func TestTraceState_FromRaw_AsRaw(t *testing.T) {
+ 	ms.FromRaw("congo=t61rcWkgMzE")
+ 	assert.Equal(t, "congo=t61rcWkgMzE", ms.AsRaw())
+ }
++
++func TestInvalidTraceState(t *testing.T) {
++	v := TraceState{}
++
++	assert.Panics(t, func() { v.AsRaw() })
++	assert.Panics(t, func() { v.FromRaw("") })
++	assert.Panics(t, func() { v.MoveTo(TraceState{}) })
++	assert.Panics(t, func() { v.CopyTo(TraceState{}) })
++}

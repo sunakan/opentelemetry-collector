@@ -1,0 +1,12 @@
+diff --git a/consumer/simple/metrics_test.go b/consumer/simple/metrics_test.go
+index 70c3f6e13..282df32db 100644
+--- a/consumer/simple/metrics_test.go
++++ b/consumer/simple/metrics_test.go
+@@ -488,7 +488,6 @@ func BenchmarkPdataMetrics(b *testing.B) {
+ 		metrics.Resize(6)
+ 
+ 		il := ilm.InstrumentationLibrary()
+-		il.InitEmpty()
+ 		il.SetName("example")
+ 		il.SetVersion("0.1")
+ 

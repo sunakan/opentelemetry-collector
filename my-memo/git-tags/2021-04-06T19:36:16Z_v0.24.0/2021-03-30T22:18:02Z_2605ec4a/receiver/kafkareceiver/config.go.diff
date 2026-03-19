@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/config.go b/receiver/kafkareceiver/config.go
+index 2c6192a6d..ec8f368ea 100644
+--- a/receiver/kafkareceiver/config.go
++++ b/receiver/kafkareceiver/config.go
+@@ -42,7 +42,7 @@ type Config struct {
+ 	Authentication kafkaexporter.Authentication `mapstructure:"auth"`
+ }
+ 
+-var _ config.CustomConfigOptions = (*Config)(nil)
++var _ config.Receiver = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

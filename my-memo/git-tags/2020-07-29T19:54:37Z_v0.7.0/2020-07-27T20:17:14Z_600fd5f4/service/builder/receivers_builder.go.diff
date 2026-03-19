@@ -1,0 +1,16 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index 8db737746..066e0792a 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -62,10 +62,7 @@ func (rcvs Receivers) ShutdownAll(ctx context.Context) error {
+ 		}
+ 	}
+ 
+-	if len(errs) != 0 {
+-		return componenterror.CombineErrors(errs)
+-	}
+-	return nil
++	return componenterror.CombineErrors(errs)
+ }
+ 
+ // StartAll starts all receivers.

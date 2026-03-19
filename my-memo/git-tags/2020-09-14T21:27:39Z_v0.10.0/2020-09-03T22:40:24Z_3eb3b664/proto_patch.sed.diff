@@ -1,0 +1,11 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+new file mode 100644
+index 000000000..9ab872bb6
+--- /dev/null
++++ b/proto_patch.sed
+@@ -0,0 +1,5 @@
++s+github.com/open-telemetry/opentelemetry-proto/gen/go/+go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/+g
++
++s+package opentelemetry.proto.\(.*\).v1;+package opentelemetry.proto.\1.v1;\
++\
++import "github.com/gogo/protobuf@v1.3.1/gogoproto/gogo.proto";+g

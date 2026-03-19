@@ -1,0 +1,20 @@
+diff --git a/otelcol/testdata/otelcol-noreaders.yaml b/otelcol/testdata/otelcol-noreaders.yaml
+deleted file mode 100644
+index a35cf1fbb..000000000
+--- a/otelcol/testdata/otelcol-noreaders.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-receivers:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      level: none
+-  pipelines:
+-    metrics:
+-      receivers: [nop]
+-      exporters: [nop]

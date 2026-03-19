@@ -1,0 +1,23 @@
+diff --git a/pdata/pmetric/generated_resourcemetricsslice_test.go b/pdata/pmetric/generated_resourcemetricsslice_test.go
+index 41672b180..9198f6d7f 100644
+--- a/pdata/pmetric/generated_resourcemetricsslice_test.go
++++ b/pdata/pmetric/generated_resourcemetricsslice_test.go
+@@ -123,6 +123,18 @@ func TestResourceMetricsSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestResourceMetricsSliceAll(t *testing.T) {
++	ms := generateTestResourceMetricsSlice()
++	assert.NotEmpty(t, ms.Len())
++
++	var c int
++	for i, v := range ms.All() {
++		assert.Equal(t, ms.At(i), v, "element should match")
++		c++
++	}
++	assert.Equal(t, ms.Len(), c, "All elements should have been visited")
++}
++
+ func TestResourceMetricsSlice_Sort(t *testing.T) {
+ 	es := generateTestResourceMetricsSlice()
+ 	es.Sort(func(a, b ResourceMetrics) bool {

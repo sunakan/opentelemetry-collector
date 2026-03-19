@@ -1,0 +1,27 @@
+diff --git a/cmd/mdatagen/internal/testdata/entity_relationships_undefined_target.yaml b/cmd/mdatagen/internal/testdata/entity_relationships_undefined_target.yaml
+new file mode 100644
+index 000000000..c97f39526
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/entity_relationships_undefined_target.yaml
+@@ -0,0 +1,21 @@
++type: sample
++status:
++  class: receiver
++  stability:
++    stable: [metrics]
++
++resource_attributes:
++  k8s.pod.uid:
++    description: The unique identifier of the Kubernetes pod
++    type: string
++    enabled: true
++
++entities:
++  - type: k8s.pod
++    brief: A Kubernetes pod
++    stability: stable
++    identity:
++      - ref: k8s.pod.uid
++    relationships:
++      - type: controlled_by
++        target: k8s.replicaset

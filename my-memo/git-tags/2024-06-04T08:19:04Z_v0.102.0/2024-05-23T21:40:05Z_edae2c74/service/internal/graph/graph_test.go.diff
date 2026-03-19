@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/graph_test.go b/service/internal/graph/graph_test.go
+index eddd30981..343f752b8 100644
+--- a/service/internal/graph/graph_test.go
++++ b/service/internal/graph/graph_test.go
+@@ -34,7 +34,7 @@ import (
+ 	"go.opentelemetry.io/collector/service/pipelines"
+ )
+ 
+-var _ component.Component = &testNode{}
++var _ component.Component = (*testNode)(nil)
+ 
+ type testNode struct {
+ 	id          component.ID

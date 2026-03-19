@@ -1,0 +1,16 @@
+diff --git a/configv2/testdata/pipeline-must-have-processors.yaml b/configv2/testdata/pipeline-must-have-processors.yaml
+new file mode 100644
+index 000000000..6eca7675e
+--- /dev/null
++++ b/configv2/testdata/pipeline-must-have-processors.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers: [multireceiver]
++    exporters: [exampleexporter]

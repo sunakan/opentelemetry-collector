@@ -1,0 +1,16 @@
+diff --git a/component/component_test.go b/component/component_test.go
+index cd45b8ba1..d0d6b370e 100644
+--- a/component/component_test.go
++++ b/component/component_test.go
+@@ -20,11 +20,6 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+-func TestBaseInternal(t *testing.T) {
+-	base := baseFactory{}
+-	assert.NotPanics(t, base.unexportedFactoryFunc)
+-}
+-
+ func TestStabilityLevelString(t *testing.T) {
+ 	assert.EqualValues(t, "Undefined", StabilityLevelUndefined.String())
+ 	assert.EqualValues(t, "Unmaintained", StabilityLevelUnmaintained.String())

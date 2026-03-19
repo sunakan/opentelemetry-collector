@@ -1,0 +1,19 @@
+diff --git a/processor/memorylimiterprocessor/generated_component_test.go b/processor/memorylimiterprocessor/generated_component_test.go
+index 4179b5488..7144d4a39 100644
+--- a/processor/memorylimiterprocessor/generated_component_test.go
++++ b/processor/memorylimiterprocessor/generated_component_test.go
+@@ -21,6 +21,14 @@ import (
+ 	"go.opentelemetry.io/collector/processor/processortest"
+ )
+ 
++func TestComponentFactoryType(t *testing.T) {
++	require.Equal(t, "memory_limiter", NewFactory().Type().String())
++}
++
++func TestComponentConfigStruct(t *testing.T) {
++	require.NoError(t, componenttest.CheckConfigStruct(NewFactory().CreateDefaultConfig()))
++}
++
+ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 

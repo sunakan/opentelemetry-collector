@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index 3668d8b5f..f49a28ae9 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -76,5 +76,5 @@ func generateTestSummary() Summary {
+ }
+ 
+ func fillTestSummary(tv Summary) {
+-	fillTestSummaryDataPointSlice(newSummaryDataPointSlice(&tv.orig.DataPoints, tv.state))
++	fillTestSummaryDataPointSlice(tv.DataPoints())
+ }

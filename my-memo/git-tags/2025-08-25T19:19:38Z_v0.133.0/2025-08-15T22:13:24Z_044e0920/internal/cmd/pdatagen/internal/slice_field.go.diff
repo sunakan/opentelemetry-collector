@@ -1,0 +1,20 @@
+diff --git a/internal/cmd/pdatagen/internal/slice_field.go b/internal/cmd/pdatagen/internal/slice_field.go
+index 34a0edd8e..89931fd23 100644
+--- a/internal/cmd/pdatagen/internal/slice_field.go
++++ b/internal/cmd/pdatagen/internal/slice_field.go
+@@ -92,14 +92,13 @@ func (sf *SliceField) GenerateUnmarshalProto(*messageStruct) string {
+ }
+ 
+ func (sf *SliceField) toProtoField() *ProtoField {
+-	_, nullable := sf.returnSlice.(*sliceOfPtrs)
+ 	return &ProtoField{
+ 		Type:            sf.protoType,
+ 		ID:              sf.protoID,
+ 		Name:            sf.fieldName,
+ 		MessageFullName: sf.returnSlice.getElementOriginName(),
+ 		Repeated:        sf.protoType != ProtoTypeBytes,
+-		Nullable:        nullable,
++		Nullable:        sf.returnSlice.getElementNullable(),
+ 	}
+ }
+ 

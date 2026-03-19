@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/options.go b/processor/queuedprocessor/options.go
+index e2cf31cf6..390637dfc 100644
+--- a/processor/queuedprocessor/options.go
++++ b/processor/queuedprocessor/options.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/processor/nodebatcherprocessor"
++	"github.com/open-telemetry/opentelemetry-collector/processor/nodebatcherprocessor"
+ )
+ 
+ const (

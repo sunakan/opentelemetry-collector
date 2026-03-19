@@ -1,0 +1,13 @@
+diff --git a/internal/telemetry/componentattribute/logger_test.go b/internal/telemetry/componentattribute/logger_test.go
+index 95127b059..e38d04ad0 100644
+--- a/internal/telemetry/componentattribute/logger_test.go
++++ b/internal/telemetry/componentattribute/logger_test.go
+@@ -90,7 +90,7 @@ func TestCore(t *testing.T) {
+ 			createLogger: func() (*zap.Logger, logRecorder) {
+ 				core, observed := createZapCore()
+ 				recorder := logtest.NewRecorder()
+-				core = componentattribute.NewOTelTeeCoreWithAttributes(core, recorder, "testinstr", zap.DebugLevel, attribute.NewSet())
++				core = componentattribute.NewOTelTeeCoreWithAttributes(core, recorder, "testinstr", zap.DebugLevel, attribute.NewSet(), func(c zapcore.Core) zapcore.Core { return c })
+ 				return zap.New(core), logRecorder{zapLogs: observed, otelLogs: recorder}
+ 			},
+ 			check: func(t *testing.T, rec logRecorder) {

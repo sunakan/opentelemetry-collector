@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
+index c7c001cdd..38737f0a5 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
+@@ -37,7 +37,7 @@ func initializeDiskWeightedIOTimeMetric(metric pdata.Metric, startTime, now pdat
+ 	ddps.EnsureCapacity(len(ioCounters))
+ 
+ 	for device, ioCounter := range ioCounters {
+-		initializeDoubleDataPoint(ddps.AppendEmpty(), startTime, now, device, "", float64(ioCounter.WeightedIO)/1e3)
++		initializeNumberDataPointAsDouble(ddps.AppendEmpty(), startTime, now, device, "", float64(ioCounter.WeightedIO)/1e3)
+ 	}
+ }
+ 

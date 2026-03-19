@@ -1,0 +1,13 @@
+diff --git a/examples/demo/app/main.go b/examples/demo/app/main.go
+index 1fd86a0a0..8131d0b83 100644
+--- a/examples/demo/app/main.go
++++ b/examples/demo/app/main.go
+@@ -47,7 +47,7 @@ func initProvider() func() {
+ 
+ 	otelAgentAddr, ok := os.LookupEnv("OTEL_AGENT_ENDPOINT")
+ 	if !ok {
+-		otelAgentAddr = "0.0.0.0:55680"
++		otelAgentAddr = "0.0.0.0:4317"
+ 	}
+ 
+ 	exp, err := otlp.NewExporter(ctx, otlpgrpc.NewDriver(

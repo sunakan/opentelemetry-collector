@@ -1,0 +1,16 @@
+diff --git a/processor/memorylimiter/memorylimiter.go b/processor/memorylimiter/memorylimiter.go
+index 3676b78c4..ae33b9c58 100644
+--- a/processor/memorylimiter/memorylimiter.go
++++ b/processor/memorylimiter/memorylimiter.go
+@@ -118,7 +118,10 @@ func newMemoryLimiter(logger *zap.Logger, cfg *Config) (*memoryLimiter, error) {
+ 		readMemStatsFn: runtime.ReadMemStats,
+ 		procName:       cfg.Name(),
+ 		logger:         logger,
+-		obsrep:         obsreport.NewProcessor(configtelemetry.GetMetricsLevelFlagValue(), cfg.Name()),
++		obsrep: obsreport.NewProcessor(obsreport.ProcessorSettings{
++			Level:         configtelemetry.GetMetricsLevelFlagValue(),
++			ProcessorName: cfg.Name(),
++		}),
+ 	}
+ 
+ 	ml.startMonitoring()

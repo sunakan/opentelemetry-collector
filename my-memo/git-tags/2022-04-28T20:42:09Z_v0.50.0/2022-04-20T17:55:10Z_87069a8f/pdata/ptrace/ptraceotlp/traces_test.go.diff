@@ -1,0 +1,16 @@
+diff --git a/pdata/ptrace/ptraceotlp/traces_test.go b/pdata/ptrace/ptraceotlp/traces_test.go
+index b3eac4f3e..0b4f48b98 100644
+--- a/pdata/ptrace/ptraceotlp/traces_test.go
++++ b/pdata/ptrace/ptraceotlp/traces_test.go
+@@ -315,10 +315,7 @@ func (f fakeTracesServer) Export(_ context.Context, request Request) (Response,
+ func generateTracesRequest() Request {
+ 	td := ptrace.NewTraces()
+ 	td.ResourceSpans().AppendEmpty().ScopeSpans().AppendEmpty().Spans().AppendEmpty().SetName("test_span")
+-
+-	tr := NewRequest()
+-	tr.SetTraces(td)
+-	return tr
++	return NewRequestFromTraces(td)
+ }
+ 
+ func generateTracesRequestWithInstrumentationLibrary() Request {

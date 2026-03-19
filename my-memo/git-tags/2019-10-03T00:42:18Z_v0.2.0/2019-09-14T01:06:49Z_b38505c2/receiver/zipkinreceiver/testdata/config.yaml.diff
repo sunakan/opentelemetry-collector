@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/testdata/config.yaml b/receiver/zipkinreceiver/testdata/config.yaml
+index 8413f5723..9b45f1c20 100644
+--- a/receiver/zipkinreceiver/testdata/config.yaml
++++ b/receiver/zipkinreceiver/testdata/config.yaml
+@@ -1,7 +1,7 @@
+ receivers:
+   zipkin:
+   zipkin/customname:
+-    endpoint: "127.0.0.1:8765"
++    endpoint: "localhost:8765"
+ 
+ processors:
+   exampleprocessor:

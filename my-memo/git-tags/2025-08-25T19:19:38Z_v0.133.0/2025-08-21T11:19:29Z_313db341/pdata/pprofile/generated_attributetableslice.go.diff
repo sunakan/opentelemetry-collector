@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_attributetableslice.go b/pdata/pprofile/generated_attributetableslice.go
+index 922b9b636..6caf8a1b3 100644
+--- a/pdata/pprofile/generated_attributetableslice.go
++++ b/pdata/pprofile/generated_attributetableslice.go
+@@ -145,5 +145,8 @@ func (es AttributeTableSlice) RemoveIf(f func(Attribute) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es AttributeTableSlice) CopyTo(dest AttributeTableSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigKeyValueSlice(*dest.orig, *es.orig)
+ }

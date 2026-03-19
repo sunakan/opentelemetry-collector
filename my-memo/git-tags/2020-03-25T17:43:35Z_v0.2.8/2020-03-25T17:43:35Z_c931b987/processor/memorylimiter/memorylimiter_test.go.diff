@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index 8ae7217e1..d04e8e2cf 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -30,7 +30,7 @@ import (
+ 
+ func TestNew(t *testing.T) {
+ 	type args struct {
+-		nextConsumer  consumer.TraceConsumer
++		nextConsumer  consumer.TraceConsumerOld
+ 		checkInterval time.Duration
+ 		memAllocLimit uint64
+ 		memSpikeLimit uint64

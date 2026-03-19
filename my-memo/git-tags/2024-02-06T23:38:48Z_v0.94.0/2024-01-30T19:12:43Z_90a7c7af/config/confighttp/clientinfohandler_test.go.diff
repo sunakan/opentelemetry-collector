@@ -1,0 +1,19 @@
+diff --git a/config/confighttp/clientinfohandler_test.go b/config/confighttp/clientinfohandler_test.go
+index d8201cad1..bbd18ec52 100644
+--- a/config/confighttp/clientinfohandler_test.go
++++ b/config/confighttp/clientinfohandler_test.go
+@@ -5,11 +5,14 @@ package confighttp // import "go.opentelemetry.io/collector/config/confighttp"
+ 
+ import (
+ 	"net"
++	"net/http"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
++var _ http.Handler = (*clientInfoHandler)(nil)
++
+ func TestParseIP(t *testing.T) {
+ 	testCases := []struct {
+ 		desc     string

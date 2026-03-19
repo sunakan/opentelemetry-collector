@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index 869afa88b..d3ee52ef0 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -76,7 +76,7 @@ func (f *nopReceiverFactory) CreateLogsReceiver(
+ }
+ 
+ var nopReceiverInstance = &nopReceiver{
+-	Component: componenthelper.NewComponent(componenthelper.DefaultComponentSettings()),
++	Component: componenthelper.New(),
+ }
+ 
+ // nopReceiver stores consumed traces and metrics for testing purposes.

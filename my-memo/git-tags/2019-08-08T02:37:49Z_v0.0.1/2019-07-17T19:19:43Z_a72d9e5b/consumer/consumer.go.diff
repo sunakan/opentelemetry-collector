@@ -1,0 +1,12 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index cd62c854e..d8080d4c9 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package consumer contains interfaces that receive and process consumerdata.
+ package consumer
+ 
+ import (

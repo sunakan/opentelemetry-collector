@@ -1,0 +1,16 @@
+diff --git a/cmd/otelsvc/main.go b/cmd/otelsvc/main.go
+index 4eb9d1d8e..6173d5ed5 100644
+--- a/cmd/otelsvc/main.go
++++ b/cmd/otelsvc/main.go
+@@ -16,7 +16,10 @@
+ // and traces and exports to a configured backend.
+ package main
+ 
+-import "github.com/open-telemetry/opentelemetry-service/otelsvc"
++import (
++	"github.com/open-telemetry/opentelemetry-service/otelsvc"
++	_ "github.com/open-telemetry/opentelemetry-service/receiver/vmmetricsreceiver"
++)
+ 
+ func main() {
+ 	otelsvc.Run()

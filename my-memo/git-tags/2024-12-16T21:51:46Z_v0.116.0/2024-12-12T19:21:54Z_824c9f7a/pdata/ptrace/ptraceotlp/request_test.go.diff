@@ -1,0 +1,17 @@
+diff --git a/pdata/ptrace/ptraceotlp/request_test.go b/pdata/ptrace/ptraceotlp/request_test.go
+index 444ae74b7..98880ed4b 100644
+--- a/pdata/ptrace/ptraceotlp/request_test.go
++++ b/pdata/ptrace/ptraceotlp/request_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportRequest{}
+-var _ json.Marshaler = ExportRequest{}
++var (
++	_ json.Unmarshaler = ExportRequest{}
++	_ json.Marshaler   = ExportRequest{}
++)
+ 
+ var tracesRequestJSON = []byte(`
+ 	{

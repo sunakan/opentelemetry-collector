@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/templates/components_test.go.tmpl b/cmd/builder/internal/builder/templates/components_test.go.tmpl
+index 09f867d84..19cbf5990 100644
+--- a/cmd/builder/internal/builder/templates/components_test.go.tmpl
++++ b/cmd/builder/internal/builder/templates/components_test.go.tmpl
+@@ -26,4 +26,7 @@ func TestValidateConfigs(t *testing.T) {
+ 	for _, factory := range factories.Extensions {
+ 		assert.NoError(t, componenttest.CheckConfigStruct(factory.CreateDefaultConfig()))
+ 	}
++	for _, factory := range factories.Connectors {
++		assert.NoError(t, componenttest.CheckConfigStruct(factory.CreateDefaultConfig()))
++	}
+ }

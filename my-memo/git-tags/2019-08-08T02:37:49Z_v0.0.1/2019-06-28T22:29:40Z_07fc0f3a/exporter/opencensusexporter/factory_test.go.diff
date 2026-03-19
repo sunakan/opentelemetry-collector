@@ -1,0 +1,14 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index 9b2628e7d..c5d9e498d 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"github.com/open-telemetry/opentelemetry-service/factories"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/compression"
+-	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

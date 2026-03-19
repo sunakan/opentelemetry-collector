@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/documentation.md b/cmd/mdatagen/internal/samplereceiver/documentation.md
+index f810d0a03..077f1bf82 100644
+--- a/cmd/mdatagen/internal/samplereceiver/documentation.md
++++ b/cmd/mdatagen/internal/samplereceiver/documentation.md
+@@ -134,6 +134,14 @@ Cumulative bytes allocated for heap objects (see 'go doc runtime.MemStats.TotalA
+ | ---- | ----------- | ---------- | --------- |
+ | By | Sum | Int | true |
+ 
++### otelcol_queue_capacity
++
++Queue capacity - sync gauge example.
++
++| Unit | Metric Type | Value Type |
++| ---- | ----------- | ---------- |
++| {items} | Gauge | Int |
++
+ ### otelcol_queue_length
+ 
+ This metric is optional and therefore not initialized in NewTelemetryBuilder.

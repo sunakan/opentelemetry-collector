@@ -1,0 +1,13 @@
+diff --git a/component/identifiable.go b/component/identifiable.go
+index 0b2c9cdf7..63b890b47 100644
+--- a/component/identifiable.go
++++ b/component/identifiable.go
+@@ -26,6 +26,8 @@ var (
+ 	nameRegexp = regexp.MustCompile(`^[^\pZ\pC\pS]+$`)
+ )
+ 
++var _ fmt.Stringer = Type{}
++
+ // Type is the component type as it is used in the config.
+ type Type struct {
+ 	name string

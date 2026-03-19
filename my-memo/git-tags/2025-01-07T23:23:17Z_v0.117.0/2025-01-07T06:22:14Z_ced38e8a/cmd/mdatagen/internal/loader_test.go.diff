@@ -1,0 +1,21 @@
+diff --git a/cmd/mdatagen/internal/loader_test.go b/cmd/mdatagen/internal/loader_test.go
+index 19f3e1184..bcacf1072 100644
+--- a/cmd/mdatagen/internal/loader_test.go
++++ b/cmd/mdatagen/internal/loader_test.go
+@@ -288,6 +288,16 @@ func TestLoadMetadata(t *testing.T) {
+ 								Async: true,
+ 							},
+ 						},
++						"queue_capacity": {
++							Enabled:     true,
++							Description: "Queue capacity - sync gauge example.",
++							Unit:        strPtr("{items}"),
++							Gauge: &Gauge{
++								MetricValueType: MetricValueType{
++									ValueType: pmetric.NumberDataPointValueTypeInt,
++								},
++							},
++						},
+ 					},
+ 				},
+ 				ScopeName:       "go.opentelemetry.io/collector/internal/receiver/samplereceiver",

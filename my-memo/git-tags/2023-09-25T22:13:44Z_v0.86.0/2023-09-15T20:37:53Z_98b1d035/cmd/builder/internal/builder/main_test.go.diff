@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 16a0756d5..06ba7fce3 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -81,6 +81,7 @@ func TestGenerateAndCompile(t *testing.T) {
+ 		fmt.Sprintf("go.opentelemetry.io/collector/receiver/otlpreceiver => %s/receiver/otlpreceiver", workspaceDir),
+ 		fmt.Sprintf("go.opentelemetry.io/collector/pdata => %s/pdata", workspaceDir),
+ 		fmt.Sprintf("go.opentelemetry.io/collector/semconv => %s/semconv", workspaceDir),
++		fmt.Sprintf("go.opentelemetry.io/collector/service => %s/service", workspaceDir),
+ 	}
+ 
+ 	testCases := []struct {

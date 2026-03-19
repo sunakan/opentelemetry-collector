@@ -1,0 +1,14 @@
+diff --git a/config/testdata/missing-receivers.yaml b/config/testdata/missing-receivers.yaml
+deleted file mode 100644
+index 7a79d41a6..000000000
+--- a/config/testdata/missing-receivers.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-receivers:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:

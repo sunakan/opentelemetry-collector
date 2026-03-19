@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/exporters_test.go b/service/internal/configunmarshaler/exporters_test.go
+index 5f8ba6caa..59e37c21b 100644
+--- a/service/internal/configunmarshaler/exporters_test.go
++++ b/service/internal/configunmarshaler/exporters_test.go
+@@ -38,7 +38,7 @@ func TestExportersUnmarshal(t *testing.T) {
+ 
+ 	cfgWithName := factories.Exporters["nop"].CreateDefaultConfig()
+ 	cfgWithName.SetIDName("myexporter")
+-	assert.Equal(t, map[component.ID]component.ExporterConfig{
++	assert.Equal(t, map[component.ID]component.Config{
+ 		component.NewID("nop"):                       factories.Exporters["nop"].CreateDefaultConfig(),
+ 		component.NewIDWithName("nop", "myexporter"): cfgWithName,
+ 	}, exps.GetExporters())

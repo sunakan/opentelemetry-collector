@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exporttraceservicerequest.go b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+index c20002267..4b80b2695 100644
+--- a/pdata/internal/generated_wrapper_exporttraceservicerequest.go
++++ b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+@@ -66,6 +66,10 @@ func DeleteOrigExportTraceServiceRequest(orig *otlpcollectortrace.ExportTraceSer
+ }
+ 
+ func CopyOrigExportTraceServiceRequest(dest, src *otlpcollectortrace.ExportTraceServiceRequest) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.ResourceSpans = CopyOrigResourceSpansSlice(dest.ResourceSpans, src.ResourceSpans)
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index e44e5a531..64da1baff 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -1,7 +1,7 @@
+ name: build-and-test
+ on:
+   push:
+-    branches: [main, 'renovatebot/**']
++    branches: [main]
+     tags:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
+   pull_request:

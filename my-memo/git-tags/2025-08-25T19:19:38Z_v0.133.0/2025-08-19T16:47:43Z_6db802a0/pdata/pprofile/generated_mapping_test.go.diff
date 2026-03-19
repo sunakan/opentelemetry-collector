@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_mapping_test.go b/pdata/pprofile/generated_mapping_test.go
+index cedf9e92b..de23fef46 100644
+--- a/pdata/pprofile/generated_mapping_test.go
++++ b/pdata/pprofile/generated_mapping_test.go
+@@ -131,7 +131,6 @@ func TestMapping_HasInlineFrames(t *testing.T) {
+ }
+ 
+ func generateTestMapping() Mapping {
+-	ms := NewMapping()
+-	internal.FillOrigTestMapping(ms.orig)
++	ms := newMapping(internal.GenTestOrigMapping(), internal.NewState())
+ 	return ms
+ }

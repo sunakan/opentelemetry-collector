@@ -1,0 +1,21 @@
+diff --git a/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.2.0_metrics.yaml b/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.2.0_metrics.yaml
+new file mode 100644
+index 000000000..9c4e2ae2d
+--- /dev/null
++++ b/service/telemetry/otelconftelemetry/internal/migration/testdata/v0.2.0_metrics.yaml
+@@ -0,0 +1,14 @@
++readers:
++  - periodic:
++      exporter:
++        otlp:
++          protocol: http/protobuf
++          endpoint: 127.0.0.1:4317
++          headers:
++            "key1": "value1"
++            "key2": "value2"
++  - pull:
++      exporter:
++        prometheus:
++          host: 127.0.0.1
++          port: 8902
+\ No newline at end of file

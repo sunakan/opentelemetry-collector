@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/nop_receiver_test.go b/receiver/receivertest/nop_receiver_test.go
+index eb843f3ee..68882a112 100644
+--- a/receiver/receivertest/nop_receiver_test.go
++++ b/receiver/receivertest/nop_receiver_test.go
+@@ -31,7 +31,7 @@ func TestNewNopFactory(t *testing.T) {
+ 	require.NotNil(t, factory)
+ 	assert.Equal(t, component.Type("nop"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+-	// assert.Equal(t, &nopReceiverConfig{ReceiverSettings: config.NewReceiverSettings(component.NewID("nop"))}, cfg)
++	// assert.Equal(t, &nopConfig{}, cfg)
+ 
+ 	traces, err := factory.CreateTracesReceiver(context.Background(), NewNopCreateSettings(), cfg, consumertest.NewNop())
+ 	require.NoError(t, err)

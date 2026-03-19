@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index 070449e98..b3fcfb60e 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -46,7 +46,7 @@ func TestExport(t *testing.T) {
+ 
+ 	// when
+ 
+-	req := testdata.GenerateMetricsOneMetric()
++	req := testdata.GenerateMetricsOneSumMetric()
+ 
+ 	// Keep metric data to compare the test result against it
+ 	// Clone needed because OTLP proto XXX_ fields are altered in the GRPC downstream

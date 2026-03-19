@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index e18285882..70abe56e4 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -92,9 +92,10 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, pusher sende
+ 
+ 	if be.queueCfg.Enabled || be.batcherCfg.Enabled {
+ 		qSet := queuebatch.QueueSettings[request.Request]{
+-			Signal:           signal,
+-			ExporterSettings: set,
+-			Encoding:         be.queueBatchSettings.Encoding,
++			Signal:    signal,
++			ID:        set.ID,
++			Telemetry: set.TelemetrySettings,
++			Settings:  be.queueBatchSettings,
+ 		}
+ 		be.QueueSender, err = NewQueueSender(qSet, be.queueCfg, be.batcherCfg, be.ExportFailureMessage, be.firstSender)
+ 		if err != nil {

@@ -1,0 +1,13 @@
+diff --git a/internal/telemetry/componentattribute/logger_provider.go b/internal/telemetry/componentattribute/logger_provider.go
+index c41868e83..5aad00f24 100644
+--- a/internal/telemetry/componentattribute/logger_provider.go
++++ b/internal/telemetry/componentattribute/logger_provider.go
+@@ -15,7 +15,7 @@ type loggerProviderWithAttributes struct {
+ 	attrs []attribute.KeyValue
+ }
+ 
+-// Creates a LoggerProvider with a new set of injected instrumentation scope attributes.
++// LoggerProviderWithAttributes creates a LoggerProvider with a new set of injected instrumentation scope attributes.
+ func LoggerProviderWithAttributes(lp log.LoggerProvider, attrs attribute.Set) log.LoggerProvider {
+ 	if lpwa, ok := lp.(loggerProviderWithAttributes); ok {
+ 		lp = lpwa.LoggerProvider

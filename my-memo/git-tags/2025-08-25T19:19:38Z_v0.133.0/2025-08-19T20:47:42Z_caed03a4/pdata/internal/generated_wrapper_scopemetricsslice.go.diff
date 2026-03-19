@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_scopemetricsslice.go b/pdata/internal/generated_wrapper_scopemetricsslice.go
+index 2fc6a8762..afcdf1b9b 100644
+--- a/pdata/internal/generated_wrapper_scopemetricsslice.go
++++ b/pdata/internal/generated_wrapper_scopemetricsslice.go
+@@ -8,7 +8,6 @@ package internal
+ 
+ import (
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func CopyOrigScopeMetricsSlice(dest, src []*otlpmetrics.ScopeMetrics) []*otlpmetrics.ScopeMetrics {
+@@ -49,14 +48,3 @@ func GenerateOrigTestScopeMetricsSlice() []*otlpmetrics.ScopeMetrics {
+ 	orig[4] = NewOrigScopeMetrics()
+ 	return orig
+ }
+-
+-// UnmarshalJSONOrigScopeMetricsSlice unmarshals all properties from the current struct from the source iterator.
+-func UnmarshalJSONOrigScopeMetricsSlice(iter *json.Iterator) []*otlpmetrics.ScopeMetrics {
+-	var orig []*otlpmetrics.ScopeMetrics
+-	iter.ReadArrayCB(func(iter *json.Iterator) bool {
+-		orig = append(orig, NewOrigScopeMetrics())
+-		UnmarshalJSONOrigScopeMetrics(orig[len(orig)-1], iter)
+-		return true
+-	})
+-	return orig
+-}

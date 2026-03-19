@@ -1,0 +1,15 @@
+diff --git a/component/exporter.go b/component/exporter.go
+index 66c4dabc3..90bbe9e06 100644
+--- a/component/exporter.go
++++ b/component/exporter.go
+@@ -19,8 +19,8 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ // Exporter defines functions that all exporters must implement.

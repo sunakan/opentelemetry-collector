@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 9ebebfe4a..169120ad4 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -232,7 +232,7 @@ func TestHTTPContentDecompressionHandler(t *testing.T) {
+ 			encoding: "snappy",
+ 			reqBody:  bytes.NewBuffer(testBody),
+ 			respCode: http.StatusBadRequest,
+-			respBody: "snappy: corrupt input\n",
++			respBody: "snappy: corrupt input",
+ 		},
+ 		{
+ 			name:     "UnsupportedCompression",

@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_protospan.go b/translator/trace/zipkin/zipkinv1_thrift_to_protospan.go
+index 1b29ca383..8f62ce28b 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_protospan.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_protospan.go
+@@ -102,6 +102,8 @@ func zipkinV1ThriftToOCSpan(zSpan *zipkincore.Span) (*tracepb.Span, *annotationP
+ 		ocSpan.Name = &tracepb.TruncatableString{Value: zSpan.Name}
+ 	}
+ 
++	setSpanKind(ocSpan, parsedAnnotations.Kind, parsedAnnotations.ExtendedKind)
++
+ 	return ocSpan, parsedAnnotations, nil
+ }
+ 

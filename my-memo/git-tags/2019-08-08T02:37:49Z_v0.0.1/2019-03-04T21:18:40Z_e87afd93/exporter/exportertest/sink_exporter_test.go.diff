@@ -1,0 +1,26 @@
+diff --git a/exporter/exportertest/sink_exporter_test.go b/exporter/exportertest/sink_exporter_test.go
+index 2ee9dd7c2..48637d29e 100644
+--- a/exporter/exportertest/sink_exporter_test.go
++++ b/exporter/exportertest/sink_exporter_test.go
+@@ -40,8 +40,8 @@ func TestSinkTraceExporter(t *testing.T) {
+ 	if !reflect.DeepEqual(got, want) {
+ 		t.Errorf("Mismatches responses\nGot:\n\t%v\nWant:\n\t%v\n", got, want)
+ 	}
+-	if "SinkExporter" != sink.ExportFormat() {
+-		t.Errorf("Wanted SinkExporter got %s", sink.ExportFormat())
++	if "sink_trace" != sink.TraceExportFormat() {
++		t.Errorf("Wanted sink_trace got %s", sink.TraceExportFormat())
+ 		return
+ 	}
+ }
+@@ -63,8 +63,8 @@ func TestSinkMetricsExporter(t *testing.T) {
+ 	if !reflect.DeepEqual(got, want) {
+ 		t.Errorf("Mismatches responses\nGot:\n\t%v\nWant:\n\t%v\n", got, want)
+ 	}
+-	if "SinkExporter" != sink.ExportFormat() {
+-		t.Errorf("Wanted SinkExporter got %s", sink.ExportFormat())
++	if "sink_metrics" != sink.MetricsExportFormat() {
++		t.Errorf("Wanted sink_metrics got %s", sink.MetricsExportFormat())
+ 		return
+ 	}
+ }

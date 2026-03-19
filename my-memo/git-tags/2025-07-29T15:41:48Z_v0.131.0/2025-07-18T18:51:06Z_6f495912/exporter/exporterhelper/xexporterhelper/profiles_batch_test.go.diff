@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go b/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
+index 4f45793b0..877d1370f 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles_batch_test.go
+@@ -30,7 +30,7 @@ func TestMergeProfiles(t *testing.T) {
+ func TestMergeProfilesInvalidInput(t *testing.T) {
+ 	pr2 := newProfilesRequest(testdata.GenerateProfiles(3))
+ 	_, err := pr2.MergeSplit(context.Background(), 0, exporterhelper.RequestSizerTypeItems, &requesttest.FakeRequest{Items: 1})
+-	assert.Error(t, err)
++	require.Error(t, err)
+ }
+ 
+ func TestMergeSplitProfiles(t *testing.T) {

@@ -1,0 +1,27 @@
+diff --git a/config/configparser/testdata/invalid-receiver-section.yaml b/config/configparser/testdata/invalid-receiver-section.yaml
+new file mode 100644
+index 000000000..558f17a46
+--- /dev/null
++++ b/config/configparser/testdata/invalid-receiver-section.yaml
+@@ -0,0 +1,21 @@
++receivers:
++  examplereceiver:
++    unknown_section:
++      a_num: 2
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++extensions:
++  exampleextension:
++service:
++  extensions:
++    - examapleextension
++  pipelines:
++    traces:
++      receivers:
++        - examplereceiver
++      processors:
++        - exampleprocessor
++      exporters:
++        - exampleexporter

@@ -1,0 +1,42 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp.go b/receiver/otlpreceiver/metrics/otlp.go
+index 375dd97a6..7023a8467 100644
+--- a/receiver/otlpreceiver/metrics/otlp.go
++++ b/receiver/otlpreceiver/metrics/otlp.go
+@@ -17,7 +17,7 @@ package metrics
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/component/componenterror"
++	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdatautil"
+ 	"go.opentelemetry.io/collector/internal/data"
+@@ -36,15 +36,12 @@ type Receiver struct {
+ }
+ 
+ // New creates a new Receiver reference.
+-func New(instanceName string, nextConsumer consumer.MetricsConsumer) (*Receiver, error) {
+-	if nextConsumer == nil {
+-		return nil, componenterror.ErrNilNextConsumer
+-	}
++func New(instanceName string, nextConsumer consumer.MetricsConsumer) *Receiver {
+ 	r := &Receiver{
+ 		instanceName: instanceName,
+ 		nextConsumer: nextConsumer,
+ 	}
+-	return r, nil
++	return r
+ }
+ 
+ const (
+@@ -71,6 +68,10 @@ func (r *Receiver) sendToNextConsumer(ctx context.Context, md data.MetricData) e
+ 		return nil
+ 	}
+ 
++	if c, ok := client.FromGRPC(ctx); ok {
++		ctx = client.NewContext(ctx, c)
++	}
++
+ 	ctx = obsreport.StartMetricsReceiveOp(ctx, r.instanceName, receiverTransport)
+ 	err := r.nextConsumer.ConsumeMetrics(ctx, pdatautil.MetricsFromInternalMetrics(md))
+ 	obsreport.EndMetricsReceiveOp(ctx, dataFormatProtobuf, dataPointCount, metricCount, err)

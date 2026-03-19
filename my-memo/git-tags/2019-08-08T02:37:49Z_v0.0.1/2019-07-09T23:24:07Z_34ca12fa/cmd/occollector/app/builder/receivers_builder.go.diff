@@ -1,0 +1,21 @@
+diff --git a/cmd/occollector/app/builder/receivers_builder.go b/cmd/occollector/app/builder/receivers_builder.go
+index a64baefbb..9b637c79f 100644
+--- a/cmd/occollector/app/builder/receivers_builder.go
++++ b/cmd/occollector/app/builder/receivers_builder.go
+@@ -101,14 +101,14 @@ func (rcvs Receivers) StartAll(logger *zap.Logger, host receiver.Host) error {
+ // ReceiversBuilder builds receivers from config.
+ type ReceiversBuilder struct {
+ 	logger             *zap.Logger
+-	config             *configmodels.ConfigV2
++	config             *configmodels.Config
+ 	pipelineProcessors PipelineProcessors
+ }
+ 
+ // NewReceiversBuilder creates a new ReceiversBuilder. Call Build() on the returned value.
+ func NewReceiversBuilder(
+ 	logger *zap.Logger,
+-	config *configmodels.ConfigV2,
++	config *configmodels.Config,
+ 	pipelineProcessors PipelineProcessors,
+ ) *ReceiversBuilder {
+ 	return &ReceiversBuilder{logger, config, pipelineProcessors}

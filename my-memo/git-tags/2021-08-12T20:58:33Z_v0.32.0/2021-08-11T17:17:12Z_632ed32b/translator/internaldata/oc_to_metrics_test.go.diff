@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index 90d6cfbcc..2d6b2ac2a 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -57,7 +57,7 @@ func TestOCToMetrics(t *testing.T) {
+ 		{
+ 			name:     "one-metric-no-labels",
+ 			oc:       generateOCTestDataNoLabels(),
+-			internal: testdata.GenerateMetricsOneMetricNoLabels(),
++			internal: testdata.GenerateMetricsOneMetricNoAttributes(),
+ 		},
+ 
+ 		{

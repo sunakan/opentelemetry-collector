@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/internal/metadata/generated_telemetry.go b/processor/processorhelper/internal/metadata/generated_telemetry.go
+index cf496bb35..e32610d46 100644
+--- a/processor/processorhelper/internal/metadata/generated_telemetry.go
++++ b/processor/processorhelper/internal/metadata/generated_telemetry.go
+@@ -40,6 +40,9 @@ type telemetryBuilderOption func(*TelemetryBuilder)
+ // for a component
+ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...telemetryBuilderOption) (*TelemetryBuilder, error) {
+ 	builder := TelemetryBuilder{}
++	for _, op := range options {
++		op(&builder)
++	}
+ 	var err, errs error
+ 	meter := Meter(settings)
+ 	builder.ProcessorAcceptedLogRecords, err = meter.Int64Counter(

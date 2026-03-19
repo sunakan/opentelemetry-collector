@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index f641b6a6a..2c10e93da 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -28,6 +28,9 @@
+   - Deprecate `pdata.AttributeValueSlice` struct in favor of `pdata.Slice`
+   - Deprecate `pdata.NewAttributeValueSlice` func in favor of `pdata.NewSlice`
+ - Deprecate LogRecord.Name(), it was deprecated in the data model (#5054)
++- Rename `Array` type of `pdata.Value` to `Slice` (#5067)
++  - Deprecate `pdata.AttributeValueTypeArray` type in favor of `pdata.ValueTypeSlice`
++  - Deprecate `pdata.NewAttributeValueArray` func in favor of `pdata.NewValueSlice`
+ - Deprecate global flag in `featuregates` (#5060)
+ 
+ ### 💡 Enhancements 💡

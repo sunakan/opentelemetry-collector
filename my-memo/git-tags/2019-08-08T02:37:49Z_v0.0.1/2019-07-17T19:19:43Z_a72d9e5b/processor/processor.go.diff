@@ -1,0 +1,12 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 1218c9078..0333ff61c 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package processor contains interfaces that compose trace/metrics consumers.
+ package processor
+ 
+ import (

@@ -1,0 +1,20 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 7a3775f3d..059e5ef2b 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -257,12 +257,9 @@ func (rec *Receiver) endOp(
+ 		}
+ 
+ 		span.AddAttributes(
+-			trace.StringAttribute(
+-				obsmetrics.FormatKey, format),
+-			trace.Int64Attribute(
+-				acceptedItemsKey, int64(numAccepted)),
+-			trace.Int64Attribute(
+-				refusedItemsKey, int64(numRefused)),
++			trace.StringAttribute(obsmetrics.FormatKey, format),
++			trace.Int64Attribute(acceptedItemsKey, int64(numAccepted)),
++			trace.Int64Attribute(refusedItemsKey, int64(numRefused)),
+ 		)
+ 		span.SetStatus(errToStatus(err))
+ 	}

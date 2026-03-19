@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/config_test.go b/exporter/jaegerexporter/config_test.go
+index 347d73db3..b104cb8d4 100644
+--- a/exporter/jaegerexporter/config_test.go
++++ b/exporter/jaegerexporter/config_test.go
+@@ -49,7 +49,7 @@ func TestLoadConfig(t *testing.T) {
+ 	e1 := cfg.Exporters["jaeger/2"]
+ 	assert.Equal(t, e1,
+ 		&Config{
+-			ExporterSettings: config.ExporterSettings{
++			ExporterSettings: &config.ExporterSettings{
+ 				NameVal: "jaeger/2",
+ 				TypeVal: "jaeger",
+ 			},

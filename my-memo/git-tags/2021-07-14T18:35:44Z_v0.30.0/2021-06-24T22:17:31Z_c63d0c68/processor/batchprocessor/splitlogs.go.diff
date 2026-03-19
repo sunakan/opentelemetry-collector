@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splitlogs.go b/processor/batchprocessor/splitlogs.go
+index e8e6169a1..26199f240 100644
+--- a/processor/batchprocessor/splitlogs.go
++++ b/processor/batchprocessor/splitlogs.go
+@@ -15,7 +15,7 @@
+ package batchprocessor
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // splitLogs removes logrecords from the input data and returns a new data of the specified size.

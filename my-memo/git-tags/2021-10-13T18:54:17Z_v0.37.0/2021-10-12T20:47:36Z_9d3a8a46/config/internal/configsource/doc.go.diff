@@ -1,0 +1,10 @@
+diff --git a/config/internal/configsource/doc.go b/config/internal/configsource/doc.go
+index f7fa73f46..b8b93953c 100644
+--- a/config/internal/configsource/doc.go
++++ b/config/internal/configsource/doc.go
+@@ -15,4 +15,4 @@
+ // Package configsource is an internal package that implements methods
+ // for injecting, watching, and updating data from ConfigSource into
+ // configuration.
+-package configsource
++package configsource // import "go.opentelemetry.io/collector/config/internal/configsource"

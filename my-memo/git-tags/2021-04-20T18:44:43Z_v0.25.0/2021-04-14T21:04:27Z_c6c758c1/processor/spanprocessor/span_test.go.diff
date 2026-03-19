@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/span_test.go b/processor/spanprocessor/span_test.go
+index 22cdbf526..5c9c0a5cb 100644
+--- a/processor/spanprocessor/span_test.go
++++ b/processor/spanprocessor/span_test.go
+@@ -32,7 +32,7 @@ import (
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 
+-func TestNewTraceProcessor(t *testing.T) {
++func TestNewTracesProcessor(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	oCfg := cfg.(*Config)

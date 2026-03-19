@@ -1,0 +1,22 @@
+diff --git a/service/internal/obsconsumer/gate_test.go b/service/internal/obsconsumer/gate_test.go
+index 317fcda27..8ead3bbf2 100644
+--- a/service/internal/obsconsumer/gate_test.go
++++ b/service/internal/obsconsumer/gate_test.go
+@@ -9,13 +9,13 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/featuregate"
+-	"go.opentelemetry.io/collector/internal/telemetry"
++	"go.opentelemetry.io/collector/service/internal/metadata"
+ )
+ 
+ func setGateForTest(t *testing.T, enabled bool) {
+-	initial := telemetry.NewPipelineTelemetryGate.IsEnabled()
+-	require.NoError(t, featuregate.GlobalRegistry().Set(telemetry.NewPipelineTelemetryGate.ID(), enabled))
++	initial := metadata.TelemetryNewPipelineTelemetryFeatureGate.IsEnabled()
++	require.NoError(t, featuregate.GlobalRegistry().Set(metadata.TelemetryNewPipelineTelemetryFeatureGate.ID(), enabled))
+ 	t.Cleanup(func() {
+-		require.NoError(t, featuregate.GlobalRegistry().Set(telemetry.NewPipelineTelemetryGate.ID(), initial))
++		require.NoError(t, featuregate.GlobalRegistry().Set(metadata.TelemetryNewPipelineTelemetryFeatureGate.ID(), initial))
+ 	})
+ }

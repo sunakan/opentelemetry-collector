@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/pools.go b/internal/cmd/pdatagen/internal/proto/pools.go
+index e4bf0804e..89da7165b 100644
+--- a/internal/cmd/pdatagen/internal/proto/pools.go
++++ b/internal/cmd/pdatagen/internal/proto/pools.go
+@@ -8,7 +8,7 @@ import (
+ )
+ 
+ const poolVarOrigTemplate = `
+-	protoPool{{ .oneOfMessageName }} = sync.Pool{
++	ProtoPool{{ .oneOfMessageName }} = sync.Pool{
+ 		New: func() any {
+ 			return &{{ .oneOfMessageFullName }}{}
+ 		},

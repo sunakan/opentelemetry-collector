@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/pdata_marshaler.go b/exporter/kafkaexporter/pdata_marshaler.go
+index eaab902db..a45466a5d 100644
+--- a/exporter/kafkaexporter/pdata_marshaler.go
++++ b/exporter/kafkaexporter/pdata_marshaler.go
+@@ -17,7 +17,7 @@ package kafkaexporter
+ import (
+ 	"github.com/Shopify/sarama"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type pdataLogsMarshaler struct {

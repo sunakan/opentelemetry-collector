@@ -1,0 +1,36 @@
+diff --git a/service/testdata/otelcol-nop.yaml b/service/testdata/otelcol-nop.yaml
+deleted file mode 100644
+index 6780b937e..000000000
+--- a/service/testdata/otelcol-nop.yaml
++++ /dev/null
+@@ -1,30 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-extensions:
+-  nop:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      address: localhost:8888
+-  extensions: [nop]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-    metrics:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-    logs:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

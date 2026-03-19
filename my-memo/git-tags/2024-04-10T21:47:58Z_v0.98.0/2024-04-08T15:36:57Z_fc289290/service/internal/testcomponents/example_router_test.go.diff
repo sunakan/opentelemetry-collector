@@ -1,0 +1,13 @@
+diff --git a/service/internal/testcomponents/example_router_test.go b/service/internal/testcomponents/example_router_test.go
+index 23f94854b..2f44e0490 100644
+--- a/service/internal/testcomponents/example_router_test.go
++++ b/service/internal/testcomponents/example_router_test.go
+@@ -15,7 +15,7 @@ import (
+ 	"go.opentelemetry.io/collector/connector/connectortest"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestExampleRouter(t *testing.T) {

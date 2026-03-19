@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
+index 6bc70a5a9..a34475f39 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
+@@ -7,12 +7,13 @@ import (
+ 	"strconv"
+ 	"time"
+ 
++	conventions "go.opentelemetry.io/otel/semconv/v1.9.0"
++
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/filter"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/receiver"
+-	conventions "go.opentelemetry.io/collector/semconv/v1.9.0"
+ )
+ 
+ // AttributeEnumAttr specifies the value enum_attr attribute.

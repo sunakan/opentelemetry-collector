@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/config.go b/receiver/prometheusreceiver/config.go
+index af3105453..4485cbcc1 100644
+--- a/receiver/prometheusreceiver/config.go
++++ b/receiver/prometheusreceiver/config.go
+@@ -48,7 +48,7 @@ type Config struct {
+ }
+ 
+ var _ config.Receiver = (*Config)(nil)
+-var _ config.CustomUnmarshable = (*Config)(nil)
++var _ config.Unmarshallable = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid.
+ func (cfg *Config) Validate() error {

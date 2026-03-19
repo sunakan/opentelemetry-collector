@@ -1,0 +1,23 @@
+diff --git a/processor/processorhelper/traces_test.go b/processor/processorhelper/traces_test.go
+index 416b1e55c..b4dc55e3b 100644
+--- a/processor/processorhelper/traces_test.go
++++ b/processor/processorhelper/traces_test.go
+@@ -77,14 +77,8 @@ func TestNewTracesProcessor_ProcessTracesErrSkipProcessingData(t *testing.T) {
+ 	assert.Equal(t, nil, tp.ConsumeTraces(context.Background(), pdata.NewTraces()))
+ }
+ 
+-type testTProcessor struct {
+-	retError error
+-}
+-
+-func newTestTProcessor(retError error) TProcessor {
+-	return &testTProcessor{retError: retError}
+-}
+-
+-func (ttp *testTProcessor) ProcessTraces(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
+-	return td, ttp.retError
++func newTestTProcessor(retError error) ProcessTracesFunc {
++	return func(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
++		return td, retError
++	}
+ }

@@ -1,0 +1,30 @@
+diff --git a/.github/workflows/add-labels-and-owners.yml b/.github/workflows/add-labels-and-owners.yml
+new file mode 100644
+index 000000000..c9340f876
+--- /dev/null
++++ b/.github/workflows/add-labels-and-owners.yml
+@@ -0,0 +1,24 @@
++name: 'Add labels and code owners to PR'
++on:
++  pull_request_target:
++    types:
++      - opened
++      - synchronize
++
++permissions: read-all
++
++jobs:
++  add-labels-and-owners:
++    permissions:
++      pull-requests: write
++    runs-on: ubuntu-24.04
++    if: ${{ github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]' && github.repository_owner == 'open-telemetry' }}
++    steps:
++      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
++
++      - name: Run add-codeowners-to-pr.sh
++        run: ./.github/workflows/scripts/add-labels-and-owners.sh
++        env:
++          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++          REPO: ${{ github.repository }}
++          PR: ${{ github.event.number }}

@@ -1,0 +1,25 @@
+diff --git a/exporter/exporterhelper/internal/hosttest/hosttest.go b/exporter/exporterhelper/internal/hosttest/hosttest.go
+index 136cd0233..0d655116a 100644
+--- a/exporter/exporterhelper/internal/hosttest/hosttest.go
++++ b/exporter/exporterhelper/internal/hosttest/hosttest.go
+@@ -7,13 +7,14 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
+-var _ component.Host = (*MockHost)(nil)
++func NewHost(ext map[component.ID]component.Component) component.Host {
++	return &mockHost{ext: ext}
++}
+ 
+-type MockHost struct {
+-	component.Host
+-	Ext map[component.ID]component.Component
++type mockHost struct {
++	ext map[component.ID]component.Component
+ }
+ 
+-func (nh *MockHost) GetExtensions() map[component.ID]component.Component {
+-	return nh.Ext
++func (nh *mockHost) GetExtensions() map[component.ID]component.Component {
++	return nh.ext
+ }

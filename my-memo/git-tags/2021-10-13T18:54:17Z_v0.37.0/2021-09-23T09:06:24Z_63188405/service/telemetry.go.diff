@@ -1,0 +1,149 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index 162eb08fb..fb5975f4e 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -24,6 +24,13 @@ import (
+ 	"contrib.go.opencensus.io/exporter/prometheus"
+ 	"github.com/google/uuid"
+ 	"go.opencensus.io/stats/view"
++	otelprometheus "go.opentelemetry.io/otel/exporters/prometheus"
++	"go.opentelemetry.io/otel/metric/global"
++	export "go.opentelemetry.io/otel/sdk/export/metric"
++	"go.opentelemetry.io/otel/sdk/metric/aggregator/histogram"
++	controller "go.opentelemetry.io/otel/sdk/metric/controller/basic"
++	processor "go.opentelemetry.io/otel/sdk/metric/processor/basic"
++	selector "go.opentelemetry.io/otel/sdk/metric/selector/simple"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+@@ -71,9 +78,56 @@ func (tel *colTelemetry) initOnce(asyncErrorChannel chan<- error, ballastSizeByt
+ 		return nil
+ 	}
+ 
++	var instanceID string
++	if telemetry.GetAddInstanceID() {
++		instanceUUID, _ := uuid.NewRandom()
++		instanceID = instanceUUID.String()
++	}
++
++	var pe http.Handler
++	if configtelemetry.UseOpenTelemetryForInternalMetrics {
++		otelHandler, err := tel.initOpenTelemetry()
++		if err != nil {
++			return err
++		}
++		pe = otelHandler
++	} else {
++		ocHandler, err := tel.initOpenCensus(level, instanceID, ballastSizeBytes)
++		if err != nil {
++			return err
++		}
++		pe = ocHandler
++	}
++
++	logger.Info(
++		"Serving Prometheus metrics",
++		zap.String("address", metricsAddr),
++		zap.Int8("level", int8(level)), // TODO: make it human friendly
++		zap.String(semconv.AttributeServiceInstanceID, instanceID),
++	)
++
++	mux := http.NewServeMux()
++	mux.Handle("/metrics", pe)
++
++	tel.server = &http.Server{
++		Addr:    metricsAddr,
++		Handler: mux,
++	}
++
++	go func() {
++		serveErr := tel.server.ListenAndServe()
++		if serveErr != nil && serveErr != http.ErrServerClosed {
++			asyncErrorChannel <- serveErr
++		}
++	}()
++
++	return nil
++}
++
++func (tel *colTelemetry) initOpenCensus(level configtelemetry.Level, instanceID string, ballastSizeBytes uint64) (http.Handler, error) {
+ 	processMetricsViews, err := telemetry2.NewProcessMetricsViews(ballastSizeBytes)
+ 	if err != nil {
+-		return err
++		return nil, err
+ 	}
+ 
+ 	var views []*view.View
+@@ -84,7 +138,7 @@ func (tel *colTelemetry) initOnce(asyncErrorChannel chan<- error, ballastSizeByt
+ 
+ 	tel.views = views
+ 	if err = view.Register(views...); err != nil {
+-		return err
++		return nil, err
+ 	}
+ 
+ 	processMetricsViews.StartCollection()
+@@ -94,10 +148,7 @@ func (tel *colTelemetry) initOnce(asyncErrorChannel chan<- error, ballastSizeByt
+ 		Namespace: telemetry.GetMetricsPrefix(),
+ 	}
+ 
+-	var instanceID string
+ 	if telemetry.GetAddInstanceID() {
+-		instanceUUID, _ := uuid.NewRandom()
+-		instanceID = instanceUUID.String()
+ 		opts.ConstLabels = map[string]string{
+ 			sanitizePrometheusKey(semconv.AttributeServiceInstanceID): instanceID,
+ 		}
+@@ -105,34 +156,32 @@ func (tel *colTelemetry) initOnce(asyncErrorChannel chan<- error, ballastSizeByt
+ 
+ 	pe, err := prometheus.NewExporter(opts)
+ 	if err != nil {
+-		return err
++		return nil, err
+ 	}
+ 
+ 	view.RegisterExporter(pe)
++	return pe, nil
++}
+ 
+-	logger.Info(
+-		"Serving Prometheus metrics",
+-		zap.String("address", metricsAddr),
+-		zap.Int8("level", int8(level)), // TODO: make it human friendly
+-		zap.String(semconv.AttributeServiceInstanceID, instanceID),
++func (tel *colTelemetry) initOpenTelemetry() (http.Handler, error) {
++	config := otelprometheus.Config{}
++	c := controller.New(
++		processor.New(
++			selector.NewWithHistogramDistribution(
++				histogram.WithExplicitBoundaries(config.DefaultHistogramBoundaries),
++			),
++			export.CumulativeExportKindSelector(),
++			processor.WithMemory(true),
++		),
+ 	)
+ 
+-	mux := http.NewServeMux()
+-	mux.Handle("/metrics", pe)
+-
+-	tel.server = &http.Server{
+-		Addr:    metricsAddr,
+-		Handler: mux,
++	pe, err := otelprometheus.New(config, c)
++	if err != nil {
++		return nil, err
+ 	}
+ 
+-	go func() {
+-		serveErr := tel.server.ListenAndServe()
+-		if serveErr != nil && serveErr != http.ErrServerClosed {
+-			asyncErrorChannel <- serveErr
+-		}
+-	}()
+-
+-	return nil
++	global.SetMeterProvider(pe.MeterProvider())
++	return pe, err
+ }
+ 
+ func (tel *colTelemetry) shutdown() error {

@@ -1,0 +1,33 @@
+diff --git a/service/internal/builders/builders.go b/service/internal/builders/builders.go
+index 4e332b301..fd773d7b3 100644
+--- a/service/internal/builders/builders.go
++++ b/service/internal/builders/builders.go
+@@ -5,10 +5,12 @@ package builders // import "go.opentelemetry.io/collector/service/internal/build
+ 
+ import (
+ 	"errors"
++	"fmt"
+ 
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/internal/componentalias"
+ )
+ 
+ var (
+@@ -26,3 +28,15 @@ func logStabilityLevel(logger *zap.Logger, sl component.StabilityLevel) {
+ 		logger.Info(sl.LogMessage())
+ 	}
+ }
++
++// logDeprecatedTypeAlias checks if the provided type is a deprecated alias and logs a warning if so.
++func logDeprecatedTypeAlias(logger *zap.Logger, factory component.Factory, usedType component.Type) {
++	tah, ok := factory.(componentalias.TypeAliasHolder)
++	if !ok {
++		return
++	}
++	alias := tah.DeprecatedAlias()
++	if alias.String() != "" && usedType == alias {
++		logger.Warn(fmt.Sprintf("%q alias is deprecated; use %q instead", alias.String(), factory.Type().String()))
++	}
++}

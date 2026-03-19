@@ -1,0 +1,21 @@
+diff --git a/extension/zpagesextension/go.mod b/extension/zpagesextension/go.mod
+index 08533a99b..e3c7fbd41 100644
+--- a/extension/zpagesextension/go.mod
++++ b/extension/zpagesextension/go.mod
+@@ -44,7 +44,6 @@ require (
+ 	go.opentelemetry.io/collector/config/configtls v1.17.0 // indirect
+ 	go.opentelemetry.io/collector/config/internal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension/auth v0.111.0 // indirect
+-	go.opentelemetry.io/collector/internal/globalsignal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.17.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.111.0 // indirect
+ 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.55.0 // indirect
+@@ -103,8 +102,6 @@ replace go.opentelemetry.io/collector/component/componentstatus => ../../compone
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal
+-
+ retract (
+ 	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1

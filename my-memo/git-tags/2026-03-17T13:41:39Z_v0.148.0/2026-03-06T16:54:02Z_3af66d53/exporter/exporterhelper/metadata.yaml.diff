@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metadata.yaml b/exporter/exporterhelper/metadata.yaml
+index 949fc33de..1a57a2d1f 100644
+--- a/exporter/exporterhelper/metadata.yaml
++++ b/exporter/exporterhelper/metadata.yaml
+@@ -196,3 +196,10 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
++
++feature_gates:
++  - id: exporter.PersistRequestContext
++    description: 'controls whether context should be stored alongside requests in the persistent queue'
++    stage: beta
++    from_version: 'v0.128.0'
++    reference_url: 'https://github.com/open-telemetry/opentelemetry-collector/pull/13188'

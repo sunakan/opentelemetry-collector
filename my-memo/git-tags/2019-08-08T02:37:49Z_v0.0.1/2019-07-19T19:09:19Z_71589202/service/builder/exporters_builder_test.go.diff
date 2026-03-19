@@ -1,0 +1,12 @@
+diff --git a/service/builder/exporters_builder_test.go b/service/builder/exporters_builder_test.go
+index a1d44a564..5260a4a69 100644
+--- a/service/builder/exporters_builder_test.go
++++ b/service/builder/exporters_builder_test.go
+@@ -40,7 +40,6 @@ func TestExportersBuilder_Build(t *testing.T) {
+ 				ExporterSettings: configmodels.ExporterSettings{
+ 					NameVal: "opencensus",
+ 					TypeVal: "opencensus",
+-					Enabled: true,
+ 				},
+ 				Endpoint: "0.0.0.0:12345",
+ 			},

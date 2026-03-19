@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/config_test.go b/receiver/opencensusreceiver/config_test.go
+index c88ec1446..afc3085a4 100644
+--- a/receiver/opencensusreceiver/config_test.go
++++ b/receiver/opencensusreceiver/config_test.go
+@@ -27,14 +27,12 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	receivers, processors, exporters, err := config.ExampleComponents()
++	factories, err := config.ExampleComponents()
+ 	assert.Nil(t, err)
+ 
+ 	factory := &Factory{}
+-	receivers[typeStr] = factory
+-	cfg, err := config.LoadConfigFile(
+-		t, path.Join(".", "testdata", "config.yaml"), receivers, processors, exporters,
+-	)
++	factories.Receivers[typeStr] = factory
++	cfg, err := config.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)

@@ -1,0 +1,19 @@
+diff --git a/processor/memorylimiterprocessor/config.go b/processor/memorylimiterprocessor/config.go
+index 7a0dfdc4b..5bf18b0d2 100644
+--- a/processor/memorylimiterprocessor/config.go
++++ b/processor/memorylimiterprocessor/config.go
+@@ -21,14 +21,10 @@ import (
+ 	"time"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ )
+ 
+ // Config defines configuration for memory memoryLimiter processor.
+ type Config struct {
+-	// Deprecated: [v0.68.0] will be removed soon.
+-	config.ProcessorSettings `mapstructure:",squash"`
+-
+ 	// CheckInterval is the time between measurements of memory usage for the
+ 	// purposes of avoiding going over the limits. Defaults to zero, so no
+ 	// checks will be performed.

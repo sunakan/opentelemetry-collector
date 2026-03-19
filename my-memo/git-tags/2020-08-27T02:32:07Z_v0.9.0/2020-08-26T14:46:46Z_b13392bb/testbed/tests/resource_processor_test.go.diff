@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index 0d20c0c15..fcb72c840 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -235,7 +235,7 @@ func TestMetricResourceProcessor(t *testing.T) {
+ 			processors := map[string]string{
+ 				"resource": test.resourceProcessorConfig,
+ 			}
+-			configStr := createConfigYaml(t, sender, receiver, resultDir, processors)
++			configStr := createConfigYaml(t, sender, receiver, resultDir, processors, nil)
+ 			configCleanup, err := agentProc.PrepareConfig(configStr)
+ 			require.NoError(t, err)
+ 			defer configCleanup()

@@ -1,0 +1,16 @@
+diff --git a/pkg/configv2/testdata/pipeline-exporter-not-exists.yaml b/pkg/configv2/testdata/pipeline-exporter-not-exists.yaml
+new file mode 100644
+index 000000000..84e06474c
+--- /dev/null
++++ b/pkg/configv2/testdata/pipeline-exporter-not-exists.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  metrics:
++    receivers: [multireceiver]
++    exporters: [nosuchexporter]

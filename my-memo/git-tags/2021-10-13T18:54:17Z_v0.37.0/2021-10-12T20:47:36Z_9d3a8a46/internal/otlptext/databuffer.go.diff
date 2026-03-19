@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/databuffer.go b/internal/otlptext/databuffer.go
+index a88e49f14..2bbcbb87e 100644
+--- a/internal/otlptext/databuffer.go
++++ b/internal/otlptext/databuffer.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlptext
++package otlptext // import "go.opentelemetry.io/collector/internal/otlptext"
+ 
+ import (
+ 	"bytes"

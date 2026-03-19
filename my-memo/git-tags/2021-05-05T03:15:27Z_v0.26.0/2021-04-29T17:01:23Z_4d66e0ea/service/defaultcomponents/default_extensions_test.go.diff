@@ -1,0 +1,15 @@
+diff --git a/service/defaultcomponents/default_extensions_test.go b/service/defaultcomponents/default_extensions_test.go
+index 76edee91c..b34f3c0fd 100644
+--- a/service/defaultcomponents/default_extensions_test.go
++++ b/service/defaultcomponents/default_extensions_test.go
+@@ -93,8 +93,8 @@ func verifyExtensionLifecycle(t *testing.T, factory component.ExtensionFactory,
+ 	ctx := context.Background()
+ 	host := newAssertNoErrorHost(t)
+ 	extCreateParams := component.ExtensionCreateParams{
+-		Logger:               zap.NewNop(),
+-		ApplicationStartInfo: component.DefaultApplicationStartInfo(),
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
+ 	}
+ 
+ 	if getConfigFn == nil {

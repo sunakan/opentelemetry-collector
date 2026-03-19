@@ -1,0 +1,13 @@
+diff --git a/service/flags.go b/service/flags.go
+index 4f8993ae3..5ea7c61d4 100644
+--- a/service/flags.go
++++ b/service/flags.go
+@@ -58,7 +58,7 @@ func flags() *flag.FlagSet {
+ 	flagSet.Var(
+ 		gatesList,
+ 		"feature-gates",
+-		"Comma-delimited list of feature gate identifiers. Prefix with '-' to disable the feature.  '+' or no prefix will enable the feature.")
++		"Comma-delimited list of feature gate identifiers. Prefix with '-' to disable the feature. '+' or no prefix will enable the feature.")
+ 
+ 	return flagSet
+ }

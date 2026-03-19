@@ -1,0 +1,21 @@
+diff --git a/consumer/pdata/generated_common.go b/consumer/pdata/generated_common.go
+index cf54bb0f9..215bb21f2 100644
+--- a/consumer/pdata/generated_common.go
++++ b/consumer/pdata/generated_common.go
+@@ -86,3 +86,16 @@ func (ms InstrumentationLibrary) Version() string {
+ func (ms InstrumentationLibrary) SetVersion(v string) {
+ 	(*ms.orig).Version = v
+ }
++
++// CopyTo copies all properties from the current struct to the dest.
++func (ms InstrumentationLibrary) CopyTo(dest InstrumentationLibrary) {
++	if ms.IsNil() {
++		*dest.orig = nil
++		return
++	}
++	if dest.IsNil() {
++		dest.InitEmpty()
++	}
++	dest.SetName(ms.Name())
++	dest.SetVersion(ms.Version())
++}

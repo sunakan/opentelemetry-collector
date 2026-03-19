@@ -1,0 +1,20 @@
+diff --git a/internal/data/common_test.go b/internal/data/common_test.go
+index 8b02f18c7..2a4249193 100644
+--- a/internal/data/common_test.go
++++ b/internal/data/common_test.go
+@@ -158,3 +158,15 @@ func TestStringMapIteration(t *testing.T) {
+ 		assert.EqualValues(t, "v"+strconv.Itoa(i), skv.Value())
+ 	}
+ }
++
++func generateTestStringMap() StringMap {
++	return NewStringMap(map[string]string{
++		"k": "v",
++	})
++}
++
++func generateTestAttributeMap() AttributeMap {
++	return NewAttributeMap(map[string]AttributeValue{
++		"k": NewAttributeValueString("v"),
++	})
++}

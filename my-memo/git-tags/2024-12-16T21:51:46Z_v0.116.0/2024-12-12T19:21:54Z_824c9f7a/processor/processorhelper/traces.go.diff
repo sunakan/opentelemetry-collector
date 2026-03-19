@@ -1,0 +1,12 @@
+diff --git a/processor/processorhelper/traces.go b/processor/processorhelper/traces.go
+index 941168985..f6389a227 100644
+--- a/processor/processorhelper/traces.go
++++ b/processor/processorhelper/traces.go
+@@ -65,7 +65,6 @@ func NewTraces(
+ 		obs.recordInOut(ctx, spansIn, spansOut)
+ 		return nextConsumer.ConsumeTraces(ctx, td)
+ 	}, bs.consumerOptions...)
+-
+ 	if err != nil {
+ 		return nil, err
+ 	}

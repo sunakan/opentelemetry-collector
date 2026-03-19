@@ -1,0 +1,13 @@
+diff --git a/oterr/errors_test.go b/oterr/errors_test.go
+index fec310eeb..9fc69368c 100644
+--- a/oterr/errors_test.go
++++ b/oterr/errors_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"fmt"
+ 	"testing"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/oterr"
++	"github.com/open-telemetry/opentelemetry-collector/oterr"
+ )
+ 
+ func TestCombineErrors(t *testing.T) {

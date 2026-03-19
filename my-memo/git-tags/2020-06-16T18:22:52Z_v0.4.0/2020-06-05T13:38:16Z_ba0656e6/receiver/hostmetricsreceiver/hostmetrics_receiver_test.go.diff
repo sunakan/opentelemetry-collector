@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+index 846c8f7d1..a5ab42b9b 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+@@ -39,7 +39,7 @@ import (
+ )
+ 
+ var standardMetrics = []string{
+-	"host/cpu/time",
++	"host/cpu/usage",
+ 	"host/memory/used",
+ 	"host/disk/bytes",
+ 	"host/disk/ops",

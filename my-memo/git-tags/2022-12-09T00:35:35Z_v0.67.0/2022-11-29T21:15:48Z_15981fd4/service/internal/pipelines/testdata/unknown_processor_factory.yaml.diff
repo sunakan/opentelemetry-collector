@@ -1,0 +1,20 @@
+diff --git a/service/internal/pipelines/testdata/unknown_processor_factory.yaml b/service/internal/pipelines/testdata/unknown_processor_factory.yaml
+deleted file mode 100644
+index 315b40c00..000000000
+--- a/service/internal/pipelines/testdata/unknown_processor_factory.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  unknown:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [nop]
+-      processors: [unknown]
+-      exporters: [nop]
+\ No newline at end of file

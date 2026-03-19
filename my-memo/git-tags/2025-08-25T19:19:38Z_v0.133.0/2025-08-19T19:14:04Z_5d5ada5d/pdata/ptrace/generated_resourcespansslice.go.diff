@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_resourcespansslice.go b/pdata/ptrace/generated_resourcespansslice.go
+index 69a46f116..28c80c283 100644
+--- a/pdata/ptrace/generated_resourcespansslice.go
++++ b/pdata/ptrace/generated_resourcespansslice.go
+@@ -99,7 +99,7 @@ func (es ResourceSpansSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ResourceSpans.
+ func (es ResourceSpansSlice) AppendEmpty() ResourceSpans {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrResourceSpans())
++	*es.orig = append(*es.orig, internal.NewOrigResourceSpans())
+ 	return es.At(es.Len() - 1)
+ }
+ 

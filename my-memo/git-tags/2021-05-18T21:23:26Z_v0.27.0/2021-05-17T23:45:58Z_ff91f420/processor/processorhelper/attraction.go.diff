@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/attraction.go b/processor/processorhelper/attraction.go
+index 12b5492ec..502c39bd4 100644
+--- a/processor/processorhelper/attraction.go
++++ b/processor/processorhelper/attraction.go
+@@ -266,7 +266,7 @@ func extractAttributes(action attributeAction, attrs pdata.AttributeMap) {
+ 	value, found := attrs.Get(action.Key)
+ 
+ 	// Extracting values only functions on strings.
+-	if !found || value.Type() != pdata.AttributeValueSTRING {
++	if !found || value.Type() != pdata.AttributeValueTypeString {
+ 		return
+ 	}
+ 

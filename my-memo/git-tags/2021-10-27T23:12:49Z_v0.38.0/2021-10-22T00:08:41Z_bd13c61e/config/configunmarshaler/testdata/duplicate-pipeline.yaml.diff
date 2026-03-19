@@ -1,0 +1,18 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-pipeline.yaml b/config/configunmarshaler/testdata/duplicate-pipeline.yaml
+index 671991a79..45fc037b7 100644
+--- a/config/configunmarshaler/testdata/duplicate-pipeline.yaml
++++ b/config/configunmarshaler/testdata/duplicate-pipeline.yaml
+@@ -6,11 +6,11 @@ processors:
+   exampleprocessor:
+ service:
+   pipelines:
+-    traces/default:
++    traces /pipe:
+       receivers: [examplereceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]
+-    traces/ default:
++    traces/ pipe :
+       receivers: [examplereceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]

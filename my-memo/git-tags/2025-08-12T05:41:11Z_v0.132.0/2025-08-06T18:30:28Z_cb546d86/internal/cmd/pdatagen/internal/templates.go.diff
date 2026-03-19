@@ -1,0 +1,37 @@
+diff --git a/internal/cmd/pdatagen/internal/templates.go b/internal/cmd/pdatagen/internal/templates.go
+index 07841c18b..83d89e1cf 100644
+--- a/internal/cmd/pdatagen/internal/templates.go
++++ b/internal/cmd/pdatagen/internal/templates.go
+@@ -20,6 +20,10 @@ var (
+ 	messageInternalTemplateBytes []byte
+ 	messageInternalTemplate      = parseTemplate("message_internal.go", messageInternalTemplateBytes)
+ 
++	//go:embed templates/message_internal_test.go.tmpl
++	messageInternalTestTemplateBytes []byte
++	messageInternalTestTemplate      = parseTemplate("message_internal_test.go", messageInternalTestTemplateBytes)
++
+ 	//go:embed templates/message_test.go.tmpl
+ 	messageTestTemplateBytes []byte
+ 	messageTestTemplate      = parseTemplate("message_test.go", messageTestTemplateBytes)
+@@ -32,6 +36,10 @@ var (
+ 	primitiveSliceInternalTemplateBytes []byte
+ 	primitiveSliceInternalTemplate      = parseTemplate("primitive_slice_internal.go", primitiveSliceInternalTemplateBytes)
+ 
++	//go:embed templates/primitive_slice_internal_test.go.tmpl
++	primitiveSliceInternalTestTemplateBytes []byte
++	primitiveSliceInternalTestTemplate      = parseTemplate("primitive_slice_internal_test.go", primitiveSliceInternalTestTemplateBytes)
++
+ 	//go:embed templates/primitive_slice_test.go.tmpl
+ 	primitiveSliceTestTemplateBytes []byte
+ 	primitiveSliceTestTemplate      = parseTemplate("primitive_slice_test.go", primitiveSliceTestTemplateBytes)
+@@ -44,6 +52,10 @@ var (
+ 	sliceInternalTemplateBytes []byte
+ 	sliceInternalTemplate      = parseTemplate("slice_internal.go", sliceInternalTemplateBytes)
+ 
++	//go:embed templates/slice_internal_test.go.tmpl
++	sliceInternalTestTemplateBytes []byte
++	sliceInternalTestTemplate      = parseTemplate("slice_internal_test.go", sliceInternalTestTemplateBytes)
++
+ 	//go:embed templates/slice_test.go.tmpl
+ 	sliceTestTemplateBytes []byte
+ 	sliceTestTemplate      = parseTemplate("slice_test.go", sliceTestTemplateBytes)

@@ -1,0 +1,42 @@
+diff --git a/extension/auth/default_serverauthenticator_test.go b/extension/auth/default_serverauthenticator_test.go
+index 1cb750ff9..220237a2c 100644
+--- a/extension/auth/default_serverauthenticator_test.go
++++ b/extension/auth/default_serverauthenticator_test.go
+@@ -46,11 +46,11 @@ func TestDefaultValues(t *testing.T) {
+ 	})
+ }
+ 
+-func TestWithAuthenticateFunc(t *testing.T) {
++func TestWithServerAuthenticateFunc(t *testing.T) {
+ 	// prepare
+ 	authCalled := false
+ 	e := NewServer(
+-		WithAuthenticate(func(ctx context.Context, headers map[string][]string) (context.Context, error) {
++		WithServerAuthenticate(func(ctx context.Context, headers map[string][]string) (context.Context, error) {
+ 			authCalled = true
+ 			return ctx, nil
+ 		}),
+@@ -64,9 +64,9 @@ func TestWithAuthenticateFunc(t *testing.T) {
+ 	assert.NoError(t, err)
+ }
+ 
+-func TestWithStart(t *testing.T) {
++func TestWithServerStart(t *testing.T) {
+ 	called := false
+-	e := NewServer(WithStart(func(c context.Context, h component.Host) error {
++	e := NewServer(WithServerStart(func(c context.Context, h component.Host) error {
+ 		called = true
+ 		return nil
+ 	}))
+@@ -79,9 +79,9 @@ func TestWithStart(t *testing.T) {
+ 	assert.NoError(t, err)
+ }
+ 
+-func TestWithShutdown(t *testing.T) {
++func TestWithServerShutdown(t *testing.T) {
+ 	called := false
+-	e := NewServer(WithShutdown(func(c context.Context) error {
++	e := NewServer(WithServerShutdown(func(c context.Context) error {
+ 		called = true
+ 		return nil
+ 	}))

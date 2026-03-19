@@ -1,0 +1,11 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2.go b/translator/trace/zipkin/traces_to_zipkinv2.go
+index b3fb99c87..d06838dcd 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2.go
+@@ -347,5 +347,5 @@ func convertTraceID(t pdata.TraceID) zipkinmodel.TraceID {
+ }
+ 
+ func convertSpanID(s pdata.SpanID) zipkinmodel.ID {
+-	return zipkinmodel.ID(tracetranslator.BytesToUInt64SpanID(s.Bytes()))
++	return zipkinmodel.ID(tracetranslator.SpanIDToUInt64(s))
+ }

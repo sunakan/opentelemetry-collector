@@ -1,0 +1,14 @@
+diff --git a/service/pipelines/config_test.go b/service/pipelines/config_test.go
+index bf8a8e854..59c84e71c 100644
+--- a/service/pipelines/config_test.go
++++ b/service/pipelines/config_test.go
+@@ -113,8 +113,7 @@ func TestNoPipelinesFeatureGate(t *testing.T) {
+ 	require.Error(t, xconfmap.Validate(cfg))
+ 
+ 	gate := AllowNoPipelines
+-	err := featuregate.GlobalRegistry().Set(gate.ID(), true)
+-	require.NoError(t, err)
++	require.NoError(t, featuregate.GlobalRegistry().Set(gate.ID(), true))
+ 	defer func() {
+ 		require.NoError(t, featuregate.GlobalRegistry().Set(gate.ID(), false))
+ 	}()

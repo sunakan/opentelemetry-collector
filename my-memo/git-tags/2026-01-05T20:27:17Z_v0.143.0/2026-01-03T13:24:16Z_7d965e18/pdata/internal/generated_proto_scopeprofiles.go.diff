@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopeprofiles.go b/pdata/internal/generated_proto_scopeprofiles.go
+index b5ef9eb78..f75741d36 100644
+--- a/pdata/internal/generated_proto_scopeprofiles.go
++++ b/pdata/internal/generated_proto_scopeprofiles.go
+@@ -45,7 +45,6 @@ func DeleteScopeProfiles(orig *ScopeProfiles, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteInstrumentationScope(&orig.Scope, false)
+ 	for i := range orig.Profiles {
+ 		DeleteProfile(orig.Profiles[i], true)

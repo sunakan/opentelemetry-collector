@@ -1,0 +1,13 @@
+diff --git a/model/pdata/spanid.go b/model/pdata/spanid.go
+index 9f36b2705..e8c853ca1 100644
+--- a/model/pdata/spanid.go
++++ b/model/pdata/spanid.go
+@@ -15,7 +15,7 @@
+ package pdata
+ 
+ import (
+-	"go.opentelemetry.io/collector/internal/data"
++	"go.opentelemetry.io/collector/model/internal/data"
+ )
+ 
+ // SpanID is an alias of OTLP SpanID data type.

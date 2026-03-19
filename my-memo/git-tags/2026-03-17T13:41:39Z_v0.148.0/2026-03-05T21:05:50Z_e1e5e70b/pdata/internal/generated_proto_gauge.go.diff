@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_gauge.go b/pdata/internal/generated_proto_gauge.go
+index 996d66242..5d2b46751 100644
+--- a/pdata/internal/generated_proto_gauge.go
++++ b/pdata/internal/generated_proto_gauge.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -28,7 +29,7 @@ var (
+ )
+ 
+ func NewGauge() *Gauge {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &Gauge{}
+ 	}
+ 	return protoPoolGauge.Get().(*Gauge)
+@@ -39,7 +40,7 @@ func DeleteGauge(orig *Gauge, nullable bool) {
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

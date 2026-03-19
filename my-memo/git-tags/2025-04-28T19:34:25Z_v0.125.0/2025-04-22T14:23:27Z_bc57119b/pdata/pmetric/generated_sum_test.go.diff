@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_sum_test.go b/pdata/pmetric/generated_sum_test.go
+index 1ee64cc58..c1a965fe2 100644
+--- a/pdata/pmetric/generated_sum_test.go
++++ b/pdata/pmetric/generated_sum_test.go
+@@ -21,6 +21,8 @@ func TestSum_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewSum(), ms)
+ 	assert.Equal(t, generateTestSum(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestSum(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newSum(&otlpmetrics.Sum{}, &sharedState)) })
+ 	assert.Panics(t, func() { newSum(&otlpmetrics.Sum{}, &sharedState).MoveTo(dest) })

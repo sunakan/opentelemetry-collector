@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/logger.go b/service/telemetry/logger.go
+index 904c5084e..a57e3f9cd 100644
+--- a/service/telemetry/logger.go
++++ b/service/telemetry/logger.go
+@@ -14,6 +14,7 @@ import (
+ 	"go.uber.org/zap/zapcore"
+ )
+ 
++// newLogger creates a Logger and a LoggerProvider from Config.
+ func newLogger(ctx context.Context, set Settings, cfg Config) (*zap.Logger, log.LoggerProvider, error) {
+ 	// Copied from NewProductionConfig.
+ 	zapCfg := &zap.Config{

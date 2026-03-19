@@ -1,0 +1,12 @@
+diff --git a/internal/iruntime/total_memory_linux.go b/internal/iruntime/total_memory_linux.go
+index 30dd7c9ca..8048dcf8f 100644
+--- a/internal/iruntime/total_memory_linux.go
++++ b/internal/iruntime/total_memory_linux.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++//go:build linux
+ // +build linux
+ 
+ package iruntime

@@ -1,0 +1,12 @@
+diff --git a/internal/builder/config.go b/internal/builder/config.go
+index 2aecfdc76..fd0a7eac9 100644
+--- a/internal/builder/config.go
++++ b/internal/builder/config.go
+@@ -42,6 +42,7 @@ type Config struct {
+ 	Receivers    []Module     `mapstructure:"receivers"`
+ 	Processors   []Module     `mapstructure:"processors"`
+ 	Replaces     []string     `mapstructure:"replaces"`
++	Excludes     []string     `mapstructure:"excludes"`
+ }
+ 
+ // Distribution holds the parameters for the final binary

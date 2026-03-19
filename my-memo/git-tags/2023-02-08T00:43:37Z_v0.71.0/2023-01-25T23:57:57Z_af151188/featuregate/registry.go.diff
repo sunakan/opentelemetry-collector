@@ -1,0 +1,14 @@
+diff --git a/featuregate/registry.go b/featuregate/registry.go
+index 4f15f2121..f79462977 100644
+--- a/featuregate/registry.go
++++ b/featuregate/registry.go
+@@ -23,9 +23,6 @@ import (
+ 
+ var globalRegistry = NewRegistry()
+ 
+-// Deprecated: [v0.70.0] use GlobalRegistry.
+-var GetRegistry = GlobalRegistry
+-
+ // GlobalRegistry returns the global Registry.
+ func GlobalRegistry() *Registry {
+ 	return globalRegistry

@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_common_test.go b/consumer/pdata/generated_common_test.go
+index a77658940..4ca67d685 100644
+--- a/consumer/pdata/generated_common_test.go
++++ b/consumer/pdata/generated_common_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
+ )
+ 
+ func TestInstrumentationLibrary_CopyTo(t *testing.T) {

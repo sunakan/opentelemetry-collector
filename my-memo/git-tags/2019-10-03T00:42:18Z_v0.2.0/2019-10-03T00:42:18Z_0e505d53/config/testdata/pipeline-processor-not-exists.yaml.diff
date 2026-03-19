@@ -1,0 +1,25 @@
+diff --git a/config/testdata/pipeline-processor-not-exists.yaml b/config/testdata/pipeline-processor-not-exists.yaml
+index 81aabccac..634d9a3f4 100644
+--- a/config/testdata/pipeline-processor-not-exists.yaml
++++ b/config/testdata/pipeline-processor-not-exists.yaml
+@@ -4,11 +4,12 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers:
+-      - multireceiver
+-    processors:
+-      - nosuchprocessor
+-    exporters:
+-      - exampleexporter
++service:
++  pipelines:
++    traces:
++      receivers:
++        - multireceiver
++      processors:
++        - nosuchprocessor
++      exporters:
++        - exampleexporter

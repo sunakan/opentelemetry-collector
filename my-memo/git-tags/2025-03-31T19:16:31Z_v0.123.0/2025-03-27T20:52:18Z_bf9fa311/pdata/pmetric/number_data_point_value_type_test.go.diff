@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/number_data_point_value_type_test.go b/pdata/pmetric/number_data_point_value_type_test.go
+index 4c502356e..bb29befa0 100644
+--- a/pdata/pmetric/number_data_point_value_type_test.go
++++ b/pdata/pmetric/number_data_point_value_type_test.go
+@@ -13,5 +13,5 @@ func TestNumberDataPointValueTypeString(t *testing.T) {
+ 	assert.Equal(t, "Empty", NumberDataPointValueTypeEmpty.String())
+ 	assert.Equal(t, "Int", NumberDataPointValueTypeInt.String())
+ 	assert.Equal(t, "Double", NumberDataPointValueTypeDouble.String())
+-	assert.Equal(t, "", (NumberDataPointValueTypeDouble + 1).String())
++	assert.Empty(t, (NumberDataPointValueTypeDouble + 1).String())
+ }

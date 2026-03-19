@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
+index 54e30cf07..cbda32ec5 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
+@@ -23,7 +23,7 @@ type LogBuilderOption interface {
+ 	apply(*LogsBuilder)
+ }
+ 
+-func NewLogsBuilder(settings receiver.Settings) *LogsBuilder {
++func NewLogsBuilder(lbc LogsBuilderConfig, settings receiver.Settings) *LogsBuilder {
+ 	lb := &LogsBuilder{
+ 		logsBuffer:       plog.NewLogs(),
+ 		logRecordsBuffer: plog.NewLogRecordSlice(),

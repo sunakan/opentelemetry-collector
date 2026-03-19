@@ -1,0 +1,39 @@
+diff --git a/processor/processorhelper/internal/metadata/generated_telemetry.go b/processor/processorhelper/internal/metadata/generated_telemetry.go
+index 94d738f4a..df28bde4d 100644
+--- a/processor/processorhelper/internal/metadata/generated_telemetry.go
++++ b/processor/processorhelper/internal/metadata/generated_telemetry.go
+@@ -31,6 +31,9 @@ type TelemetryBuilder struct {
+ 	ProcessorDroppedLogRecords    metric.Int64Counter
+ 	ProcessorDroppedMetricPoints  metric.Int64Counter
+ 	ProcessorDroppedSpans         metric.Int64Counter
++	ProcessorInsertedLogRecords   metric.Int64Counter
++	ProcessorInsertedMetricPoints metric.Int64Counter
++	ProcessorInsertedSpans        metric.Int64Counter
+ 	ProcessorRefusedLogRecords    metric.Int64Counter
+ 	ProcessorRefusedMetricPoints  metric.Int64Counter
+ 	ProcessorRefusedSpans         metric.Int64Counter
+@@ -96,6 +99,24 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...teleme
+ 		metric.WithUnit("1"),
+ 	)
+ 	errs = errors.Join(errs, err)
++	builder.ProcessorInsertedLogRecords, err = builder.meter.Int64Counter(
++		"processor_inserted_log_records",
++		metric.WithDescription("Number of log records that were inserted."),
++		metric.WithUnit("1"),
++	)
++	errs = errors.Join(errs, err)
++	builder.ProcessorInsertedMetricPoints, err = builder.meter.Int64Counter(
++		"processor_inserted_metric_points",
++		metric.WithDescription("Number of metric points that were inserted."),
++		metric.WithUnit("1"),
++	)
++	errs = errors.Join(errs, err)
++	builder.ProcessorInsertedSpans, err = builder.meter.Int64Counter(
++		"processor_inserted_spans",
++		metric.WithDescription("Number of spans that were inserted."),
++		metric.WithUnit("1"),
++	)
++	errs = errors.Join(errs, err)
+ 	builder.ProcessorRefusedLogRecords, err = builder.meter.Int64Counter(
+ 		"processor_refused_log_records",
+ 		metric.WithDescription("Number of log records that were rejected by the next component in the pipeline."),

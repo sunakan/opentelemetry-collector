@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 30cdc60ca..1c4d9a7dc 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -136,7 +136,7 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 
+ 	mp, err := telFactory.CreateMeterProvider(ctx, telset, &cfg.Telemetry)
+ 	if err != nil {
+-		return nil, fmt.Errorf("failed to create metric provider: %w", err)
++		return nil, fmt.Errorf("failed to create meter provider: %w", err)
+ 	}
+ 
+ 	logsAboutMeterProvider(logger, cfg.Telemetry.Metrics, mp)

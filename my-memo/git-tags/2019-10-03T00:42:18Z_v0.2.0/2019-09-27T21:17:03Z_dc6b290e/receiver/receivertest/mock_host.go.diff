@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/mock_host.go b/receiver/receivertest/mock_host.go
+index c11671da7..6f9361e4f 100644
+--- a/receiver/receivertest/mock_host.go
++++ b/receiver/receivertest/mock_host.go
+@@ -19,7 +19,7 @@ package receivertest
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+ // MockHost mocks a receiver.ReceiverHost for test purposes.

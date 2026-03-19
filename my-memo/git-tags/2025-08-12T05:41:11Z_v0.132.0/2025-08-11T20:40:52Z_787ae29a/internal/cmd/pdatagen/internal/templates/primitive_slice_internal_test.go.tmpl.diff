@@ -1,0 +1,24 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/primitive_slice_internal_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/primitive_slice_internal_test.go.tmpl
+index be9a1e511..6715822be 100644
+--- a/internal/cmd/pdatagen/internal/templates/primitive_slice_internal_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/primitive_slice_internal_test.go.tmpl
+@@ -22,19 +22,3 @@ func TestCopyOrig{{ .elementOriginName }}Slice(t *testing.T) {
+ 	dest = CopyOrig{{ .elementOriginName }}Slice(dest, src)
+ 	assert.Equal(t, src, dest)
+ }
+-
+-func TestMarshalAndUnmarshalJSONOrig{{ .elementOriginName }}Slice(t *testing.T) {
+-	src := GenerateOrigTest{{ .elementOriginName }}Slice()
+-
+-	stream := json.BorrowStream(nil)
+-	defer json.ReturnStream(stream)
+-	MarshalJSONOrig{{ .elementOriginName }}Slice(src, stream)
+-	require.NoError(t, stream.Error())
+-
+-	iter := json.BorrowIterator(stream.Buffer())
+-	defer json.ReturnIterator(iter)
+-	dest := UnmarshalJSONOrig{{ .elementOriginName }}Slice(iter)
+-	require.NoError(t, iter.Error())
+-
+-	assert.Equal(t, src, dest)
+-}

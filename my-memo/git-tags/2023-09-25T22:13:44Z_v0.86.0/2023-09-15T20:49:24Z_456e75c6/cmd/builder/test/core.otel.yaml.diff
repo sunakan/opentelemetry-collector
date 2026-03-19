@@ -1,0 +1,19 @@
+diff --git a/cmd/builder/test/core.otel.yaml b/cmd/builder/test/core.otel.yaml
+index e0d615cd3..e87c0fc67 100644
+--- a/cmd/builder/test/core.otel.yaml
++++ b/cmd/builder/test/core.otel.yaml
+@@ -9,7 +9,7 @@ receivers:
+ processors:
+ 
+ exporters:
+-  logging:
++  debug:
+ 
+ service:
+   extensions: [zpages]
+@@ -19,4 +19,4 @@ service:
+         - otlp
+       processors: []
+       exporters:
+-        - logging
++        - debug

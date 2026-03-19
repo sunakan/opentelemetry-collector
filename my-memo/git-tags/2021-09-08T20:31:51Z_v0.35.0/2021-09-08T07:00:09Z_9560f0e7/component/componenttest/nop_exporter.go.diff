@@ -1,0 +1,26 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index 2a474e6b0..405ac628e 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -17,9 +17,6 @@ package componenttest
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/otel/trace"
+-	"go.uber.org/zap"
+-
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+@@ -29,9 +26,8 @@ import (
+ // NewNopExporterCreateSettings returns a new nop settings for Create*Exporter functions.
+ func NewNopExporterCreateSettings() component.ExporterCreateSettings {
+ 	return component.ExporterCreateSettings{
+-		Logger:         zap.NewNop(),
+-		TracerProvider: trace.NewNoopTracerProvider(),
+-		BuildInfo:      component.DefaultBuildInfo(),
++		TelemetryCreateSettings: NewNopTelemetryCreateSettings(),
++		BuildInfo:               component.DefaultBuildInfo(),
+ 	}
+ }
+ 

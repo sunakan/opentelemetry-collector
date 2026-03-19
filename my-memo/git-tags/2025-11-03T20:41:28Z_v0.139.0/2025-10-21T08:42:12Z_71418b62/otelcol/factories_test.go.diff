@@ -1,0 +1,23 @@
+diff --git a/otelcol/factories_test.go b/otelcol/factories_test.go
+index 808a4e8e9..52a5f0299 100644
+--- a/otelcol/factories_test.go
++++ b/otelcol/factories_test.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/processor/processortest"
+ 	"go.opentelemetry.io/collector/receiver"
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
++	"go.opentelemetry.io/collector/service/telemetry"
+ )
+ 
+ func nopFactories() (Factories, error) {
+@@ -66,6 +67,10 @@ func nopFactories() (Factories, error) {
+ 		factories.ProcessorModules[proc.Type()] = "go.opentelemetry.io/collector/processor/processortest v1.2.3"
+ 	}
+ 
++	factories.Telemetry = telemetry.NewFactory(func() component.Config {
++		return fakeTelemetryConfig{}
++	})
++
+ 	return factories, err
+ }
+ 

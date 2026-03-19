@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/metadata.yaml b/receiver/otlpreceiver/metadata.yaml
+new file mode 100644
+index 000000000..c3036a334
+--- /dev/null
++++ b/receiver/otlpreceiver/metadata.yaml
+@@ -0,0 +1,8 @@
++type: otlp
++
++status:
++  class: receiver
++  stability:
++    stable: [traces, metrics]
++    beta: [logs]
++  distributions: [core, contrib]

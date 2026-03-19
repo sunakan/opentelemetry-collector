@@ -1,0 +1,42 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 3f70b64bf..69ac3900f 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -18,6 +18,8 @@ import (
+ 	"github.com/rs/cors"
+ 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ 	"go.opentelemetry.io/otel"
++	"go.opentelemetry.io/otel/metric"
++	"go.opentelemetry.io/otel/metric/noop"
+ 	"golang.org/x/net/http2"
+ 	"golang.org/x/net/publicsuffix"
+ 
+@@ -226,7 +228,7 @@ func (hcs *ClientConfig) ToClient(ctx context.Context, host component.Host, sett
+ 	otelOpts := []otelhttp.Option{
+ 		otelhttp.WithTracerProvider(settings.TracerProvider),
+ 		otelhttp.WithPropagators(otel.GetTextMapPropagator()),
+-		otelhttp.WithMeterProvider(settings.LeveledMeterProvider(configtelemetry.LevelDetailed)),
++		otelhttp.WithMeterProvider(getLeveledMeterProvider(settings)),
+ 	}
+ 	// wrapping http transport with otelhttp transport to enable otel instrumentation
+ 	if settings.TracerProvider != nil && settings.MeterProvider != nil {
+@@ -465,7 +467,7 @@ func (hss *ServerConfig) ToServer(_ context.Context, host component.Host, settin
+ 		otelhttp.WithSpanNameFormatter(func(_ string, r *http.Request) string {
+ 			return r.URL.Path
+ 		}),
+-		otelhttp.WithMeterProvider(settings.LeveledMeterProvider(configtelemetry.LevelDetailed)),
++		otelhttp.WithMeterProvider(getLeveledMeterProvider(settings)),
+ 	}
+ 
+ 	// Enable OpenTelemetry observability plugin.
+@@ -553,3 +555,10 @@ func maxRequestBodySizeInterceptor(next http.Handler, maxRecvSize int64) http.Ha
+ 		next.ServeHTTP(w, r)
+ 	})
+ }
++
++func getLeveledMeterProvider(settings component.TelemetrySettings) metric.MeterProvider {
++	if configtelemetry.LevelDetailed <= settings.MetricsLevel {
++		return settings.MeterProvider
++	}
++	return noop.MeterProvider{}
++}

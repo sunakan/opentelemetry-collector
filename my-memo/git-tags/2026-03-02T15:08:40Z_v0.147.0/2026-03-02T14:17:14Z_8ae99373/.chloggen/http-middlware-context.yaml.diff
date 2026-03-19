@@ -1,0 +1,15 @@
+diff --git a/.chloggen/http-middlware-context.yaml b/.chloggen/http-middlware-context.yaml
+deleted file mode 100644
+index 5ec794d12..000000000
+--- a/.chloggen/http-middlware-context.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-change_type: bug_fix
+-
+-component: pkg/config/configmiddleware
+-
+-note: Add context.Context to HTTP middleware interface constructors. 
+-
+-subtext: This is a breaking API change for components that implement or use extensionmiddleware.
+-
+-issues: [14523]

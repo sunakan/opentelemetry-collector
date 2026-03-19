@@ -1,0 +1,12 @@
+diff --git a/service/builder/exporters_builder_test.go b/service/builder/exporters_builder_test.go
+index bc3554c27..cc166df03 100644
+--- a/service/builder/exporters_builder_test.go
++++ b/service/builder/exporters_builder_test.go
+@@ -45,6 +45,7 @@ func TestExportersBuilder_Build(t *testing.T) {
+ 				GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 					Endpoint: "0.0.0.0:12345",
+ 				},
++				NumWorkers: 2,
+ 			},
+ 		},
+ 

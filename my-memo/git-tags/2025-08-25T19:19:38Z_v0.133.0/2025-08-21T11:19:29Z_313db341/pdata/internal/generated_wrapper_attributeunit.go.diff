@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunit.go b/pdata/internal/generated_wrapper_attributeunit.go
+index ed64033c2..e07b36d17 100644
+--- a/pdata/internal/generated_wrapper_attributeunit.go
++++ b/pdata/internal/generated_wrapper_attributeunit.go
+@@ -45,6 +45,10 @@ func DeleteOrigAttributeUnit(orig *otlpprofiles.AttributeUnit, nullable bool) {
+ }
+ 
+ func CopyOrigAttributeUnit(dest, src *otlpprofiles.AttributeUnit) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.AttributeKeyStrindex = src.AttributeKeyStrindex
+ 	dest.UnitStrindex = src.UnitStrindex
+ }

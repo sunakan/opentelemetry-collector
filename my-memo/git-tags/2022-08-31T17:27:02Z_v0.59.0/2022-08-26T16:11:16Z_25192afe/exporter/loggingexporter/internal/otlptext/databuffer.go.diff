@@ -1,0 +1,12 @@
+diff --git a/exporter/loggingexporter/internal/otlptext/databuffer.go b/exporter/loggingexporter/internal/otlptext/databuffer.go
+index 65a4f6b7b..5b26a7894 100644
+--- a/exporter/loggingexporter/internal/otlptext/databuffer.go
++++ b/exporter/loggingexporter/internal/otlptext/databuffer.go
+@@ -56,6 +56,7 @@ func (b *dataBuffer) logInstrumentationScope(il pcommon.InstrumentationScope) {
+ 		"InstrumentationScope %s %s",
+ 		il.Name(),
+ 		il.Version())
++	b.logAttributes("InstrumentationScope attributes", il.Attributes())
+ }
+ 
+ func (b *dataBuffer) logMetricDescriptor(md pmetric.Metric) {

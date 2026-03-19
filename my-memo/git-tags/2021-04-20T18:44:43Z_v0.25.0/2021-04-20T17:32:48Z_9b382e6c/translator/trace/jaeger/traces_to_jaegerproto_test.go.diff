@@ -1,0 +1,12 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto_test.go b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+index 94309e9b7..7546208a5 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+@@ -359,6 +359,6 @@ func BenchmarkInternalTracesToJaegerProto(b *testing.B) {
+ 
+ 	b.ResetTimer()
+ 	for n := 0; n < b.N; n++ {
+-		InternalTracesToJaegerProto(td)
++		InternalTracesToJaegerProto(td) // nolint:errcheck
+ 	}
+ }

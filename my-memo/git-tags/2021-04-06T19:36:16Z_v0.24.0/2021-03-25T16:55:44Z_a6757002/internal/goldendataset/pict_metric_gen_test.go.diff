@@ -1,0 +1,20 @@
+diff --git a/internal/goldendataset/pict_metric_gen_test.go b/internal/goldendataset/pict_metric_gen_test.go
+index 678d62375..4ba76965d 100644
+--- a/internal/goldendataset/pict_metric_gen_test.go
++++ b/internal/goldendataset/pict_metric_gen_test.go
+@@ -69,13 +69,13 @@ func TestPICTtoCfg(t *testing.T) {
+ 			inputs: PICTMetricInputs{
+ 				NumResourceAttrs: AttrsTwo,
+ 				NumPtsPerMetric:  NumPtsPerMetricMany,
+-				MetricType:       MetricTypeDoubleHistogram,
++				MetricType:       MetricTypeHistogram,
+ 				NumPtLabels:      LabelsMany,
+ 			},
+ 			cfg: MetricCfg{
+ 				NumResourceAttrs:     2,
+ 				NumPtsPerMetric:      16,
+-				MetricDescriptorType: pdata.MetricDataTypeDoubleHistogram,
++				MetricDescriptorType: pdata.MetricDataTypeHistogram,
+ 				NumPtLabels:          16,
+ 			},
+ 		},

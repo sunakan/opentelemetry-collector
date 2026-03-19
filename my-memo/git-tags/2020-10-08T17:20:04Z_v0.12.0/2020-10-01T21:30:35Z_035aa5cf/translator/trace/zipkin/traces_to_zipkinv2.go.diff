@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2.go b/translator/trace/zipkin/traces_to_zipkinv2.go
+index 912de53e8..29406f544 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2.go
+@@ -231,7 +231,7 @@ func spanLinksToZipkinTags(links pdata.SpanLinkSlice, zTags map[string]string) e
+ 				return err
+ 			}
+ 			zTags[key] = fmt.Sprintf(tracetranslator.SpanLinkDataFormat, link.TraceID().HexString(),
+-				link.SpanID().String(), link.TraceState(), jsonStr, link.DroppedAttributesCount())
++				link.SpanID().HexString(), link.TraceState(), jsonStr, link.DroppedAttributesCount())
+ 		}
+ 	}
+ 	return nil

@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope.go b/pdata/pcommon/generated_instrumentationscope.go
+index d0913d9f0..d6e27851c 100644
+--- a/pdata/pcommon/generated_instrumentationscope.go
++++ b/pdata/pcommon/generated_instrumentationscope.go
+@@ -95,8 +95,5 @@ func (ms InstrumentationScope) SetDroppedAttributesCount(v uint32) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms InstrumentationScope) CopyTo(dest InstrumentationScope) {
+ 	dest.getState().AssertMutable()
+-	dest.SetName(ms.Name())
+-	dest.SetVersion(ms.Version())
+-	ms.Attributes().CopyTo(dest.Attributes())
+-	dest.SetDroppedAttributesCount(ms.DroppedAttributesCount())
++	internal.CopyOrigInstrumentationScope(dest.getOrig(), ms.getOrig())
+ }

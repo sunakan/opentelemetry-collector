@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index 9394b54fc..824b1e0ec 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -165,3 +165,11 @@ telemetry:
+       unit: s
+       histogram:
+         value_type: double
++    process_runtime_total_alloc_bytes:
++      enabled: true
++      description: Cumulative bytes allocated for heap objects (see 'go doc runtime.MemStats.TotalAlloc')
++      unit: By
++      sum:
++        async: true
++        value_type: int
++        monotonic: true

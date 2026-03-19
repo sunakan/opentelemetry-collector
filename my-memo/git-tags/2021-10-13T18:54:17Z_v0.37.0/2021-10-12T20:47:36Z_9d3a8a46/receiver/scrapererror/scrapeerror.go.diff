@@ -1,0 +1,13 @@
+diff --git a/receiver/scrapererror/scrapeerror.go b/receiver/scrapererror/scrapeerror.go
+index 22dc2f79a..eb3042bf5 100644
+--- a/receiver/scrapererror/scrapeerror.go
++++ b/receiver/scrapererror/scrapeerror.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package scrapererror
++package scrapererror // import "go.opentelemetry.io/collector/receiver/scrapererror"
+ 
+ import (
+ 	"go.uber.org/multierr"

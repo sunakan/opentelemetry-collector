@@ -1,0 +1,12 @@
+diff --git a/exporter/loggingexporter/known_sync_error_windows.go b/exporter/loggingexporter/known_sync_error_windows.go
+index ef26294c0..e2d38a098 100644
+--- a/exporter/loggingexporter/known_sync_error_windows.go
++++ b/exporter/loggingexporter/known_sync_error_windows.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++//go:build windows
+ // +build windows
+ 
+ package loggingexporter

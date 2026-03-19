@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+index 816149618..6f44c2b16 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+@@ -203,7 +203,7 @@ func initializeNumberDataPointAsDouble(dataPoint pdata.NumberDataPoint, startTim
+ 	}
+ 	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+-	dataPoint.SetValue(value)
++	dataPoint.SetDoubleVal(value)
+ }
+ 
+ func initializeDiskPendingDataPoint(dataPoint pdata.IntDataPoint, now pdata.Timestamp, deviceLabel string, value int64) {

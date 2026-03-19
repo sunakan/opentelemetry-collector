@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
+index 4c9adce57..3c932a11c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/shirou/gopsutil/host"
+ 	"go.opencensus.io/trace"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // scraper for Disk Metrics

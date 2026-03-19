@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 8152cee79..787f47276 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -70,6 +70,7 @@ var (
+ 		"/exporter",
+ 		"/exporter/debugexporter",
+ 		"/exporter/exporterprofiles",
++		"/exporter/exportertest",
+ 		"/exporter/exporterhelper/exporterhelperprofiles",
+ 		"/exporter/nopexporter",
+ 		"/exporter/otlpexporter",

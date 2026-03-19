@@ -1,0 +1,23 @@
+diff --git a/service/internal/zpages/templates_test.go b/service/internal/zpages/templates_test.go
+index 1fc62e8bd..3c997b1ca 100644
+--- a/service/internal/zpages/templates_test.go
++++ b/service/internal/zpages/templates_test.go
+@@ -62,12 +62,12 @@ func TestNoCrash(t *testing.T) {
+ 		WriteHTMLPipelinesSummaryTable(buf, SummaryPipelinesTableData{
+ 			ComponentEndpoint: "pagez",
+ 			Rows: []SummaryPipelinesTableRowData{{
+-				FullName:            "test",
+-				InputType:           "metrics",
+-				MutatesConsumedData: false,
+-				Receivers:           []string{"oc"},
+-				Processors:          []string{"nop"},
+-				Exporters:           []string{"oc"},
++				FullName:    "test",
++				InputType:   "metrics",
++				MutatesData: false,
++				Receivers:   []string{"oc"},
++				Processors:  []string{"nop"},
++				Exporters:   []string{"oc"},
+ 			}},
+ 		})
+ 	})

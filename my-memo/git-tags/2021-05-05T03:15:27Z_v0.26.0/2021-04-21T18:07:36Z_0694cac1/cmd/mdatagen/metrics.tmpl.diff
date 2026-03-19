@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/metrics.tmpl b/cmd/mdatagen/metrics.tmpl
+index 887d95437..1c0066b4e 100644
+--- a/cmd/mdatagen/metrics.tmpl
++++ b/cmd/mdatagen/metrics.tmpl
+@@ -79,10 +79,10 @@ func (m *metricStruct) ByName(n string) MetricIntf {
+     return metricsByName[n]
+ }
+ 
+-func (m *metricStruct) FactoriesByName() map[string]func() pdata.Metric {
+-    return map[string]func() pdata.Metric {
++func (m *metricStruct) FactoriesByName() map[string]func(pdata.Metric) {
++    return map[string]func(pdata.Metric) {
+     {{- range $name, $metric := .Metrics }}
+-      Metrics.{{ $name.Render }}.Name(): Metrics.{{ $name.Render }}.New,
++      Metrics.{{ $name.Render }}.Name(): Metrics.{{ $name.Render }}.Init,
+     {{- end }}
+     }
+ }

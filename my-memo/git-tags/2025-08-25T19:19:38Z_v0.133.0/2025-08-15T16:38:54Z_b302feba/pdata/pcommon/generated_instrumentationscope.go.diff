@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope.go b/pdata/pcommon/generated_instrumentationscope.go
+index 492c5aad5..4f22f0c82 100644
+--- a/pdata/pcommon/generated_instrumentationscope.go
++++ b/pdata/pcommon/generated_instrumentationscope.go
+@@ -29,8 +29,7 @@ func newInstrumentationScope(orig *otlpcommon.InstrumentationScope, state *inter
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewInstrumentationScope() InstrumentationScope {
+-	state := internal.StateMutable
+-	return newInstrumentationScope(&otlpcommon.InstrumentationScope{}, &state)
++	return newInstrumentationScope(&otlpcommon.InstrumentationScope{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index 4f201aced..c7018b57c 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -256,7 +256,7 @@ func TestLogMemoryPressureResponse(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	ctx := context.Background()
+-	ld := data.NewLogs()
++	ld := pdata.NewLogs()
+ 
+ 	// Below memAllocLimit.
+ 	currentMemAlloc = 800

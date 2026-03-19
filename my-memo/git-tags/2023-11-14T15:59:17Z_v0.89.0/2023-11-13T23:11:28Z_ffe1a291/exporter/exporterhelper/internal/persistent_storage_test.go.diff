@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_test.go b/exporter/exporterhelper/internal/persistent_storage_test.go
+index 66ea4e06f..d90a4b1f6 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_test.go
+@@ -235,7 +235,7 @@ func TestPersistentStorage_CurrentlyProcessedItems(t *testing.T) {
+ 	}
+ 
+ 	// The queue should be now empty
+-	requireCurrentlyDispatchedItemsEqual(t, newPs, nil)
++	requireCurrentlyDispatchedItemsEqual(t, newPs, []itemIndex{})
+ 	assert.Eventually(t, func() bool {
+ 		return newPs.size() == 0
+ 	}, 5*time.Second, 10*time.Millisecond)

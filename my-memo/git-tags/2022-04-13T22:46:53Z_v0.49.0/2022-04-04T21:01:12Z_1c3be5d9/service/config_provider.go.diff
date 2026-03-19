@@ -1,0 +1,29 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index de4348c45..02e9bbd3f 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -106,11 +106,7 @@ func MustNewConfigProvider(
+ func MustNewDefaultConfigProvider(configLocations []string, properties []string) ConfigProvider {
+ 	return MustNewConfigProvider(
+ 		configLocations,
+-		map[string]config.MapProvider{
+-			"file": filemapprovider.New(),
+-			"env":  envmapprovider.New(),
+-			"yaml": yamlmapprovider.New(),
+-		},
++		makeConfigMapProviderMap(filemapprovider.New(), envmapprovider.New(), yamlmapprovider.New()),
+ 		[]config.MapConverterFunc{
+ 			configmapprovider.NewOverwritePropertiesConverter(properties),
+ 			configmapprovider.NewExpandConverter(),
+@@ -222,3 +218,11 @@ func (cm *configProvider) mergeRetrieve(ctx context.Context) (*config.Retrieved,
+ 		},
+ 	}, nil
+ }
++
++func makeConfigMapProviderMap(providers ...config.MapProvider) map[string]config.MapProvider {
++	ret := make(map[string]config.MapProvider, len(providers))
++	for _, provider := range providers {
++		ret[provider.Scheme()] = provider
++	}
++	return ret
++}

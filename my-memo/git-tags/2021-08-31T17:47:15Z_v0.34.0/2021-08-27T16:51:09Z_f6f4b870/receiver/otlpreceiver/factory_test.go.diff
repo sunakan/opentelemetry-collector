@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 057da3ac5..388cb72bd 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -29,7 +29,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

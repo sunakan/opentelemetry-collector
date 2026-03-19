@@ -1,0 +1,19 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/pools.go b/internal/cmd/pdatagen/internal/proto/pools.go
+index 89da7165b..f028aa9d7 100644
+--- a/internal/cmd/pdatagen/internal/proto/pools.go
++++ b/internal/cmd/pdatagen/internal/proto/pools.go
+@@ -10,12 +10,12 @@ import (
+ const poolVarOrigTemplate = `
+ 	ProtoPool{{ .oneOfMessageName }} = sync.Pool{
+ 		New: func() any {
+-			return &{{ .oneOfMessageFullName }}{}
++			return &{{ .oneOfMessageName }}{}
+ 		},
+ 	}
+ `
+ 
+-func (pf *Field) GenPoolVarOrig() string {
++func (pf *Field) GenPool() string {
+ 	tf := pf.getTemplateFields()
+ 	if pf.OneOfGroup != "" {
+ 		return template.Execute(template.Parse("poolVarOrigTemplate", []byte(poolVarOrigTemplate)), tf)

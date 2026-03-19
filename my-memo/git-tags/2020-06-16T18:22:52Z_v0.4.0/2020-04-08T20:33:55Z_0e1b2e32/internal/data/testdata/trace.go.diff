@@ -1,0 +1,14 @@
+diff --git a/internal/data/testdata/trace.go b/internal/data/testdata/trace.go
+index 69368c6b3..4a582a71d 100644
+--- a/internal/data/testdata/trace.go
++++ b/internal/data/testdata/trace.go
+@@ -195,7 +195,8 @@ func GenerateTraceDataTwoSpansSameResource() data.TraceData {
+ 	return td
+ }
+ 
+-func generateTraceOtlpSameResourceTwoSpans() []*otlptrace.ResourceSpans {
++// GenerateTraceOtlpSameResourceTwoSpans returns the OTLP representation of the GenerateTraceOtlpSameResourceTwoSpans.
++func GenerateTraceOtlpSameResourceTwoSpans() []*otlptrace.ResourceSpans {
+ 	return []*otlptrace.ResourceSpans{
+ 		{
+ 			Resource: generateOtlpResource1(),

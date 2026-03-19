@@ -1,0 +1,24 @@
+diff --git a/config/extension.go b/config/extension.go
+index f8666cbbe..996376b86 100644
+--- a/config/extension.go
++++ b/config/extension.go
+@@ -17,8 +17,10 @@ package config
+ // Extension is the configuration of a service extension. Specific extensions
+ // must implement this interface and will typically embed ExtensionSettings
+ // struct or a struct that extends it.
++// Embedded validatable will force each extension to implement Validate() function
+ type Extension interface {
+ 	NamedEntity
++	validatable
+ }
+ 
+ // Extensions is a map of names to extensions.
+@@ -53,3 +55,8 @@ func (ext *ExtensionSettings) SetName(name string) {
+ func (ext *ExtensionSettings) Type() Type {
+ 	return ext.TypeVal
+ }
++
++// Validate validates the configuration and returns an error if invalid.
++func (ext *ExtensionSettings) Validate() error {
++	return nil
++}

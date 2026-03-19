@@ -1,0 +1,32 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogram_test.go b/pdata/pmetric/generated_exponentialhistogram_test.go
+index 14424d65e..2730c4b0e 100644
+--- a/pdata/pmetric/generated_exponentialhistogram_test.go
++++ b/pdata/pmetric/generated_exponentialhistogram_test.go
+@@ -40,6 +40,13 @@ func TestExponentialHistogram_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newExponentialHistogram(&otlpmetrics.ExponentialHistogram{}, &sharedState)) })
+ }
+ 
++func TestExponentialHistogram_DataPoints(t *testing.T) {
++	ms := NewExponentialHistogram()
++	assert.Equal(t, NewExponentialHistogramDataPointSlice(), ms.DataPoints())
++	ms.orig.DataPoints = internal.GenerateOrigTestExponentialHistogramDataPointSlice()
++	assert.Equal(t, generateTestExponentialHistogramDataPointSlice(), ms.DataPoints())
++}
++
+ func TestExponentialHistogram_AggregationTemporality(t *testing.T) {
+ 	ms := NewExponentialHistogram()
+ 	assert.Equal(t, AggregationTemporality(otlpmetrics.AggregationTemporality(0)), ms.AggregationTemporality())
+@@ -48,13 +55,6 @@ func TestExponentialHistogram_AggregationTemporality(t *testing.T) {
+ 	assert.Equal(t, testValAggregationTemporality, ms.AggregationTemporality())
+ }
+ 
+-func TestExponentialHistogram_DataPoints(t *testing.T) {
+-	ms := NewExponentialHistogram()
+-	assert.Equal(t, NewExponentialHistogramDataPointSlice(), ms.DataPoints())
+-	ms.orig.DataPoints = internal.GenerateOrigTestExponentialHistogramDataPointSlice()
+-	assert.Equal(t, generateTestExponentialHistogramDataPointSlice(), ms.DataPoints())
+-}
+-
+ func generateTestExponentialHistogram() ExponentialHistogram {
+ 	ms := NewExponentialHistogram()
+ 	internal.FillOrigTestExponentialHistogram(ms.orig)

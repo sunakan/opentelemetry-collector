@@ -1,0 +1,15 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index 4efa9658c..290242562 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -72,3 +72,10 @@ type Config struct {
+ 	Protocols               `mapstructure:"protocols"`
+ 	RemoteSampling          *RemoteSamplingConfig `mapstructure:"remote_sampling"`
+ }
++
++var _ config.CustomConfigOptions = (*Config)(nil)
++
++// Validate checks the receiver configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

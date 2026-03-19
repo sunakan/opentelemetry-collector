@@ -1,0 +1,26 @@
+diff --git a/cmd/mdatagen/internal/testdata/entity_undefined_id_attribute.yaml b/cmd/mdatagen/internal/testdata/entity_undefined_id_attribute.yaml
+new file mode 100644
+index 000000000..8eb448999
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/entity_undefined_id_attribute.yaml
+@@ -0,0 +1,20 @@
++type: sample
++status:
++  class: receiver
++  stability:
++    stable: [metrics]
++
++resource_attributes:
++  host.name:
++    description: The hostname
++    type: string
++    enabled: true
++
++entities:
++  - type: host
++    brief: A host instance.
++    stability: stable
++    identity:
++      - ref: host.missing
++    description:
++      - ref: host.name

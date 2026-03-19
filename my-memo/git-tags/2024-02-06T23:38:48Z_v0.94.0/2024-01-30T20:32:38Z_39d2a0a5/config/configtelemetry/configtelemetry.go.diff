@@ -1,0 +1,22 @@
+diff --git a/config/configtelemetry/configtelemetry.go b/config/configtelemetry/configtelemetry.go
+index 0ec660bd7..b8c0967c9 100644
+--- a/config/configtelemetry/configtelemetry.go
++++ b/config/configtelemetry/configtelemetry.go
+@@ -4,7 +4,6 @@
+ package configtelemetry // import "go.opentelemetry.io/collector/config/configtelemetry"
+ 
+ import (
+-	"encoding"
+ 	"errors"
+ 	"fmt"
+ 	"strings"
+@@ -30,9 +29,6 @@ const (
+ // that every component should generate.
+ type Level int32
+ 
+-var _ encoding.TextMarshaler = (*Level)(nil)
+-var _ encoding.TextUnmarshaler = (*Level)(nil)
+-
+ func (l Level) String() string {
+ 	switch l {
+ 	case LevelNone:

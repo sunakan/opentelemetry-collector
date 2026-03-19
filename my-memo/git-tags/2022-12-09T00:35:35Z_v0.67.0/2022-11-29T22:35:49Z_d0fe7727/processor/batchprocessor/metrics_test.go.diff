@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/metrics_test.go b/processor/batchprocessor/metrics_test.go
+index 5c10ed6fd..249c5fe8c 100644
+--- a/processor/batchprocessor/metrics_test.go
++++ b/processor/batchprocessor/metrics_test.go
+@@ -130,6 +130,7 @@ func setupTelemetry(t *testing.T, useOtel bool) testTelemetry {
+ func (tt *testTelemetry) NewProcessorCreateSettings() component.ProcessorCreateSettings {
+ 	settings := componenttest.NewNopProcessorCreateSettings()
+ 	settings.MeterProvider = tt.meterProvider
++	settings.ID = component.NewID(typeStr)
+ 
+ 	return settings
+ }

@@ -1,0 +1,15 @@
+diff --git a/pdata/xpdata/entity/generated_entityref.go b/pdata/xpdata/entity/generated_entityref.go
+index 96ff7d516..a56e7d93d 100644
+--- a/pdata/xpdata/entity/generated_entityref.go
++++ b/pdata/xpdata/entity/generated_entityref.go
+@@ -40,8 +40,8 @@ func (ms EntityRef) MoveTo(dest EntityRef) {
+ 	if ms.getOrig() == dest.getOrig() {
+ 		return
+ 	}
+-	*dest.getOrig() = *ms.getOrig()
+-	*ms.getOrig() = otlpcommon.EntityRef{}
++	internal.DeleteOrigEntityRef(dest.getOrig(), false)
++	*dest.getOrig(), *ms.getOrig() = *ms.getOrig(), *dest.getOrig()
+ }
+ 
+ // SchemaUrl returns the schemaurl associated with this EntityRef.

@@ -1,0 +1,30 @@
+diff --git a/config/confighttp/compression.go b/config/confighttp/compression.go
+index 48898a627..99e7533bc 100644
+--- a/config/confighttp/compression.go
++++ b/config/confighttp/compression.go
+@@ -53,15 +53,21 @@ type pooledZstdReadCloser struct {
+ }
+ 
+ func (pzrc *pooledZstdReadCloser) Read(dst []byte) (int, error) {
++	if pzrc.inner == nil {
++		return 0, zstd.ErrDecoderClosed
++	}
+ 	return pzrc.inner.Read(dst)
+ }
+ 
+ func (pzrc *pooledZstdReadCloser) Close() error {
+-	err := pzrc.inner.Reset(nil)
+-	if err != nil {
+-		return err
++	if pzrc.inner != nil {
++		err := pzrc.inner.Reset(nil)
++		if err != nil {
++			return err
++		}
++		zstdReaderPool.Put(pzrc.inner)
++		pzrc.inner = nil
+ 	}
+-	zstdReaderPool.Put(pzrc.inner)
+ 	return nil
+ }
+ 

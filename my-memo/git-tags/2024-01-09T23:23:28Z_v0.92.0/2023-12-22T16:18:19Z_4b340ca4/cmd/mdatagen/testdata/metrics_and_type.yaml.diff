@@ -1,0 +1,25 @@
+diff --git a/cmd/mdatagen/testdata/metrics_and_type.yaml b/cmd/mdatagen/testdata/metrics_and_type.yaml
+new file mode 100644
+index 000000000..81d66bde9
+--- /dev/null
++++ b/cmd/mdatagen/testdata/metrics_and_type.yaml
+@@ -0,0 +1,19 @@
++type: metricreceiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++  distributions: [contrib]
++  warnings:
++    - Any additional information that should be brought to the consumer's attention
++
++metrics:
++  metric:
++    enabled: true
++    description: Description.
++    unit: s
++    gauge:
++      value_type: double

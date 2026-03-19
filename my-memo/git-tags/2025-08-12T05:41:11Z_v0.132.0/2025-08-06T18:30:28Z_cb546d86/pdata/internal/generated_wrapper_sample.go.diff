@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_sample.go b/pdata/internal/generated_wrapper_sample.go
+index 192720d7f..b528f5e8e 100644
+--- a/pdata/internal/generated_wrapper_sample.go
++++ b/pdata/internal/generated_wrapper_sample.go
+@@ -27,3 +27,12 @@ func CopyOrigSample(dest, src *otlpprofiles.Sample) {
+ 	}
+ 	dest.TimestampsUnixNano = CopyOrigUint64Slice(dest.TimestampsUnixNano, src.TimestampsUnixNano)
+ }
++
++func FillOrigTestSample(orig *otlpprofiles.Sample) {
++	orig.LocationsStartIndex = int32(13)
++	orig.LocationsLength = int32(13)
++	orig.Value = GenerateOrigTestInt64Slice()
++	orig.AttributeIndices = GenerateOrigTestInt32Slice()
++	orig.LinkIndex_ = &otlpprofiles.Sample_LinkIndex{LinkIndex: int32(13)}
++	orig.TimestampsUnixNano = GenerateOrigTestUint64Slice()
++}

@@ -1,0 +1,13 @@
+diff --git a/config/configauth/configauth.go b/config/configauth/configauth.go
+index 4df1fb1c2..3bdb6da01 100644
+--- a/config/configauth/configauth.go
++++ b/config/configauth/configauth.go
+@@ -26,6 +26,8 @@ var (
+ type Authentication struct {
+ 	// AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+ 	AuthenticatorID component.ID `mapstructure:"authenticator,omitempty"`
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // GetServerAuthenticator attempts to select the appropriate extensionauth.Server from the list of extensions,

@@ -1,0 +1,17 @@
+diff --git a/pdata/ptrace/ptraceotlp/response_test.go b/pdata/ptrace/ptraceotlp/response_test.go
+index c893557a0..8c228504d 100644
+--- a/pdata/ptrace/ptraceotlp/response_test.go
++++ b/pdata/ptrace/ptraceotlp/response_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportResponse{}
+-var _ json.Marshaler = ExportResponse{}
++var (
++	_ json.Unmarshaler = ExportResponse{}
++	_ json.Marshaler   = ExportResponse{}
++)
+ 
+ func TestExportResponseJSON(t *testing.T) {
+ 	jsonStr := `{"partialSuccess": {"rejectedSpans":1, "errorMessage":"nothing"}}`

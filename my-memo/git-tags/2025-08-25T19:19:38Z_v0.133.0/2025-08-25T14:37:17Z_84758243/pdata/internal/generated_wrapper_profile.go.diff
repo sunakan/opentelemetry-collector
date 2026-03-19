@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_profile.go b/pdata/internal/generated_wrapper_profile.go
+index 05e17e5f2..2ede2e3f4 100644
+--- a/pdata/internal/generated_wrapper_profile.go
++++ b/pdata/internal/generated_wrapper_profile.go
+@@ -614,8 +614,10 @@ func UnmarshalProtoOrigProfile(orig *otlpprofiles.Profile, buf []byte) error {
+ 				return err
+ 			}
+ 			startPos := pos - length
+-			orig.OriginalPayload = make([]byte, length)
+-			copy(orig.OriginalPayload, buf[startPos:pos])
++			if length != 0 {
++				orig.OriginalPayload = make([]byte, length)
++				copy(orig.OriginalPayload, buf[startPos:pos])
++			}
+ 		case 14:
+ 			if wireType != proto.WireTypeLen {
+ 				return fmt.Errorf("proto: wrong wireType = %d for field AttributeIndices", wireType)

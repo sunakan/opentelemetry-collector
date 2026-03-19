@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e905422d8..3439521e6 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -8,6 +8,7 @@
+ - Rename `configparser.Parser` as `config.Map` (#4075)
+ - Rename `component.DefaultBuildInfo()` to `component.NewDefaultBuildInfo()` (#4129)
+ - Rename consumererror.Permanent to consumererror.NewPermanent (#4118)
++- Rename `config.NewID` to `config.NewComponentID` and `config.NewIDFromString` to `config.NewComponentIDFromString` (#4137)
+ 
+ ## 💡 Enhancements 💡
+ 

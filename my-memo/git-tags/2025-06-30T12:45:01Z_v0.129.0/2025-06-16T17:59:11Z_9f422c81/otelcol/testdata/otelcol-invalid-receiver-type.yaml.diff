@@ -1,0 +1,13 @@
+diff --git a/otelcol/testdata/otelcol-invalid-receiver-type.yaml b/otelcol/testdata/otelcol-invalid-receiver-type.yaml
+index 7bcad410b..9662a4038 100644
+--- a/otelcol/testdata/otelcol-invalid-receiver-type.yaml
++++ b/otelcol/testdata/otelcol-invalid-receiver-type.yaml
+@@ -15,7 +15,7 @@ service:
+             exporter:
+               prometheus:
+                 host: "localhost"
+-                port: 8888
++                port: 9999
+   pipelines:
+     traces:
+       receivers: [nop_logs]

@@ -1,0 +1,22 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index a71b5d451..6cdf4d554 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -27,7 +27,7 @@ import (
+ 
+ 	metricspb "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/data"
++	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/config/viperutils"
+ )
+@@ -147,7 +147,7 @@ func TestPrometheusExporter_endToEnd(t *testing.T) {
+ 			},
+ 		},
+ 	}
+-	consumer.ConsumeMetricsData(context.Background(), data.MetricsData{Metrics: []*metricspb.Metric{metric1}})
++	consumer.ConsumeMetricsData(context.Background(), consumerdata.MetricsData{Metrics: []*metricspb.Metric{metric1}})
+ 
+ 	res, err := http.Get("http://localhost:7777/metrics")
+ 	if err != nil {

@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/generated_scopemetrics_test.go b/pdata/pmetric/generated_scopemetrics_test.go
+index a2a92fb96..44de9cbd2 100644
+--- a/pdata/pmetric/generated_scopemetrics_test.go
++++ b/pdata/pmetric/generated_scopemetrics_test.go
+@@ -96,5 +96,5 @@ func generateTestScopeMetrics() ScopeMetrics {
+ func fillTestScopeMetrics(tv ScopeMetrics) {
+ 	internal.FillTestInstrumentationScope(internal.NewInstrumentationScope(&tv.orig.Scope, tv.state))
+ 	tv.orig.SchemaUrl = "https://opentelemetry.io/schemas/1.5.0"
+-	fillTestMetricSlice(newMetricSlice(&tv.orig.Metrics, tv.state))
++	fillTestMetricSlice(tv.Metrics())
+ }

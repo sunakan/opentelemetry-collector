@@ -1,0 +1,21 @@
+diff --git a/internal/testcomponents/example_exporter.go b/internal/testcomponents/example_exporter.go
+index 3c5ddcabb..8799be1b2 100644
+--- a/internal/testcomponents/example_exporter.go
++++ b/internal/testcomponents/example_exporter.go
+@@ -19,7 +19,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/config/configparser"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/model/pdata"
+@@ -38,7 +37,7 @@ type ExampleExporter struct {
+ }
+ 
+ // Unmarshal a viper data into the config struct
+-func (cfg *ExampleExporter) Unmarshal(componentParser *configparser.ConfigMap) error {
++func (cfg *ExampleExporter) Unmarshal(componentParser *config.Map) error {
+ 	return componentParser.UnmarshalExact(cfg)
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp_test.go b/receiver/otlpreceiver/internal/logs/otlp_test.go
+index fc78631b2..b14747fe0 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp_test.go
++++ b/receiver/otlpreceiver/internal/logs/otlp_test.go
+@@ -89,7 +89,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, lc consumer.Logs) net.Addr {
+ 	r := New(config.NewComponentIDWithName("otlp", "log"), lc, componenttest.NewNopReceiverCreateSettings())
+ 	// Now run it as a gRPC server
+ 	srv := grpc.NewServer()
+-	plogotlp.RegisterServer(srv, r)
++	plogotlp.RegisterGRPCServer(srv, r)
+ 	go func() {
+ 		_ = srv.Serve(ln)
+ 	}()

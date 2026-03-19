@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_constants.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_constants.go
+index 47ea78f4b..47e975191 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_constants.go
+@@ -15,7 +15,7 @@
+ package networkscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // network metric constants

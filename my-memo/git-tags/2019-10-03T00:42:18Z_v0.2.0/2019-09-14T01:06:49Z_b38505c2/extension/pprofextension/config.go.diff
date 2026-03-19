@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/config.go b/extension/pprofextension/config.go
+index 6bd8dcb75..88e6141ae 100644
+--- a/extension/pprofextension/config.go
++++ b/extension/pprofextension/config.go
+@@ -24,7 +24,7 @@ type Config struct {
+ 	configmodels.ExtensionSettings `mapstructure:",squash"`
+ 
+ 	// Endpoint is the address and port in which the pprof will be listening to.
+-	// Use 127.0.0.1:<port> to make it available only locally, or ":<port>" to
++	// Use localhost:<port> to make it available only locally, or ":<port>" to
+ 	// make it available on all network interfaces.
+ 	Endpoint string `mapstructure:"endpoint"`
+ 

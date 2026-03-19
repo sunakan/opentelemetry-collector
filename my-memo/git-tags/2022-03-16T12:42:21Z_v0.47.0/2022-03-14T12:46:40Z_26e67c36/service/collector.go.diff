@@ -1,0 +1,17 @@
+diff --git a/service/collector.go b/service/collector.go
+index c4c530cfe..10722c8d9 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -239,10 +239,12 @@ func (col *Collector) Run(ctx context.Context) error {
+ 	col.asyncErrorChannel = make(chan error)
+ 
+ 	if err := col.setupConfigurationComponents(ctx); err != nil {
++		col.setCollectorState(Closed)
+ 		return err
+ 	}
+ 
+ 	if err := collectorTelemetry.init(col); err != nil {
++		col.setCollectorState(Closed)
+ 		return err
+ 	}
+ 

@@ -1,0 +1,16 @@
+diff --git a/model/otlpgrpc/metrics_test.go b/model/otlpgrpc/metrics_test.go
+index 76cc1c73e..cd8c44951 100644
+--- a/model/otlpgrpc/metrics_test.go
++++ b/model/otlpgrpc/metrics_test.go
+@@ -33,9 +33,9 @@ var metricsRequestJSON = []byte(`
+ 	  "resourceMetrics": [
+ 		{
+           "resource": {},
+-		  "instrumentationLibraryMetrics": [
++		  "scopeMetrics": [
+ 			{
+-              "instrumentationLibrary": {},
++              "scope": {},
+ 			  "metrics": [
+ 				{
+ 				  "name": "test_metric"

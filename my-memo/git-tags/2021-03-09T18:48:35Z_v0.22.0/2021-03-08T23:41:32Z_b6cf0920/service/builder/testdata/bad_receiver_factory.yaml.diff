@@ -1,0 +1,23 @@
+diff --git a/service/builder/testdata/bad_receiver_factory.yaml b/service/builder/testdata/bad_receiver_factory.yaml
+deleted file mode 100644
+index 3a6c5cecb..000000000
+--- a/service/builder/testdata/bad_receiver_factory.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-receivers:
+-  bf: # this is the bad receiver factory
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [bf]
+-      exporters: [exampleexporter]
+-    metrics:
+-      receivers: [bf]
+-      exporters: [exampleexporter]
+-    logs:
+-      receivers: [bf]
+-      exporters: [exampleexporter]
+\ No newline at end of file

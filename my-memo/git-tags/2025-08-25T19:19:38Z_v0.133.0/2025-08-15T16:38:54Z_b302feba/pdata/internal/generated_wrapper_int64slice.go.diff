@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_int64slice.go b/pdata/internal/generated_wrapper_int64slice.go
+index 2eb8e5e18..c51664e22 100644
+--- a/pdata/internal/generated_wrapper_int64slice.go
++++ b/pdata/internal/generated_wrapper_int64slice.go
+@@ -29,8 +29,7 @@ func NewInt64Slice(orig *[]int64, state *State) Int64Slice {
+ 
+ func GenerateTestInt64Slice() Int64Slice {
+ 	orig := GenerateOrigTestInt64Slice()
+-	state := StateMutable
+-	return NewInt64Slice(&orig, &state)
++	return NewInt64Slice(&orig, NewState())
+ }
+ 
+ func CopyOrigInt64Slice(dst, src []int64) []int64 {

@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/check_links_config.json b/.github/workflows/check_links_config.json
+new file mode 100644
+index 000000000..4f17e9062
+--- /dev/null
++++ b/.github/workflows/check_links_config.json
+@@ -0,0 +1,14 @@
++{
++    "ignorePatterns": [
++        {
++            "pattern": "http(s)?://\\d+\\.\\d+\\.\\d+\\.\\d+"
++        },
++        {
++            "pattern": "http(s)?://localhost"
++        },
++        {
++            "pattern": "http(s)?://example.com"
++        }
++    ],
++    "aliveStatusCodes": [429, 200]
++}

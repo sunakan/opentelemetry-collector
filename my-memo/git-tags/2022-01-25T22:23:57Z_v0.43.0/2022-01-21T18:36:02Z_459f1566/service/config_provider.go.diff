@@ -1,0 +1,17 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 2a0e72f47..c25ab29f6 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -88,8 +88,11 @@ func NewConfigProvider(
+ 	configMapProviders map[string]configmapprovider.Provider,
+ 	cfgMapConverters []config.MapConverterFunc,
+ 	configUnmarshaler configunmarshaler.ConfigUnmarshaler) ConfigProvider {
++	// Safe copy, ensures the slice cannot be changed from the caller.
++	locationsCopy := make([]string, len(locations))
++	copy(locationsCopy, locations)
+ 	return &configProvider{
+-		locations:          locations,
++		locations:          locationsCopy,
+ 		configMapProviders: configMapProviders,
+ 		cfgMapConverters:   cfgMapConverters,
+ 		configUnmarshaler:  configUnmarshaler,

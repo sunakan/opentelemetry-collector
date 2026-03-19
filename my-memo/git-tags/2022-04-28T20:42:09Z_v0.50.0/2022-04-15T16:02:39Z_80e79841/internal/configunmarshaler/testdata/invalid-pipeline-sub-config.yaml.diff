@@ -1,0 +1,15 @@
+diff --git a/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml b/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
+new file mode 100644
+index 000000000..ddf95f3b9
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces

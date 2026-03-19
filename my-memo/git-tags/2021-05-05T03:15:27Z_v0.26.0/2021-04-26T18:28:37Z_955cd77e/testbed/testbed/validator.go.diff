@@ -1,0 +1,26 @@
+diff --git a/testbed/testbed/validator.go b/testbed/testbed/validator.go
+index adbd49867..753692dc5 100644
+--- a/testbed/testbed/validator.go
++++ b/testbed/testbed/validator.go
+@@ -39,7 +39,9 @@ type TestCaseValidator interface {
+ type PerfTestValidator struct{}
+ 
+ func (v *PerfTestValidator) Validate(tc *TestCase) {
+-	if assert.EqualValues(tc.t, tc.LoadGenerator.DataItemsSent(), tc.MockBackend.DataItemsReceived(),
++	if assert.EqualValues(tc.t,
++		int64(tc.LoadGenerator.DataItemsSent()),
++		int64(tc.MockBackend.DataItemsReceived()),
+ 		"Received and sent counters do not match.") {
+ 		log.Printf("Sent and received data matches.")
+ 	}
+@@ -89,7 +91,9 @@ func NewCorrectTestValidator(senderName string, receiverName string, provider Da
+ }
+ 
+ func (v *CorrectnessTestValidator) Validate(tc *TestCase) {
+-	if assert.EqualValues(tc.t, tc.LoadGenerator.DataItemsSent(), tc.MockBackend.DataItemsReceived(),
++	if assert.EqualValues(tc.t,
++		int64(tc.LoadGenerator.DataItemsSent()),
++		int64(tc.MockBackend.DataItemsReceived()),
+ 		"Received and sent counters do not match.") {
+ 		log.Printf("Sent and received data counters match.")
+ 	}

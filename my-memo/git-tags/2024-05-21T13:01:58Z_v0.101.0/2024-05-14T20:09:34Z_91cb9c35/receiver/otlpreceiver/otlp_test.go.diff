@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 1920ac8de..445015362 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -1147,7 +1147,7 @@ func (esc *errOrSinkConsumer) ConsumeMetrics(ctx context.Context, md pmetric.Met
+ 	return esc.MetricsSink.ConsumeMetrics(ctx, md)
+ }
+ 
+-// ConsumeMetrics stores metrics to this sink.
++// ConsumeLogs stores metrics to this sink.
+ func (esc *errOrSinkConsumer) ConsumeLogs(ctx context.Context, ld plog.Logs) error {
+ 	esc.mu.Lock()
+ 	defer esc.mu.Unlock()

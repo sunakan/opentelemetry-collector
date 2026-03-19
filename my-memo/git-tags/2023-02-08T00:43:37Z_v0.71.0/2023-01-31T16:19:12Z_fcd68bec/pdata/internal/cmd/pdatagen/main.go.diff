@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/cmd/pdatagen/main.go b/pdata/internal/cmd/pdatagen/main.go
+index d868b018c..46a462de4 100644
+--- a/pdata/internal/cmd/pdatagen/main.go
++++ b/pdata/internal/cmd/pdatagen/main.go
+@@ -25,9 +25,9 @@ func check(e error) {
+ }
+ 
+ func main() {
+-	for _, fp := range internal.AllFiles {
+-		check(fp.GenerateFile())
+-		check(fp.GenerateTestFile())
+-		check(fp.GenerateInternalFile())
++	for _, fp := range internal.AllPackages {
++		check(fp.GenerateFiles())
++		check(fp.GenerateTestFiles())
++		check(fp.GenerateInternalFiles())
+ 	}
+ }

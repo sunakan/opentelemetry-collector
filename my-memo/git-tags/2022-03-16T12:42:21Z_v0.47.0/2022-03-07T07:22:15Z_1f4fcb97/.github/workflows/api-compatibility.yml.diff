@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index fceee1fed..cd21e04e4 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -18,13 +18,13 @@ jobs:
+     steps:
+ 
+       - name: Checkout-Main
+-        uses: actions/checkout@v2
++        uses: actions/checkout@v3
+         with: 
+           ref: ${{ github.base_ref }}
+           path: ${{ github.base_ref }}
+ 
+       - name: Checkout-HEAD
+-        uses: actions/checkout@v2 
++        uses: actions/checkout@v3 
+         with: 
+           path: ${{ github.head_ref }}
+ 

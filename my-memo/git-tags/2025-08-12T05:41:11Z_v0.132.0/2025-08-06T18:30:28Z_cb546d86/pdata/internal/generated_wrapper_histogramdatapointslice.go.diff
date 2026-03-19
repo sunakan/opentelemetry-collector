@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_histogramdatapointslice.go b/pdata/internal/generated_wrapper_histogramdatapointslice.go
+index 65130be55..4bfcf04b4 100644
+--- a/pdata/internal/generated_wrapper_histogramdatapointslice.go
++++ b/pdata/internal/generated_wrapper_histogramdatapointslice.go
+@@ -38,3 +38,12 @@ func CopyOrigHistogramDataPointSlice(dest, src []*otlpmetrics.HistogramDataPoint
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestHistogramDataPointSlice() []*otlpmetrics.HistogramDataPoint {
++	orig := make([]*otlpmetrics.HistogramDataPoint, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpmetrics.HistogramDataPoint{}
++		FillOrigTestHistogramDataPoint(orig[i])
++	}
++	return orig
++}

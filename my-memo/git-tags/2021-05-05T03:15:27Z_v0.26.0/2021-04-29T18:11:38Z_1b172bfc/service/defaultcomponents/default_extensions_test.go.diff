@@ -1,0 +1,16 @@
+diff --git a/service/defaultcomponents/default_extensions_test.go b/service/defaultcomponents/default_extensions_test.go
+index b34f3c0fd..c0310a16d 100644
+--- a/service/defaultcomponents/default_extensions_test.go
++++ b/service/defaultcomponents/default_extensions_test.go
+@@ -68,7 +68,10 @@ func TestDefaultExtensions(t *testing.T) {
+ 		},
+ 	}
+ 
+-	assert.Equal(t, len(tests), len(extFactories))
++	// we have one more extension that we can't test here: the OIDC Auth extension requires
++	// an OIDC server to get the config from, and we don't want to spawn one here for this test.
++	assert.Equal(t, len(tests)+1, len(extFactories))
++
+ 	for _, tt := range tests {
+ 		t.Run(string(tt.extension), func(t *testing.T) {
+ 			factory, ok := extFactories[tt.extension]

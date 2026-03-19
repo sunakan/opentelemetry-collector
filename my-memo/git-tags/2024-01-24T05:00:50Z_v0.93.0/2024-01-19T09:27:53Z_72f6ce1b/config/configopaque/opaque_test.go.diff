@@ -1,0 +1,17 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index 34a2c2324..a3d034677 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -80,3 +80,12 @@ func TestStringFmt(t *testing.T) {
+ 		}
+ 	}
+ }
++
++func TestStringMarshalBinary(t *testing.T) {
++	examples := []String{"opaque", "s", "veryveryveryveryveryveryveryveryveryverylong"}
++	for _, example := range examples {
++		opaque, err := example.MarshalBinary()
++		require.NoError(t, err)
++		assert.Equal(t, []byte("[REDACTED]"), opaque)
++	}
++}

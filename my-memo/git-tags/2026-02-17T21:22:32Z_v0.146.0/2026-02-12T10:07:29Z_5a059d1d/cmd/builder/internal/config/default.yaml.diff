@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/config/default.yaml b/cmd/builder/internal/config/default.yaml
+index 4e69b9b8c..9d8a366ef 100644
+--- a/cmd/builder/internal/config/default.yaml
++++ b/cmd/builder/internal/config/default.yaml
+@@ -36,3 +36,7 @@ providers:
+   - gomod: go.opentelemetry.io/collector/confmap/provider/httpsprovider v1.51.0
+   - gomod: go.opentelemetry.io/collector/confmap/provider/yamlprovider v1.51.0
+ 
++telemetry:
++  gomod: go.opentelemetry.io/collector/service v0.145.0
++  import: go.opentelemetry.io/collector/service/telemetry/otelconftelemetry
++

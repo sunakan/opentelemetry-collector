@@ -1,0 +1,21 @@
+diff --git a/cmd/mdatagen/internal/command_test.go b/cmd/mdatagen/internal/command_test.go
+index 6b20fd663..be9901072 100644
+--- a/cmd/mdatagen/internal/command_test.go
++++ b/cmd/mdatagen/internal/command_test.go
+@@ -29,6 +29,16 @@ func TestNewCommand(t *testing.T) {
+ 	assert.True(t, cmd.SilenceUsage)
+ }
+ 
++func TestCommandNoArgs(t *testing.T) {
++	cmd, err := NewCommand()
++	require.NoError(t, err)
++
++	cmd.SetArgs([]string{})
++	err = cmd.Execute()
++
++	require.Error(t, err)
++}
++
+ func TestRunContents(t *testing.T) {
+ 	tests := []struct {
+ 		yml                  string

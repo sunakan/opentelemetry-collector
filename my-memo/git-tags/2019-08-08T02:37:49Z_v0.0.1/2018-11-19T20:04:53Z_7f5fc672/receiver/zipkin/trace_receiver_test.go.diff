@@ -1,0 +1,17 @@
+diff --git a/receiver/zipkin/trace_receiver_test.go b/receiver/zipkin/trace_receiver_test.go
+index 6594c03bf..d6d29581a 100644
+--- a/receiver/zipkin/trace_receiver_test.go
++++ b/receiver/zipkin/trace_receiver_test.go
+@@ -156,11 +156,7 @@ func TestConversionRoundtrip(t *testing.T) {
+   }
+ }]`)
+ 
+-	sink := new(noopSink)
+-	zi, err := New(sink)
+-	if err != nil {
+-		t.Fatalf("Failed to create the Zipkin receiver: %v", err)
+-	}
++	zi := &ZipkinReceiver{spanSink: new(noopSink)}
+ 	ereqs, err := zi.parseAndConvertToTraceSpans(receiverInputJSON, nil)
+ 	if err != nil {
+ 		t.Fatalf("Failed to parse and convert receiver JSON: %v", err)

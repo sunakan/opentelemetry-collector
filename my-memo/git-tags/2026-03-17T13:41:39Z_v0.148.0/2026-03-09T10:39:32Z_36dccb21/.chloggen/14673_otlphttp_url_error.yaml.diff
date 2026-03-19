@@ -1,0 +1,14 @@
+diff --git a/.chloggen/14673_otlphttp_url_error.yaml b/.chloggen/14673_otlphttp_url_error.yaml
+new file mode 100644
+index 000000000..6bafd2a0f
+--- /dev/null
++++ b/.chloggen/14673_otlphttp_url_error.yaml
+@@ -0,0 +1,7 @@
++change_type: "bug_fix"
++component: "exporter/otlp_http"
++note: "Show the actual destination URL in error messages when request URL is modified by middleware."
++issues: [14673]
++subtext: |
++  Unwraps the `*url.Error` returned by `http.Client.Do()` to prevent misleading error logs when a middleware extension dynamically updates the endpoint.
++change_logs: ["user"]
+\ No newline at end of file

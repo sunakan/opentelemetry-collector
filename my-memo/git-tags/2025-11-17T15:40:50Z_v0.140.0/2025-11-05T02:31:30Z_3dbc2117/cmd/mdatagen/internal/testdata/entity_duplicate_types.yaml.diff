@@ -1,0 +1,33 @@
+diff --git a/cmd/mdatagen/internal/testdata/entity_duplicate_types.yaml b/cmd/mdatagen/internal/testdata/entity_duplicate_types.yaml
+new file mode 100644
+index 000000000..4e7a9b79a
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/entity_duplicate_types.yaml
+@@ -0,0 +1,27 @@
++type: sample
++status:
++  class: receiver
++  stability:
++    stable: [metrics]
++
++resource_attributes:
++  host.id:
++    description: The host identifier
++    type: string
++    enabled: true
++  host.name:
++    description: The hostname
++    type: string
++    enabled: true
++
++entities:
++  - type: host
++    brief: A host instance.
++    stability: stable
++    identity:
++      - ref: host.id
++  - type: host
++    brief: Another host instance.
++    stability: stable
++    identity:
++      - ref: host.name

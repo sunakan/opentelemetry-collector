@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index df72e8ac0..b04256c49 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -97,12 +97,7 @@ func newQueueBatch(
+ 		return nil, err
+ 	}
+ 
+-	oq, err := newObsQueue(set, q)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	return &QueueBatch{queue: oq, batcher: b}, nil
++	return &QueueBatch{queue: q, batcher: b}, nil
+ }
+ 
+ // Start is invoked during service startup.

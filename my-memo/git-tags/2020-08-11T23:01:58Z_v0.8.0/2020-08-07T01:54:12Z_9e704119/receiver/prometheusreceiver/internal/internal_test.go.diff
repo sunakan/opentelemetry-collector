@@ -1,0 +1,38 @@
+diff --git a/receiver/prometheusreceiver/internal/internal_test.go b/receiver/prometheusreceiver/internal/internal_test.go
+index 37bf0737a..5365b5b95 100644
+--- a/receiver/prometheusreceiver/internal/internal_test.go
++++ b/receiver/prometheusreceiver/internal/internal_test.go
+@@ -15,13 +15,9 @@
+ package internal
+ 
+ import (
+-	"context"
+-
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/scrape"
+ 	"go.uber.org/zap"
+-
+-	"go.opentelemetry.io/collector/consumer/consumerdata"
+ )
+ 
+ // test helpers
+@@ -50,19 +46,6 @@ func (m *mockMetadataCache) SharedLabels() labels.Labels {
+ 	return labels.FromStrings("__scheme__", "http")
+ }
+ 
+-func newMockConsumer() *mockConsumer {
+-	return &mockConsumer{}
+-}
+-
+-type mockConsumer struct {
+-	md *consumerdata.MetricsData
+-}
+-
+-func (m *mockConsumer) ConsumeMetricsData(_ context.Context, md consumerdata.MetricsData) error {
+-	m.md = &md
+-	return nil
+-}
+-
+ type mockScrapeManager struct {
+ 	targets map[string][]*scrape.Target
+ }

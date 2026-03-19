@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index a28293845..8391fde73 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -81,7 +81,7 @@ func (r *Receiver) Start(ctx context.Context, host component.Host) error {
+ 	r.startServerOnce.Do(func() {
+ 		if r.cfg.GRPC != nil {
+ 			var gln net.Listener
+-			gln, err = net.Listen("tcp", r.cfg.GRPC.Endpoint)
++			gln, err = r.cfg.GRPC.ToListener()
+ 			if err != nil {
+ 				return
+ 			}

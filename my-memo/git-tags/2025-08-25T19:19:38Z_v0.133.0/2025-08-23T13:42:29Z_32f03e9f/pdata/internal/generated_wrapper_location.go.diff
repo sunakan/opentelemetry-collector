@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_location.go b/pdata/internal/generated_wrapper_location.go
+index 785b5222d..c70d4db95 100644
+--- a/pdata/internal/generated_wrapper_location.go
++++ b/pdata/internal/generated_wrapper_location.go
+@@ -48,6 +48,7 @@ func DeleteOrigLocation(orig *otlpprofiles.Location, nullable bool) {
+ 	switch ov := orig.MappingIndex_.(type) {
+ 	case *otlpprofiles.Location_MappingIndex:
+ 		if UseProtoPooling.IsEnabled() {
++			ov.MappingIndex = int32(0)
+ 			protoPoolLocation_MappingIndex.Put(ov)
+ 		}
+ 

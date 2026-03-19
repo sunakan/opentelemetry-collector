@@ -1,0 +1,13 @@
+diff --git a/pipeline/go.mod b/pipeline/go.mod
+index 1c662d20a..b7b617e53 100644
+--- a/pipeline/go.mod
++++ b/pipeline/go.mod
+@@ -2,7 +2,7 @@ module go.opentelemetry.io/collector/pipeline
+ 
+ go 1.24
+ 
+-require github.com/stretchr/testify v1.11.0
++require github.com/stretchr/testify v1.10.0
+ 
+ require (
+ 	github.com/davecgh/go-spew v1.1.1 // indirect

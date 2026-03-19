@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/map.go b/pdata/pcommon/map.go
+index c2ade0d38..d23f53a03 100644
+--- a/pdata/pcommon/map.go
++++ b/pdata/pcommon/map.go
+@@ -194,7 +194,7 @@ func (m Map) PutEmptyMap(k string) Map {
+ 	if av, existing := m.Get(k); existing {
+ 		return av.SetEmptyMap()
+ 	}
+-	ov := internal.NewOrigAnyValueKeyValueList()
++	ov := internal.NewOrigAnyValueKvlistValue()
+ 	ov.KvlistValue = internal.NewOrigKeyValueList()
+ 	*m.getOrig() = append(*m.getOrig(), otlpcommon.KeyValue{Key: k, Value: otlpcommon.AnyValue{Value: ov}})
+ 	return Map(internal.NewMap(&ov.KvlistValue.Values, m.getState()))

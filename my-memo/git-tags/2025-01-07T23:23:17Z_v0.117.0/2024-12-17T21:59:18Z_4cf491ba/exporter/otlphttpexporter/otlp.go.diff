@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index 0decd1831..5f8ef580e 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -198,7 +198,7 @@ func (e *baseExporter) export(ctx context.Context, url string, request []byte, p
+ 
+ 	defer func() {
+ 		// Discard any remaining response body when we are done reading.
+-		io.CopyN(io.Discard, resp.Body, maxHTTPResponseReadBytes) // nolint:errcheck
++		_, _ = io.CopyN(io.Discard, resp.Body, maxHTTPResponseReadBytes)
+ 		resp.Body.Close()
+ 	}()
+ 

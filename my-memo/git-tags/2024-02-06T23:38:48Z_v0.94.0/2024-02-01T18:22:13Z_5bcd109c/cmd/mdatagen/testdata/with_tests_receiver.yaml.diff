@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/testdata/with_tests_receiver.yaml b/cmd/mdatagen/testdata/with_tests_receiver.yaml
+new file mode 100644
+index 000000000..e55c61907
+--- /dev/null
++++ b/cmd/mdatagen/testdata/with_tests_receiver.yaml
+@@ -0,0 +1,9 @@
++type: metric
++
++status:
++  class: receiver
++  stability:
++    beta: [traces, logs, metrics]
++
++tests:
++  config:

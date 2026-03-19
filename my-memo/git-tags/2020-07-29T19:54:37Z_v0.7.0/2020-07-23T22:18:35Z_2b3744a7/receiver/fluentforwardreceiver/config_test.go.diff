@@ -1,0 +1,23 @@
+diff --git a/receiver/fluentforwardreceiver/config_test.go b/receiver/fluentforwardreceiver/config_test.go
+index ce4e9c31d..0e23c999b 100644
+--- a/receiver/fluentforwardreceiver/config_test.go
++++ b/receiver/fluentforwardreceiver/config_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -32,7 +32,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Receivers[configmodels.Type(typeStr)] = factory
+-	cfg, err := config.LoadConfigFile(
++	cfg, err := configtest.LoadConfigFile(
+ 		t, path.Join(".", "testdata", "config.yaml"), factories,
+ 	)
+ 

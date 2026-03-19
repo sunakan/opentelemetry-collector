@@ -1,0 +1,26 @@
+diff --git a/exporter/exporterhelper/traces_test.go b/exporter/exporterhelper/traces_test.go
+index b3417dd57..6b16ee365 100644
+--- a/exporter/exporterhelper/traces_test.go
++++ b/exporter/exporterhelper/traces_test.go
+@@ -23,7 +23,6 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+@@ -48,13 +47,6 @@ var (
+ 	fakeTracesConfig = struct{}{}
+ )
+ 
+-func TestTracesRequest(t *testing.T) {
+-	mr := newTracesRequest(testdata.GenerateTraces(1))
+-
+-	traceErr := consumererror.NewTraces(errors.New("some error"), ptrace.NewTraces())
+-	assert.Equal(t, newTracesRequest(ptrace.NewTraces()), mr.(RequestErrorHandler).OnError(traceErr))
+-}
+-
+ func TestTraces_InvalidName(t *testing.T) {
+ 	te, err := NewTraces(context.Background(), exportertest.NewNopSettings(exportertest.NopType), nil, newTraceDataPusher(nil))
+ 	require.Nil(t, te)

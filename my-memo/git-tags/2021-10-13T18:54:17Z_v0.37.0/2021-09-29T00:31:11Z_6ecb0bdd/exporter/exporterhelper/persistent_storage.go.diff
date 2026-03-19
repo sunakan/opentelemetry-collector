@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/persistent_storage.go b/exporter/exporterhelper/persistent_storage.go
+index ff3cf8a51..93cd7004a 100644
+--- a/exporter/exporterhelper/persistent_storage.go
++++ b/exporter/exporterhelper/persistent_storage.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opencensus.io/metric/metricdata"
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/extension/storage"
++	"go.opentelemetry.io/collector/extension/experimental/storage"
+ )
+ 
+ // persistentStorage provides an interface for request storage operations

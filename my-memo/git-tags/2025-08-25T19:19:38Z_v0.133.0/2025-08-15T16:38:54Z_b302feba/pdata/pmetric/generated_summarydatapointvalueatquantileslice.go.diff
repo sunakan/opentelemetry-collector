@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+index df6b6e676..11d2d3f1c 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+@@ -34,8 +34,7 @@ func newSummaryDataPointValueAtQuantileSlice(orig *[]*otlpmetrics.SummaryDataPoi
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewSummaryDataPointValueAtQuantileSlice() SummaryDataPointValueAtQuantileSlice {
+ 	orig := []*otlpmetrics.SummaryDataPoint_ValueAtQuantile(nil)
+-	state := internal.StateMutable
+-	return newSummaryDataPointValueAtQuantileSlice(&orig, &state)
++	return newSummaryDataPointValueAtQuantileSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

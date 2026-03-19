@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/constants.go b/translator/trace/jaeger/constants.go
+index 48925f21e..9228f2546 100644
+--- a/translator/trace/jaeger/constants.go
++++ b/translator/trace/jaeger/constants.go
+@@ -19,6 +19,6 @@ import (
+ )
+ 
+ var (
+-	errZeroTraceID = errors.New("OC span has an all zeros trace ID")
+-	errZeroSpanID  = errors.New("OC span has an all zeros span ID")
++	errZeroTraceID = errors.New("span has an all zeros trace ID")
++	errZeroSpanID  = errors.New("span has an all zeros span ID")
+ )

@@ -1,0 +1,12 @@
+diff --git a/versions.yaml b/versions.yaml
+index e348e577d..9770aad2f 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -55,6 +55,7 @@ module-sets:
+       - go.opentelemetry.io/collector/receiver/otlpreceiver
+       - go.opentelemetry.io/collector/semconv
+       - go.opentelemetry.io/collector/service
++      - go.opentelemetry.io/collector/filter
+ 
+ excluded-modules:
+   - go.opentelemetry.io/collector/cmd/otelcorecol

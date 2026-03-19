@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/internal/telemetry.go b/cmd/mdatagen/internal/telemetry.go
+index a89bed32d..5f8862580 100644
+--- a/cmd/mdatagen/internal/telemetry.go
++++ b/cmd/mdatagen/internal/telemetry.go
+@@ -3,12 +3,7 @@
+ 
+ package internal // import "go.opentelemetry.io/collector/cmd/mdatagen/internal"
+ 
+-import (
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+-)
+-
+ type Telemetry struct {
+-	Level   configtelemetry.Level `mapstructure:"level"`
+ 	Metrics map[MetricName]Metric `mapstructure:"metrics"`
+ }
+ 

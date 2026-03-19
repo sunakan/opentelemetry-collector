@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index c114addc4..aaef5dd0c 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -491,10 +491,10 @@ var exemplar = &messageValueStruct{
+ }
+ 
+ var dataPointFlagsField = &primitiveTypedField{
+-	fieldName:       "FlagsImmutable",
++	fieldName:       "Flags",
+ 	originFieldName: "Flags",
+ 	returnType: &primitiveType{
+-		structName: "MetricDataPointFlagsImmutable",
++		structName: "MetricDataPointFlags",
+ 		rawType:    "uint32",
+ 		defaultVal: "0",
+ 		testVal:    "1",

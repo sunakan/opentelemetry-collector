@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/ptraceotlp/traces.go b/pdata/ptrace/ptraceotlp/traces.go
+index 95f87ba74..903c3a7ec 100644
+--- a/pdata/ptrace/ptraceotlp/traces.go
++++ b/pdata/ptrace/ptraceotlp/traces.go
+@@ -160,6 +160,7 @@ type rawTracesServer struct {
+ }
+ 
+ func (s rawTracesServer) Export(ctx context.Context, request *otlpcollectortrace.ExportTraceServiceRequest) (*otlpcollectortrace.ExportTraceServiceResponse, error) {
++	otlp.InstrumentationLibrarySpansToScope(request.ResourceSpans)
+ 	rsp, err := s.srv.Export(ctx, Request{orig: request})
+ 	return rsp.orig, err
+ }

@@ -1,0 +1,31 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index 784ef1fe2..759a76b32 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -58,7 +58,7 @@ func createTracesExporter(
+ 	set component.ExporterCreateSettings,
+ 	cfg config.Exporter,
+ ) (component.TracesExporter, error) {
+-	oce, err := newExporter(cfg, set.TelemetrySettings)
++	oce, err := newExporter(cfg, set.TelemetrySettings, set.BuildInfo)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -80,7 +80,7 @@ func createMetricsExporter(
+ 	set component.ExporterCreateSettings,
+ 	cfg config.Exporter,
+ ) (component.MetricsExporter, error) {
+-	oce, err := newExporter(cfg, set.TelemetrySettings)
++	oce, err := newExporter(cfg, set.TelemetrySettings, set.BuildInfo)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -103,7 +103,7 @@ func createLogsExporter(
+ 	set component.ExporterCreateSettings,
+ 	cfg config.Exporter,
+ ) (component.LogsExporter, error) {
+-	oce, err := newExporter(cfg, set.TelemetrySettings)
++	oce, err := newExporter(cfg, set.TelemetrySettings, set.BuildInfo)
+ 	if err != nil {
+ 		return nil, err
+ 	}

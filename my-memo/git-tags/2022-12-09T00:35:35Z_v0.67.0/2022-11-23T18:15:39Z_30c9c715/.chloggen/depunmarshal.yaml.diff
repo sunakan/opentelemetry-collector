@@ -1,0 +1,17 @@
+diff --git a/.chloggen/depunmarshal.yaml b/.chloggen/depunmarshal.yaml
+new file mode 100755
+index 000000000..1ce66f453
+--- /dev/null
++++ b/.chloggen/depunmarshal.yaml
+@@ -0,0 +1,11 @@
++# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
++change_type: deprecation
++
++# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
++component: component
++
++# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
++note: Deprecate `component.Unmarshal[*]Config` in favor of `component.UnmarshalConfig`
++
++# One or more tracking issues or pull requests related to the change
++issues: [6613]

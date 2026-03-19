@@ -1,0 +1,17 @@
+diff --git a/processor/fanoutconnector.go b/processor/fanoutconnector.go
+index 184683ee0..191407855 100644
+--- a/processor/fanoutconnector.go
++++ b/processor/fanoutconnector.go
+@@ -17,9 +17,9 @@ package processor
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/oterr"
++	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/oterr"
+ )
+ 
+ // This file contains implementations of Trace/Metrics connectors

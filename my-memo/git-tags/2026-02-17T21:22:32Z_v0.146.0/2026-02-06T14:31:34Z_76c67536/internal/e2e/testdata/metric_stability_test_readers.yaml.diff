@@ -1,0 +1,41 @@
+diff --git a/internal/e2e/testdata/metric_stability_test_readers.yaml b/internal/e2e/testdata/metric_stability_test_readers.yaml
+index 85fa65562..d1c70b2d3 100644
+--- a/internal/e2e/testdata/metric_stability_test_readers.yaml
++++ b/internal/e2e/testdata/metric_stability_test_readers.yaml
+@@ -12,6 +12,13 @@ processors:
+ exporters:
+   debug:
+     verbosity: detailed
++  otlp_http/fail:
++    endpoint: http://127.0.0.1:65535
++    timeout: 100ms
++    retry_on_failure:
++      enabled: false
++    sending_queue:
++      enabled: false
+ 
+ service:
+   telemetry:
+@@ -31,11 +38,20 @@ service:
+       receivers: [otlp]
+       processors: [batch]
+       exporters: [debug]
++    traces/fail:
++      receivers: [otlp]
++      exporters: [otlp_http/fail]
+     metrics:
+       receivers: [otlp]
+       processors: [batch]
+       exporters: [debug]
++    metrics/fail:
++      receivers: [otlp]
++      exporters: [otlp_http/fail]
+     logs:
+       receivers: [otlp]
+       processors: [batch]
+-      exporters: [debug] 
+\ No newline at end of file
++      exporters: [debug]
++    logs/fail:
++      receivers: [otlp]
++      exporters: [otlp_http/fail]

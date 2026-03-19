@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 65af9b0e6..ab4b0e96d 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -57,6 +57,7 @@ func TestDefaultComponents(t *testing.T) {
+ 	expectedExporters := []configmodels.Type{
+ 		"opencensus",
+ 		"prometheus",
++		"prometheusremotewrite",
+ 		"logging",
+ 		"zipkin",
+ 		"jaeger",

@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_processor.go b/internal/testcomponents/example_processor.go
+index 97b8eb4f2..9d9227c91 100644
+--- a/internal/testcomponents/example_processor.go
++++ b/internal/testcomponents/example_processor.go
+@@ -78,6 +78,6 @@ func (ep *exampleProcessor) Shutdown(_ context.Context) error {
+ 	return nil
+ }
+ 
+-func (ep *exampleProcessor) GetCapabilities() component.ProcessorCapabilities {
+-	return component.ProcessorCapabilities{MutatesConsumedData: false}
++func (ep *exampleProcessor) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
+ }

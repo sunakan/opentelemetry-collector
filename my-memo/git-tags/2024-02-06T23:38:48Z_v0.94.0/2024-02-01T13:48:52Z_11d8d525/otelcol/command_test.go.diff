@@ -1,0 +1,15 @@
+diff --git a/otelcol/command_test.go b/otelcol/command_test.go
+index 4376ced43..0ef201542 100644
+--- a/otelcol/command_test.go
++++ b/otelcol/command_test.go
+@@ -52,8 +52,8 @@ func TestNewCommandInvalidComponent(t *testing.T) {
+ 		ConfigProviderSettings{
+ 			ResolverSettings: confmap.ResolverSettings{
+ 				URIs:       []string{filepath.Join("testdata", "otelcol-invalid.yaml")},
+-				Providers:  map[string]confmap.Provider{"file": fileprovider.New()},
+-				Converters: []confmap.Converter{expandconverter.New()},
++				Providers:  map[string]confmap.Provider{"file": fileprovider.NewWithSettings(confmap.ProviderSettings{})},
++				Converters: []confmap.Converter{expandconverter.New(confmap.ConverterSettings{})},
+ 			},
+ 		})
+ 	require.NoError(t, err)

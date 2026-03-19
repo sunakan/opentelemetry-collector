@@ -1,0 +1,14 @@
+diff --git a/extension/extensionauth/extensionauthtest/err.go b/extension/extensionauth/extensionauthtest/err.go
+index 15f20cbc4..81025f3a7 100644
+--- a/extension/extensionauth/extensionauthtest/err.go
++++ b/extension/extensionauth/extensionauthtest/err.go
+@@ -28,9 +28,6 @@ type errClient struct {
+ 	extensionauth.ServerAuthenticateFunc
+ }
+ 
+-// Deprecated: [v0.125.0] Use NewErr.
+-var NewErrorClient = NewErr
+-
+ // NewErr returns a new [extension.Extension] that implements all
+ // extensionauth interface and always returns an error.
+ func NewErr(err error) extension.Extension {

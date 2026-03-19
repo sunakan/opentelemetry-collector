@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 9df0859cd..8371c0c3d 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -68,6 +68,7 @@ func TestLoadConfig(t *testing.T) {
+ 					PermitWithoutStream: true,
+ 					Timeout:             30 * time.Second,
+ 				},
++				WriteBufferSize: 512 * 1024,
+ 			},
+ 			NumWorkers: 8,
+ 		})

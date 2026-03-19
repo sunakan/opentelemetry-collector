@@ -1,0 +1,22 @@
+diff --git a/cmd/configschema/configs_test.go b/cmd/configschema/configs_test.go
+index 345c510b8..217113aaf 100644
+--- a/cmd/configschema/configs_test.go
++++ b/cmd/configschema/configs_test.go
+@@ -35,7 +35,7 @@ func TestCreateReceiverConfig(t *testing.T) {
+ }
+ 
+ func TestCreateProcesorConfig(t *testing.T) {
+-	cfg, err := GetCfgInfo(testComponents(), "processor", "filter")
++	cfg, err := GetCfgInfo(testComponents(), "processor", "batch")
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)
+ }
+@@ -50,7 +50,7 @@ func TestGetConfig(t *testing.T) {
+ 			componentType: "receiver",
+ 		},
+ 		{
+-			name:          "filter",
++			name:          "batch",
+ 			componentType: "processor",
+ 		},
+ 		{

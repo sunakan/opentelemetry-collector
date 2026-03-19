@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/helper.go b/exporter/prometheusremotewriteexporter/helper.go
+index 0caff6d1d..fafdc3fc2 100644
+--- a/exporter/prometheusremotewriteexporter/helper.go
++++ b/exporter/prometheusremotewriteexporter/helper.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/prometheus/prometheus/prompb"
+ 
+ 	common "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
+-	otlp "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlp "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1old"
+ )
+ 
+ const (

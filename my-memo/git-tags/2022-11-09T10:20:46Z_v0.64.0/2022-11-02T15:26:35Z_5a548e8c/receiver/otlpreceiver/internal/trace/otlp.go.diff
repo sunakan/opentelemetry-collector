@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp.go b/receiver/otlpreceiver/internal/trace/otlp.go
+index d35c5d19d..661fa17d0 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp.go
++++ b/receiver/otlpreceiver/internal/trace/otlp.go
+@@ -39,7 +39,7 @@ type Receiver struct {
+ func New(id config.ComponentID, nextConsumer consumer.Traces, set component.ReceiverCreateSettings) *Receiver {
+ 	return &Receiver{
+ 		nextConsumer: nextConsumer,
+-		obsrecv: obsreport.NewReceiver(obsreport.ReceiverSettings{
++		obsrecv: obsreport.MustNewReceiver(obsreport.ReceiverSettings{
+ 			ReceiverID:             id,
+ 			Transport:              receiverTransport,
+ 			ReceiverCreateSettings: set,

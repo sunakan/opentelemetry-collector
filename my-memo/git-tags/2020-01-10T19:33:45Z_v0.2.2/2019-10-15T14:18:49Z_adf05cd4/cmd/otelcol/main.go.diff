@@ -1,0 +1,15 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 283ae4dd3..a4b561da4 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -33,7 +33,9 @@ func main() {
+ 	factories, err := defaults.Components()
+ 	handleErr(err)
+ 
+-	svc := service.New(factories)
++	svc, err := service.New(factories)
++	handleErr(err)
++
+ 	err = svc.Start()
+ 	handleErr(err)
+ }

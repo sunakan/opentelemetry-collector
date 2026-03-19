@@ -1,0 +1,20 @@
+diff --git a/internal/data/generated_common_test.go b/internal/data/generated_common_test.go
+index 8e4f5be3d..2d2a92b02 100644
+--- a/internal/data/generated_common_test.go
++++ b/internal/data/generated_common_test.go
+@@ -19,13 +19,13 @@ package data
+ 
+ import (
+ 	"testing"
+-	
++
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+ func TestInstrumentationLibrary(t *testing.T) {
+ 	ms := NewInstrumentationLibrary()
+-	assert.EqualValues(t, true,ms.IsNil())
++	assert.EqualValues(t, true, ms.IsNil())
+ 	ms.InitEmpty()
+ 	assert.EqualValues(t, false, ms.IsNil())
+ 

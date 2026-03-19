@@ -1,0 +1,10 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+index 9758580f9..0552ae077 100644
+--- a/proto_patch.sed
++++ b/proto_patch.sed
+@@ -1,4 +1,4 @@
+-s+github.com/open-telemetry/opentelemetry-proto/gen/go/+go.opentelemetry.io/collector/model/internal/data/protogen/+g
++s+go.opentelemetry.io/proto/otlp/+go.opentelemetry.io/collector/model/internal/data/protogen/+g
+ 
+ s+package opentelemetry.proto.\(.*\).v1;+package opentelemetry.proto.\1.v1;\
+ \

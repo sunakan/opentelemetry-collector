@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/obsreport_test.go b/receiver/scraperhelper/obsreport_test.go
+index 94d58f18d..88445e57f 100644
+--- a/receiver/scraperhelper/obsreport_test.go
++++ b/receiver/scraperhelper/obsreport_test.go
+@@ -95,7 +95,7 @@ func TestCheckScraperMetricsViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-	s, err := NewObsReport(ObsReportSettings{
++	s, err := newScraper(ObsReportSettings{
+ 		ReceiverID:             receiverID,
+ 		Scraper:                scraperID,
+ 		ReceiverCreateSettings: receiver.Settings{ID: receiverID, TelemetrySettings: tt.TelemetrySettings(), BuildInfo: component.NewDefaultBuildInfo()},

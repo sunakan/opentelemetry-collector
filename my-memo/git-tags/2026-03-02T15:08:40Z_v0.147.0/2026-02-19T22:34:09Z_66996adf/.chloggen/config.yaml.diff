@@ -1,0 +1,20 @@
+diff --git a/.chloggen/config.yaml b/.chloggen/config.yaml
+index 4216205aa..91eb146c3 100644
+--- a/.chloggen/config.yaml
++++ b/.chloggen/config.yaml
+@@ -24,7 +24,6 @@ components:
+     - extension/xextension
+     - extension/zpages
+     - pdata/pprofile
+-    - pdata/xpdata
+     - pkg/config/configauth
+     - pkg/config/configcompression
+     - pkg/config/configgrpc
+@@ -50,6 +49,7 @@ components:
+     - pkg/xconnector
+     - pkg/xexporter
+     - pkg/xexporterhelper
++    - pkg/xpdata
+     - pkg/xprocessor
+     - pkg/xreceiver
+     - pkg/xscraper

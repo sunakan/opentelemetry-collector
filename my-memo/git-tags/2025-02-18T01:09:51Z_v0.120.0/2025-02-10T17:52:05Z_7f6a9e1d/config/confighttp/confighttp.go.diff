@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 4a4da0437..2252d64fa 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -482,7 +482,6 @@ func (hss *ServerConfig) ToServer(_ context.Context, host component.Host, settin
+ 		serverOpts.OtelhttpOpts...)
+ 
+ 	// Enable OpenTelemetry observability plugin.
+-	// TODO: Consider to use component ID string as prefix for all the operations.
+ 	handler = otelhttp.NewHandler(handler, "", otelOpts...)
+ 
+ 	// wrap the current handler in an interceptor that will add client.Info to the request's context

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+index 86a50251b..a3dae0317 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+@@ -67,7 +67,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...teleme
+ 	builder.RequestDuration, err = meter.Float64Histogram(
+ 		"request_duration",
+ 		metric.WithDescription("Duration of request"),
+-		metric.WithUnit("s"),
++		metric.WithUnit("s"), metric.WithExplicitBucketBoundaries([]float64{1, 10, 100}...),
+ 	)
+ 	errs = errors.Join(errs, err)
+ 	return &builder, errs

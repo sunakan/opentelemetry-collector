@@ -1,0 +1,49 @@
+diff --git a/cmd/mdatagen/internal/metric.go b/cmd/mdatagen/internal/metric.go
+index 7e9707791..9f0b7a942 100644
+--- a/cmd/mdatagen/internal/metric.go
++++ b/cmd/mdatagen/internal/metric.go
+@@ -172,7 +172,7 @@ func (mit MetricInputType) HasMetricInputType() bool {
+ 	return mit.InputType != ""
+ }
+ 
+-// Type returns name of the datapoint type.
++// String returns name of the datapoint type.
+ func (mit MetricInputType) String() string {
+ 	return mit.InputType
+ }
+@@ -210,7 +210,7 @@ func (mvt *MetricValueType) UnmarshalText(text []byte) error {
+ 	return nil
+ }
+ 
+-// Type returns name of the datapoint type.
++// String returns name of the datapoint type.
+ func (mvt MetricValueType) String() string {
+ 	return mvt.ValueType.String()
+ }
+@@ -258,7 +258,7 @@ func (d *Gauge) HasAggregated() bool {
+ }
+ 
+ func (d *Gauge) Instrument() string {
+-	instrumentName := cases.Title(language.English).String(d.MetricValueType.BasicType())
++	instrumentName := cases.Title(language.English).String(d.BasicType())
+ 
+ 	if d.Async {
+ 		instrumentName += "Observable"
+@@ -314,7 +314,7 @@ func (d *Sum) HasAggregated() bool {
+ }
+ 
+ func (d *Sum) Instrument() string {
+-	instrumentName := cases.Title(language.English).String(d.MetricValueType.BasicType())
++	instrumentName := cases.Title(language.English).String(d.BasicType())
+ 
+ 	if d.Async {
+ 		instrumentName += "Observable"
+@@ -354,7 +354,7 @@ func (d *Histogram) HasAggregated() bool {
+ }
+ 
+ func (d *Histogram) Instrument() string {
+-	instrumentName := cases.Title(language.English).String(d.MetricValueType.BasicType())
++	instrumentName := cases.Title(language.English).String(d.BasicType())
+ 	return instrumentName + d.Type()
+ }
+ 

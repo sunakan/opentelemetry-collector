@@ -1,0 +1,25 @@
+diff --git a/model/pdata/metrics_test.go b/model/pdata/metrics_test.go
+index 23a5a8810..05ee3f306 100644
+--- a/model/pdata/metrics_test.go
++++ b/model/pdata/metrics_test.go
+@@ -591,6 +591,20 @@ func TestMetricsClone(t *testing.T) {
+ 	assert.EqualValues(t, metrics, metrics.Clone())
+ }
+ 
++func TestMetricsDataPointFlags(t *testing.T) {
++	gauge := generateTestGauge()
++
++	gauge.DataPoints().At(0).SetFlags(NewMetricDataPointFlags())
++	assert.True(t, gauge.DataPoints().At(0).Flags() == MetricDataPointFlagsNone)
++	assert.False(t, gauge.DataPoints().At(0).Flags().HasFlag(MetricDataPointFlagNoRecordedValue))
++	assert.Equal(t, "FLAG_NONE", gauge.DataPoints().At(0).Flags().String())
++
++	gauge.DataPoints().At(0).SetFlags(NewMetricDataPointFlags(MetricDataPointFlagNoRecordedValue))
++	assert.False(t, gauge.DataPoints().At(0).Flags() == MetricDataPointFlagsNone)
++	assert.True(t, gauge.DataPoints().At(0).Flags().HasFlag(MetricDataPointFlagNoRecordedValue))
++	assert.Equal(t, "FLAG_NO_RECORDED_VALUE", gauge.DataPoints().At(0).Flags().String())
++}
++
+ func BenchmarkMetricsClone(b *testing.B) {
+ 	metrics := NewMetrics()
+ 	fillTestResourceMetricsSlice(metrics.ResourceMetrics())

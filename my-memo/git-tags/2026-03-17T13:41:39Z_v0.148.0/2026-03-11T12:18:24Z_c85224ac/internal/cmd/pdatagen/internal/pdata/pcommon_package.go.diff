@@ -1,0 +1,29 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pcommon_package.go b/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
+index 0ef2c470c..4d3ed758b 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
+@@ -109,6 +109,11 @@ var keyValueStruct = &messageStruct{
+ 			protoID:       2,
+ 			returnMessage: anyValueClone,
+ 		},
++		&PrimitiveField{
++			fieldName: "KeyStrindex",
++			protoID:   3,
++			protoType: proto.TypeInt32,
++		},
+ 	},
+ 	hasOnlyInternal: true,
+ }
+@@ -171,6 +176,12 @@ var anyValueStruct = &messageStruct{
+ 					originFieldName: "BytesValue",
+ 					protoType:       proto.TypeBytes,
+ 				},
++				&OneOfPrimitiveValue{
++					fieldName:       "StringValueStrindex",
++					protoID:         8,
++					originFieldName: "StringValueStrindex",
++					protoType:       proto.TypeInt32,
++				},
+ 			},
+ 		},
+ 	},

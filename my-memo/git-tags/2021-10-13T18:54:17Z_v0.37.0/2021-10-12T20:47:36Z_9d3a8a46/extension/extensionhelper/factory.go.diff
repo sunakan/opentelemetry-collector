@@ -1,0 +1,13 @@
+diff --git a/extension/extensionhelper/factory.go b/extension/extensionhelper/factory.go
+index 271cba740..d184638f7 100644
+--- a/extension/extensionhelper/factory.go
++++ b/extension/extensionhelper/factory.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package extensionhelper
++package extensionhelper // import "go.opentelemetry.io/collector/extension/extensionhelper"
+ 
+ import (
+ 	"context"

@@ -1,0 +1,32 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/factory.go b/exporter/jaeger/jaegergrpcexporter/factory.go
+index 5fdf7aacf..956b086fa 100644
+--- a/exporter/jaeger/jaegergrpcexporter/factory.go
++++ b/exporter/jaeger/jaegergrpcexporter/factory.go
+@@ -19,9 +19,9 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ const (
+@@ -52,7 +52,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Exporter {
+ func (f *Factory) CreateTraceExporter(
+ 	logger *zap.Logger,
+ 	config configmodels.Exporter,
+-) (exporter.TraceExporter, error) {
++) (component.TraceExporterOld, error) {
+ 
+ 	expCfg := config.(*Config)
+ 	if expCfg.Endpoint == "" {
+@@ -75,6 +75,6 @@ func (f *Factory) CreateTraceExporter(
+ func (f *Factory) CreateMetricsExporter(
+ 	logger *zap.Logger,
+ 	cfg configmodels.Exporter,
+-) (exporter.MetricsExporter, error) {
++) (component.MetricsExporterOld, error) {
+ 	return nil, configerror.ErrDataTypeIsNotSupported
+ }

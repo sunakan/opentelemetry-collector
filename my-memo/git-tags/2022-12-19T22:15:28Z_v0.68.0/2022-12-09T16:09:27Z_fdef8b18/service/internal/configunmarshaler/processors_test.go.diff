@@ -1,0 +1,29 @@
+diff --git a/service/internal/configunmarshaler/processors_test.go b/service/internal/configunmarshaler/processors_test.go
+index 9e7748e1d..61c8c2d6e 100644
+--- a/service/internal/configunmarshaler/processors_test.go
++++ b/service/internal/configunmarshaler/processors_test.go
+@@ -21,12 +21,13 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/confmap"
++	"go.opentelemetry.io/collector/processor"
++	"go.opentelemetry.io/collector/processor/processortest"
+ )
+ 
+ func TestProcessorsUnmarshal(t *testing.T) {
+-	factories, err := component.MakeProcessorFactoryMap(componenttest.NewNopProcessorFactory())
++	factories, err := processor.MakeFactoryMap(processortest.NewNopFactory())
+ 	require.NoError(t, err)
+ 
+ 	procs := NewProcessors(factories)
+@@ -100,7 +101,7 @@ func TestProcessorsUnmarshalError(t *testing.T) {
+ 		},
+ 	}
+ 
+-	factories, err := component.MakeProcessorFactoryMap(componenttest.NewNopProcessorFactory())
++	factories, err := processor.MakeFactoryMap(processortest.NewNopFactory())
+ 	assert.NoError(t, err)
+ 
+ 	for _, tt := range testCases {

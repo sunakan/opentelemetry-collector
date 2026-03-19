@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+index c4b7edd65..db0bbcfe2 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+@@ -11,6 +11,9 @@ all_set:
+       enabled: true
+     optional.metric.empty_unit:
+       enabled: true
++  events:
++    default.event:
++      enabled: true
+   resource_attributes:
+     map.resource.attr:
+       enabled: true
+@@ -40,6 +43,9 @@ none_set:
+       enabled: false
+     optional.metric.empty_unit:
+       enabled: false
++  events:
++    default.event:
++      enabled: false
+   resource_attributes:
+     map.resource.attr:
+       enabled: false

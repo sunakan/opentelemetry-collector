@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index a2c50232f..1420ae639 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -29,7 +29,7 @@ import (
+ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factory := receiver.GetReceiverFactory(typeStr)
++	factory := receiver.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

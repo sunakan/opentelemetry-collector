@@ -1,0 +1,17 @@
+diff --git a/extension/zpagesextension/zpagesextension_test.go b/extension/zpagesextension/zpagesextension_test.go
+index 39ca9fd4d..21b8df5f8 100644
+--- a/extension/zpagesextension/zpagesextension_test.go
++++ b/extension/zpagesextension/zpagesextension_test.go
+@@ -31,8 +31,10 @@ func newZPagesHost() *zpagesHost {
+ 
+ func (*zpagesHost) RegisterZPages(*http.ServeMux, string) {}
+ 
+-var _ registerableTracerProvider = (*registerableProvider)(nil)
+-var _ registerableTracerProvider = sdktrace.NewTracerProvider()
++var (
++	_ registerableTracerProvider = (*registerableProvider)(nil)
++	_ registerableTracerProvider = sdktrace.NewTracerProvider()
++)
+ 
+ type registerableProvider struct {
+ 	trace.TracerProvider

@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+index 170033212..2ca3edb47 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -398,6 +398,7 @@ var locationSlice = &sliceOfPtrs{
+ 	structName: "LocationSlice",
+ 	element:    location,
+ }
++
+ var location = &messageValueStruct{
+ 	structName:     "Location",
+ 	description:    "// Location describes function and line table debug information.",

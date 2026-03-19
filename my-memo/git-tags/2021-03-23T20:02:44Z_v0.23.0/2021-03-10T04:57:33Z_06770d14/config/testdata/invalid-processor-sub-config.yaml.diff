@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-processor-sub-config.yaml b/config/testdata/invalid-processor-sub-config.yaml
+index 436290d61..862fd86ab 100644
+--- a/config/testdata/invalid-processor-sub-config.yaml
++++ b/config/testdata/invalid-processor-sub-config.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  multireceiver:
++  examplereceiver:
+ exporters:
+   exampleexporter:
+ processors:
+@@ -8,6 +8,6 @@ processors:
+ service:
+   pipelines:
+     traces:
+-      receivers: [multireceiver]
++      receivers: [examplereceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]

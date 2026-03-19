@@ -1,0 +1,20 @@
+diff --git a/config/configparser/testdata/invalid-sequence-value.yaml b/config/configparser/testdata/invalid-sequence-value.yaml
+deleted file mode 100644
+index 7f7a0a385..000000000
+--- a/config/configparser/testdata/invalid-sequence-value.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers:
+-        examplereceiver:
+-          some: config
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

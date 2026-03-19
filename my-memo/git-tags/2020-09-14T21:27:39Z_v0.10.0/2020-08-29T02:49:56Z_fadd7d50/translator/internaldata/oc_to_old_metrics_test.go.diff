@@ -1,0 +1,34 @@
+diff --git a/translator/internaldata/oc_to_old_metrics_test.go b/translator/internaldata/oc_to_old_metrics_test.go
+index 7af5c05a2..4e2545801 100644
+--- a/translator/internaldata/oc_to_old_metrics_test.go
++++ b/translator/internaldata/oc_to_old_metrics_test.go
+@@ -45,7 +45,7 @@ func TestOCToMetricData(t *testing.T) {
+ 				Node:     &occommon.Node{},
+ 				Resource: &ocresource.Resource{},
+ 			},
+-			internal: wrapMetricsWithEmptyResource(testdataold.GenerateMetricDataOneEmptyResourceMetrics()),
++			internal: wrapOldMetricsWithEmptyResource(testdataold.GenerateMetricDataOneEmptyResourceMetrics()),
+ 		},
+ 
+ 		{
+@@ -127,7 +127,7 @@ func TestOCToMetricData(t *testing.T) {
+ }
+ 
+ // TODO: Try to avoid unnecessary Resource object allocation.
+-func wrapMetricsWithEmptyResource(md dataold.MetricData) dataold.MetricData {
++func wrapOldMetricsWithEmptyResource(md dataold.MetricData) dataold.MetricData {
+ 	md.ResourceMetrics().At(0).Resource().InitEmpty()
+ 	return md
+ }
+@@ -195,11 +195,3 @@ func BenchmarkMetricSummaryOCToInternal(b *testing.B) {
+ 		OCToMetricData(ocMetric)
+ 	}
+ }
+-
+-func generateOCTestResource() *ocresource.Resource {
+-	return &ocresource.Resource{
+-		Labels: map[string]string{
+-			"resource-attr": "resource-attr-val-1",
+-		},
+-	}
+-}

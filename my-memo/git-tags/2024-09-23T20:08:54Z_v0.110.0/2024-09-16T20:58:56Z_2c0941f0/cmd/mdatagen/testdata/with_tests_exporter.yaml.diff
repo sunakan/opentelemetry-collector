@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/testdata/with_tests_exporter.yaml b/cmd/mdatagen/testdata/with_tests_exporter.yaml
+deleted file mode 100644
+index 44c9ccc5f..000000000
+--- a/cmd/mdatagen/testdata/with_tests_exporter.yaml
++++ /dev/null
+@@ -1,6 +0,0 @@
+-type: metric
+-
+-status:
+-  class: exporter
+-  stability:
+-    beta: [traces, logs, metrics]

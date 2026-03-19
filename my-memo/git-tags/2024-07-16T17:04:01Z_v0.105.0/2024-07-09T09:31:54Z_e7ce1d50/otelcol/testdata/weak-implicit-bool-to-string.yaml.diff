@@ -1,0 +1,39 @@
+diff --git a/otelcol/testdata/weak-implicit-bool-to-string.yaml b/otelcol/testdata/weak-implicit-bool-to-string.yaml
+new file mode 100644
+index 000000000..d74046baf
+--- /dev/null
++++ b/otelcol/testdata/weak-implicit-bool-to-string.yaml
+@@ -0,0 +1,33 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  nop:
++
++extensions:
++  nop:
++
++connectors:
++  nop/con:
++
++service:
++  telemetry:
++    metrics:
++      address: true # <-- Implicit cast bool to string
++  extensions: [nop]
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop, nop/con]
++    metrics:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]
++    logs:
++      receivers: [nop, nop/con]
++      processors: [nop]
++      exporters: [nop]

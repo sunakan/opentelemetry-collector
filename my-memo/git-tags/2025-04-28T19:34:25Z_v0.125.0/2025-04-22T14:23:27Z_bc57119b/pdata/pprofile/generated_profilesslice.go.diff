@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_profilesslice.go b/pdata/pprofile/generated_profilesslice.go
+index 08601157f..fa00fa3a1 100644
+--- a/pdata/pprofile/generated_profilesslice.go
++++ b/pdata/pprofile/generated_profilesslice.go
+@@ -109,6 +109,10 @@ func (es ProfilesSlice) AppendEmpty() Profile {
+ func (es ProfilesSlice) MoveAndAppendTo(dest ProfilesSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

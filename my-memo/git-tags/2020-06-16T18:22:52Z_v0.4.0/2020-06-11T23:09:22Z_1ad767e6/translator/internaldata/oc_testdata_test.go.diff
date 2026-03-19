@@ -1,0 +1,47 @@
+diff --git a/translator/internaldata/oc_testdata_test.go b/translator/internaldata/oc_testdata_test.go
+index c34683300..7c1e61cd2 100644
+--- a/translator/internaldata/oc_testdata_test.go
++++ b/translator/internaldata/oc_testdata_test.go
+@@ -78,14 +78,6 @@ func generateOCTestDataNoPoints() consumerdata.MetricsData {
+ 					Type:        ocmetrics.MetricDescriptor_CUMULATIVE_INT64,
+ 				},
+ 			},
+-			{
+-				MetricDescriptor: &ocmetrics.MetricDescriptor{
+-					Name:        "gauge-histogram",
+-					Description: "",
+-					Unit:        "1",
+-					Type:        ocmetrics.MetricDescriptor_GAUGE_DISTRIBUTION,
+-				},
+-			},
+ 			{
+ 				MetricDescriptor: &ocmetrics.MetricDescriptor{
+ 					Name:        "cumulative-histogram",
+@@ -120,27 +112,6 @@ func generateOCTestDataNoLabels() consumerdata.MetricsData {
+ 	}
+ }
+ 
+-func generateOCTestDataMetricsInDescriptor() consumerdata.MetricsData {
+-	m := generateOCTestMetricInt()
+-	m.MetricDescriptor.LabelKeys = append(m.MetricDescriptor.LabelKeys, &ocmetrics.LabelKey{Key: testdata.TestLabelKey3})
+-	m.Timeseries[0].LabelValues = append(m.Timeseries[0].LabelValues, &ocmetrics.LabelValue{
+-		Value:    testdata.TestLabelValue3,
+-		HasValue: true,
+-	})
+-	m.Timeseries[1].LabelValues = append(m.Timeseries[1].LabelValues, &ocmetrics.LabelValue{
+-		Value:    testdata.TestLabelValue3,
+-		HasValue: true,
+-	})
+-
+-	return consumerdata.MetricsData{
+-		Node: &occommon.Node{},
+-		Resource: &ocresource.Resource{
+-			Labels: map[string]string{"resource-attr": "resource-attr-val-1"},
+-		},
+-		Metrics: []*ocmetrics.Metric{m},
+-	}
+-}
+-
+ func generateOCTestDataMetricsOneMetric() consumerdata.MetricsData {
+ 	return consumerdata.MetricsData{
+ 		Node: &occommon.Node{},

@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_processor_test.go b/component/componenttest/nop_processor_test.go
+index a3b60548c..cc9ecfd5a 100644
+--- a/component/componenttest/nop_processor_test.go
++++ b/component/componenttest/nop_processor_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestNewNopProcessorFactory(t *testing.T) {

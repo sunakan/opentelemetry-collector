@@ -1,0 +1,13 @@
+diff --git a/service/README.md b/service/README.md
+index 68d0ddb16..c15b5754f 100644
+--- a/service/README.md
++++ b/service/README.md
+@@ -137,7 +137,7 @@ processors:
+    - memory_limiter
+ exporters:
+    - otlp
+-   - otlphttp
++   - otlp_http
+    - debug
+ extensions:
+    - zpages

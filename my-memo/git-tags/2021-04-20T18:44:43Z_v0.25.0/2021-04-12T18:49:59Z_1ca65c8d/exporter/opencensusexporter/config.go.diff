@@ -1,0 +1,15 @@
+diff --git a/exporter/opencensusexporter/config.go b/exporter/opencensusexporter/config.go
+index a48deef0b..2130d9364 100644
+--- a/exporter/opencensusexporter/config.go
++++ b/exporter/opencensusexporter/config.go
+@@ -30,3 +30,10 @@ type Config struct {
+ 	// The number of workers that send the gRPC requests.
+ 	NumWorkers int `mapstructure:"num_workers"`
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

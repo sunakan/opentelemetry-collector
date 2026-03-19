@@ -1,0 +1,23 @@
+diff --git a/translator/trace/zipkinv2/from_translator.go b/translator/trace/zipkinv2/from_translator.go
+index e12519f52..34185943d 100644
+--- a/translator/trace/zipkinv2/from_translator.go
++++ b/translator/trace/zipkinv2/from_translator.go
+@@ -37,8 +37,7 @@ const (
+ )
+ 
+ var (
+-	sampled                            = true
+-	_       pdata.FromTracesTranslator = (*FromTranslator)(nil)
++	sampled = true
+ )
+ 
+ // FromTranslator converts from pdata to Zipkin data model.
+@@ -46,7 +45,7 @@ type FromTranslator struct{}
+ 
+ // FromTraces translates internal trace data into Zipkin v2 spans.
+ // Returns a slice of Zipkin SpanModel's.
+-func (t FromTranslator) FromTraces(td pdata.Traces) (interface{}, error) {
++func (t FromTranslator) FromTraces(td pdata.Traces) ([]*zipkinmodel.SpanModel, error) {
+ 	resourceSpans := td.ResourceSpans()
+ 	if resourceSpans.Len() == 0 {
+ 		return nil, nil

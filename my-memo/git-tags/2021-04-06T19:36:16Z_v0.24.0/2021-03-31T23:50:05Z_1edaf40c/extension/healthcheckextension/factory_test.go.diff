@@ -1,0 +1,16 @@
+diff --git a/extension/healthcheckextension/factory_test.go b/extension/healthcheckextension/factory_test.go
+index 85db69132..095b80949 100644
+--- a/extension/healthcheckextension/factory_test.go
++++ b/extension/healthcheckextension/factory_test.go
+@@ -32,10 +32,7 @@ import (
+ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 	cfg := createDefaultConfig()
+ 	assert.Equal(t, &Config{
+-		ExtensionSettings: config.ExtensionSettings{
+-			NameVal: typeStr,
+-			TypeVal: typeStr,
+-		},
++		ExtensionSettings: config.NewExtensionSettings(typeStr),
+ 		TCPAddr: confignet.TCPAddr{
+ 			Endpoint: defaultEndpoint,
+ 		},

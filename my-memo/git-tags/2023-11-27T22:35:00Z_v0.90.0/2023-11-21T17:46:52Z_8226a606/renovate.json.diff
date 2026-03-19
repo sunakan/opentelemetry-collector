@@ -1,0 +1,20 @@
+diff --git a/renovate.json b/renovate.json
+index dc763e830..79f3abcd5 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -24,6 +24,15 @@
+         "matchManagers": ["github-actions"],
+         "groupName": "github-actions deps"
+       },
++      {
++        "groupName": "all patch dependencies",
++        "matchPackagePatterns": [
++          "*"
++        ],
++        "matchUpdateTypes": [
++          "patch"
++        ]
++      },
+       {
+         "matchManagers": ["gomod"],
+         "matchUpdateTypes": ["minor", "major"]

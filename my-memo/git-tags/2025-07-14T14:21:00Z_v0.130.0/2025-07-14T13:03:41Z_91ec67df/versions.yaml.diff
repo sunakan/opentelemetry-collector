@@ -1,0 +1,22 @@
+diff --git a/versions.yaml b/versions.yaml
+index 53a210684..6f371572e 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -3,7 +3,7 @@
+ 
+ module-sets:
+   stable:
+-    version: v1.35.0
++    version: v1.36.0
+     modules:
+       - go.opentelemetry.io/collector/client
+       - go.opentelemetry.io/collector/featuregate
+@@ -26,7 +26,7 @@ module-sets:
+       - go.opentelemetry.io/collector/processor
+       - go.opentelemetry.io/collector/receiver
+   beta:
+-    version: v0.129.0
++    version: v0.130.0
+     modules:
+       - go.opentelemetry.io/collector
+       - go.opentelemetry.io/collector/internal/memorylimiter

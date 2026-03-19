@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
+index 7f86f1d8f..e7213be48 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_status.go
+@@ -12,7 +12,8 @@ var (
+ )
+ 
+ const (
+-	LogsStability    = component.StabilityLevelDevelopment
+-	TracesStability  = component.StabilityLevelBeta
+-	MetricsStability = component.StabilityLevelStable
++	ProfilesStability = component.StabilityLevelDeprecated
++	LogsStability     = component.StabilityLevelDevelopment
++	TracesStability   = component.StabilityLevelBeta
++	MetricsStability  = component.StabilityLevelStable
+ )

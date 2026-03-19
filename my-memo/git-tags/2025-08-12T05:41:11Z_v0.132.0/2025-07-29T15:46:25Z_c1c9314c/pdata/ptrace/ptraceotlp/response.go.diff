@@ -1,0 +1,22 @@
+diff --git a/pdata/ptrace/ptraceotlp/response.go b/pdata/ptrace/ptraceotlp/response.go
+index 3da6d35f7..fa48a3f8f 100644
+--- a/pdata/ptrace/ptraceotlp/response.go
++++ b/pdata/ptrace/ptraceotlp/response.go
+@@ -71,17 +71,3 @@ func (ms ExportResponse) unmarshalJSONIter(iter *json.Iterator) {
+ func (ms ExportResponse) PartialSuccess() ExportPartialSuccess {
+ 	return newExportPartialSuccess(&ms.orig.PartialSuccess, ms.state)
+ }
+-
+-func (ms ExportPartialSuccess) unmarshalJSONIter(iter *json.Iterator) {
+-	iter.ReadObjectCB(func(_ *json.Iterator, f string) bool {
+-		switch f {
+-		case "rejected_spans", "rejectedSpans":
+-			ms.orig.RejectedSpans = iter.ReadInt64()
+-		case "error_message", "errorMessage":
+-			ms.orig.ErrorMessage = iter.ReadString()
+-		default:
+-			iter.Skip()
+-		}
+-		return true
+-	})
+-}

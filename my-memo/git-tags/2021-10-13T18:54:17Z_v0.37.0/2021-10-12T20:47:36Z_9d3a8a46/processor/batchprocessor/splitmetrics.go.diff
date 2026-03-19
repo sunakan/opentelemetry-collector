@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splitmetrics.go b/processor/batchprocessor/splitmetrics.go
+index b168936d6..b842929c1 100644
+--- a/processor/batchprocessor/splitmetrics.go
++++ b/processor/batchprocessor/splitmetrics.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package batchprocessor
++package batchprocessor // import "go.opentelemetry.io/collector/processor/batchprocessor"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/model/pdata"

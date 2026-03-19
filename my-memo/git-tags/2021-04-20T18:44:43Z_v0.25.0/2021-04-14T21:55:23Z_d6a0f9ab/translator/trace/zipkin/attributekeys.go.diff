@@ -1,0 +1,11 @@
+diff --git a/translator/trace/zipkin/attributekeys.go b/translator/trace/zipkin/attributekeys.go
+index cafcc82a3..5b83ff8b1 100644
+--- a/translator/trace/zipkin/attributekeys.go
++++ b/translator/trace/zipkin/attributekeys.go
+@@ -17,5 +17,5 @@ package zipkin
+ // These constants are the attribute keys used when translating from zipkin
+ // format to the internal collector data format.
+ const (
+-	StartTimeAbsent = "otel.zipkin.absentField.startTime"
++	startTimeAbsent = "otel.zipkin.absentField.startTime"
+ )

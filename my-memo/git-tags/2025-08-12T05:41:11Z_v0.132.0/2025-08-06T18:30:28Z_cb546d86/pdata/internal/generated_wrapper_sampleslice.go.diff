@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_sampleslice.go b/pdata/internal/generated_wrapper_sampleslice.go
+index c6f4f0f8e..40219346d 100644
+--- a/pdata/internal/generated_wrapper_sampleslice.go
++++ b/pdata/internal/generated_wrapper_sampleslice.go
+@@ -38,3 +38,12 @@ func CopyOrigSampleSlice(dest, src []*otlpprofiles.Sample) []*otlpprofiles.Sampl
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestSampleSlice() []*otlpprofiles.Sample {
++	orig := make([]*otlpprofiles.Sample, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpprofiles.Sample{}
++		FillOrigTestSample(orig[i])
++	}
++	return orig
++}

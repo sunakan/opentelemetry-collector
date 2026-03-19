@@ -1,0 +1,16 @@
+diff --git a/processor/filterprocessor/config.go b/processor/filterprocessor/config.go
+index fb35ebca8..6d77d9ae2 100644
+--- a/processor/filterprocessor/config.go
++++ b/processor/filterprocessor/config.go
+@@ -21,8 +21,9 @@ import (
+ 
+ // Config defines configuration for Resource processor.
+ type Config struct {
+-	*config.ProcessorSettings `mapstructure:"-"`
+-	Metrics                   MetricFilters `mapstructure:"metrics"`
++	config.ProcessorSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
++
++	Metrics MetricFilters `mapstructure:"metrics"`
+ }
+ 
+ // MetricFilters filters by Metric properties.

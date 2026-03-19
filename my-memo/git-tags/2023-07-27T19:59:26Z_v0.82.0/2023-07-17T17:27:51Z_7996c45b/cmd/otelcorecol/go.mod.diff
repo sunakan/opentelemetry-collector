@@ -1,0 +1,12 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 2de5f08be..cf23b304e 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -94,6 +94,7 @@ require (
+ 	go.opentelemetry.io/otel v1.16.0 // indirect
+ 	go.opentelemetry.io/otel/bridge/opencensus v0.39.0 // indirect
+ 	go.opentelemetry.io/otel/exporters/prometheus v0.39.0 // indirect
++	go.opentelemetry.io/otel/exporters/stdout/stdoutmetric v0.39.0 // indirect
+ 	go.opentelemetry.io/otel/metric v1.16.0 // indirect
+ 	go.opentelemetry.io/otel/sdk v1.16.0 // indirect
+ 	go.opentelemetry.io/otel/sdk/metric v0.39.0 // indirect

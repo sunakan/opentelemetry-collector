@@ -1,0 +1,19 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 5fb5a9672..171e3a4bd 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -3,13 +3,12 @@
+ ## Unreleased
+ 
+ ## 🛑 Breaking changes 🛑
+-
++- Remove deprecated `queued_retry` processor
+ - Remove deprecated configs from `resource` processor: `type` (set "opencensus.type" key in "attributes.upsert" map instead) and `labels` (use "attributes.upsert" instead).
+ 
+ ## v0.18.0 Beta
+ 
+ ## 🛑 Breaking changes 🛑
+-
+ - Rename host metrics according to metrics spec and rename `swap` scraper to `paging` (#2311)
+ 
+ ## 💡 Enhancements 💡

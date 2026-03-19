@@ -1,0 +1,17 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index 4c09c49b0..984d0b007 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -59,9 +59,9 @@ func TestBuildPipelines(t *testing.T) {
+ }
+ 
+ func createExampleConfig(dataType string) *configmodels.Config {
+-	exampleReceiverFactory := &testcomponents.ExampleReceiverFactory{}
+-	exampleProcessorFactory := &testcomponents.ExampleProcessorFactory{}
+-	exampleExporterFactory := &testcomponents.ExampleExporterFactory{}
++	exampleReceiverFactory := testcomponents.ExampleReceiverFactory
++	exampleProcessorFactory := testcomponents.ExampleProcessorFactory
++	exampleExporterFactory := testcomponents.ExampleExporterFactory
+ 
+ 	cfg := &configmodels.Config{
+ 		Receivers: map[string]configmodels.Receiver{

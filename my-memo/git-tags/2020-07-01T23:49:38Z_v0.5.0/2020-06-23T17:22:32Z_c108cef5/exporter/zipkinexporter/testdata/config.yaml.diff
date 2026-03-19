@@ -1,0 +1,12 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+index 275232ef5..14412f193 100644
+--- a/exporter/zipkinexporter/testdata/config.yaml
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -9,7 +9,6 @@ exporters:
+     url: "http://some.location.org:9411/api/v2/spans"
+   zipkin/2:
+     url: "https://somedest:1234/api/v2/spans"
+-    export_resource_labels: false
+     format: proto
+     default_service_name: test_name
+ 

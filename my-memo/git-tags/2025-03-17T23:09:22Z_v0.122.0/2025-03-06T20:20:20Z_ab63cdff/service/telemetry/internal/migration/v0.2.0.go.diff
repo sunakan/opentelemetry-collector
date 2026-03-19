@@ -1,0 +1,15 @@
+diff --git a/service/telemetry/internal/migration/v0.2.0.go b/service/telemetry/internal/migration/v0.2.0.go
+index 2f1203e4a..41ee877a1 100644
+--- a/service/telemetry/internal/migration/v0.2.0.go
++++ b/service/telemetry/internal/migration/v0.2.0.go
+@@ -4,8 +4,8 @@
+ package migration // import "go.opentelemetry.io/collector/service/telemetry/internal/migration"
+ 
+ import (
+-	configv02 "go.opentelemetry.io/contrib/config/v0.2.0"
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	configv02 "go.opentelemetry.io/contrib/otelconf/v0.2.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.uber.org/zap/zapcore"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"

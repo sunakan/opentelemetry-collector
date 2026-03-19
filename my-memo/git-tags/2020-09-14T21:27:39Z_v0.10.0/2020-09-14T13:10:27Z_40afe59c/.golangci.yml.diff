@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 349e865e5..47b978172 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -123,3 +123,7 @@ issues:
+       - staticcheck
+       # See https://github.com/golang/protobuf/issues/1077
+       text: "SA1019:"
++    - path: receiver/otlpreceiver/marshal_jsonpb\.go
++      linters:
++        - gocritic
++        - gosimple

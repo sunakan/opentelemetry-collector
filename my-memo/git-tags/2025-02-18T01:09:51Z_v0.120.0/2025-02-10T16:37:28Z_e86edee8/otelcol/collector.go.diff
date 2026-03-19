@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector.go b/otelcol/collector.go
+index 451139c39..0c3ecd9e7 100644
+--- a/otelcol/collector.go
++++ b/otelcol/collector.go
+@@ -94,7 +94,7 @@ type CollectorSettings struct {
+ type Collector struct {
+ 	set CollectorSettings
+ 
+-	configProvider ConfigProvider
++	configProvider *ConfigProvider
+ 
+ 	serviceConfig *service.Config
+ 	service       *service.Service

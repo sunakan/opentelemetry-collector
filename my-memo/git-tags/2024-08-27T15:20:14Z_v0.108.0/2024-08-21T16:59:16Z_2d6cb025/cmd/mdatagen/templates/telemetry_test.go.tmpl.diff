@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/templates/telemetry_test.go.tmpl b/cmd/mdatagen/templates/telemetry_test.go.tmpl
+index 72a78f903..600fe5d42 100644
+--- a/cmd/mdatagen/templates/telemetry_test.go.tmpl
++++ b/cmd/mdatagen/templates/telemetry_test.go.tmpl
+@@ -14,6 +14,7 @@ import (
+ 	nooptrace "go.opentelemetry.io/otel/trace/noop"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ type mockMeter struct {

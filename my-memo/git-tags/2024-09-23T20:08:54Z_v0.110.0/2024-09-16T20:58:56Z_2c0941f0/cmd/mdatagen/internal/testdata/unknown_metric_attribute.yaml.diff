@@ -1,0 +1,25 @@
+diff --git a/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml b/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml
+new file mode 100644
+index 000000000..d86b5afe4
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/unknown_metric_attribute.yaml
+@@ -0,0 +1,19 @@
++type: metricreceiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++    
++metrics:
++  system.cpu.time:
++    enabled: true
++    description: Total CPU seconds broken down by different states.
++    unit: s
++    sum:
++      value_type: double
++      monotonic: true
++      aggregation_temporality: cumulative
++    attributes: [missing]

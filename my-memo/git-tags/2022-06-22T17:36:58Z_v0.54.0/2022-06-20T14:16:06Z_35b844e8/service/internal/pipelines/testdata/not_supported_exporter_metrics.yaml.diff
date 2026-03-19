@@ -1,0 +1,16 @@
+diff --git a/service/internal/pipelines/testdata/not_supported_exporter_metrics.yaml b/service/internal/pipelines/testdata/not_supported_exporter_metrics.yaml
+new file mode 100644
+index 000000000..962aad9ef
+--- /dev/null
++++ b/service/internal/pipelines/testdata/not_supported_exporter_metrics.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  nop:
++exporters:
++  bf:
++
++service:
++  pipelines:
++    metrics:
++      receivers: [nop]
++      exporters: [bf]

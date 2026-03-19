@@ -1,0 +1,16 @@
+diff --git a/service/featuregate/flags_test.go b/service/featuregate/flags_test.go
+index dd723bdd0..0f24f2d3c 100644
+--- a/service/featuregate/flags_test.go
++++ b/service/featuregate/flags_test.go
+@@ -27,6 +27,11 @@ func TestFlagValue_basic(t *testing.T) {
+ 		output     FlagValue
+ 		skipString bool
+ 	}{
++		{
++			name:   "empty item",
++			input:  "",
++			output: FlagValue{},
++		},
+ 		{
+ 			name:   "single item",
+ 			input:  "foo",

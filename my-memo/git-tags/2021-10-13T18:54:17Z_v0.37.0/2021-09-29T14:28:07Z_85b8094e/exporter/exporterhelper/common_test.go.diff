@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 6e9bf0aaf..3283d1f1d 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -31,7 +31,7 @@ import (
+ )
+ 
+ var (
+-	defaultExporterCfg  = config.NewExporterSettings(config.NewID(typeStr))
++	defaultExporterCfg  = config.NewExporterSettings(config.NewComponentID(typeStr))
+ 	exporterTag, _      = tag.NewKey("exporter")
+ 	defaultExporterTags = []tag.Tag{
+ 		{Key: exporterTag, Value: "test"},

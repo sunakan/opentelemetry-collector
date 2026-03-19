@@ -1,0 +1,14 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index 20c1270e5..5d3666a71 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -275,7 +275,8 @@ func TestBatchProcessorSentBySize(t *testing.T) {
+ 				IsMonotonic: false,
+ 				DataPoints: []metricdata.DataPoint[int64]{
+ 					{
+-						Value: 1,
++						Value:      1,
++						Attributes: attribute.NewSet(attribute.String("processor", "batch")),
+ 					},
+ 				},
+ 			},

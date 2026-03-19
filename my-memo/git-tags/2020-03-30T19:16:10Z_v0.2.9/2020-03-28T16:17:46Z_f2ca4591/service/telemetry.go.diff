@@ -1,0 +1,13 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index 08f711d2d..19747162d 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -117,7 +117,7 @@ func (tel *appTelemetry) init(asyncErrorChannel chan<- error, ballastSizeBytes u
+ 	processMetricsViews := telemetry.NewProcessMetricsViews(ballastSizeBytes)
+ 	views = append(views, processMetricsViews.Views()...)
+ 	tel.views = views
+-	if err := view.Register(views...); err != nil {
++	if err = view.Register(views...); err != nil {
+ 		return err
+ 	}
+ 

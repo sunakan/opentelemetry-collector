@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index d23951de9..b4bbc6870 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -31,8 +31,8 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/metadatatest"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/oteltest"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/storagetest"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+-	"go.opentelemetry.io/collector/exporter/internal/storagetest"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ 	"go.opentelemetry.io/collector/pdata/testdata"
+ )

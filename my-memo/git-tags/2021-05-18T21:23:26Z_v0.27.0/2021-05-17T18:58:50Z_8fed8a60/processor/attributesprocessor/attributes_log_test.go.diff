@@ -1,0 +1,15 @@
+diff --git a/processor/attributesprocessor/attributes_log_test.go b/processor/attributesprocessor/attributes_log_test.go
+index 433382678..8fc55788f 100644
+--- a/processor/attributesprocessor/attributes_log_test.go
++++ b/processor/attributesprocessor/attributes_log_test.go
+@@ -83,8 +83,8 @@ func TestLogProcessor_NilEmptyData(t *testing.T) {
+ 	testCases := []nilEmptyTestCase{
+ 		{
+ 			name:   "empty",
+-			input:  testdata.GenerateLogDataEmpty(),
+-			output: testdata.GenerateLogDataEmpty(),
++			input:  pdata.NewLogs(),
++			output: pdata.NewLogs(),
+ 		},
+ 		{
+ 			name:   "one-empty-resource-logs",

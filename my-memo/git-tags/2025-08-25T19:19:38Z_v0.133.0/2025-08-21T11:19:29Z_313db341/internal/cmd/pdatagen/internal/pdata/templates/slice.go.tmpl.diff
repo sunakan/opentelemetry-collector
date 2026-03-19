@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
+index 2165706dc..9ff3aa6f5 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
+@@ -160,6 +160,9 @@ func (es {{ .structName }}) RemoveIf(f func({{ .elementName }}) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es {{ .structName }}) CopyTo(dest {{ .structName }}) {
+ 	dest.{{ .stateAccessor }}.AssertMutable()
++	if es.{{ .origAccessor }} == dest.{{ .origAccessor }} {
++		return
++	}
+ 	*dest.{{ .origAccessor }} = internal.CopyOrig{{ .elementOriginName }}Slice(*dest.{{ .origAccessor }}, *es.{{ .origAccessor }})
+ }
+ 

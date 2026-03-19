@@ -1,0 +1,16 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 676e8e04d..491111605 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -65,11 +65,3 @@ func NewNopBuilder() *exporter.Builder {
+ 		map[component.ID]component.Config{component.NewID(typeStr): nopFactory.CreateDefaultConfig()},
+ 		map[component.Type]exporter.Factory{typeStr: nopFactory})
+ }
+-
+-func NewCreateSettings(id component.ID, set component.TelemetrySettings) exporter.CreateSettings {
+-	return exporter.CreateSettings{
+-		ID:                id,
+-		TelemetrySettings: set,
+-		BuildInfo:         component.NewDefaultBuildInfo(),
+-	}
+-}

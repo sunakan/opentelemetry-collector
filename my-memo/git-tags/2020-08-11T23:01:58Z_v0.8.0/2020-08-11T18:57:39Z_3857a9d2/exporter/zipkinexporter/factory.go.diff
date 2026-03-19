@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/factory.go b/exporter/zipkinexporter/factory.go
+index fab02d6e8..0c5ba563b 100644
+--- a/exporter/zipkinexporter/factory.go
++++ b/exporter/zipkinexporter/factory.go
+@@ -36,7 +36,7 @@ const (
+ 	defaultServiceName string = "<missing service name>"
+ )
+ 
+-// NewFactory creates a factory for OTLP exporter.
++// NewFactory creates a factory for Zipkin exporter.
+ func NewFactory() component.ExporterFactory {
+ 	return exporterhelper.NewFactory(
+ 		typeStr,

@@ -1,0 +1,13 @@
+diff --git a/internal/otlp/marshaler.go b/internal/otlp/marshaler.go
+index 1c363910a..0afc78554 100644
+--- a/internal/otlp/marshaler.go
++++ b/internal/otlp/marshaler.go
+@@ -15,7 +15,7 @@
+ package otlp
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // NewJSONTracesMarshaler returns a model.TracesMarshaler. Marshals to OTLP json bytes.

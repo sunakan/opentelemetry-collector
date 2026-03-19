@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_extension.go b/internal/testcomponents/example_extension.go
+index f233dbc17..1a55a8643 100644
+--- a/internal/testcomponents/example_extension.go
++++ b/internal/testcomponents/example_extension.go
+@@ -40,7 +40,7 @@ var ExampleExtensionFactory = extensionhelper.NewFactory(extType, createExtensio
+ // CreateDefaultConfig creates the default configuration for the Extension.
+ func createExtensionDefaultConfig() config.Extension {
+ 	return &ExampleExtensionCfg{
+-		ExtensionSettings: config.NewExtensionSettings(config.NewID(extType)),
++		ExtensionSettings: config.NewExtensionSettings(config.NewComponentID(extType)),
+ 		ExtraSetting:      "extra string setting",
+ 		ExtraMapSetting:   nil,
+ 		ExtraListSetting:  nil,

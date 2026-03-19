@@ -1,0 +1,20 @@
+diff --git a/service/internal/zpages/templates.go b/service/internal/zpages/templates.go
+index 9388e8023..e045fae73 100644
+--- a/service/internal/zpages/templates.go
++++ b/service/internal/zpages/templates.go
+@@ -168,9 +168,12 @@ type FeatureGateTableData struct {
+ 
+ // FeatureGateTableRowData contains data for one row in feature gate table template.
+ type FeatureGateTableRowData struct {
+-	ID          string
+-	Enabled     bool
+-	Description string
++	ID             string
++	Enabled        bool
++	Description    string
++	Stage          string
++	ReferenceURL   string
++	RemovalVersion string
+ }
+ 
+ // WriteHTMLFeaturesTable writes a table summarizing registered feature gates.

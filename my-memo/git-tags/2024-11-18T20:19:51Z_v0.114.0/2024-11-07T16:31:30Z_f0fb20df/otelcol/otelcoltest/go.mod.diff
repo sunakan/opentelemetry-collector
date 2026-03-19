@@ -1,0 +1,21 @@
+diff --git a/otelcol/otelcoltest/go.mod b/otelcol/otelcoltest/go.mod
+index d5cc09898..04d842740 100644
+--- a/otelcol/otelcoltest/go.mod
++++ b/otelcol/otelcoltest/go.mod
+@@ -64,6 +64,7 @@ require (
+ 	github.com/tklauser/numcpus v0.6.1 // indirect
+ 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
+ 	go.opentelemetry.io/collector/component/componentstatus v0.113.0 // indirect
++	go.opentelemetry.io/collector/component/componenttest v0.113.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.113.0 // indirect
+ 	go.opentelemetry.io/collector/connector/connectorprofiles v0.113.0 // indirect
+ 	go.opentelemetry.io/collector/consumer v0.113.0 // indirect
+@@ -154,6 +155,8 @@ replace go.opentelemetry.io/collector/confmap/provider/envprovider => ../../conf
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/extension => ../../extension
+ 
+ replace go.opentelemetry.io/collector/exporter => ../../exporter

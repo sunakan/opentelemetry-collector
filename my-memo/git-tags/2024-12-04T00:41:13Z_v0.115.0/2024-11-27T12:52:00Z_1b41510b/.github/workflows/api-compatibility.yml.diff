@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index 362606d42..987d7a2e5 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -9,6 +9,8 @@ on:
+   pull_request:
+     branches:
+       - main
++  merge_group:
++    types: [checks_requested]
+ 
+ permissions:
+   contents: read

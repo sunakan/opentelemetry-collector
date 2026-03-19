@@ -1,0 +1,13 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index af02e6036..3b68e1955 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -93,7 +93,7 @@ func TestConfigValidate(t *testing.T) {
+ 			expected: nil,
+ 		},
+ 		{
+-			name: "custom-service-telemetry-encoding",
++			name: "custom-service-telemetrySettings-encoding",
+ 			cfgFn: func() *Config {
+ 				cfg := generateConfig()
+ 				cfg.Service.Telemetry.Logs.Encoding = "test_encoding"

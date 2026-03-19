@@ -1,0 +1,13 @@
+diff --git a/client/doc_test.go b/client/doc_test.go
+index 5d818586d..43d6421ef 100644
+--- a/client/doc_test.go
++++ b/client/doc_test.go
+@@ -82,7 +82,7 @@ type exampleAuthData struct {
+ 	username string
+ }
+ 
+-func (e *exampleAuthData) GetAttribute(key string) interface{} {
++func (e *exampleAuthData) GetAttribute(key string) any {
+ 	if key == "username" {
+ 		return e.username
+ 	}

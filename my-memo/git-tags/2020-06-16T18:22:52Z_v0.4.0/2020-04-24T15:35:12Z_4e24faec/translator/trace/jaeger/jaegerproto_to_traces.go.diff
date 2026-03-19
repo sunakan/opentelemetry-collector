@@ -1,0 +1,12 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces.go b/translator/trace/jaeger/jaegerproto_to_traces.go
+index efcaa231d..c438ea025 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces.go
+@@ -204,6 +204,7 @@ func setInternalSpanStatus(attrs map[string]pdata.AttributeValue, dest pdata.Spa
+ 			dest.SetMessage(msgAttr.StringVal())
+ 			delete(attrs, tracetranslator.TagStatusMsg)
+ 		}
++		delete(attrs, tracetranslator.TagError)
+ 	} else {
+ 		httpCodeAttr, ok := attrs[tracetranslator.TagHTTPStatusCode]
+ 		if ok {

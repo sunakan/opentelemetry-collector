@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/pdata_unmarshaler.go b/receiver/kafkareceiver/pdata_unmarshaler.go
+index 224933d4b..471b4e4de 100644
+--- a/receiver/kafkareceiver/pdata_unmarshaler.go
++++ b/receiver/kafkareceiver/pdata_unmarshaler.go
+@@ -15,7 +15,7 @@
+ package kafkareceiver
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type pdataLogsUnmarshaler struct {

@@ -1,0 +1,13 @@
+diff --git a/.chloggen/addvisit.yaml b/.chloggen/addvisit.yaml
+index 6efc1b00f..d266c6c6b 100755
+--- a/.chloggen/addvisit.yaml
++++ b/.chloggen/addvisit.yaml
+@@ -5,7 +5,7 @@ change_type: deprecation
+ component: featuregate
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Deprecate Registry.List in favor of Registry.Visit.
++note: Deprecate Registry.List in favor of Registry.VisitAll.
+ 
+ # One or more tracking issues or pull requests related to the change
+ issues: [7041]

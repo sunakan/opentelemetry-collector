@@ -1,0 +1,31 @@
+diff --git a/testbed/tests/testdata/add-attributes-config.yaml b/testbed/tests/testdata/add-attributes-config.yaml
+new file mode 100644
+index 000000000..06d22f04d
+--- /dev/null
++++ b/testbed/tests/testdata/add-attributes-config.yaml
+@@ -0,0 +1,25 @@
++receivers:
++  jaeger:
++    collector_http_port: 14268
++    protocols:
++      thrift-http:
++        endpoint: "*:14268"
++
++exporters:
++  opencensus:
++    endpoint: "127.0.0.1:56565"
++
++processors:
++  queued-retry:
++  add-attributes:
++    attrib.key00: 123
++    attrib.key01: "a small string for this attribute"
++    attrib.key02: true
++    region: test-region
++    data-center: test-datacenter
++
++pipelines:
++  traces:
++    receivers: [jaeger]
++    processors: [add-attributes,queued-retry]
++    exporters: [opencensus]

@@ -1,0 +1,13 @@
+diff --git a/confmap/resolver_test.go b/confmap/resolver_test.go
+index 5d7ca0b0b..2cd39246b 100644
+--- a/confmap/resolver_test.go
++++ b/confmap/resolver_test.go
+@@ -17,7 +17,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+-	"gopkg.in/yaml.v3"
++	yaml "sigs.k8s.io/yaml/goyaml.v3"
+ 
+ 	"go.opentelemetry.io/collector/featuregate"
+ )

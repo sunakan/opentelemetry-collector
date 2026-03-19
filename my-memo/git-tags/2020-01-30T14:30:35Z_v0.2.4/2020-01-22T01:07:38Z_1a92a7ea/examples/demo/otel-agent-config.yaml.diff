@@ -1,0 +1,13 @@
+diff --git a/examples/demo/otel-agent-config.yaml b/examples/demo/otel-agent-config.yaml
+index 61f78acd3..dafb69039 100644
+--- a/examples/demo/otel-agent-config.yaml
++++ b/examples/demo/otel-agent-config.yaml
+@@ -3,7 +3,7 @@ receivers:
+     endpoint: 0.0.0.0:55678
+   jaeger:
+     protocols:
+-      thrift-http:
++      thrift_http:
+         endpoint: "0.0.0.0:14268"
+ 
+ 

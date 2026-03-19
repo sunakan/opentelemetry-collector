@@ -1,0 +1,17 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index c60fe804b..729f79cb5 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -105,9 +105,9 @@ func (tel *mockAppTelemetry) shutdown() error {
+ 
+ func TestApplication_ReportError(t *testing.T) {
+ 	// use a mock AppTelemetry struct to return an error on shutdown
+-	preservedAppTelemetry := AppTelemetry
+-	AppTelemetry = &mockAppTelemetry{}
+-	defer func() { AppTelemetry = preservedAppTelemetry }()
++	preservedAppTelemetry := applicationTelemetry
++	applicationTelemetry = &mockAppTelemetry{}
++	defer func() { applicationTelemetry = preservedAppTelemetry }()
+ 
+ 	factories, err := defaultcomponents.Components()
+ 	require.NoError(t, err)

@@ -1,0 +1,18 @@
+diff --git a/connector/internal/factory.go b/connector/internal/factory.go
+index 5cff95c85..09f6c2ddb 100644
+--- a/connector/internal/factory.go
++++ b/connector/internal/factory.go
+@@ -389,11 +389,11 @@ func (f CreateProfilesToLogsFunc) CreateProfilesToLogs(
+ }
+ 
+ // Type returns the type of component.
+-func (f *factory) Type() component.Type {
++func (f factory) Type() component.Type {
+ 	return f.cfgType
+ }
+ 
+-func (f *factory) unexportedFactoryFunc() {}
++func (f factory) unexportedFactoryFunc() {}
+ 
+ func (f factory) TracesToTracesStability() component.StabilityLevel {
+ 	return f.tracesToTracesStabilityLevel

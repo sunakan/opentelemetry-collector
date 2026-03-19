@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index b0d08922f..092445d76 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -812,7 +812,7 @@ func TestHTTPInvalidTLSCredentials(t *testing.T) {
+ 		`failed to load TLS config: failed to load TLS cert and key: for auth via TLS, provide both certificate and key, or neither`)
+ }
+ 
+-func testHTTPMaxRequestBodySize(t *testing.T, path string, contentType string, payload []byte, size int, expectedStatusCode int) {
++func testHTTPMaxRequestBodySize(t *testing.T, path, contentType string, payload []byte, size, expectedStatusCode int) {
+ 	addr := testutil.GetAvailableLocalAddress(t)
+ 	url := "http://" + addr + path
+ 	cfg := &Config{

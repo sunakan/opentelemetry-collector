@@ -1,0 +1,12 @@
+diff --git a/exporter/exportertest/mock_consumer_test.go b/exporter/exportertest/mock_consumer_test.go
+index a5e297abf..830813c61 100644
+--- a/exporter/exportertest/mock_consumer_test.go
++++ b/exporter/exportertest/mock_consumer_test.go
+@@ -195,6 +195,7 @@ func TestConsumeTracesSuccess(t *testing.T) {
+ 	assert.Equal(t, 1, mc.reqCounter.success)
+ 	assert.Equal(t, 1, mc.reqCounter.total)
+ }
++
+ func TestConsumeMetricsNonPermanent(t *testing.T) {
+ 	mc := newMockConsumer(returnNonPermanentError)
+ 	validData := createMetric("metricId")

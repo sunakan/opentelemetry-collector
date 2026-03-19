@@ -1,0 +1,25 @@
+diff --git a/extension/ballastextension/testdata/config_invalid.yaml b/extension/ballastextension/testdata/config_invalid.yaml
+deleted file mode 100644
+index c73a7a997..000000000
+--- a/extension/ballastextension/testdata/config_invalid.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-extensions:
+-  memory_ballast:
+-    size_in_percentage: 200
+-
+-# Data pipeline is required to load the config.
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  extensions: [memory_ballast]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

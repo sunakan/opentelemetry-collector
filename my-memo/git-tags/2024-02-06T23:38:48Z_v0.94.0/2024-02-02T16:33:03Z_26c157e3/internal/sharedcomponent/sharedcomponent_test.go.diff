@@ -1,0 +1,13 @@
+diff --git a/internal/sharedcomponent/sharedcomponent_test.go b/internal/sharedcomponent/sharedcomponent_test.go
+index 09589d7ad..8ba96a287 100644
+--- a/internal/sharedcomponent/sharedcomponent_test.go
++++ b/internal/sharedcomponent/sharedcomponent_test.go
+@@ -15,7 +15,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ )
+ 
+-var id = component.NewID("test")
++var id = component.MustNewID("test")
+ 
+ type baseComponent struct {
+ 	component.StartFunc

@@ -1,0 +1,12 @@
+diff --git a/connector/xconnector/metadata.yaml b/connector/xconnector/metadata.yaml
+index 7fa01fb21..94ce89500 100644
+--- a/connector/xconnector/metadata.yaml
++++ b/connector/xconnector/metadata.yaml
+@@ -2,6 +2,7 @@ type: xconnector
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   codeowners:
+     active:

@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/opencensus.go b/exporter/opencensusexporter/opencensus.go
+index 7f2477bba..6ae3f4fca 100644
+--- a/exporter/opencensusexporter/opencensus.go
++++ b/exporter/opencensusexporter/opencensus.go
+@@ -108,7 +108,7 @@ func NewMetricsExporter(logger *zap.Logger, config configmodels.Exporter, opts .
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	oexp, err := exporterhelper.NewMetricsExporter(
++	oexp, err := exporterhelper.NewMetricsExporterOld(
+ 		config,
+ 		oce.PushMetricsData,
+ 		exporterhelper.WithShutdown(oce.Shutdown))

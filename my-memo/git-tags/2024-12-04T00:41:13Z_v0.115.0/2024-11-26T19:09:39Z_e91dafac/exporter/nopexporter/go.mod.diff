@@ -1,0 +1,13 @@
+diff --git a/exporter/nopexporter/go.mod b/exporter/nopexporter/go.mod
+index 8445cd75c..9c435c568 100644
+--- a/exporter/nopexporter/go.mod
++++ b/exporter/nopexporter/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/exporter/nopexporter
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/component/componenttest v0.114.0
+ 	go.opentelemetry.io/collector/confmap v1.20.0

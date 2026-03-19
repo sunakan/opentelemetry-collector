@@ -1,0 +1,11 @@
+diff --git a/confmap/confmaptest/configtest.go b/confmap/confmaptest/configtest.go
+index 198909aa7..4f9a52c98 100644
+--- a/confmap/confmaptest/configtest.go
++++ b/confmap/confmaptest/configtest.go
+@@ -27,5 +27,5 @@ func LoadConf(fileName string) (*confmap.Conf, error) {
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	return ret.AsMap()
++	return ret.AsConf()
+ }

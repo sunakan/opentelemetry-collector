@@ -1,0 +1,13 @@
+diff --git a/configv2/configv2.go b/configv2/configv2.go
+index 1b7ea6bf3..c75d4e877 100644
+--- a/configv2/configv2.go
++++ b/configv2/configv2.go
+@@ -249,7 +249,7 @@ func loadExporters(v *viper.Viper) (models.Exporters, error) {
+ 		}
+ 
+ 		// Find exporter factory based on "type" that we read from config source
+-		factory := exporter.GetExporterFactory(typeStr)
++		factory := exporter.GetFactory(typeStr)
+ 		if factory == nil {
+ 			return nil, &configError{
+ 				code: errUnknownExporterType,

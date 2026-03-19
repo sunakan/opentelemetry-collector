@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-receiver-sub-config.yaml b/config/testdata/invalid-receiver-sub-config.yaml
+index b7c567b2c..2fb171b21 100644
+--- a/config/testdata/invalid-receiver-sub-config.yaml
++++ b/config/testdata/invalid-receiver-sub-config.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  multireceiver:
++  examplereceiver:
+     tests
+ exporters:
+   exampleexporter:
+@@ -8,6 +8,6 @@ processors:
+ service:
+   pipelines:
+     traces:
+-      receivers: [multireceiver]
++      receivers: [examplereceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]

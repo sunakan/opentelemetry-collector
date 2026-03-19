@@ -1,0 +1,22 @@
+diff --git a/processor/attributesprocessor/factory_test.go b/processor/attributesprocessor/factory_test.go
+index 1ea994075..986898b52 100644
+--- a/processor/attributesprocessor/factory_test.go
++++ b/processor/attributesprocessor/factory_test.go
+@@ -83,7 +83,7 @@ func TestFactoryCreateTraceProcessor(t *testing.T) {
+ 	tp, err = factory.CreateTraceProcessor(
+ 		context.Background(), component.ProcessorCreateParams{}, nil, cfg)
+ 	assert.Nil(t, tp)
+-	assert.NotNil(t, err)
++	assert.Error(t, err)
+ 
+ 	oCfg.Actions = []attraction.ActionKeyValue{
+ 		{Action: attraction.DELETE},
+@@ -91,7 +91,7 @@ func TestFactoryCreateTraceProcessor(t *testing.T) {
+ 	tp, err = factory.CreateTraceProcessor(
+ 		context.Background(), component.ProcessorCreateParams{}, exportertest.NewNopTraceExporter(), cfg)
+ 	assert.Nil(t, tp)
+-	assert.NotNil(t, err)
++	assert.Error(t, err)
+ }
+ 
+ func TestFactory_CreateMetricsProcessor(t *testing.T) {

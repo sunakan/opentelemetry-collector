@@ -1,0 +1,13 @@
+diff --git a/translator/trace/oc_to_otlp.go b/translator/trace/oc_to_otlp.go
+index 40ccc646e..6a2c83c1f 100644
+--- a/translator/trace/oc_to_otlp.go
++++ b/translator/trace/oc_to_otlp.go
+@@ -32,7 +32,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/translator/conventions"
+ )
+ 
+-func ocToOtlp(td consumerdata.TraceData) []*otlptrace.ResourceSpans {
++func OCToOTLP(td consumerdata.TraceData) []*otlptrace.ResourceSpans {
+ 
+ 	if td.Node == nil && td.Resource == nil && len(td.Spans) == 0 {
+ 		return nil

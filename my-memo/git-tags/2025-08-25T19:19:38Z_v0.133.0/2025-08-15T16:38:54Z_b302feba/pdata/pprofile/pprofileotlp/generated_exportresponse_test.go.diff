@@ -1,0 +1,34 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+index c5447a910..b1599f259 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+@@ -23,12 +23,13 @@ func TestExportResponse_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestExportResponse(), dest)
+ 	dest.MoveTo(dest)
+ 	assert.Equal(t, generateTestExportResponse(), dest)
+-	sharedState := internal.StateReadOnly
++	sharedState := internal.NewState()
++	sharedState.MarkReadOnly()
+ 	assert.Panics(t, func() {
+-		ms.MoveTo(newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, &sharedState))
++		ms.MoveTo(newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, sharedState))
+ 	})
+ 	assert.Panics(t, func() {
+-		newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, &sharedState).MoveTo(dest)
++		newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, sharedState).MoveTo(dest)
+ 	})
+ }
+ 
+@@ -40,9 +41,10 @@ func TestExportResponse_CopyTo(t *testing.T) {
+ 	orig = generateTestExportResponse()
+ 	orig.CopyTo(ms)
+ 	assert.Equal(t, orig, ms)
+-	sharedState := internal.StateReadOnly
++	sharedState := internal.NewState()
++	sharedState.MarkReadOnly()
+ 	assert.Panics(t, func() {
+-		ms.CopyTo(newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, &sharedState))
++		ms.CopyTo(newExportResponse(&otlpcollectorprofiles.ExportProfilesServiceResponse{}, sharedState))
+ 	})
+ }
+ 

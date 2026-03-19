@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/metric_data_point_flags_test.go b/pdata/pmetric/metric_data_point_flags_test.go
+index f6ea37e15..43d45084d 100644
+--- a/pdata/pmetric/metric_data_point_flags_test.go
++++ b/pdata/pmetric/metric_data_point_flags_test.go
+@@ -21,7 +21,7 @@ import (
+ )
+ 
+ func TestLogRecordFlags(t *testing.T) {
+-	flags := MetricDataPointFlagsImmutable(1)
++	flags := MetricDataPointFlags(1)
+ 	assert.True(t, flags.NoRecordedValue())
+ 	assert.EqualValues(t, uint32(1), flags)
+ 

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 2a31e2103..ad6020b5a 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -24,7 +24,7 @@ import (
+ )
+ 
+ func TestNewQueueSenderFailedRequestDropped(t *testing.T) {
+-	qSet := queuebatch.Settings[request.Request]{
++	qSet := queuebatch.AllSettings[request.Request]{
+ 		Signal:    pipeline.SignalMetrics,
+ 		ID:        component.NewID(exportertest.NopType),
+ 		Telemetry: componenttest.NewNopTelemetrySettings(),

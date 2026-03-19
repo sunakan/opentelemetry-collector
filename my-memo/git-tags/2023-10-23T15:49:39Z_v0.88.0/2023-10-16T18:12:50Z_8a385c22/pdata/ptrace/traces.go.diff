@@ -1,0 +1,25 @@
+diff --git a/pdata/ptrace/traces.go b/pdata/ptrace/traces.go
+index 0d8294098..a4b71e178 100644
+--- a/pdata/ptrace/traces.go
++++ b/pdata/ptrace/traces.go
+@@ -21,11 +21,20 @@ func (ms Traces) getOrig() *otlpcollectortrace.ExportTraceServiceRequest {
+ 	return internal.GetOrigTraces(internal.Traces(ms))
+ }
+ 
++func (ms Traces) getState() *internal.State {
++	return internal.GetTracesState(internal.Traces(ms))
++}
++
+ // NewTraces creates a new Traces struct.
+ func NewTraces() Traces {
+ 	return newTraces(&otlpcollectortrace.ExportTraceServiceRequest{})
+ }
+ 
++// IsReadOnly returns true if this Traces instance is read-only.
++func (ms Traces) IsReadOnly() bool {
++	return *ms.getState() == internal.StateReadOnly
++}
++
+ // CopyTo copies the Traces instance overriding the destination.
+ func (ms Traces) CopyTo(dest Traces) {
+ 	ms.ResourceSpans().CopyTo(dest.ResourceSpans())

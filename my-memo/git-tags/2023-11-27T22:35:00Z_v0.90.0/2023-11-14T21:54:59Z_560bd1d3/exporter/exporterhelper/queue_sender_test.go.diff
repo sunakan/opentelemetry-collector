@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/queue_sender_test.go b/exporter/exporterhelper/queue_sender_test.go
+index 6c829c22b..f880e49cc 100644
+--- a/exporter/exporterhelper/queue_sender_test.go
++++ b/exporter/exporterhelper/queue_sender_test.go
+@@ -357,8 +357,6 @@ func TestQueuedRetryPersistentEnabled_shutdown_dataIsRequeued(t *testing.T) {
+ 	be, err := newBaseExporter(defaultSettings, "", false, nil, nil, newNoopObsrepSender, WithRetry(rCfg), WithQueue(qCfg))
+ 	require.NoError(t, err)
+ 
+-	require.NoError(t, be.Start(context.Background(), &mockHost{}))
+-
+ 	// wraps original queue so we can count operations
+ 	be.queueSender.(*queueSender).queue = &producerConsumerQueueWithCounter{
+ 		Queue:          be.queueSender.(*queueSender).queue,
+@@ -366,6 +364,8 @@ func TestQueuedRetryPersistentEnabled_shutdown_dataIsRequeued(t *testing.T) {
+ 	}
+ 	be.queueSender.(*queueSender).requeuingEnabled = true
+ 
++	require.NoError(t, be.Start(context.Background(), &mockHost{}))
++
+ 	// Invoke queuedRetrySender so the producer will put the item for consumer to poll
+ 	require.NoError(t, be.send(context.Background(), newErrorRequest()))
+ 

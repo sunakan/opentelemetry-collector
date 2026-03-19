@@ -1,0 +1,16 @@
+diff --git a/renovate.json b/renovate.json
+index d41340adb..0c315398c 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -64,6 +64,11 @@
+         "matchManagers": ["gomod"],
+         "matchPackagePrefixes": ["go.opentelemetry.io/build-tools"],
+         "groupName": "All go.opentelemetry.io/build-tools packages"
++      },
++      {
++        "matchManagers": ["gomod"],
++        "matchDepTypes": ["toolchain"],
++        "enabled": false
+       }
+     ],
+     "ignoreDeps": [

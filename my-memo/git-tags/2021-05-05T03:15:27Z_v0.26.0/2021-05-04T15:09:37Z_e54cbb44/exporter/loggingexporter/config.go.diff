@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config.go b/exporter/loggingexporter/config.go
+index 2915ba13a..b89e54a31 100644
+--- a/exporter/loggingexporter/config.go
++++ b/exporter/loggingexporter/config.go
+@@ -20,7 +20,7 @@ import (
+ 
+ // Config defines configuration for logging exporter.
+ type Config struct {
+-	*config.ExporterSettings `mapstructure:"-"`
++	config.ExporterSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ 
+ 	// LogLevel defines log level of the logging exporter; options are debug, info, warn, error.
+ 	LogLevel string `mapstructure:"loglevel"`

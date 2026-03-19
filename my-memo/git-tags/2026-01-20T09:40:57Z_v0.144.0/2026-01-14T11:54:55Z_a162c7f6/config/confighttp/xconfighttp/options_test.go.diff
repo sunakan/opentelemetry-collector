@@ -1,0 +1,22 @@
+diff --git a/config/confighttp/xconfighttp/options_test.go b/config/confighttp/xconfighttp/options_test.go
+index e9b0c46db..1828c582b 100644
+--- a/config/confighttp/xconfighttp/options_test.go
++++ b/config/confighttp/xconfighttp/options_test.go
+@@ -18,12 +18,16 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/confighttp"
++	"go.opentelemetry.io/collector/config/confignet"
+ )
+ 
+ func TestServerWithOtelHTTPOptions(t *testing.T) {
+ 	// prepare
+ 	sc := confighttp.ServerConfig{
+-		Endpoint: "localhost:0",
++		NetAddr: confignet.AddrConfig{
++			Endpoint:  "localhost:0",
++			Transport: confignet.TransportTypeTCP,
++		},
+ 	}
+ 
+ 	telemetry := componenttest.NewNopTelemetrySettings()

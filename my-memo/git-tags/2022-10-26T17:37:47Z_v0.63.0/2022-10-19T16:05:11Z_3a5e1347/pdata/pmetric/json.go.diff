@@ -1,0 +1,22 @@
+diff --git a/pdata/pmetric/json.go b/pdata/pmetric/json.go
+index 2d9be19e1..4d2c62578 100644
+--- a/pdata/pmetric/json.go
++++ b/pdata/pmetric/json.go
+@@ -17,16 +17,12 @@ package pmetric // import "go.opentelemetry.io/collector/pdata/pmetric"
+ import (
+ 	"bytes"
+ 
+-	"github.com/gogo/protobuf/jsonpb"
+-
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+ 	"go.opentelemetry.io/collector/pdata/pmetric/internal/pmetricjson"
+ )
+ 
+-var delegate = &jsonpb.Marshaler{
+-	EnumsAsInts: true,
+-}
++var delegate = pmetricjson.JSONMarshaler
+ 
+ // Deprecated: [v0.63.0] use &JSONMarshaler{}
+ func NewJSONMarshaler() Marshaler {

@@ -1,0 +1,7 @@
+diff --git a/confmap/internal/e2e/testdata/types_slice.yaml b/confmap/internal/e2e/testdata/types_slice.yaml
+new file mode 100644
+index 000000000..9d23c5d9f
+--- /dev/null
++++ b/confmap/internal/e2e/testdata/types_slice.yaml
+@@ -0,0 +1 @@
++field: ["${env:VALUE}"]

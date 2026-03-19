@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-integration-test.yaml b/.github/workflows/builder-integration-test.yaml
+index 038e19ae5..981897de5 100644
+--- a/.github/workflows/builder-integration-test.yaml
++++ b/.github/workflows/builder-integration-test.yaml
+@@ -3,7 +3,7 @@ name: Builder - Integration tests
+ on:
+   # on changes to the main branch touching the builder
+   push:
+-    branches: [ main, 'renovatebot/**' ]
++    branches: [ main ]
+ 
+   # on PRs touching the builder
+   pull_request:

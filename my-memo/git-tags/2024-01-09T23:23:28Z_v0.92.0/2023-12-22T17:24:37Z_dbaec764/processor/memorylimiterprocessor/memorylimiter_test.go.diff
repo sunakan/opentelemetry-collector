@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter_test.go b/processor/memorylimiterprocessor/memorylimiter_test.go
+index c1afdc17b..921828230 100644
+--- a/processor/memorylimiterprocessor/memorylimiter_test.go
++++ b/processor/memorylimiterprocessor/memorylimiter_test.go
+@@ -347,7 +347,7 @@ func (be *ballastExtension) GetBallastSize() uint64 {
+ 
+ func newObsReport(t *testing.T) *processorhelper.ObsReport {
+ 	set := processorhelper.ObsReportSettings{
+-		ProcessorID:             component.NewID(typeStr),
++		ProcessorID:             component.NewID("memory_limiter"),
+ 		ProcessorCreateSettings: processortest.NewNopCreateSettings(),
+ 	}
+ 	set.ProcessorCreateSettings.MetricsLevel = configtelemetry.LevelNone

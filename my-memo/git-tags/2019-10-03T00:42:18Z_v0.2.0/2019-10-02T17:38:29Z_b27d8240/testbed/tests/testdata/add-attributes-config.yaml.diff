@@ -1,0 +1,15 @@
+diff --git a/testbed/tests/testdata/add-attributes-config.yaml b/testbed/tests/testdata/add-attributes-config.yaml
+index bd82574b0..b34c10b45 100644
+--- a/testbed/tests/testdata/add-attributes-config.yaml
++++ b/testbed/tests/testdata/add-attributes-config.yaml
+@@ -1,9 +1,8 @@
+ receivers:
+   jaeger:
+-    collector_http_port: 14268
+     protocols:
+       thrift-http:
+-        endpoint: "*:14268"
++        endpoint: "localhost:14268"
+ 
+ exporters:
+   opencensus:

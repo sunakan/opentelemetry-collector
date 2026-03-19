@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metrics_gen_test.go b/internal/goldendataset/pict_metrics_gen_test.go
+index 7659c3e88..51072765a 100644
+--- a/internal/goldendataset/pict_metrics_gen_test.go
++++ b/internal/goldendataset/pict_metrics_gen_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestGenerateMetricDatas(t *testing.T) {

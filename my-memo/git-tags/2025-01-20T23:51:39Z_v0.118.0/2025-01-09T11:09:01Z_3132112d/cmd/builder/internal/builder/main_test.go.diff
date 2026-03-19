@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 47d84a519..88e7cc704 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -101,8 +101,6 @@ var replaceModules = []string{
+ 	"/receiver/otlpreceiver",
+ 	"/receiver/receivertest",
+ 	"/receiver/xreceiver",
+-	"/scraper/scraperhelper",
+-	"/scraper",
+ 	"/semconv",
+ 	"/service",
+ }

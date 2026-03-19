@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/batch_sender_test.go b/exporter/exporterhelper/batch_sender_test.go
+index 5b93dd146..f5f8a7b85 100644
+--- a/exporter/exporterhelper/batch_sender_test.go
++++ b/exporter/exporterhelper/batch_sender_test.go
+@@ -561,7 +561,7 @@ func TestBatchSender_ShutdownDeadlock(t *testing.T) {
+ 	doneShutdown := make(chan struct{})
+ 	go func() {
+ 		close(startShutdown)
+-		require.Nil(t, be.Shutdown(context.Background()))
++		require.NoError(t, be.Shutdown(context.Background()))
+ 		close(doneShutdown)
+ 	}()
+ 	<-startShutdown

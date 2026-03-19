@@ -1,0 +1,78 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index e40c0148b..b8a1c43c8 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -1,5 +1,8 @@
+ version: 2.1
+ 
++orbs:
++  win: circleci/windows@2.4.0
++
+ executors:
+   golang:
+     docker:
+@@ -12,20 +15,28 @@ commands:
+           at: ~/
+ 
+   save_module_cache:
++    parameters:
++      os:
++        type: string
++        default: "linux"
+     steps:
+       - save_cache:
+-          key: cimg-go-pkg-mod-{{ checksum "go.sum" }}
++          key: cimg-go-pkg-mod-<<parameters.os>>-{{ checksum "go.sum" }}
+           paths:
+             - "/home/circleci/go/pkg/mod"
+ 
+   restore_module_cache:
++    parameters:
++      os:
++        type: string
++        default: "linux"
+     steps:
+       - run:
+           name: create modules dir
+           command: mkdir -p ~/go/pkg/mod
+       - restore_cache: # restores saved cache if no changes are detected since last run
+           keys:
+-            - cimg-go-pkg-mod-{{ checksum "go.sum" }}
++            - cimg-go-pkg-mod-<<parameters.os>>-{{ checksum "go.sum" }}
+       - persist_to_workspace:
+           root: ~/
+           paths: go/pkg/mod
+@@ -61,6 +72,10 @@ workflows:
+           filters:
+             tags:
+               only: /^v([0-9])+.([0-9])+.([0-9])+.*/
++      - windows-test:
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - build:
+           requires:
+             - setup-and-lint
+@@ -234,3 +249,22 @@ jobs:
+       - publish_docker_images:
+           repo: opentelemetry-collector-dev
+           tag: ${CIRCLE_SHA1}
++
++  windows-test:
++    executor:
++      name: win/default
++      shell: powershell.exe
++    steps:
++      - checkout
++      - restore_module_cache:
++          os: "windows"
++      - run:
++          name: Upgrade golang
++          shell: powershell.exe
++          command: choco upgrade golang --version=1.14.3
++      - run:
++          name: Unit tests
++          shell: powershell.exe
++          command: go test ./...
++      - save_module_cache:
++          os: "windows"

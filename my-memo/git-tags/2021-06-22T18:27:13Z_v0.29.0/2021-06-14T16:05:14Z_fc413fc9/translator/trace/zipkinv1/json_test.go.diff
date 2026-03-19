@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv1/json_test.go b/translator/trace/zipkinv1/json_test.go
+index accb45b69..db7d1b2a7 100644
+--- a/translator/trace/zipkinv1/json_test.go
++++ b/translator/trace/zipkinv1/json_test.go
+@@ -31,7 +31,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+-	"go.opentelemetry.io/collector/translator/trace/zipkin"
++	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"
+ )
+ 
+ func TestSingleJSONV1BatchToTraces(t *testing.T) {

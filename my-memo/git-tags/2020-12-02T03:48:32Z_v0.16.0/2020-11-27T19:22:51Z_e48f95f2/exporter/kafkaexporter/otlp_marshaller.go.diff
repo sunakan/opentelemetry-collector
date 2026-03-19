@@ -1,0 +1,53 @@
+diff --git a/exporter/kafkaexporter/otlp_marshaller.go b/exporter/kafkaexporter/otlp_marshaller.go
+index 29232fa29..1ebed86bb 100644
+--- a/exporter/kafkaexporter/otlp_marshaller.go
++++ b/exporter/kafkaexporter/otlp_marshaller.go
+@@ -16,21 +16,19 @@ package kafkaexporter
+ 
+ import (
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	otlpmetric "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/metrics/v1"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
+ )
+ 
+-var _ TracesMarshaller = (*otlpTracesPbMarshaller)(nil)
+-var _ MetricsMarshaller = (*otlpMetricsPbMarshaller)(nil)
+-
+-type otlpTracesPbMarshaller struct {
++type otlpProtoMarshaller struct {
+ }
+ 
+-func (m *otlpTracesPbMarshaller) Encoding() string {
++var _ Marshaller = (*otlpProtoMarshaller)(nil)
++
++func (m *otlpProtoMarshaller) Encoding() string {
+ 	return defaultEncoding
+ }
+ 
+-func (m *otlpTracesPbMarshaller) Marshal(traces pdata.Traces) ([]Message, error) {
++func (m *otlpProtoMarshaller) Marshal(traces pdata.Traces) ([]Message, error) {
+ 	request := otlptrace.ExportTraceServiceRequest{
+ 		ResourceSpans: pdata.TracesToOtlp(traces),
+ 	}
+@@ -40,21 +38,3 @@ func (m *otlpTracesPbMarshaller) Marshal(traces pdata.Traces) ([]Message, error)
+ 	}
+ 	return []Message{{Value: bts}}, nil
+ }
+-
+-type otlpMetricsPbMarshaller struct {
+-}
+-
+-func (m *otlpMetricsPbMarshaller) Encoding() string {
+-	return defaultEncoding
+-}
+-
+-func (m *otlpMetricsPbMarshaller) Marshal(metrics pdata.Metrics) ([]Message, error) {
+-	request := otlpmetric.ExportMetricsServiceRequest{
+-		ResourceMetrics: pdata.MetricsToOtlp(metrics),
+-	}
+-	bts, err := request.Marshal()
+-	if err != nil {
+-		return nil, err
+-	}
+-	return []Message{{Value: bts}}, nil
+-}

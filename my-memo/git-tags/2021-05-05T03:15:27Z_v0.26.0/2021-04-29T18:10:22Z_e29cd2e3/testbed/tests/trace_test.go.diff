@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index 92b4c85a0..aafc8d287 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -155,7 +155,7 @@ func TestTraceNoBackend10kSPS(t *testing.T) {
+ 		{
+ 			Name:                "MemoryLimit",
+ 			Processor:           limitProcessors,
+-			ExpectedMaxRAM:      70,
++			ExpectedMaxRAM:      80,
+ 			ExpectedMinFinalRAM: 40,
+ 		},
+ 	}

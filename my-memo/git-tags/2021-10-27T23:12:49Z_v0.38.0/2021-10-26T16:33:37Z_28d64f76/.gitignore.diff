@@ -1,0 +1,11 @@
+diff --git a/.gitignore b/.gitignore
+index 2b18e0280..73d12f27d 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -25,3 +25,6 @@ coverage.html
+ # Wix
+ *.wixobj
+ *.wixpdb
++
++# OpenTelemetry proto files which are normally cleaned up
++model/internal/opentelemetry-proto

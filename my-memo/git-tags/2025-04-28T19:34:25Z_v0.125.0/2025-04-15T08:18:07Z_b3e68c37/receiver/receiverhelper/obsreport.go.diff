@@ -1,0 +1,14 @@
+diff --git a/receiver/receiverhelper/obsreport.go b/receiver/receiverhelper/obsreport.go
+index e14af8a15..7c3bfb34d 100644
+--- a/receiver/receiverhelper/obsreport.go
++++ b/receiver/receiverhelper/obsreport.go
+@@ -42,6 +42,9 @@ type ObsReportSettings struct {
+ 	// operations without a corresponding new context per operation.
+ 	LongLivedCtx           bool
+ 	ReceiverCreateSettings receiver.Settings
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // NewObsReport creates a new ObsReport.

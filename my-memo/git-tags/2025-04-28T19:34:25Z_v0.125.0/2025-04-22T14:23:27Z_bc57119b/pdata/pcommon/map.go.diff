@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/map.go b/pdata/pcommon/map.go
+index ccbf3a55d..32c148c03 100644
+--- a/pdata/pcommon/map.go
++++ b/pdata/pcommon/map.go
+@@ -248,6 +248,10 @@ func (m Map) All() iter.Seq2[string, Value] {
+ func (m Map) MoveTo(dest Map) {
+ 	m.getState().AssertMutable()
+ 	dest.getState().AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if m.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = *m.getOrig()
+ 	*m.getOrig() = nil
+ }

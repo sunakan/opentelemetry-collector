@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/ptrace_package.go b/internal/cmd/pdatagen/internal/ptrace_package.go
+index 3db1552d3..86ab76643 100644
+--- a/internal/cmd/pdatagen/internal/ptrace_package.go
++++ b/internal/cmd/pdatagen/internal/ptrace_package.go
+@@ -8,7 +8,9 @@ var ptrace = &Package{
+ 		name: "ptrace",
+ 		path: "ptrace",
+ 		imports: []string{
++			`"encoding/binary"`,
+ 			`"iter"`,
++			`"math"`,
+ 			`"sort"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,

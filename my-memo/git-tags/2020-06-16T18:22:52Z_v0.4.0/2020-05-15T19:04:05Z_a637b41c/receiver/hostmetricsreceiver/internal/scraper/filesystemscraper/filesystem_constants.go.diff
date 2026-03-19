@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_constants.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_constants.go
+index 413d18db0..93e466753 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_constants.go
+@@ -15,7 +15,7 @@
+ package filesystemscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // filesystem metric constants

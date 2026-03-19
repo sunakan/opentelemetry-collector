@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/config.go b/processor/spanprocessor/config.go
+index eb2cf6ef2..f5fe0a255 100644
+--- a/processor/spanprocessor/config.go
++++ b/processor/spanprocessor/config.go
+@@ -15,7 +15,7 @@
+ package spanprocessor
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config is the configuration for the span processor.

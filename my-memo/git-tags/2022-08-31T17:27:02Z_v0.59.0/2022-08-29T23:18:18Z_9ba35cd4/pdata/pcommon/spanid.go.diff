@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/spanid.go b/pdata/pcommon/spanid.go
+index 8163646fc..3ceae2c3a 100644
+--- a/pdata/pcommon/spanid.go
++++ b/pdata/pcommon/spanid.go
+@@ -44,6 +44,9 @@ func (ms SpanID) Bytes() [8]byte {
+ 
+ // HexString returns hex representation of the SpanID.
+ func (ms SpanID) HexString() string {
++	if ms.IsEmpty() {
++		return ""
++	}
+ 	return hex.EncodeToString(ms.orig[:])
+ }
+ 

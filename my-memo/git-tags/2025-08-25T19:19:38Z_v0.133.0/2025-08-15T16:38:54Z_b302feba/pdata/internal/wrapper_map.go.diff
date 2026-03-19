@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/wrapper_map.go b/pdata/internal/wrapper_map.go
+index 238cd2eee..33453c0e6 100644
+--- a/pdata/internal/wrapper_map.go
++++ b/pdata/internal/wrapper_map.go
+@@ -26,6 +26,5 @@ func NewMap(orig *[]otlpcommon.KeyValue, state *State) Map {
+ 
+ func GenerateTestMap() Map {
+ 	orig := GenerateOrigTestKeyValueSlice()
+-	state := StateMutable
+-	return NewMap(&orig, &state)
++	return NewMap(&orig, NewState())
+ }

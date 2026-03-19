@@ -1,0 +1,12 @@
+diff --git a/component/component.go b/component/component.go
+index 06fc2be93..5cc4de8bb 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -104,6 +104,7 @@ const (
+ 	KindProcessor
+ 	KindExporter
+ 	KindExtension
++	KindConnector
+ )
+ 
+ // StabilityLevel represents the stability level of the component created by the factory.

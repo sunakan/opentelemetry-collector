@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/testdata/invalid_aggregation.yaml b/cmd/mdatagen/testdata/invalid_aggregation.yaml
+deleted file mode 100644
+index 3165d1a71..000000000
+--- a/cmd/mdatagen/testdata/invalid_aggregation.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-type: metricreceiver
+-
+-status:
+-  class: receiver
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+-  distributions: [contrib]
+-  warnings:
+-    - Any additional information that should be brought to the consumer's attention
+-
+-metrics:
+-  default.metric:
+-    enabled: true
+-    description: Monotonic cumulative sum int metric enabled by default.
+-    extended_documentation: The metric will be become optional soon.
+-    unit: s
+-    sum:
+-      value_type: int
+-      monotonic: true
+-      aggregation_temporality: invalidaggregation

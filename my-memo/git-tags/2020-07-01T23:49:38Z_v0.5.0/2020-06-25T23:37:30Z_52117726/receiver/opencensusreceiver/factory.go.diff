@@ -1,0 +1,25 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index ca7c24f88..dc9fac239 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/config/configprotocol"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -51,8 +52,10 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+ 		},
+-		ProtocolServerSettings: configprotocol.ProtocolServerSettings{
+-			Endpoint: "0.0.0.0:55678",
++		GRPCServerSettings: configgrpc.GRPCServerSettings{
++			ProtocolServerSettings: configprotocol.ProtocolServerSettings{
++				Endpoint: "0.0.0.0:55678",
++			},
+ 		},
+ 		Transport: "tcp",
+ 	}

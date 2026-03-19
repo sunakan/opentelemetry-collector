@@ -1,0 +1,26 @@
+diff --git a/internal/otlp/pb_test.go b/internal/otlp/pb_test.go
+index 57c5d0777..477ef6c8a 100644
+--- a/internal/otlp/pb_test.go
++++ b/internal/otlp/pb_test.go
+@@ -22,18 +22,18 @@ import (
+ 
+ func TestProtobufLogsUnmarshaler_error(t *testing.T) {
+ 	p := NewProtobufLogsUnmarshaler()
+-	_, err := p.Unmarshal([]byte("+$%"))
++	_, err := p.UnmarshalLogs([]byte("+$%"))
+ 	assert.Error(t, err)
+ }
+ 
+ func TestProtobufMetricsUnmarshaler_error(t *testing.T) {
+ 	p := NewProtobufMetricsUnmarshaler()
+-	_, err := p.Unmarshal([]byte("+$%"))
++	_, err := p.UnmarshalMetrics([]byte("+$%"))
+ 	assert.Error(t, err)
+ }
+ 
+ func TestProtobufTracesUnmarshaler_error(t *testing.T) {
+ 	p := NewProtobufTracesUnmarshaler()
+-	_, err := p.Unmarshal([]byte("+$%"))
++	_, err := p.UnmarshalTraces([]byte("+$%"))
+ 	assert.Error(t, err)
+ }

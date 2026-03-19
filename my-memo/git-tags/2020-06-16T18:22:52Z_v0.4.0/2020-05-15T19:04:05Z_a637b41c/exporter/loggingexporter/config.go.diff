@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config.go b/exporter/loggingexporter/config.go
+index 31c4aceb0..89277cfb9 100644
+--- a/exporter/loggingexporter/config.go
++++ b/exporter/loggingexporter/config.go
+@@ -15,7 +15,7 @@
+ package loggingexporter
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // Config defines configuration for logging exporter.

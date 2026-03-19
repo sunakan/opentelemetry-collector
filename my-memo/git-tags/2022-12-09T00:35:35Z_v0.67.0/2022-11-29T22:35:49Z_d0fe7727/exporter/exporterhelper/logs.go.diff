@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 92d2f1b71..7cb6287a7 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -98,7 +98,7 @@ func NewLogsExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be, err := newBaseExporter(cfg, set, bs, component.DataTypeLogs, newLogsRequestUnmarshalerFunc(pusher))
++	be, err := newBaseExporter(set, bs, component.DataTypeLogs, newLogsRequestUnmarshalerFunc(pusher))
+ 	if err != nil {
+ 		return nil, err
+ 	}

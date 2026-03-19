@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_description_attr.yaml b/cmd/mdatagen/internal/testdata/no_description_attr.yaml
+index 1942f74e1..6d4744ca8 100644
+--- a/cmd/mdatagen/internal/testdata/no_description_attr.yaml
++++ b/cmd/mdatagen/internal/testdata/no_description_attr.yaml
+@@ -23,6 +23,8 @@ metrics:
+     enabled: true
+     description: Monotonic cumulative sum int metric enabled by default.
+     extended_documentation: The metric will be become optional soon.
++    stability:
++      level: development
+     unit: s
+     sum:
+       value_type: int

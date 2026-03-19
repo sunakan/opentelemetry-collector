@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 37aabce9f..482ec1e15 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/data"
+-	"github.com/open-telemetry/opentelemetry-service/internal/factories"
++	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

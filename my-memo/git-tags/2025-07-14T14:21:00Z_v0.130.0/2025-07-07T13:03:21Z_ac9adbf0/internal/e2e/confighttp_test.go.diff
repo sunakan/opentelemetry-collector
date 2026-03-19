@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/confighttp_test.go b/internal/e2e/confighttp_test.go
+index 20b40ca75..e4c5ff792 100644
+--- a/internal/e2e/confighttp_test.go
++++ b/internal/e2e/confighttp_test.go
+@@ -30,7 +30,7 @@ func TestConfmapMarshalConfigHTTP(t *testing.T) {
+ 	conf = confmap.New()
+ 	require.NoError(t, conf.Marshal(confighttp.NewDefaultServerConfig()))
+ 	assert.Equal(t, map[string]any{
+-		"cors":                map[string]any{},
++		"cors":                nil,
+ 		"idle_timeout":        60 * time.Second,
+ 		"read_header_timeout": 60 * time.Second,
+ 		"response_headers":    map[string]any{},

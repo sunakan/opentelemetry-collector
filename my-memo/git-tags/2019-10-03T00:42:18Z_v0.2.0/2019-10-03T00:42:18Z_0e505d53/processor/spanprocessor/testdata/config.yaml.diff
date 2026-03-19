@@ -1,0 +1,19 @@
+diff --git a/processor/spanprocessor/testdata/config.yaml b/processor/spanprocessor/testdata/config.yaml
+index 8c2d0fda5..2ac0b5b50 100644
+--- a/processor/spanprocessor/testdata/config.yaml
++++ b/processor/spanprocessor/testdata/config.yaml
+@@ -46,8 +46,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [span/custom]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [span/custom]
++      exporters: [exampleexporter]

@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_exemplar.go b/pdata/pmetric/generated_exemplar.go
+index 62d8b9a55..d2d77adbb 100644
+--- a/pdata/pmetric/generated_exemplar.go
++++ b/pdata/pmetric/generated_exemplar.go
+@@ -49,8 +49,8 @@ func (ms Exemplar) MoveTo(dest Exemplar) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpmetrics.Exemplar{}
++	internal.DeleteOrigExemplar(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // FilteredAttributes returns the FilteredAttributes associated with this Exemplar.

@@ -1,0 +1,26 @@
+diff --git a/confmap/provider/fileprovider/provider_test.go b/confmap/provider/fileprovider/provider_test.go
+index 1487a515c..c2a600564 100644
+--- a/confmap/provider/fileprovider/provider_test.go
++++ b/confmap/provider/fileprovider/provider_test.go
+@@ -69,8 +69,8 @@ func TestRelativePath(t *testing.T) {
+ 	retMap, err := ret.AsConf()
+ 	require.NoError(t, err)
+ 	expectedMap := confmap.NewFromStringMap(map[string]any{
+-		"processors::testprocessor": nil,
+-		"exporters::otlp::endpoint": "localhost:4317",
++		"processors::testprocessor":      nil,
++		"exporters::otlp_grpc::endpoint": "localhost:4317",
+ 	})
+ 	assert.Equal(t, expectedMap, retMap)
+ 	assert.NoError(t, fp.Shutdown(context.Background()))
+@@ -83,8 +83,8 @@ func TestAbsolutePath(t *testing.T) {
+ 	retMap, err := ret.AsConf()
+ 	require.NoError(t, err)
+ 	expectedMap := confmap.NewFromStringMap(map[string]any{
+-		"processors::testprocessor": nil,
+-		"exporters::otlp::endpoint": "localhost:4317",
++		"processors::testprocessor":      nil,
++		"exporters::otlp_grpc::endpoint": "localhost:4317",
+ 	})
+ 	assert.Equal(t, expectedMap, retMap)
+ 	assert.NoError(t, fp.Shutdown(context.Background()))

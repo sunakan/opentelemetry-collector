@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector_test.go b/otelcol/collector_test.go
+index 9e2e02826..075e9589a 100644
+--- a/otelcol/collector_test.go
++++ b/otelcol/collector_test.go
+@@ -17,7 +17,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+-	"gopkg.in/yaml.v3"
++	yaml "sigs.k8s.io/yaml/goyaml.v3"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componentstatus"

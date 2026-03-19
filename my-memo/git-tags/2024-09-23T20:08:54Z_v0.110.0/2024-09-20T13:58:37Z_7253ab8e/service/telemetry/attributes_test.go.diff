@@ -1,0 +1,21 @@
+diff --git a/service/telemetry/attributes_test.go b/service/telemetry/attributes_test.go
+index 6ace1a887..c40a21f11 100644
+--- a/service/telemetry/attributes_test.go
++++ b/service/telemetry/attributes_test.go
+@@ -9,7 +9,6 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/service/telemetry/internal"
+ )
+ 
+ func TestAttributes(t *testing.T) {
+@@ -50,7 +49,7 @@ func TestAttributes(t *testing.T) {
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			attrs := attributes(internal.Settings{BuildInfo: tt.buildInfo}, tt.cfg)
++			attrs := attributes(Settings{BuildInfo: tt.buildInfo}, tt.cfg)
+ 			require.Equal(t, tt.wantAttributes, attrs)
+ 		})
+ 	}

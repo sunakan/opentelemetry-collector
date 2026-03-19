@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index a7af51ae1..a5bda9129 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -63,11 +63,6 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, pusher func(
+ 		}
+ 	}
+ 
+-	//nolint:staticcheck
+-	if be.batcherCfg.MinSizeItems != nil || be.batcherCfg.MaxSizeItems != nil {
+-		set.Logger.Warn("Using of deprecated fields `min_size_items` and `max_size_items`")
+-	}
+-
+ 	// Consumer Sender is always initialized.
+ 	be.firstSender = newSender(pusher)
+ 

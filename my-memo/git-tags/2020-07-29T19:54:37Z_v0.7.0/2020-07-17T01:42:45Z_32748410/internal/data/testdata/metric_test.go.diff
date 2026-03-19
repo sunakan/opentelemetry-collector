@@ -1,0 +1,16 @@
+diff --git a/internal/data/testdata/metric_test.go b/internal/data/testdata/metric_test.go
+index ae2d13d1b..39b802055 100644
+--- a/internal/data/testdata/metric_test.go
++++ b/internal/data/testdata/metric_test.go
+@@ -72,6 +72,11 @@ func generateAllMetricsTestCases() []traceMetricsCase {
+ 			td:   GenerateMetricDataOneMetric(),
+ 			otlp: generateMetricOtlpOneMetric(),
+ 		},
++		{
++			name: "two-metrics",
++			td:   GenerateMetricDataTwoMetrics(),
++			otlp: GenerateMetricOtlpTwoMetrics(),
++		},
+ 		{
+ 			name: "one-metric-one-nil",
+ 			td:   GenerateMetricDataOneMetricOneNil(),

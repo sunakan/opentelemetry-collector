@@ -1,0 +1,12 @@
+diff --git a/component/componenttest/nop_telemetry.go b/component/componenttest/nop_telemetry.go
+index 171e9daa4..0324f65c9 100644
+--- a/component/componenttest/nop_telemetry.go
++++ b/component/componenttest/nop_telemetry.go
+@@ -21,7 +21,5 @@ func NewNopTelemetrySettings() component.TelemetrySettings {
+ 		MeterProvider:  noopmetric.NewMeterProvider(),
+ 		MetricsLevel:   configtelemetry.LevelNone,
+ 		Resource:       pcommon.NewResource(),
+-		ReportStatus: func(*component.StatusEvent) {
+-		},
+ 	}
+ }

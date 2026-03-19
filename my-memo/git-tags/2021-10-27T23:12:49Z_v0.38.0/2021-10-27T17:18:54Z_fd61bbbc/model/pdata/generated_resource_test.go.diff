@@ -1,0 +1,19 @@
+diff --git a/model/pdata/generated_resource_test.go b/model/pdata/generated_resource_test.go
+index bc8295cd0..5e9207eb8 100644
+--- a/model/pdata/generated_resource_test.go
++++ b/model/pdata/generated_resource_test.go
+@@ -23,6 +23,14 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
++func TestResource_MoveTo(t *testing.T) {
++	ms := generateTestResource()
++	dest := NewResource()
++	ms.MoveTo(dest)
++	assert.EqualValues(t, NewResource(), ms)
++	assert.EqualValues(t, generateTestResource(), dest)
++}
++
+ func TestResource_CopyTo(t *testing.T) {
+ 	ms := NewResource()
+ 	generateTestResource().CopyTo(ms)

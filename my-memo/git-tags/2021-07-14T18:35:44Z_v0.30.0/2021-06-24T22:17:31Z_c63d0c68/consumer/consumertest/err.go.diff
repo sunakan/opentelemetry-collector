@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/err.go b/consumer/consumertest/err.go
+index 12abb5bb0..21d5a2d5f 100644
+--- a/consumer/consumertest/err.go
++++ b/consumer/consumertest/err.go
+@@ -17,7 +17,7 @@ package consumertest
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type errConsumer struct {

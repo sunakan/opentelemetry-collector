@@ -1,0 +1,12 @@
+diff --git a/processor/attributesprocessor/attributes_test.go b/processor/attributesprocessor/attributes_test.go
+index 795c3f2e8..9f635dc02 100644
+--- a/processor/attributesprocessor/attributes_test.go
++++ b/processor/attributesprocessor/attributes_test.go
+@@ -1206,6 +1206,7 @@ func BenchmarkAttributes_FilterSpansByName(b *testing.B) {
+ 		{Key: "attribute1", Action: INSERT, Value: 123},
+ 	}
+ 	oCfg.Include = &span.MatchProperties{
++		MatchType: "regexp",
+ 		SpanNames: []string{"^apply.*"},
+ 	}
+ 	tp, err := factory.CreateTraceProcessor(zap.NewNop(), exportertest.NewNopTraceExporterOld(), cfg)

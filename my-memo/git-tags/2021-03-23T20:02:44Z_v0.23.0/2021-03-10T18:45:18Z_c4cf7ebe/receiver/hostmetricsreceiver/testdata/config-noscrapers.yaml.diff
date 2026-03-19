@@ -1,0 +1,23 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml b/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml
+index 94e60d478..1c1ac6f96 100644
+--- a/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml
++++ b/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml
+@@ -2,14 +2,14 @@ receivers:
+   hostmetrics:
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     metrics:
+       receivers: [hostmetrics]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      processors: [nop]
++      exporters: [nop]

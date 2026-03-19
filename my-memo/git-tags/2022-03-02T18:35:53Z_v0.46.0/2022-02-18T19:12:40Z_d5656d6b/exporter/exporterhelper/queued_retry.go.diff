@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/queued_retry.go b/exporter/exporterhelper/queued_retry.go
+index 7db7ef26e..3375770d5 100644
+--- a/exporter/exporterhelper/queued_retry.go
++++ b/exporter/exporterhelper/queued_retry.go
+@@ -48,8 +48,11 @@ type RetrySettings struct {
+ 	MaxElapsedTime time.Duration `mapstructure:"max_elapsed_time"`
+ }
+ 
+-// DefaultRetrySettings returns the default settings for RetrySettings.
+-func DefaultRetrySettings() RetrySettings {
++// Deprecated: [v0.46.0] use NewDefaultRetrySettings instead.
++var DefaultRetrySettings = NewDefaultRetrySettings
++
++// NewDefaultRetrySettings returns the default settings for RetrySettings.
++func NewDefaultRetrySettings() RetrySettings {
+ 	return RetrySettings{
+ 		Enabled:         true,
+ 		InitialInterval: 5 * time.Second,

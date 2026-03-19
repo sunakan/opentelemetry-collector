@@ -1,0 +1,10 @@
+diff --git a/internal/processor/filterset/strict/options.go b/internal/processor/filterset/strict/options.go
+index 67812c528..fb80c6f4a 100644
+--- a/internal/processor/filterset/strict/options.go
++++ b/internal/processor/filterset/strict/options.go
+@@ -15,4 +15,4 @@
+ package strict
+ 
+ // Option is the type for strict filtering options that can be passed to NewStrictFilterSet.
+-type Option func(*strictFilterSet)
++type Option func(*FilterSet)

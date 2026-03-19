@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/scenarios.go b/testbed/tests/scenarios.go
+index cb8f5e878..cce1ed27b 100644
+--- a/testbed/tests/scenarios.go
++++ b/testbed/tests/scenarios.go
+@@ -134,7 +134,7 @@ service:
+ 	)
+ }
+ 
+-// Run 10k data items/sec test using specified sender and receiver protocols.
++// Scenario10kItemsPerSecond runs 10k data items/sec test using specified sender and receiver protocols.
+ func Scenario10kItemsPerSecond(
+ 	t *testing.T,
+ 	sender testbed.DataSender,

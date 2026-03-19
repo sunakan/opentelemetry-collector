@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 93b5a94e2..e5a0d8a3a 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -208,7 +208,7 @@ func (app *Application) setupPipelines() {
+ 	app.logger.Info("Loading configuration...")
+ 
+ 	// Load configuration.
+-	cfg, err := config.Load(app.v, app.receiverFactories, app.processorFactories, app.exporterFactories)
++	cfg, err := config.Load(app.v, app.receiverFactories, app.processorFactories, app.exporterFactories, app.logger)
+ 	if err != nil {
+ 		log.Fatalf("Cannot load configuration: %v", err)
+ 	}

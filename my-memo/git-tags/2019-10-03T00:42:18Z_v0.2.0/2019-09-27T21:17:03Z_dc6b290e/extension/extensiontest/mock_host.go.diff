@@ -1,0 +1,13 @@
+diff --git a/extension/extensiontest/mock_host.go b/extension/extensiontest/mock_host.go
+index e348d0001..2ad6c07de 100644
+--- a/extension/extensiontest/mock_host.go
++++ b/extension/extensiontest/mock_host.go
+@@ -17,7 +17,7 @@ package extensiontest
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/extension"
++	"github.com/open-telemetry/opentelemetry-collector/extension"
+ )
+ 
+ // MockHost mocks an extension.Host for test purposes.

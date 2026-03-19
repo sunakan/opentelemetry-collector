@@ -1,0 +1,11 @@
+diff --git a/tools/tools.go b/tools/tools.go
+index 3fc90c7d5..d18288155 100644
+--- a/tools/tools.go
++++ b/tools/tools.go
+@@ -21,5 +21,6 @@
+ package tools
+ 
+ import (
++	_ "github.com/jstemmer/go-junit-report"
+ 	_ "golang.org/x/lint/golint"
+ )

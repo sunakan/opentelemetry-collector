@@ -1,0 +1,21 @@
+diff --git a/exporter/opencensusexporter/config.go b/exporter/opencensusexporter/config.go
+index e3e79dbca..64bcbfce5 100644
+--- a/exporter/opencensusexporter/config.go
++++ b/exporter/opencensusexporter/config.go
+@@ -15,8 +15,6 @@
+ package opencensusexporter
+ 
+ import (
+-	"time"
+-
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ )
+@@ -29,7 +27,4 @@ type Config struct {
+ 
+ 	// The number of workers that send the gRPC requests.
+ 	NumWorkers int `mapstructure:"num_workers"`
+-
+-	// The time period between each reconnection performed by the exporter.
+-	ReconnectionDelay time.Duration `mapstructure:"reconnection_delay,omitempty"`
+ }

@@ -1,0 +1,13 @@
+diff --git a/service/internal/builders/builders_test/extension_test.go b/service/internal/builders/builders_test/extension_test.go
+index 26d135e62..bbabcda6b 100644
+--- a/service/internal/builders/builders_test/extension_test.go
++++ b/service/internal/builders/builders_test/extension_test.go
+@@ -74,7 +74,7 @@ func TestNewNopExtensionConfigsAndFactories(t *testing.T) {
+ 
+ 	factory := extensiontest.NewNopFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	set := extensiontest.NewNopSettingsWithType(factory.Type())
++	set := extensiontest.NewNopSettings(factory.Type())
+ 	set.ID = component.NewID(builders.NopType)
+ 
+ 	ext, err := factory.Create(context.Background(), set, cfg)

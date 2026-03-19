@@ -1,0 +1,20 @@
+diff --git a/service/telemetry/factory.go b/service/telemetry/factory.go
+index a521eb1f9..699f87aa9 100644
+--- a/service/telemetry/factory.go
++++ b/service/telemetry/factory.go
+@@ -29,11 +29,10 @@ var useLocalHostAsDefaultMetricsAddressFeatureGate = featuregate.GlobalRegistry(
+ 
+ // Settings holds configuration for building Telemetry.
+ type Settings struct {
+-	BuildInfo         component.BuildInfo
+-	AsyncErrorChannel chan error
+-	ZapOptions        []zap.Option
+-	SDK               *config.SDK
+-	Resource          *resource.Resource
++	BuildInfo  component.BuildInfo
++	ZapOptions []zap.Option
++	SDK        *config.SDK
++	Resource   *resource.Resource
+ }
+ 
+ // Factory is factory interface for telemetry.

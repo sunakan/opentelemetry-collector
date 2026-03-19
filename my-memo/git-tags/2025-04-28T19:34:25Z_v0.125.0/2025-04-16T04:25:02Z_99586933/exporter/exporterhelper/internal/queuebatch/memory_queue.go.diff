@@ -1,0 +1,28 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/memory_queue.go b/exporter/exporterhelper/internal/queuebatch/memory_queue.go
+index 37a812889..1914d447e 100644
+--- a/exporter/exporterhelper/internal/queuebatch/memory_queue.go
++++ b/exporter/exporterhelper/internal/queuebatch/memory_queue.go
+@@ -20,7 +20,10 @@ var blockingDonePool = sync.Pool{
+ 	},
+ }
+ 
+-var errInvalidSize = errors.New("invalid element size")
++var (
++	errInvalidSize  = errors.New("invalid element size")
++	errSizeTooLarge = errors.New("element size too large")
++)
+ 
+ // memoryQueueSettings defines internal parameters for boundedMemoryQueue creation.
+ type memoryQueueSettings[T any] struct {
+@@ -74,6 +77,11 @@ func (mq *memoryQueue[T]) Offer(ctx context.Context, el T) error {
+ 		return errInvalidSize
+ 	}
+ 
++	// If element larger than the capacity, will never been able to add it.
++	if elSize > mq.cap {
++		return errSizeTooLarge
++	}
++
+ 	done, err := mq.add(ctx, el, elSize)
+ 	if err != nil {
+ 		return err

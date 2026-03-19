@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index feafae06e..6577cd7c8 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -241,7 +241,7 @@ func (gss *GRPCServerSettings) ToListener() (net.Listener, error) {
+ }
+ 
+ // ToServerOption maps configgrpc.GRPCServerSettings to a slice of server options for gRPC
+-func (gss *GRPCServerSettings) ToServerOption(ext map[config.NamedEntity]component.Extension) ([]grpc.ServerOption, error) {
++func (gss *GRPCServerSettings) ToServerOption(ext map[config.ComponentID]component.Extension) ([]grpc.ServerOption, error) {
+ 	var opts []grpc.ServerOption
+ 
+ 	if gss.TLSSetting != nil {

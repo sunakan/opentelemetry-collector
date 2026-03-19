@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope.go b/pdata/pcommon/generated_instrumentationscope.go
+index 91d1be29c..b4385a088 100644
+--- a/pdata/pcommon/generated_instrumentationscope.go
++++ b/pdata/pcommon/generated_instrumentationscope.go
+@@ -41,8 +41,8 @@ func (ms InstrumentationScope) MoveTo(dest InstrumentationScope) {
+ 	if ms.getOrig() == dest.getOrig() {
+ 		return
+ 	}
+-	*dest.getOrig() = *ms.getOrig()
+-	*ms.getOrig() = otlpcommon.InstrumentationScope{}
++	internal.DeleteOrigInstrumentationScope(dest.getOrig(), false)
++	*dest.getOrig(), *ms.getOrig() = *ms.getOrig(), *dest.getOrig()
+ }
+ 
+ // Name returns the name associated with this InstrumentationScope.

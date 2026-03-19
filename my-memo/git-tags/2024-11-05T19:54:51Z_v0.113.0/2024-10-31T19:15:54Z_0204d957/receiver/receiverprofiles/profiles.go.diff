@@ -1,0 +1,10 @@
+diff --git a/receiver/receiverprofiles/profiles.go b/receiver/receiverprofiles/profiles.go
+index 858a9f441..730816440 100644
+--- a/receiver/receiverprofiles/profiles.go
++++ b/receiver/receiverprofiles/profiles.go
+@@ -113,5 +113,4 @@ func NewFactory(cfgType component.Type, createDefaultConfig component.CreateDefa
+ 	}
+ 	opts.factory.Factory = receiver.NewFactory(cfgType, createDefaultConfig, opts.opts...)
+ 	return opts.factory
+-
+ }

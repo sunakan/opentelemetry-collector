@@ -1,0 +1,33 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl b/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
+index d6aefa310..0ac4aadad 100644
+--- a/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
++++ b/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
+@@ -20,7 +20,11 @@ import (
+ type {{ .messageName }} struct {
+ {{- range .fields }}
+     {{ .GenMessageField }}
+-{{- end }}}
++{{- end }}
++{{ if gt .metadataSize 0 -}}
++    metadata [{{ .metadataSize }}]uint64
++{{ end -}}
++}
+ 
+ var (
+ 	protoPool{{ .messageName }} = sync.Pool{
+@@ -199,10 +203,14 @@ func (orig *{{ .messageName }}) UnmarshalProto(buf []byte) error {
+ 	return nil
+ }
+ 
++{{ if gt .metadataSize 0 -}}
++{{ call .GenerateMetadata }}
++{{ end -}}
++
+ func GenTest{{ .messageName }}() *{{ .messageName }} {
+     orig := New{{ .messageName }}()
+     {{- range .fields }}
+-    orig.{{ .GetName }} = {{ .TestValue }}
++    {{ .GenTest }}
+     {{- end }}
+     return orig
+ }

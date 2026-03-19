@@ -1,0 +1,21 @@
+diff --git a/processor/internal/profiles.go b/processor/internal/profiles.go
+new file mode 100644
+index 000000000..e5e955e06
+--- /dev/null
++++ b/processor/internal/profiles.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/processor/internal"
++
++import (
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/consumer/consumerprofiles"
++)
++
++// Profiles is a processor that can consume profiles.
++type Profiles interface {
++	component.Component
++	consumerprofiles.Profiles
++}

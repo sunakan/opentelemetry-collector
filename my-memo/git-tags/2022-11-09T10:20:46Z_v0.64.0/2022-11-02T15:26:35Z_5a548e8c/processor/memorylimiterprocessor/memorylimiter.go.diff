@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter.go b/processor/memorylimiterprocessor/memorylimiter.go
+index e311ea4b7..67742b32b 100644
+--- a/processor/memorylimiterprocessor/memorylimiter.go
++++ b/processor/memorylimiterprocessor/memorylimiter.go
+@@ -122,7 +122,7 @@ func newMemoryLimiter(set component.ProcessorCreateSettings, cfg *Config) (*memo
+ 		readMemStatsFn: runtime.ReadMemStats,
+ 		logger:         logger,
+ 		forceDrop:      atomic.NewBool(false),
+-		obsrep: obsreport.NewProcessor(obsreport.ProcessorSettings{
++		obsrep: obsreport.MustNewProcessor(obsreport.ProcessorSettings{
+ 			ProcessorID:             cfg.ID(),
+ 			ProcessorCreateSettings: set,
+ 		}),

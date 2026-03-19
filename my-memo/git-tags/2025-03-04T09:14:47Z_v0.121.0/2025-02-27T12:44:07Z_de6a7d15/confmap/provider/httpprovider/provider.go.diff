@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/httpprovider/provider.go b/confmap/provider/httpprovider/provider.go
+index c47c1df5d..fab06efbe 100644
+--- a/confmap/provider/httpprovider/provider.go
++++ b/confmap/provider/httpprovider/provider.go
+@@ -1,6 +1,8 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ package httpprovider // import "go.opentelemetry.io/collector/confmap/provider/httpprovider"
+ 
+ import (

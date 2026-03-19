@@ -1,0 +1,31 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 9dc4eb782..4ac4dccb8 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -566,7 +566,7 @@ func TestHttpReception(t *testing.T) {
+ 			opts, err := gss.ToServerOption(componenttest.NewNopHost(), componenttest.NewNopTelemetrySettings())
+ 			assert.NoError(t, err)
+ 			s := grpc.NewServer(opts...)
+-			ptraceotlp.RegisterServer(s, &grpcTraceServer{})
++			ptraceotlp.RegisterGRPCServer(s, &grpcTraceServer{})
+ 
+ 			go func() {
+ 				_ = s.Serve(ln)
+@@ -615,7 +615,7 @@ func TestReceiveOnUnixDomainSocket(t *testing.T) {
+ 	opts, err := gss.ToServerOption(componenttest.NewNopHost(), componenttest.NewNopTelemetrySettings())
+ 	assert.NoError(t, err)
+ 	s := grpc.NewServer(opts...)
+-	ptraceotlp.RegisterServer(s, &grpcTraceServer{})
++	ptraceotlp.RegisterGRPCServer(s, &grpcTraceServer{})
+ 
+ 	go func() {
+ 		_ = s.Serve(ln)
+@@ -811,7 +811,7 @@ func TestClientInfoInterceptors(t *testing.T) {
+ 				opts, err := gss.ToServerOption(componenttest.NewNopHost(), componenttest.NewNopTelemetrySettings())
+ 				require.NoError(t, err)
+ 				srv := grpc.NewServer(opts...)
+-				ptraceotlp.RegisterServer(srv, mock)
++				ptraceotlp.RegisterGRPCServer(srv, mock)
+ 
+ 				defer srv.Stop()
+ 

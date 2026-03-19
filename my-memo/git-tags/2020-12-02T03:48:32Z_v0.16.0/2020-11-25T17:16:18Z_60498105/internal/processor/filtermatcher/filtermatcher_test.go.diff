@@ -1,0 +1,20 @@
+diff --git a/internal/processor/filtermatcher/filtermatcher_test.go b/internal/processor/filtermatcher/filtermatcher_test.go
+index d538c86c8..31102381d 100644
+--- a/internal/processor/filtermatcher/filtermatcher_test.go
++++ b/internal/processor/filtermatcher/filtermatcher_test.go
+@@ -210,7 +210,6 @@ func Test_Matching_False(t *testing.T) {
+ 	})
+ 
+ 	library := pdata.NewInstrumentationLibrary()
+-	library.InitEmpty()
+ 	library.SetName("lib")
+ 	library.SetVersion("ver")
+ 
+@@ -374,7 +373,6 @@ func Test_Matching_True(t *testing.T) {
+ 	})
+ 
+ 	library := pdata.NewInstrumentationLibrary()
+-	library.InitEmpty()
+ 	library.SetName("lib")
+ 	library.SetVersion("ver")
+ 

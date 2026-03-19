@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcol/config.yaml b/cmd/otelcol/config.yaml
+index 85308ea84..ce9ba1a84 100644
+--- a/cmd/otelcol/config.yaml
++++ b/cmd/otelcol/config.yaml
+@@ -43,7 +43,7 @@ service:
+   pipelines:
+ 
+     traces:
+-      receivers: [opencensus, jaeger, zipkin]
++      receivers: [otlp, opencensus, jaeger, zipkin]
+       processors: [batch]
+       exporters: [logging]
+ 

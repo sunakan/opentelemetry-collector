@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/packages.go b/pdata/internal/cmd/pdatagen/internal/packages.go
+index f44b59770..340912dbc 100644
+--- a/pdata/internal/cmd/pdatagen/internal/packages.go
++++ b/pdata/internal/cmd/pdatagen/internal/packages.go
+@@ -25,6 +25,8 @@ var AllPackages = []*Package{
+ 	pmetricotlp,
+ 	ptrace,
+ 	ptraceotlp,
++	pprofile,
++	pprofileotlp,
+ }
+ 
+ // Package is a struct used to generate files.

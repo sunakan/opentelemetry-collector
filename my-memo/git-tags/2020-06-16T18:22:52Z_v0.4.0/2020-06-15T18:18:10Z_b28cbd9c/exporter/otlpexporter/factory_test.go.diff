@@ -1,0 +1,19 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index d793796eb..d5e533150 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -180,3 +180,14 @@ func TestCreateTraceExporter(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestCreateLogsExporter(t *testing.T) {
++	factory := Factory{}
++	cfg := factory.CreateDefaultConfig().(*Config)
++	cfg.GRPCClientSettings.Endpoint = testutils.GetAvailableLocalAddress(t)
++
++	creationParams := component.ExporterCreateParams{Logger: zap.NewNop()}
++	oexp, err := factory.CreateLogExporter(context.Background(), creationParams, cfg)
++	require.Nil(t, err)
++	require.NotNil(t, oexp)
++}

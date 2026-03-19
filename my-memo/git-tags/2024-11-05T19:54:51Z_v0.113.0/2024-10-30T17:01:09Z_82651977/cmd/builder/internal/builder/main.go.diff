@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index ba54c40e5..fb5cd9645 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -214,10 +214,7 @@ func processAndWrite(cfg Config, tmpl *template.Template, outFile string, tmplPa
+ }
+ 
+ func (c *Config) coreModuleAndVersion() (string, string) {
+-	module := "go.opentelemetry.io/collector"
+-	if c.Distribution.RequireOtelColModule {
+-		module += "/otelcol"
+-	}
++	module := "go.opentelemetry.io/collector/otelcol"
+ 	return module, "v" + c.Distribution.OtelColVersion
+ }
+ 

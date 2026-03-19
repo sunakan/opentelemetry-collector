@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 4e45e109f..1f96c76b8 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -9,7 +9,7 @@ require (
+ 	go.opentelemetry.io/collector v0.113.0
+ 	go.opentelemetry.io/collector/component v0.113.0
+ 	go.opentelemetry.io/collector/component/componentstatus v0.113.0
+-	go.opentelemetry.io/collector/component/componenttest v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.0.0-20241112045949-9c4c007a12b4
+ 	go.opentelemetry.io/collector/config/configauth v0.113.0
+ 	go.opentelemetry.io/collector/config/configgrpc v0.113.0
+ 	go.opentelemetry.io/collector/config/confighttp v0.113.0

@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_location.go b/pdata/pprofile/generated_location.go
+index 9edc9bc6f..72d9efd0d 100644
+--- a/pdata/pprofile/generated_location.go
++++ b/pdata/pprofile/generated_location.go
+@@ -45,8 +45,8 @@ func (ms Location) MoveTo(dest Location) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpprofiles.Location{}
++	internal.DeleteOrigLocation(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // MappingIndex returns the mappingindex associated with this Location.

@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/value_test.go b/pdata/pcommon/value_test.go
+index 474ce0e54..ac424a56a 100644
+--- a/pdata/pcommon/value_test.go
++++ b/pdata/pcommon/value_test.go
+@@ -808,7 +808,7 @@ func BenchmarkValueEqual(b *testing.B) {
+ 			b.ResetTimer()
+ 			b.ReportAllocs()
+ 
+-			for n := 0; n < b.N; n++ {
++			for b.Loop() {
+ 				_ = bb.value.Equal(bb.comparison)
+ 			}
+ 		})

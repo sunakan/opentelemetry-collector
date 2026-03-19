@@ -1,0 +1,24 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics.go b/pdata/pmetric/pmetricotlp/metrics.go
+index 3c461d78c..b0d629691 100644
+--- a/pdata/pmetric/pmetricotlp/metrics.go
++++ b/pdata/pmetric/pmetricotlp/metrics.go
+@@ -122,9 +122,6 @@ type GRPCClient interface {
+ 	Export(ctx context.Context, request Request, opts ...grpc.CallOption) (Response, error)
+ }
+ 
+-// Deprecated: [0.61.0] Use GRPCClient instead
+-type Client = GRPCClient
+-
+ type metricsClient struct {
+ 	rawClient otlpcollectormetrics.MetricsServiceClient
+ }
+@@ -148,9 +145,6 @@ type GRPCServer interface {
+ 	Export(context.Context, Request) (Response, error)
+ }
+ 
+-// Deprecated: [0.61.0] Use GRPCServer instead
+-type Server = GRPCServer
+-
+ // RegisterGRPCServer registers the GRPCServer to the grpc.Server.
+ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectormetrics.RegisterMetricsServiceServer(s, &rawMetricsServer{srv: srv})

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice_test.go b/pdata/pmetric/generated_histogramdatapointslice_test.go
+index 66e19bef9..124133713 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice_test.go
++++ b/pdata/pmetric/generated_histogramdatapointslice_test.go
+@@ -27,7 +27,7 @@ func TestHistogramDataPointSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestHistogramDataPoint((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigHistogramDataPoint()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

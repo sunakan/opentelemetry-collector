@@ -1,0 +1,26 @@
+diff --git a/processor/batchprocessor/internal/metadata/generated_status.go b/processor/batchprocessor/internal/metadata/generated_status.go
+index 2ccbff8e2..b3956d2b0 100644
+--- a/processor/batchprocessor/internal/metadata/generated_status.go
++++ b/processor/batchprocessor/internal/metadata/generated_status.go
+@@ -10,7 +10,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("batch")
++	Type      = component.MustNewType("batch")
++	scopeName = "go.opentelemetry.io/collector/processor/batchprocessor"
+ )
+ 
+ const (
+@@ -20,9 +21,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("otelcol/batch")
++	return settings.MeterProvider.Meter(scopeName)
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("otelcol/batch")
++	return settings.TracerProvider.Tracer(scopeName)
+ }

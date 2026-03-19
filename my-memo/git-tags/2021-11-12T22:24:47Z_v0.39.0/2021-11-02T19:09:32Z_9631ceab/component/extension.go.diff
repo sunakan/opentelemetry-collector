@@ -1,0 +1,14 @@
+diff --git a/component/extension.go b/component/extension.go
+index 702159851..7bd0f8f30 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -53,6 +53,9 @@ type ExtensionCreateSettings struct {
+ }
+ 
+ // ExtensionFactory is a factory interface for extensions to the service.
++//
++// This interface cannot be directly implemented. Implementations must
++// use the extensionhelper.NewFactory to implement it.
+ type ExtensionFactory interface {
+ 	Factory
+ 

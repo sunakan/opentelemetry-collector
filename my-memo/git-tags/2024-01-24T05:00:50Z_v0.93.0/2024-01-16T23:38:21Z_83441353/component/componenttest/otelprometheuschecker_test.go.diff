@@ -1,0 +1,14 @@
+diff --git a/component/componenttest/otelprometheuschecker_test.go b/component/componenttest/otelprometheuschecker_test.go
+index 0ee4d4cf6..159122547 100644
+--- a/component/componenttest/otelprometheuschecker_test.go
++++ b/component/componenttest/otelprometheuschecker_test.go
+@@ -26,9 +26,6 @@ func newStubPromChecker() (prometheusChecker, error) {
+ 	promResponse := strings.ReplaceAll(string(promBytes), "\r\n", "\n")
+ 
+ 	return prometheusChecker{
+-		ocHandler: http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+-			_, _ = w.Write([]byte(promResponse))
+-		}),
+ 		otelHandler: http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+ 			_, _ = w.Write([]byte(promResponse))
+ 		}),

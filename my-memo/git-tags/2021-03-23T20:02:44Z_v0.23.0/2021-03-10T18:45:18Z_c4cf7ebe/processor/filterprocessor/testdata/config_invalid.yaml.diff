@@ -1,0 +1,32 @@
+diff --git a/processor/filterprocessor/testdata/config_invalid.yaml b/processor/filterprocessor/testdata/config_invalid.yaml
+index a2ed32c8c..0c4b087bd 100644
+--- a/processor/filterprocessor/testdata/config_invalid.yaml
++++ b/processor/filterprocessor/testdata/config_invalid.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-    examplereceiver:
++    nop:
+ 
+ processors:
+     filter/include:
+@@ -12,15 +12,15 @@ processors:
+                     - (\W|^)stock\stips(\W|$
+ 
+ exporters:
+-    exampleexporter:
++    nop:
+ 
+ service:
+     pipelines:
+         traces:
+-            receivers: [examplereceiver]
++            receivers: [nop]
+             processors: [filter/include]
+-            exporters: [exampleexporter]
++            exporters: [nop]
+         metrics:
+-            receivers: [examplereceiver]
++            receivers: [nop]
+             processors: [filter/include]
+-            exporters: [exampleexporter]
++            exporters: [nop]

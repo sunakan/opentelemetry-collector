@@ -1,0 +1,20 @@
+diff --git a/exporter/kafkaexporter/otlp_marshaller_test.go b/exporter/kafkaexporter/otlp_marshaller_test.go
+index 098b208be..21f1d0078 100644
+--- a/exporter/kafkaexporter/otlp_marshaller_test.go
++++ b/exporter/kafkaexporter/otlp_marshaller_test.go
+@@ -47,3 +47,15 @@ func TestOTLPMetricsPbMarshaller(t *testing.T) {
+ 	require.NoError(t, err)
+ 	assert.EqualValues(t, md, extracted)
+ }
++
++func TestOTLPLogsPbMarshaller(t *testing.T) {
++	ld := testdata.GenerateLogDataOneLog()
++	m := otlpLogsPbMarshaller{}
++	assert.Equal(t, "otlp_proto", m.Encoding())
++	messages, err := m.Marshal(ld)
++	require.NoError(t, err)
++	require.Len(t, messages, 1)
++	extracted, err := pdata.LogsFromOtlpProtoBytes(messages[0].Value)
++	require.NoError(t, err)
++	assert.EqualValues(t, ld, extracted)
++}

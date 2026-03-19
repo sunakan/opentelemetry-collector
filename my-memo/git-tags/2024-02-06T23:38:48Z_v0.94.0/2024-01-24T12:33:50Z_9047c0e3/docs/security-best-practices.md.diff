@@ -1,0 +1,13 @@
+diff --git a/docs/security-best-practices.md b/docs/security-best-practices.md
+index 4101e5611..f68fafe9a 100644
+--- a/docs/security-best-practices.md
++++ b/docs/security-best-practices.md
+@@ -148,6 +148,8 @@ receivers:
+ Generally, `localhost`-like addresses should be preferred over the 0.0.0.0 address.
+ For more information, see [CWE-1327](https://cwe.mitre.org/data/definitions/1327.html).
+ 
++To change the default endpoint to be `localhost`-bound in all components, enable the `component.UseLocalHostAsDefaultHost` feature gate. This feature gate will be enabled by default in the Collector in a future release.
++
+ ## Processors
+ 
+ Processors sit between receivers and exporters. They are responsible for

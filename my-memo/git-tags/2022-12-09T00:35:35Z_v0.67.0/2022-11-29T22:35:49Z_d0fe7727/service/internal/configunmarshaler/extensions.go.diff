@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/extensions.go b/service/internal/configunmarshaler/extensions.go
+index f986b85de..247ac88d3 100644
+--- a/service/internal/configunmarshaler/extensions.go
++++ b/service/internal/configunmarshaler/extensions.go
+@@ -53,7 +53,7 @@ func (e *Extensions) Unmarshal(conf *confmap.Conf) error {
+ 
+ 		// Create the default config for this extension.
+ 		extensionCfg := factory.CreateDefaultConfig()
+-		extensionCfg.SetIDName(id.Name())
++		extensionCfg.SetIDName(id.Name()) //nolint:staticcheck
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it,
+ 		// and it will apply user-defined config on top of the default.

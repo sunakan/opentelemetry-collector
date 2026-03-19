@@ -1,0 +1,16 @@
+diff --git a/translator/trace/zipkinv2/from_translator.go b/translator/trace/zipkinv2/from_translator.go
+index a2ebece39..b5a342cd7 100644
+--- a/translator/trace/zipkinv2/from_translator.go
++++ b/translator/trace/zipkinv2/from_translator.go
+@@ -158,9 +158,9 @@ func spanToZipkinSpan(
+ 	removeRedundentTags(redundantKeys, tags)
+ 
+ 	status := span.Status()
+-	tags[tracetranslator.TagStatusCode] = status.Code().String()
++	tags[conventions.OtelStatusCode] = status.Code().String()
+ 	if status.Message() != "" {
+-		tags[tracetranslator.TagStatusMsg] = status.Message()
++		tags[conventions.OtelStatusDescription] = status.Message()
+ 		if int32(status.Code()) > 0 {
+ 			zs.Err = fmt.Errorf("%s", status.Message())
+ 		}

@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/factory.go b/extension/pprofextension/factory.go
+index 95825a56a..495d622e6 100644
+--- a/extension/pprofextension/factory.go
++++ b/extension/pprofextension/factory.go
+@@ -47,7 +47,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Extension {
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+ 		},
+-		Endpoint: "127.0.0.1:1777",
++		Endpoint: "localhost:1777",
+ 	}
+ }
+ 

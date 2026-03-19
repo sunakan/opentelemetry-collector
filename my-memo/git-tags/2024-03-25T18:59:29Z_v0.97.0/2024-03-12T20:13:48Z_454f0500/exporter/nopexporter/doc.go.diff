@@ -1,0 +1,13 @@
+diff --git a/exporter/nopexporter/doc.go b/exporter/nopexporter/doc.go
+new file mode 100644
+index 000000000..002615651
+--- /dev/null
++++ b/exporter/nopexporter/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++// Package nopexporter serves as a placeholder exporter.
++package nopexporter // import "go.opentelemetry.io/collector/exporter/nopexporter"

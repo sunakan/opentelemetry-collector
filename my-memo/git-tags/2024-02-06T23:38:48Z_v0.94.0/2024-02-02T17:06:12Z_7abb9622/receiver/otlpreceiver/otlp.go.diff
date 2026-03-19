@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 5f709cb26..896dabe78 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -149,9 +149,9 @@ func (r *otlpReceiver) startHTTPServer(host component.Host) error {
+ 		return err
+ 	}
+ 
+-	r.settings.Logger.Info("Starting HTTP server", zap.String("endpoint", r.cfg.HTTP.HTTPServerConfig.Endpoint))
++	r.settings.Logger.Info("Starting HTTP server", zap.String("endpoint", r.cfg.HTTP.ServerConfig.Endpoint))
+ 	var hln net.Listener
+-	if hln, err = r.cfg.HTTP.HTTPServerConfig.ToListener(); err != nil {
++	if hln, err = r.cfg.HTTP.ServerConfig.ToListener(); err != nil {
+ 		return err
+ 	}
+ 

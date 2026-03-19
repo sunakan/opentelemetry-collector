@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/codeql-analysis.yml b/.github/workflows/codeql-analysis.yml
+index 42460b22a..dd5019d89 100644
+--- a/.github/workflows/codeql-analysis.yml
++++ b/.github/workflows/codeql-analysis.yml
+@@ -30,12 +30,12 @@ jobs:
+ 
+       # Initializes the CodeQL tools for scanning.
+       - name: Initialize CodeQL
+-        uses: github/codeql-action/init@3ab4101902695724f9365a384f86c1074d94e18c # v3.24.7
++        uses: github/codeql-action/init@05963f47d870e2cb19a537396c1f668a348c7d8f # v3.24.8
+         with:
+           languages: go
+ 
+       - name: Autobuild
+-        uses: github/codeql-action/autobuild@3ab4101902695724f9365a384f86c1074d94e18c # v3.24.7
++        uses: github/codeql-action/autobuild@05963f47d870e2cb19a537396c1f668a348c7d8f # v3.24.8
+ 
+       - name: Perform CodeQL Analysis
+-        uses: github/codeql-action/analyze@3ab4101902695724f9365a384f86c1074d94e18c # v3.24.7
++        uses: github/codeql-action/analyze@05963f47d870e2cb19a537396c1f668a348c7d8f # v3.24.8

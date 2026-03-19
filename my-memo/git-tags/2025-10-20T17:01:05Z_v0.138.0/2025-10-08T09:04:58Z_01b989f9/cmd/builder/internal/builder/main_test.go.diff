@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 74043f912..e15cdf23f 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -114,6 +114,7 @@ var replaceModules = []string{
+ 	"/receiver/xreceiver",
+ 	"/service",
+ 	"/service/hostcapabilities",
++	"/service/telemetry/telemetrytest",
+ }
+ 
+ func newTestConfig(tb testing.TB) *Config {

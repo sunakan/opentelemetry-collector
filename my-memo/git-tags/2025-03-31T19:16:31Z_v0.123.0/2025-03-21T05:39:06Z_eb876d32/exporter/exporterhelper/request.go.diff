@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/request.go b/exporter/exporterhelper/request.go
+index 4f8eca3f0..594d00563 100644
+--- a/exporter/exporterhelper/request.go
++++ b/exporter/exporterhelper/request.go
+@@ -7,6 +7,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+ )
+ 
+ // Request represents a single request that can be sent to an external endpoint.
+@@ -29,4 +30,4 @@ type RequestConverterFunc[K any] func(context.Context, K) (Request, error)
+ 
+ // RequestConsumeFunc processes the request. After the function returns, the request is no longer accessible,
+ // and accessing it is considered undefined behavior.
+-type RequestConsumeFunc = func(context.Context, Request) error
++type RequestConsumeFunc = sender.SendFunc[request.Request]

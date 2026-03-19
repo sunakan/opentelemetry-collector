@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/templates/package_test.go.tmpl b/cmd/mdatagen/templates/package_test.go.tmpl
+index 93446b7a5..892248f63 100644
+--- a/cmd/mdatagen/templates/package_test.go.tmpl
++++ b/cmd/mdatagen/templates/package_test.go.tmpl
+@@ -3,6 +3,9 @@
+ package {{ if isCommand -}}main{{ else }}{{ .Package }}{{- end }}
+ 
+ import (
++    {{- if .Tests.GoLeak.Skip }}
++    "os"
++    {{- end }}
+ 	"testing"
+ 
+     {{- if not .Tests.GoLeak.Skip }}

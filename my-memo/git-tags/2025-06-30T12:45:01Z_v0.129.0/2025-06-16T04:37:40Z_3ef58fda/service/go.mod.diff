@@ -1,0 +1,10 @@
+diff --git a/service/go.mod b/service/go.mod
+index 868c0ac48..3dd165a4a 100644
+--- a/service/go.mod
++++ b/service/go.mod
+@@ -243,3 +243,5 @@ replace go.opentelemetry.io/collector/extension/extensionmiddleware => ../extens
+ replace go.opentelemetry.io/collector/config/configmiddleware => ../config/configmiddleware
+ 
+ replace go.opentelemetry.io/collector/extension/extensionmiddleware/extensionmiddlewaretest => ../extension/extensionmiddleware/extensionmiddlewaretest
++
++replace go.opentelemetry.io/collector/pdata/xpdata => ../pdata/xpdata

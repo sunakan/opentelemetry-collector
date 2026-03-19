@@ -1,0 +1,13 @@
+diff --git a/service/internal/testcomponents/example_router.go b/service/internal/testcomponents/example_router.go
+index 45d2a17c5..3eafbf13c 100644
+--- a/service/internal/testcomponents/example_router.go
++++ b/service/internal/testcomponents/example_router.go
+@@ -14,7 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
+-const routerType = "examplerouter"
++var routerType = component.MustNewType("examplerouter")
+ 
+ // ExampleRouterFactory is factory for ExampleRouter.
+ var ExampleRouterFactory = connector.NewFactory(

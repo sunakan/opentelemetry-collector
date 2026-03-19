@@ -1,0 +1,16 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper.go b/receiver/hostmetricsreceiver/internal/scraper.go
+index 4bf7bc617..ff2c1b255 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper.go
+@@ -31,9 +31,9 @@ type Scraper interface {
+ 	// and then begins scraping metrics at the configured
+ 	// collection interval.
+ 	Start(ctx context.Context) error
+-	// Close should clean up any unmanaged resources such as
++	// Shutdown should clean up any unmanaged resources such as
+ 	// performance counter handles.
+-	Close(ctx context.Context) error
++	Shutdown(ctx context.Context) error
+ }
+ 
+ // Factory can create a Scraper.

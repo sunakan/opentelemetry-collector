@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_float64slice.go b/pdata/pcommon/generated_float64slice.go
+index bddd43eba..b7df94894 100644
+--- a/pdata/pcommon/generated_float64slice.go
++++ b/pdata/pcommon/generated_float64slice.go
+@@ -130,6 +130,9 @@ func (ms Float64Slice) MoveAndAppendTo(dest Float64Slice) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (ms Float64Slice) CopyTo(dest Float64Slice) {
+ 	dest.getState().AssertMutable()
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = internal.CopyOrigFloat64Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 

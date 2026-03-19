@@ -1,0 +1,13 @@
+diff --git a/confmap/converter/expandconverter/expand.go b/confmap/converter/expandconverter/expand.go
+index 0296b4b21..dc3a89812 100644
+--- a/confmap/converter/expandconverter/expand.go
++++ b/confmap/converter/expandconverter/expand.go
+@@ -15,7 +15,7 @@ type converter struct{}
+ // New returns a confmap.Converter, that expands all environment variables for a given confmap.Conf.
+ //
+ // Notice: This API is experimental.
+-func New(_ confmap.ConverterSettings) confmap.Converter {
++func New(confmap.ConverterSettings) confmap.Converter {
+ 	return converter{}
+ }
+ 

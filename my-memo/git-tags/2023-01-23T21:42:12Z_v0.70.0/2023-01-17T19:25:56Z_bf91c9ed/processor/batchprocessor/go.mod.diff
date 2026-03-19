@@ -1,0 +1,10 @@
+diff --git a/processor/batchprocessor/go.mod b/processor/batchprocessor/go.mod
+index 6c1e024ee..980df62b7 100644
+--- a/processor/batchprocessor/go.mod
++++ b/processor/batchprocessor/go.mod
+@@ -73,3 +73,5 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
++
++retract v0.69.0 // Release failed, use v0.69.1

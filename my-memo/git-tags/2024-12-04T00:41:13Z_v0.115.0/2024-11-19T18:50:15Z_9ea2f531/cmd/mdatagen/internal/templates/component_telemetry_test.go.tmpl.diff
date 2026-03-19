@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl b/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
+index 3aa5db213..93949f9f6 100644
+--- a/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
+@@ -41,9 +41,6 @@ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySett
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
+ 	set.MetricsLevel = configtelemetry.LevelDetailed
+-	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+-		return tt.meterProvider
+-	}
+ 	return set
+ }
+ 

@@ -1,0 +1,16 @@
+diff --git a/internal/processor/filtermatcher/attributematcher.go b/internal/processor/filtermatcher/attributematcher.go
+index 96b77fe76..3b8f301b7 100644
+--- a/internal/processor/filtermatcher/attributematcher.go
++++ b/internal/processor/filtermatcher/attributematcher.go
+@@ -19,10 +19,10 @@ import (
+ 	"fmt"
+ 	"strconv"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterhelper"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type AttributesMatcher []AttributeMatcher

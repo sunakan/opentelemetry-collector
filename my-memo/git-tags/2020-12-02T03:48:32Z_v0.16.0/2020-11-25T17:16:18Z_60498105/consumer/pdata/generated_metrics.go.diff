@@ -1,0 +1,14 @@
+diff --git a/consumer/pdata/generated_metrics.go b/consumer/pdata/generated_metrics.go
+index 814f5c4ff..183f93965 100644
+--- a/consumer/pdata/generated_metrics.go
++++ b/consumer/pdata/generated_metrics.go
+@@ -353,9 +353,6 @@ func (ms InstrumentationLibraryMetrics) IsNil() bool {
+ }
+ 
+ // InstrumentationLibrary returns the instrumentationlibrary associated with this InstrumentationLibraryMetrics.
+-// If no instrumentationlibrary available, it creates an empty message and associates it with this InstrumentationLibraryMetrics.
+-//
+-//  Empty initialized InstrumentationLibraryMetrics will return "nil" InstrumentationLibrary.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+ func (ms InstrumentationLibraryMetrics) InstrumentationLibrary() InstrumentationLibrary {

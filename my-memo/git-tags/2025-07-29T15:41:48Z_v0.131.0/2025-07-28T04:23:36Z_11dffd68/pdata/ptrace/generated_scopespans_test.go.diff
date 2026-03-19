@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/generated_scopespans_test.go b/pdata/ptrace/generated_scopespans_test.go
+index 600510cea..1f3d65543 100644
+--- a/pdata/ptrace/generated_scopespans_test.go
++++ b/pdata/ptrace/generated_scopespans_test.go
+@@ -48,13 +48,13 @@ func TestScopeSpans_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestScopeSpans()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewScopeSpans()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

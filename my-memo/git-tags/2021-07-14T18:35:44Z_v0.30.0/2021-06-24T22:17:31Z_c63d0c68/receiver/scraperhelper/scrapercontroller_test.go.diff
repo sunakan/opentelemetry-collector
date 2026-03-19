@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index 0f278d430..156d8cc7b 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -32,7 +32,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport/obsreporttest"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"
+ )

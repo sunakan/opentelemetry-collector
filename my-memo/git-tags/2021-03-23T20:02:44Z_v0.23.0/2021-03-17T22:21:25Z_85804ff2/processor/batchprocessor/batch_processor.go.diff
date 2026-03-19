@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 4374f4837..dd6e468fc 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -340,7 +340,7 @@ func (bm *batchLogs) itemCount() uint32 {
+ }
+ 
+ func (bm *batchLogs) size() int {
+-	return bm.logData.SizeBytes()
++	return bm.logData.Size()
+ }
+ 
+ // resets the current batchLogs structure with zero/empty values.

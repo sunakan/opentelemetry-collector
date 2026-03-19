@@ -1,0 +1,12 @@
+diff --git a/extension/go.mod b/extension/go.mod
+index 60db279d7..c193fdd74 100644
+--- a/extension/go.mod
++++ b/extension/go.mod
+@@ -3,6 +3,7 @@ module go.opentelemetry.io/collector/extension
+ go 1.21
+ 
+ require (
++	github.com/google/uuid v1.6.0
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.96.0
+ 	go.opentelemetry.io/collector/confmap v0.96.0

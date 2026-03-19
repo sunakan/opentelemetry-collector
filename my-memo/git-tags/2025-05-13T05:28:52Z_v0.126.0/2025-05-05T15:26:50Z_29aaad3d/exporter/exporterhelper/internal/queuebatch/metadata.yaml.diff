@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/metadata.yaml b/exporter/exporterhelper/internal/queuebatch/metadata.yaml
+index 00f0f2fad..7d800cf49 100644
+--- a/exporter/exporterhelper/internal/queuebatch/metadata.yaml
++++ b/exporter/exporterhelper/internal/queuebatch/metadata.yaml
+@@ -2,6 +2,7 @@ type: queuebatch
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   stability:
+     beta: [traces, metrics, logs]

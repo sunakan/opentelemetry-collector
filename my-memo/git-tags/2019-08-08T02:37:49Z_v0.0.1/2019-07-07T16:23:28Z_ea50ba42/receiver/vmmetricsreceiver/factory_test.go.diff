@@ -1,0 +1,13 @@
+diff --git a/receiver/vmmetricsreceiver/factory_test.go b/receiver/vmmetricsreceiver/factory_test.go
+index cca37124a..468c0a197 100644
+--- a/receiver/vmmetricsreceiver/factory_test.go
++++ b/receiver/vmmetricsreceiver/factory_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 

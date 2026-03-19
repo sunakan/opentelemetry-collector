@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+index fe18ea275..cfa500f6e 100644
+--- a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ func NewSettings(tt *componenttest.Telemetry) processor.Settings {
+-	set := processortest.NewNopSettings()
++	set := processortest.NewNopSettingsWithType(processortest.NopType)
+ 	set.ID = component.NewID(component.MustNewType("processorhelper"))
+ 	set.TelemetrySettings = tt.NewTelemetrySettings()
+ 	return set

@@ -1,0 +1,31 @@
+diff --git a/otelcol/command_validate_test.go b/otelcol/command_validate_test.go
+index 30d291d4a..4aa09d7ff 100644
+--- a/otelcol/command_validate_test.go
++++ b/otelcol/command_validate_test.go
+@@ -23,18 +23,14 @@ func TestValidateSubCommandNoConfig(t *testing.T) {
+ }
+ 
+ func TestValidateSubCommandInvalidComponents(t *testing.T) {
+-	cfgProvider, err := NewConfigProvider(
+-		ConfigProviderSettings{
+-			ResolverSettings: confmap.ResolverSettings{
+-				URIs:               []string{filepath.Join("testdata", "otelcol-invalid-components.yaml")},
+-				ProviderFactories:  []confmap.ProviderFactory{fileprovider.NewFactory()},
+-				ConverterFactories: []confmap.ConverterFactory{expandconverter.NewFactory()},
+-			},
+-		})
+-	require.NoError(t, err)
+-
+-	cmd := newValidateSubCommand(CollectorSettings{Factories: nopFactories, ConfigProvider: cfgProvider}, flags(featuregate.GlobalRegistry()))
+-	err = cmd.Execute()
++	cmd := newValidateSubCommand(CollectorSettings{Factories: nopFactories, ConfigProviderSettings: ConfigProviderSettings{
++		ResolverSettings: confmap.ResolverSettings{
++			URIs:               []string{filepath.Join("testdata", "otelcol-invalid-components.yaml")},
++			ProviderFactories:  []confmap.ProviderFactory{fileprovider.NewFactory()},
++			ConverterFactories: []confmap.ConverterFactory{expandconverter.NewFactory()},
++		},
++	}}, flags(featuregate.GlobalRegistry()))
++	err := cmd.Execute()
+ 	require.Error(t, err)
+ 	require.Contains(t, err.Error(), "unknown type: \"nosuchprocessor\"")
+ }

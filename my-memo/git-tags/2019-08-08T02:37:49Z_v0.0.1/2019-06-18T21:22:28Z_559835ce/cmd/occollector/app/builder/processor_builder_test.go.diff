@@ -1,0 +1,19 @@
+diff --git a/cmd/occollector/app/builder/processor_builder_test.go b/cmd/occollector/app/builder/processor_builder_test.go
+index 9b2efd301..2a9e75310 100644
+--- a/cmd/occollector/app/builder/processor_builder_test.go
++++ b/cmd/occollector/app/builder/processor_builder_test.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/google/go-cmp/cmp"
+ 
+-	"github.com/census-instrumentation/opencensus-service/processor/attributekeyprocessor"
++	"github.com/open-telemetry/opentelemetry-service/processor/attributekeyprocessor"
+ )
+ 
+ func TestGlobalProcessorCfg_InitFromViper(t *testing.T) {

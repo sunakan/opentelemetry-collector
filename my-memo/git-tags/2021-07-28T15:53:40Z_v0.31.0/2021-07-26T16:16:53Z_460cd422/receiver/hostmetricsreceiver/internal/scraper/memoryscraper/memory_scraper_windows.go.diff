@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_windows.go
+index a9b0b4268..52c60ac1e 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_windows.go
+@@ -25,7 +25,7 @@ import (
+ 
+ const memStatesLen = 2
+ 
+-func appendMemoryUsageStateDataPoints(idps pdata.IntDataPointSlice, now pdata.Timestamp, memInfo *mem.VirtualMemoryStat) {
++func appendMemoryUsageStateDataPoints(idps pdata.NumberDataPointSlice, now pdata.Timestamp, memInfo *mem.VirtualMemoryStat) {
+ 	initializeMemoryUsageDataPoint(idps.AppendEmpty(), now, metadata.LabelMemState.Used, int64(memInfo.Used))
+ 	initializeMemoryUsageDataPoint(idps.AppendEmpty(), now, metadata.LabelMemState.Free, int64(memInfo.Available))
+ }

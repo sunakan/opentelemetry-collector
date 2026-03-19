@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_exporttraceservicerequest.go b/pdata/internal/generated_proto_exporttraceservicerequest.go
+index e64316f8f..2a4ff9ef3 100644
+--- a/pdata/internal/generated_proto_exporttraceservicerequest.go
++++ b/pdata/internal/generated_proto_exporttraceservicerequest.go
+@@ -44,11 +44,9 @@ func DeleteExportTraceServiceRequest(orig *ExportTraceServiceRequest, nullable b
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceSpans {
+ 		DeleteResourceSpans(orig.ResourceSpans[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolExportTraceServiceRequest.Put(orig)

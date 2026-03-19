@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_attribute.go b/pdata/pprofile/generated_attribute.go
+index 8607e1dc0..16ec6ec07 100644
+--- a/pdata/pprofile/generated_attribute.go
++++ b/pdata/pprofile/generated_attribute.go
+@@ -33,8 +33,7 @@ func newAttribute(orig *otlpcommon.KeyValue, state *internal.State) Attribute {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewAttribute() Attribute {
+-	state := internal.StateMutable
+-	return newAttribute(&otlpcommon.KeyValue{}, &state)
++	return newAttribute(&otlpcommon.KeyValue{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 4c86356ea..380da7815 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -455,7 +455,7 @@ func (jr *jReceiver) startCollector(host component.Host) error {
+ 
+ 		nr := mux.NewRouter()
+ 		nr.HandleFunc("/api/traces", jr.HandleThriftHTTPBatch).Methods(http.MethodPost)
+-		jr.collectorServer = &http.Server{Handler: nr}
++		jr.collectorServer = jr.config.CollectorHTTPSettings.ToServer(nr)
+ 		jr.goroutines.Add(1)
+ 		go func() {
+ 			defer jr.goroutines.Done()

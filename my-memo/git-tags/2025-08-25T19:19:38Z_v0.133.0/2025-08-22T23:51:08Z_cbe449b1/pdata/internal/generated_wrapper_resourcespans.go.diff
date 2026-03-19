@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespans.go b/pdata/internal/generated_wrapper_resourcespans.go
+index ac9322f6f..3599e21cd 100644
+--- a/pdata/internal/generated_wrapper_resourcespans.go
++++ b/pdata/internal/generated_wrapper_resourcespans.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolResourceSpans = sync.Pool{
+-	New: func() any {
+-		return &otlptrace.ResourceSpans{}
+-	},
+-}
++var (
++	protoPoolResourceSpans = sync.Pool{
++		New: func() any {
++			return &otlptrace.ResourceSpans{}
++		},
++	}
++)
+ 
+ func NewOrigResourceSpans() *otlptrace.ResourceSpans {
+ 	if !UseProtoPooling.IsEnabled() {

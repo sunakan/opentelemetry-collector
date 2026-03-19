@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/ids.go b/pdata/internal/ids.go
+index d7656a8c9..5a465e4dc 100644
+--- a/pdata/internal/ids.go
++++ b/pdata/internal/ids.go
+@@ -18,3 +18,21 @@ func SizeProtoOrigSpanID(id *data.SpanID) int {
+ func SizeProtoOrigProfileID(id *data.ProfileID) int {
+ 	return id.Size()
+ }
++
++func MarshalProtoOrigTraceID(id *data.TraceID, buf []byte) int {
++	size := id.Size()
++	_, _ = id.MarshalTo(buf[len(buf)-size:])
++	return size
++}
++
++func MarshalProtoOrigSpanID(id *data.SpanID, buf []byte) int {
++	size := id.Size()
++	_, _ = id.MarshalTo(buf[len(buf)-size:])
++	return size
++}
++
++func MarshalProtoOrigProfileID(id *data.ProfileID, buf []byte) int {
++	size := id.Size()
++	_, _ = id.MarshalTo(buf[len(buf)-size:])
++	return size
++}

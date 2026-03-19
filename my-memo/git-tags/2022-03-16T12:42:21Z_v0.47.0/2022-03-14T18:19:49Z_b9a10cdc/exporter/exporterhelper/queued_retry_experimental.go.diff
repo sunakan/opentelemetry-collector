@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/queued_retry_experimental.go b/exporter/exporterhelper/queued_retry_experimental.go
+index 4c03410e6..4153edacd 100644
+--- a/exporter/exporterhelper/queued_retry_experimental.go
++++ b/exporter/exporterhelper/queued_retry_experimental.go
+@@ -48,9 +48,6 @@ type QueueSettings struct {
+ 	PersistentStorageEnabled bool `mapstructure:"persistent_storage_enabled"`
+ }
+ 
+-// Deprecated: [v0.46.0] use NewDefaultQueueSettings instead.
+-var DefaultQueueSettings = NewDefaultQueueSettings
+-
+ // NewDefaultQueueSettings returns the default settings for QueueSettings.
+ func NewDefaultQueueSettings() QueueSettings {
+ 	return QueueSettings{

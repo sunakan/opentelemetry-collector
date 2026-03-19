@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_resourcelogs_test.go b/pdata/plog/generated_resourcelogs_test.go
+index d7b42f7b8..ad895b535 100644
+--- a/pdata/plog/generated_resourcelogs_test.go
++++ b/pdata/plog/generated_resourcelogs_test.go
+@@ -22,6 +22,8 @@ func TestResourceLogs_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewResourceLogs(), ms)
+ 	assert.Equal(t, generateTestResourceLogs(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestResourceLogs(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newResourceLogs(&otlplogs.ResourceLogs{}, &sharedState)) })
+ 	assert.Panics(t, func() { newResourceLogs(&otlplogs.ResourceLogs{}, &sharedState).MoveTo(dest) })

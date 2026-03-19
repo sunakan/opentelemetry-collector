@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/config.go b/exporter/otlphttpexporter/config.go
+index 10ec9750f..ccf7f52a1 100644
+--- a/exporter/otlphttpexporter/config.go
++++ b/exporter/otlphttpexporter/config.go
+@@ -22,7 +22,7 @@ import (
+ 
+ // Config defines configuration for OTLP/HTTP exporter.
+ type Config struct {
+-	*config.ExporterSettings      `mapstructure:"-"`
++	config.ExporterSettings       `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ 	confighttp.HTTPClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 	exporterhelper.QueueSettings  `mapstructure:"sending_queue"`
+ 	exporterhelper.RetrySettings  `mapstructure:"retry_on_failure"`

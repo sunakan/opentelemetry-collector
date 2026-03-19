@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_linkslice_test.go b/pdata/pprofile/generated_linkslice_test.go
+index c046fc2d2..0e67941db 100644
+--- a/pdata/pprofile/generated_linkslice_test.go
++++ b/pdata/pprofile/generated_linkslice_test.go
+@@ -52,6 +52,8 @@ func TestLinkSlice_CopyTo(t *testing.T) {
+ 	src := generateTestLinkSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestLinkSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestLinkSlice(), dest)
+ }
+ 
+ func TestLinkSlice_EnsureCapacity(t *testing.T) {

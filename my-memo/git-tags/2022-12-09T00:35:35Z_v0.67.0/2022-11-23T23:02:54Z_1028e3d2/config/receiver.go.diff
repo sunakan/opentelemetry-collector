@@ -1,0 +1,10 @@
+diff --git a/config/receiver.go b/config/receiver.go
+index 2c29d7db1..5bacff497 100644
+--- a/config/receiver.go
++++ b/config/receiver.go
+@@ -32,4 +32,4 @@ func NewReceiverSettings(id component.ID) ReceiverSettings {
+ 	return ReceiverSettings{settings: newSettings(id)}
+ }
+ 
+-var _ component.ReceiverConfig = (*ReceiverSettings)(nil)
++var _ component.Config = (*ReceiverSettings)(nil)

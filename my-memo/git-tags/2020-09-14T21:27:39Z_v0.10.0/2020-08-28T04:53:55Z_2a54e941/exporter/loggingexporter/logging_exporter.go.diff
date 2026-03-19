@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 6fa214851..4083eccd0 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -364,7 +364,7 @@ func (s *loggingExporter) pushMetricsData(
+ 	_ context.Context,
+ 	md pdata.Metrics,
+ ) (int, error) {
+-	imd := pdatautil.MetricsToInternalMetrics(md)
++	imd := pdatautil.MetricsToOldInternalMetrics(md)
+ 	s.logger.Info("MetricsExporter", zap.Int("#metrics", imd.MetricCount()))
+ 
+ 	if !s.debug {

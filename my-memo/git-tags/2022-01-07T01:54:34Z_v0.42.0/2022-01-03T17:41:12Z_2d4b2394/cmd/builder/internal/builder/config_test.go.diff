@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index e5c072494..00dafa2da 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -161,9 +161,3 @@ func TestDefaultConfig(t *testing.T) {
+ 	require.NoError(t, cfg.ParseModules())
+ 	require.NoError(t, cfg.Validate())
+ }
+-
+-func TestValidateDeprecatedIncludeCoreWarnLog(t *testing.T) {
+-	cfg := DefaultConfig()
+-	cfg.Distribution.IncludeCore = true
+-	require.NoError(t, cfg.Validate())
+-}

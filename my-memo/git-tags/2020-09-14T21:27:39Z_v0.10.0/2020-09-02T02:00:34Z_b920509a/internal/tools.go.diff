@@ -1,0 +1,13 @@
+diff --git a/internal/tools.go b/internal/tools.go
+index ca53d3b25..db8f69bf7 100644
+--- a/internal/tools.go
++++ b/internal/tools.go
+@@ -29,7 +29,7 @@ import (
+ 	_ "github.com/mjibson/esc"
+ 	_ "github.com/ory/go-acc"
+ 	_ "github.com/pavius/impi/cmd/impi"
+-	_ "github.com/securego/gosec/cmd/gosec"
++	_ "github.com/securego/gosec/v2/cmd/gosec"
+ 	_ "github.com/tcnksm/ghr"
+ 	_ "honnef.co/go/tools/cmd/staticcheck"
+ )

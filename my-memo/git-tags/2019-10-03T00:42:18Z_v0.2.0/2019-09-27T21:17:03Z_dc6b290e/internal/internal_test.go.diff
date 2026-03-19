@@ -1,0 +1,13 @@
+diff --git a/internal/internal_test.go b/internal/internal_test.go
+index 817db0ee9..2dc633e4c 100644
+--- a/internal/internal_test.go
++++ b/internal/internal_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"testing"
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal"
++	"github.com/open-telemetry/opentelemetry-collector/internal"
+ )
+ 
+ func TestTimeConverters(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 9a32f36d7..91936bfb6 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -83,7 +83,7 @@ func (r *otlpReceiver) startGRPCServer(host component.Host) error {
+ 	}
+ 
+ 	var err error
+-	if r.serverGRPC, err = r.cfg.GRPC.ToServer(host, r.settings.TelemetrySettings); err != nil {
++	if r.serverGRPC, err = r.cfg.GRPC.ToServerContext(context.Background(), host, r.settings.TelemetrySettings); err != nil {
+ 		return err
+ 	}
+ 

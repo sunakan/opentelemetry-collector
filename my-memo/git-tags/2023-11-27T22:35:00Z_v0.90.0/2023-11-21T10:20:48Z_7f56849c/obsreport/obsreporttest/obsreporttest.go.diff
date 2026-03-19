@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreporttest/obsreporttest.go b/obsreport/obsreporttest/obsreporttest.go
+index 04b032b5a..383ecb225 100644
+--- a/obsreport/obsreporttest/obsreporttest.go
++++ b/obsreport/obsreporttest/obsreporttest.go
+@@ -160,7 +160,7 @@ func SetupTelemetry(id component.ID) (TestTelemetry, error) {
+ 
+ 	promRegOtel := prometheus.NewRegistry()
+ 
+-	exp, err := otelprom.New(otelprom.WithRegisterer(promRegOtel), otelprom.WithoutUnits(), otelprom.WithoutScopeInfo())
++	exp, err := otelprom.New(otelprom.WithRegisterer(promRegOtel), otelprom.WithoutUnits(), otelprom.WithoutScopeInfo(), otelprom.WithoutCounterSuffixes())
+ 	if err != nil {
+ 		return settings, err
+ 	}

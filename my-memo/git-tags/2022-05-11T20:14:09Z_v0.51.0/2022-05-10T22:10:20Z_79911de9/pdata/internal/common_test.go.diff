@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/common_test.go b/pdata/internal/common_test.go
+index 45713c620..73d82d560 100644
+--- a/pdata/internal/common_test.go
++++ b/pdata/internal/common_test.go
+@@ -1306,7 +1306,7 @@ func TestNewValueFromRaw(t *testing.T) {
+ 			input: []interface{}{"v1", "v2"},
+ 			expected: (func() Value {
+ 				s := NewValueSlice()
+-				newSliceFromRaw([]interface{}{"v1", "v2"}).CopyTo(s.SliceVal())
++				NewSliceFromRaw([]interface{}{"v1", "v2"}).CopyTo(s.SliceVal())
+ 				return s
+ 			})(),
+ 		},

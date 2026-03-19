@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/factory.go b/extension/healthcheckextension/factory.go
+index 6d29f92d3..da1d8e2aa 100644
+--- a/extension/healthcheckextension/factory.go
++++ b/extension/healthcheckextension/factory.go
+@@ -47,7 +47,7 @@ func createDefaultConfig() configmodels.Extension {
+ 	}
+ }
+ 
+-func createExtension(_ context.Context, params component.ExtensionCreateParams, cfg configmodels.Extension) (component.ServiceExtension, error) {
++func createExtension(_ context.Context, params component.ExtensionCreateParams, cfg configmodels.Extension) (component.Extension, error) {
+ 	config := cfg.(*Config)
+ 
+ 	// The runtime settings are global to the application, so while in principle it

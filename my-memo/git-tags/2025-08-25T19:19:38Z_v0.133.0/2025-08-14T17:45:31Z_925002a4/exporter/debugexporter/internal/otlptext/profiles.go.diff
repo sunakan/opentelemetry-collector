@@ -1,0 +1,12 @@
+diff --git a/exporter/debugexporter/internal/otlptext/profiles.go b/exporter/debugexporter/internal/otlptext/profiles.go
+index 141797f3f..9bcb4c39d 100644
+--- a/exporter/debugexporter/internal/otlptext/profiles.go
++++ b/exporter/debugexporter/internal/otlptext/profiles.go
+@@ -42,6 +42,7 @@ func (textProfilesMarshaler) MarshalProfiles(pd pprofile.Profiles) ([]byte, erro
+ 		rp := rps.At(i)
+ 		buf.logEntry("Resource SchemaURL: %s", rp.SchemaUrl())
+ 		buf.logAttributes("Resource attributes", rp.Resource().Attributes())
++		buf.logEntityRefs(rp.Resource())
+ 		ilps := rp.ScopeProfiles()
+ 		for j := 0; j < ilps.Len(); j++ {
+ 			buf.logEntry("ScopeProfiles #%d", j)

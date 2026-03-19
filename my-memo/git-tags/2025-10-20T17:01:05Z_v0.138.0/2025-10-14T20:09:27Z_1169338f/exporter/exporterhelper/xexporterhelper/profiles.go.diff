@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index d3546f43c..ec9a2f8b7 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -38,12 +38,6 @@ func NewProfilesQueueBatchSettings() QueueBatchSettings {
+ 	return QueueBatchSettings{
+ 		ReferenceCounter: profilesReferenceCounter{},
+ 		Encoding:         profilesEncoding{},
+-		ItemsSizer:       request.NewItemsSizer(),
+-		BytesSizer: request.BaseSizer{
+-			SizeofFunc: func(req request.Request) int64 {
+-				return int64(profilesMarshaler.ProfilesSize(req.(*profilesRequest).pd))
+-			},
+-		},
+ 	}
+ }
+ 

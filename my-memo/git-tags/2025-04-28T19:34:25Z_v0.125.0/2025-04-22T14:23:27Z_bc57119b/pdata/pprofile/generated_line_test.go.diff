@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_line_test.go b/pdata/pprofile/generated_line_test.go
+index 3a7c50b1e..09f7a7881 100644
+--- a/pdata/pprofile/generated_line_test.go
++++ b/pdata/pprofile/generated_line_test.go
+@@ -21,6 +21,8 @@ func TestLine_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewLine(), ms)
+ 	assert.Equal(t, generateTestLine(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestLine(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newLine(&otlpprofiles.Line{}, &sharedState)) })
+ 	assert.Panics(t, func() { newLine(&otlpprofiles.Line{}, &sharedState).MoveTo(dest) })

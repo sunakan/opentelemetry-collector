@@ -1,0 +1,13 @@
+diff --git a/service/internal/resource/config_test.go b/service/internal/resource/config_test.go
+index de20dddd1..d68cb5c15 100644
+--- a/service/internal/resource/config_test.go
++++ b/service/internal/resource/config_test.go
+@@ -100,7 +100,7 @@ func TestNew(t *testing.T) {
+ 				delete(tt.want, "service.instance.id")
+ 			}
+ 
+-			assert.EqualValues(t, tt.want, got)
++			assert.Equal(t, tt.want, got)
+ 		})
+ 	}
+ }

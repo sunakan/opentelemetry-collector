@@ -1,0 +1,39 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 260206b16..7a673f5f0 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -42,6 +42,7 @@ type Config struct {
+ 	Extensions   []Module     `mapstructure:"extensions"`
+ 	Receivers    []Module     `mapstructure:"receivers"`
+ 	Processors   []Module     `mapstructure:"processors"`
++	Connectors   []Module     `mapstructure:"connectors"`
+ 	Replaces     []string     `mapstructure:"replaces"`
+ 	Excludes     []string     `mapstructure:"excludes"`
+ }
+@@ -91,7 +92,13 @@ func NewDefaultConfig() Config {
+ 
+ // Validate checks whether the current configuration is valid
+ func (c *Config) Validate() error {
+-	return multierr.Combine(validateModules(c.Extensions), validateModules(c.Receivers), validateModules(c.Exporters), validateModules(c.Processors))
++	return multierr.Combine(
++		validateModules(c.Extensions),
++		validateModules(c.Receivers),
++		validateModules(c.Exporters),
++		validateModules(c.Processors),
++		validateModules(c.Connectors),
++	)
+ }
+ 
+ // SetGoPath sets go path
+@@ -134,6 +141,11 @@ func (c *Config) ParseModules() error {
+ 		return err
+ 	}
+ 
++	c.Connectors, err = parseModules(c.Connectors)
++	if err != nil {
++		return err
++	}
++
+ 	return nil
+ }
+ 

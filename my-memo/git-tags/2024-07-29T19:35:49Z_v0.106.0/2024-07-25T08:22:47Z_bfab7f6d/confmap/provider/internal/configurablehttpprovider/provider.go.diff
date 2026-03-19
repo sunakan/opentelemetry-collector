@@ -1,0 +1,23 @@
+diff --git a/confmap/provider/internal/configurablehttpprovider/provider.go b/confmap/provider/internal/configurablehttpprovider/provider.go
+index f5bac2c6d..2d968e3ba 100644
+--- a/confmap/provider/internal/configurablehttpprovider/provider.go
++++ b/confmap/provider/internal/configurablehttpprovider/provider.go
+@@ -10,6 +10,7 @@ import (
+ 	"fmt"
+ 	"io"
+ 	"net/http"
++	"net/url"
+ 	"os"
+ 	"path/filepath"
+ 	"strings"
+@@ -84,6 +85,10 @@ func (fmp *provider) Retrieve(_ context.Context, uri string, _ confmap.WatcherFu
+ 		return nil, fmt.Errorf("%q uri is not supported by %q provider", uri, string(fmp.scheme))
+ 	}
+ 
++	if _, err := url.ParseRequestURI(uri); err != nil {
++		return nil, fmt.Errorf("invalid uri %q: %w", uri, err)
++	}
++
+ 	client, err := fmp.createClient()
+ 
+ 	if err != nil {

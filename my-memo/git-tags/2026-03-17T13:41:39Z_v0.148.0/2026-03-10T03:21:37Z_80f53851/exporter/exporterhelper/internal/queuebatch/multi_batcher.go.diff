@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/multi_batcher.go b/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
+index dd9e17865..87c3d258d 100644
+--- a/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
+@@ -50,7 +50,7 @@ func newMultiBatcher(
+ 	// TODO: make maxActivePartitionsCount configurable
+ 	cache, err := lru.NewLRU[string, *partitionBatcher](10000, func(_ string, pb *partitionBatcher) {
+ 		// Flush the partition when evicted
+-		mb.wp.execute(pb.flushCurrentBatchIfNotEmpty)
++		mb.wp.execute(pb.shutdownInternal)
+ 	})
+ 	if err != nil {
+ 		return nil, err

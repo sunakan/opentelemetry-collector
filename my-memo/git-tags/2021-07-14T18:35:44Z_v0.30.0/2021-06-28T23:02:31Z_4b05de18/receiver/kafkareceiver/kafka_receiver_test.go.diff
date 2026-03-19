@@ -1,0 +1,14 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver_test.go b/receiver/kafkareceiver/kafka_receiver_test.go
+index ec3167827..2daa3bde7 100644
+--- a/receiver/kafkareceiver/kafka_receiver_test.go
++++ b/receiver/kafkareceiver/kafka_receiver_test.go
+@@ -33,8 +33,8 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/exporter/kafkaexporter"
+-	"go.opentelemetry.io/collector/internal/otlp"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )

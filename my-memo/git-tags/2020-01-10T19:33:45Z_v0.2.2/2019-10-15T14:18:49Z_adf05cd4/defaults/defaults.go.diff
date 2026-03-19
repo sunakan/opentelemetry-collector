@@ -1,0 +1,13 @@
+diff --git a/defaults/defaults.go b/defaults/defaults.go
+index e9e3cf7c2..936fe2110 100644
+--- a/defaults/defaults.go
++++ b/defaults/defaults.go
+@@ -44,7 +44,7 @@ import (
+ )
+ 
+ // Components returns the default set of components used by the
+-// opentelemetry service
++// OpenTelemetry collector.
+ func Components() (
+ 	config.Factories,
+ 	error,

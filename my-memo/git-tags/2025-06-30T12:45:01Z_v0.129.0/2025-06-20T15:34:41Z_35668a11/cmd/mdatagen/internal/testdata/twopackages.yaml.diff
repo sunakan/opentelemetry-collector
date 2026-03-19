@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/testdata/twopackages.yaml b/cmd/mdatagen/internal/testdata/twopackages.yaml
+new file mode 100644
+index 000000000..a7449600b
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/twopackages.yaml
+@@ -0,0 +1,7 @@
++type: sample
++github_project: open-telemetry/opentelemetry-collector
++
++status:
++  class: receiver
++  stability:
++    beta: [traces]
+\ No newline at end of file

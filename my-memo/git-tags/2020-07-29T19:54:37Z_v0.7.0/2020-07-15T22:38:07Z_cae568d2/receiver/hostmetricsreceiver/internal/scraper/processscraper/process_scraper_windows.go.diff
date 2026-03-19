@@ -1,0 +1,27 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+index b4781d75e..76f10b581 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+@@ -19,6 +19,7 @@ package processscraper
+ import (
+ 	"path/filepath"
+ 	"regexp"
++	"time"
+ 
+ 	"github.com/shirou/gopsutil/cpu"
+ 
+@@ -32,6 +33,14 @@ func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startTime pda
+ 	initializeCPUTimeDataPoint(ddps.At(1), startTime, cpuTime.System, systemStateLabelValue)
+ }
+ 
++func initializeCPUTimeDataPoint(dataPoint pdata.DoubleDataPoint, startTime pdata.TimestampUnixNano, value float64, stateLabel string) {
++	labelsMap := dataPoint.LabelsMap()
++	labelsMap.Insert(stateLabelName, stateLabel)
++	dataPoint.SetStartTime(startTime)
++	dataPoint.SetTimestamp(pdata.TimestampUnixNano(uint64(time.Now().UnixNano())))
++	dataPoint.SetValue(value)
++}
++
+ func getProcessExecutable(proc processHandle) (*executableMetadata, error) {
+ 	exe, err := proc.Exe()
+ 	if err != nil {

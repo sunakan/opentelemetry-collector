@@ -1,0 +1,17 @@
+diff --git a/config/testdata/pipeline-must-have-processors.yaml b/config/testdata/pipeline-must-have-processors.yaml
+deleted file mode 100644
+index 3af5c14e8..000000000
+--- a/config/testdata/pipeline-must-have-processors.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [multireceiver]
+-      exporters: [exampleexporter]

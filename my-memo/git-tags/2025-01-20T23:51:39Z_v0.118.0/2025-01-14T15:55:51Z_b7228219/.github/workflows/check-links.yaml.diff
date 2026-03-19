@@ -1,0 +1,9 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 23f608c68..1921b2d99 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -54,3 +54,4 @@ jobs:
+         uses: lycheeverse/lychee-action@f796c8b7d468feb9b8c0a46da3fac0af6874d374
+         with:
+           args: "--verbose --no-progress ${{needs.changedfiles.outputs.files}} --config .github/lychee.toml"
++          failIfEmpty: false

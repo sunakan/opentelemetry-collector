@@ -1,0 +1,17 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index c1c6dfc95..1fc17167c 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -23,9 +23,9 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
+-	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
+-	otlpresource "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/resource/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
++	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
++	otlpresource "go.opentelemetry.io/collector/internal/data/protogen/resource/v1"
+ 	"go.opentelemetry.io/collector/testbed/testbed"
+ )
+ 

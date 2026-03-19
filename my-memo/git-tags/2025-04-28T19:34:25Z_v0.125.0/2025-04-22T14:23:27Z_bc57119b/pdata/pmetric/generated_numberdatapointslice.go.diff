@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice.go b/pdata/pmetric/generated_numberdatapointslice.go
+index 89a82d282..965d743f9 100644
+--- a/pdata/pmetric/generated_numberdatapointslice.go
++++ b/pdata/pmetric/generated_numberdatapointslice.go
+@@ -109,6 +109,10 @@ func (es NumberDataPointSlice) AppendEmpty() NumberDataPoint {
+ func (es NumberDataPointSlice) MoveAndAppendTo(dest NumberDataPointSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

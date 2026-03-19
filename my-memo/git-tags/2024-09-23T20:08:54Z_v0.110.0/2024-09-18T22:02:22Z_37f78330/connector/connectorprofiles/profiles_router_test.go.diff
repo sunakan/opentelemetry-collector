@@ -1,0 +1,21 @@
+diff --git a/connector/connectorprofiles/profiles_router_test.go b/connector/connectorprofiles/profiles_router_test.go
+index 08dc2490c..0eb69a12b 100644
+--- a/connector/connectorprofiles/profiles_router_test.go
++++ b/connector/connectorprofiles/profiles_router_test.go
+@@ -10,6 +10,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -149,7 +150,7 @@ func TestProfilessRouterConsumer(t *testing.T) {
+ 
+ 	none, err := r.Consumer()
+ 	assert.Nil(t, none)
+-	assert.Error(t, err)
++	require.Error(t, err)
+ 
+ 	fake, err := r.Consumer(component.MustNewID("fake"))
+ 	assert.Nil(t, fake)

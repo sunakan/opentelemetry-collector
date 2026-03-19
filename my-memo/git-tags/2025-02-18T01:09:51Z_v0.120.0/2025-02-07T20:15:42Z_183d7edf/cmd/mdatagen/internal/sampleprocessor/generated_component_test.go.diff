@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go b/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
+index 5ef892241..df98cb869 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
++++ b/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
+@@ -22,8 +22,10 @@ import (
+ 	"go.opentelemetry.io/collector/processor/processortest"
+ )
+ 
++var typ = component.MustNewType("sample")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "sample", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

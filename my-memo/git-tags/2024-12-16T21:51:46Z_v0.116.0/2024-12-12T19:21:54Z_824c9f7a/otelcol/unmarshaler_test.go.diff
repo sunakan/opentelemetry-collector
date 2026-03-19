@@ -1,0 +1,22 @@
+diff --git a/otelcol/unmarshaler_test.go b/otelcol/unmarshaler_test.go
+index 309e6e4c1..7e0e34ac5 100644
+--- a/otelcol/unmarshaler_test.go
++++ b/otelcol/unmarshaler_test.go
+@@ -71,7 +71,7 @@ func TestUnmarshalUnknownTopLevel(t *testing.T) {
+ }
+ 
+ func TestPipelineConfigUnmarshalError(t *testing.T) {
+-	var testCases = []struct {
++	testCases := []struct {
+ 		// test case name (also file name containing config yaml)
+ 		name string
+ 		conf *confmap.Conf
+@@ -141,7 +141,7 @@ func TestPipelineConfigUnmarshalError(t *testing.T) {
+ }
+ 
+ func TestServiceUnmarshalError(t *testing.T) {
+-	var testCases = []struct {
++	testCases := []struct {
+ 		// test case name (also file name containing config yaml)
+ 		name string
+ 		conf *confmap.Conf

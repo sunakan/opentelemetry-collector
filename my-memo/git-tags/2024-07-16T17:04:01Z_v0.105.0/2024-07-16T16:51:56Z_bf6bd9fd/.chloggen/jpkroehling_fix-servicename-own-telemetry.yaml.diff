@@ -1,0 +1,10 @@
+diff --git a/.chloggen/jpkroehling_fix-servicename-own-telemetry.yaml b/.chloggen/jpkroehling_fix-servicename-own-telemetry.yaml
+deleted file mode 100644
+index 0fe7a6f66..000000000
+--- a/.chloggen/jpkroehling_fix-servicename-own-telemetry.yaml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-change_type: bug_fix
+-component: service/telemetry
+-note: Add ability to set service.name for spans emitted by the Collector
+-issues: [10489]

@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 4f5b977b2..772a5673e 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -86,7 +86,6 @@ func NewLogs(
+ 	}
+ 	logsOpts := []Option{
+ 		internal.WithMarshaler(logsRequestMarshaler), internal.WithUnmarshaler(newLogsRequestUnmarshalerFunc(pusher)),
+-		internal.WithBatchFuncs(mergeLogs, mergeSplitLogs),
+ 	}
+ 	return NewLogsRequest(ctx, set, requestFromLogs(pusher), append(logsOpts, options...)...)
+ }

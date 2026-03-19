@@ -1,0 +1,23 @@
+diff --git a/cmd/mdatagen/main.go b/cmd/mdatagen/main.go
+index 959275c02..ee4b719ae 100644
+--- a/cmd/mdatagen/main.go
++++ b/cmd/mdatagen/main.go
+@@ -1,6 +1,8 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ package main
+ 
+ import (
+@@ -204,6 +206,9 @@ func templatize(tmplFile string, md metadata) *template.Template {
+ 				"isConnector": func() bool {
+ 					return md.Status.Class == "connector"
+ 				},
++				"isCommand": func() bool {
++					return md.Status.Class == "cmd"
++				},
+ 				"supportsLogs": func() bool {
+ 					for _, signals := range md.Status.Stability {
+ 						for _, s := range signals {

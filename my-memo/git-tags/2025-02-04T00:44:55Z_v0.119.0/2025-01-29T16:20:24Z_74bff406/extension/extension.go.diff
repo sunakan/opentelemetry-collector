@@ -1,0 +1,15 @@
+diff --git a/extension/extension.go b/extension/extension.go
+index 5bc630a9e..41c5a7600 100644
+--- a/extension/extension.go
++++ b/extension/extension.go
+@@ -13,7 +13,9 @@ import (
+ // Extension is the interface for objects hosted by the OpenTelemetry Collector that
+ // don't participate directly on data pipelines but provide some functionality
+ // to the service, examples: health check endpoint, z-pages, etc.
+-type Extension = component.Component
++type Extension interface {
++	component.Component
++}
+ 
+ // ModuleInfo describes the go module for each component.
+ type ModuleInfo struct {

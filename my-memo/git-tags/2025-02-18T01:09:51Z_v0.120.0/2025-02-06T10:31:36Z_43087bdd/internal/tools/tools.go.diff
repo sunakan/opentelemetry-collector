@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 5325cd73d..a830863d0 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -20,6 +20,7 @@ import (
+ 	_ "go.opentelemetry.io/build-tools/checkfile"
+ 	_ "go.opentelemetry.io/build-tools/chloggen"
+ 	_ "go.opentelemetry.io/build-tools/crosslink"
++	_ "go.opentelemetry.io/build-tools/githubgen"
+ 	_ "go.opentelemetry.io/build-tools/multimod"
+ 	_ "go.opentelemetry.io/build-tools/semconvgen"
+ 	_ "golang.org/x/exp/cmd/apidiff"

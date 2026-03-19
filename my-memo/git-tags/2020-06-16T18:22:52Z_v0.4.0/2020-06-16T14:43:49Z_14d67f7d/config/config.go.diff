@@ -1,0 +1,33 @@
+diff --git a/config/config.go b/config/config.go
+index ecd6af6d9..dc1aa594a 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -755,7 +755,7 @@ func expandStringValues(value interface{}) interface{} {
+ 	default:
+ 		return v
+ 	case string:
+-		return os.ExpandEnv(v)
++		return expandEnv(v)
+ 	case []interface{}:
+ 		nslice := make([]interface{}, 0, len(v))
+ 		for _, vint := range v {
+@@ -771,6 +771,19 @@ func expandStringValues(value interface{}) interface{} {
+ 	}
+ }
+ 
++func expandEnv(s string) string {
++	return os.Expand(s, func(str string) string {
++		// This allows escaping environment variable substitution via $$, e.g.
++		// - $FOO will be substituted with env var FOO
++		// - $$FOO will be replaced with $FOO
++		// - $$$FOO will be replaced with $ + substituted env var FOO
++		if str == "$" {
++			return "$"
++		}
++		return os.Getenv(str)
++	})
++}
++
+ // Copied from the Viper but changed to use the same delimiter.
+ // See https://github.com/spf13/viper/issues/871
+ func ViperSub(v *viper.Viper, key string) *viper.Viper {

@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index 9797a802c..8835fe4fa 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -251,6 +251,7 @@ func TestGRPCReception(t *testing.T) {
+ }
+ 
+ func TestGRPCReceptionWithTLS(t *testing.T) {
++	t.Skip("Expired certificates: https://github.com/open-telemetry/opentelemetry-collector/issues/1627")
+ 	// prepare
+ 	var grpcServerOptions []grpc.ServerOption
+ 	tlsCreds := configtls.TLSServerSetting{

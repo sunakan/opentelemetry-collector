@@ -1,0 +1,15 @@
+diff --git a/internal/configprovider/testdata/expand-with-all-env.yaml b/internal/configprovider/testdata/expand-with-all-env.yaml
+new file mode 100644
+index 000000000..8a75ba903
+--- /dev/null
++++ b/internal/configprovider/testdata/expand-with-all-env.yaml
+@@ -0,0 +1,9 @@
++test_map:
++  extra: "$EXTRA"
++  extra_map:
++    recv.1: "$EXTRA_MAP_VALUE_1"
++    recv.2: "${EXTRA_MAP_VALUE_2}"
++  extra_list:
++    - "$EXTRA_LIST_VALUE_1"
++    - "${EXTRA_LIST_VALUE_2}"
++    

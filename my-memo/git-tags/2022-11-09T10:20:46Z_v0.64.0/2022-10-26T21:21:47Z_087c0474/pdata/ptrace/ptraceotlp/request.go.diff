@@ -1,0 +1,17 @@
+diff --git a/pdata/ptrace/ptraceotlp/request.go b/pdata/ptrace/ptraceotlp/request.go
+index 8710b3ecd..21fd126bf 100644
+--- a/pdata/ptrace/ptraceotlp/request.go
++++ b/pdata/ptrace/ptraceotlp/request.go
+@@ -72,12 +72,3 @@ func (ms ExportRequest) UnmarshalJSON(data []byte) error {
+ func (ms ExportRequest) Traces() ptrace.Traces {
+ 	return ptrace.Traces(internal.NewTraces(ms.orig))
+ }
+-
+-// Deprecated: [v0.63.0] use ExportRequest.
+-type Request = ExportRequest
+-
+-// Deprecated: [v0.63.0] use NewExportRequest.
+-var NewRequest = NewExportRequest
+-
+-// Deprecated: [v0.63.0] use NewExportRequestFromTraces.
+-var NewRequestFromTraces = NewExportRequestFromTraces

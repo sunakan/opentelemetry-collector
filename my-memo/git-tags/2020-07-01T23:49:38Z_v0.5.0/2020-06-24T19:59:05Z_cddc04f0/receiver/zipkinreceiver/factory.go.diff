@@ -1,0 +1,25 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index af5897b65..42e79bafc 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -22,6 +22,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configerror"
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configprotocol"
+ 	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+@@ -52,8 +53,10 @@ func (f *Factory) CustomUnmarshaler() component.CustomUnmarshaler {
+ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 	return &Config{
+ 		ReceiverSettings: configmodels.ReceiverSettings{
+-			TypeVal:  typeStr,
+-			NameVal:  typeStr,
++			TypeVal: typeStr,
++			NameVal: typeStr,
++		},
++		ProtocolServerSettings: configprotocol.ProtocolServerSettings{
+ 			Endpoint: defaultBindEndpoint,
+ 		},
+ 	}

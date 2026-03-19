@@ -1,0 +1,12 @@
+diff --git a/examples/demo/otel-agent-config.yaml b/examples/demo/otel-agent-config.yaml
+index 7d31209e2..7df79e517 100644
+--- a/examples/demo/otel-agent-config.yaml
++++ b/examples/demo/otel-agent-config.yaml
+@@ -15,6 +15,7 @@ exporters:
+   opencensus:
+     endpoint: "otel-collector:55678"
+   logging:
++    loglevel: debug
+ 
+ processors:
+   batch:

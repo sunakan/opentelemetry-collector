@@ -1,0 +1,11 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 5e9cf2da9..a8eb3908a 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -29,4 +29,6 @@ import (
+ 	_ "golang.org/x/vuln/cmd/govulncheck"
+ 	_ "gotest.tools/gotestsum"
+ 	_ "mvdan.cc/gofumpt"
++
++	_ "go.opentelemetry.io/collector/internal/cmd/pdatagen"
+ )

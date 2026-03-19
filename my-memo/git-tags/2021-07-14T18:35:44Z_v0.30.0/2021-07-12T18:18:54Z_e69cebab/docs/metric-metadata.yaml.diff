@@ -1,0 +1,18 @@
+diff --git a/docs/metric-metadata.yaml b/docs/metric-metadata.yaml
+index e469e3d64..cccb67528 100644
+--- a/docs/metric-metadata.yaml
++++ b/docs/metric-metadata.yaml
+@@ -23,11 +23,11 @@ metrics:
+     unit:
+     # Required
+     data:
+-      # Required: one of int gauge, int sum, int histogram, double gauge, double sum, or double histogram.
++      # Required: one of int gauge, int sum, int histogram, double gauge, double sum, or histogram.
+       type:
+       # Required for int sum and double sum.
+       monotonic: # true | false
+-      # Required for int sum, int histogram, double sum, and double histogram.
++      # Required for int sum, int histogram, double sum, and histogram.
+       aggregation: # delta | cumulative
+     # Optional: array of labels that were defined in the labels section that are emitted by this metric.
+     labels:

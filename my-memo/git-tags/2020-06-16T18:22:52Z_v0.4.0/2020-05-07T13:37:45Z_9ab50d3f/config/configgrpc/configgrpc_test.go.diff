@@ -1,0 +1,21 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index d29c9133d..e3fb13759 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -33,7 +33,7 @@ func TestBasicGrpcSettings(t *testing.T) {
+ 		KeepaliveParameters: nil,
+ 	})
+ 
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ }
+ 
+ func TestInvalidPemFile(t *testing.T) {
+@@ -66,6 +66,6 @@ func TestUseSecure(t *testing.T) {
+ 		KeepaliveParameters: nil,
+ 	})
+ 
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 	assert.Equal(t, len(dialOpts), 1)
+ }

@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/statusdata.go b/cmd/mdatagen/statusdata.go
+index db130aaf3..f09c68f98 100644
+--- a/cmd/mdatagen/statusdata.go
++++ b/cmd/mdatagen/statusdata.go
+@@ -19,6 +19,7 @@ import (
+ var distros = map[string]string{
+ 	"core":    "https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol",
+ 	"contrib": "https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib",
++	"k8s":     "https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-k8s",
+ }
+ 
+ type Codeowners struct {

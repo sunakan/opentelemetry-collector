@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 9b5d80edd..5b9ef6a15 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -13,6 +13,7 @@
+ - Define a type `WatcherFunc` for onChange func instead of func pointer (#4656)
+ - Remove deprecated `configtest.LoadConfig` and `configtest.LoadConfigAndValidate` (#4659)
+ - Move service.ConfigMapConverterFunc to config.MapConverterFunc (#4673)
++  - Add context to config.MapConverterFunc (#4678)
+ 
+ ## 💡 Enhancements 💡
+ 

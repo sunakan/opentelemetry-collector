@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index 419affb92..91cac9274 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -10,8 +10,7 @@ on:
+     branches:
+       - main
+ 
+-permissions:
+-  contents: read
++permissions: read-all
+ 
+ jobs:
+   Check-Compatibility:

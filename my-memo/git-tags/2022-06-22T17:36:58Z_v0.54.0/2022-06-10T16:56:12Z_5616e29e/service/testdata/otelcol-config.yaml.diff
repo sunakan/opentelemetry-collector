@@ -1,0 +1,28 @@
+diff --git a/service/testdata/otelcol-config.yaml b/service/testdata/otelcol-config.yaml
+deleted file mode 100644
+index 1ad880dfc..000000000
+--- a/service/testdata/otelcol-config.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-receivers:
+-  otlp:
+-    protocols:
+-      grpc:
+-
+-exporters:
+-  otlp:
+-    endpoint: "locahost:4317"
+-
+-processors:
+-  batch:
+-
+-extensions:
+-  zpages:
+-
+-service:
+-  extensions: [zpages]
+-  pipelines:
+-    traces:
+-      receivers: [otlp]
+-      processors: [batch]
+-      exporters: [otlp]

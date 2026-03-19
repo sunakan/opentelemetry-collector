@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_protospan.go b/translator/trace/jaeger/jaegerproto_to_protospan.go
+index 74a74b1e8..436f5abc1 100644
+--- a/translator/trace/jaeger/jaegerproto_to_protospan.go
++++ b/translator/trace/jaeger/jaegerproto_to_protospan.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	commonpb "github.com/census-instrumentation/opencensus-proto/gen-go/agent/common/v1"
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+-	model "github.com/jaegertracing/jaeger/model"
++	"github.com/jaegertracing/jaeger/model"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"

@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_fallback.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_fallback.go
+index 265aa89fa..33f07cdc1 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_fallback.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_fallback.go
+@@ -18,6 +18,8 @@ package processesscraper
+ 
+ import "go.opentelemetry.io/collector/consumer/pdata"
+ 
++const systemSpecificMetricsLen = 2
++
+ func appendSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startIndex int, miscFunc getMiscStats) error {
+ 	return nil
+ }

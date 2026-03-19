@@ -1,0 +1,21 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index 5db1decbe..c909b4c37 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -327,7 +327,15 @@ var exponentialHistogramDataPoint = &messageValueStruct{
+ 		startTimeField,
+ 		timeField,
+ 		countField,
+-		doubleSumField,
++		&optionalPrimitiveValue{
++			fieldName:        "Sum",
++			fieldType:        "Double",
++			originFieldName:  "Sum",
++			originTypePrefix: "otlpmetrics.ExponentialHistogramDataPoint_",
++			returnType:       "float64",
++			defaultVal:       "float64(0.0)",
++			testVal:          "float64(17.13)",
++		},
+ 		&primitiveTypedField{
+ 			fieldName:       "Scale",
+ 			originFieldName: "Scale",

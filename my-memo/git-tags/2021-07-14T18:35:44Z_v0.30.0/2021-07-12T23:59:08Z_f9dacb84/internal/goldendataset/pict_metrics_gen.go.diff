@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metrics_gen.go b/internal/goldendataset/pict_metrics_gen.go
+index fa0c902e2..8c604e156 100644
+--- a/internal/goldendataset/pict_metrics_gen.go
++++ b/internal/goldendataset/pict_metrics_gen.go
+@@ -73,7 +73,7 @@ func pictToCfg(inputs PICTMetricInputs) MetricsCfg {
+ 		cfg.MetricDescriptorType = pdata.MetricDataTypeIntSum
+ 		cfg.IsMonotonicSum = false
+ 	case MetricTypeDoubleGauge:
+-		cfg.MetricDescriptorType = pdata.MetricDataTypeDoubleGauge
++		cfg.MetricDescriptorType = pdata.MetricDataTypeGauge
+ 	case MetricTypeMonotonicDoubleSum:
+ 		cfg.MetricDescriptorType = pdata.MetricDataTypeSum
+ 		cfg.IsMonotonicSum = true

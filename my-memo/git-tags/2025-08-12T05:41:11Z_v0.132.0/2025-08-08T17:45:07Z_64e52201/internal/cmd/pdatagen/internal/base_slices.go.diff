@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/base_slices.go b/internal/cmd/pdatagen/internal/base_slices.go
+index cb05a516d..020c676ff 100644
+--- a/internal/cmd/pdatagen/internal/base_slices.go
++++ b/internal/cmd/pdatagen/internal/base_slices.go
+@@ -6,6 +6,7 @@ package internal // import "go.opentelemetry.io/collector/internal/cmd/pdatagen/
+ type baseSlice interface {
+ 	getName() string
+ 	getOriginName() string
++	getElementProtoType() ProtoType
+ 	getElementOriginName() string
+ 	getPackageName() string
+ }
+@@ -67,6 +68,10 @@ func (ss *sliceOfPtrs) getOriginName() string {
+ 	return ss.element.getOriginName() + "Slice"
+ }
+ 
++func (ss *sliceOfPtrs) getElementProtoType() ProtoType {
++	return ProtoTypeMessage
++}
++
+ func (ss *sliceOfPtrs) getElementOriginName() string {
+ 	return ss.element.getOriginName()
+ }
+@@ -130,6 +135,10 @@ func (ss *sliceOfValues) getOriginName() string {
+ 	return ss.element.getOriginName() + "Slice"
+ }
+ 
++func (ss *sliceOfValues) getElementProtoType() ProtoType {
++	return ProtoTypeMessage
++}
++
+ func (ss *sliceOfValues) getElementOriginName() string {
+ 	return ss.element.getOriginName()
+ }

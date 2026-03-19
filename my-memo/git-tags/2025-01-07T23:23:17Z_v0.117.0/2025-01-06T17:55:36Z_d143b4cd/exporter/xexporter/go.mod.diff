@@ -1,0 +1,19 @@
+diff --git a/exporter/xexporter/go.mod b/exporter/xexporter/go.mod
+index 5587aa0d6..edc71adbf 100644
+--- a/exporter/xexporter/go.mod
++++ b/exporter/xexporter/go.mod
+@@ -40,8 +40,6 @@ replace go.opentelemetry.io/collector/consumer/xconsumer => ../../consumer/xcons
+ 
+ replace go.opentelemetry.io/collector/extension => ../../extension
+ 
+-replace go.opentelemetry.io/collector/extension/experimental/storage => ../../extension/experimental/storage
+-
+ replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+@@ -81,3 +79,5 @@ replace go.opentelemetry.io/collector/scraper => ../../scraper
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/scraper/scraperhelper => ../../scraper/scraperhelper
++
++replace go.opentelemetry.io/collector/extension/xextension => ../../extension/xextension

@@ -1,0 +1,13 @@
+diff --git a/processor/processortest/unhealthy_processor.go b/processor/processortest/unhealthy_processor.go
+index eeb2e1b8d..508fbfde8 100644
+--- a/processor/processortest/unhealthy_processor.go
++++ b/processor/processortest/unhealthy_processor.go
+@@ -64,7 +64,7 @@ type unhealthyProcessor struct {
+ 
+ func (p unhealthyProcessor) Start(_ context.Context, _ component.Host) error {
+ 	go func() {
+-		_ = p.telemetry.ReportComponentStatus(component.NewStatusEvent(component.StatusRecoverableError))
++		p.telemetry.ReportStatus(component.NewStatusEvent(component.StatusRecoverableError))
+ 	}()
+ 	return nil
+ }

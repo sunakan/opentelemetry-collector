@@ -1,0 +1,12 @@
+diff --git a/receiver/receiverhelper/metadata.yaml b/receiver/receiverhelper/metadata.yaml
+index a1b77790d..7232c8559 100644
+--- a/receiver/receiverhelper/metadata.yaml
++++ b/receiver/receiverhelper/metadata.yaml
+@@ -2,6 +2,7 @@ type: receiverhelper
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   stability:
+     beta: [traces, metrics, logs]

@@ -1,0 +1,12 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index c9a1af347..016451540 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -64,6 +64,7 @@ func TestApplication_Start(t *testing.T) {
+ 	<-app.readyChan
+ 
+ 	require.True(t, isAppAvailable(t, "http://localhost:13133"))
++	assert.Equal(t, app.logger, app.GetLogger())
+ 
+ 	assertMetricsPrefix(t, testPrefix, metricsPort)
+ 

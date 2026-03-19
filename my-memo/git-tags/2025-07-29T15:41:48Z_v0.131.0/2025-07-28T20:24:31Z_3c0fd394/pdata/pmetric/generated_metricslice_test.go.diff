@@ -1,0 +1,39 @@
+diff --git a/pdata/pmetric/generated_metricslice_test.go b/pdata/pmetric/generated_metricslice_test.go
+index 3db1a6fed..8f7fd989d 100644
+--- a/pdata/pmetric/generated_metricslice_test.go
++++ b/pdata/pmetric/generated_metricslice_test.go
+@@ -11,9 +11,11 @@ import (
+ 	"unsafe"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestMetricSlice(t *testing.T) {
+@@ -142,6 +144,22 @@ func TestMetricSliceAll(t *testing.T) {
+ 	assert.Equal(t, ms.Len(), c, "All elements should have been visited")
+ }
+ 
++func TestMetricSlice_MarshalAndUnmarshalJSON(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTestMetricSlice()
++	src.marshalJSONStream(stream)
++	require.NoError(t, stream.Error())
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := NewMetricSlice()
++	dest.unmarshalJSONIter(iter)
++	require.NoError(t, iter.Error())
++
++	assert.Equal(t, src, dest)
++}
++
+ func TestMetricSlice_Sort(t *testing.T) {
+ 	es := generateTestMetricSlice()
+ 	es.Sort(func(a, b Metric) bool {

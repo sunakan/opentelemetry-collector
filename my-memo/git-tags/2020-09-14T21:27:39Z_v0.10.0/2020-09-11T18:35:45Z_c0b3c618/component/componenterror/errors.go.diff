@@ -1,0 +1,16 @@
+diff --git a/component/componenterror/errors.go b/component/componenterror/errors.go
+index 810b874de..0a89c29b3 100644
+--- a/component/componenterror/errors.go
++++ b/component/componenterror/errors.go
+@@ -55,8 +55,9 @@ func CombineErrors(errs []error) error {
+ 		}
+ 		errMsgs = append(errMsgs, err.Error())
+ 	}
++	err := fmt.Errorf("[%s]", strings.Join(errMsgs, "; "))
+ 	if permanent {
+-		return consumererror.Permanent(fmt.Errorf("[%s]", strings.Join(errMsgs, "; ")))
++		err = consumererror.Permanent(err)
+ 	}
+-	return fmt.Errorf("[%s]", strings.Join(errMsgs, "; "))
++	return err
+ }

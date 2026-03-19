@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/testdata/status_only.yaml b/cmd/mdatagen/testdata/status_only.yaml
+index 2365b43f1..d66977249 100644
+--- a/cmd/mdatagen/testdata/status_only.yaml
++++ b/cmd/mdatagen/testdata/status_only.yaml
+@@ -4,3 +4,7 @@ status:
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [contrib]
++
++tests:
++  skip_lifecycle: true
++  skip_shutdown: true

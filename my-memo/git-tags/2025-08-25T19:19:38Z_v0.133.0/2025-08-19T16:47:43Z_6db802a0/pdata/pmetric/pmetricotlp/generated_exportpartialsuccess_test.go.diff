@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+index 3154ae42f..8744afca5 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+@@ -73,7 +73,6 @@ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ }
+ 
+ func generateTestExportPartialSuccess() ExportPartialSuccess {
+-	ms := NewExportPartialSuccess()
+-	internal.FillOrigTestExportMetricsPartialSuccess(ms.orig)
++	ms := newExportPartialSuccess(internal.GenTestOrigExportMetricsPartialSuccess(), internal.NewState())
+ 	return ms
+ }

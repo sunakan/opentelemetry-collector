@@ -1,0 +1,13 @@
+diff --git a/config/config.go b/config/config.go
+index f5e61e7ed..77f804445 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -345,7 +345,7 @@ func LoadReceiver(receiverKey string, v *viper.Viper, factories map[string]compo
+ 	customUnmarshaler := factory.CustomUnmarshaler()
+ 	if customUnmarshaler != nil {
+ 		// This configuration requires a custom unmarshaler, use it.
+-		err = customUnmarshaler(v, receiverKey, sv, receiverCfg)
++		err = customUnmarshaler(sv, receiverCfg)
+ 	} else {
+ 		err = sv.UnmarshalExact(receiverCfg)
+ 	}

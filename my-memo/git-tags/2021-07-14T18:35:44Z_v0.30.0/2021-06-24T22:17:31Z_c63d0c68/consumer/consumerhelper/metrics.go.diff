@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerhelper/metrics.go b/consumer/consumerhelper/metrics.go
+index 4076c999d..6db793180 100644
+--- a/consumer/consumerhelper/metrics.go
++++ b/consumer/consumerhelper/metrics.go
+@@ -18,7 +18,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // ConsumeMetricsFunc is a helper function that is similar to ConsumeMetrics.

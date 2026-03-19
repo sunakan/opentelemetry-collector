@@ -1,0 +1,23 @@
+diff --git a/cmd/mdatagen/internal/templates/logs_test.go.tmpl b/cmd/mdatagen/internal/templates/logs_test.go.tmpl
+index 93b5b0fe2..233125b04 100644
+--- a/cmd/mdatagen/internal/templates/logs_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/logs_test.go.tmpl
+@@ -196,8 +196,16 @@ func TestLogsBuilder(t *testing.T) {
+ 				allEventsCount++
+ 				lb.Record{{ $name.Render }}Event(ctx, timestamp
+ 				{{- range $event.Attributes -}}
+-					, {{ if (attributeInfo .).Enum }}Attribute{{ .Render }}{{ (index (attributeInfo .).Enum 0) | publicVar }}{{ else }}{{ (attributeInfo .).TestValue }}{{ end }}
+-				{{- end }})
++				{{- if not (attributeInfo .).Optional -}}
++					, {{- template "getAttributeValue" . -}}
++				{{- end -}}
++				{{- end -}}
++				{{- range $event.Attributes -}}
++                {{- if (attributeInfo .).Optional -}}
++                    , With{{ .Render }}EventAttribute({{- template "getAttributeValue" . -}})
++                {{- end -}}
++                {{- end -}}
++                )
+ 			{{- end }}
+ 
+ 			{{ if .ResourceAttributes }}

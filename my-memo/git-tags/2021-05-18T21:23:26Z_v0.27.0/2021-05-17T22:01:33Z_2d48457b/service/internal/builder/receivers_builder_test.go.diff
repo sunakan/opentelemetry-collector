@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/receivers_builder_test.go b/service/internal/builder/receivers_builder_test.go
+index 1609509e2..b30217b64 100644
+--- a/service/internal/builder/receivers_builder_test.go
++++ b/service/internal/builder/receivers_builder_test.go
+@@ -134,7 +134,7 @@ func testReceivers(
+ 		require.Equal(t, len(consumer.Metrics), 0)
+ 	}
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	if test.hasTraces {
+ 		traceProducer := receiver.receiver.(*testcomponents.ExampleReceiverProducer)
+ 		assert.NoError(t, traceProducer.ConsumeTraces(context.Background(), td))

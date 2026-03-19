@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 103a9ebb0..92559d05d 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -43,7 +43,7 @@ func NewFactory() receiver.Factory {
+ func createDefaultConfig() component.Config {
+ 	return &Config{
+ 		Protocols: Protocols{
+-			GRPC: &configgrpc.GRPCServerSettings{
++			GRPC: &configgrpc.ServerConfig{
+ 				NetAddr: confignet.NetAddr{
+ 					Endpoint:  localhostgate.EndpointForPort(grpcPort),
+ 					Transport: "tcp",

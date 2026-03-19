@@ -1,0 +1,14 @@
+diff --git a/.circleci/check-links/config.json b/.circleci/check-links/config.json
+index 2ea064c4b..6119b5335 100644
+--- a/.circleci/check-links/config.json
++++ b/.circleci/check-links/config.json
+@@ -5,6 +5,9 @@
+         },
+         {
+             "pattern": "http(s)?://localhost"
++        },
++        {
++            "pattern": "http(s)?://example.com"
+         }
+     ]
+ }

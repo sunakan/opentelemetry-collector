@@ -1,0 +1,16 @@
+diff --git a/config/test_helpers.go b/config/test_helpers.go
+index 9962a61ba..4bf5f3c0d 100644
+--- a/config/test_helpers.go
++++ b/config/test_helpers.go
+@@ -34,9 +34,8 @@ func LoadConfigFile(t *testing.T, fileName string, factories Factories) (*config
+ 	}
+ 
+ 	defer func() {
+-		err := file.Close()
+-		if err != nil {
+-			t.Error(err)
++		if errClose := file.Close(); errClose != nil {
++			t.Error(errClose)
+ 		}
+ 	}()
+ 

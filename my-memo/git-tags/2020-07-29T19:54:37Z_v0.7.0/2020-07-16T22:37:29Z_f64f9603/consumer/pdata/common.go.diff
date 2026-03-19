@@ -1,0 +1,45 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 91cb0f571..399dd320b 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -90,6 +90,10 @@ type AttributeValue struct {
+ 	orig **otlpcommon.AnyValue
+ }
+ 
++func newAttributeValue(orig **otlpcommon.AnyValue) AttributeValue {
++	return AttributeValue{orig}
++}
++
+ // NewAttributeValueNull creates a new AttributeValue with a null value.
+ func NewAttributeValueNull() AttributeValue {
+ 	orig := &otlpcommon.AnyValue{}
+@@ -141,6 +145,15 @@ func NewAttributeValueSlice(len int) []AttributeValue {
+ 	return wrappers
+ }
+ 
++func (a AttributeValue) InitEmpty() {
++	*a.orig = &otlpcommon.AnyValue{}
++}
++
++// IsNil returns true if the underlying data are nil.
++func (a AttributeValue) IsNil() bool {
++	return *a.orig == nil
++}
++
+ // Type returns the type of the value for this AttributeValue.
+ // Calling this function on zero-initialized AttributeValue will cause a panic.
+ func (a AttributeValue) Type() AttributeValueType {
+@@ -296,6 +309,13 @@ func (a AttributeValue) copyTo(dest *otlpcommon.AnyValue) {
+ 	}
+ }
+ 
++func (a AttributeValue) CopyTo(dest AttributeValue) {
++	if *a.orig != nil && dest.IsNil() {
++		dest.InitEmpty()
++	}
++	a.copyTo(*dest.orig)
++}
++
+ // Equal checks for equality, it returns true if the objects are equal otherwise false.
+ func (a AttributeValue) Equal(av AttributeValue) bool {
+ 	if (*a.orig) == nil || (*a.orig).Value == nil {

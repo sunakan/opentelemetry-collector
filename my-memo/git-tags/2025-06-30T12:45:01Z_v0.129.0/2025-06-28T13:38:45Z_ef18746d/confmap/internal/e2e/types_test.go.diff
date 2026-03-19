@@ -1,0 +1,28 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index 618e79432..65d14b84a 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -145,7 +145,7 @@ func TestStrictTypeCasting(t *testing.T) {
+ 		{
+ 			value:        "\"0123\"",
+ 			targetField:  TargetFieldInt,
+-			unmarshalErr: "'field' expected type 'int', got unconvertible type 'string', value: '\"0123\"'",
++			unmarshalErr: "'field' expected type 'int', got unconvertible type 'string'",
+ 		},
+ 		{
+ 			value:       "\"0123\"",
+@@ -165,12 +165,12 @@ func TestStrictTypeCasting(t *testing.T) {
+ 		{
+ 			value:        "t",
+ 			targetField:  TargetFieldBool,
+-			unmarshalErr: "'field' expected type '%!s(bool=false)', got unconvertible type '\"t\"', value: '\"t\"'",
++			unmarshalErr: "'field' expected type 'bool', got unconvertible type 'string'",
+ 		},
+ 		{
+ 			value:        "23",
+ 			targetField:  TargetFieldBool,
+-			unmarshalErr: "'field' expected type '%!s(bool=false)', got unconvertible type '23', value: '23'",
++			unmarshalErr: "'field' expected type 'bool', got unconvertible type 'int'",
+ 		},
+ 		{
+ 			value:       "{\"field\": 123}",

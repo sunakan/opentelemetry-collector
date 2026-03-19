@@ -1,0 +1,11 @@
+diff --git a/internal/buildscripts/packaging/fpm/otel-collector.service b/internal/buildscripts/packaging/fpm/otel-collector.service
+index 7954c9c8c..fa2ac05bc 100644
+--- a/internal/buildscripts/packaging/fpm/otel-collector.service
++++ b/internal/buildscripts/packaging/fpm/otel-collector.service
+@@ -1,5 +1,5 @@
+ [Unit]
+-Description=OpenTelemety Collector
++Description=OpenTelemetry Collector
+ After=network.target
+ 
+ [Service]

@@ -1,0 +1,13 @@
+diff --git a/receiver/go.mod b/receiver/go.mod
+index 2d56f16a4..99d6ecc69 100644
+--- a/receiver/go.mod
++++ b/receiver/go.mod
+@@ -65,6 +65,8 @@ replace go.opentelemetry.io/collector/featuregate => ../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../pdata
+ 
++replace go.opentelemetry.io/collector/pdata/testdata => ../pdata/testdata
++
+ retract v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../config/configtelemetry

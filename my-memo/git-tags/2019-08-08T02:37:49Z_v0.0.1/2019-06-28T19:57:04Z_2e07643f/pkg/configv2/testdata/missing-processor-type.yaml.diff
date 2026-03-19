@@ -1,0 +1,15 @@
+diff --git a/pkg/configv2/testdata/missing-processor-type.yaml b/pkg/configv2/testdata/missing-processor-type.yaml
+new file mode 100644
+index 000000000..e083c5579
+--- /dev/null
++++ b/pkg/configv2/testdata/missing-processor-type.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  /exampleprocessor:
++pipelines:
++  traces:
++    receivers: [somereceiver]

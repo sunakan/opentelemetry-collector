@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/internal/metadatatest/generated_telemetrytest_test.go b/processor/batchprocessor/internal/metadatatest/generated_telemetrytest_test.go
+index 9a875038c..8dc7ec902 100644
+--- a/processor/batchprocessor/internal/metadatatest/generated_telemetrytest_test.go
++++ b/processor/batchprocessor/internal/metadatatest/generated_telemetrytest_test.go
+@@ -40,7 +40,7 @@ func TestSetupTelemetry(t *testing.T) {
+ 		},
+ 		{
+ 			Name:        "otelcol_processor_batch_batch_send_size_bytes",
+-			Description: "Number of bytes in batch that was sent",
++			Description: "Number of bytes in batch that was sent. Only available on detailed level.",
+ 			Unit:        "By",
+ 			Data: metricdata.Histogram[int64]{
+ 				Temporality: metricdata.CumulativeTemporality,

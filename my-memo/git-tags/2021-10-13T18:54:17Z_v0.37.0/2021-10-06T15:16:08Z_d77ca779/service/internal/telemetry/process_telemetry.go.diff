@@ -1,0 +1,13 @@
+diff --git a/service/internal/telemetry/process_telemetry.go b/service/internal/telemetry/process_telemetry.go
+index d93bb93a3..1d9c20d3c 100644
+--- a/service/internal/telemetry/process_telemetry.go
++++ b/service/internal/telemetry/process_telemetry.go
+@@ -20,7 +20,7 @@ import (
+ 	"runtime"
+ 	"time"
+ 
+-	"github.com/shirou/gopsutil/process"
++	"github.com/shirou/gopsutil/v3/process"
+ 	"go.opencensus.io/stats"
+ 	"go.opencensus.io/stats/view"
+ )

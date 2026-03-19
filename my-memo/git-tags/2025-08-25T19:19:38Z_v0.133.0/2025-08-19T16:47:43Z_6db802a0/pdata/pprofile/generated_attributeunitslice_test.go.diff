@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_attributeunitslice_test.go b/pdata/pprofile/generated_attributeunitslice_test.go
+index 057ba4e95..24a571e63 100644
+--- a/pdata/pprofile/generated_attributeunitslice_test.go
++++ b/pdata/pprofile/generated_attributeunitslice_test.go
+@@ -27,7 +27,7 @@ func TestAttributeUnitSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestAttributeUnit((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigAttributeUnit()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

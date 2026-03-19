@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/factory.go b/exporter/zipkinexporter/factory.go
+index af4034f7a..dab066a8d 100644
+--- a/exporter/zipkinexporter/factory.go
++++ b/exporter/zipkinexporter/factory.go
+@@ -77,7 +77,7 @@ func createTracesExporter(
+ 	}
+ 	return exporterhelper.NewTracesExporter(
+ 		zc,
+-		set.Logger,
++		set,
+ 		ze.pushTraces,
+ 		exporterhelper.WithStart(ze.start),
+ 		// explicitly disable since we rely on http.Client timeout logic.

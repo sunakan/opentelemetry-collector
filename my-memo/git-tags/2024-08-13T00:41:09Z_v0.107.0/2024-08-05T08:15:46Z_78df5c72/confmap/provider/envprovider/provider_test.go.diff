@@ -1,0 +1,22 @@
+diff --git a/confmap/provider/envprovider/provider_test.go b/confmap/provider/envprovider/provider_test.go
+index 1e89d5426..1f4b99c83 100644
+--- a/confmap/provider/envprovider/provider_test.go
++++ b/confmap/provider/envprovider/provider_test.go
+@@ -47,11 +47,14 @@ func TestUnsupportedScheme(t *testing.T) {
+ }
+ 
+ func TestInvalidYAML(t *testing.T) {
+-	const envName = "invalid-yaml"
++	const envName = "invalid_yaml"
+ 	t.Setenv(envName, "[invalid,")
+ 	env := createProvider()
+-	_, err := env.Retrieve(context.Background(), envSchemePrefix+envName, nil)
+-	assert.Error(t, err)
++	ret, err := env.Retrieve(context.Background(), envSchemePrefix+envName, nil)
++	require.NoError(t, err)
++	raw, err := ret.AsRaw()
++	require.NoError(t, err)
++	assert.IsType(t, "", raw)
+ 	assert.NoError(t, env.Shutdown(context.Background()))
+ }
+ 

@@ -1,0 +1,22 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 6c0bc5a48..6178c2b2f 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -137,7 +137,7 @@ func TestVersioning(t *testing.T) {
+ 				cfg.Distribution.Go = "go"
+ 				cfg.Exporters = []Module{
+ 					{
+-						GoMod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.96.0",
++						GoMod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.97.0",
+ 					},
+ 				}
+ 				cfg.Providers = &[]Module{}
+@@ -154,7 +154,7 @@ func TestVersioning(t *testing.T) {
+ 				cfg.SkipStrictVersioning = true
+ 				cfg.Exporters = []Module{
+ 					{
+-						GoMod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.96.0",
++						GoMod: "go.opentelemetry.io/collector/exporter/otlpexporter v0.97.0",
+ 					},
+ 				}
+ 				cfg.Providers = &[]Module{}

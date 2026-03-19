@@ -1,0 +1,62 @@
+diff --git a/model/otlpgrpc/logs.go b/model/otlpgrpc/logs.go
+index a5853d3e8..66c0e6484 100644
+--- a/model/otlpgrpc/logs.go
++++ b/model/otlpgrpc/logs.go
+@@ -28,6 +28,7 @@ import (
+ )
+ 
+ var jsonMarshaler = &jsonpb.Marshaler{}
++var jsonUnmarshaler = &jsonpb.Unmarshaler{}
+ 
+ // LogsResponse represents the response for gRPC client/server.
+ type LogsResponse struct {
+@@ -39,6 +40,24 @@ func NewLogsResponse() LogsResponse {
+ 	return LogsResponse{orig: &otlpcollectorlog.ExportLogsServiceResponse{}}
+ }
+ 
++// UnmarshalLogsResponse unmarshalls LogsResponse from proto bytes.
++func UnmarshalLogsResponse(data []byte) (LogsResponse, error) {
++	var orig otlpcollectorlog.ExportLogsServiceResponse
++	if err := orig.Unmarshal(data); err != nil {
++		return LogsResponse{}, err
++	}
++	return LogsResponse{orig: &orig}, nil
++}
++
++// UnmarshalJSONLogsResponse unmarshalls LogsResponse from JSON bytes.
++func UnmarshalJSONLogsResponse(data []byte) (LogsResponse, error) {
++	var orig otlpcollectorlog.ExportLogsServiceResponse
++	if err := jsonUnmarshaler.Unmarshal(bytes.NewReader(data), &orig); err != nil {
++		return LogsResponse{}, err
++	}
++	return LogsResponse{orig: &orig}, nil
++}
++
+ // Marshal marshals LogsResponse into proto bytes.
+ func (lr LogsResponse) Marshal() ([]byte, error) {
+ 	return lr.orig.Marshal()
+@@ -63,6 +82,24 @@ func NewLogsRequest() LogsRequest {
+ 	return LogsRequest{orig: &otlpcollectorlog.ExportLogsServiceRequest{}}
+ }
+ 
++// UnmarshalLogsRequest unmarshalls LogsRequest from proto bytes.
++func UnmarshalLogsRequest(data []byte) (LogsRequest, error) {
++	var orig otlpcollectorlog.ExportLogsServiceRequest
++	if err := orig.Unmarshal(data); err != nil {
++		return LogsRequest{}, err
++	}
++	return LogsRequest{orig: &orig}, nil
++}
++
++// UnmarshalJSONLogsRequest unmarshalls LogsRequest from JSON bytes.
++func UnmarshalJSONLogsRequest(data []byte) (LogsRequest, error) {
++	var orig otlpcollectorlog.ExportLogsServiceRequest
++	if err := jsonUnmarshaler.Unmarshal(bytes.NewReader(data), &orig); err != nil {
++		return LogsRequest{}, err
++	}
++	return LogsRequest{orig: &orig}, nil
++}
++
+ // Marshal marshals LogsRequest into proto bytes.
+ func (lr LogsRequest) Marshal() ([]byte, error) {
+ 	return lr.orig.Marshal()

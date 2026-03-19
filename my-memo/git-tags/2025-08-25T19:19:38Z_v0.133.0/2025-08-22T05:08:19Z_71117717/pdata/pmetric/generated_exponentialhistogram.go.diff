@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogram.go b/pdata/pmetric/generated_exponentialhistogram.go
+index ed9df8d82..660360a97 100644
+--- a/pdata/pmetric/generated_exponentialhistogram.go
++++ b/pdata/pmetric/generated_exponentialhistogram.go
+@@ -45,8 +45,8 @@ func (ms ExponentialHistogram) MoveTo(dest ExponentialHistogram) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpmetrics.ExponentialHistogram{}
++	internal.DeleteOrigExponentialHistogram(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // DataPoints returns the DataPoints associated with this ExponentialHistogram.

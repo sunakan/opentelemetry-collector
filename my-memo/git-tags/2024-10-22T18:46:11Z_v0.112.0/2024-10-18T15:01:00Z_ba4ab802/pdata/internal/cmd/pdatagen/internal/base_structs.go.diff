@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_structs.go b/pdata/internal/cmd/pdatagen/internal/base_structs.go
+index 4cd7832f1..74dc95d1f 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_structs.go
+@@ -58,18 +58,13 @@ func (ms *messageValueStruct) templateFields(packageInfo *PackageInfo) map[strin
+ 		"fields":        ms.fields,
+ 		"structName":    ms.structName,
+ 		"originName":    ms.originFullName,
+-		"generateTestData": func() string {
+-			if usedByOtherDataTypes(ms.packageName) {
+-				return ms.structName + "(internal.GenerateTest" + ms.structName + "())"
+-			}
+-			return "generateTest" + ms.structName + "()"
+-		}(),
+-		"description":  ms.description,
+-		"isCommon":     usedByOtherDataTypes(ms.packageName),
+-		"origAccessor": origAccessor(ms),
+-		"packageName":  packageInfo.name,
+-		"imports":      packageInfo.imports,
+-		"testImports":  packageInfo.testImports,
++		"description":   ms.description,
++		"isCommon":      usedByOtherDataTypes(ms.packageName),
++		"origAccessor":  origAccessor(ms.packageName),
++		"stateAccessor": stateAccessor(ms.packageName),
++		"packageName":   packageInfo.name,
++		"imports":       packageInfo.imports,
++		"testImports":   packageInfo.testImports,
+ 	}
+ }
+ 

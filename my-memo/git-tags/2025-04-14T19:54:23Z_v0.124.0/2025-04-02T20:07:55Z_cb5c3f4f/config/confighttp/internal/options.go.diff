@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/internal/options.go b/config/confighttp/internal/options.go
+index e8b9612f3..338ca721b 100644
+--- a/config/confighttp/internal/options.go
++++ b/config/confighttp/internal/options.go
+@@ -10,7 +10,7 @@ import (
+ 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ )
+ 
+-// toServerOptions has options that change the behavior of the HTTP server
++// ToServerOptions has options that change the behavior of the HTTP server
+ // returned by ServerConfig.ToServer().
+ type ToServerOptions struct {
+ 	ErrHandler   func(w http.ResponseWriter, r *http.Request, errorMsg string, statusCode int)

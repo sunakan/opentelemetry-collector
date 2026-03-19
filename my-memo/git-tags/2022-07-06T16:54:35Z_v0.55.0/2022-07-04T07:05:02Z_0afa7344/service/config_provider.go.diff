@@ -1,0 +1,13 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index d2f485b6b..8f428c251 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -76,7 +76,7 @@ type ConfigProviderSettings struct {
+ 	// It is required to have at least one confmap.Provider.
+ 	MapProviders map[string]confmap.Provider
+ 
+-	// MapConverters is a slice of cconfmap.Converter.
++	// MapConverters is a slice of confmap.Converter.
+ 	MapConverters []confmap.Converter
+ }
+ 

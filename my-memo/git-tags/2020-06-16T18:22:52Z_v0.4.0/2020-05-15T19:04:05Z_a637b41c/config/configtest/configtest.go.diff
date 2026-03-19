@@ -1,0 +1,13 @@
+diff --git a/config/configtest/configtest.go b/config/configtest/configtest.go
+index fb5354fc9..961534533 100644
+--- a/config/configtest/configtest.go
++++ b/config/configtest/configtest.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/spf13/viper"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
++	"go.opentelemetry.io/collector/config"
+ )
+ 
+ // NewViperFromYamlFile creates a viper instance that reads the given fileName as yaml config

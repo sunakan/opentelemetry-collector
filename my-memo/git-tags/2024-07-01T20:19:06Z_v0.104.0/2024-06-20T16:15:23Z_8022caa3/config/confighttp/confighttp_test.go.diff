@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index c7c459247..dfce5e97c 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -83,6 +83,7 @@ func TestAllHTTPClientSettings(t *testing.T) {
+ 				IdleConnTimeout:      &idleConnTimeout,
+ 				Compression:          "",
+ 				DisableKeepAlives:    true,
++				Cookies:              &CookiesConfig{Enabled: true},
+ 				HTTP2ReadIdleTimeout: idleConnTimeout,
+ 				HTTP2PingTimeout:     http2PingTimeout,
+ 			},

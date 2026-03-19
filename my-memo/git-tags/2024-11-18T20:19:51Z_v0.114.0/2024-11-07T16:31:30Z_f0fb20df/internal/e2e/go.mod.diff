@@ -1,0 +1,21 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index 1393fe065..3e32bf11c 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -7,6 +7,7 @@ require (
+ 	go.opentelemetry.io/collector v0.113.0
+ 	go.opentelemetry.io/collector/component v0.113.0
+ 	go.opentelemetry.io/collector/component/componentstatus v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/config/configgrpc v0.113.0
+ 	go.opentelemetry.io/collector/config/confighttp v0.113.0
+ 	go.opentelemetry.io/collector/config/configopaque v1.19.0
+@@ -180,6 +181,8 @@ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/exporter => ../../exporter
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate

@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/otlphttp_test.go b/internal/e2e/otlphttp_test.go
+index 95917e2f0..d72257b6f 100644
+--- a/internal/e2e/otlphttp_test.go
++++ b/internal/e2e/otlphttp_test.go
+@@ -38,7 +38,7 @@ import (
+ 
+ func TestInvalidConfig(t *testing.T) {
+ 	config := &otlphttpexporter.Config{
+-		HTTPClientConfig: confighttp.HTTPClientConfig{
++		ClientConfig: confighttp.ClientConfig{
+ 			Endpoint: "",
+ 		},
+ 	}

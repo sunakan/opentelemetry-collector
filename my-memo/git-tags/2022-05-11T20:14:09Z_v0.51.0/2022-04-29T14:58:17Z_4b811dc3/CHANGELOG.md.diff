@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index a3386458a..a22084c03 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,7 @@
+ 
+ - Remove deprecated model module, everything is available in `pdata` and `semconv`. (#5281)
+   - Old versions of the module are still available, but no new versions will be released.
++- Remove deprecated LogRecord.Name field. (#5202)
+ 
+ ### 🚩 Deprecations 🚩
+ 

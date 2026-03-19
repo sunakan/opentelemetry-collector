@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_keyvalueslice.go b/pdata/internal/generated_wrapper_keyvalueslice.go
+index 12ec71be5..c4332b323 100644
+--- a/pdata/internal/generated_wrapper_keyvalueslice.go
++++ b/pdata/internal/generated_wrapper_keyvalueslice.go
+@@ -31,8 +31,8 @@ func CopyOrigKeyValueSlice(dest, src []otlpcommon.KeyValue) []otlpcommon.KeyValu
+ 
+ func GenerateOrigTestKeyValueSlice() []otlpcommon.KeyValue {
+ 	orig := make([]otlpcommon.KeyValue, 5)
+-	FillOrigTestKeyValue(&orig[1])
+-	FillOrigTestKeyValue(&orig[3])
++	orig[1] = *GenTestOrigKeyValue()
++	orig[3] = *GenTestOrigKeyValue()
+ 	return orig
+ }
+ 

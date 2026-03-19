@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 5e35d8345..7f5cc28f2 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -95,7 +95,7 @@ var traceJSON = []byte(`
+ 
+ var resourceSpansOtlp = otlptrace.ResourceSpans{
+ 
+-	Resource: &otlpresource.Resource{
++	Resource: otlpresource.Resource{
+ 		Attributes: []otlpcommon.KeyValue{
+ 			{
+ 				Key:   conventions.AttributeHostHostname,

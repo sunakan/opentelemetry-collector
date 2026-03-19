@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver_test.go b/receiver/kafkareceiver/kafka_receiver_test.go
+index 1a1de29c3..b9e63fea4 100644
+--- a/receiver/kafkareceiver/kafka_receiver_test.go
++++ b/receiver/kafkareceiver/kafka_receiver_test.go
+@@ -221,7 +221,7 @@ func TestTracesConsumerGroupHandler_error_nextConsumer(t *testing.T) {
+ 	}()
+ 
+ 	td := pdata.NewTraces()
+-	td.ResourceSpans().Resize(1)
++	td.ResourceSpans().AppendEmpty()
+ 	bts, err := td.ToOtlpProtoBytes()
+ 	require.NoError(t, err)
+ 	groupClaim.messageChan <- &sarama.ConsumerMessage{Value: bts}

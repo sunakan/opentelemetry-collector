@@ -1,0 +1,13 @@
+diff --git a/translator/metrics/otlp_to_oc.go b/translator/metrics/otlp_to_oc.go
+index 45ee91a83..45c56bb8b 100644
+--- a/translator/metrics/otlp_to_oc.go
++++ b/translator/metrics/otlp_to_oc.go
+@@ -105,6 +105,8 @@ func labelKeysToOC(metric *otlpmetrics.Metric) *labelKeys {
+ 	// - If the value for particular label key is missing in the point, we set it to default
+ 	// to preserve 1:1 matching between label keys and values.
+ 
++	// TODO: Support common labels from otlpmetrics.MetricDescriptor.Labels
++
+ 	// First, collect a set of all labels present in the metric
+ 	keySet := make(map[string]struct{}, 0)
+ 	for _, point := range metric.Int64DataPoints {

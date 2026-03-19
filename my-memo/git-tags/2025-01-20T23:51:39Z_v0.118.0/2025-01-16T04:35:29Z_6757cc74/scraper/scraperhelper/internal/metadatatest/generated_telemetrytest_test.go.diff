@@ -1,0 +1,48 @@
+diff --git a/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest_test.go b/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest_test.go
+index 54f853424..4e483c713 100644
+--- a/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest_test.go
++++ b/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest_test.go
+@@ -20,10 +20,24 @@ func TestSetupTelemetry(t *testing.T) {
+ 	)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, tb)
++	tb.ScraperErroredLogRecords.Add(context.Background(), 1)
+ 	tb.ScraperErroredMetricPoints.Add(context.Background(), 1)
++	tb.ScraperScrapedLogRecords.Add(context.Background(), 1)
+ 	tb.ScraperScrapedMetricPoints.Add(context.Background(), 1)
+ 
+ 	testTel.AssertMetrics(t, []metricdata.Metrics{
++		{
++			Name:        "otelcol_scraper_errored_log_records",
++			Description: "Number of log records that were unable to be scraped. [alpha]",
++			Unit:        "{datapoints}",
++			Data: metricdata.Sum[int64]{
++				Temporality: metricdata.CumulativeTemporality,
++				IsMonotonic: true,
++				DataPoints: []metricdata.DataPoint[int64]{
++					{},
++				},
++			},
++		},
+ 		{
+ 			Name:        "otelcol_scraper_errored_metric_points",
+ 			Description: "Number of metric points that were unable to be scraped. [alpha]",
+@@ -36,6 +50,18 @@ func TestSetupTelemetry(t *testing.T) {
+ 				},
+ 			},
+ 		},
++		{
++			Name:        "otelcol_scraper_scraped_log_records",
++			Description: "Number of log records successfully scraped. [alpha]",
++			Unit:        "{datapoints}",
++			Data: metricdata.Sum[int64]{
++				Temporality: metricdata.CumulativeTemporality,
++				IsMonotonic: true,
++				DataPoints: []metricdata.DataPoint[int64]{
++					{},
++				},
++			},
++		},
+ 		{
+ 			Name:        "otelcol_scraper_scraped_metric_points",
+ 			Description: "Number of metric points successfully scraped. [alpha]",

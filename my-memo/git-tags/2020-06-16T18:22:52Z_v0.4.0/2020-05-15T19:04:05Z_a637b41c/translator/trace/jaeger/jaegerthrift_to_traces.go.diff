@@ -1,0 +1,17 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces.go b/translator/trace/jaeger/jaegerthrift_to_traces.go
+index 3913ce002..9bc85f247 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces.go
+@@ -21,9 +21,9 @@ import (
+ 
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/translator/conventions"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/translator/conventions"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func ThriftBatchToInternalTraces(batch *jaeger.Batch) pdata.Traces {

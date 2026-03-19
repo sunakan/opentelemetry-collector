@@ -1,0 +1,20 @@
+diff --git a/.github/workflows/docs-update.yml b/.github/workflows/docs-update.yml
+index 2dfa9d52b..912d3c4be 100644
+--- a/.github/workflows/docs-update.yml
++++ b/.github/workflows/docs-update.yml
+@@ -1,7 +1,7 @@
+ name: Update OpenTelemetry Website Docs
+ 
+ on:
+-  # triggers only on a manual dispatch
++  release:
+   workflow_dispatch:
+ 
+ jobs:
+@@ -33,4 +33,4 @@ jobs:
+           git push -u origin HEAD:docs-$GITHUB_REPOSITORY-$GITHUB_SHA
+           gh pr create -t "Docs Update from $GITHUB_REPOSITORY" -b "This is an automated pull request." -B main -H docs-$GITHUB_REPOSITORY-$GITHUB_SHA
+           echo "done"
+-          
+\ No newline at end of file
++          

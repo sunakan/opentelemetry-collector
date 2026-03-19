@@ -1,0 +1,15 @@
+diff --git a/processor/processorhelper/metrics.go b/processor/processorhelper/metrics.go
+index 08168c460..ac3802722 100644
+--- a/processor/processorhelper/metrics.go
++++ b/processor/processorhelper/metrics.go
+@@ -39,10 +39,6 @@ func NewMetricsProcessor(
+ 		return nil, errors.New("nil metricsFunc")
+ 	}
+ 
+-	if nextConsumer == nil {
+-		return nil, component.ErrNilNextConsumer
+-	}
+-
+ 	eventOptions := spanAttributes(set.ID)
+ 	bs := fromOptions(options)
+ 	metricsConsumer, err := consumer.NewMetrics(func(ctx context.Context, md pmetric.Metrics) error {

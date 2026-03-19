@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+index d9ef18ad5..862284cea 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+@@ -28,7 +28,7 @@ import (
+ // This file implements Factory for Process scraper.
+ 
+ const (
+-	// The value of "type" key in configuration.
++	// TypeStr the value of "type" key in configuration.
+ 	TypeStr = "process"
+ )
+ 

@@ -1,0 +1,19 @@
+diff --git a/internal/configv2/testdata/duplicate-processor.yaml b/internal/configv2/testdata/duplicate-processor.yaml
+deleted file mode 100644
+index f33b1a8ac..000000000
+--- a/internal/configv2/testdata/duplicate-processor.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor/       abc:
+-    enabled: true
+-  exampleprocessor/abc:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]

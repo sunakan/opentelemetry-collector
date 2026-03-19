@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/factory.go b/receiver/kafkareceiver/factory.go
+index 966345e40..481c4e51a 100644
+--- a/receiver/kafkareceiver/factory.go
++++ b/receiver/kafkareceiver/factory.go
+@@ -41,7 +41,7 @@ const (
+ 	defaultMetadataFull = true
+ )
+ 
+-// FactoryOption applies changes to kafkaExporterFactory.
++// FactoryOption applies changes to kafkaReceiverFactory.
+ type FactoryOption func(factory *kafkaReceiverFactory)
+ 
+ // WithAddUnmarshallers adds marshallers.

@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_common.go b/consumer/pdata/generated_common.go
+index fde5affe5..44dca202c 100644
+--- a/consumer/pdata/generated_common.go
++++ b/consumer/pdata/generated_common.go
+@@ -219,6 +219,6 @@ func (es AnyValueArray) Resize(newLen int) {
+ // given AttributeValue at that new position.  The original AttributeValue
+ // could still be referenced so do not reuse it after passing it to this
+ // method.
+-func (es AnyValueArray) Append(e *AttributeValue) {
+-	(*es.orig) = append((*es.orig), *e.orig)
++func (es AnyValueArray) Append(e AttributeValue) {
++	*es.orig = append(*es.orig, *e.orig)
+ }

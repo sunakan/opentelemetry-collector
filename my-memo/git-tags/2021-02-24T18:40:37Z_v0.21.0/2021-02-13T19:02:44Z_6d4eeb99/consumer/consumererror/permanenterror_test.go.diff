@@ -1,0 +1,22 @@
+diff --git a/consumer/consumererror/permanenterror_test.go b/consumer/consumererror/permanenterror_test.go
+index 8674825fc..9974623d7 100644
+--- a/consumer/consumererror/permanenterror_test.go
++++ b/consumer/consumererror/permanenterror_test.go
+@@ -16,6 +16,7 @@ package consumererror
+ 
+ import (
+ 	"errors"
++	"fmt"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+@@ -27,6 +28,9 @@ func TestPermanent(t *testing.T) {
+ 
+ 	err = Permanent(err)
+ 	require.True(t, IsPermanent(err))
++
++	err = fmt.Errorf("%w", err)
++	require.True(t, IsPermanent(err))
+ }
+ 
+ func TestIsPermanent_NilError(t *testing.T) {

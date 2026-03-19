@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv1/status_code.go b/translator/trace/zipkinv1/status_code.go
+index 9cb611a64..fa1242650 100644
+--- a/translator/trace/zipkinv1/status_code.go
++++ b/translator/trace/zipkinv1/status_code.go
+@@ -21,7 +21,7 @@ import (
+ 
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/rfcs/experimental-profiling.md b/docs/rfcs/experimental-profiling.md
+index e00ef16c7..d16e2964d 100644
+--- a/docs/rfcs/experimental-profiling.md
++++ b/docs/rfcs/experimental-profiling.md
+@@ -90,7 +90,6 @@ service:
+ 	pipelines:
+ 		profiles:
+ 			receivers: [otlp]
+-			processors: [batch]
+ 			exporters: [otlp]
+ ```
+ 

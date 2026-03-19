@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index 876b61599..d10a0700a 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -19,9 +19,9 @@ func main() {
+ 	}
+ 
+ 	info := component.BuildInfo{
+-		Command:  "{{ .Distribution.Name }}",
++		Command:     "{{ .Distribution.Name }}",
+ 		Description: "{{ .Distribution.Description }}",
+-		Version:  "{{ .Distribution.Version }}",
++		Version:     "{{ .Distribution.Version }}",
+ 	}
+ 
+ 	if err := run(service.CollectorSettings{BuildInfo: info, Factories: factories}); err != nil {

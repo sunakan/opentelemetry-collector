@@ -1,0 +1,12 @@
+diff --git a/internal/internal.go b/internal/internal.go
+index c8d9152de..105e5e02b 100644
+--- a/internal/internal.go
++++ b/internal/internal.go
+@@ -44,3 +44,7 @@ func TimestampToTime(ts *timestamp.Timestamp) (t time.Time) {
+ func TimestampToUnixnano(ts *timestamp.Timestamp) data.TimestampUnixNano {
+ 	return data.TimestampUnixNano(uint64(TimestampToTime(ts).UnixNano()))
+ }
++
++func UnixnanoToTimestamp(u data.TimestampUnixNano) *timestamp.Timestamp {
++	return TimeToTimestamp(time.Unix(0, int64(u)))
++}

@@ -1,0 +1,25 @@
+diff --git a/pdata/pcommon/generated_uint64slice.go b/pdata/pcommon/generated_uint64slice.go
+index 1344ca35b..592903aa8 100644
+--- a/pdata/pcommon/generated_uint64slice.go
++++ b/pdata/pcommon/generated_uint64slice.go
+@@ -7,6 +7,8 @@
+ package pcommon
+ 
+ import (
++	"slices"
++
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+@@ -102,6 +104,11 @@ func (ms UInt64Slice) CopyTo(dest UInt64Slice) {
+ 	*dest.getOrig() = copyUInt64Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 
++// Equal checks equality with another UInt64Slice
++func (ms UInt64Slice) Equal(val UInt64Slice) bool {
++	return slices.Equal(*ms.getOrig(), *val.getOrig())
++}
++
+ func copyUInt64Slice(dst, src []uint64) []uint64 {
+ 	dst = dst[:0]
+ 	return append(dst, src...)

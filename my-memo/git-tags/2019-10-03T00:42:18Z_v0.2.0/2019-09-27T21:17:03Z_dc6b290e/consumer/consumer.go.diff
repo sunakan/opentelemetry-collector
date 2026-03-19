@@ -1,0 +1,13 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index d8080d4c9..8d4635787 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -18,7 +18,7 @@ package consumer
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ // MetricsConsumer is an interface that receives consumerdata.MetricsData, process it as needed, and

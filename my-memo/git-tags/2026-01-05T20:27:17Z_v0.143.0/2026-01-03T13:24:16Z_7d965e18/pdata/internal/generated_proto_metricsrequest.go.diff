@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_metricsrequest.go b/pdata/internal/generated_proto_metricsrequest.go
+index 820ce7b2e..c2cca74a1 100644
+--- a/pdata/internal/generated_proto_metricsrequest.go
++++ b/pdata/internal/generated_proto_metricsrequest.go
+@@ -45,7 +45,6 @@ func DeleteMetricsRequest(orig *MetricsRequest, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteRequestContext(orig.RequestContext, true)
+ 	DeleteMetricsData(&orig.MetricsData, false)
+ 

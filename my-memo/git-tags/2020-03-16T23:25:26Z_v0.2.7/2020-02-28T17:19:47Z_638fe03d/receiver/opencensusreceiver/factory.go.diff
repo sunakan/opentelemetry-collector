@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index 55176a6c9..78866ab61 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -108,7 +108,8 @@ func (f *Factory) createReceiver(cfg configmodels.Receiver) (*Receiver, error) {
+ 		}
+ 
+ 		// We don't have a receiver, so create one.
+-		receiver, err = New(rCfg.Transport, rCfg.Endpoint, nil, nil, opts...)
++		receiver, err = New(
++			rCfg.Name(), rCfg.Transport, rCfg.Endpoint, nil, nil, opts...)
+ 		if err != nil {
+ 			return nil, err
+ 		}

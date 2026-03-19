@@ -1,0 +1,15 @@
+diff --git a/pkg/configv2/testdata/pipeline-must-have-receiver.yaml b/pkg/configv2/testdata/pipeline-must-have-receiver.yaml
+deleted file mode 100644
+index 92acc6639..000000000
+--- a/pkg/configv2/testdata/pipeline-must-have-receiver.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:
+-  metrics:
+-    exporters: [exampleexporter]

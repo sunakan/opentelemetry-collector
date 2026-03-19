@@ -1,0 +1,34 @@
+diff --git a/config/configtest/configtest_test.go b/config/configtest/configtest_test.go
+index 5d3e17fe1..50c86ad86 100644
+--- a/config/configtest/configtest_test.go
++++ b/config/configtest/configtest_test.go
+@@ -16,6 +16,7 @@ package configtest
+ 
+ import (
+ 	"io"
++	"path"
+ 	"strings"
+ 	"testing"
+ 
+@@ -30,7 +31,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+-	cfg, err := LoadConfig("testdata/config.yaml", factories)
++	cfg, err := LoadConfig(path.Join("testdata", "config.yaml"), factories)
+ 	require.NoError(t, err)
+ 
+ 	// Verify extensions.
+@@ -71,10 +72,10 @@ func TestLoadConfigAndValidate(t *testing.T) {
+ 	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+-	cfgValidate, errValidate := LoadConfigAndValidate("testdata/config.yaml", factories)
++	cfgValidate, errValidate := LoadConfigAndValidate(path.Join("testdata", "config.yaml"), factories)
+ 	require.NoError(t, errValidate)
+ 
+-	cfg, errLoad := LoadConfig("testdata/config.yaml", factories)
++	cfg, errLoad := LoadConfig(path.Join("testdata", "config.yaml"), factories)
+ 	require.NoError(t, errLoad)
+ 
+ 	assert.Equal(t, cfg, cfgValidate)

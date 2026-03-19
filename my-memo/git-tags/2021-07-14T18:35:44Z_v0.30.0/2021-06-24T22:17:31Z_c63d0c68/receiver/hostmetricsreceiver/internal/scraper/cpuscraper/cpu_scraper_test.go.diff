@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_test.go
+index 26e8c211e..8f19d7afe 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_test.go
+@@ -25,7 +25,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"

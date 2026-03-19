@@ -1,0 +1,25 @@
+diff --git a/exporter/exporterhelper/obsreport.go b/exporter/exporterhelper/obsreport.go
+index 324857f67..011c3fc99 100644
+--- a/exporter/exporterhelper/obsreport.go
++++ b/exporter/exporterhelper/obsreport.go
+@@ -40,6 +40,7 @@ func init() {
+ type instruments struct {
+ 	registry                    *metric.Registry
+ 	queueSize                   *metric.Int64DerivedGauge
++	queueCapacity               *metric.Int64DerivedGauge
+ 	failedToEnqueueTraceSpans   *metric.Int64Cumulative
+ 	failedToEnqueueMetricPoints *metric.Int64Cumulative
+ 	failedToEnqueueLogRecords   *metric.Int64Cumulative
+@@ -55,6 +56,12 @@ func newInstruments(registry *metric.Registry) *instruments {
+ 		metric.WithLabelKeys(obsmetrics.ExporterKey),
+ 		metric.WithUnit(metricdata.UnitDimensionless))
+ 
++	insts.queueCapacity, _ = registry.AddInt64DerivedGauge(
++		obsmetrics.ExporterKey+"/queue_capacity",
++		metric.WithDescription("Fixed capacity of the retry queue (in batches)"),
++		metric.WithLabelKeys(obsmetrics.ExporterKey),
++		metric.WithUnit(metricdata.UnitDimensionless))
++
+ 	insts.failedToEnqueueTraceSpans, _ = registry.AddInt64Cumulative(
+ 		obsmetrics.ExporterKey+"/enqueue_failed_spans",
+ 		metric.WithDescription("Number of spans failed to be added to the sending queue."),

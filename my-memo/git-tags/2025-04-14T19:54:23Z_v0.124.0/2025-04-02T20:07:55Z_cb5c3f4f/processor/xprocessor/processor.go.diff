@@ -1,0 +1,12 @@
+diff --git a/processor/xprocessor/processor.go b/processor/xprocessor/processor.go
+index 92262e53a..b91c44b98 100644
+--- a/processor/xprocessor/processor.go
++++ b/processor/xprocessor/processor.go
+@@ -112,6 +112,6 @@ func NewFactory(cfgType component.Type, createDefaultConfig component.CreateDefa
+ 	for _, opt := range options {
+ 		opt.applyOption(&opts)
+ 	}
+-	opts.factory.Factory = processor.NewFactory(cfgType, createDefaultConfig, opts.opts...)
++	opts.Factory = processor.NewFactory(cfgType, createDefaultConfig, opts.opts...)
+ 	return opts.factory
+ }

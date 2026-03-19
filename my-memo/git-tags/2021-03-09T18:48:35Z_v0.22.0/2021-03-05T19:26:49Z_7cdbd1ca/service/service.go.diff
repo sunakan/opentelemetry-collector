@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 7f2899b4c..3fb356a68 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -217,7 +217,7 @@ func (app *Application) GetFactory(kind component.Kind, componentType configmode
+ 	return nil
+ }
+ 
+-func (app *Application) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++func (app *Application) GetExtensions() map[configmodels.Extension]component.Extension {
+ 	return app.builtExtensions.ToMap()
+ }
+ 

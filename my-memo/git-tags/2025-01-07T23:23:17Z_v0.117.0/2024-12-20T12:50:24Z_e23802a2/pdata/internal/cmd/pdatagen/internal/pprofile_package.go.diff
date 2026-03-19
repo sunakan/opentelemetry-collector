@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+index 2ca3edb47..cc15b7836 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -204,8 +204,8 @@ var profile = &messageValueStruct{
+ 			},
+ 		},
+ 		&sliceField{
+-			fieldName:   "Attributes",
+-			returnSlice: mapStruct,
++			fieldName:   "AttributeIndices",
++			returnSlice: int32Slice,
+ 		},
+ 		droppedAttributesCount,
+ 		&primitiveField{

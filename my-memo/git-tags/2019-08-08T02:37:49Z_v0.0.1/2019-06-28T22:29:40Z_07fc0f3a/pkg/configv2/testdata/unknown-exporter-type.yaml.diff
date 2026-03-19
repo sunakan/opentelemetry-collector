@@ -1,0 +1,17 @@
+diff --git a/pkg/configv2/testdata/unknown-exporter-type.yaml b/pkg/configv2/testdata/unknown-exporter-type.yaml
+deleted file mode 100644
+index f5c50bda1..000000000
+--- a/pkg/configv2/testdata/unknown-exporter-type.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  nosuchexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [multireceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]

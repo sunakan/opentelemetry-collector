@@ -1,0 +1,12 @@
+diff --git a/translator/conventions/opentelemetry.go b/translator/conventions/opentelemetry.go
+index dd2ffb8f1..909741b7e 100644
+--- a/translator/conventions/opentelemetry.go
++++ b/translator/conventions/opentelemetry.go
+@@ -24,6 +24,7 @@ const (
+ 	AttributeTelemetrySDKName      = "telemetry.sdk.name"
+ 	AttributeTelemetrySDKLanguage  = "telemetry.sdk.language"
+ 	AttributeTelemetrySDKVersion   = "telemetry.sdk.version"
++	AttributeTelemetryAutoVersion  = "telemetry.auto.version"
+ 	AttributeContainerName         = "container.name"
+ 	AttributeContainerID           = "container.id"
+ 	AttributeContainerImage        = "container.image.name"

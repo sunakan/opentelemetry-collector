@@ -1,0 +1,77 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 28026dbce..fb4b913a2 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -347,6 +347,20 @@ func Test_PushMetrics(t *testing.T) {
+ 	}
+ 	doubleHistogramBatch := pdata.MetricsFromOtlp(doubleHistogramMetric)
+ 
++	doubleSummaryMetric := []*otlp.ResourceMetrics{
++		{
++			InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
++				{
++					Metrics: []*otlp.Metric{
++						validMetrics1[validDoubleSummary],
++						validMetrics2[validDoubleSummary],
++					},
++				},
++			},
++		},
++	}
++	doubleSummaryBatch := pdata.MetricsFromOtlp(doubleSummaryMetric)
++
+ 	// len(BucketCount) > len(ExplicitBounds)
+ 	unmatchedBoundBucketIntHistMetric := []*otlp.ResourceMetrics{
+ 		{
+@@ -453,6 +467,19 @@ func Test_PushMetrics(t *testing.T) {
+ 	}
+ 	nilDataPointDoubleHistogramBatch := pdata.MetricsFromOtlp(nilDataPointDoubleHistogramMetric)
+ 
++	nilDataPointDoubleSummaryMetric := []*otlp.ResourceMetrics{
++		{
++			InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
++				{
++					Metrics: []*otlp.Metric{
++						errorMetrics[nilDataPointDoubleSummary],
++					},
++				},
++			},
++		},
++	}
++	nilDataPointDoubleSummaryBatch := pdata.MetricsFromOtlp(nilDataPointDoubleSummaryMetric)
++
+ 	checkFunc := func(t *testing.T, r *http.Request, expected int) {
+ 		body, err := ioutil.ReadAll(r.Body)
+ 		if err != nil {
+@@ -571,6 +598,15 @@ func Test_PushMetrics(t *testing.T) {
+ 			0,
+ 			false,
+ 		},
++		{
++			"doubleSummary_case",
++			&doubleSummaryBatch,
++			checkFunc,
++			10,
++			http.StatusAccepted,
++			0,
++			false,
++		},
+ 		{
+ 			"unmatchedBoundBucketIntHist_case",
+ 			&unmatchedBoundBucketIntHistBatch,
+@@ -652,6 +688,15 @@ func Test_PushMetrics(t *testing.T) {
+ 			nilDataPointIntHistogramBatch.MetricCount(),
+ 			true,
+ 		},
++		{
++			"nilDataPointDoubleSummary_case",
++			&nilDataPointDoubleSummaryBatch,
++			checkFunc,
++			0,
++			http.StatusAccepted,
++			nilDataPointDoubleSummaryBatch.MetricCount(),
++			true,
++		},
+ 	}
+ 
+ 	for _, tt := range tests {

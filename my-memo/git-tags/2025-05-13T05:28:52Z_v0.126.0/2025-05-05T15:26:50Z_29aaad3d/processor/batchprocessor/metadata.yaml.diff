@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/metadata.yaml b/processor/batchprocessor/metadata.yaml
+index 03ea115f2..fa9bb713d 100644
+--- a/processor/batchprocessor/metadata.yaml
++++ b/processor/batchprocessor/metadata.yaml
+@@ -2,6 +2,7 @@ type: batch
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: processor
+   stability:
+     beta: [ traces, metrics, logs ]

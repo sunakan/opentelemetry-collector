@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_metricslice_test.go b/pdata/pmetric/generated_metricslice_test.go
+index ba5957ca5..7ed538fab 100644
+--- a/pdata/pmetric/generated_metricslice_test.go
++++ b/pdata/pmetric/generated_metricslice_test.go
+@@ -52,6 +52,8 @@ func TestMetricSlice_CopyTo(t *testing.T) {
+ 	src := generateTestMetricSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestMetricSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestMetricSlice(), dest)
+ }
+ 
+ func TestMetricSlice_EnsureCapacity(t *testing.T) {

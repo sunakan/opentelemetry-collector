@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerhelper/traces.go b/consumer/consumerhelper/traces.go
+index 4756fdfed..d71f5a560 100644
+--- a/consumer/consumerhelper/traces.go
++++ b/consumer/consumerhelper/traces.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package consumerhelper
++package consumerhelper // import "go.opentelemetry.io/collector/consumer/consumerhelper"
+ 
+ import (
+ 	"context"

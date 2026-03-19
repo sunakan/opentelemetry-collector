@@ -1,0 +1,15 @@
+diff --git a/consumer/pdata/generated_trace_test.go b/consumer/pdata/generated_trace_test.go
+index a3268bc83..9f19270c4 100644
+--- a/consumer/pdata/generated_trace_test.go
++++ b/consumer/pdata/generated_trace_test.go
+@@ -20,8 +20,9 @@ package pdata
+ import (
+ 	"testing"
+ 
+-	otlptrace "github.com/open-telemetry/opentelemetry-proto/gen/go/trace/v1"
+ 	"github.com/stretchr/testify/assert"
++
++	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
+ )
+ 
+ func TestResourceSpansSlice(t *testing.T) {

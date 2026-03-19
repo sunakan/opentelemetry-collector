@@ -1,0 +1,70 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 32bf272d5..d9e5ba9f9 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -8,6 +8,7 @@ import (
+ 	"fmt"
+ 	"os"
+ 	"path/filepath"
++	"reflect"
+ 	"strings"
+ 	"testing"
+ 
+@@ -876,3 +877,57 @@ func TestExpandedValue(t *testing.T) {
+ 	cfgBool := ConfigBool{}
+ 	assert.Error(t, cm.Unmarshal(&cfgBool))
+ }
++
++func TestStringyTypes(t *testing.T) {
++	tests := []struct {
++		valueOfType any
++		isStringy   bool
++	}{
++		{
++			valueOfType: "string",
++			isStringy:   true,
++		},
++		{
++			valueOfType: 1,
++			isStringy:   false,
++		},
++		{
++			valueOfType: map[string]any{},
++			isStringy:   false,
++		},
++		{
++			valueOfType: []any{},
++			isStringy:   false,
++		},
++		{
++			valueOfType: map[string]string{},
++			isStringy:   true,
++		},
++		{
++			valueOfType: []string{},
++			isStringy:   true,
++		},
++		{
++			valueOfType: map[string][]string{},
++			isStringy:   true,
++		},
++		{
++			valueOfType: map[string]map[string]string{},
++			isStringy:   true,
++		},
++		{
++			valueOfType: []map[string]any{},
++			isStringy:   false,
++		},
++		{
++			valueOfType: []map[string]string{},
++			isStringy:   true,
++		},
++	}
++
++	for _, tt := range tests {
++		// Create a reflect.Type from the value
++		to := reflect.TypeOf(tt.valueOfType)
++		assert.Equal(t, tt.isStringy, isStringyStructure(to))
++	}
++}

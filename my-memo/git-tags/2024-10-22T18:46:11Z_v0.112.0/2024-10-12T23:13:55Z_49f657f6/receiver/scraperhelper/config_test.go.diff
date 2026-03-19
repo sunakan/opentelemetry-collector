@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/config_test.go b/receiver/scraperhelper/config_test.go
+index 1da08e780..c82b95ddf 100644
+--- a/receiver/scraperhelper/config_test.go
++++ b/receiver/scraperhelper/config_test.go
+@@ -37,7 +37,6 @@ func TestScrapeControllerSettings(t *testing.T) {
+ 			errVal: `"timeout": requires positive value`,
+ 		},
+ 	} {
+-		tc := tc
+ 		t.Run(tc.name, func(t *testing.T) {
+ 			t.Parallel()
+ 

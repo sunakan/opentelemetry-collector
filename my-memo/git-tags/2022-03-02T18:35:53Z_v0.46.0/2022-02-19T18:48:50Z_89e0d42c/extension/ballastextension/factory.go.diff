@@ -1,0 +1,24 @@
+diff --git a/extension/ballastextension/factory.go b/extension/ballastextension/factory.go
+index 825a3fc3d..cbf542e51 100644
+--- a/extension/ballastextension/factory.go
++++ b/extension/ballastextension/factory.go
+@@ -19,7 +19,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/extension/extensionhelper"
+ 	"go.opentelemetry.io/collector/internal/iruntime"
+ )
+ 
+@@ -33,10 +32,7 @@ var memHandler = iruntime.TotalMemory
+ 
+ // NewFactory creates a factory for FluentBit extension.
+ func NewFactory() component.ExtensionFactory {
+-	return extensionhelper.NewFactory(
+-		typeStr,
+-		createDefaultConfig,
+-		createExtension)
++	return component.NewExtensionFactory(typeStr, createDefaultConfig, createExtension)
+ }
+ 
+ func createDefaultConfig() config.Extension {

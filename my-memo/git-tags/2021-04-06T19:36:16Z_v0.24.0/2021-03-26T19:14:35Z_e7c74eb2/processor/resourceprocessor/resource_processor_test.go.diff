@@ -1,0 +1,21 @@
+diff --git a/processor/resourceprocessor/resource_processor_test.go b/processor/resourceprocessor/resource_processor_test.go
+index 50eccd0d7..9eb1b2792 100644
+--- a/processor/resourceprocessor/resource_processor_test.go
++++ b/processor/resourceprocessor/resource_processor_test.go
+@@ -22,14 +22,14 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 
+ var (
+-	processorSettings = configmodels.ProcessorSettings{
++	processorSettings = config.ProcessorSettings{
+ 		TypeVal: "resource",
+ 		NameVal: "resource",
+ 	}

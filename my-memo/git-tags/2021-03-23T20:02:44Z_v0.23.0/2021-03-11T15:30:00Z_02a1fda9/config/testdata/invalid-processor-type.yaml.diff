@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-processor-type.yaml b/config/testdata/invalid-processor-type.yaml
+new file mode 100644
+index 000000000..69d87aac4
+--- /dev/null
++++ b/config/testdata/invalid-processor-type.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++  /custom:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

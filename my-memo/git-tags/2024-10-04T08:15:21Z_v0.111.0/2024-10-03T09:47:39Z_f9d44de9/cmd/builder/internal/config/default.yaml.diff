@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/config/default.yaml b/cmd/builder/internal/config/default.yaml
+index d7b7a011a..3e3f2483d 100644
+--- a/cmd/builder/internal/config/default.yaml
++++ b/cmd/builder/internal/config/default.yaml
+@@ -18,7 +18,6 @@ receivers:
+   - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.110.0
+ exporters:
+   - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.110.0
+-  - gomod: go.opentelemetry.io/collector/exporter/loggingexporter v0.110.0
+   - gomod: go.opentelemetry.io/collector/exporter/nopexporter v0.110.0
+   - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.110.0
+   - gomod: go.opentelemetry.io/collector/exporter/otlphttpexporter v0.110.0

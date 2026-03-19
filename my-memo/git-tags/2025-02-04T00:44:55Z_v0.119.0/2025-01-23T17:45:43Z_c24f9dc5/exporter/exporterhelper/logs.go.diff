@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index be720ca2e..e8c2b5617 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -34,7 +34,7 @@ func newLogsRequest(ld plog.Logs, pusher consumer.ConsumeLogsFunc) Request {
+ 	return &logsRequest{
+ 		ld:               ld,
+ 		pusher:           pusher,
+-		cachedItemsCount: -1,
++		cachedItemsCount: ld.LogRecordCount(),
+ 	}
+ }
+ 
+@@ -65,9 +65,6 @@ func (req *logsRequest) Export(ctx context.Context) error {
+ }
+ 
+ func (req *logsRequest) ItemsCount() int {
+-	if req.cachedItemsCount == -1 {
+-		req.cachedItemsCount = req.ld.LogRecordCount()
+-	}
+ 	return req.cachedItemsCount
+ }
+ 

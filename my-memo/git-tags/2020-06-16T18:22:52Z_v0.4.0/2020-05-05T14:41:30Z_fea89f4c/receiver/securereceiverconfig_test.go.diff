@@ -1,0 +1,34 @@
+diff --git a/receiver/securereceiverconfig_test.go b/receiver/securereceiverconfig_test.go
+index 851e17ec8..d252fc9fc 100644
+--- a/receiver/securereceiverconfig_test.go
++++ b/receiver/securereceiverconfig_test.go
+@@ -17,10 +17,10 @@ package receiver
+ import (
+ 	"os"
+ 	"path"
++	"syscall"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"golang.org/x/sys/unix"
+ )
+ 
+ func TestToGrpcServerOption(t *testing.T) {
+@@ -38,7 +38,7 @@ func TestToGrpcServerOption(t *testing.T) {
+ 			err: &os.PathError{
+ 				Op:   "open",
+ 				Path: "/badpath",
+-				Err:  unix.ENOENT,
++				Err:  syscall.ENOENT,
+ 			},
+ 		},
+ 		{
+@@ -49,7 +49,7 @@ func TestToGrpcServerOption(t *testing.T) {
+ 			err: &os.PathError{
+ 				Op:   "open",
+ 				Path: "/badpath",
+-				Err:  unix.ENOENT,
++				Err:  syscall.ENOENT,
+ 			},
+ 		},
+ 		{

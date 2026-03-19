@@ -1,0 +1,20 @@
+diff --git a/config/configunmarshaler/testdata/invalid-sequence-value.yaml b/config/configunmarshaler/testdata/invalid-sequence-value.yaml
+new file mode 100644
+index 000000000..7f7a0a385
+--- /dev/null
++++ b/config/configunmarshaler/testdata/invalid-sequence-value.yaml
+@@ -0,0 +1,14 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers:
++        examplereceiver:
++          some: config
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

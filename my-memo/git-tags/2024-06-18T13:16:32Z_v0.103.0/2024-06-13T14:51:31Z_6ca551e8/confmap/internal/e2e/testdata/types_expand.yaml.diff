@@ -1,0 +1,7 @@
+diff --git a/confmap/internal/e2e/testdata/types_expand.yaml b/confmap/internal/e2e/testdata/types_expand.yaml
+new file mode 100644
+index 000000000..2ffe5ca46
+--- /dev/null
++++ b/confmap/internal/e2e/testdata/types_expand.yaml
+@@ -0,0 +1 @@
++field: ${env:ENV}

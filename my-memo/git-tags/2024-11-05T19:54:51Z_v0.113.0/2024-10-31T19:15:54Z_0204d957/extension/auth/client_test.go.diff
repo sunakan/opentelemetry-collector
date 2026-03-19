@@ -1,0 +1,10 @@
+diff --git a/extension/auth/client_test.go b/extension/auth/client_test.go
+index c3666c229..cb95a25da 100644
+--- a/extension/auth/client_test.go
++++ b/extension/auth/client_test.go
+@@ -115,5 +115,4 @@ func TestWithPerRPCCredentials(t *testing.T) {
+ 	assert.True(t, called)
+ 	assert.NotNil(t, p)
+ 	assert.NoError(t, err)
+-
+ }

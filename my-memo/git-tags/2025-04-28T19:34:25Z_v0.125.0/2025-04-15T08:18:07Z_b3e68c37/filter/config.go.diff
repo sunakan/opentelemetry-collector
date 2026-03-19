@@ -1,0 +1,13 @@
+diff --git a/filter/config.go b/filter/config.go
+index 3b0a378a4..1baedad40 100644
+--- a/filter/config.go
++++ b/filter/config.go
+@@ -12,6 +12,8 @@ import (
+ type Config struct {
+ 	Strict string `mapstructure:"strict"`
+ 	Regex  string `mapstructure:"regexp"`
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ func (c Config) Validate() error {

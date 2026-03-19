@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index f9964c5d5..a1bb7b532 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -35,6 +35,9 @@ func main() {
+ 					{{.Name}}.NewFactory(),
+ 					{{- end}}
+ 				},
++				{{- if .ConfResolver.DefaultURIScheme }}
++				DefaultScheme: "{{ .ConfResolver.DefaultURIScheme }}",
++				{{- end }}
+ 				ConverterFactories: []confmap.ConverterFactory{
+ 					expandconverter.NewFactory(),
+ 				},

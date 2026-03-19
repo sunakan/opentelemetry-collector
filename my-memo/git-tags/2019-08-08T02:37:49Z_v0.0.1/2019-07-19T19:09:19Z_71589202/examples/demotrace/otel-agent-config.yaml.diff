@@ -1,0 +1,25 @@
+diff --git a/examples/demotrace/otel-agent-config.yaml b/examples/demotrace/otel-agent-config.yaml
+index 360395b60..39516d0a2 100644
+--- a/examples/demotrace/otel-agent-config.yaml
++++ b/examples/demotrace/otel-agent-config.yaml
+@@ -5,20 +5,16 @@ receivers:
+   opencensus:
+     endpoint: 0.0.0.0:55678
+     reconnection-delay: 2s
+-    enabled: true
+   jaeger:
+     protocols:
+       thrift-http:
+         endpoint: "0.0.0.0:14268"
+-        enabled: true
+ 
+ 
+ exporters:
+   opencensus:
+     endpoint: "otel-collector:55678"
+-    enabled: true
+   logging:
+-    enabled: true
+ 
+ processors:
+   batch:

@@ -1,0 +1,12 @@
+diff --git a/service/internal/configunmarshaler/receivers_test.go b/service/internal/configunmarshaler/receivers_test.go
+index 7b32029f3..bef7a0596 100644
+--- a/service/internal/configunmarshaler/receivers_test.go
++++ b/service/internal/configunmarshaler/receivers_test.go
+@@ -38,7 +38,6 @@ func TestReceiversUnmarshal(t *testing.T) {
+ 	require.NoError(t, recvs.Unmarshal(conf))
+ 
+ 	cfgWithName := factories["nop"].CreateDefaultConfig()
+-	cfgWithName.SetIDName("myreceiver") //nolint:staticcheck
+ 	assert.Equal(t, map[component.ID]component.Config{
+ 		component.NewID("nop"):                       factories["nop"].CreateDefaultConfig(),
+ 		component.NewIDWithName("nop", "myreceiver"): cfgWithName,

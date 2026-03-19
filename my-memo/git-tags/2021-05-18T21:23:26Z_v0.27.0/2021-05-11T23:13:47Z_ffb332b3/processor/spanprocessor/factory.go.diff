@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/factory.go b/processor/spanprocessor/factory.go
+index 5a8d943a5..f58c4f6a5 100644
+--- a/processor/spanprocessor/factory.go
++++ b/processor/spanprocessor/factory.go
+@@ -29,7 +29,7 @@ const (
+ 	typeStr = "span"
+ )
+ 
+-var processorCapabilities = component.ProcessorCapabilities{MutatesConsumedData: true}
++var processorCapabilities = consumer.Capabilities{MutatesData: true}
+ 
+ // errMissingRequiredField is returned when a required field in the config
+ // is not specified.

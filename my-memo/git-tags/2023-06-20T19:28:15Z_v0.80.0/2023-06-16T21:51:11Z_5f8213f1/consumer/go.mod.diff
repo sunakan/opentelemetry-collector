@@ -1,0 +1,10 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 9f20d944e..e88b689d6 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -67,3 +67,5 @@ replace go.opentelemetry.io/collector/config/configopaque => ../config/configopa
+ replace go.opentelemetry.io/collector/config/configtls => ../config/configtls
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../config/configtelemetry
++
++replace go.opentelemetry.io/collector/config/configauth => ../config/configauth

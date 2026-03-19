@@ -1,0 +1,21 @@
+diff --git a/extension/memorylimiterextension/factory.go b/extension/memorylimiterextension/factory.go
+index b253e6194..197b112c7 100644
+--- a/extension/memorylimiterextension/factory.go
++++ b/extension/memorylimiterextension/factory.go
+@@ -18,7 +18,7 @@ func NewFactory() extension.Factory {
+ 	return extension.NewFactory(
+ 		metadata.Type,
+ 		createDefaultConfig,
+-		createExtension,
++		create,
+ 		metadata.ExtensionStability)
+ }
+ 
+@@ -28,6 +28,6 @@ func createDefaultConfig() component.Config {
+ 	return &Config{}
+ }
+ 
+-func createExtension(_ context.Context, set extension.Settings, cfg component.Config) (extension.Extension, error) {
++func create(_ context.Context, set extension.Settings, cfg component.Config) (extension.Extension, error) {
+ 	return newMemoryLimiter(cfg.(*Config), set.TelemetrySettings.Logger)
+ }

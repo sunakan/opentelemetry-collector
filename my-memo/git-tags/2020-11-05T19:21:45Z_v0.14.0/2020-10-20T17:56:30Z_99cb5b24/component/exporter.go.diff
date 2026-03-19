@@ -1,0 +1,13 @@
+diff --git a/component/exporter.go b/component/exporter.go
+index b633002e1..ff07d3b0f 100644
+--- a/component/exporter.go
++++ b/component/exporter.go
+@@ -31,7 +31,7 @@ type Exporter interface {
+ // TraceExporter is a Exporter that can consume traces.
+ type TraceExporter interface {
+ 	Exporter
+-	consumer.TraceConsumer
++	consumer.TracesConsumer
+ }
+ 
+ // MetricsExporter is an Exporter that can consume metrics.

@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_gauge.go b/pdata/internal/generated_wrapper_gauge.go
+index d49b663a4..04a3e79b8 100644
+--- a/pdata/internal/generated_wrapper_gauge.go
++++ b/pdata/internal/generated_wrapper_gauge.go
+@@ -13,3 +13,7 @@ import (
+ func CopyOrigGauge(dest, src *otlpmetrics.Gauge) {
+ 	dest.DataPoints = CopyOrigNumberDataPointSlice(dest.DataPoints, src.DataPoints)
+ }
++
++func FillOrigTestGauge(orig *otlpmetrics.Gauge) {
++	orig.DataPoints = GenerateOrigTestNumberDataPointSlice()
++}

@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/templates/config.go.tmpl b/cmd/mdatagen/templates/config.go.tmpl
+index 712602222..32025863d 100644
+--- a/cmd/mdatagen/templates/config.go.tmpl
++++ b/cmd/mdatagen/templates/config.go.tmpl
+@@ -5,7 +5,9 @@ package {{ .Package }}
+ {{ if or .Metrics .ResourceAttributes -}}
+ import "go.opentelemetry.io/collector/confmap"
+ {{- end }}
+-
++{{ if .ResourceAttributes -}}
++import "go.opentelemetry.io/collector/filter"
++{{- end }}
+ {{ if .Metrics -}}
+ 
+ // MetricConfig provides common config for a particular metric.
+@@ -49,6 +51,8 @@ func DefaultMetricsConfig() MetricsConfig {
+ // ResourceAttributeConfig provides common config for a particular resource attribute.
+ type ResourceAttributeConfig struct {
+ 	Enabled bool `mapstructure:"enabled"`
++	Include []filter.Config `mapstructure:"include"`
++	Exclude []filter.Config `mapstructure:"exclude"`
+ 
+ 	enabledSetByUser bool
+ }

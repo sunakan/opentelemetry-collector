@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/generated_component_test.go b/receiver/otlpreceiver/generated_component_test.go
+index 7d843411f..2f2aedb8a 100644
+--- a/receiver/otlpreceiver/generated_component_test.go
++++ b/receiver/otlpreceiver/generated_component_test.go
+@@ -16,8 +16,10 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
++var typ = component.MustNewType("otlp")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "otlp", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

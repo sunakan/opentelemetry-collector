@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/logger_test.go b/service/telemetry/logger_test.go
+index 284c3f013..d1cefa6a6 100644
+--- a/service/telemetry/logger_test.go
++++ b/service/telemetry/logger_test.go
+@@ -100,7 +100,7 @@ func TestNewLogger(t *testing.T) {
+ 					InitialFields:     map[string]any(nil),
+ 				},
+ 			},
+-			wantCoreType: "*componentattribute.consoleCoreWithAttributes",
++			wantCoreType: "*componentattribute.samplerCoreWithAttributes",
+ 		},
+ 	}
+ 	for _, tt := range tests {

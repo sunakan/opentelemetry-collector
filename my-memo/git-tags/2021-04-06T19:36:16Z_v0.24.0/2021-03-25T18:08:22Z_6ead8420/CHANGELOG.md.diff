@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 0da31987a..ec0d0165e 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -12,6 +12,10 @@
+ - Refactor `componenthelper` package (#2778)
+   - Remove `ComponentSettings` and `DefaultComponentSettings()`
+   - Rename `NewComponent()` to `New()`
++- obsReport.NewExporter accepts a settings struct (#2668)
++
++## 💡 Enhancements 💡
++- `batch` processor: - Support max batch size for logs (#2736)
+ 
+ ## 🧰 Bug fixes 🧰
+ 

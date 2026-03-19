@@ -1,0 +1,14 @@
+diff --git a/consumer/xconsumer/profiles.go b/consumer/xconsumer/profiles.go
+index 88ba2eb5a..7f0b36f55 100644
+--- a/consumer/xconsumer/profiles.go
++++ b/consumer/xconsumer/profiles.go
+@@ -18,7 +18,8 @@ var errNilFunc = errors.New("nil consumer func")
+ // as needed, and sends it to the next processing node if any or to the destination.
+ type Profiles interface {
+ 	internal.BaseConsumer
+-	// ConsumeProfiles receives pprofile.Profiles for consumption.
++	// ConsumeProfiles processes the profiles. After the function returns, the profiles are no longer accessible,
++	// and accessing them is considered undefined behavior.
+ 	ConsumeProfiles(ctx context.Context, td pprofile.Profiles) error
+ }
+ 

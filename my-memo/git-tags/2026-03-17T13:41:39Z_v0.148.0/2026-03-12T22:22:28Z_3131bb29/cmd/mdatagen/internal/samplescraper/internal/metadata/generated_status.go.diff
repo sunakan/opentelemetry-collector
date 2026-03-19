@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_status.go b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_status.go
+index 943074109..b5d6acbb5 100644
+--- a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_status.go
++++ b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_status.go
+@@ -12,6 +12,7 @@ var (
+ )
+ 
+ const (
+-	LogsStability    = component.StabilityLevelDevelopment
+-	MetricsStability = component.StabilityLevelStable
++	LogsStability     = component.StabilityLevelDevelopment
++	ProfilesStability = component.StabilityLevelDevelopment
++	MetricsStability  = component.StabilityLevelStable
+ )

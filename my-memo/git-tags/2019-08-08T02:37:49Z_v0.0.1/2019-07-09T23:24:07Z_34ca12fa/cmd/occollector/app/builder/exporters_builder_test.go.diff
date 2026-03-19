@@ -1,0 +1,16 @@
+diff --git a/cmd/occollector/app/builder/exporters_builder_test.go b/cmd/occollector/app/builder/exporters_builder_test.go
+index 0855b0060..7d184ef90 100644
+--- a/cmd/occollector/app/builder/exporters_builder_test.go
++++ b/cmd/occollector/app/builder/exporters_builder_test.go
+@@ -28,9 +28,9 @@ import (
+ )
+ 
+ func TestExportersBuilder_Build(t *testing.T) {
+-	config := &configmodels.ConfigV2{
++	config := &configmodels.Config{
+ 		Exporters: map[string]configmodels.Exporter{
+-			"opencensus": &opencensusexporter.ConfigV2{
++			"opencensus": &opencensusexporter.Config{
+ 				ExporterSettings: configmodels.ExporterSettings{
+ 					NameVal: "opencensus",
+ 					TypeVal: "opencensus",

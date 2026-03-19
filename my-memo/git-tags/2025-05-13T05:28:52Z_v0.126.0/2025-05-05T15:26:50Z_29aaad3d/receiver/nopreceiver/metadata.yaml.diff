@@ -1,0 +1,12 @@
+diff --git a/receiver/nopreceiver/metadata.yaml b/receiver/nopreceiver/metadata.yaml
+index 41abca3c9..7bd42e6be 100644
+--- a/receiver/nopreceiver/metadata.yaml
++++ b/receiver/nopreceiver/metadata.yaml
+@@ -2,6 +2,7 @@ type: nop
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   codeowners:
+     active:
+       - evan-bradley

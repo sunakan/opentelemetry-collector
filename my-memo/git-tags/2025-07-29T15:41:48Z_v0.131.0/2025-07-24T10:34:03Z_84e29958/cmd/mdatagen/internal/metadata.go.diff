@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metadata.go b/cmd/mdatagen/internal/metadata.go
+index b0ab0f019..1a8488363 100644
+--- a/cmd/mdatagen/internal/metadata.go
++++ b/cmd/mdatagen/internal/metadata.go
+@@ -318,7 +318,7 @@ func (a Attribute) Name() AttributeName {
+ 
+ func (a Attribute) TestValue() string {
+ 	if a.Enum != nil {
+-		return fmt.Sprintf(`"%s"`, a.Enum[0])
++		return fmt.Sprintf(`%q`, a.Enum[0])
+ 	}
+ 	switch a.Type.ValueType {
+ 	case pcommon.ValueTypeEmpty:

@@ -1,0 +1,11 @@
+diff --git a/confmap/provider/internal/provider.go b/confmap/provider/internal/provider.go
+index fb3027083..e3f6776db 100644
+--- a/confmap/provider/internal/provider.go
++++ b/confmap/provider/internal/provider.go
+@@ -28,5 +28,5 @@ func NewRetrievedFromYAML(yamlBytes []byte, opts ...confmap.RetrievedOption) (co
+ 	if err := yaml.Unmarshal(yamlBytes, &rawConf); err != nil {
+ 		return confmap.Retrieved{}, err
+ 	}
+-	return confmap.NewRetrievedFromMap(confmap.NewFromStringMap(rawConf), opts...), nil
++	return confmap.NewRetrieved(rawConf, opts...)
+ }

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp.go b/receiver/otlpreceiver/metrics/otlp.go
+index a24799492..ce8f8534d 100644
+--- a/receiver/otlpreceiver/metrics/otlp.go
++++ b/receiver/otlpreceiver/metrics/otlp.go
+@@ -60,7 +60,7 @@ func (r *Receiver) Export(ctx context.Context, req *collectormetrics.ExportMetri
+ 	md := data.MetricDataFromOtlp(req.ResourceMetrics)
+ 	rms := md.ResourceMetrics()
+ 	for i := 0; i < rms.Len(); i++ {
+-		ocmd := internaldata.ResourceMetricsToOC(rms.Get(i))
++		ocmd := internaldata.ResourceMetricsToOC(rms.At(i))
+ 		if len(ocmd.Metrics) == 0 {
+ 			continue
+ 		}

@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index 5a369715f..c2f3fc680 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -220,7 +220,7 @@ func testPipeline(t *testing.T, pipelineName string, exporterIDs []config.Compon
+ 		require.Equal(t, len(expConsumer.Traces), 0)
+ 	}
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	require.NoError(t, processor.firstTC.(consumer.Traces).ConsumeTraces(context.Background(), td))
+ 
+ 	// Now verify received data.

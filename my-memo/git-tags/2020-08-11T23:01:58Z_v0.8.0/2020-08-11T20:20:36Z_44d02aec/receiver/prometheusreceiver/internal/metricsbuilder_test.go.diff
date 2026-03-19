@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/metricsbuilder_test.go b/receiver/prometheusreceiver/internal/metricsbuilder_test.go
+index 1a5d4a9c7..9f8e289c8 100644
+--- a/receiver/prometheusreceiver/internal/metricsbuilder_test.go
++++ b/receiver/prometheusreceiver/internal/metricsbuilder_test.go
+@@ -138,7 +138,7 @@ func runBuilderStartTimeTests(t *testing.T, tests []buildTestData,
+ }
+ 
+ func Test_startTimeMetricMatch(t *testing.T) {
+-	matchBuilderStartTime := float64(123.456)
++	matchBuilderStartTime := 123.456
+ 	matchTests := []buildTestData{
+ 		{
+ 			name: "prefix_match",

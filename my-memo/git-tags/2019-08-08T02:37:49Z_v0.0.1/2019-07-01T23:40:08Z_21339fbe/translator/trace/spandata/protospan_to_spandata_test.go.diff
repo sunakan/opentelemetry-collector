@@ -1,0 +1,18 @@
+diff --git a/translator/trace/spandata/protospan_to_spandata_test.go b/translator/trace/spandata/protospan_to_spandata_test.go
+index 9a6b62832..50174d117 100644
+--- a/translator/trace/spandata/protospan_to_spandata_test.go
++++ b/translator/trace/spandata/protospan_to_spandata_test.go
+@@ -21,12 +21,11 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/golang/protobuf/ptypes/wrappers"
+-
+ 	"go.opencensus.io/trace"
+ 	"go.opencensus.io/trace/tracestate"
+ 
+-	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/open-telemetry/opentelemetry-service/internal"
+ )
+ 

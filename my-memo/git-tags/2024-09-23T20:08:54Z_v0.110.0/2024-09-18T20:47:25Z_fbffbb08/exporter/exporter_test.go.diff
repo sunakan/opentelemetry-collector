@@ -1,0 +1,14 @@
+diff --git a/exporter/exporter_test.go b/exporter/exporter_test.go
+index 1580638df..879933fda 100644
+--- a/exporter/exporter_test.go
++++ b/exporter/exporter_test.go
+@@ -78,8 +78,7 @@ func TestMakeFactoryMap(t *testing.T) {
+ 		},
+ 	}
+ 
+-	for i := range testCases {
+-		tt := testCases[i]
++	for _, tt := range testCases {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			out, err := MakeFactoryMap(tt.in...)
+ 			if tt.out == nil {

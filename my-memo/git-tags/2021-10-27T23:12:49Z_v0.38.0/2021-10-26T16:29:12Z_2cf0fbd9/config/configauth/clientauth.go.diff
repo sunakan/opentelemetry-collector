@@ -1,0 +1,25 @@
+diff --git a/config/configauth/clientauth.go b/config/configauth/clientauth.go
+index 5bd384eaf..c8944737f 100644
+--- a/config/configauth/clientauth.go
++++ b/config/configauth/clientauth.go
+@@ -27,18 +27,10 @@ import (
+ // names from the Authentication configuration.
+ type ClientAuthenticator interface {
+ 	component.Extension
+-}
+ 
+-// HTTPClientAuthenticator is a ClientAuthenticator that can be used as an authenticator
+-// for the configauth.Authentication option for HTTP clients.
+-type HTTPClientAuthenticator interface {
+-	ClientAuthenticator
++	// RoundTripper returns a RoundTripper that can be used to authenticate HTTP requests.
+ 	RoundTripper(base http.RoundTripper) (http.RoundTripper, error)
+-}
+ 
+-// GRPCClientAuthenticator is a ClientAuthenticator that can be used as an authenticator for
+-// the configauth.Authentication option for gRPC clients.
+-type GRPCClientAuthenticator interface {
+-	ClientAuthenticator
++	// PerRPCCredentials returns a PerRPCCredentials that can be used to authenticate gRPC requests.
+ 	PerRPCCredentials() (credentials.PerRPCCredentials, error)
+ }

@@ -1,0 +1,8 @@
+diff --git a/internal/memorylimiter/cgroups/testdata/proc/untranslatable/mountinfo b/internal/memorylimiter/cgroups/testdata/proc/untranslatable/mountinfo
+new file mode 100644
+index 000000000..245daae6e
+--- /dev/null
++++ b/internal/memorylimiter/cgroups/testdata/proc/untranslatable/mountinfo
+@@ -0,0 +1,2 @@
++31 23 0:24 / /sys/fs/cgroup/cpu rw,nosuid,nodev,noexec,relatime shared:1 - cgroup cgroup rw,cpu
++32 23 0:25 /docker/0123456789abcdef /sys/fs/cgroup/cpuacct rw,nosuid,nodev,noexec,relatime shared:2 - cgroup cgroup rw,cpuacct

@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_profileslice.go b/pdata/internal/generated_wrapper_profileslice.go
+index 5220d7db8..447a16933 100644
+--- a/pdata/internal/generated_wrapper_profileslice.go
++++ b/pdata/internal/generated_wrapper_profileslice.go
+@@ -43,11 +43,9 @@ func CopyOrigProfileSlice(dest, src []*otlpprofiles.Profile) []*otlpprofiles.Pro
+ func GenerateOrigTestProfileSlice() []*otlpprofiles.Profile {
+ 	orig := make([]*otlpprofiles.Profile, 5)
+ 	orig[0] = NewOrigPtrProfile()
+-	orig[1] = NewOrigPtrProfile()
+-	FillOrigTestProfile(orig[1])
++	orig[1] = GenTestOrigProfile()
+ 	orig[2] = NewOrigPtrProfile()
+-	orig[3] = NewOrigPtrProfile()
+-	FillOrigTestProfile(orig[3])
++	orig[3] = GenTestOrigProfile()
+ 	orig[4] = NewOrigPtrProfile()
+ 	return orig
+ }

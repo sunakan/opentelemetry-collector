@@ -1,0 +1,19 @@
+diff --git a/service/telemetry/otelconftelemetry/config_test.go b/service/telemetry/otelconftelemetry/config_test.go
+index ab0bc2863..8c1fce16e 100644
+--- a/service/telemetry/otelconftelemetry/config_test.go
++++ b/service/telemetry/otelconftelemetry/config_test.go
+@@ -22,12 +22,12 @@ import (
+ 
+ func TestComponentConfigStruct(t *testing.T) {
+ 	require.NoError(t, componenttest.CheckConfigStruct(
+-		NewFactory(nil, nil).CreateDefaultConfig(),
++		NewFactory().CreateDefaultConfig(),
+ 	))
+ }
+ 
+ func TestUnmarshalDefaultConfig(t *testing.T) {
+-	factory := NewFactory(nil, nil)
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	require.NoError(t, confmap.New().Unmarshal(&cfg))
+ 	assert.Equal(t, factory.CreateDefaultConfig(), cfg)

@@ -1,0 +1,13 @@
+diff --git a/confmap/internal/e2e/go.mod b/confmap/internal/e2e/go.mod
+index ce7b8c6dd..c79be32e4 100644
+--- a/confmap/internal/e2e/go.mod
++++ b/confmap/internal/e2e/go.mod
+@@ -5,7 +5,7 @@ go 1.23.0
+ require (
+ 	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/config/configopaque v1.26.0
+-	go.opentelemetry.io/collector/confmap v1.26.0
++	go.opentelemetry.io/collector/confmap v1.27.0
+ 	go.opentelemetry.io/collector/confmap/provider/envprovider v1.26.0
+ 	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.26.0
+ )

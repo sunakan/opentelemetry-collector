@@ -1,0 +1,24 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerproto.go b/translator/trace/jaeger/protospan_to_jaegerproto.go
+index c9cd5473d..306f1db76 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerproto.go
++++ b/translator/trace/jaeger/protospan_to_jaegerproto.go
+@@ -314,7 +314,7 @@ func ocAnnotationToJagerTagsProto(annotation *tracepb.Span_TimeEvent_Annotation)
+ 		return []jaeger.KeyValue{}
+ 	}
+ 
+-	strDescription := truncableStringToStr(annotation.Description)
++	strDescription := truncatableStringToStr(annotation.Description)
+ 	if strDescription == "" {
+ 		return ocSpanAttributesToJaegerTagsProto(annotation.Attributes)
+ 	}
+@@ -530,3 +530,10 @@ func ocSpansToJaegerSpansProto(ocSpans []*tracepb.Span) ([]*jaeger.Span, error)
+ 
+ 	return jSpans, nil
+ }
++
++func truncatableStringToStr(ts *tracepb.TruncatableString) string {
++	if ts == nil {
++		return ""
++	}
++	return ts.Value
++}

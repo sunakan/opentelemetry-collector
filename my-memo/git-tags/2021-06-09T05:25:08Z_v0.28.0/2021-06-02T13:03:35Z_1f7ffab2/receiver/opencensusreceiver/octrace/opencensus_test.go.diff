@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index 831bf467d..73203d462 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -55,7 +55,7 @@ func TestReceiver_endToEnd(t *testing.T) {
+ 	expCfg.GRPCClientSettings.TLSSetting.Insecure = true
+ 	expCfg.Endpoint = addr.String()
+ 	expCfg.WaitForReady = true
+-	oce, err := expFactory.CreateTracesExporter(context.Background(), component.ExporterCreateParams{Logger: zap.NewNop()}, expCfg)
++	oce, err := expFactory.CreateTracesExporter(context.Background(), component.ExporterCreateSettings{Logger: zap.NewNop()}, expCfg)
+ 	require.NoError(t, err)
+ 	err = oce.Start(context.Background(), componenttest.NewNopHost())
+ 	require.NoError(t, err)

@@ -1,0 +1,17 @@
+diff --git a/cmd/builder/internal/version.go b/cmd/builder/internal/version.go
+index 2e1f39e9f..9aa5e1511 100644
+--- a/cmd/builder/internal/version.go
++++ b/cmd/builder/internal/version.go
+@@ -16,8 +16,10 @@ var (
+ 
+ func init() {
+ 	// the second returned value is a boolean, which is true if the binaries are built with module support.
+-	info, _ := debug.ReadBuildInfo()
+-	version = info.Main.Version
++	if version == "" {
++		info, _ := debug.ReadBuildInfo()
++		version = info.Main.Version
++	}
+ }
+ 
+ func versionCommand() *cobra.Command {

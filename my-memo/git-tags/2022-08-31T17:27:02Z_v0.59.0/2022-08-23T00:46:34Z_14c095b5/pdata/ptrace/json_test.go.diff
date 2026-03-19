@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/json_test.go b/pdata/ptrace/json_test.go
+index 043047938..c558abaed 100644
+--- a/pdata/ptrace/json_test.go
++++ b/pdata/ptrace/json_test.go
+@@ -22,6 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
++	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
+ )
+ 
+ var tracesOTLP = func() Traces {

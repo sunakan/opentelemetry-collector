@@ -1,0 +1,16 @@
+diff --git a/receiver/prometheusreceiver/internal/transaction_test.go b/receiver/prometheusreceiver/internal/transaction_test.go
+index e8231948f..4fcb0afcf 100644
+--- a/receiver/prometheusreceiver/internal/transaction_test.go
++++ b/receiver/prometheusreceiver/internal/transaction_test.go
+@@ -20,10 +20,10 @@ import (
+ 	"testing"
+ 	"time"
+ 
+-	"github.com/golang/protobuf/proto"
+ 	"github.com/prometheus/common/model"
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/scrape"
++	"google.golang.org/protobuf/proto"
+ )
+ 
+ func Test_transaction(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index 7bebf4b18..1ae91c669 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -204,7 +204,7 @@ func generateMetricsTraffic(t *testing.T, me component.MetricsExporter, numReque
+ }
+ 
+ func checkWrapSpanForMetricsExporter(t *testing.T, me component.MetricsExporter, wantError error, numMetricPoints int64) {
+-	ocSpansSaver := new(testOCTraceExporter)
++	ocSpansSaver := new(testOCTracesExporter)
+ 	trace.RegisterExporter(ocSpansSaver)
+ 	defer trace.UnregisterExporter(ocSpansSaver)
+ 

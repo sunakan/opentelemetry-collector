@@ -1,0 +1,14 @@
+diff --git a/extension/extension.go b/extension/extension.go
+index 9a9855c35..b127432bc 100644
+--- a/extension/extension.go
++++ b/extension/extension.go
+@@ -26,6 +26,9 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo component.BuildInfo
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // CreateFunc is the equivalent of Factory.Create(...) function.

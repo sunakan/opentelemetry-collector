@@ -1,0 +1,22 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index e829f6ca2..866c27368 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -165,7 +165,7 @@ func (sc *controller) Shutdown(ctx context.Context) error {
+ 			errs = append(errs, err)
+ 		}
+ 	}
+-	return componenterror.CombineErrors(errs)
++	return consumererror.CombineErrors(errs)
+ }
+ 
+ // startScraping initiates a ticker that calls Scrape based on the configured
+@@ -249,7 +249,7 @@ func (mms *multiMetricScraper) Shutdown(ctx context.Context) error {
+ 			errs = append(errs, err)
+ 		}
+ 	}
+-	return componenterror.CombineErrors(errs)
++	return consumererror.CombineErrors(errs)
+ }
+ 
+ func (mms *multiMetricScraper) Scrape(ctx context.Context, receiverName string) (pdata.ResourceMetricsSlice, error) {

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pmetric_package.go b/internal/cmd/pdatagen/internal/pmetric_package.go
+index 3511ace37..0a7babfc3 100644
+--- a/internal/cmd/pdatagen/internal/pmetric_package.go
++++ b/internal/cmd/pdatagen/internal/pmetric_package.go
+@@ -509,7 +509,7 @@ var aggregationTemporalityField = &TypedField{
+ 	returnType: &TypedType{
+ 		structName: "AggregationTemporality",
+ 		rawType:    "otlpmetrics.AggregationTemporality",
+-		isType:     true,
++		isEnum:     true,
+ 		defaultVal: "otlpmetrics.AggregationTemporality(0)",
+ 		testVal:    "otlpmetrics.AggregationTemporality(1)",
+ 	},

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsreport.go b/exporter/exporterhelper/obsreport.go
+index 011c3fc99..7a4d4d2d6 100644
+--- a/exporter/exporterhelper/obsreport.go
++++ b/exporter/exporterhelper/obsreport.go
+@@ -99,7 +99,7 @@ func newObsExporter(cfg obsreport.ExporterSettings, insts *instruments) *obsExpo
+ 	failedToEnqueueLogRecordsEntry, _ := insts.failedToEnqueueLogRecords.GetEntry(labelValue)
+ 
+ 	return &obsExporter{
+-		Exporter:                         obsreport.NewExporter(cfg),
++		Exporter:                         obsreport.MustNewExporter(cfg),
+ 		failedToEnqueueTraceSpansEntry:   failedToEnqueueTraceSpansEntry,
+ 		failedToEnqueueMetricPointsEntry: failedToEnqueueMetricPointsEntry,
+ 		failedToEnqueueLogRecordsEntry:   failedToEnqueueLogRecordsEntry,

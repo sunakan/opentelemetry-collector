@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/generated_scopelogs.go b/pdata/plog/generated_scopelogs.go
+index e69d54ea9..b6ae0a100 100644
+--- a/pdata/plog/generated_scopelogs.go
++++ b/pdata/plog/generated_scopelogs.go
+@@ -45,8 +45,8 @@ func (ms ScopeLogs) MoveTo(dest ScopeLogs) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlplogs.ScopeLogs{}
++	internal.DeleteOrigScopeLogs(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Scope returns the scope associated with this ScopeLogs.

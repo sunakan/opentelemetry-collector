@@ -1,0 +1,39 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 8063b448d..5274db847 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -15,23 +15,19 @@
+ package processor
+ 
+ import (
+-	"context"
+-
+-	"github.com/census-instrumentation/opencensus-service/data"
++	"github.com/census-instrumentation/opencensus-service/consumer"
+ )
+ 
+-// MetricsDataProcessor is an interface that receives data.MetricsData, process it as needed, and
+-// sends it to the next processing node if any or to the destination.
+-//
+-// ProcessMetricsData receives data.MetricsData for processing by the MetricsDataProcessor.
+-type MetricsDataProcessor interface {
+-	ProcessMetricsData(ctx context.Context, md data.MetricsData) error
++// TraceProcessor composes TraceConsumer with some additional processor-specific functions.
++type TraceProcessor interface {
++	consumer.TraceConsumer
++
++	// TODO: Add processor specific functions.
+ }
+ 
+-// TraceDataProcessor is an interface that receives data.TraceData, process it as needed, and
+-// sends it to the next processing node if any or to the destination.
+-//
+-// ProcessTraceData receives data.TraceData for processing by the TraceDataProcessor.
+-type TraceDataProcessor interface {
+-	ProcessTraceData(ctx context.Context, td data.TraceData) error
++// MetricsProcessor composes MetricsConsumer with some additional processor-specific functions.
++type MetricsProcessor interface {
++	consumer.MetricsConsumer
++
++	// TODO: Add processor specific functions.
+ }

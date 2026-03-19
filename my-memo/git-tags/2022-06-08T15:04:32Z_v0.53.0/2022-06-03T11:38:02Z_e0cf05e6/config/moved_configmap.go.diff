@@ -1,0 +1,18 @@
+diff --git a/config/moved_configmap.go b/config/moved_configmap.go
+index c7a4c083e..e349559af 100644
+--- a/config/moved_configmap.go
++++ b/config/moved_configmap.go
+@@ -47,8 +47,11 @@ type RetrievedOption = confmap.RetrievedOption
+ // Deprecated: [v0.53.0] use confmap.WithRetrievedClose
+ var WithRetrievedClose = confmap.WithRetrievedClose
+ 
+-// Deprecated: [v0.53.0] use confmap.NewRetrievedFromMap
+-var NewRetrievedFromMap = confmap.NewRetrievedFromMap
++// Deprecated: [v0.53.0] use confmap.NewRetrieved
++func NewRetrievedFromMap(conf *confmap.Conf, opts ...confmap.RetrievedOption) confmap.Retrieved {
++	ret, _ := confmap.NewRetrieved(conf.ToStringMap(), opts...)
++	return ret
++}
+ 
+ // Deprecated: [v0.53.0] use confmap.WatcherFunc
+ type WatcherFunc = confmap.WatcherFunc

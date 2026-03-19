@@ -1,0 +1,20 @@
+diff --git a/test/nocore.builder.yaml b/test/nocore.builder.yaml
+deleted file mode 100644
+index abebfad3d..000000000
+--- a/test/nocore.builder.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-dist:
+-  module: github.com/open-telemetry/opentelemetry-collector-builder/test/nocore
+-  otelcol_version: 0.37.0
+-  include_core: false
+-
+-receivers:
+-  - import: go.opentelemetry.io/collector/receiver/otlpreceiver
+-    gomod: go.opentelemetry.io/collector v0.37.0
+-exporters:
+-  - import: go.opentelemetry.io/collector/exporter/loggingexporter
+-    gomod: go.opentelemetry.io/collector v0.37.0
+-extensions:
+-  - import: go.opentelemetry.io/collector/extension/zpagesextension
+-    gomod: go.opentelemetry.io/collector v0.37.0

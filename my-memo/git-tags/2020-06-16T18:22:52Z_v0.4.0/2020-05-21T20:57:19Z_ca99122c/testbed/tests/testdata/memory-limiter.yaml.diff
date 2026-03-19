@@ -1,0 +1,12 @@
+diff --git a/testbed/tests/testdata/memory-limiter.yaml b/testbed/tests/testdata/memory-limiter.yaml
+index 8a7c572f5..2449b3548 100644
+--- a/testbed/tests/testdata/memory-limiter.yaml
++++ b/testbed/tests/testdata/memory-limiter.yaml
+@@ -9,6 +9,7 @@ receivers:
+ exporters:
+   opencensus:
+     endpoint: "localhost:56565"
++    insecure: true
+   logging:
+     loglevel: info
+ 

@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/ocastore_test.go b/receiver/prometheusreceiver/internal/ocastore_test.go
+index feafd3834..cf784e2b4 100644
+--- a/receiver/prometheusreceiver/internal/ocastore_test.go
++++ b/receiver/prometheusreceiver/internal/ocastore_test.go
+@@ -79,7 +79,7 @@ func TestOcaStoreIntegration(t *testing.T) {
+ 		mv   []v
+ 	}{
+ 		{
+-			name: "promethues_text_format_example",
++			name: "prometheus_text_format_example",
+ 			page: testData1,
+ 			mv: []v{
+ 				{

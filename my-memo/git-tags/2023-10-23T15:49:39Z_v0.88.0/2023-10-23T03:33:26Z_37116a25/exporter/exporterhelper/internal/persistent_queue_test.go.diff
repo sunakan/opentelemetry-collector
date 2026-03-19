@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue_test.go b/exporter/exporterhelper/internal/persistent_queue_test.go
+index 08570e923..bda3b6f2a 100644
+--- a/exporter/exporterhelper/internal/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/persistent_queue_test.go
+@@ -292,3 +292,12 @@ func TestInvalidStorageExtensionType(t *testing.T) {
+ 	assert.ErrorIs(t, err, errWrongExtensionType)
+ 	assert.Nil(t, client)
+ }
++
++func TestPersistentQueue_StopAfterBadStart(t *testing.T) {
++	pq := NewPersistentQueue(1, 1, component.ID{}, newFakeTracesRequestMarshalerFunc(),
++		newFakeTracesRequestUnmarshalerFunc())
++	// verify that stopping a un-start/started w/error queue does not panic
++	assert.NotPanics(t, func() {
++		pq.Stop()
++	})
++}

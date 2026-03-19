@@ -1,0 +1,25 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-logs-level.yaml b/service/internal/configunmarshaler/testdata/invalid-logs-level.yaml
+deleted file mode 100644
+index a30cd0e71..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-logs-level.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-extensions:
+-  nop:
+-service:
+-  telemetry:
+-    logs:
+-      level: "UNKNOWN"
+-  extensions: [nop]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-

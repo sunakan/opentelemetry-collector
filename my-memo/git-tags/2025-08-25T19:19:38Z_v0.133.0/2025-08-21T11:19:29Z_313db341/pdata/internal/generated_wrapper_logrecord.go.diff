@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_logrecord.go b/pdata/internal/generated_wrapper_logrecord.go
+index b80638fc1..f9c546bd5 100644
+--- a/pdata/internal/generated_wrapper_logrecord.go
++++ b/pdata/internal/generated_wrapper_logrecord.go
+@@ -55,6 +55,10 @@ func DeleteOrigLogRecord(orig *otlplogs.LogRecord, nullable bool) {
+ }
+ 
+ func CopyOrigLogRecord(dest, src *otlplogs.LogRecord) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.TimeUnixNano = src.TimeUnixNano
+ 	dest.ObservedTimeUnixNano = src.ObservedTimeUnixNano
+ 	dest.SeverityNumber = src.SeverityNumber

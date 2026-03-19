@@ -1,0 +1,32 @@
+diff --git a/consumer/consumererror/permanenterror.go b/consumer/consumererror/permanenterror.go
+index e4d095059..935206f1a 100644
+--- a/consumer/consumererror/permanenterror.go
++++ b/consumer/consumererror/permanenterror.go
+@@ -17,12 +17,17 @@
+ // error type/instance.
+ package consumererror
+ 
++import "errors"
++
+ // permanent is an error that will be always returned if its source
+ // receives the same inputs.
+ type permanent struct {
+ 	err error
+ }
+ 
++// permanentError exists to test errors for "IsPermanent"
++var permanentError = &permanent{}
++
+ // Permanent wraps an error to indicate that it is a permanent error, i.e.: an
+ // error that will be always returned if its source receives the same inputs.
+ func Permanent(err error) error {
+@@ -38,8 +43,7 @@ func (p permanent) Error() string {
+ // that its sources receives the same input.
+ func IsPermanent(err error) bool {
+ 	if err != nil {
+-		_, isPermanent := err.(permanent)
+-		return isPermanent
++		return errors.As(err, permanentError)
+ 	}
+ 	return false
+ }

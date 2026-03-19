@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_scopeprofiles.go b/pdata/pprofile/generated_scopeprofiles.go
+index b416e7e9e..80bf80aae 100644
+--- a/pdata/pprofile/generated_scopeprofiles.go
++++ b/pdata/pprofile/generated_scopeprofiles.go
+@@ -33,8 +33,7 @@ func newScopeProfiles(orig *otlpprofiles.ScopeProfiles, state *internal.State) S
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewScopeProfiles() ScopeProfiles {
+-	state := internal.StateMutable
+-	return newScopeProfiles(&otlpprofiles.ScopeProfiles{}, &state)
++	return newScopeProfiles(&otlpprofiles.ScopeProfiles{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

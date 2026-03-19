@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index fdddca7c9..cf7e7eabb 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/exporter/otlphttpexporter
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector v0.114.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/component/componenttest v0.114.0

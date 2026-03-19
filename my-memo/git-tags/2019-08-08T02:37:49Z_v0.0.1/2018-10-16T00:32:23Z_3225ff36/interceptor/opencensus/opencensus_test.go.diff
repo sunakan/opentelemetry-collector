@@ -1,0 +1,14 @@
+diff --git a/interceptor/opencensus/opencensus_test.go b/interceptor/opencensus/opencensus_test.go
+index 2e08fb687..595b61ee5 100644
+--- a/interceptor/opencensus/opencensus_test.go
++++ b/interceptor/opencensus/opencensus_test.go
+@@ -51,7 +51,8 @@ func TestOCInterceptor_endToEnd(t *testing.T) {
+ 	defer doneFn()
+ 
+ 	// Now the opencensus-agent exporter.
+-	oce, err := ocagent.NewExporter(ocagent.WithPort(uint16(port)), ocagent.WithInsecure())
++	address := fmt.Sprintf("localhost:%d", port)
++	oce, err := ocagent.NewExporter(ocagent.WithAddress(address), ocagent.WithInsecure())
+ 	if err != nil {
+ 		t.Fatalf("Failed to create the ocagent-exporter: %v", err)
+ 	}

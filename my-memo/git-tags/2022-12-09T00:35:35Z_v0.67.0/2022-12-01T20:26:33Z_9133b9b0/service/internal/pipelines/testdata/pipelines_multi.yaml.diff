@@ -1,0 +1,34 @@
+diff --git a/service/internal/pipelines/testdata/pipelines_multi.yaml b/service/internal/pipelines/testdata/pipelines_multi.yaml
+deleted file mode 100644
+index 8f08e07dc..000000000
+--- a/service/internal/pipelines/testdata/pipelines_multi.yaml
++++ /dev/null
+@@ -1,28 +0,0 @@
+-receivers:
+-  examplereceiver:
+-  examplereceiver/1:
+-
+-processors:
+-  exampleprocessor:
+-  exampleprocessor/1:
+-
+-exporters:
+-  exampleexporter:
+-  exampleexporter/1:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [ examplereceiver, examplereceiver/1 ]
+-      processors: [ exampleprocessor, exampleprocessor/1 ]
+-      exporters: [ exampleexporter, exampleexporter/1 ]
+-
+-    metrics:
+-      receivers: [ examplereceiver, examplereceiver/1 ]
+-      processors: [ exampleprocessor, exampleprocessor/1 ]
+-      exporters: [ exampleexporter, exampleexporter/1 ]
+-
+-    logs:
+-      receivers: [ examplereceiver, examplereceiver/1 ]
+-      processors: [ exampleprocessor, exampleprocessor/1 ]
+-      exporters: [ exampleexporter, exampleexporter/1 ]

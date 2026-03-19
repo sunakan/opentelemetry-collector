@@ -1,0 +1,17 @@
+diff --git a/filter/filter.go b/filter/filter.go
+new file mode 100644
+index 000000000..4bee571fd
+--- /dev/null
++++ b/filter/filter.go
+@@ -0,0 +1,11 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package filter // import "go.opentelemetry.io/collector/filter"
++
++// Filter is an interface for matching values against a set of filters.
++type Filter interface {
++	// Matches returns true if the given value matches at least one
++	// of the filters encapsulated by the Filter.
++	Matches(any) bool
++}

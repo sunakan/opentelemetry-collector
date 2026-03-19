@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/common_test.go b/pdata/pcommon/common_test.go
+index 9c3cc94f9..6c56eb794 100644
+--- a/pdata/pcommon/common_test.go
++++ b/pdata/pcommon/common_test.go
+@@ -270,7 +270,7 @@ func TestMap(t *testing.T) {
+ 	assert.EqualValues(t, Map(internal.GenerateTestMap()), insertMapString)
+ 
+ 	insertMapNull := NewMap()
+-	insertMapNull.InsertNull("k")
++	insertMapNull.Insert("k", NewValueEmpty())
+ 	assert.EqualValues(t, generateTestEmptyMap(), insertMapNull)
+ 
+ 	insertMapInt := NewMap()

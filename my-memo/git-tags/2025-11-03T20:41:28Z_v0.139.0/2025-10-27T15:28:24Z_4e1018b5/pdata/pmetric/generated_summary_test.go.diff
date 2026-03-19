@@ -1,0 +1,18 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index aacd355cd..d2222a491 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -44,11 +44,10 @@ func TestSummary_CopyTo(t *testing.T) {
+ func TestSummary_DataPoints(t *testing.T) {
+ 	ms := NewSummary()
+ 	assert.Equal(t, NewSummaryDataPointSlice(), ms.DataPoints())
+-	ms.orig.DataPoints = internal.GenTestSummaryDataPointSlice()
++	ms.orig.DataPoints = internal.GenTestSummaryDataPointPtrSlice()
+ 	assert.Equal(t, generateTestSummaryDataPointSlice(), ms.DataPoints())
+ }
+ 
+ func generateTestSummary() Summary {
+-	ms := newSummary(internal.GenTestSummary(), internal.NewState())
+-	return ms
++	return newSummary(internal.GenTestSummary(), internal.NewState())
+ }

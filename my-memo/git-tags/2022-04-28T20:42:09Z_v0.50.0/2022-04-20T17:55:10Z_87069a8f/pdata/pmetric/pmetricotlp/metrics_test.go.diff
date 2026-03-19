@@ -1,0 +1,16 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics_test.go b/pdata/pmetric/pmetricotlp/metrics_test.go
+index f372f4855..6ca4112e8 100644
+--- a/pdata/pmetric/pmetricotlp/metrics_test.go
++++ b/pdata/pmetric/pmetricotlp/metrics_test.go
+@@ -301,10 +301,7 @@ func generateMetricsRequest() Request {
+ 	m.SetName("test_metric")
+ 	m.SetDataType(pmetric.MetricDataTypeGauge)
+ 	m.Gauge().DataPoints().AppendEmpty()
+-
+-	mr := NewRequest()
+-	mr.SetMetrics(md)
+-	return mr
++	return NewRequestFromMetrics(md)
+ }
+ 
+ func generateMetricsRequestWithInstrumentationLibrary() Request {

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 0796021d7..f4646fc80 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -29,7 +29,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/otlpgrpc"
+ 	"go.opentelemetry.io/collector/receiver/otlpreceiver/internal/logs"
+ 	"go.opentelemetry.io/collector/receiver/otlpreceiver/internal/metrics"

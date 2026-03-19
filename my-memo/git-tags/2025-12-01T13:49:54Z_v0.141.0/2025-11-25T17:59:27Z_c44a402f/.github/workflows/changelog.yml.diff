@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/changelog.yml b/.github/workflows/changelog.yml
+index f2708b07a..4db9f3886 100644
+--- a/.github/workflows/changelog.yml
++++ b/.github/workflows/changelog.yml
+@@ -27,7 +27,7 @@ jobs:
+       PR_HEAD: ${{ github.event.pull_request.head.sha }}
+     steps:
+       - name: Checkout Repo
+-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
++        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+         with:
+           fetch-depth: 0
+       - name: Setup Go

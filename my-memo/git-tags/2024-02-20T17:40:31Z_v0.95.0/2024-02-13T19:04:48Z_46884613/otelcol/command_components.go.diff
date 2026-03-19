@@ -1,0 +1,13 @@
+diff --git a/otelcol/command_components.go b/otelcol/command_components.go
+index 4bf18103d..83dd46703 100644
+--- a/otelcol/command_components.go
++++ b/otelcol/command_components.go
+@@ -33,7 +33,7 @@ func newComponentsCommand(set CollectorSettings) *cobra.Command {
+ 		Short: "Outputs available components in this collector distribution",
+ 		Long:  "Outputs available components in this collector distribution including their stability levels. The output format is not stable and can change between releases.",
+ 		Args:  cobra.ExactArgs(0),
+-		RunE: func(cmd *cobra.Command, args []string) error {
++		RunE: func(cmd *cobra.Command, _ []string) error {
+ 
+ 			factories, err := set.Factories()
+ 			if err != nil {

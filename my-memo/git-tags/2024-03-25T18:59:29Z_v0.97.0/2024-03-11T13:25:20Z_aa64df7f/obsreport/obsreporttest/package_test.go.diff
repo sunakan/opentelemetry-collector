@@ -1,0 +1,20 @@
+diff --git a/obsreport/obsreporttest/package_test.go b/obsreport/obsreporttest/package_test.go
+deleted file mode 100644
+index 97b3f7f92..000000000
+--- a/obsreport/obsreporttest/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package obsreporttest
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

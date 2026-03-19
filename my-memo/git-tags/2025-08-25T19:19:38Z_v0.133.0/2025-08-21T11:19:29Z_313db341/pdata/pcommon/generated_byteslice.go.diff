@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_byteslice.go b/pdata/pcommon/generated_byteslice.go
+index 05718e974..777bec8d3 100644
+--- a/pdata/pcommon/generated_byteslice.go
++++ b/pdata/pcommon/generated_byteslice.go
+@@ -130,6 +130,9 @@ func (ms ByteSlice) MoveAndAppendTo(dest ByteSlice) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (ms ByteSlice) CopyTo(dest ByteSlice) {
+ 	dest.getState().AssertMutable()
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = internal.CopyOrigByteSlice(*dest.getOrig(), *ms.getOrig())
+ }
+ 

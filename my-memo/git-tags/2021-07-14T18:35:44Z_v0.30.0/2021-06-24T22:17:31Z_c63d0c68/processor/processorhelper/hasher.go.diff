@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/hasher.go b/processor/processorhelper/hasher.go
+index 1ba53e1c5..87a634d43 100644
+--- a/processor/processorhelper/hasher.go
++++ b/processor/processorhelper/hasher.go
+@@ -21,7 +21,7 @@ import (
+ 	"encoding/hex"
+ 	"math"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ const (

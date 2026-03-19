@@ -1,0 +1,14 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index b0d775e39..210cf80c2 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -20,6 +20,9 @@ commands:
+ 
+   restore_module_cache:
+     steps:
++      - run:
++          name: create modules dir
++          command: mkdir -p ~/go/pkg/mod
+       - restore_cache: # restores saved cache if no changes are detected since last run
+           keys:
+             - cimg-go-pkg-mod-{{ checksum "go.sum" }}

@@ -1,0 +1,40 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 11ca02502..7e6a1f62e 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -29,8 +29,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/featuregate"
+-	"go.opentelemetry.io/collector/internal/obsreportconfig"
+ )
+ 
+ func TestStateString(t *testing.T) {
+@@ -243,26 +241,6 @@ func TestCollectorStartInvalidConfig(t *testing.T) {
+ 	assert.Error(t, col.Run(context.Background()))
+ }
+ 
+-func TestCollectorStartWithOpenCensusMetrics(t *testing.T) {
+-	for _, tc := range ownMetricsTestCases() {
+-		t.Run(tc.name, func(t *testing.T) {
+-			testCollectorStartHelper(t, newColTelemetry(featuregate.NewRegistry()), tc)
+-		})
+-	}
+-}
+-
+-func TestCollectorStartWithOpenTelemetryMetrics(t *testing.T) {
+-	for _, tc := range ownMetricsTestCases() {
+-		t.Run(tc.name, func(t *testing.T) {
+-			registry := featuregate.NewRegistry()
+-			obsreportconfig.RegisterInternalMetricFeatureGate(registry)
+-			colTel := newColTelemetry(registry)
+-			require.NoError(t, colTel.registry.Apply(map[string]bool{obsreportconfig.UseOtelForInternalMetricsfeatureGateID: true}))
+-			testCollectorStartHelper(t, colTel, tc)
+-		})
+-	}
+-}
+-
+ func TestCollectorStartWithTraceContextPropagation(t *testing.T) {
+ 	tests := []struct {
+ 		file        string

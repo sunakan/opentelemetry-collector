@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index 521077a92..0d496abc0 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -7,6 +7,8 @@
+ name: "Inform Incompatible PRs"
+ on:
+   pull_request:
++    paths-ignore:
++      - 'builder/**'
+     branches:
+       - main
+ 

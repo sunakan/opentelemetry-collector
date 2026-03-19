@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_tests_extension.yaml b/cmd/mdatagen/internal/testdata/with_tests_extension.yaml
+new file mode 100644
+index 000000000..1f2012641
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/with_tests_extension.yaml
+@@ -0,0 +1,6 @@
++type: metric
++
++status:
++  class: extension
++  stability:
++    beta: [extension]

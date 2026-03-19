@@ -1,0 +1,15 @@
+diff --git a/featuregate/registry_test.go b/featuregate/registry_test.go
+index a8a0e9c3b..577157c4a 100644
+--- a/featuregate/registry_test.go
++++ b/featuregate/registry_test.go
+@@ -21,6 +21,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
++func TestGlobalRegistry(t *testing.T) {
++	assert.Same(t, globalRegistry, GlobalRegistry())
++}
++
+ func TestRegistry(t *testing.T) {
+ 	r := NewRegistry()
+ 

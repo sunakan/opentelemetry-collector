@@ -1,0 +1,31 @@
+diff --git a/testutil/testutil.go b/testutil/testutil.go
+index 43017cbe6..204627540 100644
+--- a/testutil/testutil.go
++++ b/testutil/testutil.go
+@@ -15,9 +15,7 @@
+ package testutil
+ 
+ import (
+-	"io/ioutil"
+ 	"net"
+-	"os"
+ 	"os/exec"
+ 	"runtime"
+ 	"strconv"
+@@ -32,16 +30,6 @@ type portpair struct {
+ 	last  string
+ }
+ 
+-// TempSocketName provides a temporary Unix socket name for testing.
+-func TempSocketName(t *testing.T) string {
+-	tmpfile, err := ioutil.TempFile("", "sock")
+-	require.NoError(t, err)
+-	require.NoError(t, tmpfile.Close())
+-	socket := tmpfile.Name()
+-	require.NoError(t, os.Remove(socket))
+-	return socket
+-}
+-
+ // GetAvailableLocalAddress finds an available local port and returns an endpoint
+ // describing it. The port is available for opening when this function returns
+ // provided that there is no race by some other code to grab the same port

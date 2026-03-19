@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/batcher.go b/exporter/exporterhelper/internal/queuebatch/batcher.go
+index 5e2b3dbc8..111b2cfd6 100644
+--- a/exporter/exporterhelper/internal/queuebatch/batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/batcher.go
+@@ -7,6 +7,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/queue"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+ )
+@@ -14,7 +15,7 @@ import (
+ // Batcher is in charge of reading items from the queue and send them out asynchronously.
+ type Batcher[T any] interface {
+ 	component.Component
+-	Consume(context.Context, T, Done)
++	Consume(context.Context, T, queue.Done)
+ }
+ 
+ type batcherSettings[T any] struct {

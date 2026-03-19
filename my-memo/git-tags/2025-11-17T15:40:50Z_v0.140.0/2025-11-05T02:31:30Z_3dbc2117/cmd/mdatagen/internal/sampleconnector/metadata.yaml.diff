@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/metadata.yaml b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+index 7f58fe2c9..99c25baa4 100644
+--- a/cmd/mdatagen/internal/sampleconnector/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+@@ -65,6 +65,15 @@ resource_attributes:
+     warnings:
+       if_enabled: This resource_attribute is deprecated and will be removed soon.
+ 
++entities:
++  - type: test.entity
++    brief: A test entity.
++    stability: stable
++    identity:
++      - ref: string.resource.attr
++    description:
++      - ref: map.resource.attr
++
+ attributes:
+   boolean_attr:
+     description: Attribute with a boolean value.

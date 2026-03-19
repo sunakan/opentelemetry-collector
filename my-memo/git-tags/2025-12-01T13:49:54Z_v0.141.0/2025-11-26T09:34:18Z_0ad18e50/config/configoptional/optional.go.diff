@@ -1,0 +1,14 @@
+diff --git a/config/configoptional/optional.go b/config/configoptional/optional.go
+index b7971a06b..640b5d6a9 100644
+--- a/config/configoptional/optional.go
++++ b/config/configoptional/optional.go
+@@ -222,6 +222,9 @@ func (o *Optional[T]) Unmarshal(conf *confmap.Conf) error {
+ 		o.flavor = someFlavor
+ 	} else {
+ 		o.flavor = noneFlavor
++		// override o.value with zero value.
++		var zero T
++		o.value = zero
+ 	}
+ 
+ 	return nil

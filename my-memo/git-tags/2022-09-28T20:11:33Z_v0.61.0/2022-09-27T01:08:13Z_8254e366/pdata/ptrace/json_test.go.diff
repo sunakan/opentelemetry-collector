@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/json_test.go b/pdata/ptrace/json_test.go
+index 7f21427bc..e3581be7f 100644
+--- a/pdata/ptrace/json_test.go
++++ b/pdata/ptrace/json_test.go
+@@ -94,8 +94,8 @@ var tracesOTLPFull = func() Traces {
+ 	sp.Attributes().PutDouble("double", 1.1)
+ 	sp.Attributes().PutEmptyBytes("bytes").FromRaw([]byte("foo"))
+ 	arr := sp.Attributes().PutEmptySlice("array")
+-	arr.AppendEmpty().SetIntVal(1)
+-	arr.AppendEmpty().SetStringVal("str")
++	arr.AppendEmpty().SetInt(1)
++	arr.AppendEmpty().SetStr("str")
+ 	kvList := sp.Attributes().PutEmptyMap("kvList")
+ 	kvList.PutInt("int", 1)
+ 	kvList.PutString("string", "string")

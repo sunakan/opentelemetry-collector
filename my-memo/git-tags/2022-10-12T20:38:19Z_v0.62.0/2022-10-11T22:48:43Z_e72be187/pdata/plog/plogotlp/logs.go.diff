@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/plogotlp/logs.go b/pdata/plog/plogotlp/logs.go
+index eab74c584..b13fc1c4d 100644
+--- a/pdata/plog/plogotlp/logs.go
++++ b/pdata/plog/plogotlp/logs.go
+@@ -154,7 +154,7 @@ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectorlog.RegisterLogsServiceServer(s, &rawLogsServer{srv: srv})
+ }
+ 
+-// Deprecated: [0.62.0] Use RegisterGRPCServer instead
++// Deprecated: [v0.62.0] Use RegisterGRPCServer instead
+ var RegisterServer = RegisterGRPCServer
+ 
+ type rawLogsServer struct {

@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index 77db4db8b..2c1ff9a62 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -475,7 +475,7 @@ func (sa *spanAppender) ConsumeTraceData(ctx context.Context, td consumerdata.Tr
+ }
+ 
+ func ocReceiverOnGRPCServer(t *testing.T, sr consumer.TraceConsumer, opts ...Option) (oci *Receiver, port int, done func()) {
+-	ln, err := net.Listen("tcp", ":0")
++	ln, err := net.Listen("tcp", "localhost:0")
+ 	if err != nil {
+ 		t.Fatalf("Failed to find an available address to run the gRPC server: %v", err)
+ 	}

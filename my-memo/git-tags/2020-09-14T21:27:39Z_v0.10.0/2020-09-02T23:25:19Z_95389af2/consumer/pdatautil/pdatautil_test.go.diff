@@ -1,0 +1,15 @@
+diff --git a/consumer/pdatautil/pdatautil_test.go b/consumer/pdatautil/pdatautil_test.go
+index 16814e7d4..eaef5dc6e 100644
+--- a/consumer/pdatautil/pdatautil_test.go
++++ b/consumer/pdatautil/pdatautil_test.go
+@@ -60,6 +60,10 @@ func TestMetricAndDataPointCount(t *testing.T) {
+ 		{
+ 			Metrics: []*ocmetrics.Metric{
+ 				{
++					MetricDescriptor: &ocmetrics.MetricDescriptor{
++						Name: "gauge",
++						Type: ocmetrics.MetricDescriptor_GAUGE_INT64,
++					},
+ 					Timeseries: []*ocmetrics.TimeSeries{
+ 						{
+ 							Points: []*ocmetrics.Point{

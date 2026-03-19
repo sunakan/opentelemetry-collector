@@ -1,0 +1,15 @@
+diff --git a/receiver/vmmetricsreceiver/factory_test.go b/receiver/vmmetricsreceiver/factory_test.go
+index a30f94d66..ca868e2a2 100644
+--- a/receiver/vmmetricsreceiver/factory_test.go
++++ b/receiver/vmmetricsreceiver/factory_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
++	"go.opentelemetry.io/collector/config/configcheck"
++	"go.opentelemetry.io/collector/config/configerror"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

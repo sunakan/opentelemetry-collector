@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/config_test.go b/processor/resourceprocessor/config_test.go
+index b17cfc001..ebcb7a03d 100644
+--- a/processor/resourceprocessor/config_test.go
++++ b/processor/resourceprocessor/config_test.go
+@@ -32,7 +32,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factories.Processors[typeStr] = NewFactory()
+ 
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, cfg)
+ 

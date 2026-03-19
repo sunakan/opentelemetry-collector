@@ -1,0 +1,13 @@
+diff --git a/.chloggen/httpclientsettings_httpclientconfig-breaking.yaml b/.chloggen/httpclientsettings_httpclientconfig-breaking.yaml
+index 8a032705a..45982d775 100755
+--- a/.chloggen/httpclientsettings_httpclientconfig-breaking.yaml
++++ b/.chloggen/httpclientsettings_httpclientconfig-breaking.yaml
+@@ -7,7 +7,7 @@ change_type: breaking
+ component: otlphttpexporter
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: otlphttpexporter.Config embeds the struct confighttp.HTTPClientConfig instead of confighttp.HTTPClientSettings
++note: otlphttpexporter.Config embeds the struct confighttp.ClientConfig instead of confighttp.HTTPClientSettings
+ 
+ # One or more tracking issues or pull requests related to the change
+ issues: [6767]

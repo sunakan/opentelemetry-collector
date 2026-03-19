@@ -1,0 +1,25 @@
+diff --git a/cmd/mdatagen/templates/status.go.tmpl b/cmd/mdatagen/templates/status.go.tmpl
+index 8e8ccc25a..b90047f7d 100644
+--- a/cmd/mdatagen/templates/status.go.tmpl
++++ b/cmd/mdatagen/templates/status.go.tmpl
+@@ -4,8 +4,6 @@ package {{ .Package }}
+ 
+ import (
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ var (
+@@ -19,11 +17,3 @@ const (
+ 	{{- end }}
+ 	{{- end }}
+ )
+-
+-func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("{{ .ScopeName }}")
+-}
+-
+-func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("{{ .ScopeName }}")
+-}

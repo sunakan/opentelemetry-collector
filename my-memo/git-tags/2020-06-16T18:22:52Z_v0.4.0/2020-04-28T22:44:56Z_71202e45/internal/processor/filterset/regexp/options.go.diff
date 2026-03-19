@@ -1,0 +1,19 @@
+diff --git a/internal/processor/filterset/regexp/options.go b/internal/processor/filterset/regexp/options.go
+index b78fb686f..0b101020b 100644
+--- a/internal/processor/filterset/regexp/options.go
++++ b/internal/processor/filterset/regexp/options.go
+@@ -19,12 +19,12 @@ import (
+ )
+ 
+ // Option is the type for regexp filtering options that can be passed to NewRegexpFilterSet.
+-type Option func(*regexpFilterSet)
++type Option func(*FilterSet)
+ 
+ // WithCache enables an LRU cache that stores the previous results of calls to Matches.
+ // The cache's max number of entries is set to maxNumEntries. Passing a value of 0 results in an unlimited cache size.
+ func WithCache(maxNumEntries int) Option {
+-	return func(rfs *regexpFilterSet) {
++	return func(rfs *FilterSet) {
+ 		rfs.cacheEnabled = true
+ 		rfs.cache = lru.New(maxNumEntries)
+ 	}

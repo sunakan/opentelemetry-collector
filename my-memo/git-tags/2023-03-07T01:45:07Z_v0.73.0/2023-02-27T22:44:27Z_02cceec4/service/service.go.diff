@@ -1,0 +1,14 @@
+diff --git a/service/service.go b/service/service.go
+index fb4650b15..e22f80d8f 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -39,7 +39,8 @@ import (
+ 
+ var graphFeatureGate = featuregate.GlobalRegistry().MustRegister(
+ 	"service.graph",
+-	featuregate.StageBeta,
++	featuregate.StageStable,
++	featuregate.WithRegisterRemovalVersion("v0.74.0"),
+ 	featuregate.WithRegisterDescription("Enables the new graph based implementations for pipelines."),
+ 	featuregate.WithRegisterReferenceURL("https://github.com/open-telemetry/opentelemetry-collector/issues/2336"))
+ 

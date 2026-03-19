@@ -1,0 +1,9 @@
+diff --git a/internal/data/generated_resource.go b/internal/data/generated_resource.go
+index 785bbba97..16a0385c9 100644
+--- a/internal/data/generated_resource.go
++++ b/internal/data/generated_resource.go
+@@ -51,4 +51,3 @@ func (ms Resource) Attributes() AttributeMap {
+ func (ms Resource) SetAttributes(v AttributeMap) {
+ 	ms.orig.Attributes = *v.orig
+ }
+-

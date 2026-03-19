@@ -1,0 +1,28 @@
+diff --git a/service/internal/pipelines/testdata/pipelines_simple_no_proc.yaml b/service/internal/pipelines/testdata/pipelines_simple_no_proc.yaml
+deleted file mode 100644
+index 351687e69..000000000
+--- a/service/internal/pipelines/testdata/pipelines_simple_no_proc.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  exampleprocessor:
+-
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-
+-    metrics:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-
+-    logs:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]

@@ -1,0 +1,32 @@
+diff --git a/pdata/internal/generated_wrapper_stringslice.go b/pdata/internal/generated_wrapper_stringslice.go
+index d717b5546..2c29d7f79 100644
+--- a/pdata/internal/generated_wrapper_stringslice.go
++++ b/pdata/internal/generated_wrapper_stringslice.go
+@@ -6,6 +6,10 @@
+ 
+ package internal
+ 
++import (
++	"go.opentelemetry.io/collector/pdata/internal/json"
++)
++
+ type StringSlice struct {
+ 	orig  *[]string
+ 	state *State
+@@ -39,3 +43,16 @@ func GenerateTestStringSlice() StringSlice {
+ 	FillTestStringSlice(ms)
+ 	return ms
+ }
++
++// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++func MarshalJSONStreamStringSlice(ms StringSlice, dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(*ms.orig) > 0 {
++		dest.WriteString((*ms.orig)[0])
++	}
++	for i := 1; i < len((*ms.orig)); i++ {
++		dest.WriteMore()
++		dest.WriteString((*ms.orig)[i])
++	}
++	dest.WriteArrayEnd()
++}

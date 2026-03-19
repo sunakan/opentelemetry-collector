@@ -1,0 +1,16 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index c29f4f6e6..a3ffb6991 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -97,6 +97,11 @@ updates:
+     schedule:
+       interval: "weekly"
+       day: "wednesday"
++  - package-ecosystem: "gomod"
++    directory: "/exporter/debugexporter"
++    schedule:
++      interval: "weekly"
++      day: "wednesday"
+   - package-ecosystem: "gomod"
+     directory: "/exporter/loggingexporter"
+     schedule:

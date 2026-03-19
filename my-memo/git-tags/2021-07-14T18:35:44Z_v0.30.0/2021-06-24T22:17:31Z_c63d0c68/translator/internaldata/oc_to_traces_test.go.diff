@@ -1,0 +1,16 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index 6d18f0c3d..e7f7f1d16 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -26,10 +26,10 @@ import (
+ 	"google.golang.org/protobuf/types/known/timestamppb"
+ 	"google.golang.org/protobuf/types/known/wrapperspb"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestOcTraceStateToInternal(t *testing.T) {

@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index 505f4cefb..254a17a2e 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -58,14 +58,14 @@ func NewQueueBatch(
+ 	if cfg.StorageID == nil {
+ 		q = newAsyncQueue(newMemoryQueue[request.Request](memoryQueueSettings[request.Request]{
+ 			sizer:           sizer,
+-			capacity:        int64(cfg.QueueSize),
++			capacity:        cfg.QueueSize,
+ 			waitForResult:   cfg.WaitForResult,
+ 			blockOnOverflow: cfg.BlockOnOverflow,
+ 		}), cfg.NumConsumers, b.Consume)
+ 	} else {
+ 		q = newAsyncQueue(newPersistentQueue[request.Request](persistentQueueSettings[request.Request]{
+ 			sizer:           sizer,
+-			capacity:        int64(cfg.QueueSize),
++			capacity:        cfg.QueueSize,
+ 			blockOnOverflow: cfg.BlockOnOverflow,
+ 			signal:          qSet.Signal,
+ 			storageID:       *cfg.StorageID,

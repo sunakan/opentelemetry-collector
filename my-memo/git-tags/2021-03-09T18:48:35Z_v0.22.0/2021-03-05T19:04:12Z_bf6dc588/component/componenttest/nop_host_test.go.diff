@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_host_test.go b/component/componenttest/nop_host_test.go
+index 6e9eb922a..a3057c3b9 100644
+--- a/component/componenttest/nop_host_test.go
++++ b/component/componenttest/nop_host_test.go
+@@ -27,7 +27,7 @@ import (
+ func TestNewNopHost(t *testing.T) {
+ 	nh := NewNopHost()
+ 	require.NotNil(t, nh)
+-	require.IsType(t, &NopHost{}, nh)
++	require.IsType(t, &nopHost{}, nh)
+ 
+ 	nh.ReportFatalError(errors.New("TestError"))
+ 	assert.Nil(t, nh.GetExporters())

@@ -1,0 +1,11 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index b324747f2..0a8eb1df7 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -1,6 +1,3 @@
+-# Enable debug level to see output of "logging" exporter
+-log-level: DEBUG
+-
+ receivers:
+   opencensus:
+     endpoint: 0.0.0.0:55678

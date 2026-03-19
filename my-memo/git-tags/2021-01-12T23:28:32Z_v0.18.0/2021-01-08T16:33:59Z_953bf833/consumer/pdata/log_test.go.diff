@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/log_test.go b/consumer/pdata/log_test.go
+index c0f35c34a..9ba57586e 100644
+--- a/consumer/pdata/log_test.go
++++ b/consumer/pdata/log_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/internal"
+-	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
++	otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
+ )
+ 
+ func TestLogRecordCount(t *testing.T) {

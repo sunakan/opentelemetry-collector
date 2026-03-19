@@ -1,0 +1,15 @@
+diff --git a/internal/collector/processor/queued/config.go b/internal/collector/processor/queued/config.go
+index 44fb1db52..3e009b54f 100644
+--- a/internal/collector/processor/queued/config.go
++++ b/internal/collector/processor/queued/config.go
+@@ -20,8 +20,8 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ )
+ 
+-// ConfigV2 defines configuration for Attributes processor.
+-type ConfigV2 struct {
++// Config defines configuration for Attributes processor.
++type Config struct {
+ 	configmodels.ProcessorSettings `mapstructure:",squash"`
+ 
+ 	// NumWorkers is the number of queue workers that dequeue batches and send them out.

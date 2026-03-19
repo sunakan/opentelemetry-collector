@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 153f4215f..ae351535d 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -139,7 +139,6 @@ func TestUnmarshalInvalidConfig(t *testing.T) {
+ 			assert.ErrorContains(t, component.ValidateConfig(cfg), tt.errorMsg)
+ 		})
+ 	}
+-
+ }
+ 
+ func TestValidDNSEndpoint(t *testing.T) {

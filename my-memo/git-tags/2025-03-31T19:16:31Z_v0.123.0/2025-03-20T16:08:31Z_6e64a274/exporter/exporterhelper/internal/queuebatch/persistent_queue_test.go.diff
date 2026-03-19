@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/persistent_queue_test.go b/exporter/exporterhelper/internal/queuebatch/persistent_queue_test.go
+index bf712a73e..b9d15d994 100644
+--- a/exporter/exporterhelper/internal/queuebatch/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/persistent_queue_test.go
+@@ -20,9 +20,9 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/experr"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/storagetest"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+-	"go.opentelemetry.io/collector/exporter/internal/experr"
+-	"go.opentelemetry.io/collector/exporter/internal/storagetest"
+ 	"go.opentelemetry.io/collector/extension/extensiontest"
+ 	"go.opentelemetry.io/collector/extension/xextension/storage"
+ 	"go.opentelemetry.io/collector/pipeline"

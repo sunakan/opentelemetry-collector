@@ -1,0 +1,35 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index 18a46e18e..0c72db797 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -316,7 +316,7 @@ func TestOcToInternal(t *testing.T) {
+ 
+ 		{
+ 			name: "one-empty-resource-spans",
+-			td:   wrapTraceWithEmptyResource(testdata.GenerateTraceDataOneEmptyResourceSpans()),
++			td:   testdata.GenerateTraceDataOneEmptyResourceSpans(),
+ 			oc:   consumerdata.TraceData{Node: ocNode},
+ 		},
+ 
+@@ -328,7 +328,7 @@ func TestOcToInternal(t *testing.T) {
+ 
+ 		{
+ 			name: "one-span-no-resource",
+-			td:   wrapTraceWithEmptyResource(testdata.GenerateTraceDataOneSpanNoResource()),
++			td:   testdata.GenerateTraceDataOneSpanNoResource(),
+ 			oc: consumerdata.TraceData{
+ 				Node:     ocNode,
+ 				Resource: &ocresource.Resource{},
+@@ -470,12 +470,6 @@ func BenchmarkSpansWithAttributesUnmarshal(b *testing.B) {
+ 	}
+ }
+ 
+-// TODO: Try to avoid unnecessary Resource object allocation.
+-func wrapTraceWithEmptyResource(td pdata.Traces) pdata.Traces {
+-	td.ResourceSpans().At(0).Resource().InitEmpty()
+-	return td
+-}
+-
+ func generateSpanWithAttributes(len int) *octrace.Span {
+ 	startTime := timestamppb.New(testdata.TestSpanStartTime)
+ 	endTime := timestamppb.New(testdata.TestSpanEndTime)

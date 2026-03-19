@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_message_value.go b/internal/cmd/pdatagen/internal/one_of_message_value.go
+index 2397c7cbf..2efa89b08 100644
+--- a/internal/cmd/pdatagen/internal/one_of_message_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_message_value.go
+@@ -60,7 +60,7 @@ fillTest{{ .returnType }}(new{{ .returnType }}(tv.orig.Get{{ .returnType }}(), t
+ 
+ const oneOfMessageCopyOrigTemplate = `	case *{{ .originStructType }}:
+ 		{{ .lowerFieldName }} := &{{ .originFieldPackageName}}.{{ .fieldName }}{}
+-		copyOrig{{ .returnType }}({{ .lowerFieldName }}, t.{{ .fieldName }})
++		CopyOrig{{ .returnType }}({{ .lowerFieldName }}, t.{{ .fieldName }})
+ 		dest.{{ .originOneOfFieldName }} = &{{ .originStructType }}{
+ 			{{ .fieldName }}: {{ .lowerFieldName }},
+ 		}`

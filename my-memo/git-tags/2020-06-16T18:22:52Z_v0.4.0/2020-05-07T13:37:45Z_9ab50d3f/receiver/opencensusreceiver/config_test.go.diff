@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/config_test.go b/receiver/opencensusreceiver/config_test.go
+index e9bb2a70c..cb9ae6272 100644
+--- a/receiver/opencensusreceiver/config_test.go
++++ b/receiver/opencensusreceiver/config_test.go
+@@ -29,7 +29,7 @@ import (
+ 
+ func TestLoadConfig(t *testing.T) {
+ 	factories, err := config.ExampleComponents()
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}
+ 	factories.Receivers[typeStr] = factory

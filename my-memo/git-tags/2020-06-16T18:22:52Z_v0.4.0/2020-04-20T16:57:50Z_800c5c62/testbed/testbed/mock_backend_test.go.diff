@@ -1,0 +1,72 @@
+diff --git a/testbed/testbed/mock_backend_test.go b/testbed/testbed/mock_backend_test.go
+index 664af8646..2337253c9 100644
+--- a/testbed/testbed/mock_backend_test.go
++++ b/testbed/testbed/mock_backend_test.go
+@@ -23,30 +23,52 @@ import (
+ 
+ func TestGeneratorAndBackend(t *testing.T) {
+ 	port := GetAvailablePort(t)
+-	mb := NewMockBackend("mockbackend.log", NewJaegerDataReceiver(port))
+ 
+-	assert.EqualValues(t, 0, mb.DataItemsReceived())
++	tests := []struct {
++		name     string
++		receiver DataReceiver
++		sender   DataSender
++	}{
++		{
++			"Jaeger-JaegerGRPC",
++			NewJaegerDataReceiver(port),
++			NewJaegerGRPCDataSender(port),
++		},
++		{
++			"Zipkin-Zipkin",
++			NewZipkinDataReceiver(port),
++			NewZipkinDataSender(port),
++		},
++	}
++
++	for _, test := range tests {
++		t.Run(test.name, func(t *testing.T) {
++			mb := NewMockBackend("mockbackend.log", test.receiver)
+ 
+-	err := mb.Start()
+-	require.NoError(t, err, "Cannot start backend")
++			assert.EqualValues(t, 0, mb.DataItemsReceived())
+ 
+-	defer mb.Stop()
++			err := mb.Start()
++			require.NoError(t, err, "Cannot start backend")
+ 
+-	lg, err := NewLoadGenerator(NewJaegerGRPCDataSender(port))
+-	require.NoError(t, err, "Cannot start load generator")
++			defer mb.Stop()
+ 
+-	assert.EqualValues(t, 0, lg.dataItemsSent)
++			lg, err := NewLoadGenerator(test.sender)
++			require.NoError(t, err, "Cannot start load generator")
+ 
+-	// Generate at 1000 SPS
+-	lg.Start(LoadOptions{DataItemsPerSecond: 1000})
++			assert.EqualValues(t, 0, lg.dataItemsSent)
+ 
+-	// Wait until at least 50 spans are sent
+-	WaitFor(t, func() bool { return lg.DataItemsSent() > 50 }, "DataItemsSent > 50")
++			// Generate at 1000 SPS
++			lg.Start(LoadOptions{DataItemsPerSecond: 1000})
+ 
+-	lg.Stop()
++			// Wait until at least 50 spans are sent
++			WaitFor(t, func() bool { return lg.DataItemsSent() > 50 }, "DataItemsSent > 50")
+ 
+-	// The backend should receive everything generated.
+-	assert.Equal(t, lg.DataItemsSent(), mb.DataItemsReceived())
++			lg.Stop()
++
++			// The backend should receive everything generated.
++			assert.Equal(t, lg.DataItemsSent(), mb.DataItemsReceived())
++		})
++	}
+ }
+ 
+ // WaitFor the specific condition for up to 10 seconds. Records a test error

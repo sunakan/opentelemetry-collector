@@ -1,0 +1,40 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
+index 45d453c29..f2bc63761 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
+@@ -32,8 +32,34 @@ func New{{ .structName }}(orig *{{ .originFullName }}, state *State) {{ .structN
+ 
+ {{ end }}
+ 
++var protoPool{{ .originName }} = sync.Pool{
++    New: func() any {
++        return &{{ .originFullName }}{}
++    },
++}
++
+ func NewOrig{{ .originName }}() *{{ .originFullName }} {
+-    return &{{ .originFullName }}{}
++    if !UseProtoPooling.IsEnabled() {
++        return &{{ .originFullName }}{}
++    }
++    return protoPool{{ .originName }}.Get().(*{{ .originFullName }})
++}
++
++func DeleteOrig{{ .originName }}(orig *{{ .originFullName }}, nullable bool) {
++    if orig == nil {
++        return
++    }
++
++    if !UseProtoPooling.IsEnabled() {
++        orig.Reset()
++        return
++    }
++
++    {{ range .fields }}{{ .GenerateDeleteOrig $.messageStruct }}{{ end }}
++    orig.Reset()
++	if nullable {
++        protoPool{{ .originName }}.Put(orig)
++    }
+ }
+ 
+ func CopyOrig{{ .originName }}(dest, src *{{ .originFullName }}) {

@@ -1,0 +1,18 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 547e5e420..2473041bd 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -2,13 +2,9 @@ name: contrib-tests
+ on:
+   push:
+     branches: [ main ]
+-    paths-ignore:
+-      - 'builder/**'
+     tags:
+       - v[0-9]+.[0-9]+.[0-9]+.*
+   pull_request:
+-    paths-ignore:
+-      - 'builder/**'
+ 
+ jobs:
+   contrib_tests:

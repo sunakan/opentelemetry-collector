@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/span_generator_test.go b/internal/goldendataset/span_generator_test.go
+index f7ebcdce6..d3f2ed49f 100644
+--- a/internal/goldendataset/span_generator_test.go
++++ b/internal/goldendataset/span_generator_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/internal/data"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ )
+ 
+ func TestGenerateParentSpan(t *testing.T) {

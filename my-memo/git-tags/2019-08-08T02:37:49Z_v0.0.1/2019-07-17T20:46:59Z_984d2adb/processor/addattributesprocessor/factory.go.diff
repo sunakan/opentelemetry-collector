@@ -1,0 +1,13 @@
+diff --git a/processor/addattributesprocessor/factory.go b/processor/addattributesprocessor/factory.go
+index 1defeacf6..ceb1f1f07 100644
+--- a/processor/addattributesprocessor/factory.go
++++ b/processor/addattributesprocessor/factory.go
+@@ -25,7 +25,7 @@ import (
+ 
+ const (
+ 	// The value of "type" key in configuration.
+-	typeStr = "attributes"
++	typeStr = "add-attributes"
+ )
+ 
+ // Factory is the factory for Attributes processor.

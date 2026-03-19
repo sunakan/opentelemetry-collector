@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp.go b/receiver/otlpreceiver/internal/logs/otlp.go
+index fcf5fe285..ff2ee3ac7 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp.go
++++ b/receiver/otlpreceiver/internal/logs/otlp.go
+@@ -35,9 +35,9 @@ type Receiver struct {
+ }
+ 
+ // New creates a new Receiver reference.
+-func New(id component.ID, nextConsumer consumer.Logs, set component.ReceiverCreateSettings) (*Receiver, error) {
++func New(nextConsumer consumer.Logs, set component.ReceiverCreateSettings) (*Receiver, error) {
+ 	obsrecv, err := obsreport.NewReceiver(obsreport.ReceiverSettings{
+-		ReceiverID:             id,
++		ReceiverID:             set.ID,
+ 		Transport:              receiverTransport,
+ 		ReceiverCreateSettings: set,
+ 	})

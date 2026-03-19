@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index e49badeca..a054bc008 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -691,7 +691,7 @@ func TestBatchMetrics_UnevenBatchMaxSize(t *testing.T) {
+ 
+ 	batchMetrics.add(md)
+ 	require.Equal(t, dataPointsPerMetric*metricsCount, batchMetrics.dataPointCount)
+-	sent, req := batchMetrics.splitBatch(ctx, sendBatchMaxSize)
++	sent, req := batchMetrics.split(sendBatchMaxSize)
+ 	sendErr := batchMetrics.export(ctx, req)
+ 	require.NoError(t, sendErr)
+ 	require.Equal(t, sendBatchMaxSize, sent)

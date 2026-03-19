@@ -1,0 +1,33 @@
+diff --git a/extension/zpagesextension/go.mod b/extension/zpagesextension/go.mod
+index ffc29f3c6..428a9c814 100644
+--- a/extension/zpagesextension/go.mod
++++ b/extension/zpagesextension/go.mod
+@@ -46,8 +46,6 @@ replace go.opentelemetry.io/collector => ../../
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
+-replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression
+-
+ replace go.opentelemetry.io/collector/config/confignet => ../../config/confignet
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+@@ -56,8 +54,6 @@ replace go.opentelemetry.io/collector/exporter => ../../exporter
+ 
+ replace go.opentelemetry.io/collector/extension => ../
+ 
+-replace go.opentelemetry.io/collector/extension/auth => ../auth
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+@@ -77,10 +73,4 @@ retract (
+ 
+ replace go.opentelemetry.io/collector/connector => ../../connector
+ 
+-replace go.opentelemetry.io/collector/config/configopaque => ../../config/configopaque
+-
+-replace go.opentelemetry.io/collector/config/configtls => ../../config/configtls
+-
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+-
+-replace go.opentelemetry.io/collector/config/configauth => ../../config/configauth

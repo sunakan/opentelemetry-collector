@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+index 2c78569b1..1c3d2a3b1 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+@@ -18,6 +18,8 @@ func Test{{ .structName }}_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, New{{ .structName }}(), ms)
+ 	assert.Equal(t, generateTest{{ .structName }}(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTest{{ .structName }}(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(new{{ .structName }}(&{{ .originName }}{}, &sharedState)) })
+ 	assert.Panics(t, func() { new{{ .structName }}(&{{ .originName }}{}, &sharedState).MoveTo(dest) })

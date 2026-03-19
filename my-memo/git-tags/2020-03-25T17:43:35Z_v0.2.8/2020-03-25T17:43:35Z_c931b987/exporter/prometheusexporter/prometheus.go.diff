@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index 57713c889..924a9afa8 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -36,7 +36,7 @@ type prometheusExporter struct {
+ 	shutdown exporterhelper.Shutdown
+ }
+ 
+-var _ consumer.MetricsConsumer = (*prometheusExporter)(nil)
++var _ consumer.MetricsConsumerOld = (*prometheusExporter)(nil)
+ 
+ func (pe *prometheusExporter) Start(host component.Host) error {
+ 	return nil

@@ -1,0 +1,13 @@
+diff --git a/internal/iruntime/total_memory_other.go b/internal/iruntime/total_memory_other.go
+index 9e5c2e93c..e30fec555 100644
+--- a/internal/iruntime/total_memory_other.go
++++ b/internal/iruntime/total_memory_other.go
+@@ -15,7 +15,7 @@
+ //go:build !linux
+ // +build !linux
+ 
+-package iruntime
++package iruntime // import "go.opentelemetry.io/collector/internal/iruntime"
+ 
+ // TotalMemory returns total available memory for non-linux platforms.
+ func TotalMemory() (uint64, error) {

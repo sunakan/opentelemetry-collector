@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/README.md b/cmd/builder/README.md
+index ec8d18c38..003a7e93f 100644
+--- a/cmd/builder/README.md
++++ b/cmd/builder/README.md
+@@ -24,8 +24,6 @@ processors:
+ providers:
+   - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v0.99.0
+ 
+-converters:
+-  - gomod: go.opentelemetry.io/collector/confmap/converter/expandconverter v0.99.0
+ EOF
+ $ builder --config=otelcol-builder.yaml
+ $ cat > /tmp/otelcol.yaml <<EOF

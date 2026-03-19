@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/ptraceotlp/request_test.go b/pdata/ptrace/ptraceotlp/request_test.go
+index 98880ed4b..d375c2bc1 100644
+--- a/pdata/ptrace/ptraceotlp/request_test.go
++++ b/pdata/ptrace/ptraceotlp/request_test.go
+@@ -27,9 +27,6 @@ var tracesRequestJSON = []byte(`
+ 						"scope": {},
+ 						"spans": [
+ 							{
+-								"traceId": "",
+-								"spanId":"",
+-								"parentSpanId":"",
+ 								"name": "test_span",
+ 								"status": {}
+ 							}

@@ -1,0 +1,11 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 82fb89f9c..04a29899e 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -99,3 +99,6 @@ impi:
+ .PHONY: moddownload
+ moddownload:
+ 	$(GOCMD) mod download
++
++benchmark:
++	go test -bench=. -benchtime=1s ./...

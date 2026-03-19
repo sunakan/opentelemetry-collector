@@ -1,0 +1,35 @@
+diff --git a/pdata/xpdata/entity/entity.go b/pdata/xpdata/entity/entity.go
+index c0ae9f26e..899428176 100644
+--- a/pdata/xpdata/entity/entity.go
++++ b/pdata/xpdata/entity/entity.go
+@@ -16,6 +16,15 @@ type Entity struct {
+ 	attributes pcommon.Map
+ }
+ 
++func NewEntity(t string) Entity {
++	ref := NewEntityRef()
++	ref.SetType(t)
++	return Entity{
++		ref:        ref,
++		attributes: pcommon.NewMap(),
++	}
++}
++
+ func (e Entity) Type() string {
+ 	return e.ref.Type()
+ }
+@@ -43,3 +52,14 @@ func (e Entity) DescriptiveAttributes() EntityAttributeMap {
+ 		attributes: e.attributes,
+ 	}
+ }
++
++// CopyToResource moves the entity to the provided resource by overriding existing entities and attributes.
++func (e Entity) CopyToResource(res pcommon.Resource) {
++	ent := ResourceEntities(res).PutEmpty(e.Type())
++	for k, v := range e.IdentifyingAttributes().All() {
++		v.CopyTo(ent.IdentifyingAttributes().PutEmpty(k))
++	}
++	for k, v := range e.DescriptiveAttributes().All() {
++		v.CopyTo(ent.DescriptiveAttributes().PutEmpty(k))
++	}
++}

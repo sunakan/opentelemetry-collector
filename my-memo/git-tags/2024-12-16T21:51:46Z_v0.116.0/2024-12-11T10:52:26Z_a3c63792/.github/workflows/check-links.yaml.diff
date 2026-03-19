@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index fb95982d8..a2bd98318 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -7,7 +7,7 @@ on:
+     types: [checks_requested]
+ 
+ concurrency:
+-  group: ${{ github.workflow }}-${{ github.head_ref }}
++  group: ${{ github.workflow }}-${{ github.ref_name }}
+   cancel-in-progress: true
+ 
+ permissions:

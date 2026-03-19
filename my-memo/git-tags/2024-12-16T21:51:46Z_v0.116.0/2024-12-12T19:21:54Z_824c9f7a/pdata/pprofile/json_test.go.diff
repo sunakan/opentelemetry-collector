@@ -1,0 +1,17 @@
+diff --git a/pdata/pprofile/json_test.go b/pdata/pprofile/json_test.go
+index 1fa8480a5..3158f54f0 100644
+--- a/pdata/pprofile/json_test.go
++++ b/pdata/pprofile/json_test.go
+@@ -13,8 +13,10 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+-var _ Marshaler = (*JSONMarshaler)(nil)
+-var _ Unmarshaler = (*JSONUnmarshaler)(nil)
++var (
++	_ Marshaler   = (*JSONMarshaler)(nil)
++	_ Unmarshaler = (*JSONUnmarshaler)(nil)
++)
+ 
+ var profilesOTLP = func() Profiles {
+ 	startTimestamp := pcommon.Timestamp(1684617382541971000)

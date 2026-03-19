@@ -1,0 +1,31 @@
+diff --git a/service/internal/pipelines/testdata/pipelines_simple_multi_proc.yaml b/service/internal/pipelines/testdata/pipelines_simple_multi_proc.yaml
+new file mode 100644
+index 000000000..bb51c8708
+--- /dev/null
++++ b/service/internal/pipelines/testdata/pipelines_simple_multi_proc.yaml
+@@ -0,0 +1,25 @@
++receivers:
++  examplereceiver:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor, exampleprocessor]
++      exporters: [exampleexporter]
++
++    metrics:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor, exampleprocessor]
++      exporters: [exampleexporter]
++
++    logs:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor, exampleprocessor]
++      exporters: [exampleexporter]

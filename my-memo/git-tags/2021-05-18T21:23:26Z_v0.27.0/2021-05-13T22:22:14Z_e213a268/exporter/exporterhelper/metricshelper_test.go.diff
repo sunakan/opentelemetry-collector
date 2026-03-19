@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index 22c1f20b2..1ca672450 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -38,7 +38,7 @@ const (
+ )
+ 
+ var (
+-	fakeMetricsExporterName   = config.MustIDFromString("fake_metrics_exporter/with_name")
++	fakeMetricsExporterName   = config.NewIDWithName("fake_metrics_exporter", "with_name")
+ 	fakeMetricsExporterConfig = config.NewExporterSettings(fakeMetricsExporterName)
+ )
+ 

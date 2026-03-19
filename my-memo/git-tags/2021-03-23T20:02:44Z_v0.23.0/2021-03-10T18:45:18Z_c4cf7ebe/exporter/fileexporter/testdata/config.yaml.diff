@@ -1,0 +1,28 @@
+diff --git a/exporter/fileexporter/testdata/config.yaml b/exporter/fileexporter/testdata/config.yaml
+index f3d046a16..c1adb96c7 100644
+--- a/exporter/fileexporter/testdata/config.yaml
++++ b/exporter/fileexporter/testdata/config.yaml
+@@ -1,8 +1,8 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+   file:
+@@ -18,9 +18,9 @@ exporters:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      processors: [nop]
+       exporters: [file]
+     metrics:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       exporters: [file,file/2]

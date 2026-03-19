@@ -1,0 +1,22 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter.go b/processor/memorylimiterprocessor/memorylimiter.go
+index cae2cb24d..e4def9e7c 100644
+--- a/processor/memorylimiterprocessor/memorylimiter.go
++++ b/processor/memorylimiterprocessor/memorylimiter.go
+@@ -57,6 +57,8 @@ var (
+ 	errPercentageLimitOutOfRange = errors.New(
+ 		"memoryLimitPercentage and memorySpikePercentage must be greater than zero and less than or equal to hundred",
+ 	)
++
++	errShutdownNotStarted = errors.New("no existing monitoring routine is running")
+ )
+ 
+ // make it overridable by tests
+@@ -164,7 +166,7 @@ func (ml *memoryLimiter) shutdown(context.Context) error {
+ 	defer ml.refCounterLock.Unlock()
+ 
+ 	if ml.refCounter == 0 {
+-		return fmt.Errorf("no existing monitoring routine is running")
++		return errShutdownNotStarted
+ 	} else if ml.refCounter == 1 {
+ 		ml.ticker.Stop()
+ 	}

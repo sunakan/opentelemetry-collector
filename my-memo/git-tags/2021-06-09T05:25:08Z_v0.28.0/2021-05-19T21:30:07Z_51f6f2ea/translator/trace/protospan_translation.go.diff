@@ -1,0 +1,14 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index fee7b59ce..3dcb6cdac 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -33,8 +33,7 @@ const (
+ 	TagError         = "error"
+ 	TagHTTPStatusMsg = "http.status_message"
+ 
+-	TagW3CTraceState     = "w3c.tracestate"
+-	TagServiceNameSource = "otlp.service.name.source"
++	TagW3CTraceState = "w3c.tracestate"
+ )
+ 
+ // Constants used for signifying batch-level attribute values where not supplied by OTLP data but required

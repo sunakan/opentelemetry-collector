@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/release-branch.yml b/.github/workflows/release-branch.yml
+index 50e4b985a..a9bf6f30c 100644
+--- a/.github/workflows/release-branch.yml
++++ b/.github/workflows/release-branch.yml
+@@ -30,7 +30,7 @@ jobs:
+ 
+       - name: Cache Go
+         id: go-cache
+-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
++        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+         with:
+           path: |
+             ~/go/bin

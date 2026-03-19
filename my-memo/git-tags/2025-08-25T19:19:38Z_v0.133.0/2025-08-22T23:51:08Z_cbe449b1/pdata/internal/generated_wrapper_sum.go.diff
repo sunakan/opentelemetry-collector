@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_sum.go b/pdata/internal/generated_wrapper_sum.go
+index 61266ac9c..fcc015ad0 100644
+--- a/pdata/internal/generated_wrapper_sum.go
++++ b/pdata/internal/generated_wrapper_sum.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolSum = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.Sum{}
+-	},
+-}
++var (
++	protoPoolSum = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.Sum{}
++		},
++	}
++)
+ 
+ func NewOrigSum() *otlpmetrics.Sum {
+ 	if !UseProtoPooling.IsEnabled() {

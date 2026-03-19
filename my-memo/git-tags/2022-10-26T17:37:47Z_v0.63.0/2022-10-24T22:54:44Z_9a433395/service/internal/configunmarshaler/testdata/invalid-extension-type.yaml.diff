@@ -1,0 +1,20 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml
+deleted file mode 100644
+index 0486eeb2f..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-extensions:
+-  /custom:
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

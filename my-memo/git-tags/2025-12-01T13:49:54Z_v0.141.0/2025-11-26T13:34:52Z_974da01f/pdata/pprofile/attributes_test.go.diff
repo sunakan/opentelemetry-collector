@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/attributes_test.go b/pdata/pprofile/attributes_test.go
+index 4478e446e..cd4e20021 100644
+--- a/pdata/pprofile/attributes_test.go
++++ b/pdata/pprofile/attributes_test.go
+@@ -10,6 +10,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/internal/testutil"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -115,6 +116,7 @@ func TestSetAttribute(t *testing.T) {
+ }
+ 
+ func BenchmarkSetAttribute(b *testing.B) {
++	testutil.SkipMemoryBench(b)
+ 	for _, bb := range []struct {
+ 		name string
+ 		attr KeyValueAndUnit

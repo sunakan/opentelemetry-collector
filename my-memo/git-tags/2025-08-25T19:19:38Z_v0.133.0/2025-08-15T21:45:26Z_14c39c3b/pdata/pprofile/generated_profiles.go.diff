@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_profiles.go b/pdata/pprofile/generated_profiles.go
+index 9715d675b..8862761e2 100644
+--- a/pdata/pprofile/generated_profiles.go
++++ b/pdata/pprofile/generated_profiles.go
+@@ -51,8 +51,8 @@ func (ms Profiles) ResourceProfiles() ResourceProfilesSlice {
+ 	return newResourceProfilesSlice(&ms.getOrig().ResourceProfiles, ms.getState())
+ }
+ 
+-// ProfilesDictionary returns the profilesdictionary associated with this Profiles.
+-func (ms Profiles) ProfilesDictionary() ProfilesDictionary {
++// Dictionary returns the dictionary associated with this Profiles.
++func (ms Profiles) Dictionary() ProfilesDictionary {
+ 	return newProfilesDictionary(&ms.getOrig().Dictionary, ms.getState())
+ }
+ 

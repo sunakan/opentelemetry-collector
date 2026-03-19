@@ -1,0 +1,19 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver.go b/receiver/prometheusreceiver/metrics_receiver.go
+index 097283fcf..9a7107883 100644
+--- a/receiver/prometheusreceiver/metrics_receiver.go
++++ b/receiver/prometheusreceiver/metrics_receiver.go
+@@ -23,10 +23,10 @@ import (
+ 	"github.com/prometheus/prometheus/scrape"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/observability"
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
+-	"github.com/open-telemetry/opentelemetry-service/receiver/prometheusreceiver/internal"
++	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"github.com/open-telemetry/opentelemetry-collector/observability"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/receiver/prometheusreceiver/internal"
+ 
+ 	sd_config "github.com/prometheus/prometheus/discovery/config"
+ )

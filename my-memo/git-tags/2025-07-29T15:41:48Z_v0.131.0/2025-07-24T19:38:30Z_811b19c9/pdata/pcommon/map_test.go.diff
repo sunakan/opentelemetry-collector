@@ -1,0 +1,26 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index 55dcd41aa..f27a8f135 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -23,7 +23,7 @@ func TestMap(t *testing.T) {
+ 
+ 	putString := NewMap()
+ 	putString.PutStr("k", "v")
+-	assert.Equal(t, Map(internal.GenerateTestMap()), putString)
++	assert.Equal(t, generateTestStringMap(t), putString)
+ 
+ 	putInt := NewMap()
+ 	putInt.PutInt("k", 123)
+@@ -544,6 +544,12 @@ func generateTestEmptySlice(t *testing.T) Map {
+ 	return m
+ }
+ 
++func generateTestStringMap(t *testing.T) Map {
++	m := NewMap()
++	assert.NoError(t, m.FromRaw(map[string]any{"k": "v"}))
++	return m
++}
++
+ func generateTestIntMap(t *testing.T) Map {
+ 	m := NewMap()
+ 	assert.NoError(t, m.FromRaw(map[string]any{"k": 123}))

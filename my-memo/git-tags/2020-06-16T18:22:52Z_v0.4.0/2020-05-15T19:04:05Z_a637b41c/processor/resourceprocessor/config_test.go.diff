@@ -1,0 +1,15 @@
+diff --git a/processor/resourceprocessor/config_test.go b/processor/resourceprocessor/config_test.go
+index f476e8e01..92166f110 100644
+--- a/processor/resourceprocessor/config_test.go
++++ b/processor/resourceprocessor/config_test.go
+@@ -20,8 +20,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

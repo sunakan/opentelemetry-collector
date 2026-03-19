@@ -1,0 +1,13 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 432c5ed93..4d0899835 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -194,7 +194,7 @@ func testCollectorStartHelper(t *testing.T, telemetry collectorTelemetryExporter
+ 	cfgSet := newDefaultConfigProviderSettings([]string{
+ 		filepath.Join("testdata", "otelcol-config.yaml"),
+ 	})
+-	cfgSet.MapConverters = append([]config.MapConverterFunc{
++	cfgSet.MapConverters = append([]config.MapConverter{
+ 		overwritepropertiesmapconverter.New(
+ 			[]string{"service.telemetry.metrics.address=" + metricsAddr},
+ 		)},

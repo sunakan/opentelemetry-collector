@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/testdata/config.yaml b/exporter/kafkaexporter/testdata/config.yaml
+index 9a807f409..c1cef85b1 100644
+--- a/exporter/kafkaexporter/testdata/config.yaml
++++ b/exporter/kafkaexporter/testdata/config.yaml
+@@ -8,6 +8,8 @@ exporters:
+       full: false
+       retry:
+         max: 15
++    producer:
++      max_message_bytes: 10000000
+     timeout: 10s
+     auth:
+       plain_text:

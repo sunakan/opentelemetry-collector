@@ -1,0 +1,22 @@
+diff --git a/exporter/zipkinexporter/zipkin_test.go b/exporter/zipkinexporter/zipkin_test.go
+index 55f0f621d..14aaf3022 100644
+--- a/exporter/zipkinexporter/zipkin_test.go
++++ b/exporter/zipkinexporter/zipkin_test.go
+@@ -69,8 +69,6 @@ func TestZipkinExporter_roundtripJSON(t *testing.T) {
+ 	assert.NoError(t, err)
+ 	require.NotNil(t, zexp)
+ 
+-	require.NoError(t, zexp.Start(context.Background(), componenttest.NewNopHost()))
+-
+ 	// The test requires the spans from zipkinSpansJSONJavaLibrary to be sent in a single batch, use
+ 	// a mock to ensure that this happens as intended.
+ 	mzr := newMockZipkinReporter(cst.URL)
+@@ -316,8 +314,6 @@ func TestZipkinExporter_roundtripProto(t *testing.T) {
+ 	zexp, err := NewFactory().CreateTracesExporter(context.Background(), component.ExporterCreateParams{Logger: zap.NewNop()}, cfg)
+ 	require.NoError(t, err)
+ 
+-	require.NoError(t, zexp.Start(context.Background(), componenttest.NewNopHost()))
+-
+ 	// The test requires the spans from zipkinSpansJSONJavaLibrary to be sent in a single batch, use
+ 	// a mock to ensure that this happens as intended.
+ 	mzr := newMockZipkinReporter(cst.URL)

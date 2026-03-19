@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 7f8fe523c..1b6146e86 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -17,7 +17,7 @@ import (
+ 	"go.uber.org/zap"
+ )
+ 
+-const defaultOtelColVersion = "0.107.0"
++const defaultOtelColVersion = "0.108.0"
+ 
+ var (
+ 	// ErrMissingGoMod indicates an empty gomod field

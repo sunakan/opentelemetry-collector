@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/internal/command_test.go b/cmd/mdatagen/internal/command_test.go
+index 21d4b51f7..7e191d172 100644
+--- a/cmd/mdatagen/internal/command_test.go
++++ b/cmd/mdatagen/internal/command_test.go
+@@ -576,12 +576,13 @@ Some info about a component
+ 				Type:            "foo",
+ 				ShortFolderName: "foo",
+ 				Status: &Status{
+-					Stability:     stability,
+-					Distributions: tt.distros,
+-					Class:         tt.componentClass,
+-					Warnings:      tt.warnings,
+-					Codeowners:    tt.codeowners,
+-					Deprecation:   tt.deprecation,
++					DisableCodeCov: true,
++					Stability:      stability,
++					Distributions:  tt.distros,
++					Class:          tt.componentClass,
++					Warnings:       tt.warnings,
++					Codeowners:     tt.codeowners,
++					Deprecation:    tt.deprecation,
+ 				},
+ 			}
+ 			tmpdir := t.TempDir()

@@ -1,0 +1,15 @@
+diff --git a/extension/healthcheckextension/factory_test.go b/extension/healthcheckextension/factory_test.go
+index 981e13a31..c72a96c28 100644
+--- a/extension/healthcheckextension/factory_test.go
++++ b/extension/healthcheckextension/factory_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
+ )
+ 
+ func TestFactory_Type(t *testing.T) {

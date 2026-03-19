@@ -1,0 +1,20 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 9d9bad986..10b8ac005 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -14,7 +14,6 @@ import (
+ 	"go.uber.org/zap/zapcore"
+ 	"go.uber.org/zap/zaptest/observer"
+ 
+-	"go.opentelemetry.io/collector/component/componentattribute"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+@@ -22,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/xconsumer"
++	"go.opentelemetry.io/collector/internal/telemetry/componentattribute"
+ 	"go.opentelemetry.io/collector/internal/testutil"
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ 	"go.opentelemetry.io/collector/receiver/xreceiver"

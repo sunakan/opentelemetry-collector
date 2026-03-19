@@ -1,0 +1,13 @@
+diff --git a/docs/security-best-practices.md b/docs/security-best-practices.md
+index e4cfe25b7..fb66aba3a 100644
+--- a/docs/security-best-practices.md
++++ b/docs/security-best-practices.md
+@@ -141,7 +141,7 @@ receivers:
+         endpoint: localhost:4317
+ ```
+ 
+-Generally, `localhost`-like addresses should be preferred over the 0.0.0.0 address outside of containerized environments.
++Generally, `localhost`-like addresses should be preferred over the 0.0.0.0 address.
+ For more information, see [CWE-1327](https://cwe.mitre.org/data/definitions/1327.html).
+ 
+ ## Processors

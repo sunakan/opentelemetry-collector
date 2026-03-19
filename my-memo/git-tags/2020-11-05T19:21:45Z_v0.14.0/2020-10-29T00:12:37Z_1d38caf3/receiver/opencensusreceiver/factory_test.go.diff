@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory_test.go b/receiver/opencensusreceiver/factory_test.go
+index bf9d1293d..fe70a32e4 100644
+--- a/receiver/opencensusreceiver/factory_test.go
++++ b/receiver/opencensusreceiver/factory_test.go
+@@ -113,7 +113,7 @@ func TestCreateTraceReceiver(t *testing.T) {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			tr, err := createTraceReceiver(ctx, params, tt.cfg, consumertest.NewTracesNop())
+ 			if (err != nil) != tt.wantErr {
+-				t.Errorf("factory.CreateTraceReceiver() error = %v, wantErr %v", err, tt.wantErr)
++				t.Errorf("factory.CreateTracesReceiver() error = %v, wantErr %v", err, tt.wantErr)
+ 				return
+ 			}
+ 			if tr != nil {

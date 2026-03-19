@@ -1,0 +1,21 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index 65a2e5bac..3bf796879 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -39,10 +39,12 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
+ )
+ 
+-const tracesTelemetryType = "traces"
+-const metricsTelemetryType = "metrics"
+-const logsTelemetryType = "logs"
+-const profilesTelemetryType = "profiles"
++const (
++	tracesTelemetryType   = "traces"
++	metricsTelemetryType  = "metrics"
++	logsTelemetryType     = "logs"
++	profilesTelemetryType = "profiles"
++)
+ 
+ type responseSerializer interface {
+ 	MarshalJSON() ([]byte, error)

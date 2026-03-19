@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filtermetric/config_test.go b/internal/processor/filtermetric/config_test.go
+index d1a78e8a4..4d160de9f 100644
+--- a/internal/processor/filtermetric/config_test.go
++++ b/internal/processor/filtermetric/config_test.go
+@@ -89,7 +89,7 @@ func TestConfig(t *testing.T) {
+ 
+ 			matcher, err := NewMatcher(&cfg)
+ 			assert.NotNil(t, matcher)
+-			assert.Nil(t, err)
++			assert.NoError(t, err)
+ 		})
+ 	}
+ }

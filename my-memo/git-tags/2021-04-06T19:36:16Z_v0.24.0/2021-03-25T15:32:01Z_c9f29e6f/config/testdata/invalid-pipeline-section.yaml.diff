@@ -1,0 +1,26 @@
+diff --git a/config/testdata/invalid-pipeline-section.yaml b/config/testdata/invalid-pipeline-section.yaml
+deleted file mode 100644
+index 760edb27d..000000000
+--- a/config/testdata/invalid-pipeline-section.yaml
++++ /dev/null
+@@ -1,20 +0,0 @@
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-extensions:
+-  exampleextension:
+-service:
+-  extensions:
+-    - exampleextension
+-  pipelines:
+-    traces:
+-      receivers:
+-        - examplereceiver
+-      processors:
+-        - exampleprocessor
+-      exporters:
+-        - exampleexporter
+-      unknown_section: 1

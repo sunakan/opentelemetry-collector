@@ -1,0 +1,27 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
+index 7361f2807..a56a80829 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
+@@ -1,14 +1,14 @@
+ extensions:
+-  exampleextension/:
++  nop/:
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
+\ No newline at end of file
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

@@ -1,0 +1,41 @@
+diff --git a/exporter/exporterprofiles/exporter.go b/exporter/exporterprofiles/exporter.go
+index ca49317f0..e5b19b35b 100644
+--- a/exporter/exporterprofiles/exporter.go
++++ b/exporter/exporterprofiles/exporter.go
+@@ -28,12 +28,6 @@ type Factory interface {
+ 
+ 	// ProfilesStability gets the stability level of the Profiles exporter.
+ 	ProfilesStability() component.StabilityLevel
+-
+-	// Deprecated: [v0.112.0] use CreateProfiles.
+-	CreateProfilesExporter(ctx context.Context, set exporter.Settings, cfg component.Config) (Profiles, error)
+-
+-	// Deprecated: [v0.112.0] use ProfilesExporterStability.
+-	ProfilesExporterStability() component.StabilityLevel
+ }
+ 
+ // FactoryOption apply changes to ReceiverOptions.
+@@ -65,11 +59,6 @@ func (f CreateProfilesFunc) CreateProfiles(ctx context.Context, set exporter.Set
+ 	return f(ctx, set, cfg)
+ }
+ 
+-// Deprecated: [v0.112.0] use CreateProfiles.
+-func (f CreateProfilesFunc) CreateProfilesExporter(ctx context.Context, set exporter.Settings, cfg component.Config) (Profiles, error) {
+-	return f.CreateProfiles(ctx, set, cfg)
+-}
+-
+ // WithTraces overrides the default "error not supported" implementation for CreateTraces and the default "undefined" stability level.
+ func WithTraces(createTraces exporter.CreateTracesFunc, sl component.StabilityLevel) FactoryOption {
+ 	return factoryOptionFunc(func(o *factoryOpts) {
+@@ -109,11 +98,6 @@ func (f *factory) ProfilesStability() component.StabilityLevel {
+ 	return f.profilesStabilityLevel
+ }
+ 
+-// Deprecated: [v0.112.0] use ProfilesStability.
+-func (f *factory) ProfilesExporterStability() component.StabilityLevel {
+-	return f.profilesStabilityLevel
+-}
+-
+ // NewFactory returns a Factory.
+ func NewFactory(cfgType component.Type, createDefaultConfig component.CreateDefaultConfigFunc, options ...FactoryOption) Factory {
+ 	opts := factoryOpts{factory: &factory{}}

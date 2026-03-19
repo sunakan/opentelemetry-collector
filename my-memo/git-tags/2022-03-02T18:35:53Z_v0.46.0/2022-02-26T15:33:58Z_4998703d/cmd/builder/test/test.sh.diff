@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/test/test.sh b/cmd/builder/test/test.sh
+index 5c0f269b7..a1b4321dc 100755
+--- a/cmd/builder/test/test.sh
++++ b/cmd/builder/test/test.sh
+@@ -15,7 +15,7 @@ echo "Using ${GOBIN} to compile the distributions."
+ # each attempt pauses for 100ms before retrying
+ max_retries=50
+ 
+-tests="replaces core"
++tests="core"
+ 
+ base=`mktemp -d`
+ echo "Running the tests in ${base}"

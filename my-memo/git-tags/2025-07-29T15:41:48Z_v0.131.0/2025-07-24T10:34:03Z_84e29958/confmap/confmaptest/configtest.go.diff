@@ -1,0 +1,13 @@
+diff --git a/confmap/confmaptest/configtest.go b/confmap/confmaptest/configtest.go
+index 4d0db6060..7c68f889a 100644
+--- a/confmap/confmaptest/configtest.go
++++ b/confmap/confmaptest/configtest.go
+@@ -23,7 +23,7 @@ func LoadConf(fileName string) (*confmap.Conf, error) {
+ 	}
+ 
+ 	var rawConf map[string]any
+-	if err = yaml.Unmarshal(content, &rawConf); err != nil {
++	if err := yaml.Unmarshal(content, &rawConf); err != nil {
+ 		return nil, err
+ 	}
+ 

@@ -1,0 +1,21 @@
+diff --git a/pdata/internal/state_test.go b/pdata/internal/state_test.go
+index d0baeded7..1e6e029f2 100644
+--- a/pdata/internal/state_test.go
++++ b/pdata/internal/state_test.go
+@@ -7,6 +7,8 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestAssertMutable(t *testing.T) {
+@@ -19,6 +21,7 @@ func TestAssertMutable(t *testing.T) {
+ }
+ 
+ func BenchmarkAssertMutable(b *testing.B) {
++	testutil.SkipMemoryBench(b)
+ 	b.ReportAllocs()
+ 
+ 	mutable := NewState()

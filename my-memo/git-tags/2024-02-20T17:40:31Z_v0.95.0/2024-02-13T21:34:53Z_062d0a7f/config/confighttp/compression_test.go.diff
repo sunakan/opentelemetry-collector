@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 30c7b483e..63d9ba02a 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -300,7 +300,7 @@ func TestHTTPContentCompressionRequestWithNilBody(t *testing.T) {
+ type copyFailBody struct {
+ }
+ 
+-func (*copyFailBody) Read(_ []byte) (n int, err error) {
++func (*copyFailBody) Read([]byte) (n int, err error) {
+ 	return 0, fmt.Errorf("read failed")
+ }
+ 

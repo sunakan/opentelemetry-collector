@@ -1,0 +1,12 @@
+diff --git a/translator/internaldata/oc_to_traces.go b/translator/internaldata/oc_to_traces.go
+index d6835d079..081f14ae3 100644
+--- a/translator/internaldata/oc_to_traces.go
++++ b/translator/internaldata/oc_to_traces.go
+@@ -341,6 +341,7 @@ func ocLinksToInternal(ocLinks *octrace.Span_Links, dest pdata.Span) {
+ 		i++
+ 
+ 		link.SetTraceID(pdata.NewTraceID(ocLink.TraceId))
++
+ 		link.SetSpanID(pdata.NewSpanID(ocLink.SpanId))
+ 		link.SetTraceState(ocTraceStateToInternal(ocLink.Tracestate))
+ 		initAttributeMapFromOC(ocLink.Attributes, link.Attributes())

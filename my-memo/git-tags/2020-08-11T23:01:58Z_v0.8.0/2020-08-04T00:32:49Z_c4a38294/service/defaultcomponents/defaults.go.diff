@@ -1,0 +1,22 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 8169436ce..f85e49039 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -69,7 +69,7 @@ func Components() (
+ 	receivers, err := component.MakeReceiverFactoryMap(
+ 		jaegerreceiver.NewFactory(),
+ 		fluentforwardreceiver.NewFactory(),
+-		&zipkinreceiver.Factory{},
++		zipkinreceiver.NewFactory(),
+ 		&prometheusreceiver.Factory{},
+ 		&opencensusreceiver.Factory{},
+ 		otlpreceiver.NewFactory(),
+@@ -83,7 +83,7 @@ func Components() (
+ 		&opencensusexporter.Factory{},
+ 		&prometheusexporter.Factory{},
+ 		loggingexporter.NewFactory(),
+-		&zipkinexporter.Factory{},
++		zipkinexporter.NewFactory(),
+ 		jaegerexporter.NewFactory(),
+ 		&fileexporter.Factory{},
+ 		otlpexporter.NewFactory(),

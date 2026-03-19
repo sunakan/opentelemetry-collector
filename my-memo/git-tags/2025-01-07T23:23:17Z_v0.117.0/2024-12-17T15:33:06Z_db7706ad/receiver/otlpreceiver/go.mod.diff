@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index e26402ba9..fabee5c29 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -59,7 +59,6 @@ require (
+ 	go.opentelemetry.io/collector/config/configcompression v1.22.0 // indirect
+ 	go.opentelemetry.io/collector/config/configopaque v1.22.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.116.0 // indirect
+-	go.opentelemetry.io/collector/config/internal v0.116.0 // indirect
+ 	go.opentelemetry.io/collector/extension v0.116.0 // indirect
+ 	go.opentelemetry.io/collector/extension/auth v0.116.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.116.0 // indirect
+@@ -99,8 +98,6 @@ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/con
+ 
+ replace go.opentelemetry.io/collector/config/configtls => ../../config/configtls
+ 
+-replace go.opentelemetry.io/collector/config/internal => ../../config/internal
+-
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+ replace go.opentelemetry.io/collector/extension => ../../extension

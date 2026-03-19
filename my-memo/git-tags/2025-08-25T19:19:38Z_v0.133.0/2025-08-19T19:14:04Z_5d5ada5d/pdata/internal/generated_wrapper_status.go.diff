@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_status.go b/pdata/internal/generated_wrapper_status.go
+index 8c110a0dc..08db6bbc6 100644
+--- a/pdata/internal/generated_wrapper_status.go
++++ b/pdata/internal/generated_wrapper_status.go
+@@ -14,11 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-func NewOrigStatus() otlptrace.Status {
+-	return otlptrace.Status{}
+-}
+-
+-func NewOrigPtrStatus() *otlptrace.Status {
++func NewOrigStatus() *otlptrace.Status {
+ 	return &otlptrace.Status{}
+ }
+ 
+@@ -28,7 +24,7 @@ func CopyOrigStatus(dest, src *otlptrace.Status) {
+ }
+ 
+ func GenTestOrigStatus() *otlptrace.Status {
+-	orig := NewOrigPtrStatus()
++	orig := NewOrigStatus()
+ 	orig.Message = "test_message"
+ 	orig.Code = otlptrace.Status_StatusCode(1)
+ 	return orig

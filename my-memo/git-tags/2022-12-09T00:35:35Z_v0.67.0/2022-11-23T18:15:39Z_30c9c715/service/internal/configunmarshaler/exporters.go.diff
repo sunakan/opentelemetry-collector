@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/exporters.go b/service/internal/configunmarshaler/exporters.go
+index e4064dfb0..c3a69a1d1 100644
+--- a/service/internal/configunmarshaler/exporters.go
++++ b/service/internal/configunmarshaler/exporters.go
+@@ -57,7 +57,7 @@ func (e *Exporters) Unmarshal(conf *confmap.Conf) error {
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it,
+ 		// and it will apply user-defined config on top of the default.
+-		if err := component.UnmarshalExporterConfig(confmap.NewFromStringMap(value), exporterCfg); err != nil {
++		if err := component.UnmarshalConfig(confmap.NewFromStringMap(value), exporterCfg); err != nil {
+ 			return errorUnmarshalError(exportersKeyName, id, err)
+ 		}
+ 

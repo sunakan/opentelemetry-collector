@@ -1,0 +1,21 @@
+diff --git a/testbed/testbed/otelcol_runner_test.go b/testbed/testbed/otelcol_runner_test.go
+index d9f772e8a..2c022b18c 100644
+--- a/testbed/testbed/otelcol_runner_test.go
++++ b/testbed/testbed/otelcol_runner_test.go
+@@ -35,7 +35,6 @@ receivers:%v
+ exporters:%v
+ processors:
+   batch:
+-  queued_retry:
+ 
+ extensions:
+ 
+@@ -44,7 +43,7 @@ service:
+   pipelines:
+     traces:
+       receivers: [%v]
+-      processors: [batch, queued_retry]
++      processors: [batch]
+       exporters: [%v]
+ `
+ 	config := fmt.Sprintf(

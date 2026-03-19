@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_resourcemetricsslice.go b/pdata/pmetric/generated_resourcemetricsslice.go
+index b1cdae74d..a62dc404b 100644
+--- a/pdata/pmetric/generated_resourcemetricsslice.go
++++ b/pdata/pmetric/generated_resourcemetricsslice.go
+@@ -99,7 +99,7 @@ func (es ResourceMetricsSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ResourceMetrics.
+ func (es ResourceMetricsSlice) AppendEmpty() ResourceMetrics {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrResourceMetrics())
++	*es.orig = append(*es.orig, internal.NewOrigResourceMetrics())
+ 	return es.At(es.Len() - 1)
+ }
+ 

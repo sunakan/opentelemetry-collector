@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
+index 10b12c397..c157c2550 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
+@@ -86,7 +86,7 @@ func (m *processMetadata) insertUsername(attr pdata.AttributeMap) {
+ 		return
+ 	}
+ 
+-	attr.InsertString(conventions.AttributeProcessUsername, m.username)
++	attr.InsertString(conventions.AttributeProcessOwner, m.username)
+ }
+ 
+ // processHandles provides a wrapper around []*process.Process

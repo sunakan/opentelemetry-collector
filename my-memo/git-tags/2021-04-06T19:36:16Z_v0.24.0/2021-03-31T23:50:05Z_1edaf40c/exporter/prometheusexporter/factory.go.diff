@@ -1,0 +1,16 @@
+diff --git a/exporter/prometheusexporter/factory.go b/exporter/prometheusexporter/factory.go
+index 42a4272f3..faafb2a90 100644
+--- a/exporter/prometheusexporter/factory.go
++++ b/exporter/prometheusexporter/factory.go
+@@ -38,10 +38,7 @@ func NewFactory() component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings: config.ExporterSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
++		ExporterSettings: config.NewExporterSettings(typeStr),
+ 		ConstLabels:      map[string]string{},
+ 		SendTimestamps:   false,
+ 		MetricExpiration: time.Minute * 5,

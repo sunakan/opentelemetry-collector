@@ -1,0 +1,23 @@
+diff --git a/exporter/prometheusremotewriteexporter/factory.go b/exporter/prometheusremotewriteexporter/factory.go
+index 47849c768..007128d23 100644
+--- a/exporter/prometheusremotewriteexporter/factory.go
++++ b/exporter/prometheusremotewriteexporter/factory.go
+@@ -16,8 +16,7 @@ package prometheusremotewriteexporter
+ 
+ import (
+ 	"context"
+-
+-	"github.com/pkg/errors"
++	"errors"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+@@ -42,7 +41,7 @@ func createMetricsExporter(_ context.Context, _ component.ExporterCreateParams,
+ 
+ 	prwCfg, ok := cfg.(*Config)
+ 	if !ok {
+-		return nil, errors.Errorf("invalid configuration")
++		return nil, errors.New("invalid configuration")
+ 	}
+ 
+ 	client, err := prwCfg.HTTPClientSettings.ToClient()

@@ -1,0 +1,12 @@
+diff --git a/internal/pdatagrpc/traces.go b/internal/pdatagrpc/traces.go
+index 9bbd9a23f..38feab7c1 100644
+--- a/internal/pdatagrpc/traces.go
++++ b/internal/pdatagrpc/traces.go
+@@ -72,6 +72,7 @@ type rawTracesServer struct {
+ }
+ 
+ func (s rawTracesServer) Export(ctx context.Context, request *otlpcollectortraces.ExportTraceServiceRequest) (*otlpcollectortraces.ExportTraceServiceResponse, error) {
++	internal.TracesCompatibilityChanges(request)
+ 	_, err := s.srv.Export(ctx, pdata.TracesFromInternalRep(internal.TracesFromOtlp(request)))
+ 	return &otlpcollectortraces.ExportTraceServiceResponse{}, err
+ }

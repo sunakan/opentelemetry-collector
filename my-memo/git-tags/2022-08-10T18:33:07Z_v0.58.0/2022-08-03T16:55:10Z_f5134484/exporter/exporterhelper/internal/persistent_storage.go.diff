@@ -1,0 +1,39 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage.go b/exporter/exporterhelper/internal/persistent_storage.go
+index a8e9e715a..d58a30202 100644
+--- a/exporter/exporterhelper/internal/persistent_storage.go
++++ b/exporter/exporterhelper/internal/persistent_storage.go
+@@ -50,21 +50,19 @@ type persistentStorage interface {
+ // The items currently dispatched by consumers are not deleted until the processing is finished.
+ // Their list is stored under a separate key.
+ //
+-//
+-//   ┌───────file extension-backed queue───────┐
+-//   │                                         │
+-//   │     ┌───┐     ┌───┐ ┌───┐ ┌───┐ ┌───┐   │
+-//   │ n+1 │ n │ ... │ 4 │ │ 3 │ │ 2 │ │ 1 │   │
+-//   │     └───┘     └───┘ └─x─┘ └─|─┘ └─x─┘   │
+-//   │                       x     |     x     │
+-//   └───────────────────────x─────|─────x─────┘
+-//      ▲              ▲     x     |     x
+-//      │              │     x     |     xxxx deleted
+-//      │              │     x     |
+-//    write          read    x     └── currently dispatched item
+-//    index          index   x
+-//                           xxxx deleted
+-//
++//	┌───────file extension-backed queue───────┐
++//	│                                         │
++//	│     ┌───┐     ┌───┐ ┌───┐ ┌───┐ ┌───┐   │
++//	│ n+1 │ n │ ... │ 4 │ │ 3 │ │ 2 │ │ 1 │   │
++//	│     └───┘     └───┘ └─x─┘ └─|─┘ └─x─┘   │
++//	│                       x     |     x     │
++//	└───────────────────────x─────|─────x─────┘
++//	   ▲              ▲     x     |     x
++//	   │              │     x     |     xxxx deleted
++//	   │              │     x     |
++//	 write          read    x     └── currently dispatched item
++//	 index          index   x
++//	                        xxxx deleted
+ type persistentContiguousStorage struct {
+ 	logger      *zap.Logger
+ 	queueName   string

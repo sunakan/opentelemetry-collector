@@ -1,0 +1,18 @@
+diff --git a/exporter/prometheusexporter/factory.go b/exporter/prometheusexporter/factory.go
+index 95442358a..3f378d47a 100644
+--- a/exporter/prometheusexporter/factory.go
++++ b/exporter/prometheusexporter/factory.go
+@@ -91,7 +91,11 @@ func (f *Factory) CreateMetricsExporter(logger *zap.Logger, cfg configmodels.Exp
+ 		_ = srv.Serve(ln)
+ 	}()
+ 
+-	pexp := &prometheusExporter{exporter: pe}
++	pexp := &prometheusExporter{
++		name:     cfg.Name(),
++		exporter: pe,
++		shutdown: ln.Close,
++	}
+ 
+-	return pexp, ln.Close, nil
++	return pexp, pexp.Shutdown, nil
+ }

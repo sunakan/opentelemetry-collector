@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_resourcemetricsslice_test.go b/pdata/pmetric/generated_resourcemetricsslice_test.go
+index ef51cdc72..6b561907c 100644
+--- a/pdata/pmetric/generated_resourcemetricsslice_test.go
++++ b/pdata/pmetric/generated_resourcemetricsslice_test.go
+@@ -27,7 +27,7 @@ func TestResourceMetricsSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestResourceMetrics((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigResourceMetrics()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

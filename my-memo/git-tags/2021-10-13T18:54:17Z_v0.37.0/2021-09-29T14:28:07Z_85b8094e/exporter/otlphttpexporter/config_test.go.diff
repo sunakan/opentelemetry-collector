@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index c1689211a..54d85bfb8 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -41,7 +41,7 @@ func TestLoadConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)
+ 
+-	e0 := cfg.Exporters[config.NewID(typeStr)]
++	e0 := cfg.Exporters[config.NewComponentID(typeStr)]
+ 	assert.Equal(t, e0, factory.CreateDefaultConfig())
+ 
+ 	e1 := cfg.Exporters[config.NewIDWithName(typeStr, "2")]

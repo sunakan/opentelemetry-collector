@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 65dc345b4..004552b0a 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -72,7 +72,7 @@ func Components() (
+ 		fluentforwardreceiver.NewFactory(),
+ 		zipkinreceiver.NewFactory(),
+ 		prometheusreceiver.NewFactory(),
+-		&opencensusreceiver.Factory{},
++		opencensusreceiver.NewFactory(),
+ 		otlpreceiver.NewFactory(),
+ 		hostmetricsreceiver.NewFactory(),
+ 	)

@@ -1,0 +1,14 @@
+diff --git a/processor/filterprocessor/metric_index.go b/processor/filterprocessor/metric_index.go
+index 50afee55b..c58963ed9 100644
+--- a/processor/filterprocessor/metric_index.go
++++ b/processor/filterprocessor/metric_index.go
+@@ -70,8 +70,7 @@ func (idx metricIndex) extract(pdm pdata.Metrics) pdata.Metrics {
+ 			ilmIn := ilmSliceIn.At(ilmIdx)
+ 			mSliceIn := ilmIn.Metrics()
+ 
+-			ilmOut := pdata.NewInstrumentationLibraryMetrics()
+-			ilmSliceOut.Append(ilmOut)
++			ilmOut := ilmSliceOut.AppendEmpty()
+ 			ilOut := ilmOut.InstrumentationLibrary()
+ 			ilmIn.InstrumentationLibrary().CopyTo(ilOut)
+ 			mSliceOut := ilmOut.Metrics()

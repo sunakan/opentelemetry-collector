@@ -1,0 +1,27 @@
+diff --git a/internal/goldendataset/pict_metrics_input_defs.go b/internal/goldendataset/pict_metrics_input_defs.go
+index fd57ec558..3a5a8183a 100644
+--- a/internal/goldendataset/pict_metrics_input_defs.go
++++ b/internal/goldendataset/pict_metrics_input_defs.go
+@@ -32,14 +32,14 @@ type PICTMetricInputs struct {
+ type PICTMetricDataType string
+ 
+ const (
+-	MetricTypeIntGauge              PICTMetricDataType = "IntGauge"
+-	MetricTypeMonotonicIntSum       PICTMetricDataType = "MonotonicIntSum"
+-	MetricTypeNonMonotonicIntSum    PICTMetricDataType = "NonMonotonicIntSum"
+-	MetricTypeDoubleGauge           PICTMetricDataType = "DoubleGauge"
+-	MetricTypeMonotonicDoubleSum    PICTMetricDataType = "MonotonicDoubleSum"
+-	MetricTypeNonMonotonicDoubleSum PICTMetricDataType = "NonMonotonicDoubleSum"
+-	MetricTypeIntHistogram          PICTMetricDataType = "IntHistogram"
+-	MetricTypeHistogram             PICTMetricDataType = "Histogram"
++	MetricTypeIntGauge                 PICTMetricDataType = "IntGauge"
++	MetricTypeMonotonicIntSum          PICTMetricDataType = "MonotonicIntSum"
++	MetricTypeNonMonotonicIntSum       PICTMetricDataType = "NonMonotonicIntSum"
++	MetricTypeDoubleGauge              PICTMetricDataType = "DoubleGauge"
++	MetricTypeMonotonicDoubleSum       PICTMetricDataType = "MonotonicDoubleSum"
++	MetricTypeNonMonotonicDoubleSum    PICTMetricDataType = "NonMonotonicDoubleSum"
++	MetricTypeDoubleExemplarsHistogram PICTMetricDataType = "DoubleExemplarsHistogram"
++	MetricTypeIntExemplarsHistogram    PICTMetricDataType = "IntExemplarsHistogram"
+ )
+ 
+ // PICTNumPtLabels enumerates the number of labels on each datapoint.

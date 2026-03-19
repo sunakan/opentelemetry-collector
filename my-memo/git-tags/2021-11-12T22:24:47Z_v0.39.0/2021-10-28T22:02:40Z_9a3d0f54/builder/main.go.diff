@@ -1,0 +1,13 @@
+diff --git a/builder/main.go b/builder/main.go
+index 0ef002a58..1808f4b46 100644
+--- a/builder/main.go
++++ b/builder/main.go
+@@ -18,7 +18,7 @@ import (
+ 	"fmt"
+ 	"os"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector-builder/cmd"
++	"go.opentelemetry.io/collector/builder/cmd"
+ )
+ 
+ func main() {

@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_sum.go b/pdata/internal/generated_wrapper_sum.go
+index 3f6254fc3..3b03f1bd8 100644
+--- a/pdata/internal/generated_wrapper_sum.go
++++ b/pdata/internal/generated_wrapper_sum.go
+@@ -97,7 +97,7 @@ func MarshalProtoOrigSum(orig *otlpmetrics.Sum, buf []byte) int {
+ 	pos := len(buf)
+ 	var l int
+ 	_ = l
+-	for i := range orig.DataPoints {
++	for i := len(orig.DataPoints) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigNumberDataPoint(orig.DataPoints[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

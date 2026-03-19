@@ -1,0 +1,10 @@
+diff --git a/config/configtls/doc.go b/config/configtls/doc.go
+index 93a167500..38d53dc1b 100644
+--- a/config/configtls/doc.go
++++ b/config/configtls/doc.go
+@@ -14,4 +14,4 @@
+ 
+ // Package configtls implements the TLS settings to load and
+ // configure TLS clients and servers.
+-package configtls
++package configtls // import "go.opentelemetry.io/collector/config/configtls"

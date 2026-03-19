@@ -1,0 +1,10 @@
+diff --git a/exporter/debugexporter/testdata/config_verbosity.yaml b/exporter/debugexporter/testdata/config_verbosity.yaml
+index 682c45f73..255080737 100644
+--- a/exporter/debugexporter/testdata/config_verbosity.yaml
++++ b/exporter/debugexporter/testdata/config_verbosity.yaml
+@@ -2,3 +2,5 @@ verbosity: detailed
+ sampling_initial: 10
+ sampling_thereafter: 50
+ use_internal_logger: false
++output_paths:
++  - stdout

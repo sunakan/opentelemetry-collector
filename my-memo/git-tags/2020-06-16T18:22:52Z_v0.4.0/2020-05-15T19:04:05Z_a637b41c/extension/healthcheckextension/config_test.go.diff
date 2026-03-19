@@ -1,0 +1,15 @@
+diff --git a/extension/healthcheckextension/config_test.go b/extension/healthcheckextension/config_test.go
+index 71e77f443..030accfd4 100644
+--- a/extension/healthcheckextension/config_test.go
++++ b/extension/healthcheckextension/config_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

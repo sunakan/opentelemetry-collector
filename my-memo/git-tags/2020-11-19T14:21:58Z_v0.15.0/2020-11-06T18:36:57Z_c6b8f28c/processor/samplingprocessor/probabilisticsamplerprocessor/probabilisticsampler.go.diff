@@ -1,0 +1,12 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+index e99a941b3..dfb87e5a3 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -87,7 +87,6 @@ func (tsp *tracesamplerprocessor) processTraces(ctx context.Context, resourceSpa
+ 
+ 	sampledTraceData.ResourceSpans().Resize(sampledTraceData.ResourceSpans().Len() + 1)
+ 	rs := sampledTraceData.ResourceSpans().At(sampledTraceData.ResourceSpans().Len() - 1)
+-	rs.Resource().InitEmpty()
+ 	resourceSpans.Resource().CopyTo(rs.Resource())
+ 	rs.InstrumentationLibrarySpans().Resize(1)
+ 	spns := rs.InstrumentationLibrarySpans().At(0).Spans()

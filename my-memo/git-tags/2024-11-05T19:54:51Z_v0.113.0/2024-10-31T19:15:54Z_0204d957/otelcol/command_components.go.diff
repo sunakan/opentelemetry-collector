@@ -1,0 +1,12 @@
+diff --git a/otelcol/command_components.go b/otelcol/command_components.go
+index bb35465a2..7b3f8e1a8 100644
+--- a/otelcol/command_components.go
++++ b/otelcol/command_components.go
+@@ -41,7 +41,6 @@ func newComponentsCommand(set CollectorSettings) *cobra.Command {
+ 		Long:  "Outputs available components in this collector distribution including their stability levels. The output format is not stable and can change between releases.",
+ 		Args:  cobra.ExactArgs(0),
+ 		RunE: func(cmd *cobra.Command, _ []string) error {
+-
+ 			factories, err := set.Factories()
+ 			if err != nil {
+ 				return fmt.Errorf("failed to initialize factories: %w", err)

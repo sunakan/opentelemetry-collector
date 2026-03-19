@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/exporter.go b/exporter/otlpexporter/exporter.go
+index 32c5b5a56..a0d41e269 100644
+--- a/exporter/otlpexporter/exporter.go
++++ b/exporter/otlpexporter/exporter.go
+@@ -28,7 +28,7 @@ import (
+ 	"google.golang.org/grpc/codes"
+ 	"google.golang.org/grpc/status"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configgrpc"
++	"go.opentelemetry.io/collector/config/configgrpc"
+ )
+ 
+ type exporterImp struct {

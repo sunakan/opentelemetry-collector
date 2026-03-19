@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/config.go b/service/telemetry/config.go
+index 58c3f8824..8dc3cc6c4 100644
+--- a/service/telemetry/config.go
++++ b/service/telemetry/config.go
+@@ -134,7 +134,6 @@ func (c *Config) Validate() error {
+ 
+ func (mr *MetricReader) Unmarshal(conf *confmap.Conf) error {
+ 	if !obsreportconfig.UseOtelWithSDKConfigurationForInternalTelemetryFeatureGate.IsEnabled() {
+-		fmt.Println(obsreportconfig.UseOtelWithSDKConfigurationForInternalTelemetryFeatureGate.IsEnabled())
+ 		// only unmarshal if feature gate is enabled
+ 		return nil
+ 	}

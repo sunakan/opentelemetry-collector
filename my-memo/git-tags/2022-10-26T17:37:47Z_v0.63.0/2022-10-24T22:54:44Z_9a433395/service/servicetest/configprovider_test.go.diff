@@ -1,0 +1,13 @@
+diff --git a/service/servicetest/configprovider_test.go b/service/servicetest/configprovider_test.go
+index 87f37d1d4..4194500ab 100644
+--- a/service/servicetest/configprovider_test.go
++++ b/service/servicetest/configprovider_test.go
+@@ -47,7 +47,7 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Contains(t, cfg.Exporters, config.NewComponentID("nop"))
+ 	assert.Contains(t, cfg.Exporters, config.NewComponentIDWithName("nop", "myexporter"))
+ 
+-	// Verify Processors
++	// Verify procs
+ 	assert.Len(t, cfg.Processors, 2)
+ 	assert.Contains(t, cfg.Processors, config.NewComponentID("nop"))
+ 	assert.Contains(t, cfg.Processors, config.NewComponentIDWithName("nop", "myprocessor"))

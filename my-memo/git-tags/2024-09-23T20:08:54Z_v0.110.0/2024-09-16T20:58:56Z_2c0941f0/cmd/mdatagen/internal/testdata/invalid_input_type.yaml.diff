@@ -1,0 +1,26 @@
+diff --git a/cmd/mdatagen/internal/testdata/invalid_input_type.yaml b/cmd/mdatagen/internal/testdata/invalid_input_type.yaml
+new file mode 100644
+index 000000000..9e28b4212
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/invalid_input_type.yaml
+@@ -0,0 +1,20 @@
++type: metricreceiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++
++metrics:
++  system.cpu.time:
++    enabled: true
++    description: Total CPU seconds broken down by different states.
++    unit: s
++    sum:
++      value_type: double
++      monotonic: true
++      aggregation_temporality: cumulative
++      input_type: double
++    attributes:

@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_stack.go b/pdata/internal/generated_proto_stack.go
+index a97599bfc..df0a00c04 100644
+--- a/pdata/internal/generated_proto_stack.go
++++ b/pdata/internal/generated_proto_stack.go
+@@ -134,6 +134,7 @@ func (orig *Stack) MarshalJSON(dest *json.Stream) {
+ 		}
+ 		dest.WriteArrayEnd()
+ 	}
++
+ 	dest.WriteObjectEnd()
+ }
+ 

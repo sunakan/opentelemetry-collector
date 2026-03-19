@@ -1,0 +1,14 @@
+diff --git a/extension/ballastextension/internal/metadata/generated_status.go b/extension/ballastextension/internal/metadata/generated_status.go
+index 54e3d3880..2acd5fd75 100644
+--- a/extension/ballastextension/internal/metadata/generated_status.go
++++ b/extension/ballastextension/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("memory_ballast")
++	Type      = component.MustNewType("memory_ballast")
++	ScopeName = "go.opentelemetry.io/collector/extension/ballastextension"
+ )
+ 
+ const (

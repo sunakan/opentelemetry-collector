@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/trace_test.go b/consumer/pdata/trace_test.go
+index 72c3a7212..ebbdfa7f6 100644
+--- a/consumer/pdata/trace_test.go
++++ b/consumer/pdata/trace_test.go
+@@ -23,7 +23,7 @@ import (
+ 	goproto "google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/types/known/emptypb"
+ 
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ )
+ 
+ func TestSpanCount(t *testing.T) {

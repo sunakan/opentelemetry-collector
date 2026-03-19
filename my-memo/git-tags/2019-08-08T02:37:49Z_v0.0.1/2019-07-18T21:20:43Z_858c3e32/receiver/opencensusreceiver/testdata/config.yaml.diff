@@ -1,0 +1,23 @@
+diff --git a/receiver/opencensusreceiver/testdata/config.yaml b/receiver/opencensusreceiver/testdata/config.yaml
+index 7a1d4a651..81998f16e 100644
+--- a/receiver/opencensusreceiver/testdata/config.yaml
++++ b/receiver/opencensusreceiver/testdata/config.yaml
+@@ -2,6 +2,18 @@ receivers:
+   opencensus:
+   opencensus/customname:
+     endpoint: 0.0.0.0:9090
++  opencensus/keepalive:
++    keepalive:
++      server-parameters:
++        time: 30s
++        timeout: 5s
++      enforcement-policy:
++        min-time: 10s
++        permit-without-stream: true
++  opencensus/nobackpressure:
++    disable-backpressure: true
++    max-recv-msg-size-mib: 32
++    max-concurrent-streams: 16
+ 
+ processors:
+   exampleprocessor:

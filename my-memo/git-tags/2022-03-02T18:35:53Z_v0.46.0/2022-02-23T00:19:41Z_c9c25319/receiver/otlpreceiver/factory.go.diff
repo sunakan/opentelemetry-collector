@@ -1,0 +1,29 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index acc820df3..ca4dc3ec3 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -24,7 +24,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/internal/sharedcomponent"
+-	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+ const (
+@@ -37,12 +36,12 @@ const (
+ 
+ // NewFactory creates a new OTLP receiver factory.
+ func NewFactory() component.ReceiverFactory {
+-	return receiverhelper.NewFactory(
++	return component.NewReceiverFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		receiverhelper.WithTraces(createTracesReceiver),
+-		receiverhelper.WithMetrics(createMetricsReceiver),
+-		receiverhelper.WithLogs(createLogReceiver))
++		component.WithTracesReceiver(createTracesReceiver),
++		component.WithMetricsReceiver(createMetricsReceiver),
++		component.WithLogsReceiver(createLogReceiver))
+ }
+ 
+ // createDefaultConfig creates the default configuration for receiver.

@@ -1,0 +1,24 @@
+diff --git a/receiver/receivertest/contract_checker.go b/receiver/receivertest/contract_checker.go
+index 048130f73..58c70c436 100644
+--- a/receiver/receivertest/contract_checker.go
++++ b/receiver/receivertest/contract_checker.go
+@@ -146,9 +146,7 @@ func checkConsumeContractScenario(params CheckConsumeContractParams, decisionFun
+ 	// The total number of generator calls will be equal to params.GenerateCount.
+ 
+ 	for range concurrency {
+-		wg.Add(1)
+-		go func() {
+-			defer wg.Done()
++		wg.Go(func() {
+ 			for atomic.AddInt64(&generatedIndex, 1) <= int64(params.GenerateCount) {
+ 				ids := params.Generator.Generate()
+ 				require.NotEmpty(params.T, ids)
+@@ -161,7 +159,7 @@ func checkConsumeContractScenario(params CheckConsumeContractParams, decisionFun
+ 				// generated data set.
+ 				require.Empty(params.T, duplicates)
+ 			}
+-		}()
++		})
+ 	}
+ 
+ 	// Wait until all generator goroutines are done.

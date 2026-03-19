@@ -1,0 +1,14 @@
+diff --git a/processor/attributesprocessor/attributes_trace.go b/processor/attributesprocessor/attributes_trace.go
+index 0c8695aec..7480d1138 100644
+--- a/processor/attributesprocessor/attributes_trace.go
++++ b/processor/attributesprocessor/attributes_trace.go
+@@ -39,8 +39,7 @@ func newSpanAttributesProcessor(attrProc *processorhelper.AttrProc, include, exc
+ 	}
+ }
+ 
+-// ProcessTraces implements the TProcessor
+-func (a *spanAttributesProcessor) ProcessTraces(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
++func (a *spanAttributesProcessor) processTraces(_ context.Context, td pdata.Traces) (pdata.Traces, error) {
+ 	rss := td.ResourceSpans()
+ 	for i := 0; i < rss.Len(); i++ {
+ 		rs := rss.At(i)

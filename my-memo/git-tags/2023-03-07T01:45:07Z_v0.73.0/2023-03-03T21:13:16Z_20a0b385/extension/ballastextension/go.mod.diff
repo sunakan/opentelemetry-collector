@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/go.mod b/extension/ballastextension/go.mod
+index 34b3203a2..f61b78b1b 100644
+--- a/extension/ballastextension/go.mod
++++ b/extension/ballastextension/go.mod
+@@ -40,6 +40,8 @@ replace go.opentelemetry.io/collector/component => ../../component
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
++replace go.opentelemetry.io/collector/exporter => ../../exporter
++
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata

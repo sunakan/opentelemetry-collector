@@ -1,0 +1,15 @@
+diff --git a/internal/collector/processor/nodebatcher/factory.go b/internal/collector/processor/nodebatcher/factory.go
+index 049f4ecd7..f6ea379c8 100644
+--- a/internal/collector/processor/nodebatcher/factory.go
++++ b/internal/collector/processor/nodebatcher/factory.go
+@@ -17,8 +17,8 @@ package nodebatcher
+ import (
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+ )

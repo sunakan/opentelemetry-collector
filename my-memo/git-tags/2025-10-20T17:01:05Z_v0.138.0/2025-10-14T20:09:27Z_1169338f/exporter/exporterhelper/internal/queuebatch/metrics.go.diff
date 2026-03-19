@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/metrics.go b/exporter/exporterhelper/internal/queuebatch/metrics.go
+index 23803e6e1..852834bd6 100644
+--- a/exporter/exporterhelper/internal/queuebatch/metrics.go
++++ b/exporter/exporterhelper/internal/queuebatch/metrics.go
+@@ -26,12 +26,6 @@ func NewMetricsQueueBatchSettings() Settings[request.Request] {
+ 	return Settings[request.Request]{
+ 		ReferenceCounter: metricsReferenceCounter{},
+ 		Encoding:         metricsEncoding{},
+-		ItemsSizer:       request.NewItemsSizer(),
+-		BytesSizer: request.BaseSizer{
+-			SizeofFunc: func(req request.Request) int64 {
+-				return int64(metricsMarshaler.MetricsSize(req.(*metricsRequest).md))
+-			},
+-		},
+ 	}
+ }
+ 

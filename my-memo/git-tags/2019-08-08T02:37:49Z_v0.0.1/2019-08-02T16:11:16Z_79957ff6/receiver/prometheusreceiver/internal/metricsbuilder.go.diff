@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/internal/metricsbuilder.go b/receiver/prometheusreceiver/internal/metricsbuilder.go
+index 13d75de53..78c7070d8 100644
+--- a/receiver/prometheusreceiver/internal/metricsbuilder.go
++++ b/receiver/prometheusreceiver/internal/metricsbuilder.go
+@@ -52,7 +52,6 @@ var dummyMetric = &consumerdata.MetricsData{
+ 
+ type metricBuilder struct {
+ 	node                   *commonpb.Node
+-	ts                     int64
+ 	hasData                bool
+ 	hasInternalMetric      bool
+ 	mc                     MetadataCache

@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp.go b/receiver/otlpreceiver/metrics/otlp.go
+index caf516e10..a24799492 100644
+--- a/receiver/otlpreceiver/metrics/otlp.go
++++ b/receiver/otlpreceiver/metrics/otlp.go
+@@ -34,11 +34,11 @@ const (
+ // Receiver is the type used to handle metrics from OpenTelemetry exporters.
+ type Receiver struct {
+ 	instanceName string
+-	nextConsumer consumer.MetricsConsumer
++	nextConsumer consumer.MetricsConsumerOld
+ }
+ 
+ // New creates a new Receiver reference.
+-func New(instanceName string, nextConsumer consumer.MetricsConsumer) (*Receiver, error) {
++func New(instanceName string, nextConsumer consumer.MetricsConsumerOld) (*Receiver, error) {
+ 	if nextConsumer == nil {
+ 		return nil, oterr.ErrNilNextConsumer
+ 	}

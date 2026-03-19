@@ -1,0 +1,14 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index ffe75e3b5..39a0c6b0e 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -51,8 +51,7 @@ import (
+ func TestTraceSource(t *testing.T) {
+ 	jr, err := New(context.Background(), &Configuration{}, nil, zap.NewNop())
+ 	assert.NoError(t, err, "should not have failed to create the Jaeger receiver")
+-
+-	assert.Equal(t, traceSource, jr.TraceSource())
++	require.NotNil(t, jr)
+ }
+ 
+ func TestReception(t *testing.T) {

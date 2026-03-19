@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/config.go b/exporter/prometheusremotewriteexporter/config.go
+index 7a910365c..2db89256f 100644
+--- a/exporter/prometheusremotewriteexporter/config.go
++++ b/exporter/prometheusremotewriteexporter/config.go
+@@ -22,7 +22,7 @@ import (
+ 
+ // Config defines configuration for Remote Write exporter.
+ type Config struct {
+-	*config.ExporterSettings       `mapstructure:"-"`
++	config.ExporterSettings        `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ 	exporterhelper.TimeoutSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 	exporterhelper.QueueSettings   `mapstructure:"sending_queue"`
+ 	exporterhelper.RetrySettings   `mapstructure:"retry_on_failure"`

@@ -1,0 +1,12 @@
+diff --git a/exporter/go.mod b/exporter/go.mod
+index 9d3f0d746..5a4ce7e5f 100644
+--- a/exporter/go.mod
++++ b/exporter/go.mod
+@@ -4,6 +4,7 @@ go 1.23.0
+ 
+ require (
+ 	github.com/cenkalti/backoff/v5 v5.0.2
++	github.com/puzpuzpuz/xsync/v3 v3.5.1
+ 	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/client v1.33.0
+ 	go.opentelemetry.io/collector/component v1.33.0

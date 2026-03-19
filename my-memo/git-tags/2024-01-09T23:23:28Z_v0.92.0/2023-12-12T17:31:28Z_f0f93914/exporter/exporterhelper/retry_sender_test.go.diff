@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender_test.go b/exporter/exporterhelper/retry_sender_test.go
+index 89a7ab577..9ecbb7190 100644
+--- a/exporter/exporterhelper/retry_sender_test.go
++++ b/exporter/exporterhelper/retry_sender_test.go
+@@ -32,7 +32,7 @@ func mockRequestUnmarshaler(mr Request) RequestUnmarshaler {
+ }
+ 
+ func mockRequestMarshaler(_ Request) ([]byte, error) {
+-	return nil, nil
++	return []byte("mockRequest"), nil
+ }
+ 
+ func TestQueuedRetry_DropOnPermanentError(t *testing.T) {

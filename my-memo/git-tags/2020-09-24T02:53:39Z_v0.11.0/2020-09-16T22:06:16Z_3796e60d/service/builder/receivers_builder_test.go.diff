@@ -1,0 +1,15 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index cb1d01df1..796368c7f 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -388,6 +388,9 @@ func TestReceiversBuilder_Unused(t *testing.T) {
+ 
+ func newBadReceiverFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory("bf", func() configmodels.Receiver {
+-		return &configmodels.ReceiverSettings{}
++		return &configmodels.ReceiverSettings{
++			TypeVal: "bf",
++			NameVal: "bf",
++		}
+ 	})
+ }

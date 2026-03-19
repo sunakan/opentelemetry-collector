@@ -1,0 +1,13 @@
+diff --git a/cmd/opencensusd/proto.go b/cmd/opencensusd/proto.go
+index aa87dd100..e29bf7cb7 100644
+--- a/cmd/opencensusd/proto.go
++++ b/cmd/opencensusd/proto.go
+@@ -15,7 +15,7 @@
+ package main
+ 
+ import (
+-	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/traceproto"
++	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/golang/protobuf/ptypes"
+ 	"go.opencensus.io/trace"
+ )

@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter_test.go b/processor/memorylimiterprocessor/memorylimiter_test.go
+index e6ac7da58..d7c6af755 100644
+--- a/processor/memorylimiterprocessor/memorylimiter_test.go
++++ b/processor/memorylimiterprocessor/memorylimiter_test.go
+@@ -52,7 +52,7 @@ func TestNoDataLoss(t *testing.T) {
+ 	runtime.ReadMemStats(&ms)
+ 
+ 	// Set the limit to current usage plus expected increase. This means initially we will not be limited.
+-	// nolint:gosec
++	//nolint:gosec
+ 	cfg.MemoryLimitMiB = uint32(ms.Alloc/(1024*1024) + expectedMemoryIncreaseMiB)
+ 	cfg.MemorySpikeLimitMiB = 1
+ 

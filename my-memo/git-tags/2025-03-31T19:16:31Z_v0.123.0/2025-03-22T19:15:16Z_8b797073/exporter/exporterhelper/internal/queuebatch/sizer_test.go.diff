@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/sizer_test.go b/exporter/exporterhelper/internal/queuebatch/sizer_test.go
+new file mode 100644
+index 000000000..dd4e78b26
+--- /dev/null
++++ b/exporter/exporterhelper/internal/queuebatch/sizer_test.go
+@@ -0,0 +1,17 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package queuebatch
++
++import (
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
++)
++
++func TestItemsSizer(t *testing.T) {
++	sz := NewItemsSizer()
++	assert.EqualValues(t, 3, sz.Sizeof(&requesttest.FakeRequest{Items: 3}))
++}

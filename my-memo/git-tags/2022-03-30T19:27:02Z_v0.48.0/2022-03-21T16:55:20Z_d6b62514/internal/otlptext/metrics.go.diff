@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/metrics.go b/internal/otlptext/metrics.go
+index 7cbc3846c..66e97b5a2 100644
+--- a/internal/otlptext/metrics.go
++++ b/internal/otlptext/metrics.go
+@@ -33,7 +33,7 @@ func (textMetricsMarshaler) MarshalMetrics(md pdata.Metrics) ([]byte, error) {
+ 		buf.logEntry("ResourceMetrics #%d", i)
+ 		rm := rms.At(i)
+ 		buf.logEntry("Resource SchemaURL: %s", rm.SchemaUrl())
+-		buf.logAttributeMap("Resource labels", rm.Resource().Attributes())
++		buf.logAttributes("Resource labels", rm.Resource().Attributes())
+ 		ilms := rm.InstrumentationLibraryMetrics()
+ 		for j := 0; j < ilms.Len(); j++ {
+ 			buf.logEntry("InstrumentationLibraryMetrics #%d", j)

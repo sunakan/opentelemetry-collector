@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
+index 58c8f2415..06f843f75 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/factory.go
+@@ -50,8 +50,8 @@ func (f *Factory) CreateMetricsScraper(
+ 
+ 	ms := scraperhelper.NewMetricsScraper(
+ 		TypeStr,
+-		s.Scrape,
+-		scraperhelper.WithInitialize(s.Initialize),
++		s.scrape,
++		scraperhelper.WithStart(s.start),
+ 	)
+ 
+ 	return ms, nil

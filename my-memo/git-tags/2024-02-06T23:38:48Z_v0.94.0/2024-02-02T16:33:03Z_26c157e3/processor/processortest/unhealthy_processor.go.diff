@@ -1,0 +1,13 @@
+diff --git a/processor/processortest/unhealthy_processor.go b/processor/processortest/unhealthy_processor.go
+index 508fbfde8..99269e3ba 100644
+--- a/processor/processortest/unhealthy_processor.go
++++ b/processor/processortest/unhealthy_processor.go
+@@ -24,7 +24,7 @@ func NewUnhealthyProcessorCreateSettings() processor.CreateSettings {
+ // NewUnhealthyProcessorFactory returns a component.ProcessorFactory that constructs nop processors.
+ func NewUnhealthyProcessorFactory() processor.Factory {
+ 	return processor.NewFactory(
+-		"unhealthy",
++		component.MustNewType("unhealthy"),
+ 		func() component.Config {
+ 			return &struct{}{}
+ 		},

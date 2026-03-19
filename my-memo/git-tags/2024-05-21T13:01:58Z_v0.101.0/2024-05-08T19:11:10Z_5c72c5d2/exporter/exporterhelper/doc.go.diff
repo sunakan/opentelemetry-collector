@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/doc.go b/exporter/exporterhelper/doc.go
+index 4436c9693..ccecf255f 100644
+--- a/exporter/exporterhelper/doc.go
++++ b/exporter/exporterhelper/doc.go
+@@ -1,5 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ // Package exporterhelper provides helper functions for exporters.
+ package exporterhelper // import "go.opentelemetry.io/collector/exporter/exporterhelper"

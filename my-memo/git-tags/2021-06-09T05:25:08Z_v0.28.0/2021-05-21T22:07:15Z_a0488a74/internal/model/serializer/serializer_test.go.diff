@@ -1,0 +1,11 @@
+diff --git a/internal/model/serializer/serializer_test.go b/internal/model/serializer/serializer_test.go
+index 50f00591d..523f706e7 100644
+--- a/internal/model/serializer/serializer_test.go
++++ b/internal/model/serializer/serializer_test.go
+@@ -28,4 +28,6 @@ func TestNewErrUnavailableEncoding(t *testing.T) {
+ 
+ func TestEncoding_String(t *testing.T) {
+ 	assert.Equal(t, "protobuf", Protobuf.String())
++	assert.Equal(t, "json", JSON.String())
++	assert.Equal(t, "thrift", Thrift.String())
+ }

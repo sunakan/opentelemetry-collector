@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_proto_exponentialhistogramdatapoint.go b/pdata/internal/generated_proto_exponentialhistogramdatapoint.go
+index 8abfa0c00..9a1199cce 100644
+--- a/pdata/internal/generated_proto_exponentialhistogramdatapoint.go
++++ b/pdata/internal/generated_proto_exponentialhistogramdatapoint.go
+@@ -62,12 +62,13 @@ func DeleteExponentialHistogramDataPoint(orig *ExponentialHistogramDataPoint, nu
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.Attributes {
+ 		DeleteKeyValue(&orig.Attributes[i], false)
+ 	}
++
+ 	DeleteExponentialHistogramDataPointBuckets(&orig.Positive, false)
+ 	DeleteExponentialHistogramDataPointBuckets(&orig.Negative, false)
++
+ 	for i := range orig.Exemplars {
+ 		DeleteExemplar(&orig.Exemplars[i], false)
+ 	}

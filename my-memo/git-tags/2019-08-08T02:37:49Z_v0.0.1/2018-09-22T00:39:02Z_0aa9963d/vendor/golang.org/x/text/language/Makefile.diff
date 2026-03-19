@@ -1,0 +1,22 @@
+diff --git a/vendor/golang.org/x/text/language/Makefile b/vendor/golang.org/x/text/language/Makefile
+deleted file mode 100644
+index 79f005784..000000000
+--- a/vendor/golang.org/x/text/language/Makefile
++++ /dev/null
+@@ -1,16 +0,0 @@
+-# Copyright 2013 The Go Authors. All rights reserved.
+-# Use of this source code is governed by a BSD-style
+-# license that can be found in the LICENSE file.
+-
+-CLEANFILES+=maketables
+-
+-maketables: maketables.go
+-	go build $^
+-
+-tables:	maketables
+-	./maketables > tables.go
+-	gofmt -w -s tables.go
+-
+-# Build (but do not run) maketables during testing,
+-# just to make sure it still compiles.
+-testshort: maketables

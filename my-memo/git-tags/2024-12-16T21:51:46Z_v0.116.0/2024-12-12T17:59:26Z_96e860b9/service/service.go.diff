@@ -1,0 +1,12 @@
+diff --git a/service/service.go b/service/service.go
+index bee0b83ee..cf4b34752 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -139,7 +139,6 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 			},
+ 		),
+ 	)
+-
+ 	if err != nil {
+ 		return nil, fmt.Errorf("failed to create SDK: %w", err)
+ 	}

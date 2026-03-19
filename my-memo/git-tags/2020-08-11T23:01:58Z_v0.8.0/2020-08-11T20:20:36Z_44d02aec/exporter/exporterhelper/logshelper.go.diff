@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index 55402ac91..fec2f8541 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -42,7 +42,7 @@ func newLogsRequest(ctx context.Context, ld pdata.Logs, pusher PushLogsData) req
+ 	}
+ }
+ 
+-func (req *logsRequest) onPartialError(partialErr consumererror.PartialError) request {
++func (req *logsRequest) onPartialError(consumererror.PartialError) request {
+ 	// TODO: Implement this
+ 	return req
+ }

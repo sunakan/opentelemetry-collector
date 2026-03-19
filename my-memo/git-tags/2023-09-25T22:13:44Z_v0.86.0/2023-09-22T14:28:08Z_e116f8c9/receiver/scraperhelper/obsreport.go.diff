@@ -1,0 +1,16 @@
+diff --git a/receiver/scraperhelper/obsreport.go b/receiver/scraperhelper/obsreport.go
+index 6f687d1ff..415e09019 100644
+--- a/receiver/scraperhelper/obsreport.go
++++ b/receiver/scraperhelper/obsreport.go
+@@ -26,10 +26,7 @@ import (
+ )
+ 
+ var (
+-	scraperName  = "scraper"
+-	scraperScope = scopeName + nameSep + scraperName
+-	scopeName    = "go.opentelemetry.io/collector/obsreport"
+-	nameSep      = "/"
++	scraperScope = obsmetrics.Scope + obsmetrics.NameSep + obsmetrics.ScraperKey
+ )
+ 
+ // ObsReport is a helper to add observability to a scraper.

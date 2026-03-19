@@ -1,0 +1,27 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index b4b1e9dd1..7146329ad 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -17,12 +17,22 @@ package componenttest
+ import (
+ 	"context"
+ 
++	"go.uber.org/zap"
++
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+ 
++// NewNopExporterCreateSettings returns a new nop settings for Create*Exporter functions.
++func NewNopExporterCreateSettings() component.ExporterCreateSettings {
++	return component.ExporterCreateSettings{
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
++	}
++}
++
+ type nopExporterConfig struct {
+ 	config.ExporterSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ }

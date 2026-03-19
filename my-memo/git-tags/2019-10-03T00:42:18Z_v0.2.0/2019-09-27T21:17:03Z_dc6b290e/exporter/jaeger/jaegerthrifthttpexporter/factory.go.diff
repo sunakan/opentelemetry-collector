@@ -1,0 +1,17 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/factory.go b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+index 91f4bfb9f..bbf991896 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/factory.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+@@ -20,9 +20,9 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/exporter"
++	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ const (

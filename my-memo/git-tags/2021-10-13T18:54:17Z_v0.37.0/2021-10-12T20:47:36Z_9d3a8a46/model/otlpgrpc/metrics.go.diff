@@ -1,0 +1,13 @@
+diff --git a/model/otlpgrpc/metrics.go b/model/otlpgrpc/metrics.go
+index 4a71c69c1..276968d1a 100644
+--- a/model/otlpgrpc/metrics.go
++++ b/model/otlpgrpc/metrics.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlpgrpc
++package otlpgrpc // import "go.opentelemetry.io/collector/model/otlpgrpc"
+ 
+ import (
+ 	"bytes"

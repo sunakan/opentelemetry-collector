@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_metrics.go b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_metrics.go
+index 1fcadb73b..3aa3b2c47 100644
+--- a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_metrics.go
++++ b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_metrics.go
+@@ -499,7 +499,7 @@ func (mb *MetricsBuilder) EmitForResource(options ...ResourceMetricsOption) {
+ 	rm := pmetric.NewResourceMetrics()
+ 	rm.SetSchemaUrl(conventions.SchemaURL)
+ 	ils := rm.ScopeMetrics().AppendEmpty()
+-	ils.Scope().SetName("go.opentelemetry.io/collector/cmd/mdatagen/internal/samplescraper")
++	ils.Scope().SetName(ScopeName)
+ 	ils.Scope().SetVersion(mb.buildInfo.Version)
+ 	ils.Metrics().EnsureCapacity(mb.metricsCapacity)
+ 	mb.metricDefaultMetric.emit(ils.Metrics())

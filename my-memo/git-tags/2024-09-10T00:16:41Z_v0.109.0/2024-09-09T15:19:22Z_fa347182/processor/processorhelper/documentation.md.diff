@@ -1,0 +1,66 @@
+diff --git a/processor/processorhelper/documentation.md b/processor/processorhelper/documentation.md
+index 6091e8385..e14bbbd77 100644
+--- a/processor/processorhelper/documentation.md
++++ b/processor/processorhelper/documentation.md
+@@ -54,6 +54,30 @@ Number of spans that were dropped.
+ | ---- | ----------- | ---------- | --------- |
+ | {spans} | Sum | Int | true |
+ 
++### otelcol_processor_incoming_log_records
++
++Number of log records passed to the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {records} | Sum | Int | true |
++
++### otelcol_processor_incoming_metric_points
++
++Number of metric points passed to the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {datapoints} | Sum | Int | true |
++
++### otelcol_processor_incoming_spans
++
++Number of spans passed to the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {spans} | Sum | Int | true |
++
+ ### otelcol_processor_inserted_log_records
+ 
+ Number of log records that were inserted.
+@@ -78,6 +102,30 @@ Number of spans that were inserted.
+ | ---- | ----------- | ---------- | --------- |
+ | {spans} | Sum | Int | true |
+ 
++### otelcol_processor_outgoing_log_records
++
++Number of log records emitted from the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {records} | Sum | Int | true |
++
++### otelcol_processor_outgoing_metric_points
++
++Number of metric points emitted from the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {datapoints} | Sum | Int | true |
++
++### otelcol_processor_outgoing_spans
++
++Number of spans emitted from the processor.
++
++| Unit | Metric Type | Value Type | Monotonic |
++| ---- | ----------- | ---------- | --------- |
++| {spans} | Sum | Int | true |
++
+ ### otelcol_processor_refused_log_records
+ 
+ Number of log records that were rejected by the next component in the pipeline.

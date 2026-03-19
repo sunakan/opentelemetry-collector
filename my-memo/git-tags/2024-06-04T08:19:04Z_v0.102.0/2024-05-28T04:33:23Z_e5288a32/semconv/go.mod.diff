@@ -1,0 +1,13 @@
+diff --git a/semconv/go.mod b/semconv/go.mod
+index e6be1d232..09c3f5a8d 100644
+--- a/semconv/go.mod
++++ b/semconv/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/semconv
+ go 1.21.0
+ 
+ require (
+-	github.com/hashicorp/go-version v1.6.0
++	github.com/hashicorp/go-version v1.7.0
+ 	github.com/stretchr/testify v1.9.0
+ 	go.uber.org/goleak v1.3.0
+ )

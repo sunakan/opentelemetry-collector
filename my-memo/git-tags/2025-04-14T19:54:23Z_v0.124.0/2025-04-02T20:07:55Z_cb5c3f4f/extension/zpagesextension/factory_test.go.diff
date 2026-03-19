@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/factory_test.go b/extension/zpagesextension/factory_test.go
+index a4c7520fb..b45f7f582 100644
+--- a/extension/zpagesextension/factory_test.go
++++ b/extension/zpagesextension/factory_test.go
+@@ -35,7 +35,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 
+ func TestFactoryCreate(t *testing.T) {
+ 	cfg := createDefaultConfig().(*Config)
+-	cfg.ServerConfig.Endpoint = testutil.GetAvailableLocalAddress(t)
++	cfg.Endpoint = testutil.GetAvailableLocalAddress(t)
+ 
+ 	set := extensiontest.NewNopSettings(extensiontest.NopType)
+ 	set.ID = component.NewID(NewFactory().Type())

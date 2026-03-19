@@ -1,0 +1,12 @@
+diff --git a/scraper/scraperhelper/metadata.yaml b/scraper/scraperhelper/metadata.yaml
+index 3d96d2499..74ca91030 100644
+--- a/scraper/scraperhelper/metadata.yaml
++++ b/scraper/scraperhelper/metadata.yaml
+@@ -2,6 +2,7 @@ type: scraperhelper
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   stability:
+     beta: [metrics, logs]

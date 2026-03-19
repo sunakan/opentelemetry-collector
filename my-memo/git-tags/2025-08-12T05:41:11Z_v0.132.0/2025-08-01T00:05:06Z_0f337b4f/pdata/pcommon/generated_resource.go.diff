@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_resource.go b/pdata/pcommon/generated_resource.go
+index 0d3536b78..26beb8909 100644
+--- a/pdata/pcommon/generated_resource.go
++++ b/pdata/pcommon/generated_resource.go
+@@ -48,7 +48,7 @@ func (ms Resource) MoveTo(dest Resource) {
+ 
+ // Attributes returns the Attributes associated with this Resource.
+ func (ms Resource) Attributes() Map {
+-	return Map(internal.NewMap(&ms.getOrig().Attributes, internal.GetResourceState(internal.Resource(ms))))
++	return Map(internal.NewMap(&ms.getOrig().Attributes, ms.getState()))
+ }
+ 
+ // DroppedAttributesCount returns the droppedattributescount associated with this Resource.

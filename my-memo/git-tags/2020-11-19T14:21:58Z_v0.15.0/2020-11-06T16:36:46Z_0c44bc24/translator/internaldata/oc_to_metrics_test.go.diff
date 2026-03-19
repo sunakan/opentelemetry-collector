@@ -1,0 +1,34 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index a2d942682..9ab451d6e 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -35,7 +35,7 @@ func TestOCToMetrics(t *testing.T) {
+ 	ih.SetDataType(pdata.MetricDataTypeDoubleHistogram)
+ 	dh.DoubleHistogram().CopyTo(ih.DoubleHistogram())
+ 
+-	sampleMetricData := testdata.GenerateMetricsWithCountersHistograms()
++	sampleMetricData := testdata.GeneratMetricsAllTypesWithSampleDatapoints()
+ 	dh = sampleMetricData.ResourceMetrics().At(0).InstrumentationLibraryMetrics().At(0).Metrics().At(2)
+ 	ih = sampleMetricData.ResourceMetrics().At(0).InstrumentationLibraryMetrics().At(0).Metrics().At(3)
+ 	ih.SetDataType(pdata.MetricDataTypeDoubleHistogram)
+@@ -91,10 +91,10 @@ func TestOCToMetrics(t *testing.T) {
+ 				Resource: generateOCTestResource(),
+ 				Metrics: []*ocmetrics.Metric{
+ 					generateOCTestMetricInt(),
+-					generateOCTestMetricSummary(),
++					generateOCTestMetricDoubleSummary(),
+ 				},
+ 			},
+-			internal: testdata.GenerateMetricsOneMetricOneNil(),
++			internal: testdata.GenerateMetricsOneCounterOneSummaryMetrics(),
+ 		},
+ 
+ 		{
+@@ -130,6 +130,7 @@ func TestOCToMetrics(t *testing.T) {
+ 					generateOCTestMetricDouble(),
+ 					generateOCTestMetricDoubleHistogram(),
+ 					generateOCTestMetricIntHistogram(),
++					generateOCTestMetricDoubleSummary(),
+ 				},
+ 			},
+ 			internal: sampleMetricData,

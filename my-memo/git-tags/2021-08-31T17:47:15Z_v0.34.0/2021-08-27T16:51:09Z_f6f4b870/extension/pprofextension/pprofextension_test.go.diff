@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/pprofextension_test.go b/extension/pprofextension/pprofextension_test.go
+index 17f9272a9..50e15b51e 100644
+--- a/extension/pprofextension/pprofextension_test.go
++++ b/extension/pprofextension/pprofextension_test.go
+@@ -28,7 +28,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/confignet"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestPerformanceProfilerExtensionUsage(t *testing.T) {

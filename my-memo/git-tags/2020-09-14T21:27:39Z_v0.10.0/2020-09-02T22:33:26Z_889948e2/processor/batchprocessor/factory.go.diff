@@ -1,0 +1,29 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index fc8a2b898..0d3569536 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -39,7 +39,8 @@ func NewFactory() component.ProcessorFactory {
+ 		typeStr,
+ 		createDefaultConfig,
+ 		processorhelper.WithTraces(createTraceProcessor),
+-		processorhelper.WithMetrics(createMetricsProcessor))
++		processorhelper.WithMetrics(createMetricsProcessor),
++		processorhelper.WithLogs(createLogsProcessor))
+ }
+ 
+ func createDefaultConfig() configmodels.Processor {
+@@ -75,3 +76,14 @@ func createMetricsProcessor(
+ 	level, _ := telemetry.GetLevel()
+ 	return newBatchMetricsProcessor(params, nextConsumer, oCfg, level), nil
+ }
++
++func createLogsProcessor(
++	_ context.Context,
++	params component.ProcessorCreateParams,
++	cfg configmodels.Processor,
++	nextConsumer consumer.LogsConsumer,
++) (component.LogsProcessor, error) {
++	oCfg := cfg.(*Config)
++	level, _ := telemetry.GetLevel()
++	return newBatchLogsProcessor(params, nextConsumer, oCfg, level), nil
++}

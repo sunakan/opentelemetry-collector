@@ -1,0 +1,10 @@
+diff --git a/extension/ballastextension/go.mod b/extension/ballastextension/go.mod
+index 3acbac999..8d92c939e 100644
+--- a/extension/ballastextension/go.mod
++++ b/extension/ballastextension/go.mod
+@@ -75,3 +75,5 @@ retract (
+ replace go.opentelemetry.io/collector/processor => ../../processor
+ 
+ replace go.opentelemetry.io/collector/connector => ../../connector
++
++replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression

@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/processor_test.go b/processor/processorhelper/processor_test.go
+index 345843186..ae5fe637c 100644
+--- a/processor/processorhelper/processor_test.go
++++ b/processor/processorhelper/processor_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ const testFullName = "testFullName"

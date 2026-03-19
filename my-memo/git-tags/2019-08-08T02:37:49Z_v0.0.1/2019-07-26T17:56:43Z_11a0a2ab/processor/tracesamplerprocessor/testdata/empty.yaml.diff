@@ -1,0 +1,21 @@
+diff --git a/processor/tracesamplerprocessor/testdata/empty.yaml b/processor/tracesamplerprocessor/testdata/empty.yaml
+new file mode 100644
+index 000000000..e320a9a4f
+--- /dev/null
++++ b/processor/tracesamplerprocessor/testdata/empty.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  examplereceiver:
++
++processors:
++  trace-sampler:
++    
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [trace-sampler]
++    exporters: [exampleexporter]

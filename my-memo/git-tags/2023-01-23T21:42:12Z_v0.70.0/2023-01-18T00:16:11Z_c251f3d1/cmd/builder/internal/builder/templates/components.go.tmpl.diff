@@ -1,0 +1,35 @@
+diff --git a/cmd/builder/internal/builder/templates/components.go.tmpl b/cmd/builder/internal/builder/templates/components.go.tmpl
+index 29c1f3fff..0c620733e 100644
+--- a/cmd/builder/internal/builder/templates/components.go.tmpl
++++ b/cmd/builder/internal/builder/templates/components.go.tmpl
+@@ -3,11 +3,15 @@
+ package main
+ 
+ import (
++	"go.opentelemetry.io/collector/connector"
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/extension"
+ 	"go.opentelemetry.io/collector/otelcol"
+ 	"go.opentelemetry.io/collector/processor"
+ 	"go.opentelemetry.io/collector/receiver"
++	{{- range .Connectors}}
++	{{.Name}} "{{.Import}}"
++	{{- end}}
+ 	{{- range .Exporters}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+@@ -62,5 +66,14 @@ func components() (otelcol.Factories, error) {
+ 		return otelcol.Factories{}, err
+ 	}
+ 
++	factories.Connectors, err = connector.MakeFactoryMap(
++		{{- range .Connectors}}
++		{{.Name}}.NewFactory(),
++		{{- end}}
++	)
++	if err != nil {
++		return otelcol.Factories{}, err
++	}
++
+ 	return factories, nil
+ }

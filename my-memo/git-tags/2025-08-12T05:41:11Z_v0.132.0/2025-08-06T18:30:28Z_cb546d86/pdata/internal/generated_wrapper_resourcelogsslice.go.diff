@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogsslice.go b/pdata/internal/generated_wrapper_resourcelogsslice.go
+index 633103fdb..f3a8e0fed 100644
+--- a/pdata/internal/generated_wrapper_resourcelogsslice.go
++++ b/pdata/internal/generated_wrapper_resourcelogsslice.go
+@@ -38,3 +38,12 @@ func CopyOrigResourceLogsSlice(dest, src []*otlplogs.ResourceLogs) []*otlplogs.R
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestResourceLogsSlice() []*otlplogs.ResourceLogs {
++	orig := make([]*otlplogs.ResourceLogs, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlplogs.ResourceLogs{}
++		FillOrigTestResourceLogs(orig[i])
++	}
++	return orig
++}

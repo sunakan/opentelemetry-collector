@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
+index f09516e8c..1f8c57b75 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
+@@ -28,6 +28,6 @@ func TestCreateMetricsScraper(t *testing.T) {
+ 
+ 	scraper, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg, nil)
+ 
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 	assert.NotNil(t, scraper)
+ }

@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
+index ec53b1360..7a4297443 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_darwin.go
+@@ -24,6 +24,6 @@ import (
+ 
+ const unixSystemSpecificMetricsLen = 0
+ 
+-func appendUnixSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startIndex int, now pdata.TimestampUnixNano, misc *load.MiscStat) error {
++func appendUnixSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startIndex int, now pdata.Timestamp, misc *load.MiscStat) error {
+ 	return nil
+ }

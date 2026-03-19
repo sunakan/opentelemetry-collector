@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go b/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
+index ea1b2a2f8..f096fa3e7 100644
+--- a/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
++++ b/receiver/prometheusreceiver/internal/otlp_metricsbuilder.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/pkg/textparse"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func isUsefulLabelPdata(mType pdata.MetricDataType, labelKey string) bool {

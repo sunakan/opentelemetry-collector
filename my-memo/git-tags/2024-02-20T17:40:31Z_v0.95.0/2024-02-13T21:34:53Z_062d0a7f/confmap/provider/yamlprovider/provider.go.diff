@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/yamlprovider/provider.go b/confmap/provider/yamlprovider/provider.go
+index 3e9a1f9e8..45fca8a1f 100644
+--- a/confmap/provider/yamlprovider/provider.go
++++ b/confmap/provider/yamlprovider/provider.go
+@@ -25,7 +25,7 @@ type provider struct{}
+ // Examples:
+ // `yaml:processors::batch::timeout: 2s`
+ // `yaml:processors::batch/foo::timeout: 3s`
+-func NewWithSettings(_ confmap.ProviderSettings) confmap.Provider {
++func NewWithSettings(confmap.ProviderSettings) confmap.Provider {
+ 	return &provider{}
+ }
+ 

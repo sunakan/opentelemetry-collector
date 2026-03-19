@@ -1,0 +1,18 @@
+diff --git a/config/common.go b/config/common.go
+index 4a5cf245b..c02e38264 100644
+--- a/config/common.go
++++ b/config/common.go
+@@ -26,10 +26,10 @@ type validatable interface {
+ 	Validate() error
+ }
+ 
+-// Unmarshallable defines an optional interface for custom configuration unmarshaling.
+-// A configuration struct can implement this interface to override the default unmarshaling.
++// Unmarshallable defines an optional interface for custom configuration unmarshalling.
++// A configuration struct can implement this interface to override the default unmarshalling.
+ type Unmarshallable interface {
+-	// Unmarshal is a function that unmarshals a confmap.Conf into the unmarshable struct in a custom way.
++	// Unmarshal is a function that unmarshalls a confmap.Conf into the unmarshable struct in a custom way.
+ 	// The confmap.Conf for this specific component may be nil or empty if no config available.
+ 	Unmarshal(component *confmap.Conf) error
+ }

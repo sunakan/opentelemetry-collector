@@ -1,0 +1,13 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index 2f02b463f..73116058b 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -372,7 +372,7 @@ func TestReceiversBuilder_Unused(t *testing.T) {
+ 	attrFactory := attributesprocessor.NewFactory()
+ 	factories.Processors[attrFactory.Type()] = attrFactory
+ 
+-	zpkFactory := &zipkinreceiver.Factory{}
++	zpkFactory := zipkinreceiver.NewFactory()
+ 	factories.Receivers[zpkFactory.Type()] = zpkFactory
+ 	cfg, err := configtest.LoadConfigFile(t, "testdata/unused_receiver.yaml", factories)
+ 	assert.NoError(t, err)

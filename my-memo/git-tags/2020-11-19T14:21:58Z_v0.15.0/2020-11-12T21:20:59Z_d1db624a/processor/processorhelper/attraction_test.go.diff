@@ -1,0 +1,21 @@
+diff --git a/processor/processorhelper/attraction_test.go b/processor/processorhelper/attraction_test.go
+index 989358a15..50c181b70 100644
+--- a/processor/processorhelper/attraction_test.go
++++ b/processor/processorhelper/attraction_test.go
+@@ -15,7 +15,7 @@
+ package processorhelper
+ 
+ import (
+-	"crypto/sha1"
++	"crypto/sha1" // #nosec
+ 	"encoding/binary"
+ 	"errors"
+ 	"fmt"
+@@ -874,6 +874,7 @@ func TestValidConfiguration(t *testing.T) {
+ }
+ 
+ func sha1Hash(b []byte) string {
++	// #nosec
+ 	h := sha1.New()
+ 	h.Write(b)
+ 	return fmt.Sprintf("%x", h.Sum(nil))

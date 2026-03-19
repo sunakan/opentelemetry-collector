@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesserviceresponse_test.go b/pdata/internal/generated_wrapper_exportprofilesserviceresponse_test.go
+index dc9a03828..1e836d1c4 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesserviceresponse_test.go
++++ b/pdata/internal/generated_wrapper_exportprofilesserviceresponse_test.go
+@@ -23,7 +23,7 @@ import (
+ func TestCopyOrigExportProfilesServiceResponse(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExportProfilesServiceResponse() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -52,7 +52,7 @@ func TestMarshalAndUnmarshalJSONOrigExportProfilesServiceResponseUnknown(t *test
+ func TestMarshalAndUnmarshalJSONOrigExportProfilesServiceResponse(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExportProfilesServiceResponse() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -96,7 +96,7 @@ func TestMarshalAndUnmarshalProtoOrigExportProfilesServiceResponseUnknown(t *tes
+ func TestMarshalAndUnmarshalProtoOrigExportProfilesServiceResponse(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesExportProfilesServiceResponse() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {

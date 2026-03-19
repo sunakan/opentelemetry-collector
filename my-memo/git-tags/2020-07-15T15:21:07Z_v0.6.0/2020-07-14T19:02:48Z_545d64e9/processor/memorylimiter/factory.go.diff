@@ -1,0 +1,17 @@
+diff --git a/processor/memorylimiter/factory.go b/processor/memorylimiter/factory.go
+index bfac15eaa..ca5d1fcd7 100644
+--- a/processor/memorylimiter/factory.go
++++ b/processor/memorylimiter/factory.go
+@@ -35,9 +35,9 @@ func NewFactory() component.ProcessorFactory {
+ 	return processorhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		processorhelper.WithTraceProcessor(createTraceProcessor),
+-		processorhelper.WithMetricsProcessor(createMetricsProcessor),
+-		processorhelper.WithLogProcessor(createLogProcessor))
++		processorhelper.WithTraces(createTraceProcessor),
++		processorhelper.WithMetrics(createMetricsProcessor),
++		processorhelper.WithLogs(createLogProcessor))
+ }
+ 
+ // CreateDefaultConfig creates the default configuration for processor. Notice

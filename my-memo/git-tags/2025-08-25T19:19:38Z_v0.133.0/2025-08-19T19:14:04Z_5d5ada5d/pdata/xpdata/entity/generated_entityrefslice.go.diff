@@ -1,0 +1,13 @@
+diff --git a/pdata/xpdata/entity/generated_entityrefslice.go b/pdata/xpdata/entity/generated_entityrefslice.go
+index 705dadb05..bd31db711 100644
+--- a/pdata/xpdata/entity/generated_entityrefslice.go
++++ b/pdata/xpdata/entity/generated_entityrefslice.go
+@@ -96,7 +96,7 @@ func (es EntityRefSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added EntityRef.
+ func (es EntityRefSlice) AppendEmpty() EntityRef {
+ 	es.getState().AssertMutable()
+-	*es.getOrig() = append(*es.getOrig(), internal.NewOrigPtrEntityRef())
++	*es.getOrig() = append(*es.getOrig(), internal.NewOrigEntityRef())
+ 	return es.At(es.Len() - 1)
+ }
+ 

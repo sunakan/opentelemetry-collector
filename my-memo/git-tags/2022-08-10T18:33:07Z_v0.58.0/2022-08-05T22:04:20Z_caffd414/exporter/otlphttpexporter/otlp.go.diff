@@ -1,0 +1,15 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index e40fc0b35..351fec4b7 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -201,6 +201,10 @@ func isPermanentClientFailure(code int) bool {
+ 		return true
+ 	case http.StatusRequestHeaderFieldsTooLarge:
+ 		return true
++	case http.StatusNotFound:
++		return true
++	case http.StatusMethodNotAllowed:
++		return true
+ 	default:
+ 		return false
+ 	}

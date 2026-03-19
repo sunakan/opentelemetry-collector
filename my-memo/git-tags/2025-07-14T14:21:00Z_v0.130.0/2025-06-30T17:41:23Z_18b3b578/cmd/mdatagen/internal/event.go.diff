@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/internal/event.go b/cmd/mdatagen/internal/event.go
+index 2bafe97b6..22a7a0ec7 100644
+--- a/cmd/mdatagen/internal/event.go
++++ b/cmd/mdatagen/internal/event.go
+@@ -55,3 +55,12 @@ func (l *Event) Unmarshal(parser *confmap.Conf) error {
+ 	}
+ 	return parser.Unmarshal(l)
+ }
++
++func (l Event) HasOptionalAttribute(attrs map[AttributeName]Attribute) bool {
++	for _, attr := range l.Attributes {
++		if v, exists := attrs[attr]; exists && v.Optional {
++			return true
++		}
++	}
++	return false
++}

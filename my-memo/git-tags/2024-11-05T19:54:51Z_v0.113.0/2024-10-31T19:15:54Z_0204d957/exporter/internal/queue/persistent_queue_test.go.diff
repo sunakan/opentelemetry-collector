@@ -1,0 +1,12 @@
+diff --git a/exporter/internal/queue/persistent_queue_test.go b/exporter/internal/queue/persistent_queue_test.go
+index 0efc8a028..c453b2d76 100644
+--- a/exporter/internal/queue/persistent_queue_test.go
++++ b/exporter/internal/queue/persistent_queue_test.go
+@@ -190,7 +190,6 @@ func TestPersistentQueue_Shutdown(t *testing.T) {
+ 	for i := 0; i < 1000; i++ {
+ 		assert.NoError(t, pq.Offer(context.Background(), req))
+ 	}
+-
+ }
+ 
+ func TestPersistentQueue_ConsumersProducers(t *testing.T) {

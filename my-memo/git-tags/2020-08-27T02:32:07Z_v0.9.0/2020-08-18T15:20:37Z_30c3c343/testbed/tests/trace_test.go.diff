@@ -1,0 +1,17 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index ce96573e9..682c38752 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -364,12 +364,6 @@ func verifySingleSpan(
+ 			}
+ 		}
+ 	}
+-	for _, td := range tc.MockBackend.ReceivedTracesOld {
+-		for _, span := range td.Spans {
+-			verifyReceivedOld(span)
+-			count++
+-		}
+-	}
+ 	assert.EqualValues(t, 1, count, "must receive one span")
+ }
+ 

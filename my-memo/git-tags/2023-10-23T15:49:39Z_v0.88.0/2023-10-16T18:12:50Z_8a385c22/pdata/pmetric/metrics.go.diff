@@ -1,0 +1,25 @@
+diff --git a/pdata/pmetric/metrics.go b/pdata/pmetric/metrics.go
+index 5a8c0f299..91195ca4d 100644
+--- a/pdata/pmetric/metrics.go
++++ b/pdata/pmetric/metrics.go
+@@ -21,11 +21,20 @@ func (ms Metrics) getOrig() *otlpcollectormetrics.ExportMetricsServiceRequest {
+ 	return internal.GetOrigMetrics(internal.Metrics(ms))
+ }
+ 
++func (ms Metrics) getState() *internal.State {
++	return internal.GetMetricsState(internal.Metrics(ms))
++}
++
+ // NewMetrics creates a new Metrics struct.
+ func NewMetrics() Metrics {
+ 	return newMetrics(&otlpcollectormetrics.ExportMetricsServiceRequest{})
+ }
+ 
++// IsReadOnly returns true if this Metrics instance is read-only.
++func (ms Metrics) IsReadOnly() bool {
++	return *ms.getState() == internal.StateReadOnly
++}
++
+ // CopyTo copies the Metrics instance overriding the destination.
+ func (ms Metrics) CopyTo(dest Metrics) {
+ 	ms.ResourceMetrics().CopyTo(dest.ResourceMetrics())

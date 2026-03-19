@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/metricdata.go b/cmd/mdatagen/metricdata.go
+index aa80904e6..c011be6db 100644
+--- a/cmd/mdatagen/metricdata.go
++++ b/cmd/mdatagen/metricdata.go
+@@ -209,11 +209,11 @@ func (d histogram) Type() string {
+ }
+ 
+ func (d histogram) HasMonotonic() bool {
+-	return true
++	return false
+ }
+ 
+ func (d histogram) HasAggregated() bool {
+-	return true
++	return false
+ }
+ 
+ func (d histogram) Instrument() string {

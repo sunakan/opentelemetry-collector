@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 6f71eb0ae..561c39f1f 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package confighttp
++package confighttp // import "go.opentelemetry.io/collector/config/confighttp"
+ 
+ import (
+ 	"crypto/tls"

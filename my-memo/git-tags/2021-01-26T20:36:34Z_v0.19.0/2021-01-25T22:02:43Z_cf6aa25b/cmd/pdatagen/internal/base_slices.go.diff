@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/base_slices.go b/cmd/pdatagen/internal/base_slices.go
+index 5a0e8bdf1..87826f9f4 100644
+--- a/cmd/pdatagen/internal/base_slices.go
++++ b/cmd/pdatagen/internal/base_slices.go
+@@ -354,7 +354,7 @@ func (es ${structName}) Resize(newLen int) {
+ 	}
+ 
+ 	// Add extra empty elements to the array.
+-	empty := otlpcommon.AnyValue{}
++	empty := ${originName}{}
+ 	for i := oldLen; i < newLen; i++ {
+ 		*es.orig = append(*es.orig, empty)
+ 	}

@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/testdata/unknown_value_type.yaml b/cmd/mdatagen/testdata/unknown_value_type.yaml
+deleted file mode 100644
+index 1a4890045..000000000
+--- a/cmd/mdatagen/testdata/unknown_value_type.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-type: metricreceiver
+-
+-status:
+-  class: receiver
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+-
+-metrics:
+-  system.cpu.time:
+-    enabled: true
+-    description: Total CPU seconds broken down by different states.
+-    unit: s
+-    sum:
+-      value_type: unknown
+-      monotonic: true
+-      aggregation_temporality: cumulative

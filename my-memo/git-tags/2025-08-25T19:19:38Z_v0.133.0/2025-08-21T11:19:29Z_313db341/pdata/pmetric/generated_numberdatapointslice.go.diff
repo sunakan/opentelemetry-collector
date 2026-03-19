@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice.go b/pdata/pmetric/generated_numberdatapointslice.go
+index b31d7fe6e..a691f9202 100644
+--- a/pdata/pmetric/generated_numberdatapointslice.go
++++ b/pdata/pmetric/generated_numberdatapointslice.go
+@@ -149,6 +149,9 @@ func (es NumberDataPointSlice) RemoveIf(f func(NumberDataPoint) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es NumberDataPointSlice) CopyTo(dest NumberDataPointSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigNumberDataPointSlice(*dest.orig, *es.orig)
+ }
+ 

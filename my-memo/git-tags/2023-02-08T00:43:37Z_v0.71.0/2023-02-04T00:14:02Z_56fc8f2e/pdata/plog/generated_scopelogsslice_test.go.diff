@@ -1,0 +1,27 @@
+diff --git a/pdata/plog/generated_scopelogsslice_test.go b/pdata/plog/generated_scopelogsslice_test.go
+index f870c3d42..6e4832a60 100644
+--- a/pdata/plog/generated_scopelogsslice_test.go
++++ b/pdata/plog/generated_scopelogsslice_test.go
+@@ -119,15 +119,15 @@ func TestScopeLogsSlice_RemoveIf(t *testing.T) {
+ }
+ 
+ func generateTestScopeLogsSlice() ScopeLogsSlice {
+-	tv := NewScopeLogsSlice()
+-	fillTestScopeLogsSlice(tv)
+-	return tv
++	es := NewScopeLogsSlice()
++	fillTestScopeLogsSlice(es)
++	return es
+ }
+ 
+-func fillTestScopeLogsSlice(tv ScopeLogsSlice) {
+-	*tv.orig = make([]*otlplogs.ScopeLogs, 7)
++func fillTestScopeLogsSlice(es ScopeLogsSlice) {
++	*es.orig = make([]*otlplogs.ScopeLogs, 7)
+ 	for i := 0; i < 7; i++ {
+-		(*tv.orig)[i] = &otlplogs.ScopeLogs{}
+-		fillTestScopeLogs(newScopeLogs((*tv.orig)[i]))
++		(*es.orig)[i] = &otlplogs.ScopeLogs{}
++		fillTestScopeLogs(newScopeLogs((*es.orig)[i]))
+ 	}
+ }

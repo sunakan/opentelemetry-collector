@@ -1,0 +1,20 @@
+diff --git a/.chloggen/fix_cmd_mdata-gen-metrics.yml b/.chloggen/fix_cmd_mdata-gen-metrics.yml
+index 40e67bdaa..3104978e8 100644
+--- a/.chloggen/fix_cmd_mdata-gen-metrics.yml
++++ b/.chloggen/fix_cmd_mdata-gen-metrics.yml
+@@ -4,7 +4,7 @@
+ change_type: bug_fix
+ 
+ # The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: mdatagen
++component: cmd/mdatagen
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+ note: Fix mdatagen generated_metrics for connectors
+@@ -22,4 +22,4 @@ subtext:
+ # Include 'user' if the change is relevant to end users.
+ # Include 'api' if there is a change to a library API.
+ # Default: '[user]'
+-change_logs: [api]
+\ No newline at end of file
++change_logs: [api]

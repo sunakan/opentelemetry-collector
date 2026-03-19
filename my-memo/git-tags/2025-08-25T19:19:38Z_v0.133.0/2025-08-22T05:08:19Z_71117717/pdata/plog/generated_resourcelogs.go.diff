@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/generated_resourcelogs.go b/pdata/plog/generated_resourcelogs.go
+index 512ee0a88..2283d5451 100644
+--- a/pdata/plog/generated_resourcelogs.go
++++ b/pdata/plog/generated_resourcelogs.go
+@@ -45,8 +45,8 @@ func (ms ResourceLogs) MoveTo(dest ResourceLogs) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlplogs.ResourceLogs{}
++	internal.DeleteOrigResourceLogs(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Resource returns the resource associated with this ResourceLogs.

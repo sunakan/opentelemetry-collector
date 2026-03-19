@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index e6f4b74cc..8bdd45315 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -95,7 +95,7 @@ type headerRoundTripper struct {
+ 	headers   map[string]string
+ }
+ 
+-// Custom RoundTrip that add headers
++// RoundTrip is a custom RoundTripper that adds headers to the request.
+ func (interceptor *headerRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+ 	for k, v := range interceptor.headers {
+ 		req.Header.Set(k, v)

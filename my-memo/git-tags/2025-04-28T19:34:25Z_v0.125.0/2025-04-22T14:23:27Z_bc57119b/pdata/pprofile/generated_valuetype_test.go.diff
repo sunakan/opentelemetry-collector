@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_valuetype_test.go b/pdata/pprofile/generated_valuetype_test.go
+index 8c1b53787..53f5c9ea5 100644
+--- a/pdata/pprofile/generated_valuetype_test.go
++++ b/pdata/pprofile/generated_valuetype_test.go
+@@ -21,6 +21,8 @@ func TestValueType_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewValueType(), ms)
+ 	assert.Equal(t, generateTestValueType(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestValueType(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newValueType(&otlpprofiles.ValueType{}, &sharedState)) })
+ 	assert.Panics(t, func() { newValueType(&otlpprofiles.ValueType{}, &sharedState).MoveTo(dest) })

@@ -1,0 +1,15 @@
+diff --git a/service/telemetry/tracer.go b/service/telemetry/tracer.go
+index 9febba8e2..f9ff92c18 100644
+--- a/service/telemetry/tracer.go
++++ b/service/telemetry/tracer.go
+@@ -30,9 +30,7 @@ const (
+ 	b3Propagator           = "b3"
+ )
+ 
+-var (
+-	errUnsupportedPropagator = errors.New("unsupported trace propagator")
+-)
++var errUnsupportedPropagator = errors.New("unsupported trace propagator")
+ 
+ type noopNoContextTracer struct {
+ 	embedded.Tracer

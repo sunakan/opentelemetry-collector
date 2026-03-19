@@ -1,0 +1,27 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml
+deleted file mode 100644
+index 8223a53d5..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml
++++ /dev/null
+@@ -1,21 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-    unknown_section:
+-      a_num: 2
+-exporters:
+-  nop:
+-extensions:
+-  nop:
+-service:
+-  extensions:
+-    - examapleextension
+-  pipelines:
+-    traces:
+-      receivers:
+-        - nop
+-      processors:
+-        - nop
+-      exporters:
+-        - nop

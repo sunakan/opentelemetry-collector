@@ -1,0 +1,16 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 55fd71112..b2d0f40e8 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -52,9 +52,9 @@ func createDefaultConfig() config.Receiver {
+ 
+ func createMetricsReceiver(
+ 	_ context.Context,
+-	params component.ReceiverCreateParams,
++	set component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsReceiver, error) {
+-	return newPrometheusReceiver(params.Logger, cfg.(*Config), nextConsumer), nil
++	return newPrometheusReceiver(set.Logger, cfg.(*Config), nextConsumer), nil
+ }

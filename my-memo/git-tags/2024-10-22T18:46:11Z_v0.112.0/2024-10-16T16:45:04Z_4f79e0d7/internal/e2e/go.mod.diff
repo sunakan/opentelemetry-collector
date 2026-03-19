@@ -1,0 +1,21 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index eb45225e6..0f4a764da 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -15,6 +15,7 @@ require (
+ 	go.opentelemetry.io/collector/config/configtls v1.17.0
+ 	go.opentelemetry.io/collector/confmap v1.17.0
+ 	go.opentelemetry.io/collector/connector v0.111.0
++	go.opentelemetry.io/collector/connector/connectortest v0.111.0
+ 	go.opentelemetry.io/collector/consumer v0.111.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.111.0
+ 	go.opentelemetry.io/collector/exporter v0.111.0
+@@ -187,6 +188,8 @@ replace go.opentelemetry.io/collector/component/componentstatus => ../../compone
+ 
+ replace go.opentelemetry.io/collector/connector => ../../connector
+ 
++replace go.opentelemetry.io/collector/connector/connectortest => ../../connector/connectortest
++
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/processor => ../../processor

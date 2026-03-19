@@ -1,0 +1,16 @@
+diff --git a/processor/processortest/nop_processor.go b/processor/processortest/nop_processor.go
+index e72fa5797..073fe0f37 100644
+--- a/processor/processortest/nop_processor.go
++++ b/processor/processortest/nop_processor.go
+@@ -45,6 +45,11 @@ func (np *nopProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
+ 
++// Shutdown is invoked during service shutdown.
++func (np *nopProcessor) Shutdown() error {
++	return nil
++}
++
+ // NewNopTraceProcessor creates an TraceProcessor that just pass the received data to the nextTraceProcessor.
+ func NewNopTraceProcessor(nextTraceProcessor consumer.TraceConsumer) consumer.TraceConsumer {
+ 	return &nopProcessor{nextTraceProcessor: nextTraceProcessor}

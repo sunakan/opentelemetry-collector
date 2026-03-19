@@ -1,0 +1,12 @@
+diff --git a/internal/goldendataset/pict_tracing_input_defs.go b/internal/goldendataset/pict_tracing_input_defs.go
+index c818cf0b0..8bb204abb 100644
+--- a/internal/goldendataset/pict_tracing_input_defs.go
++++ b/internal/goldendataset/pict_tracing_input_defs.go
+@@ -34,6 +34,7 @@ const (
+ 	ResourceK8sOnPrem PICTInputResource = "K8sOnPrem"
+ 	ResourceK8sCloud  PICTInputResource = "K8sCloud"
+ 	ResourceFaas      PICTInputResource = "Faas"
++	ResourceExec      PICTInputResource = "Exec"
+ )
+ 
+ // Enumerates the number and kind of instrumentation library instances that can be generated.

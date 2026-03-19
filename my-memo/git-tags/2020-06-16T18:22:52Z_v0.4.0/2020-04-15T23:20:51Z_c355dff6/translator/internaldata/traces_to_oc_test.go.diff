@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/traces_to_oc_test.go b/translator/internaldata/traces_to_oc_test.go
+index 042f0d226..e6f07571e 100644
+--- a/translator/internaldata/traces_to_oc_test.go
++++ b/translator/internaldata/traces_to_oc_test.go
+@@ -278,7 +278,7 @@ func TestInternalToOC(t *testing.T) {
+ 
+ 	tests := []struct {
+ 		name string
+-		td   pdata.TraceData
++		td   pdata.Traces
+ 		oc   []consumerdata.TraceData
+ 	}{
+ 		{

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_gauge.go b/pdata/pmetric/generated_gauge.go
+index ee0e88b07..35d1f5c50 100644
+--- a/pdata/pmetric/generated_gauge.go
++++ b/pdata/pmetric/generated_gauge.go
+@@ -32,7 +32,7 @@ func newGauge(orig *otlpmetrics.Gauge, state *internal.State) Gauge {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewGauge() Gauge {
+-	return newGauge(&otlpmetrics.Gauge{}, internal.NewState())
++	return newGauge(internal.NewOrigPtrGauge(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

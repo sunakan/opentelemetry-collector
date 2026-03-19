@@ -1,0 +1,10 @@
+diff --git a/consumer/consumerprofiles/go.mod b/consumer/consumerprofiles/go.mod
+index 5abf01b1e..fe83e9a16 100644
+--- a/consumer/consumerprofiles/go.mod
++++ b/consumer/consumerprofiles/go.mod
+@@ -31,5 +31,3 @@ require (
+ 	google.golang.org/protobuf v1.35.1 // indirect
+ 	gopkg.in/yaml.v3 v3.0.1 // indirect
+ )
+-
+-replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata

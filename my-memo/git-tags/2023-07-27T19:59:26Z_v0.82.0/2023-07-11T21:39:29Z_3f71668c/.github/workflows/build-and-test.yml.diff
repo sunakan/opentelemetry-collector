@@ -1,0 +1,58 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 4e33df66b..a88a4dee7 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -19,7 +19,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3
+@@ -41,7 +41,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3
+@@ -64,7 +64,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3
+@@ -88,7 +88,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3
+@@ -168,7 +168,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.20.5
++          go-version: ~1.20.6
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3
+@@ -229,7 +229,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.10
++          go-version: ~1.19.11
+       - name: Cache Go
+         id: go-cache
+         uses: actions/cache@v3

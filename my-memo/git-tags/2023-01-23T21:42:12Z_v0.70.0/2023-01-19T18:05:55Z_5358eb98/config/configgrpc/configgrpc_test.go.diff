@@ -1,0 +1,12 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index c2bc8f760..9c61d60e7 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -1057,6 +1057,7 @@ func (m *mockServerStream) Context() context.Context {
+ }
+ 
+ type grpcTraceServer struct {
++	ptraceotlp.UnimplementedGRPCServer
+ 	recordedContext context.Context
+ }
+ 

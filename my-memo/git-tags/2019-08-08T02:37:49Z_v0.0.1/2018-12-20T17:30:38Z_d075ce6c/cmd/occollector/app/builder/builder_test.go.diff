@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/builder_test.go b/cmd/occollector/app/builder/builder_test.go
+index 74dc471b5..3c0df4a88 100644
+--- a/cmd/occollector/app/builder/builder_test.go
++++ b/cmd/occollector/app/builder/builder_test.go
+@@ -71,7 +71,7 @@ func TestReceiversDisabledByPresenceWithDefaultSettings(t *testing.T) {
+ }
+ 
+ func TestMultiAndQueuedSpanProcessorConfig(t *testing.T) {
+-	v, err := loadViperFromFile("./testdata/processor_config.yaml")
++	v, err := loadViperFromFile("./testdata/queued_exporters.yaml")
+ 	if err != nil {
+ 		t.Fatalf("Failed to load viper from test file: %v", err)
+ 	}

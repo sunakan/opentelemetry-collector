@@ -1,0 +1,50 @@
+diff --git a/model/pdata/generated_metrics_test.go b/model/pdata/generated_metrics_test.go
+index 8e2bc126b..ab35cfe4c 100644
+--- a/model/pdata/generated_metrics_test.go
++++ b/model/pdata/generated_metrics_test.go
+@@ -147,6 +147,14 @@ func TestResourceMetrics_Resource(t *testing.T) {
+ 	assert.EqualValues(t, generateTestResource(), ms.Resource())
+ }
+ 
++func TestResourceMetrics_SchemaUrl(t *testing.T) {
++	ms := NewResourceMetrics()
++	assert.EqualValues(t, "", ms.SchemaUrl())
++	testValSchemaUrl := "https://opentelemetry.io/schemas/1.5.0"
++	ms.SetSchemaUrl(testValSchemaUrl)
++	assert.EqualValues(t, testValSchemaUrl, ms.SchemaUrl())
++}
++
+ func TestResourceMetrics_InstrumentationLibraryMetrics(t *testing.T) {
+ 	ms := NewResourceMetrics()
+ 	assert.EqualValues(t, NewInstrumentationLibraryMetricsSlice(), ms.InstrumentationLibraryMetrics())
+@@ -277,6 +285,14 @@ func TestInstrumentationLibraryMetrics_InstrumentationLibrary(t *testing.T) {
+ 	assert.EqualValues(t, generateTestInstrumentationLibrary(), ms.InstrumentationLibrary())
+ }
+ 
++func TestInstrumentationLibraryMetrics_SchemaUrl(t *testing.T) {
++	ms := NewInstrumentationLibraryMetrics()
++	assert.EqualValues(t, "", ms.SchemaUrl())
++	testValSchemaUrl := "https://opentelemetry.io/schemas/1.5.0"
++	ms.SetSchemaUrl(testValSchemaUrl)
++	assert.EqualValues(t, testValSchemaUrl, ms.SchemaUrl())
++}
++
+ func TestInstrumentationLibraryMetrics_Metrics(t *testing.T) {
+ 	ms := NewInstrumentationLibraryMetrics()
+ 	assert.EqualValues(t, NewMetricSlice(), ms.Metrics())
+@@ -1304,6 +1320,7 @@ func generateTestResourceMetrics() ResourceMetrics {
+ 
+ func fillTestResourceMetrics(tv ResourceMetrics) {
+ 	fillTestResource(tv.Resource())
++	tv.SetSchemaUrl("https://opentelemetry.io/schemas/1.5.0")
+ 	fillTestInstrumentationLibraryMetricsSlice(tv.InstrumentationLibraryMetrics())
+ }
+ 
+@@ -1329,6 +1346,7 @@ func generateTestInstrumentationLibraryMetrics() InstrumentationLibraryMetrics {
+ 
+ func fillTestInstrumentationLibraryMetrics(tv InstrumentationLibraryMetrics) {
+ 	fillTestInstrumentationLibrary(tv.InstrumentationLibrary())
++	tv.SetSchemaUrl("https://opentelemetry.io/schemas/1.5.0")
+ 	fillTestMetricSlice(tv.Metrics())
+ }
+ 

@@ -1,0 +1,10 @@
+diff --git a/receiver/otlpreceiver/metadata.yaml b/receiver/otlpreceiver/metadata.yaml
+index c65af6e6a..cae2267ea 100644
+--- a/receiver/otlpreceiver/metadata.yaml
++++ b/receiver/otlpreceiver/metadata.yaml
+@@ -7,4 +7,4 @@ status:
+     stable: [traces, metrics]
+     beta: [logs]
+     development: [profiles]
+-  distributions: [core, contrib, k8s]
++  distributions: [core, contrib, k8s, otlp]

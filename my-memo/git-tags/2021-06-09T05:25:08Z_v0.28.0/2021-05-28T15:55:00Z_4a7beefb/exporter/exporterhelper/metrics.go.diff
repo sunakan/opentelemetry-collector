@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 8ad834b07..7f462e670 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -115,8 +115,8 @@ type metricsSenderWithObservability struct {
+ }
+ 
+ func (mewo *metricsSenderWithObservability) send(req request) error {
+-	req.setContext(mewo.obsrep.StartMetricsExportOp(req.context()))
++	req.setContext(mewo.obsrep.StartMetricsOp(req.context()))
+ 	err := mewo.nextSender.send(req)
+-	mewo.obsrep.EndMetricsExportOp(req.context(), req.count(), err)
++	mewo.obsrep.EndMetricsOp(req.context(), req.count(), err)
+ 	return err
+ }

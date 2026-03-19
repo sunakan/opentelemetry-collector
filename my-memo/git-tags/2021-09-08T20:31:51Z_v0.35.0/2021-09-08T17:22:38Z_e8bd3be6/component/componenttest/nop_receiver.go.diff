@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index 26ae39e99..281b13778 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -26,8 +26,8 @@ import (
+ // NewNopReceiverCreateSettings returns a new nop settings for Create*Receiver functions.
+ func NewNopReceiverCreateSettings() component.ReceiverCreateSettings {
+ 	return component.ReceiverCreateSettings{
+-		TelemetryCreateSettings: NewNopTelemetryCreateSettings(),
+-		BuildInfo:               component.DefaultBuildInfo(),
++		TelemetrySettings: NewNopTelemetrySettings(),
++		BuildInfo:         component.DefaultBuildInfo(),
+ 	}
+ }
+ 

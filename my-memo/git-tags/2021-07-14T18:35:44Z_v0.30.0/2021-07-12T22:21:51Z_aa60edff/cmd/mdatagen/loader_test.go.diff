@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/loader_test.go b/cmd/mdatagen/loader_test.go
+index 711fa697b..eb0c5d839 100644
+--- a/cmd/mdatagen/loader_test.go
++++ b/cmd/mdatagen/loader_test.go
+@@ -40,7 +40,7 @@ metrics:
+     description: Total CPU seconds broken down by different states.
+     unit: s
+     data:
+-      type: double sum
++      type: sum
+       monotonic: true
+       aggregation: cumulative
+     labels: [freeFormLabel, freeFormLabelWithValue, enumLabel]
+@@ -53,7 +53,7 @@ metrics:
+     description: Total CPU seconds broken down by different states.
+     unit: s
+     data:
+-      type: double sum
++      type: sum
+       monotonic: true
+       aggregation: cumulative
+     labels: [missing]
+@@ -97,7 +97,7 @@ func Test_loadMetadata(t *testing.T) {
+ 					"system.cpu.time": {
+ 						Description: "Total CPU seconds broken down by different states.",
+ 						Unit:        "s",
+-						Data: &doubleSum{
++						Data: &sum{
+ 							Aggregated: Aggregated{Aggregation: "cumulative"},
+ 							Mono:       Mono{Monotonic: true},
+ 						},

@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_trace.go b/consumer/pdata/generated_trace.go
+index 2158d3ebf..a3a07e64f 100644
+--- a/consumer/pdata/generated_trace.go
++++ b/consumer/pdata/generated_trace.go
+@@ -19,7 +19,7 @@ package pdata
+ 
+ import (
+ 	"go.opentelemetry.io/collector/internal/data"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ )
+ 
+ // ResourceSpansSlice logically represents a slice of ResourceSpans.

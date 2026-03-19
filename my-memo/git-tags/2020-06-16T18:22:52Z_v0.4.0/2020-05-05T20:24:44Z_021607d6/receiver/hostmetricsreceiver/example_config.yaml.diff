@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/example_config.yaml b/receiver/hostmetricsreceiver/example_config.yaml
+index 0fe6fa48a..5763e4453 100644
+--- a/receiver/hostmetricsreceiver/example_config.yaml
++++ b/receiver/hostmetricsreceiver/example_config.yaml
+@@ -8,6 +8,7 @@ receivers:
+     scrapers:
+       cpu:
+         report_per_cpu: true
++      memory:
+ 
+ exporters:
+   logging:

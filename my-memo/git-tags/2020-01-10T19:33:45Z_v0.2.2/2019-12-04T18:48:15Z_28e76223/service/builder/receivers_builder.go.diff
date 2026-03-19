@@ -1,0 +1,37 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index c5558881e..178839fbd 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -192,20 +192,9 @@ func (rb *ReceiversBuilder) attachReceiverToPipelines(
+ 		// Now create the receiver and tell it to send to the junction point.
+ 		rcv.trace, err = factory.CreateTraceReceiver(context.Background(), rb.logger, config, junction)
+ 
+-		// Check if the factory really created the receiver.
+-		if rcv.trace == nil {
+-			return fmt.Errorf("factory for %q produced a nil receiver", config.Name())
+-		}
+-
+ 	case configmodels.MetricsDataType:
+ 		junction := buildFanoutMetricConsumer(builtPipelines)
+ 		rcv.metrics, err = factory.CreateMetricsReceiver(rb.logger, config, junction)
+-
+-		// The factories can be implemented by third parties, check if they really
+-		// created the exporter.
+-		if rcv.metrics == nil {
+-			return fmt.Errorf("factory for %q produced a nil receiver", config.Name())
+-		}
+ 	}
+ 
+ 	if err != nil {
+@@ -220,6 +209,11 @@ func (rb *ReceiversBuilder) attachReceiverToPipelines(
+ 		return fmt.Errorf("cannot create receiver %s: %s", config.Name(), err.Error())
+ 	}
+ 
++	// Check if the factory really created the receiver.
++	if rcv.trace == nil && rcv.metrics == nil {
++		return fmt.Errorf("factory for %q produced a nil receiver", config.Name())
++	}
++
+ 	rb.logger.Info("Receiver is enabled.",
+ 		zap.String("receiver", config.Name()), zap.String("datatype", dataType.GetString()))
+ 

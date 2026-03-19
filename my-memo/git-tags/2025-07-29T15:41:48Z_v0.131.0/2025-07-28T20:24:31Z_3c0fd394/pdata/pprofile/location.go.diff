@@ -1,0 +1,21 @@
+diff --git a/pdata/pprofile/location.go b/pdata/pprofile/location.go
+index 4edd7d388..2e07d1068 100644
+--- a/pdata/pprofile/location.go
++++ b/pdata/pprofile/location.go
+@@ -4,10 +4,10 @@
+ package pprofile // import "go.opentelemetry.io/collector/pdata/pprofile"
+ 
+ // Equal checks equality with another Location
+-func (l Location) Equal(val Location) bool {
+-	return l.MappingIndex() == val.MappingIndex() &&
+-		l.Address() == val.Address() &&
+-		l.AttributeIndices().Equal(val.AttributeIndices()) &&
+-		l.IsFolded() == val.IsFolded() &&
+-		l.Line().Equal(val.Line())
++func (ms Location) Equal(val Location) bool {
++	return ms.MappingIndex() == val.MappingIndex() &&
++		ms.Address() == val.Address() &&
++		ms.AttributeIndices().Equal(val.AttributeIndices()) &&
++		ms.IsFolded() == val.IsFolded() &&
++		ms.Line().Equal(val.Line())
+ }

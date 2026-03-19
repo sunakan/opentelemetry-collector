@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/templates/component_telemetry_test.go.tmpl b/cmd/mdatagen/templates/component_telemetry_test.go.tmpl
+index 3c3f06140..48ab71162 100644
+--- a/cmd/mdatagen/templates/component_telemetry_test.go.tmpl
++++ b/cmd/mdatagen/templates/component_telemetry_test.go.tmpl
+@@ -21,7 +21,7 @@ type componentTestTelemetry struct {
+ 	meterProvider *sdkmetric.MeterProvider
+ }
+ 
+-{{- if (or isExporter isReceiver) }}
++{{- if (or isExporter isReceiver isProcessor) }}
+ func (tt *componentTestTelemetry) NewSettings() {{ .Status.Class }}.Settings {
+ 	settings := {{ .Status.Class }}test.NewNopSettings()
+ 	settings.MeterProvider = tt.meterProvider

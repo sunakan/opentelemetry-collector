@@ -1,0 +1,16 @@
+diff --git a/config/configunmarshaler/testdata/valid-config.yaml b/config/configunmarshaler/testdata/valid-config.yaml
+index 986f6ea10..363054b19 100644
+--- a/config/configunmarshaler/testdata/valid-config.yaml
++++ b/config/configunmarshaler/testdata/valid-config.yaml
+@@ -20,6 +20,11 @@ extensions:
+     extra: "some string"
+ 
+ service:
++  telemetry:
++    logs:
++      level: "DEBUG"
++      development: true
++      encoding: "console"
+   extensions: [exampleextension/0, exampleextension/1]
+   pipelines:
+     traces:

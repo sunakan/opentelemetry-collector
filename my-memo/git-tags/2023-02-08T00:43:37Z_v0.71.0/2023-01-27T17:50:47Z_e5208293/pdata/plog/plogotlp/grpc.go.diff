@@ -1,0 +1,23 @@
+diff --git a/pdata/plog/plogotlp/grpc.go b/pdata/plog/plogotlp/grpc.go
+index 413c5e3dc..a07f159ca 100644
+--- a/pdata/plog/plogotlp/grpc.go
++++ b/pdata/plog/plogotlp/grpc.go
+@@ -63,6 +63,9 @@ type GRPCServer interface {
+ 	// For performance reasons, it is recommended to keep this RPC
+ 	// alive for the entire life of the application.
+ 	Export(context.Context, ExportRequest) (ExportResponse, error)
++
++	// unexported disallow implementation of the GRPCServer.
++	unexported()
+ }
+ 
+ var _ GRPCServer = (*UnimplementedGRPCServer)(nil)
+@@ -74,6 +77,8 @@ func (*UnimplementedGRPCServer) Export(context.Context, ExportRequest) (ExportRe
+ 	return ExportResponse{}, status.Errorf(codes.Unimplemented, "method Export not implemented")
+ }
+ 
++func (*UnimplementedGRPCServer) unexported() {}
++
+ // RegisterGRPCServer registers the Server to the grpc.Server.
+ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectorlog.RegisterLogsServiceServer(s, &rawLogsServer{srv: srv})

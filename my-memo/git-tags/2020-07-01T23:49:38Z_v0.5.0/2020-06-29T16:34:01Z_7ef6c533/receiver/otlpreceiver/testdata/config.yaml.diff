@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index c3af95b39..5bc45237b 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -27,6 +27,8 @@ receivers:
+   otlp/msg-size-conc-connect-max-idle:
+     max_recv_msg_size_mib: 32
+     max_concurrent_streams: 16
++    read_buffer_size: 1024
++    write_buffer_size: 1024
+     keepalive:
+       server_parameters:
+         max_connection_idle: 10s

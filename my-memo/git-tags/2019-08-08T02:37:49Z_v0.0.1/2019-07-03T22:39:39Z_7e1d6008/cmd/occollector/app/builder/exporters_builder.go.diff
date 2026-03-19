@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/exporters_builder.go b/cmd/occollector/app/builder/exporters_builder.go
+index 9312473f3..8572e3c93 100644
+--- a/cmd/occollector/app/builder/exporters_builder.go
++++ b/cmd/occollector/app/builder/exporters_builder.go
+@@ -153,7 +153,7 @@ func (eb *ExportersBuilder) buildExporter(
+ 	exportersInputDataTypes exportersRequiredDataTypes,
+ ) (*builtExporter, error) {
+ 
+-	factory := exporter.GetExporterFactory(config.Type())
++	factory := exporter.GetFactory(config.Type())
+ 
+ 	exporter := &builtExporter{}
+ 

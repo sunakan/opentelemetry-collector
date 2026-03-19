@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/integration-test.yaml b/.github/workflows/integration-test.yaml
+index f0116cd3a..7fbe81bcb 100644
+--- a/.github/workflows/integration-test.yaml
++++ b/.github/workflows/integration-test.yaml
+@@ -15,7 +15,7 @@ jobs:
+     - name: Set up Go
+       uses: actions/setup-go@v2
+       with:
+-        go-version: 1.16
++        go-version: 1.17
+ 
+     - name: Check out code into the Go module directory
+       uses: actions/checkout@v2

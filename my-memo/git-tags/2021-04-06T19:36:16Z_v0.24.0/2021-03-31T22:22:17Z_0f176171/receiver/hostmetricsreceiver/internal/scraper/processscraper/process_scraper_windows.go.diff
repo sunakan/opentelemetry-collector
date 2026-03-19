@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+index 43b1c8572..08e31bf85 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+@@ -36,7 +36,7 @@ func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startTime, no
+ func initializeCPUTimeDataPoint(dataPoint pdata.DoubleDataPoint, startTime, now pdata.Timestamp, value float64, stateLabel string) {
+ 	labelsMap := dataPoint.LabelsMap()
+ 	labelsMap.Insert(metadata.Labels.ProcessState, stateLabel)
+-	dataPoint.SetStartTime(startTime)
++	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetValue(value)
+ }

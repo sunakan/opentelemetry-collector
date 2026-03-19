@@ -1,0 +1,13 @@
+diff --git a/config/configtls/tpm_open_windows.go b/config/configtls/tpm_open_windows.go
+index 8cc79927e..8ae763da4 100644
+--- a/config/configtls/tpm_open_windows.go
++++ b/config/configtls/tpm_open_windows.go
+@@ -12,7 +12,7 @@ import (
+ 	"github.com/google/go-tpm/tpmutil"
+ )
+ 
+-func openTPM(path string) func() (transport.TPMCloser, error) {
++func openTPM(_ string) func() (transport.TPMCloser, error) {
+ 	return func() (transport.TPMCloser, error) {
+ 		tpm, err := tpmutil.OpenTPM()
+ 		if err != nil {

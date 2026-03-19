@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_status.go b/pdata/internal/generated_wrapper_status.go
+index 63b0a25a8..55bec3a99 100644
+--- a/pdata/internal/generated_wrapper_status.go
++++ b/pdata/internal/generated_wrapper_status.go
+@@ -14,3 +14,8 @@ func CopyOrigStatus(dest, src *otlptrace.Status) {
+ 	dest.Code = src.Code
+ 	dest.Message = src.Message
+ }
++
++func FillOrigTestStatus(orig *otlptrace.Status) {
++	orig.Code = 1
++	orig.Message = "test_message"
++}

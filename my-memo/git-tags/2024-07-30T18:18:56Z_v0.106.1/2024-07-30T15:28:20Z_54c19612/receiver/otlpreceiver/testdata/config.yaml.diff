@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index 018f8d664..65d647818 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -26,6 +26,8 @@ protocols:
+         min_time: 10s
+         permit_without_stream: true
+   http:
++    auth:
++      authenticator: test
+     # The following entry demonstrates how to specify TLS credentials for the server.
+     # Note: These files do not exist. If the receiver is started with this configuration, it will fail.
+     tls:

@@ -1,0 +1,12 @@
+diff --git a/exporter/jaegerexporter/testdata/config.yaml b/exporter/jaegerexporter/testdata/config.yaml
+index ed813caca..e7d588172 100644
+--- a/exporter/jaegerexporter/testdata/config.yaml
++++ b/exporter/jaegerexporter/testdata/config.yaml
+@@ -7,6 +7,7 @@ processors:
+ exporters:
+   jaeger:
+     endpoint: "some.target:55678"
++    insecure: true
+   jaeger/2:
+     endpoint: "a.new.target:1234"
+ 

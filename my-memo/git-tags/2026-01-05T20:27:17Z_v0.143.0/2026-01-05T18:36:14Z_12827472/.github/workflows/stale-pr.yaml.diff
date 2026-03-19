@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/stale-pr.yaml b/.github/workflows/stale-pr.yaml
+index ca6f28344..1e4619c37 100644
+--- a/.github/workflows/stale-pr.yaml
++++ b/.github/workflows/stale-pr.yaml
+@@ -7,7 +7,6 @@ permissions: read-all
+ 
+ jobs:
+   stale:
+-    if: ${{ false }} # Stale action paused for the holidays
+     permissions:
+       issues: write # for actions/stale to close stale issues
+       pull-requests: write # for actions/stale to close stale PRs

@@ -1,0 +1,18 @@
+diff --git a/internal/builder/config_test.go b/internal/builder/config_test.go
+index 0b3cd9ba7..1528ae30d 100644
+--- a/internal/builder/config_test.go
++++ b/internal/builder/config_test.go
+@@ -68,11 +68,11 @@ func TestModuleFromCore(t *testing.T) {
+ 		Extensions: []Module{ // see issue-12
+ 			{
+ 				Import: "go.opentelemetry.io/collector/receiver/jaegerreceiver",
+-				GoMod:  "go.opentelemetry.io/collector v0.36.0",
++				GoMod:  "go.opentelemetry.io/collector v0.37.0",
+ 			},
+ 			{
+ 				Import: "go.opentelemetry.io/collector/receiver/jaegerreceiver",
+-				GoMod:  "go.opentelemetry.io/collector v0.36.0",
++				GoMod:  "go.opentelemetry.io/collector v0.37.0",
+ 				Core:   nil,
+ 			},
+ 		},

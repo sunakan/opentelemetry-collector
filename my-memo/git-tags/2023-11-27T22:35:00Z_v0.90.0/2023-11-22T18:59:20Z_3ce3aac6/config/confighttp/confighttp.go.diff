@@ -1,0 +1,38 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index ebf4f97c3..c83db25d4 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -9,6 +9,7 @@ import (
+ 	"io"
+ 	"net"
+ 	"net/http"
++	"net/url"
+ 	"time"
+ 
+ 	"github.com/rs/cors"
+@@ -32,6 +33,9 @@ type HTTPClientSettings struct {
+ 	// The target URL to send data to (e.g.: http://some.url:9411/v1/traces).
+ 	Endpoint string `mapstructure:"endpoint"`
+ 
++	// ProxyURL setting for the collector
++	ProxyURL string `mapstructure:"proxy_url"`
++
+ 	// TLSSetting struct exposes TLS client configuration.
+ 	TLSSetting configtls.TLSClientSetting `mapstructure:"tls"`
+ 
+@@ -132,6 +136,15 @@ func (hcs *HTTPClientSettings) ToClient(host component.Host, settings component.
+ 		transport.IdleConnTimeout = *hcs.IdleConnTimeout
+ 	}
+ 
++	// Setting the Proxy URL
++	if hcs.ProxyURL != "" {
++		proxyURL, parseErr := url.ParseRequestURI(hcs.ProxyURL)
++		if parseErr != nil {
++			return nil, parseErr
++		}
++		transport.Proxy = http.ProxyURL(proxyURL)
++	}
++
+ 	transport.DisableKeepAlives = hcs.DisableKeepAlives
+ 
+ 	clientTransport := (http.RoundTripper)(transport)

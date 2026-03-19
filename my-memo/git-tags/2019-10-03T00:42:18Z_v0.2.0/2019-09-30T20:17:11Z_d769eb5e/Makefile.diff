@@ -1,0 +1,15 @@
+diff --git a/Makefile b/Makefile
+index 4f79d9bf2..5899559ad 100644
+--- a/Makefile
++++ b/Makefile
+@@ -50,6 +50,10 @@ e2e-test: otelcol
+ test:
+ 	$(GOTEST) $(GOTEST_OPT) $(ALL_PKGS)
+ 
++.PHONY: benchmark
++benchmark:
++	$(GOTEST) -bench=. -run=notests $(ALL_PKGS)
++
+ .PHONY: travis-ci
+ travis-ci: fmt vet lint goimports misspell staticcheck test-with-cover otelcol
+ 	$(MAKE) -C testbed install-tools

@@ -1,0 +1,29 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_type_attr.yaml b/cmd/mdatagen/internal/testdata/no_type_attr.yaml
+new file mode 100644
+index 000000000..c267d218e
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/no_type_attr.yaml
+@@ -0,0 +1,23 @@
++type: metricreceiver
++
++sem_conv_version: 1.9.0
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++
++attributes:
++  used_attr:
++    description: Used attribute.
++
++metrics:
++  metric:
++    enabled: true
++    description: Metric.
++    unit: "1"
++    gauge:
++      value_type: double
++    attributes: [used_attr]

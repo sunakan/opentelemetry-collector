@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/otelcol_runner.go b/testbed/testbed/otelcol_runner.go
+index 1a5183c38..4d0e968d6 100644
+--- a/testbed/testbed/otelcol_runner.go
++++ b/testbed/testbed/otelcol_runner.go
+@@ -85,7 +85,7 @@ func (ipp *InProcessCollector) PrepareConfig(configStr string) (configCleanup fu
+ 
+ func (ipp *InProcessCollector) Start(args StartParams) error {
+ 	params := service.Parameters{
+-		ApplicationStartInfo: component.ApplicationStartInfo{
++		BuildInfo: component.BuildInfo{
+ 			ExeName: "otelcol",
+ 			Version: version.Version,
+ 		},

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index bb6fe2c72..e6a81f7cd 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -34,6 +34,7 @@
+   - `component.ReceiverFactory.TracesReceiverStability`
+   - `component.ReceiverFactory.MetricsReceiverStability`
+   - `component.ReceiverFactory.LogsReceiverStability`
++- Deprecate `obsreport.ProcessorSettings.Level` and `obsreport.ExporterSettings.Level`, use MetricsLevel from CreateSettings (#5824)
+ 
+ ### 💡 Enhancements 💡
+ 

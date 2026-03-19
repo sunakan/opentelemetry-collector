@@ -1,0 +1,17 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config.yaml b/receiver/hostmetricsreceiver/testdata/config.yaml
+index b35b15828..1d71a2e50 100644
+--- a/receiver/hostmetricsreceiver/testdata/config.yaml
++++ b/receiver/hostmetricsreceiver/testdata/config.yaml
+@@ -12,11 +12,11 @@ receivers:
+       filesystem:
+       memory:
+       network:
++      swap:
+       process:
+         include:
+           names: ["test1", "test2"]
+           match_type: "regexp"
+-      virtualmemory:
+ 
+ processors:
+   exampleprocessor:

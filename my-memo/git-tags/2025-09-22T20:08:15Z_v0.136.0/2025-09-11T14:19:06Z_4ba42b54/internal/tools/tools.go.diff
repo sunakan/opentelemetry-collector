@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index a8eb3908a..70155b31a 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -26,6 +26,7 @@ import (
+ 	_ "go.opentelemetry.io/build-tools/multimod"
+ 	_ "golang.org/x/exp/cmd/apidiff"
+ 	_ "golang.org/x/tools/cmd/goimports"
++	_ "golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize"
+ 	_ "golang.org/x/vuln/cmd/govulncheck"
+ 	_ "gotest.tools/gotestsum"
+ 	_ "mvdan.cc/gofumpt"

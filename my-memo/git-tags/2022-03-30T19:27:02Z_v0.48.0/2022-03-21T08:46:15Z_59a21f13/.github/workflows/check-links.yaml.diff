@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 13762365b..c34e31d86 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -16,7 +16,7 @@ jobs:
+         uses: actions/checkout@v3
+         with:
+           fetch-depth: 0
+-      - uses: gaurav-nelson/github-action-markdown-link-check@1.0.13
++      - uses: gaurav-nelson/github-action-markdown-link-check@1.0.14
+         with:
+           base-branch: 'main'
+           use-quiet-mode: 'yes'

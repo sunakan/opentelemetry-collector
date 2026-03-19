@@ -1,0 +1,11 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/factory.go b/cmd/mdatagen/internal/samplereceiver/factory.go
+index 7a3c9bb17..e7445f9cb 100644
+--- a/cmd/mdatagen/internal/samplereceiver/factory.go
++++ b/cmd/mdatagen/internal/samplereceiver/factory.go
+@@ -48,5 +48,5 @@ type nopReceiver struct {
+ }
+ 
+ func (r nopReceiver) initOptionalMetric() {
+-	_ = r.telemetryBuilder.InitQueueLength(func() int64 { return 1 })
++	_, _ = r.telemetryBuilder.InitQueueLength(func() int64 { return 1 })
+ }

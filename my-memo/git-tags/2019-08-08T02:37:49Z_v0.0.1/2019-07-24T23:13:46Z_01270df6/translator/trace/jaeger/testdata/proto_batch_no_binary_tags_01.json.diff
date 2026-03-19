@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
+index ec5d36912..40eda44c5 100644
+--- a/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
++++ b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
+@@ -62,7 +62,7 @@
+         },
+         {
+           "key": "span.kind",
+-          "v_str": "server"
++          "v_str": "client"
+         },
+         {
+           "key": "peer.port",

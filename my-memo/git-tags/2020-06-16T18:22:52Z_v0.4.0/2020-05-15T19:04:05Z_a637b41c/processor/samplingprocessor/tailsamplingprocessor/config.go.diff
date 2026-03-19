@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/config.go b/processor/samplingprocessor/tailsamplingprocessor/config.go
+index 2d046b4f3..f58680da6 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/config.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/config.go
+@@ -17,7 +17,7 @@ package tailsamplingprocessor
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // PolicyType indicates the type of sampling policy.

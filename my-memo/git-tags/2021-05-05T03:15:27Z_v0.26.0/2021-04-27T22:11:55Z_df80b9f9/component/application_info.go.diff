@@ -1,0 +1,21 @@
+diff --git a/component/application_info.go b/component/application_info.go
+index fa039092e..f071f509a 100644
+--- a/component/application_info.go
++++ b/component/application_info.go
+@@ -22,9 +22,6 @@ type ApplicationStartInfo struct {
+ 
+ 	// Version string.
+ 	Version string
+-
+-	// Git hash of the source code.
+-	GitHash string
+ }
+ 
+ // DefaultApplicationStartInfo returns the default ApplicationStartInfo.
+@@ -32,6 +29,5 @@ func DefaultApplicationStartInfo() ApplicationStartInfo {
+ 	return ApplicationStartInfo{
+ 		ExeName: "otelcol",
+ 		Version: "latest",
+-		GitHash: "<NOT PROPERLY GENERATED>",
+ 	}
+ }

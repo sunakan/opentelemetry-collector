@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/zpagesextension_test.go b/extension/zpagesextension/zpagesextension_test.go
+index 7b188b2d7..39ca9fd4d 100644
+--- a/extension/zpagesextension/zpagesextension_test.go
++++ b/extension/zpagesextension/zpagesextension_test.go
+@@ -79,7 +79,7 @@ func TestZPagesExtensionBadAuthExtension(t *testing.T) {
+ 		confighttp.ServerConfig{
+ 			Endpoint: "localhost:0",
+ 			Auth: &confighttp.AuthConfig{
+-				Authentication: &configauth.Authentication{
++				Authentication: configauth.Authentication{
+ 					AuthenticatorID: component.MustNewIDWithName("foo", "bar"),
+ 				},
+ 			},

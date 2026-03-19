@@ -1,0 +1,28 @@
+diff --git a/internal/cmd/pdatagen/internal/primitive_field.go b/internal/cmd/pdatagen/internal/primitive_field.go
+index de8a84ca0..df7a4605c 100644
+--- a/internal/cmd/pdatagen/internal/primitive_field.go
++++ b/internal/cmd/pdatagen/internal/primitive_field.go
+@@ -48,6 +48,11 @@ const primitiveSetTestTemplate = `tv.orig.{{ .originFieldName }} = {{ .testValue
+ 
+ const primitiveCopyOrigTemplate = `dest.{{ .originFieldName }} = src.{{ .originFieldName }}`
+ 
++const primitiveMarshalJSONTemplate = `if ms.orig.{{ .originFieldName }} != {{ .defaultVal }} {
++		dest.WriteObjectField("{{ lowerFirst .originFieldName }}")
++		dest.Write{{ upperFirst .returnType }}(ms.orig.{{ .originFieldName }})
++	}`
++
+ type PrimitiveField struct {
+ 	fieldName       string
+ 	originFieldName string
+@@ -76,6 +81,11 @@ func (pf *PrimitiveField) GenerateCopyOrig(ms *messageStruct) string {
+ 	return executeTemplate(t, pf.templateFields(ms))
+ }
+ 
++func (pf *PrimitiveField) GenerateMarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("primitiveMarshalJSONTemplate").Parse(primitiveMarshalJSONTemplate))
++	return executeTemplate(t, pf.templateFields(ms))
++}
++
+ func (pf *PrimitiveField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName":       ms.getName(),

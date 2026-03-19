@@ -1,0 +1,13 @@
+diff --git a/service/config_provider_test.go b/service/config_provider_test.go
+index d84707478..4f2b4afc3 100644
+--- a/service/config_provider_test.go
++++ b/service/config_provider_test.go
+@@ -95,7 +95,7 @@ func TestConfigProvider_Errors(t *testing.T) {
+ 		{
+ 			name:              "converter_err",
+ 			parserProvider:    configmapprovider.NewFile(path.Join("testdata", "otelcol-nop.yaml")),
+-			cfgMapConverters:  []ConfigMapConverterFunc{func(c *config.Map) (*config.Map, error) { return nil, errors.New("converter_err") }},
++			cfgMapConverters:  []ConfigMapConverterFunc{func(c *config.Map) error { return errors.New("converter_err") }},
+ 			configUnmarshaler: configunmarshaler.NewDefault(),
+ 			expectNewErr:      true,
+ 		},

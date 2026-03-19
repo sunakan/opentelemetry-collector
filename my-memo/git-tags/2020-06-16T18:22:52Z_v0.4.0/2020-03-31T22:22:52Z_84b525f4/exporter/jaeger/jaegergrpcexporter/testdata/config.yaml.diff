@@ -1,0 +1,24 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/testdata/config.yaml b/exporter/jaeger/jaegergrpcexporter/testdata/config.yaml
+deleted file mode 100644
+index 7d36cebb4..000000000
+--- a/exporter/jaeger/jaegergrpcexporter/testdata/config.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  exampleprocessor:
+-
+-exporters:
+-  jaeger_grpc:
+-    endpoint: "some.target:55678"
+-  jaeger_grpc/2:
+-    endpoint: "a.new.target:1234"
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [jaeger_grpc, jaeger_grpc/2]

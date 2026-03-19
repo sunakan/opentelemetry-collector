@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config.go b/exporter/opencensusexporter/config.go
+index 8b1b2a63e..b1a75415a 100644
+--- a/exporter/opencensusexporter/config.go
++++ b/exporter/opencensusexporter/config.go
+@@ -17,7 +17,7 @@ package opencensusexporter
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
+ )
+ 
+ // ConfigV2 defines configuration for OpenCensus exporter.

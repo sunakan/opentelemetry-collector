@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/testdata/config.yaml b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+index 5679249d7..d18d81855 100644
+--- a/exporter/prometheusremotewriteexporter/testdata/config.yaml
++++ b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+@@ -22,7 +22,7 @@ exporters:
+         write_buffer_size: 524288
+         headers:
+             Prometheus-Remote-Write-Version: "0.1.0"
+-            Tenant-id: 234
++            X-Scope-OrgID: 234
+ 
+ service:
+     pipelines:

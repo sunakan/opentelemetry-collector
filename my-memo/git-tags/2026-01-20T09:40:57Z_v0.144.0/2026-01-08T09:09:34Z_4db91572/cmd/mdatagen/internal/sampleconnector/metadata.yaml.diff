@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/metadata.yaml b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+index 99c25baa4..65479d204 100644
+--- a/cmd/mdatagen/internal/sampleconnector/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+@@ -1,6 +1,8 @@
+ # Sample metadata file with all available configurations for a connector.
+ 
+ type: sample
++display_name: Sample Connector
++description: This connector is used for testing purposes to check the output of mdatagen.
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ sem_conv_version: 1.9.0

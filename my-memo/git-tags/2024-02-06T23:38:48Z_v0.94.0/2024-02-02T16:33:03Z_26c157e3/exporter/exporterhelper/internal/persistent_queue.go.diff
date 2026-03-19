@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue.go b/exporter/exporterhelper/internal/persistent_queue.go
+index 0a6629cb8..9f23ab6a9 100644
+--- a/exporter/exporterhelper/internal/persistent_queue.go
++++ b/exporter/exporterhelper/internal/persistent_queue.go
+@@ -511,7 +511,7 @@ func toStorageClient(ctx context.Context, storageID component.ID, host component
+ 		return nil, errWrongExtensionType
+ 	}
+ 
+-	return storageExt.GetClient(ctx, component.KindExporter, ownerID, string(signal))
++	return storageExt.GetClient(ctx, component.KindExporter, ownerID, signal.String())
+ }
+ 
+ func getItemKey(index uint64) string {

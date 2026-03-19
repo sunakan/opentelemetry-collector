@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/metrics_gen.go b/internal/goldendataset/metrics_gen.go
+index f55acd203..62e32a7fc 100644
+--- a/internal/goldendataset/metrics_gen.go
++++ b/internal/goldendataset/metrics_gen.go
+@@ -17,7 +17,7 @@ package goldendataset
+ import (
+ 	"fmt"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Simple utilities for generating metrics for testing

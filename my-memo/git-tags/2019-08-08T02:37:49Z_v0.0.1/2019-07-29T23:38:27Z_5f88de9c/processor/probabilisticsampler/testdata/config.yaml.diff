@@ -1,0 +1,22 @@
+diff --git a/processor/probabilisticsampler/testdata/config.yaml b/processor/probabilisticsampler/testdata/config.yaml
+new file mode 100644
+index 000000000..31a578dc1
+--- /dev/null
++++ b/processor/probabilisticsampler/testdata/config.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  examplereceiver:
++
++processors:
++  probabilistic-sampler:
++    sampling-percentage: 15.3
++    hash-seed: 22
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [probabilistic-sampler]
++    exporters: [exampleexporter]

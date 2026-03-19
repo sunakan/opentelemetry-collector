@@ -1,0 +1,20 @@
+diff --git a/cmd/occollector/app/collector/receivers.go b/cmd/occollector/app/collector/receivers.go
+index fc732647e..90344b29b 100644
+--- a/cmd/occollector/app/collector/receivers.go
++++ b/cmd/occollector/app/collector/receivers.go
+@@ -26,6 +26,7 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/internal/collector/opencensus"
+ 	"github.com/census-instrumentation/opencensus-service/internal/collector/processor"
+ 	"github.com/census-instrumentation/opencensus-service/internal/collector/zipkin"
++	"github.com/census-instrumentation/opencensus-service/internal/collector/zipkin/scribe"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+ )
+ 
+@@ -39,6 +40,7 @@ func createReceivers(v *viper.Viper, logger *zap.Logger, spanProcessor processor
+ 		{"Jaeger", jaegerreceiver.Start, builder.JaegerReceiverEnabled(v)},
+ 		{"OpenCensus", ocreceiver.Start, builder.OpenCensusReceiverEnabled(v)},
+ 		{"Zipkin", zipkinreceiver.Start, builder.ZipkinReceiverEnabled(v)},
++		{"Zipkin-Scribe", zipkinscribereceiver.Start, builder.ZipkinScribeReceiverEnabled(v)},
+ 	}
+ 
+ 	var startedTraceReceivers []receiver.TraceReceiver

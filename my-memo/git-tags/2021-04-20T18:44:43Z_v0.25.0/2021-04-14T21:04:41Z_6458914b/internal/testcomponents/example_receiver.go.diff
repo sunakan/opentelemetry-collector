@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_receiver.go b/internal/testcomponents/example_receiver.go
+index 7f5a76e14..4a119b193 100644
+--- a/internal/testcomponents/example_receiver.go
++++ b/internal/testcomponents/example_receiver.go
+@@ -61,7 +61,7 @@ func createReceiverDefaultConfig() config.Receiver {
+ 	}
+ }
+ 
+-// CreateTraceReceiver creates a trace receiver based on this config.
++// CreateTracesReceiver creates a trace receiver based on this config.
+ func createTracesReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,

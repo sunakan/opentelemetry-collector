@@ -1,0 +1,13 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index fadf3d759..2bef5836e 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -40,8 +40,6 @@ IMPI         := $(TOOLS_BIN_DIR)/impi
+ MISSPELL     := $(TOOLS_BIN_DIR)/misspell
+ MULTIMOD     := $(TOOLS_BIN_DIR)/multimod
+ PORTO        := $(TOOLS_BIN_DIR)/porto
+-SEMCONVGEN   := $(TOOLS_BIN_DIR)/semconvgen
+-SEMCONVKIT   := $(TOOLS_BIN_DIR)/semconvkit
+ GOTESTSUM    := $(TOOLS_BIN_DIR)/gotestsum
+ 
+ .PHONY: install-tools

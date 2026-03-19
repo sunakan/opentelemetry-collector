@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pcommon_package.go b/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
+index fd8e0bb39..452545e64 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pcommon_package.go
+@@ -25,6 +25,7 @@ var pcommon = &Package{
+ 			`otlpresource "go.opentelemetry.io/collector/pdata/internal/data/protogen/resource/v1"`,
+ 		},
+ 		testImports: []string{
++			`"strconv"`,
+ 			`"testing"`,
+ 			``,
+ 			`"github.com/stretchr/testify/assert"`,

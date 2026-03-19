@@ -1,0 +1,13 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index 4598dd6b6..1a5aefeb0 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -154,7 +154,7 @@ func (rb *ReceiversBuilder) findPipelinesToAttach(config configmodels.Receiver)
+ 	pipelinesToAttach[configmodels.MetricsDataType] = make([]*builtPipeline, 0)
+ 
+ 	// Iterate over all pipelines.
+-	for _, pipelineCfg := range rb.config.Pipelines {
++	for _, pipelineCfg := range rb.config.Service.Pipelines {
+ 		// Get the first processor of the pipeline.
+ 		pipelineProcessor := rb.builtPipelines[pipelineCfg]
+ 		if pipelineProcessor == nil {

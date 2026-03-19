@@ -1,0 +1,18 @@
+diff --git a/pdata/pcommon/timestamp.go b/pdata/pcommon/timestamp.go
+index 5fd1758b1..666f86f43 100644
+--- a/pdata/pcommon/timestamp.go
++++ b/pdata/pcommon/timestamp.go
+@@ -13,11 +13,13 @@ type Timestamp uint64
+ 
+ // NewTimestampFromTime constructs a new Timestamp from the provided time.Time.
+ func NewTimestampFromTime(t time.Time) Timestamp {
++	// nolint:gosec
+ 	return Timestamp(uint64(t.UnixNano()))
+ }
+ 
+ // AsTime converts this to a time.Time.
+ func (ts Timestamp) AsTime() time.Time {
++	// nolint:gosec
+ 	return time.Unix(0, int64(ts)).UTC()
+ }
+ 

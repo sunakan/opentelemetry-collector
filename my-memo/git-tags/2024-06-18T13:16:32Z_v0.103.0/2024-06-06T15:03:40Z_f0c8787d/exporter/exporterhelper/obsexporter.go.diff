@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsexporter.go b/exporter/exporterhelper/obsexporter.go
+index e3a78c34b..f71971cef 100644
+--- a/exporter/exporterhelper/obsexporter.go
++++ b/exporter/exporterhelper/obsexporter.go
+@@ -33,7 +33,7 @@ type ObsReport struct {
+ // ObsReportSettings are settings for creating an ObsReport.
+ type ObsReportSettings struct {
+ 	ExporterID             component.ID
+-	ExporterCreateSettings exporter.CreateSettings
++	ExporterCreateSettings exporter.Settings
+ }
+ 
+ // NewObsReport creates a new Exporter.

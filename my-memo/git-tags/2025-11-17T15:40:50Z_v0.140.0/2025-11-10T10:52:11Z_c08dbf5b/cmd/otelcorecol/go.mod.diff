@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 2bd5f3911..91e39a7b8 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -287,6 +287,8 @@ replace go.opentelemetry.io/collector/internal/telemetry => ../../internal/telem
+ 
+ replace go.opentelemetry.io/collector/internal/sharedcomponent => ../../internal/sharedcomponent
+ 
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil
++
+ replace go.opentelemetry.io/collector/otelcol => ../../otelcol
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata

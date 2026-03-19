@@ -1,0 +1,27 @@
+diff --git a/config/config.go b/config/config.go
+index 2d5239c52..ebc9b9654 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -57,7 +57,6 @@ const (
+ 	errPipelineReceiverNotExists
+ 	errPipelineProcessorNotExists
+ 	errPipelineExporterNotExists
+-	errMetricPipelineCannotHaveProcessors
+ 	errUnmarshalError
+ 	errMissingReceivers
+ 	errMissingExporters
+@@ -738,14 +737,6 @@ func validatePipelineProcessors(
+ 				msg:  fmt.Sprintf("pipeline %q must have at least one processor", pipeline.Name),
+ 			}
+ 		}
+-	} else if pipeline.InputType == configmodels.MetricsDataType {
+-		// Metrics pipeline cannot have processors.
+-		if len(pipeline.Processors) > 0 {
+-			return &configError{
+-				code: errMetricPipelineCannotHaveProcessors,
+-				msg:  fmt.Sprintf("metrics pipeline %q cannot have processors", pipeline.Name),
+-			}
+-		}
+ 	}
+ 
+ 	// Validate pipeline processor name references

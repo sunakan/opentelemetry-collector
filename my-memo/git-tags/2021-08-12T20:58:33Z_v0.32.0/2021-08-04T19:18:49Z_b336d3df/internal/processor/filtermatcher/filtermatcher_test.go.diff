@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filtermatcher/filtermatcher_test.go b/internal/processor/filtermatcher/filtermatcher_test.go
+index db173d205..93a3fbd1a 100644
+--- a/internal/processor/filtermatcher/filtermatcher_test.go
++++ b/internal/processor/filtermatcher/filtermatcher_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
+ 	"go.opentelemetry.io/collector/model/pdata"
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ )
+ 
+ func createConfig(matchType filterset.MatchType) *filterset.Config {

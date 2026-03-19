@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index e2ee26c1e..0618c73d9 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -32,7 +32,6 @@ const (
+ 
+ 	defaultGRPCEndpoint = "0.0.0.0:4317"
+ 	defaultHTTPEndpoint = "0.0.0.0:4318"
+-	legacyGRPCEndpoint  = "0.0.0.0:55680"
+ 	legacyHTTPEndpoint  = "0.0.0.0:55681"
+ )
+ 

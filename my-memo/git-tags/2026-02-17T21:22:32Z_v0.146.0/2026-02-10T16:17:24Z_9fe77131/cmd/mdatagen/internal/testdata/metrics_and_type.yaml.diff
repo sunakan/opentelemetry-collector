@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/testdata/metrics_and_type.yaml b/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
+index e2591e04f..537a56335 100644
+--- a/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
++++ b/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
+@@ -13,8 +13,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Description.
+-    stability:
+-      level: development
++    stability: development
+     unit: s
+     gauge:
+       value_type: double

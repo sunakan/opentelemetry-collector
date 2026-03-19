@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles_test.go b/exporter/exporterhelper/xexporterhelper/profiles_test.go
+index af7c79c1c..a48d5a760 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles_test.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles_test.go
+@@ -352,7 +352,7 @@ func generateProfilesTraffic(t *testing.T, tracer trace.Tracer, le xexporter.Pro
+ 	ld := testdata.GenerateProfiles(1)
+ 	ctx, span := tracer.Start(context.Background(), fakeProfilesParentSpanName)
+ 	defer span.End()
+-	for i := 0; i < numRequests; i++ {
++	for range numRequests {
+ 		require.Equal(t, wantError, le.ConsumeProfiles(ctx, ld))
+ 	}
+ }

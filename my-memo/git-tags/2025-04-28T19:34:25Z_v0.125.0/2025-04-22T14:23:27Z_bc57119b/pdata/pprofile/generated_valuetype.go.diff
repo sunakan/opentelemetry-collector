@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_valuetype.go b/pdata/pprofile/generated_valuetype.go
+index 4f8b4e11e..309e08299 100644
+--- a/pdata/pprofile/generated_valuetype.go
++++ b/pdata/pprofile/generated_valuetype.go
+@@ -41,6 +41,10 @@ func NewValueType() ValueType {
+ func (ms ValueType) MoveTo(dest ValueType) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpprofiles.ValueType{}
+ }

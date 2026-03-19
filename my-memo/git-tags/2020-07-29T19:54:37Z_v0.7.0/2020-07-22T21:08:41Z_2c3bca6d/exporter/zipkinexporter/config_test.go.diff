@@ -1,0 +1,18 @@
+diff --git a/exporter/zipkinexporter/config_test.go b/exporter/zipkinexporter/config_test.go
+index 94a57ef1e..2fe88ca6e 100644
+--- a/exporter/zipkinexporter/config_test.go
++++ b/exporter/zipkinexporter/config_test.go
+@@ -22,11 +22,12 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := config.ExampleComponents()
++	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}

@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go b/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
+index a111fee5f..c956cbda2 100644
+--- a/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
+@@ -37,9 +37,9 @@ func TestDisabledBatcher(t *testing.T) {
+ 			ba := newDisabledBatcher(sink.Export)
+ 
+ 			mq := newMemoryQueue[request.Request](memoryQueueSettings[request.Request]{
+-				sizer:    request.RequestsSizer[request.Request]{},
+-				capacity: 1000,
+-				blocking: true,
++				sizer:           request.RequestsSizer[request.Request]{},
++				capacity:        1000,
++				blockOnOverflow: true,
+ 			})
+ 			q := newAsyncQueue(mq, tt.maxWorkers, ba.Consume)
+ 

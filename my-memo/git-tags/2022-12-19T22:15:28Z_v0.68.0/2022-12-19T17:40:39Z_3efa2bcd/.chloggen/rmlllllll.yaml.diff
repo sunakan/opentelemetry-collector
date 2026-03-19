@@ -1,0 +1,17 @@
+diff --git a/.chloggen/rmlllllll.yaml b/.chloggen/rmlllllll.yaml
+deleted file mode 100755
+index 3ec34be10..000000000
+--- a/.chloggen/rmlllllll.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: breaking
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: service
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Remove deprecated funcs `service.NewCommand` and `service.NewSvcHandler`.
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [5564]

@@ -1,0 +1,28 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 37085ec5a..3601deba0 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -40,6 +40,13 @@ func runGoCommand(cfg *Config, args ...string) ([]byte, error) {
+ 	cmd := exec.Command(cfg.Distribution.Go, args...)
+ 	cmd.Dir = cfg.Distribution.OutputPath
+ 
++	cmd.Env = os.Environ()
++	if cfg.Distribution.CGoEnabled {
++		cmd.Env = append(cmd.Env, "CGO_ENABLED=1")
++	} else {
++		cmd.Env = append(cmd.Env, "CGO_ENABLED=0")
++	}
++
+ 	var stdout, stderr bytes.Buffer
+ 	cmd.Stdout = &stdout
+ 	cmd.Stderr = &stderr
+@@ -127,6 +134,9 @@ func Compile(cfg *Config) error {
+ 			gcflags = cfg.GCFlags
+ 		}
+ 	}
++	if cfg.Distribution.CGoEnabled {
++		cfg.Logger.Info("Building with cgo enabled")
++	}
+ 
+ 	args = append(args, "-ldflags="+ldflags, "-gcflags="+gcflags)
+ 

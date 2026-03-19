@@ -1,0 +1,32 @@
+diff --git a/config/configtelemetry/configtelemetry_test.go b/config/configtelemetry/configtelemetry_test.go
+index 4512bb575..ea303bac7 100644
+--- a/config/configtelemetry/configtelemetry_test.go
++++ b/config/configtelemetry/configtelemetry_test.go
+@@ -18,7 +18,6 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+ )
+ 
+ func TestParseFrom(t *testing.T) {
+@@ -149,19 +148,3 @@ func TestLevelString(t *testing.T) {
+ 		})
+ 	}
+ }
+-
+-func TestTelemetrySettings(t *testing.T) {
+-	ts := &TelemetrySetting{
+-		MetricsLevelStr: "unknown",
+-	}
+-	_, err := ts.GetMetricsLevel()
+-	assert.Error(t, err)
+-}
+-
+-func TestDefaultTelemetrySettings(t *testing.T) {
+-	ts := DefaultTelemetrySetting()
+-	assert.Equal(t, levelBasicStr, ts.MetricsLevelStr)
+-	lvl, err := ts.GetMetricsLevel()
+-	require.NoError(t, err)
+-	assert.Equal(t, LevelBasic, lvl)
+-}

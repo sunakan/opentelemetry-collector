@@ -1,0 +1,13 @@
+diff --git a/model/internal/pdata/generated_log.go b/model/internal/pdata/generated_log.go
+index 0996d6b0c..b688a419f 100644
+--- a/model/internal/pdata/generated_log.go
++++ b/model/internal/pdata/generated_log.go
+@@ -640,6 +640,8 @@ func (ms LogRecord) SetSeverityNumber(v SeverityNumber) {
+ }
+ 
+ // Name returns the name associated with this LogRecord.
++//
++// Deprecated: [v0.48.0] it was removed from the data model.
+ func (ms LogRecord) Name() string {
+ 	return (*ms.orig).Name
+ }

@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index a9b678855..e94f7a8a0 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -33,6 +33,7 @@ import (
+ 	_ "github.com/tcnksm/ghr"
+ 	_ "github.com/wadey/gocovmerge"
+ 	_ "go.opentelemetry.io/build-tools/checkdoc"
++	_ "go.opentelemetry.io/build-tools/multimod"
+ 	_ "go.opentelemetry.io/build-tools/semconvgen"
+ 	_ "golang.org/x/exp/cmd/apidiff"
+ 	_ "golang.org/x/tools/cmd/goimports"

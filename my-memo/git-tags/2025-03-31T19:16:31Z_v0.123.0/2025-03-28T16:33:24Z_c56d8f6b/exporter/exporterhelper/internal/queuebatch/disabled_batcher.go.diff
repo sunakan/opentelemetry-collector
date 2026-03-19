@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/disabled_batcher.go b/exporter/exporterhelper/internal/queuebatch/disabled_batcher.go
+index b8f9e2471..7d3d8cd47 100644
+--- a/exporter/exporterhelper/internal/queuebatch/disabled_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/disabled_batcher.go
+@@ -22,6 +22,6 @@ func (db *disabledBatcher[T]) Consume(ctx context.Context, req T, done Done) {
+ 	done.OnDone(db.consumeFunc(ctx, req))
+ }
+ 
+-func newDisabledBatcher[K any](consumeFunc sender.SendFunc[K]) Batcher[K] {
+-	return &disabledBatcher[K]{consumeFunc: consumeFunc}
++func newDisabledBatcher[T any](consumeFunc sender.SendFunc[T]) Batcher[T] {
++	return &disabledBatcher[T]{consumeFunc: consumeFunc}
+ }

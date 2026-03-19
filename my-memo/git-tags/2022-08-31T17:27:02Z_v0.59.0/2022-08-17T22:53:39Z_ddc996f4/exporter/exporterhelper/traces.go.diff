@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index f2d57744a..7f18e62b0 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -79,7 +79,7 @@ type traceExporter struct {
+ 	consumer.Traces
+ }
+ 
+-// Deprecated: [v0.58.0] use NewTracesExporter.
++// Deprecated: [v0.59.0] use NewTracesExporter.
+ func NewTracesExporterWithContext(
+ 	ctx context.Context,
+ 	set component.ExporterCreateSettings,

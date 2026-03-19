@@ -1,0 +1,14 @@
+diff --git a/service/internal/graph/host.go b/service/internal/graph/host.go
+index ef8ab73e6..ff7d37df6 100644
+--- a/service/internal/graph/host.go
++++ b/service/internal/graph/host.go
+@@ -38,7 +38,8 @@ type Host struct {
+ 	Connectors        *connector.Builder
+ 	Extensions        *extension.Builder
+ 
+-	BuildInfo component.BuildInfo
++	ModuleInfo extension.ModuleInfo
++	BuildInfo  component.BuildInfo
+ 
+ 	Pipelines         *Graph
+ 	ServiceExtensions *extensions.Extensions

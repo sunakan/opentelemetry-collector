@@ -1,0 +1,67 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 91ce48d3b..e027a6693 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -34,7 +34,7 @@ func TestBasicGrpcSettings(t *testing.T) {
+ 	assert.NoError(t, err)
+ }
+ 
+-func TestInvalidPemFile(t *testing.T) {
++func TestGRPCClientSettingsError(t *testing.T) {
+ 	tests := []struct {
+ 		settings GRPCClientSettings
+ 		err      string
+@@ -93,6 +93,53 @@ func TestUseSecure(t *testing.T) {
+ 	assert.Equal(t, len(dialOpts), 1)
+ }
+ 
++func TestGRPCServerSettingsError(t *testing.T) {
++	tests := []struct {
++		settings GRPCServerSettings
++		err      string
++	}{
++		{
++			err: "^failed to load TLS config: failed to load CA CertPool: failed to load CA /doesnt/exist:",
++			settings: GRPCServerSettings{
++				Endpoint: "",
++				TLSCredentials: &configtls.TLSServerSetting{
++					TLSSetting: configtls.TLSSetting{
++						CAFile: "/doesnt/exist",
++					},
++				},
++				Keepalive: nil,
++			},
++		},
++		{
++			err: "^failed to load TLS config: for auth via TLS, either both certificate and key must be supplied, or neither",
++			settings: GRPCServerSettings{
++				Endpoint: "",
++				TLSCredentials: &configtls.TLSServerSetting{
++					TLSSetting: configtls.TLSSetting{
++						CertFile: "/doesnt/exist",
++					},
++				},
++				Keepalive: nil,
++			},
++		},
++		{
++			err: "^failed to load TLS config: failed to load client CA CertPool: failed to load CA /doesnt/exist:",
++			settings: GRPCServerSettings{
++				Endpoint: "",
++				TLSCredentials: &configtls.TLSServerSetting{
++					ClientCAFile: "/doesnt/exist",
++				},
++			},
++		},
++	}
++	for _, test := range tests {
++		t.Run(test.err, func(t *testing.T) {
++			_, err := test.settings.ToServerOption()
++			assert.Regexp(t, test.err, err)
++		})
++	}
++}
++
+ func TestGetGRPCCompressionKey(t *testing.T) {
+ 	if GetGRPCCompressionKey("gzip") != CompressionGzip {
+ 		t.Error("gzip is marked as supported but returned unsupported")

@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/README.md b/receiver/hostmetricsreceiver/README.md
+index f3e9c1c9d..c7525c3b5 100644
+--- a/receiver/hostmetricsreceiver/README.md
++++ b/receiver/hostmetricsreceiver/README.md
+@@ -30,8 +30,8 @@ The available scrapers are:
+ | filesystem | All                          | File System utilization metrics                        |
+ | memory     | All                          | Memory utilization metrics                             |
+ | network    | All                          | Network interface I/O metrics & TCP connection metrics |
++| paging     | All                          | Paging/Swap space utilization and I/O metrics
+ | processes  | Linux                        | Process count metrics                                  |
+-| swap       | All                          | Swap space utilization and I/O metrics                 |
+ | process    | Linux & Windows              | Per process CPU, Memory, and Disk I/O metrics          |
+ 
+ ### Notes

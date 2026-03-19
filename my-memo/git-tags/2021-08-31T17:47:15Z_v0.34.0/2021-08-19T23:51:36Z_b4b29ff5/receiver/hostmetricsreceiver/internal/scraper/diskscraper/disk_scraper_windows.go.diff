@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+index 49603c690..e11741535 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+@@ -98,7 +98,7 @@ func (s *scraper) start(context.Context, component.Host) error {
+ func (s *scraper) scrape(ctx context.Context) (pdata.MetricSlice, error) {
+ 	metrics := pdata.NewMetricSlice()
+ 
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 
+ 	counters, err := s.perfCounterScraper.Scrape()
+ 	if err != nil {

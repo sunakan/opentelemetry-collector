@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_resource.go b/pdata/internal/generated_wrapper_resource.go
+index b06bfaf91..328bb8886 100644
+--- a/pdata/internal/generated_wrapper_resource.go
++++ b/pdata/internal/generated_wrapper_resource.go
+@@ -44,7 +44,7 @@ func GenerateTestResource() Resource {
+ 
+ func FillTestResource(tv Resource) {
+ 	FillTestMap(NewMap(&tv.orig.Attributes, tv.state))
+-	tv.orig.DroppedAttributesCount = uint32(17)
++	tv.orig.DroppedAttributesCount = uint32(13)
+ 	FillTestEntityRefSlice(NewEntityRefSlice(&tv.orig.EntityRefs, tv.state))
+ }
+ 

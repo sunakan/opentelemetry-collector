@@ -1,0 +1,16 @@
+diff --git a/testbed/testbed/utils.go b/testbed/testbed/utils.go
+index adfdc2d9b..5a4fd98f7 100644
+--- a/testbed/testbed/utils.go
++++ b/testbed/testbed/utils.go
+@@ -17,9 +17,9 @@ package testbed
+ import (
+ 	"testing"
+ 
+-	"go.opentelemetry.io/collector/testutils"
++	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+ func GetAvailablePort(t *testing.T) int {
+-	return int(testutils.GetAvailablePort(t))
++	return int(testutil.GetAvailablePort(t))
+ }

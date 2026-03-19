@@ -1,0 +1,13 @@
+diff --git a/model/pdata/metrics.go b/model/pdata/metrics.go
+index f9741294f..8fbf43220 100644
+--- a/model/pdata/metrics.go
++++ b/model/pdata/metrics.go
+@@ -281,7 +281,7 @@ func (d MetricDataPointFlags) String() string {
+ type MetricDataPointFlag uint32
+ 
+ const (
+-	// MetricDataPointFlagsNoRecordedValue is flag for a metric aggregator which reports changes since last report time.
++	// MetricDataPointFlagNoRecordedValue is flag for a metric aggregator which reports changes since last report time.
+ 	MetricDataPointFlagNoRecordedValue = MetricDataPointFlag(otlpmetrics.DataPointFlags_FLAG_NO_RECORDED_VALUE)
+ )
+ 

@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_resource_test.go b/pdata/internal/generated_resource_test.go
+index 320ad65a9..d1c606cdf 100644
+--- a/pdata/internal/generated_resource_test.go
++++ b/pdata/internal/generated_resource_test.go
+@@ -33,8 +33,12 @@ func TestResource_MoveTo(t *testing.T) {
+ 
+ func TestResource_CopyTo(t *testing.T) {
+ 	ms := NewResource()
+-	generateTestResource().CopyTo(ms)
+-	assert.EqualValues(t, generateTestResource(), ms)
++	orig := NewResource()
++	orig.CopyTo(ms)
++	assert.EqualValues(t, orig, ms)
++	orig = generateTestResource()
++	orig.CopyTo(ms)
++	assert.EqualValues(t, orig, ms)
+ }
+ 
+ func TestResource_Attributes(t *testing.T) {

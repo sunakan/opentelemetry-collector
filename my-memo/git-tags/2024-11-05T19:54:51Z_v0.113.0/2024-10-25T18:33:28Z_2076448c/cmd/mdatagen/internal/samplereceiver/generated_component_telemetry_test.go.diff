@@ -1,0 +1,38 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
+index 084aef2bb..ea344d16f 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
+@@ -13,6 +13,7 @@ import (
+ 	"go.opentelemetry.io/otel/sdk/metric/metricdata/metricdatatest"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/receiver"
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+@@ -24,14 +25,19 @@ type componentTestTelemetry struct {
+ }
+ 
+ func (tt *componentTestTelemetry) NewSettings() receiver.Settings {
+-	settings := receivertest.NewNopSettings()
+-	settings.MeterProvider = tt.meterProvider
+-	settings.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
++	set := receivertest.NewNopSettings()
++	set.TelemetrySettings = tt.newTelemetrySettings()
++	set.ID = component.NewID(component.MustNewType("sample"))
++	return set
++}
++
++func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
++	set := componenttest.NewNopTelemetrySettings()
++	set.MeterProvider = tt.meterProvider
++	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}
+-	settings.ID = component.NewID(component.MustNewType("sample"))
+-
+-	return settings
++	return set
+ }
+ 
+ func setupTestTelemetry() componentTestTelemetry {

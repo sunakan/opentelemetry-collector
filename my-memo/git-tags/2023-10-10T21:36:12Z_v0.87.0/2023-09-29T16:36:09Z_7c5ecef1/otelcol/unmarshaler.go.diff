@@ -1,0 +1,24 @@
+diff --git a/otelcol/unmarshaler.go b/otelcol/unmarshaler.go
+index 88f25dfc9..66b2a87a0 100644
+--- a/otelcol/unmarshaler.go
++++ b/otelcol/unmarshaler.go
+@@ -4,6 +4,8 @@
+ package otelcol // import "go.opentelemetry.io/collector/otelcol"
+ 
+ import (
++	"time"
++
+ 	"go.uber.org/zap/zapcore"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+@@ -45,7 +47,9 @@ func unmarshal(v *confmap.Conf, factories Factories) (*configSettings, error) {
+ 					Development: false,
+ 					Encoding:    "console",
+ 					Sampling: &telemetry.LogsSamplingConfig{
+-						Initial:    100,
++						Enabled:    true,
++						Tick:       10 * time.Second,
++						Initial:    10,
+ 						Thereafter: 100,
+ 					},
+ 					OutputPaths:       []string{"stderr"},

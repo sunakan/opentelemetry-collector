@@ -1,0 +1,13 @@
+diff --git a/config/configcheck/configcheck.go b/config/configcheck/configcheck.go
+index c407c79d8..3a507a206 100644
+--- a/config/configcheck/configcheck.go
++++ b/config/configcheck/configcheck.go
+@@ -159,7 +159,7 @@ func checkStructFieldTags(f reflect.StructField) error {
+ 
+ 	if squash {
+ 		// Field was squashed.
+-		if f.Type.Kind() != reflect.Struct {
++		if (f.Type.Kind() != reflect.Struct) && (f.Type.Kind() != reflect.Ptr || f.Type.Elem().Kind() != reflect.Struct) {
+ 			return fmt.Errorf(
+ 				"attempt to squash non-struct type on field %q", f.Name)
+ 		}

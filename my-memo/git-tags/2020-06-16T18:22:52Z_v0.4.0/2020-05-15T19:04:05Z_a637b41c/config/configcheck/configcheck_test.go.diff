@@ -1,0 +1,17 @@
+diff --git a/config/configcheck/configcheck_test.go b/config/configcheck/configcheck_test.go
+index bd4b9f1e9..2cf2f0d4a 100644
+--- a/config/configcheck/configcheck_test.go
++++ b/config/configcheck/configcheck_test.go
+@@ -23,9 +23,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/service/defaultcomponents"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/service/defaultcomponents"
+ )
+ 
+ func TestValidateConfigFromFactories_Success(t *testing.T) {

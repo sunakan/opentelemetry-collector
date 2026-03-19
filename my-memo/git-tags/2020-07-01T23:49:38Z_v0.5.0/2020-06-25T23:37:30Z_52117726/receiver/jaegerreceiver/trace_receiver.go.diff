@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index bce2bd634..09dafc2ba 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -395,7 +395,7 @@ func (jr *jReceiver) startAgent(_ component.Host) error {
+ 
+ 	// Start upstream grpc client before serving sampling endpoints over HTTP
+ 	if jr.config.RemoteSamplingClientSettings.Endpoint != "" {
+-		grpcOpts, err := configgrpc.GrpcSettingsToDialOptions(jr.config.RemoteSamplingClientSettings)
++		grpcOpts, err := jr.config.RemoteSamplingClientSettings.ToDialOptions()
+ 		if err != nil {
+ 			jr.logger.Error("Error creating grpc dial options for remote sampling endpoint", zap.Error(err))
+ 			return err

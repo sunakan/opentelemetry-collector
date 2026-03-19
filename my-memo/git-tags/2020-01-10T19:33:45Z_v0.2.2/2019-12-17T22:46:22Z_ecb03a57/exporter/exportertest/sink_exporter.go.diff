@@ -1,0 +1,28 @@
+diff --git a/exporter/exportertest/sink_exporter.go b/exporter/exportertest/sink_exporter.go
+index a3dcdfade..549000457 100644
+--- a/exporter/exportertest/sink_exporter.go
++++ b/exporter/exportertest/sink_exporter.go
+@@ -52,11 +52,6 @@ const (
+ 	sinkMetricsExportFormat = "sink_metrics"
+ )
+ 
+-// Name returns the name of this TraceExporter.
+-func (ste *SinkTraceExporter) Name() string {
+-	return sinkTraceExportFormat
+-}
+-
+ // AllTraces returns the traces sent to the test sink.
+ func (ste *SinkTraceExporter) AllTraces() []consumerdata.TraceData {
+ 	ste.mu.Lock()
+@@ -95,11 +90,6 @@ func (sme *SinkMetricsExporter) ConsumeMetricsData(ctx context.Context, md consu
+ 	return nil
+ }
+ 
+-// Name returns the name of this MetricsExporter.
+-func (sme *SinkMetricsExporter) Name() string {
+-	return sinkMetricsExportFormat
+-}
+-
+ // AllMetrics returns the metrics sent to the test sink.
+ func (sme *SinkMetricsExporter) AllMetrics() []consumerdata.MetricsData {
+ 	sme.mu.Lock()

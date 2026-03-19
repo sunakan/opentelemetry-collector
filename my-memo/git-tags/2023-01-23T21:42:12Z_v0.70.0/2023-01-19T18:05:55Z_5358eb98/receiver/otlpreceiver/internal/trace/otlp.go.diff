@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp.go b/receiver/otlpreceiver/internal/trace/otlp.go
+index 4a8a30442..3ad482b0a 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp.go
++++ b/receiver/otlpreceiver/internal/trace/otlp.go
+@@ -29,6 +29,7 @@ const (
+ 
+ // Receiver is the type used to handle spans from OpenTelemetry exporters.
+ type Receiver struct {
++	ptraceotlp.UnimplementedGRPCServer
+ 	nextConsumer consumer.Traces
+ 	obsrecv      *obsreport.Receiver
+ }

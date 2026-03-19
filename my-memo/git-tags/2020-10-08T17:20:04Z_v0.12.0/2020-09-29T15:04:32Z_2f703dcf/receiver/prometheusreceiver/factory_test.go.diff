@@ -1,0 +1,36 @@
+diff --git a/receiver/prometheusreceiver/factory_test.go b/receiver/prometheusreceiver/factory_test.go
+index 4b276ee53..557c1265d 100644
+--- a/receiver/prometheusreceiver/factory_test.go
++++ b/receiver/prometheusreceiver/factory_test.go
+@@ -16,13 +16,16 @@ package prometheusreceiver
+ 
+ import (
+ 	"context"
++	"path"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configcheck"
++	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+@@ -41,3 +44,14 @@ func TestCreateReceiver(t *testing.T) {
+ 	assert.Equal(t, err, errNilScrapeConfig)
+ 	assert.Nil(t, mReceiver)
+ }
++
++func TestFactoryCanParseServiceDiscoveryConfigs(t *testing.T) {
++	factories, err := componenttest.ExampleComponents()
++	assert.NoError(t, err)
++
++	factory := NewFactory()
++	factories.Receivers[typeStr] = factory
++	_, err = configtest.LoadConfigFile(t, path.Join(".", "testdata", "config_sd.yaml"), factories)
++
++	assert.NoError(t, err)
++}

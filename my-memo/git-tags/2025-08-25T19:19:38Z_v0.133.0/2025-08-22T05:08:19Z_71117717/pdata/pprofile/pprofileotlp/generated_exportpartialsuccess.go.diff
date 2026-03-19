@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+index e072f36c5..3c3c90ed9 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+@@ -44,8 +44,8 @@ func (ms ExportPartialSuccess) MoveTo(dest ExportPartialSuccess) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpcollectorprofiles.ExportProfilesPartialSuccess{}
++	internal.DeleteOrigExportProfilesPartialSuccess(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // RejectedProfiles returns the rejectedprofiles associated with this ExportPartialSuccess.

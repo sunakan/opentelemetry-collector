@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index aaf0ea96a..25a1720d7 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -15,8 +15,8 @@
+ package componenttest
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // NopHost mocks a receiver.ReceiverHost for test purposes.

@@ -1,0 +1,26 @@
+diff --git a/exporter/otlpexporter/internal/metadata/generated_status.go b/exporter/otlpexporter/internal/metadata/generated_status.go
+index 4b0d0f0ec..0f9aba1f2 100644
+--- a/exporter/otlpexporter/internal/metadata/generated_status.go
++++ b/exporter/otlpexporter/internal/metadata/generated_status.go
+@@ -10,8 +10,7 @@ import (
+ )
+ 
+ var (
+-	Type      = component.MustNewType("otlp")
+-	scopeName = "go.opentelemetry.io/collector/exporter/otlpexporter"
++	Type = component.MustNewType("otlp")
+ )
+ 
+ const (
+@@ -21,9 +20,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter(scopeName)
++	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/exporter/otlpexporter")
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer(scopeName)
++	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/exporter/otlpexporter")
+ }

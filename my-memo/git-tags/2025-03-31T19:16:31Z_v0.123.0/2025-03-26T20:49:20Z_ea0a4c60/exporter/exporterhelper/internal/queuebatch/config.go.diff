@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/config.go b/exporter/exporterhelper/internal/queuebatch/config.go
+index fa0e2e66d..022845788 100644
+--- a/exporter/exporterhelper/internal/queuebatch/config.go
++++ b/exporter/exporterhelper/internal/queuebatch/config.go
+@@ -25,7 +25,7 @@ type Config struct {
+ 	Sizer request.SizerType `mapstructure:"sizer"`
+ 
+ 	// QueueSize represents the maximum data size allowed for concurrent storage and processing.
+-	QueueSize int `mapstructure:"queue_size"`
++	QueueSize int64 `mapstructure:"queue_size"`
+ 
+ 	// BlockOnOverflow determines the behavior when the component's TotalSize limit is reached.
+ 	// If true, the component will wait for space; otherwise, operations will immediately return a retryable error.

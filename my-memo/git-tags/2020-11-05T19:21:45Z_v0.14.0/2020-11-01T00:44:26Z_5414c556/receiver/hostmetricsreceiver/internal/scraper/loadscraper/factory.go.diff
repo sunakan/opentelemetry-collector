@@ -1,0 +1,32 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/factory.go
+index 74e54d38e..d8d23d73f 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/factory.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+-	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/obsreportscraper"
++	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+ // This file implements Factory for Load scraper.
+@@ -44,7 +44,16 @@ func (f *Factory) CreateMetricsScraper(
+ 	ctx context.Context,
+ 	logger *zap.Logger,
+ 	config internal.Config,
+-) (internal.Scraper, error) {
++) (receiverhelper.MetricsScraper, error) {
+ 	cfg := config.(*Config)
+-	return obsreportscraper.WrapScraper(newLoadScraper(ctx, logger, cfg), TypeStr), nil
++	s := newLoadScraper(ctx, logger, cfg)
++
++	ms := receiverhelper.NewMetricsScraper(
++		TypeStr,
++		s.Scrape,
++		receiverhelper.WithInitialize(s.Initialize),
++		receiverhelper.WithClose(s.Close),
++	)
++
++	return ms, nil
+ }

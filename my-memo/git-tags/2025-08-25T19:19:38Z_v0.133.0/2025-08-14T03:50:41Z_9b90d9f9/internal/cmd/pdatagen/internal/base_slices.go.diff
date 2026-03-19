@@ -1,0 +1,26 @@
+diff --git a/internal/cmd/pdatagen/internal/base_slices.go b/internal/cmd/pdatagen/internal/base_slices.go
+index 5360b2e89..31bf068e3 100644
+--- a/internal/cmd/pdatagen/internal/base_slices.go
++++ b/internal/cmd/pdatagen/internal/base_slices.go
+@@ -70,6 +70,10 @@ func (ss *sliceOfPtrs) getOriginName() string {
+ 	return ss.element.getOriginName() + "Slice"
+ }
+ 
++func (ss *sliceOfPtrs) getOriginFullName() string {
++	return ss.element.getOriginFullName()
++}
++
+ func (ss *sliceOfPtrs) getElementProtoType() ProtoType {
+ 	return ProtoTypeMessage
+ }
+@@ -142,6 +146,10 @@ func (ss *sliceOfValues) getOriginName() string {
+ 	return ss.element.getOriginName() + "Slice"
+ }
+ 
++func (ss *sliceOfValues) getOriginFullName() string {
++	return ss.element.getOriginFullName()
++}
++
+ func (ss *sliceOfValues) getElementProtoType() ProtoType {
+ 	return ProtoTypeMessage
+ }

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_line.go b/pdata/internal/generated_wrapper_line.go
+index 7e98e8c9b..3a4840571 100644
+--- a/pdata/internal/generated_wrapper_line.go
++++ b/pdata/internal/generated_wrapper_line.go
+@@ -15,3 +15,9 @@ func CopyOrigLine(dest, src *otlpprofiles.Line) {
+ 	dest.Line = src.Line
+ 	dest.Column = src.Column
+ }
++
++func FillOrigTestLine(orig *otlpprofiles.Line) {
++	orig.FunctionIndex = int32(13)
++	orig.Line = int64(13)
++	orig.Column = int64(13)
++}

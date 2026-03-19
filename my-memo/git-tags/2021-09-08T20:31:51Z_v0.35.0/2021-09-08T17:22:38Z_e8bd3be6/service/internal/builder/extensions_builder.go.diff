@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/extensions_builder.go b/service/internal/builder/extensions_builder.go
+index 096677495..e80f6aace 100644
+--- a/service/internal/builder/extensions_builder.go
++++ b/service/internal/builder/extensions_builder.go
+@@ -132,7 +132,7 @@ func BuildExtensions(
+ 		}
+ 
+ 		set := component.ExtensionCreateSettings{
+-			TelemetryCreateSettings: component.TelemetryCreateSettings{
++			TelemetrySettings: component.TelemetrySettings{
+ 				Logger: logger.With(
+ 					zap.String(zapKindKey, zapKindExtension),
+ 					zap.String(zapNameKey, extID.String())),

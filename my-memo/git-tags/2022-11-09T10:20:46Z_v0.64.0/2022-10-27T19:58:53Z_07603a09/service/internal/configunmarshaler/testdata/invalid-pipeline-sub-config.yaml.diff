@@ -1,0 +1,15 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
+deleted file mode 100644
+index dbe067632..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-pipeline-sub-config.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces

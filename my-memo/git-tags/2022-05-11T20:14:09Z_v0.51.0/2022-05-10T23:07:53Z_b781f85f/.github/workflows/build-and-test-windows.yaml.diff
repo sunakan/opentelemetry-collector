@@ -1,0 +1,16 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 387b0961a..04d2b5144 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -27,8 +27,8 @@ jobs:
+           cache-name: cache-go-modules
+         with:
+           path: |
+-            \Users\runneradmin\go\pkg\mod
+-            %LocalAppData%\go-build
+-          key: go-pkg-mod-${{ runner.os }}-${{ hashFiles('./go.mod', '**/go.sum') }}
++            ~\go\pkg\mod
++            ~\AppData\Local\go-build
++          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+       - name: Run Unit tests
+         run: go test ./...

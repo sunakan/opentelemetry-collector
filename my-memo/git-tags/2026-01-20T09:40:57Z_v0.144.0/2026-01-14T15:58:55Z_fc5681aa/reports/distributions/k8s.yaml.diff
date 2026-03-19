@@ -1,0 +1,13 @@
+diff --git a/reports/distributions/k8s.yaml b/reports/distributions/k8s.yaml
+index c1b162c22..e8ba1ead9 100644
+--- a/reports/distributions/k8s.yaml
++++ b/reports/distributions/k8s.yaml
+@@ -7,7 +7,7 @@ components:
+     exporter:
+         - debug
+         - nop
+-        - otlp
++        - otlp_grpc
+         - otlp_http
+     extension:
+         - zpages

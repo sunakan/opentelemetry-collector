@@ -1,0 +1,13 @@
+diff --git a/internal/testutils/testutils_test.go b/internal/testutils/testutils_test.go
+index a5931850d..9b07b0d8a 100644
+--- a/internal/testutils/testutils_test.go
++++ b/internal/testutils/testutils_test.go
+@@ -30,7 +30,7 @@ func TestGetAvailablePort(t *testing.T) {
+ 	portStr := strconv.Itoa(int(GetAvailablePort(t)))
+ 	require.NotEqual(t, "", portStr)
+ 
+-	testEndpointAvailable(t, "127.0.0.1:"+portStr)
++	testEndpointAvailable(t, "localhost:"+portStr)
+ }
+ 
+ func testEndpointAvailable(t *testing.T, endpoint string) {

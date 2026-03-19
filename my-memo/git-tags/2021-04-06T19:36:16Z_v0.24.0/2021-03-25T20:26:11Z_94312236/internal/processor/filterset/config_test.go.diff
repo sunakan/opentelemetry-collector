@@ -1,0 +1,21 @@
+diff --git a/internal/processor/filterset/config_test.go b/internal/processor/filterset/config_test.go
+index 0ce9f7c43..90b4647d3 100644
+--- a/internal/processor/filterset/config_test.go
++++ b/internal/processor/filterset/config_test.go
+@@ -21,13 +21,14 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/config/configtest"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset/regexp"
+ )
+ 
+ func readTestdataConfigYamls(t *testing.T, filename string) map[string]*Config {
+ 	testFile := path.Join(".", "testdata", filename)
+-	v := configtest.NewViperFromYamlFile(t, testFile)
++	v, err := config.NewParserFromFile(testFile)
++	require.NoError(t, err)
+ 
+ 	cfgs := map[string]*Config{}
+ 	require.NoErrorf(t, v.UnmarshalExact(&cfgs), "unable to unmarshal yaml from file %v", testFile)

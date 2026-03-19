@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 3e45d44b9..b1bcbc89d 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -53,6 +53,10 @@ type baseExporter struct {
+ func newExporter(cfg component.Config, set exporter.Settings) *baseExporter {
+ 	oCfg := cfg.(*Config)
+ 
++	if oCfg.hasBatcher {
++		set.TelemetrySettings.Logger.Warn("using deprecated field: batcher")
++	}
++
+ 	userAgent := fmt.Sprintf("%s/%s (%s/%s)",
+ 		set.BuildInfo.Description, set.BuildInfo.Version, runtime.GOOS, runtime.GOARCH)
+ 

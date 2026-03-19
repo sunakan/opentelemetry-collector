@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index a60ab0731..121ae7eeb 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -46,7 +46,7 @@ type mockAuthServer struct {
+ 	extensionauth.ServerAuthenticateFunc
+ }
+ 
+-func newMockAuthServer(auth func(ctx context.Context, sources map[string][]string) (context.Context, error)) extensionauth.Server {
++func newMockAuthServer(auth func(ctx context.Context, sources map[string][]string) (context.Context, error)) extension.Extension {
+ 	return &mockAuthServer{ServerAuthenticateFunc: auth}
+ }
+ 

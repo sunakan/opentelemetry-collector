@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index 0700cdcf8..1e532b8f1 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -67,7 +67,7 @@ func TestExport_PermanentErrorConsumer(t *testing.T) {
+ 
+ 	metricsClient := makeMetricsServiceClient(t, consumertest.NewErr(consumererror.NewPermanent(errors.New("my error"))))
+ 	resp, err := metricsClient.Export(context.Background(), req)
+-	assert.EqualError(t, err, "rpc error: code = InvalidArgument desc = Permanent error: my error")
++	assert.EqualError(t, err, "rpc error: code = Internal desc = Permanent error: my error")
+ 	assert.IsType(t, status.Error(codes.Unknown, ""), err)
+ 	assert.Equal(t, pmetricotlp.ExportResponse{}, resp)
+ }

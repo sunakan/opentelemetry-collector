@@ -1,0 +1,14 @@
+diff --git a/processor/batchprocessor/splittraces_test.go b/processor/batchprocessor/splittraces_test.go
+index 5316aab66..62d8b1e0e 100644
+--- a/processor/batchprocessor/splittraces_test.go
++++ b/processor/batchprocessor/splittraces_test.go
+@@ -8,8 +8,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestSplitTraces_noop(t *testing.T) {

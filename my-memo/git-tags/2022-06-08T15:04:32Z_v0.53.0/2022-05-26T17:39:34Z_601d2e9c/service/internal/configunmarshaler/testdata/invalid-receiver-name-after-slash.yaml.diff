@@ -1,0 +1,25 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-receiver-name-after-slash.yaml b/service/internal/configunmarshaler/testdata/invalid-receiver-name-after-slash.yaml
+index e2d74fd5e..52ebc0d2e 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-receiver-name-after-slash.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-receiver-name-after-slash.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver:
+-  examplereceiver/:
++  nop:
++  nop/:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

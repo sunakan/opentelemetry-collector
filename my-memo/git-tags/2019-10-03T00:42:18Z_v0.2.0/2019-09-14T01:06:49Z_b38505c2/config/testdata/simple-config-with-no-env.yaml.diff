@@ -1,0 +1,12 @@
+diff --git a/config/testdata/simple-config-with-no-env.yaml b/config/testdata/simple-config-with-no-env.yaml
+index 54322786b..86b841ba1 100644
+--- a/config/testdata/simple-config-with-no-env.yaml
++++ b/config/testdata/simple-config-with-no-env.yaml
+@@ -1,6 +1,6 @@
+ receivers:
+   examplereceiver:
+-    endpoint: "127.0.0.1:1234"
++    endpoint: "localhost:1234"
+     extra: "some receiver string"
+     extra_map:
+       recv.1: "some receiver map value_1"

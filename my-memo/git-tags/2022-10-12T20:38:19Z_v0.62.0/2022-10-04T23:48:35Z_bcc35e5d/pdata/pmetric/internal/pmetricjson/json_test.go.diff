@@ -1,0 +1,22 @@
+diff --git a/pdata/pmetric/internal/pmetricjson/json_test.go b/pdata/pmetric/internal/pmetricjson/json_test.go
+index abb748ca5..bd195e7ab 100644
+--- a/pdata/pmetric/internal/pmetricjson/json_test.go
++++ b/pdata/pmetric/internal/pmetricjson/json_test.go
+@@ -232,6 +232,17 @@ func TestReadExponentialHistogramDataPointUnknownField(t *testing.T) {
+ 	}, value)
+ }
+ 
++func TestReadExponentialHistogramDataPointBucketsUnknownField(t *testing.T) {
++	jsonStr := `{"exists":{"exists":"true"},"offset":3}`
++	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))
++	defer jsoniter.ConfigFastest.ReturnIterator(iter)
++	value := readExponentialHistogramBuckets(iter)
++	assert.NoError(t, iter.Error)
++	assert.EqualValues(t, otlpmetrics.ExponentialHistogramDataPoint_Buckets{
++		Offset: 3,
++	}, value)
++}
++
+ func TestReadQuantileValue(t *testing.T) {
+ 	jsonStr := `{"exists":{"exists":"true"},"value":3}`
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))

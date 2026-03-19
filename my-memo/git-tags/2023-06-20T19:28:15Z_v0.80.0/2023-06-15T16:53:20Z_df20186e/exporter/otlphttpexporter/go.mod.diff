@@ -1,0 +1,10 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index 5482abc90..d81d1d099 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -92,3 +92,5 @@ retract (
+ )
+ 
+ replace cloud.google.com/go => cloud.google.com/go v0.110.2
++
++replace go.opentelemetry.io/collector/connector => ../../connector

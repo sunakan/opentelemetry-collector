@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/consumer.go b/consumer/consumertest/consumer.go
+index f23e028ff..b009a1d41 100644
+--- a/consumer/consumertest/consumer.go
++++ b/consumer/consumertest/consumer.go
+@@ -26,6 +26,8 @@ import (
+ // to allow us to add extra functions without breaking compatibility because
+ // nobody else implements this interface.
+ type Consumer interface {
++	// Capabilities to implement the base consumer functionality.
++	Capabilities() consumer.Capabilities
+ 	// ConsumeTraces to implement the consumer.Traces.
+ 	ConsumeTraces(context.Context, pdata.Traces) error
+ 	// ConsumeMetrics to implement the consumer.Metrics.

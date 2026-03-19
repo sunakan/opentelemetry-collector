@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index adedb0621..93e1164ba 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -3,7 +3,8 @@
+ ## Unreleased
+ 
+ ### 🛑 Breaking changes 🛑
+- 
++
++- Remove deprecated settings from `obsreport`, `ProcessorSettings.Level` and `ExporterSettings.Level` (#5918)
+ - Replace `processorhelper.New[Traces|Metrics|Logs]Exporter` with `processorhelper.New[Traces|Metrics|Logs]ProcessorWithCreateSettings` definition (#5915)
+ 
+ - Replace `exporterhelper.New[Traces|Metrics|Logs]Exporter` with `exporterhelper.New[Traces|Metrics|Logs]ExporterWithContext` definition (#5914)

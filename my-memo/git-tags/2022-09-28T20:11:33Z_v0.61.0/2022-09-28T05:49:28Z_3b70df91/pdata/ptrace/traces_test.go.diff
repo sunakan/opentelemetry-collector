@@ -1,0 +1,23 @@
+diff --git a/pdata/ptrace/traces_test.go b/pdata/ptrace/traces_test.go
+index e28e10f47..eea0715b6 100644
+--- a/pdata/ptrace/traces_test.go
++++ b/pdata/ptrace/traces_test.go
+@@ -133,14 +133,10 @@ func TestTracesClone(t *testing.T) {
+ 	assert.EqualValues(t, traces, traces.Clone())
+ }
+ 
+-func BenchmarkTracesClone(b *testing.B) {
++func TestTracesCopyTo(t *testing.T) {
+ 	traces := NewTraces()
+ 	internal.FillTestResourceSpansSlice(internal.ResourceSpansSlice(traces.ResourceSpans()))
+-	b.ResetTimer()
+-	for n := 0; n < b.N; n++ {
+-		clone := traces.Clone()
+-		if clone.ResourceSpans().Len() != traces.ResourceSpans().Len() {
+-			b.Fail()
+-		}
+-	}
++	tracesCopy := NewTraces()
++	traces.CopyTo(tracesCopy)
++	assert.EqualValues(t, traces, tracesCopy)
+ }

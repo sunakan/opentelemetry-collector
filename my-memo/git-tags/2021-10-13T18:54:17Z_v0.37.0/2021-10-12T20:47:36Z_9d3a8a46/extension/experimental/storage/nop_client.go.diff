@@ -1,0 +1,13 @@
+diff --git a/extension/experimental/storage/nop_client.go b/extension/experimental/storage/nop_client.go
+index 10ee9df82..4d9c398f9 100644
+--- a/extension/experimental/storage/nop_client.go
++++ b/extension/experimental/storage/nop_client.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package storage
++package storage // import "go.opentelemetry.io/collector/extension/experimental/storage"
+ 
+ import "context"
+ 

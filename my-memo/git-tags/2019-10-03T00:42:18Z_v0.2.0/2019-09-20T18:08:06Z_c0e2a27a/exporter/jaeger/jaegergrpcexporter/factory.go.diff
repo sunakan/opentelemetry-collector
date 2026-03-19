@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/factory.go b/exporter/jaeger/jaegergrpcexporter/factory.go
+index 68851aac7..f3fe26052 100644
+--- a/exporter/jaeger/jaegergrpcexporter/factory.go
++++ b/exporter/jaeger/jaegergrpcexporter/factory.go
+@@ -26,7 +26,7 @@ import (
+ 
+ const (
+ 	// The value of "type" key in configuration.
+-	typeStr = "jaeger-grpc"
++	typeStr = "jaeger_grpc"
+ )
+ 
+ // Factory is the factory for Jaeger gRPC exporter.

@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/zpages.go b/service/internal/graph/zpages.go
+index 4b7f2c5ae..e4b9b5869 100644
+--- a/service/internal/graph/zpages.go
++++ b/service/internal/graph/zpages.go
+@@ -41,7 +41,7 @@ func (g *Graph) HandleZPages(w http.ResponseWriter, r *http.Request) {
+ 		}
+ 		procIDs := make([]string, 0, len(p.processors))
+ 		for _, c := range p.processors {
+-			procIDs = append(procIDs, c.componentID.String())
++			procIDs = append(procIDs, c.(*processorNode).componentID.String())
+ 		}
+ 		exprIDs := make([]string, 0, len(p.exporters))
+ 		for _, c := range p.exporters {

@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/prom_to_otlp.go b/receiver/prometheusreceiver/internal/prom_to_otlp.go
+index 25d0bec79..9f8aa13ca 100644
+--- a/receiver/prometheusreceiver/internal/prom_to_otlp.go
++++ b/receiver/prometheusreceiver/internal/prom_to_otlp.go
+@@ -17,7 +17,7 @@ package internal
+ import (
+ 	"net"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

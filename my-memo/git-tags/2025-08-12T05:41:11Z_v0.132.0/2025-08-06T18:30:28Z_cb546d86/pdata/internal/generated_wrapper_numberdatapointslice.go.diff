@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_numberdatapointslice.go b/pdata/internal/generated_wrapper_numberdatapointslice.go
+index 426192eac..774550df7 100644
+--- a/pdata/internal/generated_wrapper_numberdatapointslice.go
++++ b/pdata/internal/generated_wrapper_numberdatapointslice.go
+@@ -38,3 +38,12 @@ func CopyOrigNumberDataPointSlice(dest, src []*otlpmetrics.NumberDataPoint) []*o
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestNumberDataPointSlice() []*otlpmetrics.NumberDataPoint {
++	orig := make([]*otlpmetrics.NumberDataPoint, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpmetrics.NumberDataPoint{}
++		FillOrigTestNumberDataPoint(orig[i])
++	}
++	return orig
++}

@@ -1,0 +1,31 @@
+diff --git a/internal/testcomponents/example_receiver.go b/internal/testcomponents/example_receiver.go
+index d2100e174..5fd889391 100644
+--- a/internal/testcomponents/example_receiver.go
++++ b/internal/testcomponents/example_receiver.go
+@@ -61,7 +61,7 @@ func createReceiverDefaultConfig() config.Receiver {
+ // CreateTracesReceiver creates a trace receiver based on this config.
+ func createTracesReceiver(
+ 	_ context.Context,
+-	_ component.ReceiverCreateParams,
++	_ component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesReceiver, error) {
+@@ -73,7 +73,7 @@ func createTracesReceiver(
+ // CreateMetricsReceiver creates a metrics receiver based on this config.
+ func createMetricsReceiver(
+ 	_ context.Context,
+-	_ component.ReceiverCreateParams,
++	_ component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsReceiver, error) {
+@@ -84,7 +84,7 @@ func createMetricsReceiver(
+ 
+ func createLogsReceiver(
+ 	_ context.Context,
+-	_ component.ReceiverCreateParams,
++	_ component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Logs,
+ ) (component.LogsReceiver, error) {

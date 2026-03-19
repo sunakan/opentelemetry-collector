@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index 7bc4bbe3f..7716736b6 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -18,7 +18,7 @@ auth:
+   authenticator: nop
+ headers:
+   "can you have a . here?": "F0000000-0000-0000-0000-000000000000"
+-  header1: 234
++  header1: "234"
+   another: "somevalue"
+ keepalive:
+   time: 20s

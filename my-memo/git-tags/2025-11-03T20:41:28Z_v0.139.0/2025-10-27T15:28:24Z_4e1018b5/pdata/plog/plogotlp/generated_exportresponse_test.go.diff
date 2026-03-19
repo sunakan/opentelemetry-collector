@@ -1,0 +1,12 @@
+diff --git a/pdata/plog/plogotlp/generated_exportresponse_test.go b/pdata/plog/plogotlp/generated_exportresponse_test.go
+index da92a69d9..644605690 100644
+--- a/pdata/plog/plogotlp/generated_exportresponse_test.go
++++ b/pdata/plog/plogotlp/generated_exportresponse_test.go
+@@ -49,6 +49,5 @@ func TestExportResponse_PartialSuccess(t *testing.T) {
+ }
+ 
+ func generateTestExportResponse() ExportResponse {
+-	ms := newExportResponse(internal.GenTestExportLogsServiceResponse(), internal.NewState())
+-	return ms
++	return newExportResponse(internal.GenTestExportLogsServiceResponse(), internal.NewState())
+ }

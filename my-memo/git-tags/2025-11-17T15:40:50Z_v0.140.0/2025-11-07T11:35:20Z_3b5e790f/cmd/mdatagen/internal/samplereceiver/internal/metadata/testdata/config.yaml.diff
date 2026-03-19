@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+index b8e4438bb..6e461af19 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+@@ -11,6 +11,8 @@ all_set:
+       enabled: true
+     optional.metric.empty_unit:
+       enabled: true
++    system.cpu.time:
++      enabled: true
+   events:
+     default.event:
+       enabled: true
+@@ -47,6 +49,8 @@ none_set:
+       enabled: false
+     optional.metric.empty_unit:
+       enabled: false
++    system.cpu.time:
++      enabled: false
+   events:
+     default.event:
+       enabled: false

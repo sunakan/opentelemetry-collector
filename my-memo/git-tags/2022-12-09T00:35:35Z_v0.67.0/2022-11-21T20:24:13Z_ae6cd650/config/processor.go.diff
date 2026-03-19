@@ -1,0 +1,13 @@
+diff --git a/config/processor.go b/config/processor.go
+index 3a20a0f7a..d8288a603 100644
+--- a/config/processor.go
++++ b/config/processor.go
+@@ -44,8 +44,3 @@ func (ps *ProcessorSettings) ID() component.ID {
+ func (ps *ProcessorSettings) SetIDName(idName string) {
+ 	ps.id = component.NewIDWithName(ps.id.Type(), idName)
+ }
+-
+-// Deprecated: [v0.65.0] use component.ValidateConfig.
+-func (ps *ProcessorSettings) Validate() error {
+-	return nil
+-}

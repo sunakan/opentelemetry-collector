@@ -1,0 +1,23 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 7f1a3b544..40744afe4 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -18,6 +18,18 @@ updates:
+     directory: "/cmd/otelcorecol"
+     schedule:
+       interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/exporter/loggingexporter"
++    schedule:
++      interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/exporter/otlpexporter"
++    schedule:
++      interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/exporter/otlphttpexporter"
++    schedule:
++      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/internal/tools"
+     schedule:

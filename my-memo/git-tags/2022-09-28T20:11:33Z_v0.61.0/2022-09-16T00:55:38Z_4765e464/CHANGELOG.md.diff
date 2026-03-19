@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 7a2b59817..fd2693926 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -14,6 +14,10 @@
+ - Delete deprecated `pcommon.Value.SetBytesVal`. (#6088)
+ - Delete deprecated `pmetric.Metric.SetDataType`. (#6095)
+ 
++### 🚩 Deprecations 🚩
++
++- Deprecate pmetric.OptionalType, unused enum type. (#6096)
++
+ ### 💡 Enhancements 💡
+ 
+ - Add AppendEmpty and EnsureCapacity method to primitive pdata slices (#6060)

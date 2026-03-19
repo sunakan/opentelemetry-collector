@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/internal/metadata/testdata/config.yaml b/cmd/mdatagen/internal/samplescraper/internal/metadata/testdata/config.yaml
+index c4b7edd65..d936342fd 100644
+--- a/cmd/mdatagen/internal/samplescraper/internal/metadata/testdata/config.yaml
++++ b/cmd/mdatagen/internal/samplescraper/internal/metadata/testdata/config.yaml
+@@ -11,6 +11,8 @@ all_set:
+       enabled: true
+     optional.metric.empty_unit:
+       enabled: true
++    system.cpu.time:
++      enabled: true
+   resource_attributes:
+     map.resource.attr:
+       enabled: true
+@@ -40,6 +42,8 @@ none_set:
+       enabled: false
+     optional.metric.empty_unit:
+       enabled: false
++    system.cpu.time:
++      enabled: false
+   resource_attributes:
+     map.resource.attr:
+       enabled: false

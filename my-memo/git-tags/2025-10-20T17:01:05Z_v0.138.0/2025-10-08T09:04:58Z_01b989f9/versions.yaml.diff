@@ -1,0 +1,12 @@
+diff --git a/versions.yaml b/versions.yaml
+index 21b4dd8ad..56d1ee06d 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -93,6 +93,7 @@ module-sets:
+       - go.opentelemetry.io/collector/scraper/scrapertest
+       - go.opentelemetry.io/collector/service
+       - go.opentelemetry.io/collector/service/hostcapabilities
++      - go.opentelemetry.io/collector/service/telemetry/telemetrytest
+       - go.opentelemetry.io/collector/filter
+ 
+ excluded-modules:

@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp.go b/receiver/otlpreceiver/internal/trace/otlp.go
+index 3ad482b0a..2aef703ce 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp.go
++++ b/receiver/otlpreceiver/internal/trace/otlp.go
+@@ -22,10 +22,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
+ )
+ 
+-const (
+-	dataFormatProtobuf = "protobuf"
+-	receiverTransport  = "grpc"
+-)
++const dataFormatProtobuf = "protobuf"
+ 
+ // Receiver is the type used to handle spans from OpenTelemetry exporters.
+ type Receiver struct {

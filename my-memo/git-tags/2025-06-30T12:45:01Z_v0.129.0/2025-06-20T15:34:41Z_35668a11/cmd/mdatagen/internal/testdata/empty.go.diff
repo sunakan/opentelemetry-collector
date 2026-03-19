@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/testdata/empty.go b/cmd/mdatagen/internal/testdata/empty.go
+new file mode 100644
+index 000000000..bb6081be0
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/empty.go
+@@ -0,0 +1,6 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package testdata
++
++// this file allows `go list -f` to run in tests and get the scope name.

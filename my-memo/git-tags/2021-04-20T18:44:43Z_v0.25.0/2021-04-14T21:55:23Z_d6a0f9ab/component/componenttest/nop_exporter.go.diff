@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index 7c9b964d0..4c6030888 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -63,7 +63,7 @@ func (f *nopExporterFactory) CreateMetricsExporter(
+ 	return nopExporterInstance, nil
+ }
+ 
+-// CreateMetricsExporter implements component.ExporterFactory interface.
++// CreateLogsExporter implements component.ExporterFactory interface.
+ func (f *nopExporterFactory) CreateLogsExporter(
+ 	_ context.Context,
+ 	_ component.ExporterCreateParams,

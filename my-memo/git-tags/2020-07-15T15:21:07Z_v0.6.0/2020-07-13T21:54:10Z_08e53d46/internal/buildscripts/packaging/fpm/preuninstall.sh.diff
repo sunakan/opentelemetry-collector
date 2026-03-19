@@ -1,0 +1,13 @@
+diff --git a/internal/buildscripts/packaging/fpm/preuninstall.sh b/internal/buildscripts/packaging/fpm/preuninstall.sh
+new file mode 100755
+index 000000000..13408244a
+--- /dev/null
++++ b/internal/buildscripts/packaging/fpm/preuninstall.sh
+@@ -0,0 +1,6 @@
++#!/bin/sh
++
++if command -v systemctl >/dev/null 2>&1; then
++    systemctl stop otel-collector.service
++    systemctl disable otel-collector.service
++fi
+\ No newline at end of file

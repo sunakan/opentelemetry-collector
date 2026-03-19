@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapointslice.go b/pdata/pmetric/generated_summarydatapointslice.go
+index 98ddae316..fecb1a8b3 100644
+--- a/pdata/pmetric/generated_summarydatapointslice.go
++++ b/pdata/pmetric/generated_summarydatapointslice.go
+@@ -99,7 +99,7 @@ func (es SummaryDataPointSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added SummaryDataPoint.
+ func (es SummaryDataPointSlice) AppendEmpty() SummaryDataPoint {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrSummaryDataPoint())
++	*es.orig = append(*es.orig, internal.NewOrigSummaryDataPoint())
+ 	return es.At(es.Len() - 1)
+ }
+ 

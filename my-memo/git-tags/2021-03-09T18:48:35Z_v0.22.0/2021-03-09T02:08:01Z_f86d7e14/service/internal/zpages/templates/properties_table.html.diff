@@ -1,0 +1,21 @@
+diff --git a/service/internal/zpages/templates/properties_table.html b/service/internal/zpages/templates/properties_table.html
+new file mode 100644
+index 000000000..a43841ba7
+--- /dev/null
++++ b/service/internal/zpages/templates/properties_table.html
+@@ -0,0 +1,14 @@
++<b>{{.Name}}:</b>
++<table style="border-spacing: 0">
++    {{ $index := 0 }}
++    {{range $index, $element := .Properties}}
++        {{- if even $index}}
++            <tr style="background: #eee">
++        {{else}}
++            <tr>{{end -}}
++        <td align=center><b>{{$element|getKey}}</b></td>
++        <td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
++        <td align=center>{{$element|getValue}}</td>
++        </tr>
++    {{end}}
++</table>
+\ No newline at end of file

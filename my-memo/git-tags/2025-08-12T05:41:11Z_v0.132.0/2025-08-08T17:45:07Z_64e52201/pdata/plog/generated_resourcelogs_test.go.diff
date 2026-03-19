@@ -1,0 +1,32 @@
+diff --git a/pdata/plog/generated_resourcelogs_test.go b/pdata/plog/generated_resourcelogs_test.go
+index 61cf45d6e..8e0e9fa6a 100644
+--- a/pdata/plog/generated_resourcelogs_test.go
++++ b/pdata/plog/generated_resourcelogs_test.go
+@@ -48,6 +48,13 @@ func TestResourceLogs_Resource(t *testing.T) {
+ 	assert.Equal(t, pcommon.Resource(internal.GenerateTestResource()), ms.Resource())
+ }
+ 
++func TestResourceLogs_ScopeLogs(t *testing.T) {
++	ms := NewResourceLogs()
++	assert.Equal(t, NewScopeLogsSlice(), ms.ScopeLogs())
++	ms.orig.ScopeLogs = internal.GenerateOrigTestScopeLogsSlice()
++	assert.Equal(t, generateTestScopeLogsSlice(), ms.ScopeLogs())
++}
++
+ func TestResourceLogs_SchemaUrl(t *testing.T) {
+ 	ms := NewResourceLogs()
+ 	assert.Empty(t, ms.SchemaUrl())
+@@ -57,13 +64,6 @@ func TestResourceLogs_SchemaUrl(t *testing.T) {
+ 	assert.Panics(t, func() { newResourceLogs(&otlplogs.ResourceLogs{}, &sharedState).SetSchemaUrl("test_schemaurl") })
+ }
+ 
+-func TestResourceLogs_ScopeLogs(t *testing.T) {
+-	ms := NewResourceLogs()
+-	assert.Equal(t, NewScopeLogsSlice(), ms.ScopeLogs())
+-	ms.orig.ScopeLogs = internal.GenerateOrigTestScopeLogsSlice()
+-	assert.Equal(t, generateTestScopeLogsSlice(), ms.ScopeLogs())
+-}
+-
+ func generateTestResourceLogs() ResourceLogs {
+ 	ms := NewResourceLogs()
+ 	internal.FillOrigTestResourceLogs(ms.orig)

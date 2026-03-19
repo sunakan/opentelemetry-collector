@@ -1,0 +1,16 @@
+diff --git a/receiver/kafkareceiver/testdata/config.yaml b/receiver/kafkareceiver/testdata/config.yaml
+index 3b7983613..c170cf713 100644
+--- a/receiver/kafkareceiver/testdata/config.yaml
++++ b/receiver/kafkareceiver/testdata/config.yaml
+@@ -6,6 +6,11 @@ receivers:
+       - "bar:456"
+     client_id: otel-collector
+     group_id: otel-collector
++    auth:
++      tls:
++        ca_file: ca.pem
++        cert_file: cert.pem
++        key_file: key.pem
+     metadata:
+       retry:
+         max: 10

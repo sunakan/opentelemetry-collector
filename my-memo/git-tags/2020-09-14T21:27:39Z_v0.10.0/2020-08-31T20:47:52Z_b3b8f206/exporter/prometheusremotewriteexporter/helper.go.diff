@@ -1,0 +1,16 @@
+diff --git a/exporter/prometheusremotewriteexporter/helper.go b/exporter/prometheusremotewriteexporter/helper.go
+index a11b04b26..a08e5c91f 100644
+--- a/exporter/prometheusremotewriteexporter/helper.go
++++ b/exporter/prometheusremotewriteexporter/helper.go
+@@ -30,6 +30,11 @@ import (
+ 
+ const (
+ 	nameStr   = "__name__"
++	sumStr    = "_sum"
++	countStr  = "_count"
++	bucketStr = "_bucket"
++	leStr     = "le"
++	pInfStr   = "+Inf"
+ 	totalStr  = "total"
+ 	delimeter = "_"
+ 	keyStr    = "key"

@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/resource.go b/internal/testdata/resource.go
+index f48702741..90158d1ca 100644
+--- a/internal/testdata/resource.go
++++ b/internal/testdata/resource.go
+@@ -15,7 +15,7 @@
+ package testdata
+ 
+ import (
+-	otlpresource "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/resource/v1"
++	otlpresource "go.opentelemetry.io/collector/internal/data/protogen/resource/v1"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )

@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/generated_scopeprofilesslice.go b/pdata/pprofile/generated_scopeprofilesslice.go
+index 1561bb003..481ff31e0 100644
+--- a/pdata/pprofile/generated_scopeprofilesslice.go
++++ b/pdata/pprofile/generated_scopeprofilesslice.go
+@@ -130,6 +130,7 @@ func (es ScopeProfilesSlice) RemoveIf(f func(ScopeProfiles) bool) {
+ 	newLen := 0
+ 	for i := 0; i < len(*es.orig); i++ {
+ 		if f(es.At(i)) {
++			(*es.orig)[i] = nil
+ 			continue
+ 		}
+ 		if newLen == i {
+@@ -138,6 +139,7 @@ func (es ScopeProfilesSlice) RemoveIf(f func(ScopeProfiles) bool) {
+ 			continue
+ 		}
+ 		(*es.orig)[newLen] = (*es.orig)[i]
++		(*es.orig)[i] = nil
+ 		newLen++
+ 	}
+ 	*es.orig = (*es.orig)[:newLen]

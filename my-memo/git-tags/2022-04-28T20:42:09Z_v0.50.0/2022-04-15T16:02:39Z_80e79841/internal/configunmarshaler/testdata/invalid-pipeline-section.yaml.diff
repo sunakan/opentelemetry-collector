@@ -1,0 +1,26 @@
+diff --git a/internal/configunmarshaler/testdata/invalid-pipeline-section.yaml b/internal/configunmarshaler/testdata/invalid-pipeline-section.yaml
+new file mode 100644
+index 000000000..760edb27d
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/invalid-pipeline-section.yaml
+@@ -0,0 +1,20 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++extensions:
++  exampleextension:
++service:
++  extensions:
++    - exampleextension
++  pipelines:
++    traces:
++      receivers:
++        - examplereceiver
++      processors:
++        - exampleprocessor
++      exporters:
++        - exampleexporter
++      unknown_section: 1

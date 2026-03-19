@@ -1,0 +1,22 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index ac5c9f0ce..bf17e112e 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -290,7 +290,7 @@ func TestOcToInternal(t *testing.T) {
+ 
+ 	tests := []struct {
+ 		name string
+-		td   pdata.TraceData
++		td   pdata.Traces
+ 		oc   consumerdata.TraceData
+ 	}{
+ 		{
+@@ -388,7 +388,7 @@ func TestOcToInternal(t *testing.T) {
+ }
+ 
+ // TODO: Try to avoid unnecessary Resource object allocation.
+-func wrapTraceWithEmptyResource(td pdata.TraceData) pdata.TraceData {
++func wrapTraceWithEmptyResource(td pdata.Traces) pdata.Traces {
+ 	td.ResourceSpans().At(0).Resource().InitEmpty()
+ 	return td
+ }

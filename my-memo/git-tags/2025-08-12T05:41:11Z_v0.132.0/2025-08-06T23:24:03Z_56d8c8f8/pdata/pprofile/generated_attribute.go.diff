@@ -1,0 +1,43 @@
+diff --git a/pdata/pprofile/generated_attribute.go b/pdata/pprofile/generated_attribute.go
+index c06b8b2e8..45787a7f0 100644
+--- a/pdata/pprofile/generated_attribute.go
++++ b/pdata/pprofile/generated_attribute.go
+@@ -9,7 +9,6 @@ package pprofile
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	v1 "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -72,30 +71,3 @@ func (ms Attribute) CopyTo(dest Attribute) {
+ 	dest.state.AssertMutable()
+ 	internal.CopyOrigKeyValue(dest.orig, ms.orig)
+ }
+-
+-// marshalJSONStream marshals all properties from the current struct to the destination stream.
+-func (ms Attribute) marshalJSONStream(dest *json.Stream) {
+-	dest.WriteObjectStart()
+-	if ms.orig.Key != "" {
+-		dest.WriteObjectField("key")
+-		dest.WriteString(ms.orig.Key)
+-	}
+-	dest.WriteObjectField("value")
+-	internal.MarshalJSONStreamValue(internal.NewValue(&ms.orig.Value, ms.state), dest)
+-	dest.WriteObjectEnd()
+-}
+-
+-// unmarshalJSONIter unmarshals all properties from the current struct from the source iterator.
+-func (ms Attribute) unmarshalJSONIter(iter *json.Iterator) {
+-	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
+-		switch f {
+-		case "key":
+-			ms.orig.Key = iter.ReadString()
+-		case "value":
+-			internal.UnmarshalJSONIterValue(internal.NewValue(&ms.orig.Value, ms.state), iter)
+-		default:
+-			iter.Skip()
+-		}
+-		return true
+-	})
+-}

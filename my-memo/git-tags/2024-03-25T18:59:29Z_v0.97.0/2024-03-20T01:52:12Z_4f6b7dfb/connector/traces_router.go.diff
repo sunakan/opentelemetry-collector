@@ -1,0 +1,17 @@
+diff --git a/connector/traces_router.go b/connector/traces_router.go
+index 97c31d792..293fd723d 100644
+--- a/connector/traces_router.go
++++ b/connector/traces_router.go
+@@ -13,12 +13,6 @@ import (
+ 	"go.opentelemetry.io/collector/internal/fanoutconsumer"
+ )
+ 
+-// Deprecated: [v0.92.0] use TracesRouterAndConsumer
+-type TracesRouter interface {
+-	Consumer(...component.ID) (consumer.Traces, error)
+-	PipelineIDs() []component.ID
+-}
+-
+ // TracesRouterAndConsumer feeds the first consumer.Traces in each of the specified pipelines.
+ type TracesRouterAndConsumer interface {
+ 	consumer.Traces

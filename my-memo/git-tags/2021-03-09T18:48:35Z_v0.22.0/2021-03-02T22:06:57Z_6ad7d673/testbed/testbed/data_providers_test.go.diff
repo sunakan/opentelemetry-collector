@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/data_providers_test.go b/testbed/testbed/data_providers_test.go
+index f80adae29..7b001c1d7 100644
+--- a/testbed/testbed/data_providers_test.go
++++ b/testbed/testbed/data_providers_test.go
+@@ -26,7 +26,7 @@ import (
+ const metricsPictPairsFile = "../../internal/goldendataset/testdata/generated_pict_pairs_metrics.txt"
+ 
+ func TestGoldenDataProvider(t *testing.T) {
+-	dp := NewGoldenDataProvider("", "", metricsPictPairsFile, 42)
++	dp := NewGoldenDataProvider("", "", metricsPictPairsFile)
+ 	dp.SetLoadGeneratorCounters(atomic.NewUint64(0), atomic.NewUint64(0))
+ 	var ms []pdata.Metrics
+ 	for {

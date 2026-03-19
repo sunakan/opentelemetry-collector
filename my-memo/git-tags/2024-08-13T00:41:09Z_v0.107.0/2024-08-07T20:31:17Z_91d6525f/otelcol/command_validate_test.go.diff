@@ -1,0 +1,12 @@
+diff --git a/otelcol/command_validate_test.go b/otelcol/command_validate_test.go
+index 03f93f51d..9c0240910 100644
+--- a/otelcol/command_validate_test.go
++++ b/otelcol/command_validate_test.go
+@@ -30,6 +30,7 @@ func TestValidateSubCommandInvalidComponents(t *testing.T) {
+ 		ResolverSettings: confmap.ResolverSettings{
+ 			URIs:              []string{filePath},
+ 			ProviderFactories: []confmap.ProviderFactory{fileProvider},
++			DefaultScheme:     "file",
+ 		},
+ 	}}, flags(featuregate.GlobalRegistry()))
+ 	err := cmd.Execute()

@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_resourcespansslice.go b/pdata/ptrace/generated_resourcespansslice.go
+index 351978c78..48a6aa766 100644
+--- a/pdata/ptrace/generated_resourcespansslice.go
++++ b/pdata/ptrace/generated_resourcespansslice.go
+@@ -109,6 +109,10 @@ func (es ResourceSpansSlice) AppendEmpty() ResourceSpans {
+ func (es ResourceSpansSlice) MoveAndAppendTo(dest ResourceSpansSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

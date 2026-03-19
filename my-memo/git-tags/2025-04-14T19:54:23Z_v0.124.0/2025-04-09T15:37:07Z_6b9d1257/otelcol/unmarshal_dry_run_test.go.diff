@@ -1,0 +1,12 @@
+diff --git a/otelcol/unmarshal_dry_run_test.go b/otelcol/unmarshal_dry_run_test.go
+index b8dd58505..d795147b2 100644
+--- a/otelcol/unmarshal_dry_run_test.go
++++ b/otelcol/unmarshal_dry_run_test.go
+@@ -71,6 +71,7 @@ func TestDryRunWithExpandedValues(t *testing.T) {
+ 			mockMap: map[string]string{
+ 				"number": "123",
+ 			},
++			expectErr: true,
+ 		},
+ 		{
+ 			name:       "string that looks like a bool",

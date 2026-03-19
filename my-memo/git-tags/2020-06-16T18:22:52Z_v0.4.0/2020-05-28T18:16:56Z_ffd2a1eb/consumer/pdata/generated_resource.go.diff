@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_resource.go b/consumer/pdata/generated_resource.go
+index d30650fff..8d4d50e1f 100644
+--- a/consumer/pdata/generated_resource.go
++++ b/consumer/pdata/generated_resource.go
+@@ -18,7 +18,7 @@
+ package pdata
+ 
+ import (
+-	otlpresource "github.com/open-telemetry/opentelemetry-proto/gen/go/resource/v1"
++	otlpresource "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/resource/v1"
+ )
+ 
+ // Resource information.

@@ -1,0 +1,24 @@
+diff --git a/service/builder/pipelines_builder.go b/service/builder/pipelines_builder.go
+index bf13b9756..45ed409df 100644
+--- a/service/builder/pipelines_builder.go
++++ b/service/builder/pipelines_builder.go
+@@ -21,9 +21,9 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/processor"
+ )
+ 
+@@ -75,7 +75,7 @@ func (bps BuiltPipelines) ShutdownProcessors(ctx context.Context) error {
+ 		bp.logger.Info("Pipeline is shutdown.")
+ 	}
+ 
+-	return componenterror.CombineErrors(errs)
++	return consumererror.CombineErrors(errs)
+ }
+ 
+ // PipelinesBuilder builds pipelines from config.

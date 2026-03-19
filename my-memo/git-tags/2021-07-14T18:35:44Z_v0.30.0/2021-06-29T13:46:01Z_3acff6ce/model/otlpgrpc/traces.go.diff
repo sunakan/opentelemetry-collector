@@ -1,0 +1,14 @@
+diff --git a/model/otlpgrpc/traces.go b/model/otlpgrpc/traces.go
+index a793f7b8a..4b497d605 100644
+--- a/model/otlpgrpc/traces.go
++++ b/model/otlpgrpc/traces.go
+@@ -19,8 +19,8 @@ import (
+ 
+ 	"google.golang.org/grpc"
+ 
+-	"go.opentelemetry.io/collector/internal"
+ 	otlpcollectortraces "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
++	"go.opentelemetry.io/collector/model/internal"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

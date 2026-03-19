@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/traceid_test.go b/pdata/pcommon/traceid_test.go
+index bd0d60648..dfadbd27d 100644
+--- a/pdata/pcommon/traceid_test.go
++++ b/pdata/pcommon/traceid_test.go
+@@ -21,7 +21,7 @@ import (
+ )
+ 
+ func TestTraceID(t *testing.T) {
+-	tid := InvalidTraceID()
++	tid := EmptyTraceID
+ 	assert.Equal(t, [16]byte{}, tid.Bytes())
+ 	assert.True(t, tid.IsEmpty())
+ 	assert.Equal(t, "", tid.HexString())

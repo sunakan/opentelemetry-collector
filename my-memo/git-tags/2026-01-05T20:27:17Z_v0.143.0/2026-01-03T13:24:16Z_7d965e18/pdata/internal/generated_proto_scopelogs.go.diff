@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopelogs.go b/pdata/internal/generated_proto_scopelogs.go
+index e7406f26e..6e4c8ed34 100644
+--- a/pdata/internal/generated_proto_scopelogs.go
++++ b/pdata/internal/generated_proto_scopelogs.go
+@@ -45,7 +45,6 @@ func DeleteScopeLogs(orig *ScopeLogs, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteInstrumentationScope(&orig.Scope, false)
+ 	for i := range orig.LogRecords {
+ 		DeleteLogRecord(orig.LogRecords[i], true)

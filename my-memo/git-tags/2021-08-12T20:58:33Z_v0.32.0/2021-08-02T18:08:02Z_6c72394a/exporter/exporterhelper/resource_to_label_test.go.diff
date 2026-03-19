@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/resource_to_label_test.go b/exporter/exporterhelper/resource_to_label_test.go
+index dd2b53188..00036568a 100644
+--- a/exporter/exporterhelper/resource_to_label_test.go
++++ b/exporter/exporterhelper/resource_to_label_test.go
+@@ -22,7 +22,7 @@ import (
+ )
+ 
+ func TestConvertResourceToLabels(t *testing.T) {
+-	md := testdata.GenerateMetricsOneSumMetric()
++	md := testdata.GenerateMetricsOneMetric()
+ 	assert.NotNil(t, md)
+ 
+ 	// Before converting resource to labels

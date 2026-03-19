@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_sampleslice.go b/pdata/pprofile/generated_sampleslice.go
+index 6952c22c8..174f4e5bc 100644
+--- a/pdata/pprofile/generated_sampleslice.go
++++ b/pdata/pprofile/generated_sampleslice.go
+@@ -99,7 +99,7 @@ func (es SampleSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Sample.
+ func (es SampleSlice) AppendEmpty() Sample {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpprofiles.Sample{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrSample())
+ 	return es.At(es.Len() - 1)
+ }
+ 

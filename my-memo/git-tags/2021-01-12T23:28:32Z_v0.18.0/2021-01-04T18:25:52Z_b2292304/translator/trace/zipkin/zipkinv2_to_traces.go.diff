@@ -1,0 +1,18 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 91f18efe6..a441d569a 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -164,6 +164,13 @@ func populateSpanStatus(tags map[string]string, status pdata.SpanStatus) {
+ 			delete(tags, tracetranslator.TagStatusMsg)
+ 		}
+ 	}
++
++	if val, ok := tags[tracetranslator.TagError]; ok {
++		if val == "true" {
++			status.SetCode(pdata.StatusCodeError)
++			delete(tags, tracetranslator.TagError)
++		}
++	}
+ }
+ 
+ func zipkinKindToSpanKind(kind zipkinmodel.Kind, tags map[string]string) pdata.SpanKind {

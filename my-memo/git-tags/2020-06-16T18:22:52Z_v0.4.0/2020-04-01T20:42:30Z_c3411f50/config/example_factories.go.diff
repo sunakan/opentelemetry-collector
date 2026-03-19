@@ -1,0 +1,12 @@
+diff --git a/config/example_factories.go b/config/example_factories.go
+index fdd2a6634..87b0cc433 100644
+--- a/config/example_factories.go
++++ b/config/example_factories.go
+@@ -255,7 +255,6 @@ type ExampleExporter struct {
+ 	ExtraSetting                  string                   `mapstructure:"extra"`
+ 	ExtraMapSetting               map[string]string        `mapstructure:"extra_map"`
+ 	ExtraListSetting              []string                 `mapstructure:"extra_list"`
+-	ExporterShutdown              bool
+ }
+ 
+ // ExampleExporterFactory is factory for ExampleExporter.

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/doc.go b/cmd/mdatagen/internal/samplescraper/doc.go
+new file mode 100644
+index 000000000..66483d871
+--- /dev/null
++++ b/cmd/mdatagen/internal/samplescraper/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++// Generate a test metrics builder from a sample metrics set covering all configuration options.
++//go:generate mdatagen metadata.yaml
++
++package samplescraper // import "go.opentelemetry.io/collector/cmd/mdatagen/internal/samplescraper"

@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint.go
+index c85dfc4ab..2e044d342 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint.go
+@@ -57,6 +57,10 @@ func DeleteOrigExponentialHistogramDataPoint(orig *otlpmetrics.ExponentialHistog
+ }
+ 
+ func CopyOrigExponentialHistogramDataPoint(dest, src *otlpmetrics.ExponentialHistogramDataPoint) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)
+ 	dest.StartTimeUnixNano = src.StartTimeUnixNano
+ 	dest.TimeUnixNano = src.TimeUnixNano

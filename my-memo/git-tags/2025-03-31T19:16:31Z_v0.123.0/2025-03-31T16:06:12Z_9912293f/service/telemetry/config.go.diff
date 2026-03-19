@@ -1,0 +1,16 @@
+diff --git a/service/telemetry/config.go b/service/telemetry/config.go
+index 8cd07b4e7..2a9117993 100644
+--- a/service/telemetry/config.go
++++ b/service/telemetry/config.go
+@@ -21,9 +21,9 @@ var _ confmap.Unmarshaler = (*Config)(nil)
+ 
+ var disableAddressFieldForInternalTelemetryFeatureGate = featuregate.GlobalRegistry().MustRegister(
+ 	"telemetry.disableAddressFieldForInternalTelemetry",
+-	featuregate.StageAlpha,
++	featuregate.StageBeta,
+ 	featuregate.WithRegisterFromVersion("v0.111.0"),
+-	featuregate.WithRegisterToVersion("v0.114.0"),
++	featuregate.WithRegisterToVersion("v0.123.0"),
+ 	featuregate.WithRegisterDescription("controls whether the deprecated address field for internal telemetry is still supported"))
+ 
+ // Config defines the configurable settings for service telemetry.

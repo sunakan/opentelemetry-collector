@@ -1,0 +1,30 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 07c2b41a0..37ff82ed6 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -9,13 +9,23 @@ updates:
+     directory: "/" # Location of package manifests
+     schedule:
+       interval: "daily"
+-    # Add assignees
+     assignees:
+       - "bogdandrutu"
+   - package-ecosystem: "gomod"
+     directory: "/examples/demo/app"
+     schedule:
+       interval: "daily"
+-    # Add assignees
++    assignees:
++      - "bogdandrutu"
++  - package-ecosystem: "gomod"
++    directory: "/cmd/issuegenerator"
++    schedule:
++      interval: "daily"
++    assignees:
++      - "bogdandrutu"
++  - package-ecosystem: "gomod"
++    directory: "/cmd/mdatagen"
++    schedule:
++      interval: "daily"
+     assignees:
+       - "bogdandrutu"

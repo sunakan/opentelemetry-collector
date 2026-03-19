@@ -1,0 +1,16 @@
+diff --git a/service/application_test.go b/service/application_test.go
+index bac668df4..dab4550ad 100644
+--- a/service/application_test.go
++++ b/service/application_test.go
+@@ -239,10 +239,7 @@ service:
+       processors: [batch]
+       exporters: [logging]
+ `
+-	v := config.NewViper()
+-	v.SetConfigType("yaml")
+-	v.ReadConfig(strings.NewReader(configStr))
+-	return config.ParserFromViper(v), nil
++	return config.NewParserFromBuffer(strings.NewReader(configStr))
+ }
+ 
+ type errParserLoader struct {

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice_test.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice_test.go
+index 8a8e86f1e..e32a33052 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice_test.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice_test.go
+@@ -52,6 +52,8 @@ func TestExponentialHistogramDataPointSlice_CopyTo(t *testing.T) {
+ 	src := generateTestExponentialHistogramDataPointSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestExponentialHistogramDataPointSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestExponentialHistogramDataPointSlice(), dest)
+ }
+ 
+ func TestExponentialHistogramDataPointSlice_EnsureCapacity(t *testing.T) {

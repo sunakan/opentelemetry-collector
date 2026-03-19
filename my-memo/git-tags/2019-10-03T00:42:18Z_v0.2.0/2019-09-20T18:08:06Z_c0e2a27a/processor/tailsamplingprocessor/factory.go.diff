@@ -1,0 +1,13 @@
+diff --git a/processor/tailsamplingprocessor/factory.go b/processor/tailsamplingprocessor/factory.go
+index 5fba4d50c..43f508df5 100644
+--- a/processor/tailsamplingprocessor/factory.go
++++ b/processor/tailsamplingprocessor/factory.go
+@@ -27,7 +27,7 @@ import (
+ 
+ const (
+ 	// The value of "type" Tail Sampling in configuration.
+-	typeStr = "tail-sampling"
++	typeStr = "tail_sampling"
+ )
+ 
+ // Factory is the factory for Tail Sampling processor.

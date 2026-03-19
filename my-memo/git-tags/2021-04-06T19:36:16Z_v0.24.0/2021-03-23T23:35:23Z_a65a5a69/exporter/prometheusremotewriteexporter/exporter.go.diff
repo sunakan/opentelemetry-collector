@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter.go b/exporter/prometheusremotewriteexporter/exporter.go
+index 420832d3b..f71870189 100644
+--- a/exporter/prometheusremotewriteexporter/exporter.go
++++ b/exporter/prometheusremotewriteexporter/exporter.go
+@@ -155,7 +155,7 @@ func (prwe *PrwExporter) PushMetrics(ctx context.Context, md pdata.Metrics) erro
+ 		}
+ 
+ 		if dropped != 0 {
+-			return consumererror.CombineErrors(errs)
++			return consumererror.Combine(errs)
+ 		}
+ 
+ 		return nil

@@ -1,0 +1,21 @@
+diff --git a/example/main.go b/example/main.go
+index 64526d943..5fa9f5ff9 100644
+--- a/example/main.go
++++ b/example/main.go
+@@ -20,6 +20,7 @@ import (
+ 	"fmt"
+ 	"log"
+ 	"math/rand"
++	"os"
+ 	"time"
+ 
+ 	"contrib.go.opencensus.io/exporter/ocagent"
+@@ -32,7 +33,7 @@ import (
+ func main() {
+ 	oce, err := ocagent.NewExporter(
+ 		ocagent.WithInsecure(),
+-		ocagent.WithServiceName("example-go"))
++		ocagent.WithServiceName(fmt.Sprintf("example-go-%d", os.Getpid())))
+ 	if err != nil {
+ 		log.Fatalf("Failed to create ocagent-exporter: %v", err)
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index aff35e5f9..0aeaf9ea1 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -22,7 +22,7 @@ status:
+     stable: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
+     deprecated: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
+     unmaintained: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
+-  # [WIP] Will be a requirement for deprecated components: The deprecation information for the deprecated components
++  # Required for deprecated components: The deprecation information for the deprecated components - See https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/component-stability.md#deprecation-information
+   deprecation:
+     <component>:
+       date: string

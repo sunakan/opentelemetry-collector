@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/config.go b/extension/zpagesextension/config.go
+index c4e306aa0..5369ec67c 100644
+--- a/extension/zpagesextension/config.go
++++ b/extension/zpagesextension/config.go
+@@ -15,7 +15,7 @@
+ package zpagesextension
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config has the configuration for the extension enabling the zPages extension.

@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 891dcfc5a..f11712aac 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -48,7 +48,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the Receiver config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

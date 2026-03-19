@@ -1,0 +1,16 @@
+diff --git a/internal/otlp/json_encoder.go b/internal/otlp/json_encoder.go
+index b70d1da65..555b187fc 100644
+--- a/internal/otlp/json_encoder.go
++++ b/internal/otlp/json_encoder.go
+@@ -19,10 +19,10 @@ import (
+ 
+ 	"github.com/gogo/protobuf/jsonpb"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	otlpcollectorlogs "go.opentelemetry.io/collector/internal/data/protogen/collector/logs/v1"
+ 	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/protogen/collector/metrics/v1"
+ 	otlpcollectortrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type jsonEncoder struct {

@@ -1,0 +1,215 @@
+diff --git a/exporter/exporterhelper/metadata.yaml b/exporter/exporterhelper/metadata.yaml
+index 0af14cce3..9212c3ec2 100644
+--- a/exporter/exporterhelper/metadata.yaml
++++ b/exporter/exporterhelper/metadata.yaml
+@@ -13,22 +13,22 @@ status:
+ 
+ telemetry:
+   metrics:
+-    exporter_sent_spans:
++    exporter_enqueue_failed_log_records:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Number of spans successfully sent to destination.
+-      unit: "{spans}"
++      description: Number of log records failed to be added to the sending queue.
++      unit: "{records}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    exporter_send_failed_spans:
++    exporter_enqueue_failed_metric_points:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Number of spans in failed attempts to send to destination.
+-      unit: "{spans}"
++      description: Number of metric points failed to be added to the sending queue.
++      unit: "{datapoints}"
+       sum:
+         value_type: int
+         monotonic: true
+@@ -43,45 +43,81 @@ telemetry:
+         value_type: int
+         monotonic: true
+ 
+-    exporter_sent_metric_points:
++    exporter_queue_batch_send_size:
+       enabled: true
+-      stability:
+-        level: alpha
+-      description: Number of metric points successfully sent to destination.
+-      unit: "{datapoints}"
+-      sum:
++      description: Number of units in the batch
++      unit: "{units}"
++      histogram:
+         value_type: int
+-        monotonic: true
++        bucket_boundaries:
++          [
++            10,
++            25,
++            50,
++            75,
++            100,
++            250,
++            500,
++            750,
++            1000,
++            2000,
++            3000,
++            4000,
++            5000,
++            6000,
++            7000,
++            8000,
++            9000,
++            10000,
++            20000,
++            30000,
++            50000,
++            100000,
++          ]
+ 
+-    exporter_send_failed_metric_points:
++    exporter_queue_batch_send_size_bytes:
+       enabled: true
+-      stability:
+-        level: alpha
+-      description: Number of metric points in failed attempts to send to destination.
+-      unit: "{datapoints}"
+-      sum:
++      description: Number of bytes in batch that was sent. Only available on detailed level.
++      unit: By
++      histogram:
+         value_type: int
+-        monotonic: true
++        bucket_boundaries:
++          [
++            10,
++            25,
++            50,
++            75,
++            100,
++            250,
++            500,
++            750,
++            1000,
++            2000,
++            3000,
++            4000,
++            5000,
++            6000,
++          ]
+ 
+-    exporter_enqueue_failed_metric_points:
++    exporter_queue_capacity:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Number of metric points failed to be added to the sending queue.
+-      unit: "{datapoints}"
+-      sum:
++      description: Fixed capacity of the retry queue (in batches).
++      unit: "{batches}"
++      gauge:
+         value_type: int
+-        monotonic: true
++        async: true
+ 
+-    exporter_sent_log_records:
++    exporter_queue_size:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Number of log record successfully sent to destination.
+-      unit: "{records}"
+-      sum:
++      description: Current size of the retry queue (in batches).
++      unit: "{batches}"
++      gauge:
+         value_type: int
+-        monotonic: true
++        async: true
+ 
+     exporter_send_failed_log_records:
+       enabled: true
+@@ -93,48 +129,52 @@ telemetry:
+         value_type: int
+         monotonic: true
+ 
+-    exporter_enqueue_failed_log_records:
++    exporter_send_failed_metric_points:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Number of log records failed to be added to the sending queue.
+-      unit: "{records}"
++      description: Number of metric points in failed attempts to send to destination.
++      unit: "{datapoints}"
+       sum:
+         value_type: int
+         monotonic: true
+ 
+-    exporter_queue_size:
++    exporter_send_failed_spans:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Current size of the retry queue (in batches).
+-      unit: "{batches}"
+-      gauge:
++      description: Number of spans in failed attempts to send to destination.
++      unit: "{spans}"
++      sum:
+         value_type: int
+-        async: true
++        monotonic: true
+ 
+-    exporter_queue_batch_send_size:
++    exporter_sent_log_records:
+       enabled: true
+-      description: Number of units in the batch
+-      unit: "{units}"
+-      histogram:
++      stability:
++        level: alpha
++      description: Number of log record successfully sent to destination.
++      unit: "{records}"
++      sum:
+         value_type: int
+-        bucket_boundaries: [ 10, 25, 50, 75, 100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 20000, 30000, 50000, 100000 ]
++        monotonic: true
+ 
+-    exporter_queue_batch_send_size_bytes:
++    exporter_sent_metric_points:
+       enabled: true
+-      description: Number of bytes in batch that was sent. Only available on detailed level.
+-      unit: By
+-      histogram:
++      stability:
++        level: alpha
++      description: Number of metric points successfully sent to destination.
++      unit: "{datapoints}"
++      sum:
+         value_type: int
+-        bucket_boundaries: [ 10, 25, 50, 75, 100, 250, 500, 750, 1000, 2000, 3000, 4000, 5000, 6000 ]
++        monotonic: true
+ 
+-    exporter_queue_capacity:
++    exporter_sent_spans:
+       enabled: true
+       stability:
+         level: alpha
+-      description: Fixed capacity of the retry queue (in batches).
+-      unit: "{batches}"
+-      gauge:
++      description: Number of spans successfully sent to destination.
++      unit: "{spans}"
++      sum:
+         value_type: int
+-        async: true
++        monotonic: true

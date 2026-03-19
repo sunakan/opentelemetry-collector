@@ -1,0 +1,35 @@
+diff --git a/service/builder/pipelines_builder.go b/service/builder/pipelines_builder.go
+index ae4d45660..f2aca8d14 100644
+--- a/service/builder/pipelines_builder.go
++++ b/service/builder/pipelines_builder.go
+@@ -32,7 +32,7 @@ import (
+ // processor in the pipeline or the exporter if pipeline has no processors).
+ type builtPipeline struct {
+ 	logger  *zap.Logger
+-	firstTC consumer.TraceConsumer
++	firstTC consumer.TracesConsumer
+ 	firstMC consumer.MetricsConsumer
+ 	firstLC consumer.LogsConsumer
+ 
+@@ -122,7 +122,7 @@ func (pb *PipelinesBuilder) buildPipeline(ctx context.Context, pipelineCfg *conf
+ 	// BuildProcessors the pipeline backwards.
+ 
+ 	// First create a consumer junction point that fans out the data to all exporters.
+-	var tc consumer.TraceConsumer
++	var tc consumer.TracesConsumer
+ 	var mc consumer.MetricsConsumer
+ 	var lc consumer.LogsConsumer
+ 
+@@ -229,10 +229,10 @@ func (pb *PipelinesBuilder) getBuiltExportersByNames(exporterNames []string) []*
+ 	return result
+ }
+ 
+-func (pb *PipelinesBuilder) buildFanoutExportersTraceConsumer(exporterNames []string) consumer.TraceConsumer {
++func (pb *PipelinesBuilder) buildFanoutExportersTraceConsumer(exporterNames []string) consumer.TracesConsumer {
+ 	builtExporters := pb.getBuiltExportersByNames(exporterNames)
+ 
+-	var exporters []consumer.TraceConsumer
++	var exporters []consumer.TracesConsumer
+ 	for _, builtExp := range builtExporters {
+ 		exporters = append(exporters, builtExp.getTraceExporter())
+ 	}

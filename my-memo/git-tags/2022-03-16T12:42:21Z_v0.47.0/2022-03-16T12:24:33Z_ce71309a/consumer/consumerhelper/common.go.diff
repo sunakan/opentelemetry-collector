@@ -1,0 +1,50 @@
+diff --git a/consumer/consumerhelper/common.go b/consumer/consumerhelper/common.go
+index 8081e4826..0081fc50b 100644
+--- a/consumer/consumerhelper/common.go
++++ b/consumer/consumerhelper/common.go
+@@ -15,41 +15,11 @@
+ package consumerhelper // import "go.opentelemetry.io/collector/consumer/consumerhelper"
+ 
+ import (
+-	"errors"
+-
+ 	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+-var errNilFunc = errors.New("nil consumer func")
+-
+-type baseConsumer struct {
+-	capabilities consumer.Capabilities
+-}
+-
+-// Option applies changes to internalOptions.
+-type Option func(*baseConsumer)
+-
+-// WithCapabilities overrides the default GetCapabilities function for a processor.
+-// The default GetCapabilities function returns mutable capabilities.
+-func WithCapabilities(capabilities consumer.Capabilities) Option {
+-	return func(o *baseConsumer) {
+-		o.capabilities = capabilities
+-	}
+-}
+-
+-// Capabilities implementation of the base Consumer.
+-func (bs baseConsumer) Capabilities() consumer.Capabilities {
+-	return bs.capabilities
+-}
+-
+-func newBaseConsumer(options ...Option) *baseConsumer {
+-	bs := &baseConsumer{
+-		capabilities: consumer.Capabilities{MutatesData: false},
+-	}
+-
+-	for _, op := range options {
+-		op(bs)
+-	}
++// Deprecated: [v0.47.0] use consumer.Option
++type Option = consumer.Option
+ 
+-	return bs
+-}
++// Deprecated: [v0.47.0] use consumer.WithCapabilities
++var WithCapabilities = consumer.WithCapabilities

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index e88fda13c..2057abdca 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -119,7 +119,7 @@ func (r *otlpReceiver) startHTTPServer(cfg *confighttp.HTTPServerSettings, host
+ 	go func() {
+ 		defer r.shutdownWG.Done()
+ 
+-		if errHTTP := r.serverHTTP.Serve(hln); errHTTP != nil && errHTTP != http.ErrServerClosed {
++		if errHTTP := r.serverHTTP.Serve(hln); errHTTP != http.ErrServerClosed {
+ 			host.ReportFatalError(errHTTP)
+ 		}
+ 	}()

@@ -1,0 +1,14 @@
+diff --git a/internal/buildscripts/packaging/msi/opentelemetry-collector.wxs b/internal/buildscripts/packaging/msi/opentelemetry-collector.wxs
+index 97cba9acc..c957b5b3f 100644
+--- a/internal/buildscripts/packaging/msi/opentelemetry-collector.wxs
++++ b/internal/buildscripts/packaging/msi/opentelemetry-collector.wxs
+@@ -9,6 +9,9 @@
+       <Property Id="ARPNOREPAIR" Value="1"/>
+       <Property Id="ARPNOMODIFY" Value="1"/>
+ 
++      <MajorUpgrade
++         DowngradeErrorMessage="A later version of OpenTelemetry Collector Contrib is already installed. Setup will now exit."/>
++
+       <Feature Id="Feature" Level="1">
+          <ComponentRef Id="ApplicationComponent"/>
+       </Feature>

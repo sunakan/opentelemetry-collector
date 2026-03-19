@@ -1,0 +1,16 @@
+diff --git a/exporter/zipkinexporter/zipkin_test.go b/exporter/zipkinexporter/zipkin_test.go
+index c0fe2797c..2a90e6dd8 100644
+--- a/exporter/zipkinexporter/zipkin_test.go
++++ b/exporter/zipkinexporter/zipkin_test.go
+@@ -33,10 +33,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/receivertest"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/zipkinreceiver"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ 	"github.com/open-telemetry/opentelemetry-collector/translator/trace/zipkin"
+ )
+ 

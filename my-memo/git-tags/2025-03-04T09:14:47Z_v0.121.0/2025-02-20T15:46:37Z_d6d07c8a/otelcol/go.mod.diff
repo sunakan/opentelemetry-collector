@@ -1,0 +1,22 @@
+diff --git a/otelcol/go.mod b/otelcol/go.mod
+index 7e95d75a4..fe4a17c68 100644
+--- a/otelcol/go.mod
++++ b/otelcol/go.mod
+@@ -9,6 +9,8 @@ require (
+ 	go.opentelemetry.io/collector/component/componentstatus v0.120.0
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.120.0
+ 	go.opentelemetry.io/collector/confmap v1.26.0
++	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.25.0
++	go.opentelemetry.io/collector/confmap/provider/yamlprovider v1.25.0
+ 	go.opentelemetry.io/collector/confmap/xconfmap v0.120.0
+ 	go.opentelemetry.io/collector/connector v0.120.0
+ 	go.opentelemetry.io/collector/connector/connectortest v0.120.0
+@@ -209,4 +211,8 @@ replace go.opentelemetry.io/collector/extension/auth/authtest => ../extension/au
+ 
+ replace go.opentelemetry.io/collector/extension/xextension => ../extension/xextension
+ 
++replace go.opentelemetry.io/collector/confmap/provider/fileprovider => ../confmap/provider/fileprovider
++
++replace go.opentelemetry.io/collector/confmap/provider/yamlprovider => ../confmap/provider/yamlprovider
++
+ replace go.opentelemetry.io/collector/internal/telemetry => ../internal/telemetry

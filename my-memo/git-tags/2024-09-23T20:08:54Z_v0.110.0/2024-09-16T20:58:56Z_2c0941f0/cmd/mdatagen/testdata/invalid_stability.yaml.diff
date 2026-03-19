@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/testdata/invalid_stability.yaml b/cmd/mdatagen/testdata/invalid_stability.yaml
+deleted file mode 100644
+index 259aade24..000000000
+--- a/cmd/mdatagen/testdata/invalid_stability.yaml
++++ /dev/null
+@@ -1,7 +0,0 @@
+-type: file
+-status:
+-  class: receiver
+-  stability:
+-    incorrectstability: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+\ No newline at end of file

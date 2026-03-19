@@ -1,0 +1,22 @@
+diff --git a/config/testdata/invalid-extension-sub-config.yaml b/config/testdata/invalid-extension-sub-config.yaml
+deleted file mode 100644
+index 0859a71cf..000000000
+--- a/config/testdata/invalid-extension-sub-config.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-extensions:
+-  exampleextension:
+-    tests
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-service:
+-  extensions: [exampleextension]
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

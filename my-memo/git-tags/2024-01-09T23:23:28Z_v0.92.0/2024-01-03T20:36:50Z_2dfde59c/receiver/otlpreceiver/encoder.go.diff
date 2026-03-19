@@ -1,0 +1,26 @@
+diff --git a/receiver/otlpreceiver/encoder.go b/receiver/otlpreceiver/encoder.go
+index ca661b9c2..d37437c7c 100644
+--- a/receiver/otlpreceiver/encoder.go
++++ b/receiver/otlpreceiver/encoder.go
+@@ -21,9 +21,9 @@ const (
+ )
+ 
+ var (
+-	pbEncoder     = &protoEncoder{}
+-	jsEncoder     = &jsonEncoder{}
+-	jsonMarshaler = &jsonpb.Marshaler{}
++	pbEncoder       = &protoEncoder{}
++	jsEncoder       = &jsonEncoder{}
++	jsonPbMarshaler = &jsonpb.Marshaler{}
+ )
+ 
+ type encoder interface {
+@@ -114,7 +114,7 @@ func (jsonEncoder) marshalLogsResponse(resp plogotlp.ExportResponse) ([]byte, er
+ 
+ func (jsonEncoder) marshalStatus(resp *spb.Status) ([]byte, error) {
+ 	buf := new(bytes.Buffer)
+-	err := jsonMarshaler.Marshal(buf, resp)
++	err := jsonPbMarshaler.Marshal(buf, resp)
+ 	return buf.Bytes(), err
+ }
+ 

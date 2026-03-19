@@ -1,0 +1,139 @@
+diff --git a/consumer/pdata/generated_metrics.go b/consumer/pdata/generated_metrics.go
+index 870ea3e59..43882af39 100644
+--- a/consumer/pdata/generated_metrics.go
++++ b/consumer/pdata/generated_metrics.go
+@@ -136,6 +136,14 @@ func (es ResourceMetricsSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the ResourceMetricsSlice by one and set the
++// given ResourceMetrics at that new position.  The original ResourceMetrics
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es ResourceMetricsSlice) Append(e *ResourceMetrics) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // InstrumentationLibraryMetrics is a collection of metrics from a LibraryInstrumentation.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -319,6 +327,14 @@ func (es InstrumentationLibraryMetricsSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the InstrumentationLibraryMetricsSlice by one and set the
++// given InstrumentationLibraryMetrics at that new position.  The original InstrumentationLibraryMetrics
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es InstrumentationLibraryMetricsSlice) Append(e *InstrumentationLibraryMetrics) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // InstrumentationLibraryMetrics is a collection of metrics from a LibraryInstrumentation.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -502,6 +518,14 @@ func (es MetricSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the MetricSlice by one and set the
++// given Metric at that new position.  The original Metric
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es MetricSlice) Append(e *Metric) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // Metric represents one metric as a collection of datapoints.
+ // See Metric definition in OTLP: https://github.com/open-telemetry/opentelemetry-proto/blob/master/opentelemetry/proto/metrics/v1/metrics.proto#L96
+ //
+@@ -819,6 +843,14 @@ func (es Int64DataPointSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the Int64DataPointSlice by one and set the
++// given Int64DataPoint at that new position.  The original Int64DataPoint
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es Int64DataPointSlice) Append(e *Int64DataPoint) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // Int64DataPoint is a single data point in a timeseries that describes the time-varying values of a int64 metric.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -1036,6 +1068,14 @@ func (es DoubleDataPointSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the DoubleDataPointSlice by one and set the
++// given DoubleDataPoint at that new position.  The original DoubleDataPoint
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es DoubleDataPointSlice) Append(e *DoubleDataPoint) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // DoubleDataPoint is a single data point in a timeseries that describes the time-varying value of a double metric.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -1253,6 +1293,14 @@ func (es HistogramDataPointSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the HistogramDataPointSlice by one and set the
++// given HistogramDataPoint at that new position.  The original HistogramDataPoint
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es HistogramDataPointSlice) Append(e *HistogramDataPoint) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // HistogramDataPoint is a single data point in a timeseries that describes the time-varying values of a Histogram.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -1508,6 +1556,14 @@ func (es HistogramBucketSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the HistogramBucketSlice by one and set the
++// given HistogramBucket at that new position.  The original HistogramBucket
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es HistogramBucketSlice) Append(e *HistogramBucket) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // HistogramBucket contains values for a histogram bucket.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -1786,6 +1842,14 @@ func (es SummaryDataPointSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the SummaryDataPointSlice by one and set the
++// given SummaryDataPoint at that new position.  The original SummaryDataPoint
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es SummaryDataPointSlice) Append(e *SummaryDataPoint) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // SummaryDataPoint is a single data point in a timeseries that describes the time-varying values of a Summary metric.
+ //
+ // This is a reference type, if passed by value and callee modifies it the
+@@ -2026,6 +2090,14 @@ func (es SummaryValueAtPercentileSlice) Resize(newLen int) {
+ 	(*es.orig) = oldOrig
+ }
+ 
++// Append will increase the length of the SummaryValueAtPercentileSlice by one and set the
++// given SummaryValueAtPercentile at that new position.  The original SummaryValueAtPercentile
++// could still be referenced so do not reuse it after passing it to this
++// method.
++func (es SummaryValueAtPercentileSlice) Append(e *SummaryValueAtPercentile) {
++	(*es.orig) = append((*es.orig), *e.orig)
++}
++
+ // SummaryValueAtPercentile represents the value at a given percentile of a distribution.
+ //
+ // This is a reference type, if passed by value and callee modifies it the

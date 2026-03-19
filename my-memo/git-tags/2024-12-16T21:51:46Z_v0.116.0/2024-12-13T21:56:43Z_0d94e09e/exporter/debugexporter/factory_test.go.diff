@@ -1,0 +1,23 @@
+diff --git a/exporter/debugexporter/factory_test.go b/exporter/debugexporter/factory_test.go
+index b8656e2eb..aa40839a7 100644
+--- a/exporter/debugexporter/factory_test.go
++++ b/exporter/debugexporter/factory_test.go
+@@ -11,8 +11,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/exporter/exporterprofiles"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/exporter/xexporter"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+@@ -53,7 +53,7 @@ func TestCreateFactoryProfiles(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 
+-	te, err := factory.(exporterprofiles.Factory).CreateProfiles(context.Background(), exportertest.NewNopSettings(), cfg)
++	te, err := factory.(xexporter.Factory).CreateProfiles(context.Background(), exportertest.NewNopSettings(), cfg)
+ 	require.NoError(t, err)
+ 	assert.NotNil(t, te)
+ }

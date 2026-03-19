@@ -1,0 +1,19 @@
+diff --git a/config/configparser/testdata/invalid-pipeline-name-after-slash.yaml b/config/configparser/testdata/invalid-pipeline-name-after-slash.yaml
+new file mode 100644
+index 000000000..1f4718a2d
+--- /dev/null
++++ b/config/configparser/testdata/invalid-pipeline-name-after-slash.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    metrics/:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

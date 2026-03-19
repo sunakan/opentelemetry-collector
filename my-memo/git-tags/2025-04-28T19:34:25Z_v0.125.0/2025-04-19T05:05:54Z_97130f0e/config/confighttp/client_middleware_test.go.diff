@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/client_middleware_test.go b/config/confighttp/client_middleware_test.go
+index c9427d9fd..011559626 100644
+--- a/config/confighttp/client_middleware_test.go
++++ b/config/confighttp/client_middleware_test.go
+@@ -33,7 +33,7 @@ func newTestClientMiddleware(name string) component.Component {
+ 	return &testClientMiddleware{
+ 		Extension: extensionmiddlewaretest.NewNop(),
+ 		GetHTTPRoundTripperFunc: func(transport http.RoundTripper) (http.RoundTripper, error) {
+-			return extensionmiddlewaretest.HTTPClientFunc(
++			return extensionmiddlewaretest.RoundTripperFunc(
+ 				func(req *http.Request) (*http.Response, error) {
+ 					resp, err := transport.RoundTrip(req)
+ 					if err != nil {

@@ -1,0 +1,21 @@
+diff --git a/service/service.go b/service/service.go
+index 9df747767..1f2bac4b9 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -21,7 +21,6 @@ import (
+ 	"go.uber.org/multierr"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/service/internal/builder"
+ 	"go.opentelemetry.io/collector/service/internal/extensions"
+ )
+@@ -29,7 +28,7 @@ import (
+ // service represents the implementation of a component.Host.
+ type service struct {
+ 	buildInfo component.BuildInfo
+-	config    *config.Config
++	config    *Config
+ 	telemetry component.TelemetrySettings
+ 	host      *serviceHost
+ }

@@ -1,0 +1,27 @@
+diff --git a/component/mock_host.go b/component/mock_host.go
+index 136f3dc30..fa2f1f527 100644
+--- a/component/mock_host.go
++++ b/component/mock_host.go
+@@ -16,22 +16,12 @@
+ // implementing the receiver package interfaces.
+ package component
+ 
+-import (
+-	"context"
+-)
+-
+ // MockHost mocks a receiver.ReceiverHost for test purposes.
+ type MockHost struct {
+ }
+ 
+ var _ Host = (*MockHost)(nil)
+ 
+-// Context returns a context provided by the host to be used on the receiver
+-// operations.
+-func (mh *MockHost) Context() context.Context {
+-	return context.Background()
+-}
+-
+ // ReportFatalError is used to report to the host that the receiver encountered
+ // a fatal error (i.e.: an error that the instance can't recover from) after
+ // its start function has already returned.

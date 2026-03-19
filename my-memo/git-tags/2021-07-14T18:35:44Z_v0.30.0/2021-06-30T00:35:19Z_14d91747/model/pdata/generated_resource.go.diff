@@ -1,0 +1,13 @@
+diff --git a/model/pdata/generated_resource.go b/model/pdata/generated_resource.go
+index 069e35626..b1b3a40d3 100644
+--- a/model/pdata/generated_resource.go
++++ b/model/pdata/generated_resource.go
+@@ -18,7 +18,7 @@
+ package pdata
+ 
+ import (
+-	otlpresource "go.opentelemetry.io/collector/internal/data/protogen/resource/v1"
++	otlpresource "go.opentelemetry.io/collector/model/internal/data/protogen/resource/v1"
+ )
+ 
+ // Resource is a message representing the resource information.

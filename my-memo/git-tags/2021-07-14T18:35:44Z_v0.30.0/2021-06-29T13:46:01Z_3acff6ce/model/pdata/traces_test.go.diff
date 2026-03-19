@@ -1,0 +1,15 @@
+diff --git a/model/pdata/traces_test.go b/model/pdata/traces_test.go
+index 07edb15e2..92eae5a8c 100644
+--- a/model/pdata/traces_test.go
++++ b/model/pdata/traces_test.go
+@@ -23,9 +23,9 @@ import (
+ 	goproto "google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/types/known/emptypb"
+ 
+-	"go.opentelemetry.io/collector/internal"
+ 	otlpcollectortrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
++	"go.opentelemetry.io/collector/model/internal"
+ )
+ 
+ func TestSpanCount(t *testing.T) {

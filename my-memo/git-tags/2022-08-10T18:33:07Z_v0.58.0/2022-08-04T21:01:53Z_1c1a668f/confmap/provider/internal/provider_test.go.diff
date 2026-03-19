@@ -1,0 +1,21 @@
+diff --git a/confmap/provider/internal/provider_test.go b/confmap/provider/internal/provider_test.go
+index 0bd0b74a3..023fa3347 100644
+--- a/confmap/provider/internal/provider_test.go
++++ b/confmap/provider/internal/provider_test.go
+@@ -46,10 +46,13 @@ func TestNewRetrievedFromYAMLWithOptions(t *testing.T) {
+ 
+ func TestNewRetrievedFromYAMLInvalidYAMLBytes(t *testing.T) {
+ 	_, err := NewRetrievedFromYAML([]byte("[invalid:,"))
+-	require.Error(t, err)
++	assert.Error(t, err)
+ }
+ 
+ func TestNewRetrievedFromYAMLInvalidAsMap(t *testing.T) {
+-	_, err := NewRetrievedFromYAML([]byte("string"))
+-	require.Error(t, err)
++	ret, err := NewRetrievedFromYAML([]byte("string"))
++	require.NoError(t, err)
++
++	_, err = ret.AsConf()
++	assert.Error(t, err)
+ }

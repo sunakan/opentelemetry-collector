@@ -1,0 +1,12 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index ca0ff12cf..5576ac400 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -151,6 +151,7 @@ func BuildExporters(
+ 				Logger:         logger.With(zap.String(components.ZapNameKey, expID.String())),
+ 				TracerProvider: settings.TracerProvider,
+ 				MeterProvider:  settings.MeterProvider,
++				MetricsLevel:   cfg.Telemetry.Metrics.Level,
+ 			},
+ 			BuildInfo: buildInfo,
+ 		}

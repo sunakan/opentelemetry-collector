@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantile_test.go b/pdata/pmetric/generated_summarydatapointvalueatquantile_test.go
+index 39f2a34d9..3ef48acdb 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantile_test.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantile_test.go
+@@ -73,7 +73,6 @@ func TestSummaryDataPointValueAtQuantile_Value(t *testing.T) {
+ }
+ 
+ func generateTestSummaryDataPointValueAtQuantile() SummaryDataPointValueAtQuantile {
+-	ms := NewSummaryDataPointValueAtQuantile()
+-	internal.FillOrigTestSummaryDataPoint_ValueAtQuantile(ms.orig)
++	ms := newSummaryDataPointValueAtQuantile(internal.GenTestOrigSummaryDataPoint_ValueAtQuantile(), internal.NewState())
+ 	return ms
+ }

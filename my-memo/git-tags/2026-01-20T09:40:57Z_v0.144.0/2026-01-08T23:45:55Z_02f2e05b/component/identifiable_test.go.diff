@@ -1,0 +1,12 @@
+diff --git a/component/identifiable_test.go b/component/identifiable_test.go
+index ace96386b..075769440 100644
+--- a/component/identifiable_test.go
++++ b/component/identifiable_test.go
+@@ -236,6 +236,7 @@ func TestNewType(t *testing.T) {
+ 		{name: "oteltestbedcol"},
+ 		{name: "otlp"},
+ 		{name: "otlp_encoding"},
++		{name: "otlp_http"},
+ 		{name: "otlphttp"},
+ 		{name: "otlpjsonfile"},
+ 		{name: "ottl"},

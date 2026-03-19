@@ -1,0 +1,18 @@
+diff --git a/service/internal/zpages/templates/extensions_table.html b/service/internal/zpages/templates/extensions_table.html
+new file mode 100644
+index 000000000..0b39ee933
+--- /dev/null
++++ b/service/internal/zpages/templates/extensions_table.html
+@@ -0,0 +1,11 @@
++<table style="border-spacing: 0">
++    {{$a := .ComponentEndpoint}}
++    {{range $rowindex, $row := .Rows}}
++        {{- if even $rowindex}}
++            <tr style="background: #eee">
++        {{else}}
++            <tr>{{end -}}
++        <td align="center"><a href="{{$a}}?zextensionname={{.FullName}}">{{.FullName}}</a></td>
++        </tr>
++    {{end}}
++</table>
+\ No newline at end of file

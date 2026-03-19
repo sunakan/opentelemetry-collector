@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv2/json_test.go b/translator/trace/zipkinv2/json_test.go
+index 0b104b1bb..e0ffafc60 100644
+--- a/translator/trace/zipkinv2/json_test.go
++++ b/translator/trace/zipkinv2/json_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestJSONDecoder_DecodeTraces(t *testing.T) {

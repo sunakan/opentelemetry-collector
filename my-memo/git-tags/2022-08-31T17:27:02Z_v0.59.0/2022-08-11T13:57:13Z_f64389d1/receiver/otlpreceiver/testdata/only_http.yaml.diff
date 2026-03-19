@@ -1,0 +1,9 @@
+diff --git a/receiver/otlpreceiver/testdata/only_http.yaml b/receiver/otlpreceiver/testdata/only_http.yaml
+new file mode 100644
+index 000000000..bf1a240f7
+--- /dev/null
++++ b/receiver/otlpreceiver/testdata/only_http.yaml
+@@ -0,0 +1,3 @@
++# The following entry initializes the default OTLP receiver with only http support.
++protocols:
++  http:

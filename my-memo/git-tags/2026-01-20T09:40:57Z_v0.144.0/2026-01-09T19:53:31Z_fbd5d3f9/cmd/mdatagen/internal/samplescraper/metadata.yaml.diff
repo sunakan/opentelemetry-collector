@@ -1,0 +1,29 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index 5ba5f8325..4f73d0f42 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -3,6 +3,7 @@
+ type: sample
+ display_name: Sample Scraper
+ description: This scraper is used for testing purposes to check the output of mdatagen.
++reaggregation_enabled: true
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ sem_conv_version: 1.38.0
+@@ -170,6 +171,16 @@ metrics:
+     warnings:
+       if_configured: This metric is deprecated and will be removed soon.
+ 
++  reaggregate.metric:
++    enabled: true
++    description: Metric for testing spacial reaggregation
++    unit: "1"
++    stability:
++      level: beta
++    gauge:
++      value_type: double 
++    attributes: [string_attr, boolean_attr]
++
+   system.cpu.time:
+     enabled: true
+     stability:

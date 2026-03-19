@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/templates/go.mod.tmpl b/cmd/builder/internal/builder/templates/go.mod.tmpl
+index 3ce0e7eb4..a7ad357aa 100644
+--- a/cmd/builder/internal/builder/templates/go.mod.tmpl
++++ b/cmd/builder/internal/builder/templates/go.mod.tmpl
+@@ -2,7 +2,7 @@
+ 
+ module {{.Distribution.Module}}
+ 
+-go 1.21
++go 1.22
+ 
+ require (
+ 	{{if .Distribution.SupportsConfmapFactories -}}

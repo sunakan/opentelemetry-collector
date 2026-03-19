@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index d45cc7f05..8014e3e58 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -197,3 +197,9 @@ telemetry:
+       gauge:
+         async: true
+         value_type: int
++    queue_capacity:
++      enabled: true
++      description: Queue capacity - sync gauge example.
++      unit: "{items}"
++      gauge:
++        value_type: int

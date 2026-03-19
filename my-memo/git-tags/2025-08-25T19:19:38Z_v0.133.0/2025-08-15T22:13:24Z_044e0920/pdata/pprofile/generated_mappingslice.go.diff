@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_mappingslice.go b/pdata/pprofile/generated_mappingslice.go
+index 5dea0a8e5..9d858d791 100644
+--- a/pdata/pprofile/generated_mappingslice.go
++++ b/pdata/pprofile/generated_mappingslice.go
+@@ -99,7 +99,7 @@ func (es MappingSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Mapping.
+ func (es MappingSlice) AppendEmpty() Mapping {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpprofiles.Mapping{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrMapping())
+ 	return es.At(es.Len() - 1)
+ }
+ 

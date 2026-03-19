@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+index 602c81472..6ec50270b 100644
+--- a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+@@ -45,6 +45,10 @@ func DeleteOrigExportLogsPartialSuccess(orig *otlpcollectorlogs.ExportLogsPartia
+ }
+ 
+ func CopyOrigExportLogsPartialSuccess(dest, src *otlpcollectorlogs.ExportLogsPartialSuccess) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.RejectedLogRecords = src.RejectedLogRecords
+ 	dest.ErrorMessage = src.ErrorMessage
+ }

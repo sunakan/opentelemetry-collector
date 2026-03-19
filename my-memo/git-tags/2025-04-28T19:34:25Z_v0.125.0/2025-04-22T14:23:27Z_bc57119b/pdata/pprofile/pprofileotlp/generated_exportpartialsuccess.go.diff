@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+index 284c10f09..075d6e067 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+@@ -41,6 +41,10 @@ func NewExportPartialSuccess() ExportPartialSuccess {
+ func (ms ExportPartialSuccess) MoveTo(dest ExportPartialSuccess) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpcollectorprofile.ExportProfilesPartialSuccess{}
+ }

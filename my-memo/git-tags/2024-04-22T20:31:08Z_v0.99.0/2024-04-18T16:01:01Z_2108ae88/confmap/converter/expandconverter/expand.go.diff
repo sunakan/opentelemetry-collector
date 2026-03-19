@@ -1,0 +1,26 @@
+diff --git a/confmap/converter/expandconverter/expand.go b/confmap/converter/expandconverter/expand.go
+index 4ea461fcf..f07617cd3 100644
+--- a/confmap/converter/expandconverter/expand.go
++++ b/confmap/converter/expandconverter/expand.go
+@@ -24,6 +24,8 @@ type converter struct {
+ // New returns a confmap.Converter, that expands all environment variables for a given confmap.Conf.
+ //
+ // Notice: This API is experimental.
++//
++// Deprecated: [v0.99.0] Use NewFactory instead.
+ func New(_ confmap.ConverterSettings) confmap.Converter {
+ 	return converter{
+ 		loggedDeprecations: make(map[string]struct{}),
+@@ -31,6 +33,12 @@ func New(_ confmap.ConverterSettings) confmap.Converter {
+ 	}
+ }
+ 
++// NewFactory returns a factory for a  confmap.Converter,
++// which expands all environment variables for a given confmap.Conf.
++func NewFactory() confmap.ConverterFactory {
++	return confmap.NewConverterFactory(New)
++}
++
+ func (c converter) Convert(_ context.Context, conf *confmap.Conf) error {
+ 	out := make(map[string]any)
+ 	for _, k := range conf.AllKeys() {

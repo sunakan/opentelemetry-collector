@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index cbe221e01..8da5544ea 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -294,7 +294,7 @@ func (app *Application) setupConfigurationComponents(ctx context.Context, factor
+ 	if err != nil {
+ 		return fmt.Errorf("cannot load configuration: %w", err)
+ 	}
+-	err = config.ValidateConfig(cfg, app.logger)
++	err = cfg.Validate()
+ 	if err != nil {
+ 		return fmt.Errorf("cannot load configuration: %w", err)
+ 	}

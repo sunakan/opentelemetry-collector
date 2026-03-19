@@ -1,0 +1,46 @@
+diff --git a/service/telemetry/factory_test.go b/service/telemetry/factory_test.go
+index 09ad25a3b..4e8d55269 100644
+--- a/service/telemetry/factory_test.go
++++ b/service/telemetry/factory_test.go
+@@ -65,12 +65,14 @@ func TestTelemetryConfiguration(t *testing.T) {
+ 				},
+ 				Metrics: MetricsConfig{
+ 					Level: configtelemetry.LevelBasic,
+-					Readers: []config.MetricReader{
+-						{
+-							Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
+-								Host: newPtr("127.0.0.1"),
+-								Port: newPtr(3333),
+-							}}},
++					MeterProvider: config.MeterProvider{
++						Readers: []config.MetricReader{
++							{
++								Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
++									Host: newPtr("127.0.0.1"),
++									Port: newPtr(3333),
++								}}},
++							},
+ 						},
+ 					},
+ 				},
+@@ -85,12 +87,14 @@ func TestTelemetryConfiguration(t *testing.T) {
+ 				},
+ 				Metrics: MetricsConfig{
+ 					Level: configtelemetry.LevelBasic,
+-					Readers: []config.MetricReader{
+-						{
+-							Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
+-								Host: newPtr("127.0.0.1"),
+-								Port: newPtr(3333),
+-							}}},
++					MeterProvider: config.MeterProvider{
++						Readers: []config.MetricReader{
++							{
++								Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
++									Host: newPtr("127.0.0.1"),
++									Port: newPtr(3333),
++								}}},
++							},
+ 						},
+ 					},
+ 				},

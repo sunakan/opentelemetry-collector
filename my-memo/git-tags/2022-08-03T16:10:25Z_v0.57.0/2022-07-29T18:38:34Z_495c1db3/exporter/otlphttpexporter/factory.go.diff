@@ -1,0 +1,17 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index 3aacf923a..93cc5b59b 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -38,9 +38,9 @@ func NewFactory() component.ExporterFactory {
+ 	return component.NewExporterFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		component.WithTracesExporterAndStabilityLevel(createTracesExporter, component.StabilityLevelStable),
+-		component.WithMetricsExporterAndStabilityLevel(createMetricsExporter, component.StabilityLevelStable),
+-		component.WithLogsExporterAndStabilityLevel(createLogsExporter, component.StabilityLevelBeta),
++		component.WithTracesExporter(createTracesExporter, component.StabilityLevelStable),
++		component.WithMetricsExporter(createMetricsExporter, component.StabilityLevelStable),
++		component.WithLogsExporter(createLogsExporter, component.StabilityLevelBeta),
+ 	)
+ }
+ 

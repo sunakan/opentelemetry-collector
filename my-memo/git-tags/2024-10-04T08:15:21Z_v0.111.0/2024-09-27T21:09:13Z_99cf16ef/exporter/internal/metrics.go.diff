@@ -1,0 +1,21 @@
+diff --git a/exporter/internal/metrics.go b/exporter/internal/metrics.go
+deleted file mode 100644
+index 79ddb06c8..000000000
+--- a/exporter/internal/metrics.go
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package internal // import "go.opentelemetry.io/collector/exporter/internal"
+-
+-import (
+-	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer"
+-)
+-
+-// Metrics is an exporter that can consume metrics.
+-type Metrics interface {
+-	component.Component
+-	consumer.Metrics
+-}

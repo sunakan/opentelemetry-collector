@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index a33a72de8..dc3fcf6f2 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -58,7 +58,6 @@ func TestRelativePath(t *testing.T) {
+ 	// verify
+ 	cwd, err := os.Getwd()
+ 	require.NoError(t, err)
+-	assert.True(t, strings.HasPrefix(cfg.Extensions[0].Path, "/"))
+ 	assert.True(t, strings.HasPrefix(cfg.Extensions[0].Path, cwd))
+ }
+ 

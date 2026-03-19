@@ -1,0 +1,11 @@
+diff --git a/processor/processorhelper/metrics.go b/processor/processorhelper/metrics.go
+index bf69e1b16..0bd325533 100644
+--- a/processor/processorhelper/metrics.go
++++ b/processor/processorhelper/metrics.go
+@@ -75,6 +75,3 @@ func NewMetrics(
+ 		Metrics:      metricsConsumer,
+ 	}, nil
+ }
+-
+-// Deprecated: [v0.111.0] use NewMetrics.
+-var NewMetricsProcessor = NewMetrics

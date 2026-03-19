@@ -1,0 +1,23 @@
+diff --git a/exporter/kafkaexporter/testdata/config.yaml b/exporter/kafkaexporter/testdata/config.yaml
+index 3c8843b49..9a807f409 100644
+--- a/exporter/kafkaexporter/testdata/config.yaml
++++ b/exporter/kafkaexporter/testdata/config.yaml
+@@ -24,14 +24,14 @@ exporters:
+       max_elapsed_time: 10m
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      processors: [nop]
+       exporters: [kafka]

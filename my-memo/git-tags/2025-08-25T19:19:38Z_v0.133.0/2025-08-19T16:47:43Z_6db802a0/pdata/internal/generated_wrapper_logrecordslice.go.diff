@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_logrecordslice.go b/pdata/internal/generated_wrapper_logrecordslice.go
+index 46bee87c3..b82ccd7f4 100644
+--- a/pdata/internal/generated_wrapper_logrecordslice.go
++++ b/pdata/internal/generated_wrapper_logrecordslice.go
+@@ -43,11 +43,9 @@ func CopyOrigLogRecordSlice(dest, src []*otlplogs.LogRecord) []*otlplogs.LogReco
+ func GenerateOrigTestLogRecordSlice() []*otlplogs.LogRecord {
+ 	orig := make([]*otlplogs.LogRecord, 5)
+ 	orig[0] = NewOrigPtrLogRecord()
+-	orig[1] = NewOrigPtrLogRecord()
+-	FillOrigTestLogRecord(orig[1])
++	orig[1] = GenTestOrigLogRecord()
+ 	orig[2] = NewOrigPtrLogRecord()
+-	orig[3] = NewOrigPtrLogRecord()
+-	FillOrigTestLogRecord(orig[3])
++	orig[3] = GenTestOrigLogRecord()
+ 	orig[4] = NewOrigPtrLogRecord()
+ 	return orig
+ }

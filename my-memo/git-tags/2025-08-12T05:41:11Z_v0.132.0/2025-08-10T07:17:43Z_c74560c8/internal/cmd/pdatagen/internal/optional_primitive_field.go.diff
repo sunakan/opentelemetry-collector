@@ -1,0 +1,27 @@
+diff --git a/internal/cmd/pdatagen/internal/optional_primitive_field.go b/internal/cmd/pdatagen/internal/optional_primitive_field.go
+index fc585a1b2..f4f4d2854 100644
+--- a/internal/cmd/pdatagen/internal/optional_primitive_field.go
++++ b/internal/cmd/pdatagen/internal/optional_primitive_field.go
+@@ -111,13 +111,20 @@ func (opv *OptionalPrimitiveField) GenerateUnmarshalJSON(ms *messageStruct) stri
+ }
+ 
+ func (opv *OptionalPrimitiveField) GenerateSizeProto(ms *messageStruct) string {
+-	pf := &ProtoField{
++	return "if orig." + opv.fieldName + "_ != nil {\n\t" + opv.toProtoField(ms).genSizeProto() + "\n}"
++}
++
++func (opv *OptionalPrimitiveField) GenerateMarshalProto(ms *messageStruct) string {
++	return "if orig." + opv.fieldName + "_ != nil {\n\t" + opv.toProtoField(ms).genMarshalProto() + "\n}"
++}
++
++func (opv *OptionalPrimitiveField) toProtoField(ms *messageStruct) *ProtoField {
++	return &ProtoField{
+ 		Type:     opv.protoType,
+ 		ID:       opv.protoID,
+ 		Name:     opv.fieldName + "_.(*" + ms.originFullName + "_" + opv.fieldName + ")" + "." + opv.fieldName,
+ 		Nullable: true,
+ 	}
+-	return "if orig." + opv.fieldName + "_ != nil {\n\t" + pf.genSizeProto() + "\n}"
+ }
+ 
+ func (opv *OptionalPrimitiveField) templateFields(ms *messageStruct) map[string]any {

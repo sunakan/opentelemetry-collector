@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/test_case.go b/testbed/testbed/test_case.go
+index d702acef6..ad92b39bc 100644
+--- a/testbed/testbed/test_case.go
++++ b/testbed/testbed/test_case.go
+@@ -359,7 +359,7 @@ func (tc *TestCase) indicateError(err error) {
+ }
+ 
+ func (tc *TestCase) logStats() {
+-	t := time.NewTicker(1 * time.Second)
++	t := time.NewTicker(tc.resourceSpec.ResourceCheckPeriod)
+ 	defer t.Stop()
+ 
+ 	for {

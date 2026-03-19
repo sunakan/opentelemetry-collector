@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_slices.go b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+index f937550b4..8541dd5e5 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_slices.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+@@ -53,6 +53,7 @@ func (ss *sliceOfPtrs) templateFields(packageInfo *PackageInfo) map[string]any {
+ 		"elementName":        ss.element.structName,
+ 		"originName":         ss.element.originFullName,
+ 		"originElementType":  "*" + ss.element.originFullName,
++		"originElementPtr":   "",
+ 		"emptyOriginElement": "&" + ss.element.originFullName + "{}",
+ 		"newElement":         "new" + ss.element.structName + "((*es." + orig + ")[i], es." + state + ")",
+ 		"origAccessor":       orig,
+@@ -113,6 +114,7 @@ func (ss *sliceOfValues) templateFields(packageInfo *PackageInfo) map[string]any
+ 		"elementName":        ss.element.structName,
+ 		"originName":         ss.element.originFullName,
+ 		"originElementType":  ss.element.originFullName,
++		"originElementPtr":   "&",
+ 		"emptyOriginElement": ss.element.originFullName + "{}",
+ 		"newElement":         "new" + ss.element.structName + "(&(*es." + orig + ")[i], es." + state + ")",
+ 		"origAccessor":       orig,

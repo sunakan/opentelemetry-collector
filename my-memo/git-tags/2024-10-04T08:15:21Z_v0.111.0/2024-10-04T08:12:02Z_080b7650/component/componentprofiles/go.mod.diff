@@ -1,0 +1,12 @@
+diff --git a/component/componentprofiles/go.mod b/component/componentprofiles/go.mod
+index 1812c6b77..2f7410b0d 100644
+--- a/component/componentprofiles/go.mod
++++ b/component/componentprofiles/go.mod
+@@ -2,6 +2,6 @@ module go.opentelemetry.io/collector/component/componentprofiles
+ 
+ go 1.22.0
+ 
+-require go.opentelemetry.io/collector/internal/globalsignal v0.110.0
++require go.opentelemetry.io/collector/internal/globalsignal v0.111.0
+ 
+ replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal

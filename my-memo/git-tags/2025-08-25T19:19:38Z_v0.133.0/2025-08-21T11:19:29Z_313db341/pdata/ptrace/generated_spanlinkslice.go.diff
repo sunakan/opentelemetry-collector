@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice.go b/pdata/ptrace/generated_spanlinkslice.go
+index d88388d15..a4626b3f1 100644
+--- a/pdata/ptrace/generated_spanlinkslice.go
++++ b/pdata/ptrace/generated_spanlinkslice.go
+@@ -149,6 +149,9 @@ func (es SpanLinkSlice) RemoveIf(f func(SpanLink) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es SpanLinkSlice) CopyTo(dest SpanLinkSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigSpan_LinkSlice(*dest.orig, *es.orig)
+ }
+ 

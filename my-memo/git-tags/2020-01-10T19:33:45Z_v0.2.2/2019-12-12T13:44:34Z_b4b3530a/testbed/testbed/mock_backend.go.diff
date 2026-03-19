@@ -1,0 +1,22 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index 79b5d60cc..4c50a85c3 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -32,7 +32,7 @@ type MockBackend struct {
+ 	tc *mockTraceConsumer
+ 	mc *mockMetricConsumer
+ 
+-	receiver Receiver
++	receiver DataReceiver
+ 
+ 	// Log file
+ 	logFilePath string
+@@ -44,7 +44,7 @@ type MockBackend struct {
+ }
+ 
+ // NewMockBackend creates a new mock backend that receives data using specified receiver.
+-func NewMockBackend(logFilePath string, receiver Receiver) *MockBackend {
++func NewMockBackend(logFilePath string, receiver DataReceiver) *MockBackend {
+ 	mb := &MockBackend{
+ 		logFilePath: logFilePath,
+ 		receiver:    receiver,

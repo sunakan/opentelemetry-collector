@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/load_generator.go b/testbed/testbed/load_generator.go
+index 5a46f097a..0ce3175f7 100644
+--- a/testbed/testbed/load_generator.go
++++ b/testbed/testbed/load_generator.go
+@@ -116,7 +116,7 @@ func (lg *LoadGenerator) Stop() {
+ 
+ // GetStats returns the stats as a printable string.
+ func (lg *LoadGenerator) GetStats() string {
+-	return printer.Sprintf("Sent:%10d items", lg.DataItemsSent())
++	return fmt.Sprintf("Sent:%10d items", lg.DataItemsSent())
+ }
+ 
+ func (lg *LoadGenerator) DataItemsSent() uint64 {

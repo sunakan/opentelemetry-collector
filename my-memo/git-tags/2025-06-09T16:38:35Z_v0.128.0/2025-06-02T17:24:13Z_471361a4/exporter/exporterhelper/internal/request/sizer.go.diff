@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/request/sizer.go b/exporter/exporterhelper/internal/request/sizer.go
+index 18821b47b..0789720f4 100644
+--- a/exporter/exporterhelper/internal/request/sizer.go
++++ b/exporter/exporterhelper/internal/request/sizer.go
+@@ -50,6 +50,10 @@ func (s *SizerType) MarshalText() ([]byte, error) {
+ 	return []byte(s.val), nil
+ }
+ 
++func (s *SizerType) String() string {
++	return s.val
++}
++
+ // Sizer is an interface that returns the size of the given element.
+ type Sizer[T any] interface {
+ 	Sizeof(T) int64

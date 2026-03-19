@@ -1,0 +1,15 @@
+diff --git a/service/builder/testdata/global_attributes_key_mapping.yaml b/service/builder/testdata/global_attributes_key_mapping.yaml
+deleted file mode 100644
+index 0edbecbb9..000000000
+--- a/service/builder/testdata/global_attributes_key_mapping.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-global:
+-  attributes:
+-    key-mapping:
+-      - key: servertracer.http.responsecode
+-        replacement: http.status_code
+-      - key: servertracer.http.responsephrase
+-        replacement: http.message
+-        overwrite: true
+-        keep: true

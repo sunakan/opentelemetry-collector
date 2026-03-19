@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 15d3512b5..7c3b09b27 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -36,6 +36,10 @@ func TestGenerateInvalidOutputPath(t *testing.T) {
+ }
+ 
+ func TestSkipGenerate(t *testing.T) {
++	if runtime.GOOS == "windows" {
++		t.Skip("skipping the test on Windows, see https://github.com/open-telemetry/opentelemetry-collector/issues/5403")
++	}
++
+ 	cfg := NewDefaultConfig()
+ 	cfg.Distribution.OutputPath = t.TempDir()
+ 	cfg.SkipGenerate = true

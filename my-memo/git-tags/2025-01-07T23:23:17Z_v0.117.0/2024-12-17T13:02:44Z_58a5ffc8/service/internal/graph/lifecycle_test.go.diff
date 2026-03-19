@@ -1,0 +1,22 @@
+diff --git a/service/internal/graph/lifecycle_test.go b/service/internal/graph/lifecycle_test.go
+index 9fb91f5af..07db29df3 100644
+--- a/service/internal/graph/lifecycle_test.go
++++ b/service/internal/graph/lifecycle_test.go
+@@ -351,6 +351,8 @@ func TestStatusReportedOnStartupShutdown(t *testing.T) {
+ 				instanceIDs[eStErr]: {
+ 					componentstatus.NewEvent(componentstatus.StatusStarting),
+ 					componentstatus.NewPermanentErrorEvent(assert.AnError),
++					componentstatus.NewEvent(componentstatus.StatusStopping),
++					componentstatus.NewEvent(componentstatus.StatusStopped),
+ 				},
+ 			},
+ 			startupErr: assert.AnError,
+@@ -362,6 +364,8 @@ func TestStatusReportedOnStartupShutdown(t *testing.T) {
+ 				instanceIDs[rStErr]: {
+ 					componentstatus.NewEvent(componentstatus.StatusStarting),
+ 					componentstatus.NewPermanentErrorEvent(assert.AnError),
++					componentstatus.NewEvent(componentstatus.StatusStopping),
++					componentstatus.NewEvent(componentstatus.StatusStopped),
+ 				},
+ 				instanceIDs[eNoErr]: {
+ 					componentstatus.NewEvent(componentstatus.StatusStarting),

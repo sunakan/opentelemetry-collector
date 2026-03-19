@@ -1,0 +1,26 @@
+diff --git a/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest.go b/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest.go
+index 26236d966..ad2205727 100644
+--- a/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/scraper/scraperhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -14,8 +14,6 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+-	"go.opentelemetry.io/collector/receiver"
+-	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
+ type Telemetry struct {
+@@ -30,12 +28,6 @@ func SetupTelemetry() Telemetry {
+ 		meterProvider: sdkmetric.NewMeterProvider(sdkmetric.WithReader(reader)),
+ 	}
+ }
+-func (tt *Telemetry) NewSettings() receiver.Settings {
+-	set := receivertest.NewNopSettings()
+-	set.ID = component.NewID(component.MustNewType("scraperhelper"))
+-	set.TelemetrySettings = tt.NewTelemetrySettings()
+-	return set
+-}
+ 
+ func (tt *Telemetry) NewTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()

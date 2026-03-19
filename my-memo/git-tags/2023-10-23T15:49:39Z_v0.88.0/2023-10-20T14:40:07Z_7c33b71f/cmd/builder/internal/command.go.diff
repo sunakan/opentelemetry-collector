@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index 35c086d3d..fa1d07929 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -64,6 +64,10 @@ configuration is provided, ocb will generate a default Collector.
+ 				return fmt.Errorf("go not found: %w", err)
+ 			}
+ 
++			if err := cfg.SetRequireOtelColModule(); err != nil {
++				return fmt.Errorf("unable to compare otelcol version: %w", err)
++			}
++
+ 			if err := cfg.ParseModules(); err != nil {
+ 				return fmt.Errorf("invalid module configuration: %w", err)
+ 			}

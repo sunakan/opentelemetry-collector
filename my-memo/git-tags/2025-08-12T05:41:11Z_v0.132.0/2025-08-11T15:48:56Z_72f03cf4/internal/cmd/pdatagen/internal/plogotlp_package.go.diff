@@ -1,0 +1,29 @@
+diff --git a/internal/cmd/pdatagen/internal/plogotlp_package.go b/internal/cmd/pdatagen/internal/plogotlp_package.go
+index 6879cf4a1..d3a94ca28 100644
+--- a/internal/cmd/pdatagen/internal/plogotlp_package.go
++++ b/internal/cmd/pdatagen/internal/plogotlp_package.go
+@@ -27,10 +27,24 @@ var plogotlp = &Package{
+ 		},
+ 	},
+ 	structs: []baseStruct{
++		exportLogsResponse,
+ 		exportLogsPartialSuccess,
+ 	},
+ }
+ 
++var exportLogsResponse = &messageStruct{
++	structName:     "ExportResponse",
++	description:    "// ExportResponse represents the response for gRPC/HTTP client/server.",
++	originFullName: "otlpcollectorlog.ExportLogsServiceResponse",
++	fields: []Field{
++		&MessageField{
++			fieldName:     "PartialSuccess",
++			protoID:       1,
++			returnMessage: exportLogsPartialSuccess,
++		},
++	},
++}
++
+ var exportLogsPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",

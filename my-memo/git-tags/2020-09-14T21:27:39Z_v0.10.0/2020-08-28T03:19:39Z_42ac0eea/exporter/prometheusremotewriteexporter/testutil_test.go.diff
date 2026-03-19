@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/testutil_test.go b/exporter/prometheusremotewriteexporter/testutil_test.go
+index 51099ba47..d35afe54c 100644
+--- a/exporter/prometheusremotewriteexporter/testutil_test.go
++++ b/exporter/prometheusremotewriteexporter/testutil_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/prometheus/prometheus/prompb"
+ 
+ 	commonpb "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
+-	otlp "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlp "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1old"
+ )
+ 
+ type combination struct {

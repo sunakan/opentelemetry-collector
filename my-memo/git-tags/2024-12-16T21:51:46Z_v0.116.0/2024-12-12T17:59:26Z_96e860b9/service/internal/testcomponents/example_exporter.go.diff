@@ -1,0 +1,12 @@
+diff --git a/service/internal/testcomponents/example_exporter.go b/service/internal/testcomponents/example_exporter.go
+index 6c33be0ae..394a7f307 100644
+--- a/service/internal/testcomponents/example_exporter.go
++++ b/service/internal/testcomponents/example_exporter.go
+@@ -45,6 +45,7 @@ func createMetricsExporter(context.Context, exporter.Settings, component.Config)
+ func createLogsExporter(context.Context, exporter.Settings, component.Config) (exporter.Logs, error) {
+ 	return &ExampleExporter{}, nil
+ }
++
+ func createProfilesExporter(context.Context, exporter.Settings, component.Config) (exporterprofiles.Profiles, error) {
+ 	return &ExampleExporter{}, nil
+ }

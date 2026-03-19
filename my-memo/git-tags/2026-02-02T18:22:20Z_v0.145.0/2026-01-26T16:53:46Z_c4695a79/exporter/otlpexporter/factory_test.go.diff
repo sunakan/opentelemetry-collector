@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 4ec179c43..1fcc61a14 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -36,6 +36,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	assert.Equal(t, configoptional.Some(exporterhelper.NewDefaultQueueConfig()), ocfg.QueueConfig)
+ 	assert.Equal(t, exporterhelper.NewDefaultTimeoutConfig(), ocfg.TimeoutConfig)
+ 	assert.Equal(t, configcompression.TypeGzip, ocfg.ClientConfig.Compression)
++	assert.Equal(t, configgrpc.BalancerName(), ocfg.ClientConfig.BalancerName)
+ }
+ 
+ func TestCreateMetrics(t *testing.T) {

@@ -1,0 +1,34 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+index 5fa13473d..9d11a3a39 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/testdata/config.yaml
+@@ -19,6 +19,9 @@ all_set:
+     reaggregate.metric:
+       enabled: true
+       attributes: ["string_attr","boolean_attr"]
++    reaggregate.metric.with_required:
++      enabled: true
++      attributes: ["required_string_attr","string_attr","boolean_attr"]
+     system.cpu.time:
+       enabled: true
+       attributes: []
+@@ -66,6 +69,9 @@ reaggregate_set:
+     reaggregate.metric:
+       enabled: true
+       attributes: []
++    reaggregate.metric.with_required:
++      enabled: true
++      attributes: ["required_string_attr"]
+     system.cpu.time:
+       enabled: true
+       attributes: []
+@@ -113,6 +119,9 @@ none_set:
+     reaggregate.metric:
+       enabled: false
+       attributes: ["string_attr","boolean_attr"]
++    reaggregate.metric.with_required:
++      enabled: false
++      attributes: ["required_string_attr","string_attr","boolean_attr"]
+     system.cpu.time:
+       enabled: false
+       attributes: []

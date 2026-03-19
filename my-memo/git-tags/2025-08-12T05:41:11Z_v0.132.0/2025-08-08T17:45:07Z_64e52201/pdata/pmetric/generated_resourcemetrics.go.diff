@@ -1,0 +1,28 @@
+diff --git a/pdata/pmetric/generated_resourcemetrics.go b/pdata/pmetric/generated_resourcemetrics.go
+index 38f16d241..0c29941af 100644
+--- a/pdata/pmetric/generated_resourcemetrics.go
++++ b/pdata/pmetric/generated_resourcemetrics.go
+@@ -55,6 +55,11 @@ func (ms ResourceMetrics) Resource() pcommon.Resource {
+ 	return pcommon.Resource(internal.NewResource(&ms.orig.Resource, ms.state))
+ }
+ 
++// ScopeMetrics returns the ScopeMetrics associated with this ResourceMetrics.
++func (ms ResourceMetrics) ScopeMetrics() ScopeMetricsSlice {
++	return newScopeMetricsSlice(&ms.orig.ScopeMetrics, ms.state)
++}
++
+ // SchemaUrl returns the schemaurl associated with this ResourceMetrics.
+ func (ms ResourceMetrics) SchemaUrl() string {
+ 	return ms.orig.SchemaUrl
+@@ -66,11 +71,6 @@ func (ms ResourceMetrics) SetSchemaUrl(v string) {
+ 	ms.orig.SchemaUrl = v
+ }
+ 
+-// ScopeMetrics returns the ScopeMetrics associated with this ResourceMetrics.
+-func (ms ResourceMetrics) ScopeMetrics() ScopeMetricsSlice {
+-	return newScopeMetricsSlice(&ms.orig.ScopeMetrics, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ResourceMetrics) CopyTo(dest ResourceMetrics) {
+ 	dest.state.AssertMutable()

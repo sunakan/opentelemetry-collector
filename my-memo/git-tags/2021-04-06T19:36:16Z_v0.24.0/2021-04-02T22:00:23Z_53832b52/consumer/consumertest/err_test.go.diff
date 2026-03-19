@@ -1,0 +1,21 @@
+diff --git a/consumer/consumertest/err_test.go b/consumer/consumertest/err_test.go
+index 4b5b5d607..6e1540cc7 100644
+--- a/consumer/consumertest/err_test.go
++++ b/consumer/consumertest/err_test.go
+@@ -25,6 +25,16 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
++func TestErr(t *testing.T) {
++	err := errors.New("my error")
++	ec := NewErr(err)
++	require.NotNil(t, ec)
++	assert.NotPanics(t, ec.unexported)
++	assert.Equal(t, err, ec.ConsumeLogs(context.Background(), pdata.NewLogs()))
++	assert.Equal(t, err, ec.ConsumeMetrics(context.Background(), pdata.NewMetrics()))
++	assert.Equal(t, err, ec.ConsumeTraces(context.Background(), pdata.NewTraces()))
++}
++
+ func TestTracesErr(t *testing.T) {
+ 	err := errors.New("my error")
+ 	nt := NewTracesErr(err)

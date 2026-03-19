@@ -1,0 +1,11 @@
+diff --git a/cmd/checkdoc/go.mod b/cmd/checkdoc/go.mod
+new file mode 100644
+index 000000000..03693407c
+--- /dev/null
++++ b/cmd/checkdoc/go.mod
+@@ -0,0 +1,5 @@
++module go.opentelemetry.io/collector/cmd/checkdoc
++
++go 1.15
++
++require github.com/stretchr/testify v1.7.0

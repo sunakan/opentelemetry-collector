@@ -1,0 +1,55 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index 9aef59d69..427e5d444 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -18,6 +18,7 @@ import (
+ 	"errors"
+ 	"fmt"
+ 	"io/ioutil"
++	"net"
+ 	"net/http"
+ 	"net/http/httptest"
+ 	"net/url"
+@@ -28,6 +29,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
++	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+@@ -673,3 +675,34 @@ func TestHttpHeaders(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestContextWithClient(t *testing.T) {
++	testCases := []struct {
++		desc     string
++		input    *http.Request
++		expected client.Info
++	}{
++		{
++			desc:     "request without client IP",
++			input:    &http.Request{},
++			expected: client.Info{},
++		},
++		{
++			desc: "request without client IP",
++			input: &http.Request{
++				RemoteAddr: "1.2.3.4:55443",
++			},
++			expected: client.Info{
++				Addr: &net.IPAddr{
++					IP: net.IPv4(1, 2, 3, 4),
++				},
++			},
++		},
++	}
++	for _, tC := range testCases {
++		t.Run(tC.desc, func(t *testing.T) {
++			ctx := contextWithClient(tC.input)
++			assert.Equal(t, tC.expected, client.FromContext(ctx))
++		})
++	}
++}

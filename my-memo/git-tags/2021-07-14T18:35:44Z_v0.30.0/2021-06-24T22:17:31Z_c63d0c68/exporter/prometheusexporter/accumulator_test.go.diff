@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/accumulator_test.go b/exporter/prometheusexporter/accumulator_test.go
+index da618b11e..049ef0b26 100644
+--- a/exporter/prometheusexporter/accumulator_test.go
++++ b/exporter/prometheusexporter/accumulator_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestInvalidDataType(t *testing.T) {

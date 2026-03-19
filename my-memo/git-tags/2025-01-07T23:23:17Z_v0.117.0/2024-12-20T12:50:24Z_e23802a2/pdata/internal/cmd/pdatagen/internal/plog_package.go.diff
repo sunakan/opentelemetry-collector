@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/plog_package.go b/pdata/internal/cmd/pdatagen/internal/plog_package.go
+index 5e65b6e5f..3aeb8fff1 100644
+--- a/pdata/internal/cmd/pdatagen/internal/plog_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/plog_package.go
+@@ -106,6 +106,12 @@ var logRecord = &messageValueStruct{
+ 				testVal:    "1",
+ 			},
+ 		},
++		&primitiveField{
++			fieldName:  "EventName",
++			returnType: "string",
++			defaultVal: `""`,
++			testVal:    `""`,
++		},
+ 		&primitiveField{
+ 			fieldName:  "SeverityText",
+ 			returnType: "string",

@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index 61b5de5fc..7913d7e24 100644
+--- a/Makefile
++++ b/Makefile
+@@ -98,6 +98,7 @@ vet:
+ .PHONY: install-tools
+ install-tools:
+ 	go install golang.org/x/lint/golint
++	go install github.com/google/addlicense
+ 
+ .PHONY: otelsvc
+ otelsvc:

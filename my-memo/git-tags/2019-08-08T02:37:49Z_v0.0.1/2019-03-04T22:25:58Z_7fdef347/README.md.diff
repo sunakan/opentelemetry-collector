@@ -1,0 +1,12 @@
+diff --git a/README.md b/README.md
+index 42f648a5a..69f5e07ec 100644
+--- a/README.md
++++ b/README.md
+@@ -154,6 +154,7 @@ exporters:
+   opencensus:
+     headers: {"X-test-header": "test-header"}
+     compression: "gzip"
++    cert-pem-file: "server_ca_public.pem" # optional to enable TLS
+     endpoint: "127.0.0.1:55678"
+ 
+   jaeger:

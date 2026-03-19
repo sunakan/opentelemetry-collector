@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/json_test.go b/pdata/pprofile/json_test.go
+index ae4666f33..5e1e53d08 100644
+--- a/pdata/pprofile/json_test.go
++++ b/pdata/pprofile/json_test.go
+@@ -127,7 +127,7 @@ func TestJSONUnmarshal(t *testing.T) {
+ 	decoder := &JSONUnmarshaler{}
+ 	got, err := decoder.UnmarshalProfiles([]byte(profilesJSON))
+ 	require.NoError(t, err)
+-	assert.EqualValues(t, profilesOTLP, got)
++	assert.Equal(t, profilesOTLP, got)
+ }
+ 
+ func TestJSONMarshal(t *testing.T) {

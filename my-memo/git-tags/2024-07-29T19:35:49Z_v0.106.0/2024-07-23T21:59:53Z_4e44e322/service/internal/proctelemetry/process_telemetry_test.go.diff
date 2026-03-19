@@ -1,0 +1,13 @@
+diff --git a/service/internal/proctelemetry/process_telemetry_test.go b/service/internal/proctelemetry/process_telemetry_test.go
+index cccc5ad8e..fb750fcf6 100644
+--- a/service/internal/proctelemetry/process_telemetry_test.go
++++ b/service/internal/proctelemetry/process_telemetry_test.go
+@@ -78,7 +78,7 @@ func fetchPrometheusMetrics(handler http.Handler) (map[string]*io_prometheus_cli
+ func TestProcessTelemetry(t *testing.T) {
+ 	tel := setupTelemetry(t)
+ 
+-	require.NoError(t, RegisterProcessMetrics(tel.TelemetrySettings, 0))
++	require.NoError(t, RegisterProcessMetrics(tel.TelemetrySettings))
+ 
+ 	mp, err := fetchPrometheusMetrics(tel.promHandler)
+ 	require.NoError(t, err)

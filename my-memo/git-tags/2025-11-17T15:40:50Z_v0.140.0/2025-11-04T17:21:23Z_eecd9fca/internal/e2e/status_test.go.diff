@@ -1,0 +1,28 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index 522968f70..1613887cc 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -7,6 +7,7 @@ import (
+ 	"context"
+ 	"errors"
+ 	"fmt"
++	"strings"
+ 	"sync"
+ 	"testing"
+ 	"time"
+@@ -157,12 +158,12 @@ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
+ 			}
+ 		}
+ 
+-		eventStr := ""
++		var eventStr strings.Builder
+ 		for i, e := range events {
+-			eventStr += fmt.Sprintf("%v,", e.Status())
++			fmt.Fprintf(&eventStr, "%v,", e.Status())
+ 			assert.Equal(t, expectedEvents[i].Status(), e.Status())
+ 		}
+-		t.Logf("events received: %v", eventStr)
++		t.Logf("events received: %v", eventStr.String())
+ 	}
+ }
+ 

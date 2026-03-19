@@ -1,0 +1,13 @@
+diff --git a/confmap/expand.go b/confmap/expand.go
+index d006686bc..9bfbdbacc 100644
+--- a/confmap/expand.go
++++ b/confmap/expand.go
+@@ -28,7 +28,7 @@ var (
+ )
+ 
+ func (mr *Resolver) expandValueRecursively(ctx context.Context, value any) (any, error) {
+-	for i := 0; i < 100; i++ {
++	for i := 0; i < 1000; i++ {
+ 		val, changed, err := mr.expandValue(ctx, value)
+ 		if err != nil {
+ 			return nil, err

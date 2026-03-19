@@ -1,0 +1,19 @@
+diff --git a/exporter/internal/otlptext/testdata/metrics/invalid_metric_type.out b/exporter/internal/otlptext/testdata/metrics/invalid_metric_type.out
+deleted file mode 100644
+index e0a899e16..000000000
+--- a/exporter/internal/otlptext/testdata/metrics/invalid_metric_type.out
++++ /dev/null
+@@ -1,13 +0,0 @@
+-ResourceMetrics #0
+-Resource SchemaURL: 
+-Resource attributes:
+-     -> resource-attr: Str(resource-attr-val-1)
+-ScopeMetrics #0
+-ScopeMetrics SchemaURL: 
+-InstrumentationScope  
+-Metric #0
+-Descriptor:
+-     -> Name: sum-int
+-     -> Description: 
+-     -> Unit: 1
+-     -> DataType: Empty

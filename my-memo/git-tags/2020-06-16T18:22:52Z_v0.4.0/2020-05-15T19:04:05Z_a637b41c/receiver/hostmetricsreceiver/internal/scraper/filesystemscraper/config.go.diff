@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
+index c60163f89..4b86e2651 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
+@@ -14,7 +14,7 @@
+ 
+ package filesystemscraper
+ 
+-import "github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++import "go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 
+ // Config relating to FileSystem Metric Scraper.
+ type Config struct {

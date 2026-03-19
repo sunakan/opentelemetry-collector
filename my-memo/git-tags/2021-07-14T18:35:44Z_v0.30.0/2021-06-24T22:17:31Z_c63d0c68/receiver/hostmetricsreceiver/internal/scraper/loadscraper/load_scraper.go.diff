@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+index b86df6fa0..42cda0f3d 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+@@ -22,7 +22,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"
+ )

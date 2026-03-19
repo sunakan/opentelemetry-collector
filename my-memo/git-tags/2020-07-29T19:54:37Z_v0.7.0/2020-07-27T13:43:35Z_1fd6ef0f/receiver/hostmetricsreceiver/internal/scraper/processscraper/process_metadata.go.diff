@@ -1,0 +1,17 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_metadata.go
+index 69aae2365..aeaa3ee65 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_metadata.go
+@@ -21,12 +21,8 @@ import (
+ // labels
+ 
+ const (
+-	cmdlineLabelName   = "command_line"
+ 	directionLabelName = "direction"
+-	pidLabelName       = "pid"
+-	processLabelName   = "process"
+ 	stateLabelName     = "state"
+-	usernameLabelName  = "username"
+ )
+ 
+ // direction label values

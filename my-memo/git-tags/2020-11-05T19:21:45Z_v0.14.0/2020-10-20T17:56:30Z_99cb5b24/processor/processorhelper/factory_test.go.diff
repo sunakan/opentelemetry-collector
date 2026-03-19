@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/factory_test.go b/processor/processorhelper/factory_test.go
+index f29aaf249..e9b629564 100644
+--- a/processor/processorhelper/factory_test.go
++++ b/processor/processorhelper/factory_test.go
+@@ -79,7 +79,7 @@ func defaultConfig() configmodels.Processor {
+ 	return defaultCfg
+ }
+ 
+-func createTraceProcessor(context.Context, component.ProcessorCreateParams, configmodels.Processor, consumer.TraceConsumer) (component.TraceProcessor, error) {
++func createTraceProcessor(context.Context, component.ProcessorCreateParams, configmodels.Processor, consumer.TracesConsumer) (component.TraceProcessor, error) {
+ 	return nil, nil
+ }
+ 

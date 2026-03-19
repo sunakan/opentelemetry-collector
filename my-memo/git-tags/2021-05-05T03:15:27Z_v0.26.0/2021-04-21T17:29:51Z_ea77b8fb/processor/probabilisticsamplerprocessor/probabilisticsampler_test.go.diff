@@ -1,0 +1,33 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index b8cc612bf..b98c573c2 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -223,9 +223,7 @@ func Test_tracesamplerprocessor_SamplingPercentageRange_MultipleResourceSpans(t
+ func Test_tracesamplerprocessor_SpanSamplingPriority(t *testing.T) {
+ 	singleSpanWithAttrib := func(key string, attribValue pdata.AttributeValue) pdata.Traces {
+ 		traces := pdata.NewTraces()
+-		rs := traces.ResourceSpans().AppendEmpty()
+-		instrLibrarySpans := rs.InstrumentationLibrarySpans().AppendEmpty()
+-		instrLibrarySpans.Spans().Append(getSpanWithAttributes(key, attribValue))
++		initSpanWithAttributes(key, attribValue, traces.ResourceSpans().AppendEmpty().InstrumentationLibrarySpans().AppendEmpty().Spans().AppendEmpty())
+ 		return traces
+ 	}
+ 	tests := []struct {
+@@ -410,11 +408,15 @@ func Test_parseSpanSamplingPriority(t *testing.T) {
+ 
+ func getSpanWithAttributes(key string, value pdata.AttributeValue) pdata.Span {
+ 	span := pdata.NewSpan()
+-	span.SetName("spanName")
+-	span.Attributes().InitFromMap(map[string]pdata.AttributeValue{key: value})
++	initSpanWithAttributes(key, value, span)
+ 	return span
+ }
+ 
++func initSpanWithAttributes(key string, value pdata.AttributeValue, dest pdata.Span) {
++	dest.SetName("spanName")
++	dest.Attributes().InitFromMap(map[string]pdata.AttributeValue{key: value})
++}
++
+ // Test_hash ensures that the hash function supports different key lengths even if in
+ // practice it is only expected to receive keys with length 16 (trace id length in OC proto).
+ func Test_hash(t *testing.T) {

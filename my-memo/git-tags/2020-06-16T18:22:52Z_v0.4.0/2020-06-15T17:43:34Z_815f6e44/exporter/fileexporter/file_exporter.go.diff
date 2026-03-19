@@ -1,0 +1,67 @@
+diff --git a/exporter/fileexporter/file_exporter.go b/exporter/fileexporter/file_exporter.go
+index 2d5346283..f1f647be0 100644
+--- a/exporter/fileexporter/file_exporter.go
++++ b/exporter/fileexporter/file_exporter.go
+@@ -26,6 +26,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ // Marshaler configuration used for marhsaling Protobuf to JSON. Use default config.
+@@ -38,6 +39,10 @@ type jsonWriter struct {
+ 	writer             io.Writer
+ }
+ 
++func (jw *jsonWriter) Reset() {
++	jw.firstFieldDone = false
++}
++
+ // Begin writing JSON. Call first.
+ func (jw *jsonWriter) Begin() error {
+ 	_, err := io.WriteString(jw.writer, "{\n")
+@@ -197,6 +202,43 @@ func (e *Exporter) ConsumeMetricsData(ctx context.Context, md consumerdata.Metri
+ 	return nil
+ }
+ 
++func (e *Exporter) ConsumeLogs(ctx context.Context, ld data.Logs) error {
++	// Ensure only one write operation happens at a time.
++	e.mutex.Lock()
++	defer e.mutex.Unlock()
++
++	// Prepare to write JSON object.
++	jw := &jsonWriter{writer: e.file}
++
++	logsProto := data.LogsToProto(ld)
++
++	for _, rl := range logsProto {
++		if err := jw.Begin(); err != nil {
++			return err
++		}
++		err := jw.MarshalObject("resource", rl.Resource)
++		if err != nil {
++			return err
++		}
++
++		if err := jw.BeginMarshalArray("logs"); err != nil {
++			return err
++		}
++
++		for _, log := range rl.Logs {
++			if log != nil {
++				if err := jw.MarshalArrayItem(log); err != nil {
++					return err
++				}
++			}
++		}
++		jw.EndMarshalArray()
++		jw.End()
++		jw.Reset()
++	}
++	return nil
++}
++
+ func (e *Exporter) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }

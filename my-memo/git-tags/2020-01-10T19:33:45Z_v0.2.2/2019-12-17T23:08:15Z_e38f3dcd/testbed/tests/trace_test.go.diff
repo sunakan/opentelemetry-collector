@@ -1,0 +1,24 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index e58e36ef3..4d3eb013f 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -44,8 +44,8 @@ func TestTrace10kSPS(t *testing.T) {
+ 			testbed.NewJaegerThriftDataSender(testbed.GetAvailablePort(t)),
+ 			testbed.NewJaegerDataReceiver(testbed.GetAvailablePort(t)),
+ 			testbed.ResourceSpec{
+-				ExpectedMaxCPU: 44,
+-				ExpectedMaxRAM: 84,
++				ExpectedMaxCPU: 52,
++				ExpectedMaxRAM: 89,
+ 			},
+ 		},
+ 		{
+@@ -53,7 +53,7 @@ func TestTrace10kSPS(t *testing.T) {
+ 			testbed.NewOCTraceDataSender(testbed.GetAvailablePort(t)),
+ 			testbed.NewOCDataReceiver(testbed.GetAvailablePort(t)),
+ 			testbed.ResourceSpec{
+-				ExpectedMaxCPU: 32,
++				ExpectedMaxCPU: 42,
+ 				ExpectedMaxRAM: 84,
+ 			},
+ 		},

@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml b/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
+deleted file mode 100644
+index 963669456..000000000
+--- a/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    wrongdatatype:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

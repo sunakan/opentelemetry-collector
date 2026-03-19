@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/internal_test.go b/receiver/prometheusreceiver/internal/internal_test.go
+index 6544ad746..37bf0737a 100644
+--- a/receiver/prometheusreceiver/internal/internal_test.go
++++ b/receiver/prometheusreceiver/internal/internal_test.go
+@@ -58,7 +58,7 @@ type mockConsumer struct {
+ 	md *consumerdata.MetricsData
+ }
+ 
+-func (m *mockConsumer) ConsumeMetricsData(ctx context.Context, md consumerdata.MetricsData) error {
++func (m *mockConsumer) ConsumeMetricsData(_ context.Context, md consumerdata.MetricsData) error {
+ 	m.md = &md
+ 	return nil
+ }

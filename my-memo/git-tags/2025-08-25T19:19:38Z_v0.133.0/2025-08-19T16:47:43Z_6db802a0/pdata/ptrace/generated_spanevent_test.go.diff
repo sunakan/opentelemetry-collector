@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanevent_test.go b/pdata/ptrace/generated_spanevent_test.go
+index a24761e09..811f2b464 100644
+--- a/pdata/ptrace/generated_spanevent_test.go
++++ b/pdata/ptrace/generated_spanevent_test.go
+@@ -79,7 +79,6 @@ func TestSpanEvent_DroppedAttributesCount(t *testing.T) {
+ }
+ 
+ func generateTestSpanEvent() SpanEvent {
+-	ms := NewSpanEvent()
+-	internal.FillOrigTestSpan_Event(ms.orig)
++	ms := newSpanEvent(internal.GenTestOrigSpan_Event(), internal.NewState())
+ 	return ms
+ }

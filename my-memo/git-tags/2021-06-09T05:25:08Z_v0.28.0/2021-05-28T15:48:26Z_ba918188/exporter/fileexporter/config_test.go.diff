@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/config_test.go b/exporter/fileexporter/config_test.go
+index 863d44755..07b372aac 100644
+--- a/exporter/fileexporter/config_test.go
++++ b/exporter/fileexporter/config_test.go
+@@ -32,7 +32,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Exporters[typeStr] = factory
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 	require.EqualError(t, err, "exporter \"file\" has invalid configuration: path must be non-empty")
+ 	require.NotNil(t, cfg)
+ 

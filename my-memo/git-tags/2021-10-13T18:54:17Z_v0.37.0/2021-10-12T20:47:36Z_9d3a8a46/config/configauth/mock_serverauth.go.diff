@@ -1,0 +1,13 @@
+diff --git a/config/configauth/mock_serverauth.go b/config/configauth/mock_serverauth.go
+index f25225572..e8bf209a4 100644
+--- a/config/configauth/mock_serverauth.go
++++ b/config/configauth/mock_serverauth.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configauth
++package configauth // import "go.opentelemetry.io/collector/config/configauth"
+ 
+ import (
+ 	"context"

@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 14496506b..cd2dd30de 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -11,7 +11,7 @@ import (
+ 	"fmt"
+ 	"runtime"
+ 
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.opentelemetry.io/otel/log"
+ 	"go.opentelemetry.io/otel/metric"
+ 	sdkresource "go.opentelemetry.io/otel/sdk/resource"

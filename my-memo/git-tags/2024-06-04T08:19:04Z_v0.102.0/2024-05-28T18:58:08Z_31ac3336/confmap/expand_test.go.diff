@@ -1,0 +1,21 @@
+diff --git a/confmap/expand_test.go b/confmap/expand_test.go
+index 984a96a29..02db3ea81 100644
+--- a/confmap/expand_test.go
++++ b/confmap/expand_test.go
+@@ -283,6 +283,16 @@ func TestResolverExpandStringValues(t *testing.T) {
+ 			input:  "${env:HOST${env:PORT}?os=${env:OS&pr=${env:PR}",
+ 			output: "${env:HOST3044?os=${env:OS&pr=amd",
+ 		},
++		{
++			name:   "SchemeAfterNoSchemeIsExpanded",
++			input:  "${HOST}${env:PORT}",
++			output: "${HOST}3044",
++		},
++		{
++			name:   "SchemeBeforeNoSchemeIsExpanded",
++			input:  "${env:HOST}${PORT}",
++			output: "localhost${PORT}",
++		},
+ 	}
+ 
+ 	for _, tt := range tests {

@@ -1,0 +1,14 @@
+diff --git a/Makefile b/Makefile
+index 79ebc5bc7..a325477c7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -94,7 +94,8 @@ misspell-correction:
+ 
+ .PHONY: lint-gosec
+ lint-gosec:
+-	$(GOSEC) -quiet -exclude=G104,G107 ./...
++	# TODO: Consider to use gosec from golangci-lint
++	$(GOSEC) -quiet -exclude=G104 ./...
+ 
+ .PHONY: lint-static-check
+ lint-static-check:

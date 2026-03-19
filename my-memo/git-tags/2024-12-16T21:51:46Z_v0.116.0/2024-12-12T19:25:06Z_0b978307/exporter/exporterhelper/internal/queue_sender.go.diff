@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index 728ad8547..509c74711 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -86,7 +86,8 @@ func NewQueueSender(
+ 	numConsumers int,
+ 	exportFailureMessage string,
+ 	obsrep *ObsReport,
+-	batcherCfg exporterbatcher.Config) *QueueSender {
++	batcherCfg exporterbatcher.Config,
++) *QueueSender {
+ 	qs := &QueueSender{
+ 		queue:          q,
+ 		numConsumers:   numConsumers,

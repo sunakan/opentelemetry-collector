@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_metric.go b/pdata/internal/generated_wrapper_metric.go
+index 5b7eafe93..22ad64dc0 100644
+--- a/pdata/internal/generated_wrapper_metric.go
++++ b/pdata/internal/generated_wrapper_metric.go
+@@ -275,7 +275,7 @@ func MarshalProtoOrigMetric(orig *otlpmetrics.Metric, buf []byte) int {
+ 		buf[pos] = 0x5a
+ 
+ 	}
+-	for i := range orig.Metadata {
++	for i := len(orig.Metadata) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigKeyValue(&orig.Metadata[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

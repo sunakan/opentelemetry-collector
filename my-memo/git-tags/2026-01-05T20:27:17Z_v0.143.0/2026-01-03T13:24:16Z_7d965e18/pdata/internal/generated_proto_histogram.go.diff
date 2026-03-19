@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_histogram.go b/pdata/internal/generated_proto_histogram.go
+index ceaf27aed..09fab65bb 100644
+--- a/pdata/internal/generated_proto_histogram.go
++++ b/pdata/internal/generated_proto_histogram.go
+@@ -44,7 +44,6 @@ func DeleteHistogram(orig *Histogram, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.DataPoints {
+ 		DeleteHistogramDataPoint(orig.DataPoints[i], true)
+ 	}

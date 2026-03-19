@@ -1,0 +1,16 @@
+diff --git a/extension/healthcheckextension/factory.go b/extension/healthcheckextension/factory.go
+index a654841b0..9b7494d44 100644
+--- a/extension/healthcheckextension/factory.go
++++ b/extension/healthcheckextension/factory.go
+@@ -42,10 +42,7 @@ func NewFactory() component.ExtensionFactory {
+ 
+ func createDefaultConfig() config.Extension {
+ 	return &Config{
+-		ExtensionSettings: config.ExtensionSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
++		ExtensionSettings: config.NewExtensionSettings(typeStr),
+ 		TCPAddr: confignet.TCPAddr{
+ 			Endpoint: defaultEndpoint,
+ 		},

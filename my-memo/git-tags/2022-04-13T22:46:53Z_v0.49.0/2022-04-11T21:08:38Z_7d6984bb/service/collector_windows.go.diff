@@ -1,0 +1,14 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 7b36caccb..1231bd72a 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -147,8 +147,7 @@ func openEventLog(serviceName string) (*eventlog.Log, error) {
+ func newWithWindowsEventLogCore(set CollectorSettings, elog *eventlog.Log) (*Collector, error) {
+ 	if set.ConfigProvider == nil {
+ 		var err error
+-		cfgSet := newDefaultConfigProviderSettings()
+-		cfgSet.Locations = getConfigFlag()
++		cfgSet := newDefaultConfigProviderSettings(getConfigFlag())
+ 		// Append the "overwrite properties converter" as the first converter.
+ 		cfgSet.MapConverters = append(
+ 			[]config.MapConverterFunc{overwritepropertiesmapconverter.New(getSetFlag())},

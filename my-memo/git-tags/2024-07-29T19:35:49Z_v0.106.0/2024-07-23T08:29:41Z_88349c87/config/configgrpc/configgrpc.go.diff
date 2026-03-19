@@ -1,0 +1,12 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 2bffbe499..f718f2591 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -188,7 +188,6 @@ type ServerConfig struct {
+ 	Auth *configauth.Authentication `mapstructure:"auth"`
+ 
+ 	// Include propagates the incoming connection's metadata to downstream consumers.
+-	// Experimental: *NOTE* this option is subject to change or removal in the future.
+ 	IncludeMetadata bool `mapstructure:"include_metadata"`
+ }
+ 

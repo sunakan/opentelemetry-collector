@@ -1,0 +1,26 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 2501ecc08..07ea690ff 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -25,13 +25,14 @@ const (
+ 
+ 	TagSpanKind = "span.kind"
+ 
+-	TagStatusCode       = "status.code"
+-	TagStatusMsg        = "status.message"
+-	TagError            = "error"
+-	TagHTTPStatusCode   = "http.status_code"
+-	TagHTTPStatusMsg    = "http.status_message"
+-	TagZipkinCensusCode = "census.status_code"
+-	TagZipkinCensusMsg  = "census.status_description"
++	TagStatusCode          = "status.code"
++	TagStatusMsg           = "status.message"
++	TagError               = "error"
++	TagHTTPStatusCode      = "http.status_code"
++	TagHTTPStatusMsg       = "http.status_message"
++	TagZipkinCensusCode    = "census.status_code"
++	TagZipkinCensusMsg     = "census.status_description"
++	TagZipkinOpenCensusMsg = "opencensus.status_description"
+ )
+ 
+ // OpenTracingSpanKind are possible values for TagSpanKind and match the OpenTracing

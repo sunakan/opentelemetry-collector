@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metrics_input_defs.go b/internal/goldendataset/pict_metrics_input_defs.go
+index cab11a068..78b23b56f 100644
+--- a/internal/goldendataset/pict_metrics_input_defs.go
++++ b/internal/goldendataset/pict_metrics_input_defs.go
+@@ -39,7 +39,7 @@ const (
+ 	MetricTypeMonotonicDoubleSum    PICTMetricDataType = "MonotonicDoubleSum"
+ 	MetricTypeNonMonotonicDoubleSum PICTMetricDataType = "NonMonotonicDoubleSum"
+ 	MetricTypeIntHistogram          PICTMetricDataType = "IntHistogram"
+-	MetricTypeDoubleHistogram       PICTMetricDataType = "DoubleHistogram"
++	MetricTypeHistogram             PICTMetricDataType = "Histogram"
+ )
+ 
+ // Enumerates the number of labels on each datapoint.

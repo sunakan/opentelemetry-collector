@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/factory_test.go b/extension/pprofextension/factory_test.go
+index c9a6a85ff..9762518e4 100644
+--- a/extension/pprofextension/factory_test.go
++++ b/extension/pprofextension/factory_test.go
+@@ -39,7 +39,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 			NameVal: typeStr,
+ 			TypeVal: typeStr,
+ 		},
+-		Endpoint: "127.0.0.1:1777",
++		Endpoint: "localhost:1777",
+ 	},
+ 		cfg)
+ 

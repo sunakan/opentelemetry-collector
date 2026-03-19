@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_proto_spanlink.go b/pdata/internal/generated_proto_spanlink.go
+index 7e8298c6d..a7f8a670d 100644
+--- a/pdata/internal/generated_proto_spanlink.go
++++ b/pdata/internal/generated_proto_spanlink.go
+@@ -19,12 +19,12 @@ import (
+ // different trace.
+ // See Link definition in OTLP: https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto
+ type SpanLink struct {
+-	TraceId                TraceID
+-	SpanId                 SpanID
+ 	TraceState             string
+ 	Attributes             []KeyValue
+ 	DroppedAttributesCount uint32
+ 	Flags                  uint32
++	TraceId                TraceID
++	SpanId                 SpanID
+ }
+ 
+ var (

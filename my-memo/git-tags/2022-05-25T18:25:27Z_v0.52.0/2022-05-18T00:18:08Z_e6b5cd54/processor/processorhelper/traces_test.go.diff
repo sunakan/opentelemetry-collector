@@ -1,0 +1,21 @@
+diff --git a/processor/processorhelper/traces_test.go b/processor/processorhelper/traces_test.go
+index 3ece81ffe..ff5e3bd8d 100644
+--- a/processor/processorhelper/traces_test.go
++++ b/processor/processorhelper/traces_test.go
+@@ -23,7 +23,6 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -61,7 +60,7 @@ func TestNewTracesProcessor_NilRequiredFields(t *testing.T) {
+ 	assert.Error(t, err)
+ 
+ 	_, err = NewTracesProcessor(&testTracesCfg, nil, newTestTProcessor(nil))
+-	assert.Equal(t, componenterror.ErrNilNextConsumer, err)
++	assert.Equal(t, component.ErrNilNextConsumer, err)
+ }
+ 
+ func TestNewTracesProcessor_ProcessTraceError(t *testing.T) {

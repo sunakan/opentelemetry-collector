@@ -1,0 +1,9 @@
+diff --git a/confmap/internal/e2e/Makefile b/confmap/internal/e2e/Makefile
+index bdd863a20..011fca9e1 100644
+--- a/confmap/internal/e2e/Makefile
++++ b/confmap/internal/e2e/Makefile
+@@ -1 +1,4 @@
+ include ../../../Makefile.Common
++
++# Override COVER_PKGS to include the parent package that this e2e module tests
++COVER_PKGS := go.opentelemetry.io/collector/confmap/internal,$(COVER_PKGS)

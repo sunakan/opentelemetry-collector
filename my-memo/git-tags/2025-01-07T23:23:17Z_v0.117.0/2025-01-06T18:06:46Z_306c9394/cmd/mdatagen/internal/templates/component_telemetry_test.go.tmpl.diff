@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl b/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
+index 93949f9f6..38dc4166e 100644
+--- a/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/component_telemetry_test.go.tmpl
+@@ -23,6 +23,7 @@ import (
+ 	{{- end }}
+ )
+ 
++// Deprecated: [v0.117.0] use metadatatest.Telemetry
+ type componentTestTelemetry struct {
+ 	reader        *sdkmetric.ManualReader
+ 	meterProvider *sdkmetric.MeterProvider
+@@ -44,6 +45,7 @@ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySett
+ 	return set
+ }
+ 
++// Deprecated: [v0.116.0] use metadatatest.SetupTelemetry
+ func setupTestTelemetry() componentTestTelemetry {
+ 	reader := sdkmetric.NewManualReader()
+ 	return componentTestTelemetry{

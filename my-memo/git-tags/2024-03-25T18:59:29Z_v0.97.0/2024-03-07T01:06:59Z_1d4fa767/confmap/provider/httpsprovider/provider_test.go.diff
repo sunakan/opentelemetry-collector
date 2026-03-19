@@ -1,0 +1,17 @@
+diff --git a/confmap/provider/httpsprovider/provider_test.go b/confmap/provider/httpsprovider/provider_test.go
+index f488fcc6a..eac1d132d 100644
+--- a/confmap/provider/httpsprovider/provider_test.go
++++ b/confmap/provider/httpsprovider/provider_test.go
+@@ -7,9 +7,11 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+ func TestSupportedScheme(t *testing.T) {
+-	fp := New()
++	fp := NewWithSettings(confmap.ProviderSettings{})
+ 	assert.Equal(t, "https", fp.Scheme())
+ }

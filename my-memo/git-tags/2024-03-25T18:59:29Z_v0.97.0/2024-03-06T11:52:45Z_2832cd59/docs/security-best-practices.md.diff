@@ -1,0 +1,21 @@
+diff --git a/docs/security-best-practices.md b/docs/security-best-practices.md
+index 6ca44ba0b..8c57d09eb 100644
+--- a/docs/security-best-practices.md
++++ b/docs/security-best-practices.md
+@@ -150,6 +150,9 @@ For more information, see [CWE-1327](https://cwe.mitre.org/data/definitions/1327
+ 
+ To change the default endpoint to be `localhost`-bound in all components, enable the `component.UseLocalHostAsDefaultHost` feature gate. This feature gate will be enabled by default in the Collector in a future release.
+ 
++
++If `localhost` resolves to a different IP due to your DNS settings then explicitly use the loopback IP instead: `127.0.0.1` for IPv4 or `::1` for IPv6. In IPv6 setups, ensure your system supports both IPv4 and IPv6 loopback addresses to avoid issues.
++
+ ## Processors
+ 
+ Processors sit between receivers and exporters. They are responsible for
+@@ -218,4 +221,4 @@ Extensions may also be used to run subprocesses. This can be useful when
+ collection mechanisms that cannot natively be run by the Collector (e.g.
+ FluentBit). Subprocesses expose a completely separate attack vector that would
+ depend on the subprocess itself. In general, care should be taken before
+-running any subprocesses alongside the Collector.
++running any subprocesses alongside the Collector.
+\ No newline at end of file

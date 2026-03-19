@@ -1,0 +1,21 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index eb7e7b5da..ab316538a 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -26,7 +26,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data"
+ 	"go.opentelemetry.io/collector/internal/data/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+@@ -43,7 +42,7 @@ func TestMetricsToOC(t *testing.T) {
+ 
+ 	tests := []struct {
+ 		name     string
+-		internal data.MetricData
++		internal pdata.Metrics
+ 		oc       []consumerdata.MetricsData
+ 	}{
+ 		{

@@ -1,0 +1,24 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index a7df83978..401757998 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -89,6 +89,8 @@ const (
+ 	defaultZipkinThriftUDPPort  = 5775
+ 	defaultCompactThriftUDPPort = 6831
+ 	defaultBinaryThriftUDPPort  = 6832
++
++	traceSource string = "Jaeger"
+ )
+ 
+ // New creates a TraceReceiver that receives traffic as a collector with both Thrift and HTTP transports.
+@@ -160,6 +162,10 @@ func (jr *jReceiver) agentBinaryThriftAddr() string {
+ 	return fmt.Sprintf(":%d", port)
+ }
+ 
++func (jr *jReceiver) TraceSource() string {
++	return traceSource
++}
++
+ func (jr *jReceiver) StartTraceReception(ctx context.Context, nextProcessor processor.TraceDataProcessor) error {
+ 	jr.mu.Lock()
+ 	defer jr.mu.Unlock()

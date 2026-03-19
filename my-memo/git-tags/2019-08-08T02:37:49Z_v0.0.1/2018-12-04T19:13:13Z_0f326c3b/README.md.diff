@@ -1,0 +1,14 @@
+diff --git a/README.md b/README.md
+index aedefb9af..0e3b7b54b 100644
+--- a/README.md
++++ b/README.md
+@@ -135,6 +135,9 @@ exporters:
+         brokers:
+             - "127.0.0.1:9092"
+         topic: "opencensus-spans"
++
++    ocagent:
++        endpoint: "http://localhost:10001"
+ ```
+ 
+ #### <a name="agent-config-receivers"></a>Receivers

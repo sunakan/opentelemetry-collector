@@ -1,0 +1,78 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_test.go b/exporter/exporterhelper/internal/persistent_storage_test.go
+index 81a41aac7..a08231fda 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_test.go
+@@ -21,8 +21,6 @@ import (
+ 	"context"
+ 	"errors"
+ 	"fmt"
+-	"io/ioutil"
+-	"os"
+ 	"reflect"
+ 	"sync"
+ 	"testing"
+@@ -59,14 +57,6 @@ func createTestPersistentStorage(client storage.Client) *persistentContiguousSto
+ 	return createTestPersistentStorageWithLoggingAndCapacity(client, logger, 1000)
+ }
+ 
+-func createTemporaryDirectory() string {
+-	directory, err := ioutil.TempDir("", "persistent-test")
+-	if err != nil {
+-		panic(err)
+-	}
+-	return directory
+-}
+-
+ type fakeTracesRequest struct {
+ 	td                         ptrace.Traces
+ 	processingFinishedCallback func()
+@@ -104,8 +94,7 @@ func newFakeTracesRequestUnmarshalerFunc() RequestUnmarshaler {
+ }
+ 
+ func TestPersistentStorage_CorruptedData(t *testing.T) {
+-	path := createTemporaryDirectory()
+-	defer os.RemoveAll(path)
++	path := t.TempDir()
+ 
+ 	traces := newTraces(5, 10)
+ 	req := newFakeTracesRequest(traces)
+@@ -221,8 +210,7 @@ func TestPersistentStorage_CorruptedData(t *testing.T) {
+ }
+ 
+ func TestPersistentStorage_CurrentlyProcessedItems(t *testing.T) {
+-	path := createTemporaryDirectory()
+-	defer os.RemoveAll(path)
++	path := t.TempDir()
+ 
+ 	traces := newTraces(5, 10)
+ 	req := newFakeTracesRequest(traces)
+@@ -286,8 +274,7 @@ func TestPersistentStorage_CurrentlyProcessedItems(t *testing.T) {
+ }
+ 
+ func TestPersistentStorage_RepeatPutCloseReadClose(t *testing.T) {
+-	path := createTemporaryDirectory()
+-	defer os.RemoveAll(path)
++	path := t.TempDir()
+ 
+ 	traces := newTraces(5, 10)
+ 	req := newFakeTracesRequest(traces)
+@@ -336,8 +323,7 @@ func TestPersistentStorage_RepeatPutCloseReadClose(t *testing.T) {
+ }
+ 
+ func TestPersistentStorage_EmptyRequest(t *testing.T) {
+-	path := createTemporaryDirectory()
+-	defer os.RemoveAll(path)
++	path := t.TempDir()
+ 
+ 	ext := createStorageExtension(path)
+ 	client := createTestClient(ext)
+@@ -375,8 +361,7 @@ func BenchmarkPersistentStorage_TraceSpans(b *testing.B) {
+ 
+ 	for _, c := range cases {
+ 		b.Run(fmt.Sprintf("#traces: %d #spansPerTrace: %d", c.numTraces, c.numSpansPerTrace), func(bb *testing.B) {
+-			path := createTemporaryDirectory()
+-			defer os.RemoveAll(path)
++			path := bb.TempDir()
+ 			ext := createStorageExtension(path)
+ 			client := createTestClient(ext)
+ 			ps := createTestPersistentStorageWithLoggingAndCapacity(client, zap.NewNop(), 10000000)

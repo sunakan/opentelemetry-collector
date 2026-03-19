@@ -1,0 +1,24 @@
+diff --git a/model/internal/pdata/traces.go b/model/internal/pdata/traces.go
+index eb5047745..0939a1087 100644
+--- a/model/internal/pdata/traces.go
++++ b/model/internal/pdata/traces.go
+@@ -15,7 +15,6 @@
+ package pdata // import "go.opentelemetry.io/collector/model/internal/pdata"
+ 
+ import (
+-	"go.opentelemetry.io/collector/model/internal"
+ 	otlptrace "go.opentelemetry.io/collector/model/internal/data/protogen/trace/v1"
+ )
+ 
+@@ -51,11 +50,6 @@ func NewTraces() Traces {
+ 	return Traces{orig: &otlptrace.TracesData{}}
+ }
+ 
+-// Deprecated: [v0.47.0] will be removed soon, only used internally.
+-func (td Traces) InternalRep() internal.TracesWrapper {
+-	return internal.TracesWrapper{}
+-}
+-
+ // MoveTo moves all properties from the current struct to dest
+ // resetting the current instance to its zero value.
+ func (td Traces) MoveTo(dest Traces) {

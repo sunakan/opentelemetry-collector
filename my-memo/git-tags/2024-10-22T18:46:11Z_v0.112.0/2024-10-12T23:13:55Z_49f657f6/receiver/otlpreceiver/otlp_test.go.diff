@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 1f1743197..23e2115a9 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -674,6 +674,7 @@ func TestOTLPReceiverHTTPTracesIngestTest(t *testing.T) {
+ 			errStatus := &spb.Status{}
+ 			require.NoError(t, proto.Unmarshal(respBytes, errStatus))
+ 			assert.Equal(t, ingestionState.expectedStatusCode, resp.StatusCode)
++			// nolint:gosec
+ 			assert.Equal(t, ingestionState.expectedCode, codes.Code(errStatus.Code))
+ 		}
+ 	}

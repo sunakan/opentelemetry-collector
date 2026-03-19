@@ -1,0 +1,43 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index 1aebb318c..763972e79 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -35,9 +35,6 @@ type BaseExporter struct {
+ 
+ 	Signal pipeline.Signal
+ 
+-	BatchMergeFunc      exporterbatcher.BatchMergeFunc[internal.Request]
+-	BatchMergeSplitfunc exporterbatcher.BatchMergeSplitFunc[internal.Request]
+-
+ 	Marshaler   exporterqueue.Marshaler[internal.Request]
+ 	Unmarshaler exporterqueue.Unmarshaler[internal.Request]
+ 
+@@ -104,10 +101,7 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, osf ObsrepSe
+ 	}
+ 
+ 	if be.BatcherCfg.Enabled {
+-		bs := NewBatchSender(be.BatcherCfg, be.Set, be.BatchMergeFunc, be.BatchMergeSplitfunc)
+-		if bs.mergeFunc == nil || bs.mergeSplitFunc == nil {
+-			err = multierr.Append(err, fmt.Errorf("WithRequestBatchFuncs must be provided for the batcher applied to the request-based exporters"))
+-		}
++		bs := NewBatchSender(be.BatcherCfg, be.Set)
+ 		be.BatchSender = bs
+ 	}
+ 
+@@ -298,16 +292,6 @@ func WithUnmarshaler(unmarshaler exporterqueue.Unmarshaler[internal.Request]) Op
+ 	}
+ }
+ 
+-// withBatchFuncs is used to set the functions for merging and splitting batches for OLTP-based exporters.
+-// It must be provided as the first option when creating a new exporter helper.
+-func WithBatchFuncs(mf exporterbatcher.BatchMergeFunc[internal.Request], msf exporterbatcher.BatchMergeSplitFunc[internal.Request]) Option {
+-	return func(o *BaseExporter) error {
+-		o.BatchMergeFunc = mf
+-		o.BatchMergeSplitfunc = msf
+-		return nil
+-	}
+-}
+-
+ func CheckStatus(t *testing.T, sd sdktrace.ReadOnlySpan, err error) {
+ 	if err != nil {
+ 		require.Equal(t, codes.Error, sd.Status().Code, "SpanData %v", sd)

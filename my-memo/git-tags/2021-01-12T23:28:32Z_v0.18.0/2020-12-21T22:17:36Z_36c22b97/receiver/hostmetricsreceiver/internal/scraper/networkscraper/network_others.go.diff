@@ -1,0 +1,28 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_others.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_others.go
+index 045e545b2..33c2415be 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_others.go
+@@ -12,13 +12,13 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// +build !windows
++// +build !linux
+ 
+ package networkscraper
+ 
+ var allTCPStates = []string{
+ 	"CLOSE_WAIT",
+-	"CLOSE",
++	"CLOSED",
+ 	"CLOSING",
+ 	"DELETE",
+ 	"ESTABLISHED",
+@@ -27,6 +27,6 @@ var allTCPStates = []string{
+ 	"LAST_ACK",
+ 	"LISTEN",
+ 	"SYN_SENT",
+-	"SYN_RECV",
++	"SYN_RECEIVED",
+ 	"TIME_WAIT",
+ }

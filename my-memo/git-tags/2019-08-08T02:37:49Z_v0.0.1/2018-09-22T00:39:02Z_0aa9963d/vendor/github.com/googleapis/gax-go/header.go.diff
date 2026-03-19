@@ -1,0 +1,30 @@
+diff --git a/vendor/github.com/googleapis/gax-go/header.go b/vendor/github.com/googleapis/gax-go/header.go
+deleted file mode 100644
+index d81455ecc..000000000
+--- a/vendor/github.com/googleapis/gax-go/header.go
++++ /dev/null
+@@ -1,24 +0,0 @@
+-package gax
+-
+-import "bytes"
+-
+-// XGoogHeader is for use by the Google Cloud Libraries only.
+-//
+-// XGoogHeader formats key-value pairs.
+-// The resulting string is suitable for x-goog-api-client header.
+-func XGoogHeader(keyval ...string) string {
+-	if len(keyval) == 0 {
+-		return ""
+-	}
+-	if len(keyval)%2 != 0 {
+-		panic("gax.Header: odd argument count")
+-	}
+-	var buf bytes.Buffer
+-	for i := 0; i < len(keyval); i += 2 {
+-		buf.WriteByte(' ')
+-		buf.WriteString(keyval[i])
+-		buf.WriteByte('/')
+-		buf.WriteString(keyval[i+1])
+-	}
+-	return buf.String()[1:]
+-}

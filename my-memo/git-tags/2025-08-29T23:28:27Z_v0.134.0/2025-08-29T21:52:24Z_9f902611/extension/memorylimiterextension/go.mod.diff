@@ -1,0 +1,13 @@
+diff --git a/extension/memorylimiterextension/go.mod b/extension/memorylimiterextension/go.mod
+index bd978cc79..2fa5e1b5e 100644
+--- a/extension/memorylimiterextension/go.mod
++++ b/extension/memorylimiterextension/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/extension/memorylimiterextension
+ go 1.24
+ 
+ require (
+-	github.com/stretchr/testify v1.11.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v1.39.0
+ 	go.opentelemetry.io/collector/component/componenttest v0.133.0
+ 	go.opentelemetry.io/collector/confmap v1.39.0

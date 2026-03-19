@@ -1,0 +1,21 @@
+diff --git a/receiver/scraperhelper/generated_component_telemetry_test.go b/receiver/scraperhelper/generated_component_telemetry_test.go
+index d2ee87bf3..fca2fa07a 100644
+--- a/receiver/scraperhelper/generated_component_telemetry_test.go
++++ b/receiver/scraperhelper/generated_component_telemetry_test.go
+@@ -26,14 +26,15 @@ type componentTestTelemetry struct {
+ 
+ func (tt *componentTestTelemetry) NewSettings() receiver.Settings {
+ 	set := receivertest.NewNopSettings()
+-	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	set.ID = component.NewID(component.MustNewType("scraperhelper"))
++	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	return set
+ }
+ 
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

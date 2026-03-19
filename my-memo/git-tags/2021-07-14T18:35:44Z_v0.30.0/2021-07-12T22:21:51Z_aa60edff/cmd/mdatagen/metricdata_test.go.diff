@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metricdata_test.go b/cmd/mdatagen/metricdata_test.go
+index 3d20b7b7d..df13df2d2 100644
+--- a/cmd/mdatagen/metricdata_test.go
++++ b/cmd/mdatagen/metricdata_test.go
+@@ -31,7 +31,7 @@ func TestMetricData(t *testing.T) {
+ 		{&intSum{}, "IntSum", true, true},
+ 		{&intHistogram{}, "IntHistogram", true, false},
+ 		{&doubleGauge{}, "DoubleGauge", false, false},
+-		{&doubleSum{}, "DoubleSum", true, true},
++		{&sum{}, "Sum", true, true},
+ 		{&histogram{}, "Histogram", true, false},
+ 	} {
+ 		assert.Equal(t, arg.typ, arg.metricData.Type())

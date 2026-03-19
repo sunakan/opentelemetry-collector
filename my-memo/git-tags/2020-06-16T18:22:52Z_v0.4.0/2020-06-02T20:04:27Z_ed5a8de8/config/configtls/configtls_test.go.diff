@@ -1,0 +1,25 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index 49f252fd6..9485087bc 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -25,7 +25,6 @@ func TestOptionsToConfig(t *testing.T) {
+ 	tests := []struct {
+ 		name        string
+ 		options     TLSSetting
+-		fakeSysPool bool
+ 		expectError string
+ 	}{
+ 		{
+@@ -123,3 +122,12 @@ func TestOptionsToConfig(t *testing.T) {
+ 		})
+ 	}
+ }
++
++func TestTLSSetting_LoadgRPCTLSServerCredentialsError(t *testing.T) {
++	tlsSetting := TLSSetting{
++		CertFile: "doesnt/exist",
++		KeyFile:  "doesnt/exist",
++	}
++	_, err := tlsSetting.LoadgRPCTLSServerCredentials()
++	assert.Error(t, err)
++}

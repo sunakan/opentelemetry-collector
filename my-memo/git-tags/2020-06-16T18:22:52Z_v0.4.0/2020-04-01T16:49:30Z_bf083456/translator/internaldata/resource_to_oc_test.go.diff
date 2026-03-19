@@ -1,0 +1,43 @@
+diff --git a/translator/internaldata/resource_to_oc_test.go b/translator/internaldata/resource_to_oc_test.go
+index 1d5a1e045..2bee2047f 100644
+--- a/translator/internaldata/resource_to_oc_test.go
++++ b/translator/internaldata/resource_to_oc_test.go
+@@ -36,7 +36,6 @@ func TestResourceToOC(t *testing.T) {
+ 		"int2": "123",
+ 	}
+ 
+-	resource := data.NewEmptyResource()
+ 	attrs := data.AttributesMap{
+ 		conventions.OCAttributeProcessStartTime: data.NewAttributeValueString("2020-02-11T20:26:00Z"),
+ 		conventions.AttributeHostHostname:       data.NewAttributeValueString("host1"),
+@@ -48,17 +47,29 @@ func TestResourceToOC(t *testing.T) {
+ 		"str1":                                  data.NewAttributeValueString("text"),
+ 		"int2":                                  data.NewAttributeValueInt(123),
+ 	}
++	resource := data.NewResource()
++	resource.InitEmpty()
+ 	resource.SetAttributes(data.NewAttributeMap(attrs))
+ 
++	emptyResource := data.NewResource()
++	emptyResource.InitEmpty()
++
+ 	tests := []struct {
+ 		name       string
+ 		resource   data.Resource
+ 		ocNode     *occommon.Node
+ 		ocResource *ocresource.Resource
+ 	}{
++		{
++			name:       "nil",
++			resource:   data.NewResource(),
++			ocNode:     nil,
++			ocResource: nil,
++		},
++
+ 		{
+ 			name:       "empty",
+-			resource:   data.NewEmptyResource(),
++			resource:   emptyResource,
+ 			ocNode:     &occommon.Node{},
+ 			ocResource: &ocresource.Resource{},
+ 		},

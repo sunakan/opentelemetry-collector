@@ -1,0 +1,31 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index a76a72598..f29343db0 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -41,8 +41,6 @@ type BaseExporter struct {
+ 	component.StartFunc
+ 	component.ShutdownFunc
+ 
+-	Signal pipeline.Signal
+-
+ 	Marshaler   exporterqueue.Marshaler[internal.Request]
+ 	Unmarshaler exporterqueue.Unmarshaler[internal.Request]
+ 
+@@ -75,8 +73,6 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, osf ObsrepSe
+ 	}
+ 
+ 	be := &BaseExporter{
+-		Signal: signal,
+-
+ 		BatchSender:   &BaseRequestSender{},
+ 		QueueSender:   &BaseRequestSender{},
+ 		ObsrepSender:  osf(obsReport),
+@@ -98,7 +94,7 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, osf ObsrepSe
+ 		q := be.queueFactory(
+ 			context.Background(),
+ 			exporterqueue.Settings{
+-				Signal:           be.Signal,
++				Signal:           signal,
+ 				ExporterSettings: be.Set,
+ 			},
+ 			be.queueCfg)

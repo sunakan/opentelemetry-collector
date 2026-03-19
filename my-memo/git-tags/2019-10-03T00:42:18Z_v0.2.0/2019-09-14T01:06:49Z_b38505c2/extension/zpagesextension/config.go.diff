@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/config.go b/extension/zpagesextension/config.go
+index 383cad134..c4e306aa0 100644
+--- a/extension/zpagesextension/config.go
++++ b/extension/zpagesextension/config.go
+@@ -23,7 +23,7 @@ type Config struct {
+ 	configmodels.ExtensionSettings `mapstructure:",squash"`
+ 
+ 	// Endpoint is the address and port in which the zPages will be listening to.
+-	// Use 127.0.0.1:<port> to make it available only locally, or ":<port>" to
++	// Use localhost:<port> to make it available only locally, or ":<port>" to
+ 	// make it available on all network interfaces.
+ 	Endpoint string `mapstructure:"endpoint"`
+ }

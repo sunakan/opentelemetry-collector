@@ -1,0 +1,43 @@
+diff --git a/service/internal/components/loggers.go b/service/internal/components/loggers.go
+index 9374396d2..5c016094f 100644
+--- a/service/internal/components/loggers.go
++++ b/service/internal/components/loggers.go
+@@ -21,15 +21,17 @@ import (
+ )
+ 
+ const (
+-	zapKindKey       = "kind"
+-	zapKindReceiver  = "receiver"
+-	zapKindProcessor = "processor"
+-	zapKindExporter  = "exporter"
+-	zapKindExtension = "extension"
+-	zapKindPipeline  = "pipeline"
+-	zapNameKey       = "name"
+-	zapDataTypeKey   = "data_type"
+-	zapStabilityKey  = "stability"
++	zapKindKey            = "kind"
++	zapKindReceiver       = "receiver"
++	zapKindProcessor      = "processor"
++	zapKindExporter       = "exporter"
++	zapKindExtension      = "extension"
++	zapKindPipeline       = "pipeline"
++	zapNameKey            = "name"
++	zapDataTypeKey        = "data_type"
++	zapStabilityKey       = "stability"
++	zapExporterInPipeline = "exporter_in_pipeline"
++	zapReceiverInPipeline = "receiver_in_pipeline"
+ )
+ 
+ func ReceiverLogger(logger *zap.Logger, id component.ID, dt component.DataType) *zap.Logger {
+@@ -58,3 +60,11 @@ func ExtensionLogger(logger *zap.Logger, id component.ID) *zap.Logger {
+ 		zap.String(zapKindKey, zapKindExtension),
+ 		zap.String(zapNameKey, id.String()))
+ }
++
++func ConnectorLogger(logger *zap.Logger, id component.ID, expDT, rcvDT component.DataType) *zap.Logger {
++	return logger.With(
++		zap.String(zapKindKey, zapKindExporter),
++		zap.String(zapNameKey, id.String()),
++		zap.String(zapExporterInPipeline, string(expDT)),
++		zap.String(zapReceiverInPipeline, string(rcvDT)))
++}

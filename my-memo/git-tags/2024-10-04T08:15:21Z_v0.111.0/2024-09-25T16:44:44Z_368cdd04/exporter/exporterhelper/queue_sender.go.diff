@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/queue_sender.go b/exporter/exporterhelper/queue_sender.go
+index b81e2036f..f09932c5b 100644
+--- a/exporter/exporterhelper/queue_sender.go
++++ b/exporter/exporterhelper/queue_sender.go
+@@ -5,17 +5,9 @@ package exporterhelper // import "go.opentelemetry.io/collector/exporter/exporte
+ 
+ import "go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 
+-// Deprecated: [v0.110.0] Use QueueConfig instead.
+-type QueueSettings = internal.QueueConfig
+-
+ // QueueConfig defines configuration for queueing batches before sending to the consumerSender.
+ type QueueConfig = internal.QueueConfig
+ 
+-// Deprecated: [v0.110.0] Use NewDefaultQueueConfig instead.
+-func NewDefaultQueueSettings() QueueSettings {
+-	return internal.NewDefaultQueueConfig()
+-}
+-
+ // NewDefaultQueueConfig returns the default config for QueueConfig.
+ func NewDefaultQueueConfig() QueueConfig {
+ 	return internal.NewDefaultQueueConfig()

@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/exporterhelperprofiles/profiles_batch_test.go b/exporter/exporterhelper/exporterhelperprofiles/profiles_batch_test.go
+index 9674e2d3f..288b4c357 100644
+--- a/exporter/exporterhelper/exporterhelperprofiles/profiles_batch_test.go
++++ b/exporter/exporterhelper/exporterhelperprofiles/profiles_batch_test.go
+@@ -124,7 +124,6 @@ func TestMergeSplitProfiles(t *testing.T) {
+ 				assert.Equal(t, tt.expected[i], r.(*profilesRequest))
+ 			}
+ 		})
+-
+ 	}
+ }
+ 

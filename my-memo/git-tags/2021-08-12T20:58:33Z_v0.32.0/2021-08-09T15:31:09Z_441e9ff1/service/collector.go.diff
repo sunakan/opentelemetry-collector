@@ -1,0 +1,18 @@
+diff --git a/service/collector.go b/service/collector.go
+index a55db2853..5cb96882a 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -312,11 +312,8 @@ func (col *Collector) execute(ctx context.Context) error {
+ 		return err
+ 	}
+ 
+-	// Get ballastSizeBytes if ballast extension is enabled
+-	ballastSizeBytes := col.getBallastSize()
+-
+-	// Setup Telemetry.
+-	err = col.setupTelemetry(ballastSizeBytes)
++	// Get ballastSizeBytes if ballast extension is enabled and setup Telemetry.
++	err = col.setupTelemetry(col.getBallastSize())
+ 	if err != nil {
+ 		return err
+ 	}

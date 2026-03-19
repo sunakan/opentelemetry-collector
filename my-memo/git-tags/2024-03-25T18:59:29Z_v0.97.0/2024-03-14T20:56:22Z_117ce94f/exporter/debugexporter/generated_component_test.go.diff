@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/generated_component_test.go b/exporter/debugexporter/generated_component_test.go
+index 7efad3277..9d6a38cc2 100644
+--- a/exporter/debugexporter/generated_component_test.go
++++ b/exporter/debugexporter/generated_component_test.go
+@@ -55,7 +55,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, component.UnmarshalConfig(sub, cfg))
++	require.NoError(t, sub.Unmarshal(&cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {

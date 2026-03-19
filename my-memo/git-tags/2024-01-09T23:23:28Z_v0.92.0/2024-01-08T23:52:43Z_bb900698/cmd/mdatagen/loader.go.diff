@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index 701c00813..322d273e3 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -194,7 +194,7 @@ func (a attribute) TestValue() string {
+ 	case pcommon.ValueTypeSlice:
+ 		return fmt.Sprintf(`[]any{"%s-item1", "%s-item2"}`, a.FullName, a.FullName)
+ 	case pcommon.ValueTypeBytes:
+-		return fmt.Sprintf(`bytes("%s-val")`, a.FullName)
++		return fmt.Sprintf(`[]byte("%s-val")`, a.FullName)
+ 	}
+ 	return ""
+ }

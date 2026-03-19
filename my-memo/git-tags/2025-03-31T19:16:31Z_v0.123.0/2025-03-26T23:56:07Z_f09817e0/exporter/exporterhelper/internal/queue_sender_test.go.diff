@@ -1,0 +1,44 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 0714a10c8..1540e4a83 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -15,7 +15,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
+@@ -37,8 +36,8 @@ func TestNewQueueSenderFailedRequestDropped(t *testing.T) {
+ 	qSet.Telemetry.Logger = zap.New(logger)
+ 	be, err := NewQueueSender(
+ 		qSet, NewDefaultQueueConfig(), BatcherConfig{}, "", sender.NewSender(func(context.Context, request.Request) error { return errors.New("some error") }))
+-
+ 	require.NoError(t, err)
++
+ 	require.NoError(t, be.Start(context.Background(), componenttest.NewNopHost()))
+ 	require.NoError(t, be.Send(context.Background(), &requesttest.FakeRequest{Items: 2}))
+ 	require.NoError(t, be.Shutdown(context.Background()))
+@@ -46,21 +45,6 @@ func TestNewQueueSenderFailedRequestDropped(t *testing.T) {
+ 	assert.Equal(t, "Exporting failed. Dropping data.", observed.All()[0].Message)
+ }
+ 
+-func TestQueueConfig_DeprecatedBlockingUnmarshal(t *testing.T) {
+-	conf := confmap.NewFromStringMap(map[string]any{
+-		"enabled":       true,
+-		"num_consumers": 2,
+-		"queue_size":    100,
+-		"blocking":      true,
+-	})
+-
+-	qCfg := QueueConfig{}
+-	assert.False(t, qCfg.BlockOnOverflow)
+-	require.NoError(t, conf.Unmarshal(&qCfg))
+-	assert.True(t, qCfg.BlockOnOverflow)
+-	assert.True(t, qCfg.hasBlocking)
+-}
+-
+ func TestQueueConfig_Validate(t *testing.T) {
+ 	qCfg := NewDefaultQueueConfig()
+ 	require.NoError(t, qCfg.Validate())

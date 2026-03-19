@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_processor.go b/obsreport/obsreport_processor.go
+index 48f620d02..4029bd8d2 100644
+--- a/obsreport/obsreport_processor.go
++++ b/obsreport/obsreport_processor.go
+@@ -51,7 +51,7 @@ func BuildProcessorCustomMetricName(configType, metric string) string {
+ 	return componentPrefix + configType + obsmetrics.NameSep + metric
+ }
+ 
+-// Processor is a helper to add observability to a component.Processor.
++// Processor is a helper to add observability to a processor.
+ type Processor struct {
+ 	level    configtelemetry.Level
+ 	mutators []tag.Mutator

@@ -1,0 +1,28 @@
+diff --git a/pdata/plog/generated_scopelogs.go b/pdata/plog/generated_scopelogs.go
+index 9ed8601b5..bf9f30a59 100644
+--- a/pdata/plog/generated_scopelogs.go
++++ b/pdata/plog/generated_scopelogs.go
+@@ -55,6 +55,11 @@ func (ms ScopeLogs) Scope() pcommon.InstrumentationScope {
+ 	return pcommon.InstrumentationScope(internal.NewInstrumentationScope(&ms.orig.Scope, ms.state))
+ }
+ 
++// LogRecords returns the LogRecords associated with this ScopeLogs.
++func (ms ScopeLogs) LogRecords() LogRecordSlice {
++	return newLogRecordSlice(&ms.orig.LogRecords, ms.state)
++}
++
+ // SchemaUrl returns the schemaurl associated with this ScopeLogs.
+ func (ms ScopeLogs) SchemaUrl() string {
+ 	return ms.orig.SchemaUrl
+@@ -66,11 +71,6 @@ func (ms ScopeLogs) SetSchemaUrl(v string) {
+ 	ms.orig.SchemaUrl = v
+ }
+ 
+-// LogRecords returns the LogRecords associated with this ScopeLogs.
+-func (ms ScopeLogs) LogRecords() LogRecordSlice {
+-	return newLogRecordSlice(&ms.orig.LogRecords, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ScopeLogs) CopyTo(dest ScopeLogs) {
+ 	dest.state.AssertMutable()

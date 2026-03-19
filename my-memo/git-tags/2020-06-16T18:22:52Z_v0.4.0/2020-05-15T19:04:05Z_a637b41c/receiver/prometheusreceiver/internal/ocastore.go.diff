@@ -1,0 +1,15 @@
+diff --git a/receiver/prometheusreceiver/internal/ocastore.go b/receiver/prometheusreceiver/internal/ocastore.go
+index 4bc0914a5..cbbdc5dff 100644
+--- a/receiver/prometheusreceiver/internal/ocastore.go
++++ b/receiver/prometheusreceiver/internal/ocastore.go
+@@ -26,8 +26,8 @@ import (
+ 	"github.com/prometheus/prometheus/storage"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component/componenterror"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"go.opentelemetry.io/collector/component/componenterror"
++	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ const (

@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index d9ab9179b..98fc3abaa 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -18,10 +18,8 @@ import (
+ )
+ 
+ const (
+-	grpcPort            = 4317
+-	httpPort            = 4318
+-	defaultGRPCEndpoint = "0.0.0.0:4317"
+-	defaultHTTPEndpoint = "0.0.0.0:4318"
++	grpcPort = 4317
++	httpPort = 4318
+ 
+ 	defaultTracesURLPath  = "/v1/traces"
+ 	defaultMetricsURLPath = "/v1/metrics"

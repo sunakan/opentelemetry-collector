@@ -1,0 +1,28 @@
+diff --git a/test/nocore.otel.yaml b/test/nocore.otel.yaml
+deleted file mode 100644
+index e0d615cd3..000000000
+--- a/test/nocore.otel.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-extensions:
+-  zpages:
+-
+-receivers:
+-  otlp:
+-    protocols:
+-      grpc:
+-
+-processors:
+-
+-exporters:
+-  logging:
+-
+-service:
+-  extensions: [zpages]
+-  pipelines:
+-    traces:
+-      receivers:
+-        - otlp
+-      processors: []
+-      exporters:
+-        - logging

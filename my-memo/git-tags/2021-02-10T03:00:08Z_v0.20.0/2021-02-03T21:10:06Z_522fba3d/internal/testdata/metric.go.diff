@@ -1,0 +1,22 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index e8c5e8093..c77bca7d3 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -442,7 +442,7 @@ func generateOtlpDoubleHistogramMetric() *otlpmetrics.Metric {
+ 				Sum:               15,
+ 				BucketCounts:      []uint64{0, 1},
+ 				ExplicitBounds:    []float64{1},
+-				Exemplars: []*otlpmetrics.DoubleExemplar{
++				Exemplars: []otlpmetrics.DoubleExemplar{
+ 					{
+ 						FilteredLabels: generateOtlpMetricAttachment(),
+ 						TimeUnixNano:   uint64(TestMetricExemplarTimestamp),
+@@ -500,7 +500,7 @@ func generateOtlpIntHistogramMetric() *otlpmetrics.Metric {
+ 				Sum:               15,
+ 				BucketCounts:      []uint64{0, 1},
+ 				ExplicitBounds:    []float64{1},
+-				Exemplars: []*otlpmetrics.IntExemplar{
++				Exemplars: []otlpmetrics.IntExemplar{
+ 					{
+ 						FilteredLabels: generateOtlpMetricAttachment(),
+ 						TimeUnixNano:   uint64(TestMetricExemplarTimestamp),

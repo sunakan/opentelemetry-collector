@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_resource.go b/pdata/internal/generated_wrapper_resource.go
+index 328bb8886..aa9bb057c 100644
+--- a/pdata/internal/generated_wrapper_resource.go
++++ b/pdata/internal/generated_wrapper_resource.go
+@@ -28,12 +28,6 @@ func NewResource(orig *otlpresource.Resource, state *State) Resource {
+ 	return Resource{orig: orig, state: state}
+ }
+ 
+-func CopyOrigResource(dest, src *otlpresource.Resource) {
+-	dest.Attributes = CopyOrigMap(dest.Attributes, src.Attributes)
+-	dest.DroppedAttributesCount = src.DroppedAttributesCount
+-	dest.EntityRefs = CopyOrigEntityRefSlice(dest.EntityRefs, src.EntityRefs)
+-}
+-
+ func GenerateTestResource() Resource {
+ 	orig := otlpresource.Resource{}
+ 	state := StateMutable
+@@ -82,3 +76,9 @@ func UnmarshalJSONIterResource(ms Resource, iter *json.Iterator) {
+ 		return true
+ 	})
+ }
++
++func CopyOrigResource(dest, src *otlpresource.Resource) {
++	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)
++	dest.DroppedAttributesCount = src.DroppedAttributesCount
++	dest.EntityRefs = CopyOrigEntityRefSlice(dest.EntityRefs, src.EntityRefs)
++}

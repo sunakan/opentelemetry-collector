@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/server_middleware_test.go b/config/confighttp/server_middleware_test.go
+index ca383ccfe..92ae8f600 100644
+--- a/config/confighttp/server_middleware_test.go
++++ b/config/confighttp/server_middleware_test.go
+@@ -112,7 +112,7 @@ func TestServerMiddleware(t *testing.T) {
+ 			require.NoError(t, err)
+ 
+ 			// Create a test request
+-			req := httptest.NewRequest(http.MethodGet, "/", nil)
++			req := httptest.NewRequest(http.MethodGet, "/", http.NoBody)
+ 
+ 			// Create a response recorder
+ 			rec := httptest.NewRecorder()

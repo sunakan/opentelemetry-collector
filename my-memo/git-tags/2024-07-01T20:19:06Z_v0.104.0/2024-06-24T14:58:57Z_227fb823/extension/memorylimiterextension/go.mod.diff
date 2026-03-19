@@ -1,0 +1,10 @@
+diff --git a/extension/memorylimiterextension/go.mod b/extension/memorylimiterextension/go.mod
+index 892db56f2..85017f197 100644
+--- a/extension/memorylimiterextension/go.mod
++++ b/extension/memorylimiterextension/go.mod
+@@ -75,3 +75,5 @@ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+ 
+ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
++
++replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile

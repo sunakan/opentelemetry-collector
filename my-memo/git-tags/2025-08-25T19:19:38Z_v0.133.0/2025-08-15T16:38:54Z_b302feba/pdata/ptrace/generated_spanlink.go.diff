@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/generated_spanlink.go b/pdata/ptrace/generated_spanlink.go
+index ca9e1a693..b2780a813 100644
+--- a/pdata/ptrace/generated_spanlink.go
++++ b/pdata/ptrace/generated_spanlink.go
+@@ -36,8 +36,7 @@ func newSpanLink(orig *otlptrace.Span_Link, state *internal.State) SpanLink {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewSpanLink() SpanLink {
+-	state := internal.StateMutable
+-	return newSpanLink(&otlptrace.Span_Link{}, &state)
++	return newSpanLink(&otlptrace.Span_Link{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

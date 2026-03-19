@@ -1,0 +1,16 @@
+diff --git a/confmap/confmaptest/configtest_test.go b/confmap/confmaptest/configtest_test.go
+index 34d97d6b0..cf7717071 100644
+--- a/confmap/confmaptest/configtest_test.go
++++ b/confmap/confmaptest/configtest_test.go
+@@ -42,9 +42,9 @@ func TestValidateProviderScheme(t *testing.T) {
+ 	assert.NoError(t, ValidateProviderScheme(&schemeProvider{scheme: "s3"}))
+ 	assert.NoError(t, ValidateProviderScheme(&schemeProvider{scheme: "a.l-l+"}))
+ 	// Too short.
+-	assert.Error(t, ValidateProviderScheme(&schemeProvider{scheme: "a"}))
++	require.Error(t, ValidateProviderScheme(&schemeProvider{scheme: "a"}))
+ 	// Invalid first character.
+-	assert.Error(t, ValidateProviderScheme(&schemeProvider{scheme: "3s"}))
++	require.Error(t, ValidateProviderScheme(&schemeProvider{scheme: "3s"}))
+ 	// Invalid underscore character.
+ 	assert.Error(t, ValidateProviderScheme(&schemeProvider{scheme: "all_"}))
+ }

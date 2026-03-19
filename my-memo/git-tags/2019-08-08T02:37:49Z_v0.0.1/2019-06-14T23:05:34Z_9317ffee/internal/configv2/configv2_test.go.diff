@@ -1,0 +1,12 @@
+diff --git a/internal/configv2/configv2_test.go b/internal/configv2/configv2_test.go
+index 0cfc2580f..292264966 100644
+--- a/internal/configv2/configv2_test.go
++++ b/internal/configv2/configv2_test.go
+@@ -83,6 +83,7 @@ func TestDecodeConfig(t *testing.T) {
+ 	assert.Equal(t, config.Processors["exampleprocessor"],
+ 		&ExampleProcessor{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
++				TypeVal: "exampleprocessor",
+ 				Enabled: false,
+ 			},
+ 			ExtraSetting: "some export string",

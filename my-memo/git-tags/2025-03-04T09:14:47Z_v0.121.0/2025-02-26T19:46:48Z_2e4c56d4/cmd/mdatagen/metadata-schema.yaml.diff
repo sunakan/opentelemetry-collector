@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index 5a40cbade..d0ab41320 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -133,8 +133,6 @@ tests:
+ # Optional: map of metric names with the key being the metric name and value
+ # being described below.
+ telemetry:
+-  # Optional: level allows components to specify the minimum telemetry level for metrics to be produced. defaults to basic if not set.
+-  level: string
+   metrics:
+     <metric.name>:
+       # Required: whether the metric is collected by default.

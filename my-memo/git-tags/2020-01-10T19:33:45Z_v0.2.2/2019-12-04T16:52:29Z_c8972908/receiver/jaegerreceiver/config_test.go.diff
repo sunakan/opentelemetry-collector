@@ -1,0 +1,21 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index d70825b73..eb6060918 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -65,6 +65,16 @@ func TestLoadConfig(t *testing.T) {
+ 						Endpoint: "0.0.0.0:123",
+ 					},
+ 				},
++				"thrift-compact": {
++					ReceiverSettings: configmodels.ReceiverSettings{
++						Endpoint: "0.0.0.0:456",
++					},
++				},
++				"thrift-binary": {
++					ReceiverSettings: configmodels.ReceiverSettings{
++						Endpoint: "0.0.0.0:789",
++					},
++				},
+ 			},
+ 		})
+ 

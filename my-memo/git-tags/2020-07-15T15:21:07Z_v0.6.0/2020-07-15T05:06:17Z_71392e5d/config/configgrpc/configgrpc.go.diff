@@ -1,0 +1,56 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index b18e86142..746d38550 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -34,6 +34,8 @@ import (
+ const (
+ 	CompressionUnsupported = ""
+ 	CompressionGzip        = "gzip"
++
++	PerRPCAuthTypeBearer = "bearer"
+ )
+ 
+ var (
+@@ -84,6 +86,9 @@ type GRPCClientSettings struct {
+ 
+ 	// The headers associated with gRPC requests.
+ 	Headers map[string]string `mapstructure:"headers"`
++
++	// PerRPCAuth parameter configures the client to send authentication data on a per-RPC basis.
++	PerRPCAuth *PerRPCAuthConfig `mapstructure:"per_rpc_auth"`
+ }
+ 
+ type KeepaliveServerConfig struct {
+@@ -91,6 +96,15 @@ type KeepaliveServerConfig struct {
+ 	EnforcementPolicy *KeepaliveEnforcementPolicy `mapstructure:"enforcement_policy,omitempty"`
+ }
+ 
++// PerRPCAuthConfig specifies how the Per-RPC authentication data should be obtained.
++type PerRPCAuthConfig struct {
++	// AuthType represents the authentication type to use. Currently, only 'bearer' is supported.
++	AuthType string `mapstructure:"type,omitempty"`
++
++	// BearerToken specifies the bearer token to use for every RPC.
++	BearerToken string `mapstructure:"bearer_token,omitempty"`
++}
++
+ // KeepaliveServerParameters allow configuration of the keepalive.ServerParameters.
+ // The same default values as keepalive.ServerParameters are applicable and get applied by the server.
+ // See https://godoc.org/google.golang.org/grpc/keepalive#ServerParameters for details.
+@@ -176,6 +190,16 @@ func (gcs *GRPCClientSettings) ToDialOptions() ([]grpc.DialOption, error) {
+ 		opts = append(opts, keepAliveOption)
+ 	}
+ 
++	if gcs.PerRPCAuth != nil {
++		if strings.EqualFold(gcs.PerRPCAuth.AuthType, PerRPCAuthTypeBearer) {
++			sToken := gcs.PerRPCAuth.BearerToken
++			token := BearerToken(sToken)
++			opts = append(opts, grpc.WithPerRPCCredentials(token))
++		} else {
++			return nil, fmt.Errorf("unsupported per-RPC auth type %q", gcs.PerRPCAuth.AuthType)
++		}
++	}
++
+ 	return opts, nil
+ }
+ 

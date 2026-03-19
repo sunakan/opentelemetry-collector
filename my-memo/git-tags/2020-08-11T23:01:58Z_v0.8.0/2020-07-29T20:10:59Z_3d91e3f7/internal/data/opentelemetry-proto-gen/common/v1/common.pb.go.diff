@@ -1,0 +1,17 @@
+diff --git a/internal/data/opentelemetry-proto-gen/common/v1/common.pb.go b/internal/data/opentelemetry-proto-gen/common/v1/common.pb.go
+index 562ffce2a..b327b1512 100644
+--- a/internal/data/opentelemetry-proto-gen/common/v1/common.pb.go
++++ b/internal/data/opentelemetry-proto-gen/common/v1/common.pb.go
+@@ -6,10 +6,11 @@ package v1
+ import (
+ 	encoding_binary "encoding/binary"
+ 	fmt "fmt"
+-	proto "github.com/gogo/protobuf/proto"
+ 	io "io"
+ 	math "math"
+ 	math_bits "math/bits"
++
++	proto "github.com/gogo/protobuf/proto"
+ )
+ 
+ // Reference imports to suppress errors if they are not otherwise used.

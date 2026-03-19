@@ -1,0 +1,20 @@
+diff --git a/extension/auth/package_test.go b/extension/auth/package_test.go
+deleted file mode 100644
+index 205e87026..000000000
+--- a/extension/auth/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package auth
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

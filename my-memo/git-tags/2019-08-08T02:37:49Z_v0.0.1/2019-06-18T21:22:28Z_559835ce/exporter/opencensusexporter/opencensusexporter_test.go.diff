@@ -1,0 +1,20 @@
+diff --git a/exporter/opencensusexporter/opencensusexporter_test.go b/exporter/opencensusexporter/opencensusexporter_test.go
+index c5b21b246..90cc7d77f 100644
+--- a/exporter/opencensusexporter/opencensusexporter_test.go
++++ b/exporter/opencensusexporter/opencensusexporter_test.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -19,8 +19,8 @@ import (
+ 	"testing"
+ 	"time"
+ 
+-	"github.com/census-instrumentation/opencensus-service/data"
+ 	"github.com/google/go-cmp/cmp"
++	"github.com/open-telemetry/opentelemetry-service/data"
+ 	"github.com/spf13/viper"
+ )
+ 

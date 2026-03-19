@@ -1,0 +1,58 @@
+diff --git a/consumer/consumertest/sink.go b/consumer/consumertest/sink.go
+index ec5cca1ef..3c83ee016 100644
+--- a/consumer/consumertest/sink.go
++++ b/consumer/consumertest/sink.go
+@@ -201,10 +201,11 @@ func (sle *LogsSink) Contexts() []context.Context {
+ // stores all profiles and allows querying them for testing.
+ type ProfilesSink struct {
+ 	nonMutatingConsumer
+-	mu          sync.Mutex
+-	profiles    []pprofile.Profiles
+-	contexts    []context.Context
+-	sampleCount int
++	mu           sync.Mutex
++	profiles     []pprofile.Profiles
++	contexts     []context.Context
++	sampleCount  int
++	profileCount int
+ }
+ 
+ var _ xconsumer.Profiles = (*ProfilesSink)(nil)
+@@ -217,6 +218,7 @@ func (ste *ProfilesSink) ConsumeProfiles(ctx context.Context, td pprofile.Profil
+ 	ste.profiles = append(ste.profiles, td)
+ 	ste.contexts = append(ste.contexts, ctx)
+ 	ste.sampleCount += td.SampleCount()
++	ste.profileCount += td.ProfileCount()
+ 
+ 	return nil
+ }
+@@ -231,13 +233,20 @@ func (ste *ProfilesSink) AllProfiles() []pprofile.Profiles {
+ 	return copyProfiles
+ }
+ 
+-// SampleCount returns the number of profiles stored by this sink since last Reset.
++// SampleCount returns the number of samples stored by this sink since last Reset.
+ func (ste *ProfilesSink) SampleCount() int {
+ 	ste.mu.Lock()
+ 	defer ste.mu.Unlock()
+ 	return ste.sampleCount
+ }
+ 
++// ProfileCount returns the number of profiles stored by this sink since last Reset.
++func (ste *ProfilesSink) ProfileCount() int {
++	ste.mu.Lock()
++	defer ste.mu.Unlock()
++	return ste.profileCount
++}
++
+ // Reset deletes any stored data.
+ func (ste *ProfilesSink) Reset() {
+ 	ste.mu.Lock()
+@@ -246,6 +255,7 @@ func (ste *ProfilesSink) Reset() {
+ 	ste.profiles = nil
+ 	ste.contexts = nil
+ 	ste.sampleCount = 0
++	ste.profileCount = 0
+ }
+ 
+ // Contexts returns the contexts stored by this sink since last Reset.

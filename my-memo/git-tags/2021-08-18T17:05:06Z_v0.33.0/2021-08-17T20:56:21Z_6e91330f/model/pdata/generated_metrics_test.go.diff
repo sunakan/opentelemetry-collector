@@ -1,0 +1,25 @@
+diff --git a/model/pdata/generated_metrics_test.go b/model/pdata/generated_metrics_test.go
+index 7fadd97df..fb8afceb6 100644
+--- a/model/pdata/generated_metrics_test.go
++++ b/model/pdata/generated_metrics_test.go
+@@ -1322,6 +1322,14 @@ func TestExemplar_FilteredLabels(t *testing.T) {
+ 	assert.EqualValues(t, testValFilteredLabels, ms.FilteredLabels())
+ }
+ 
++func TestExemplar_FilteredAttributes(t *testing.T) {
++	ms := NewExemplar()
++	assert.EqualValues(t, NewAttributeMap(), ms.FilteredAttributes())
++	fillTestAttributeMap(ms.FilteredAttributes())
++	testValFilteredAttributes := generateTestAttributeMap()
++	assert.EqualValues(t, testValFilteredAttributes, ms.FilteredAttributes())
++}
++
+ func generateTestResourceMetricsSlice() ResourceMetricsSlice {
+ 	tv := NewResourceMetricsSlice()
+ 	fillTestResourceMetricsSlice(tv)
+@@ -1587,4 +1595,5 @@ func fillTestExemplar(tv Exemplar) {
+ 	tv.SetDoubleVal(float64(17.13))
+ 
+ 	fillTestStringMap(tv.FilteredLabels())
++	fillTestAttributeMap(tv.FilteredAttributes())
+ }

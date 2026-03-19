@@ -1,0 +1,40 @@
+diff --git a/cmd/pdatagen/internal/log_structs.go b/cmd/pdatagen/internal/log_structs.go
+index 282ea72df..7f3acded7 100644
+--- a/cmd/pdatagen/internal/log_structs.go
++++ b/cmd/pdatagen/internal/log_structs.go
+@@ -37,7 +37,7 @@ var logFile = &File{
+ 	},
+ }
+ 
+-var resourceLogsSlice = &sliceStruct{
++var resourceLogsSlice = &sliceOfPtrs{
+ 	structName: "ResourceLogsSlice",
+ 	element:    resourceLogs,
+ }
+@@ -56,7 +56,7 @@ var resourceLogs = &messagePtrStruct{
+ 	},
+ }
+ 
+-var instrumentationLibraryLogsSlice = &sliceStruct{
++var instrumentationLibraryLogsSlice = &sliceOfPtrs{
+ 	structName: "InstrumentationLibraryLogsSlice",
+ 	element:    instrumentationLibraryLogs,
+ }
+@@ -75,7 +75,7 @@ var instrumentationLibraryLogs = &messagePtrStruct{
+ 	},
+ }
+ 
+-var logSlice = &sliceStruct{
++var logSlice = &sliceOfPtrs{
+ 	structName: "LogSlice",
+ 	element:    logRecord,
+ }
+@@ -131,7 +131,7 @@ var logRecord = &messagePtrStruct{
+ 	},
+ }
+ 
+-var bodyField = &messagePtrField{
++var bodyField = &messageValueField{
+ 	fieldName:       "Body",
+ 	originFieldName: "Body",
+ 	returnMessage:   anyValue,

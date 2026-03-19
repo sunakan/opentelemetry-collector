@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+index 9551f1668..4bbb97b28 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+@@ -7,11 +7,11 @@
+ package internal
+ 
+ import (
+-{{ range $index, $element := .imports -}}
+-{{ if ne $element "go.opentelemetry.io/collector/pdata/internal" }}
+-{{ $element }}
+-{{ end }}
+-{{ end }}
++	{{ range $index, $element := .imports -}}
++	{{ if ne $element "go.opentelemetry.io/collector/pdata/internal" }}
++	{{ $element }}
++	{{- end }}
++	{{- end }}
+ )
+ 
+ type {{ .structName }} struct {
+@@ -50,3 +50,12 @@ func FillTest{{ .structName }}(tv {{ .structName }}) {
+ 	{{ .GenerateSetWithTestValue $.messageStruct }}
+ 	{{- end }}
+ }
++
++// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++func MarshalJSONStream{{ .structName }}(ms {{ .structName }}, dest *json.Stream) {
++	dest.WriteObjectStart()
++	{{ range .fields -}}
++	{{ .GenerateMarshalJSON $.messageStruct }}
++	{{ end -}}
++	dest.WriteObjectEnd()
++}

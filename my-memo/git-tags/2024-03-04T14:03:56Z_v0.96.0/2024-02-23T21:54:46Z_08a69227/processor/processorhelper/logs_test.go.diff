@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/logs_test.go b/processor/processorhelper/logs_test.go
+index 383459dc6..0fe437733 100644
+--- a/processor/processorhelper/logs_test.go
++++ b/processor/processorhelper/logs_test.go
+@@ -47,9 +47,6 @@ func TestNewLogsProcessor_WithOptions(t *testing.T) {
+ func TestNewLogsProcessor_NilRequiredFields(t *testing.T) {
+ 	_, err := NewLogsProcessor(context.Background(), processortest.NewNopCreateSettings(), &testLogsCfg, consumertest.NewNop(), nil)
+ 	assert.Error(t, err)
+-
+-	_, err = NewLogsProcessor(context.Background(), processortest.NewNopCreateSettings(), &testLogsCfg, nil, newTestLProcessor(nil))
+-	assert.Equal(t, component.ErrNilNextConsumer, err)
+ }
+ 
+ func TestNewLogsProcessor_ProcessLogError(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/obsreport.go b/processor/processorhelper/obsreport.go
+index 2a3bd0dc7..6fef0fd45 100644
+--- a/processor/processorhelper/obsreport.go
++++ b/processor/processorhelper/obsreport.go
+@@ -48,7 +48,7 @@ func NewObsReport(cfg ObsReportSettings) (*ObsReport, error) {
+ }
+ 
+ func newObsReport(cfg ObsReportSettings) (*ObsReport, error) {
+-	telemetryBuilder, err := metadata.NewTelemetryBuilder(cfg.ProcessorCreateSettings.TelemetrySettings, metadata.WithLevel(cfg.ProcessorCreateSettings.MetricsLevel))
++	telemetryBuilder, err := metadata.NewTelemetryBuilder(cfg.ProcessorCreateSettings.TelemetrySettings)
+ 	if err != nil {
+ 		return nil, err
+ 	}

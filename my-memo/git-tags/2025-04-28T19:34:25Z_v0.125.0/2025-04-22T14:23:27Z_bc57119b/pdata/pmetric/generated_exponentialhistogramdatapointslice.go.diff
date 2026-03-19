@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+index e37ccd9b6..76db4c50d 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+@@ -109,6 +109,10 @@ func (es ExponentialHistogramDataPointSlice) AppendEmpty() ExponentialHistogramD
+ func (es ExponentialHistogramDataPointSlice) MoveAndAppendTo(dest ExponentialHistogramDataPointSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

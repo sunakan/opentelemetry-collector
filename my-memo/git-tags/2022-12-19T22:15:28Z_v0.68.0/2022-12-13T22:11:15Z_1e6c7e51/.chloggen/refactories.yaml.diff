@@ -1,0 +1,13 @@
+diff --git a/.chloggen/refactories.yaml b/.chloggen/refactories.yaml
+index aa2ce74b5..9180f5591 100755
+--- a/.chloggen/refactories.yaml
++++ b/.chloggen/refactories.yaml
+@@ -5,7 +5,7 @@ change_type: deprecation
+ component: component
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Deprecate component.Factories in favor of service.Factories
++note: Deprecate component.Factories in favor of otelcol.Factories
+ 
+ # One or more tracking issues or pull requests related to the change
+ issues: [6723]

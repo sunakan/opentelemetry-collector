@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/internal/otelinit/config.go b/service/telemetry/internal/otelinit/config.go
+index bb75023f2..8e4a5c45a 100644
+--- a/service/telemetry/internal/otelinit/config.go
++++ b/service/telemetry/internal/otelinit/config.go
+@@ -239,7 +239,6 @@ func initOTLPgRPCExporter(ctx context.Context, otlpConfig *config.OTLPMetric) (s
+ 		case "gzip":
+ 			opts = append(opts, otlpmetricgrpc.WithCompressor(*otlpConfig.Compression))
+ 		case "none":
+-			break
+ 		default:
+ 			return nil, fmt.Errorf("unsupported compression %q", *otlpConfig.Compression)
+ 		}

@@ -1,0 +1,20 @@
+diff --git a/service/logger.go b/service/logger.go
+index 38b22c911..124618161 100644
+--- a/service/logger.go
++++ b/service/logger.go
+@@ -39,7 +39,7 @@ func loggerFlags(flags *flag.FlagSet) {
+ 	loggerProfilePtr = flags.String(logProfileCfg, "", "Logging profile to use (dev, prod)")
+ }
+ 
+-func newLogger() (*zap.Logger, error) {
++func newLogger(hooks ...func(zapcore.Entry) error) (*zap.Logger, error) {
+ 	var level zapcore.Level
+ 	err := (&level).UnmarshalText([]byte(*loggerLevelPtr))
+ 	if err != nil {
+@@ -62,5 +62,5 @@ func newLogger() (*zap.Logger, error) {
+ 	}
+ 
+ 	conf.Level.SetLevel(level)
+-	return conf.Build()
++	return conf.Build(zap.Hooks(hooks...))
+ }

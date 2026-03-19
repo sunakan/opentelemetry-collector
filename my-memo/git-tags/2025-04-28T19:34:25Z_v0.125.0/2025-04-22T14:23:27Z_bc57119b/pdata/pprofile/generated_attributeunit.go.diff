@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_attributeunit.go b/pdata/pprofile/generated_attributeunit.go
+index a7d98f425..228d4027a 100644
+--- a/pdata/pprofile/generated_attributeunit.go
++++ b/pdata/pprofile/generated_attributeunit.go
+@@ -41,6 +41,10 @@ func NewAttributeUnit() AttributeUnit {
+ func (ms AttributeUnit) MoveTo(dest AttributeUnit) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpprofiles.AttributeUnit{}
+ }

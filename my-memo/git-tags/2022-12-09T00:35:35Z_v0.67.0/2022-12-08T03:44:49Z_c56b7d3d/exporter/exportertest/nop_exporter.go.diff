@@ -1,0 +1,14 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 3a256b653..2be0e2be3 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -19,7 +19,7 @@ import (
+ )
+ 
+ // NewNopCreateSettings returns a new nop settings for Create*Exporter functions.
+-var NewNopCreateSettings = componenttest.NewNopExporterCreateSettings
++var NewNopCreateSettings = componenttest.NewNopExporterCreateSettings //nolint:staticcheck
+ 
+ // NewNopFactory returns an exporter.Factory that constructs nop exporters.
+-var NewNopFactory = componenttest.NewNopExporterFactory
++var NewNopFactory = componenttest.NewNopExporterFactory //nolint:staticcheck

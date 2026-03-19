@@ -1,0 +1,11 @@
+diff --git a/pdata/internal/proto/size.go b/pdata/internal/proto/size.go
+index 6f48443bf..bfc521475 100644
+--- a/pdata/internal/proto/size.go
++++ b/pdata/internal/proto/size.go
+@@ -12,6 +12,5 @@ func Sov(x uint64) (n int) {
+ }
+ 
+ func Soz(x uint64) (n int) {
+-	//nolint:gosec
+ 	return Sov((x << 1) ^ uint64((int64(x) >> 63)))
+ }

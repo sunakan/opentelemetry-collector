@@ -1,0 +1,15 @@
+diff --git a/receiver/otlpreceiver/trace/otlp_test.go b/receiver/otlpreceiver/trace/otlp_test.go
+index aef37569e..350367a6a 100644
+--- a/receiver/otlpreceiver/trace/otlp_test.go
++++ b/receiver/otlpreceiver/trace/otlp_test.go
+@@ -28,8 +28,8 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/data"
+-	collectortrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	collectortrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/testutil"
+ )

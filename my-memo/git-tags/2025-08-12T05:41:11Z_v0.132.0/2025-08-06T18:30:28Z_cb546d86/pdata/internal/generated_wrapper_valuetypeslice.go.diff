@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_valuetypeslice.go b/pdata/internal/generated_wrapper_valuetypeslice.go
+index 09d3f4c8d..c6efccdb5 100644
+--- a/pdata/internal/generated_wrapper_valuetypeslice.go
++++ b/pdata/internal/generated_wrapper_valuetypeslice.go
+@@ -38,3 +38,12 @@ func CopyOrigValueTypeSlice(dest, src []*otlpprofiles.ValueType) []*otlpprofiles
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestValueTypeSlice() []*otlpprofiles.ValueType {
++	orig := make([]*otlpprofiles.ValueType, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpprofiles.ValueType{}
++		FillOrigTestValueType(orig[i])
++	}
++	return orig
++}

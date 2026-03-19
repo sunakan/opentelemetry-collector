@@ -1,0 +1,16 @@
+diff --git a/receiver/receiverprofiles/go.mod b/receiver/receiverprofiles/go.mod
+index f25595a6b..594ebc37e 100644
+--- a/receiver/receiverprofiles/go.mod
++++ b/receiver/receiverprofiles/go.mod
+@@ -6,9 +6,9 @@ require (
+ 	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.115.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.115.0
+-	go.opentelemetry.io/collector/consumer/xconsumer v0.0.0-20241214150434-e9bc4bde924e
++	go.opentelemetry.io/collector/consumer/xconsumer v0.0.0-20241215143820-6147243aaaa1
+ 	go.opentelemetry.io/collector/receiver v0.115.0
+-	go.opentelemetry.io/collector/receiver/xreceiver v0.0.0-20241214150434-e9bc4bde924e
++	go.opentelemetry.io/collector/receiver/xreceiver v0.0.0-20241215143820-6147243aaaa1
+ )
+ 
+ require (

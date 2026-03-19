@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/otlp_metricsbuilder_test.go b/receiver/prometheusreceiver/internal/otlp_metricsbuilder_test.go
+index 9853512c9..6e59c1eb5 100644
+--- a/receiver/prometheusreceiver/internal/otlp_metricsbuilder_test.go
++++ b/receiver/prometheusreceiver/internal/otlp_metricsbuilder_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestGetBoundaryEquivalence(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pmetricotlp_package.go b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+index 3ca7905df..656146de8 100644
+--- a/internal/cmd/pdatagen/internal/pmetricotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+@@ -27,7 +27,7 @@ var pmetricotlp = &Package{
+ 	},
+ }
+ 
+-var exportMetricsPartialSuccess = &messageValueStruct{
++var exportMetricsPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",
+ 	originFullName: "otlpcollectormetrics.ExportMetricsPartialSuccess",

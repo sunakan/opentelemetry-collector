@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_wrapper_sample_test.go b/pdata/internal/generated_wrapper_sample_test.go
+index e1c48128a..e34c8d94e 100644
+--- a/pdata/internal/generated_wrapper_sample_test.go
++++ b/pdata/internal/generated_wrapper_sample_test.go
+@@ -50,9 +50,9 @@ func TestMarshalAndUnmarshalJSONOrigSample(t *testing.T) {
+ func TestMarshalAndUnmarshalProtoOrigSample(t *testing.T) {
+ 	src := &otlpprofiles.Sample{}
+ 	FillOrigTestSample(src)
+-	buf, err := MarshalProtoOrigSample(src)
+-	require.NoError(t, err)
+-	assert.Equal(t, len(buf), SizeProtoOrigSample(src))
++	buf := make([]byte, SizeProtoOrigSample(src))
++	gotSize := MarshalProtoOrigSample(src, buf)
++	assert.Equal(t, len(buf), gotSize)
+ 
+ 	dest := &otlpprofiles.Sample{}
+ 	require.NoError(t, UnmarshalProtoOrigSample(dest, buf))
+@@ -61,9 +61,9 @@ func TestMarshalAndUnmarshalProtoOrigSample(t *testing.T) {
+ 
+ func TestMarshalAndUnmarshalProtoOrigEmptySample(t *testing.T) {
+ 	src := &otlpprofiles.Sample{}
+-	buf, err := MarshalProtoOrigSample(src)
+-	require.NoError(t, err)
+-	assert.Equal(t, len(buf), SizeProtoOrigSample(src))
++	buf := make([]byte, SizeProtoOrigSample(src))
++	gotSize := MarshalProtoOrigSample(src, buf)
++	assert.Equal(t, len(buf), gotSize)
+ 
+ 	dest := &otlpprofiles.Sample{}
+ 	require.NoError(t, UnmarshalProtoOrigSample(dest, buf))

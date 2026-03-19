@@ -1,0 +1,15 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/exporter.go b/exporter/jaeger/jaegergrpcexporter/exporter.go
+index ca5dbfffd..b4030538d 100644
+--- a/exporter/jaeger/jaegergrpcexporter/exporter.go
++++ b/exporter/jaeger/jaegergrpcexporter/exporter.go
+@@ -52,9 +52,7 @@ func New(config *Config) (exporter.TraceExporter, error) {
+ 
+ 	exp, err := exporterhelper.NewTraceExporter(
+ 		config,
+-		s.pushTraceData,
+-		exporterhelper.WithTracing(true),
+-		exporterhelper.WithMetrics(true))
++		s.pushTraceData)
+ 
+ 	return exp, err
+ }

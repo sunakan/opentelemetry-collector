@@ -1,0 +1,20 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 61ba1204d..bc30c59c1 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -36,7 +36,6 @@ import (
+ 	"go.opentelemetry.io/collector/processor/batchprocessor"
+ 	"go.opentelemetry.io/collector/processor/filterprocessor"
+ 	"go.opentelemetry.io/collector/processor/memorylimiter"
+-	"go.opentelemetry.io/collector/processor/queuedprocessor"
+ 	"go.opentelemetry.io/collector/processor/resourceprocessor"
+ 	"go.opentelemetry.io/collector/processor/samplingprocessor/probabilisticsamplerprocessor"
+ 	"go.opentelemetry.io/collector/processor/spanprocessor"
+@@ -101,7 +100,6 @@ func Components() (
+ 	processors, err := component.MakeProcessorFactoryMap(
+ 		attributesprocessor.NewFactory(),
+ 		resourceprocessor.NewFactory(),
+-		queuedprocessor.NewFactory(),
+ 		batchprocessor.NewFactory(),
+ 		memorylimiter.NewFactory(),
+ 		probabilisticsamplerprocessor.NewFactory(),

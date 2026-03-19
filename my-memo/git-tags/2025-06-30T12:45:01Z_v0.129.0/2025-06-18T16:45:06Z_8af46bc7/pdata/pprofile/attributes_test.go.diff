@@ -1,0 +1,12 @@
+diff --git a/pdata/pprofile/attributes_test.go b/pdata/pprofile/attributes_test.go
+index fed4ff8d4..eba0ab4cd 100644
+--- a/pdata/pprofile/attributes_test.go
++++ b/pdata/pprofile/attributes_test.go
+@@ -97,7 +97,6 @@ func testPutAttribute(t *testing.T, record attributable) {
+ 
+ 	// Put an attribute, same key, different value.
+ 	// This updates the index and adds to the table.
+-	fmt.Printf("test\n")
+ 	require.NoError(t, PutAttribute(table, record, "hello", pcommon.NewValueStr("world2")))
+ 	assert.Equal(t, 2, table.Len())
+ 	assert.Equal(t, []int32{1}, record.AttributeIndices().AsRaw())

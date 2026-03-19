@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter.go b/processor/memorylimiterprocessor/memorylimiter.go
+index 89475054a..a8ca86f4f 100644
+--- a/processor/memorylimiterprocessor/memorylimiter.go
++++ b/processor/memorylimiterprocessor/memorylimiter.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package memorylimiterprocessor
++package memorylimiterprocessor // import "go.opentelemetry.io/collector/processor/memorylimiterprocessor"
+ 
+ import (
+ 	"context"

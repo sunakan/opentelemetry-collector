@@ -1,0 +1,12 @@
+diff --git a/service/generated_component_telemetry_test.go b/service/generated_component_telemetry_test.go
+index ef527afca..fe23dfe93 100644
+--- a/service/generated_component_telemetry_test.go
++++ b/service/generated_component_telemetry_test.go
+@@ -25,6 +25,7 @@ type componentTestTelemetry struct {
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

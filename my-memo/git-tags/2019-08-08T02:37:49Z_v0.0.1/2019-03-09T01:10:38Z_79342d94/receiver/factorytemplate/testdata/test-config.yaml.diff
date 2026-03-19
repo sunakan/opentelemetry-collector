@@ -1,0 +1,17 @@
+diff --git a/receiver/factorytemplate/testdata/test-config.yaml b/receiver/factorytemplate/testdata/test-config.yaml
+new file mode 100644
+index 000000000..7b8727045
+--- /dev/null
++++ b/receiver/factorytemplate/testdata/test-config.yaml
+@@ -0,0 +1,11 @@
++configurations:
++  test-receivers:
++    altmockreceiver:
++      port: 123
++    mockreceiver:
++      address: "0.0.0.0"
++      port: 616
++    secondmockreceiver:
++      type: mockreceiver
++      address: "1.2.3.4"
++      port: 333

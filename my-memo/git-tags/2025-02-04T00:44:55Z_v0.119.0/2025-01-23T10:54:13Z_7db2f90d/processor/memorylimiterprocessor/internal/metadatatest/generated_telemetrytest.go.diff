@@ -1,0 +1,15 @@
+diff --git a/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest.go b/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest.go
+index 8a0289c2c..75969576b 100644
+--- a/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest.go
++++ b/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest.go
+@@ -20,8 +20,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ func (tt *Telemetry) NewSettings() processor.Settings {
+ 	set := processortest.NewNopSettings()

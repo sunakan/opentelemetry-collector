@@ -1,0 +1,19 @@
+diff --git a/config/testdata/unknown-processor-type.yaml b/config/testdata/unknown-processor-type.yaml
+index 56dec81c1..02230c9d5 100644
+--- a/config/testdata/unknown-processor-type.yaml
++++ b/config/testdata/unknown-processor-type.yaml
+@@ -4,8 +4,9 @@ exporters:
+   exampleexporter:
+ processors:
+   nosuchprocessor:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

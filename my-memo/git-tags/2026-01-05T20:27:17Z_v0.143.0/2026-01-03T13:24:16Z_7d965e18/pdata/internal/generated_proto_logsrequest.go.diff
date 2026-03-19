@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_logsrequest.go b/pdata/internal/generated_proto_logsrequest.go
+index 39852fcae..94b915df0 100644
+--- a/pdata/internal/generated_proto_logsrequest.go
++++ b/pdata/internal/generated_proto_logsrequest.go
+@@ -45,7 +45,6 @@ func DeleteLogsRequest(orig *LogsRequest, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteRequestContext(orig.RequestContext, true)
+ 	DeleteLogsData(&orig.LogsData, false)
+ 

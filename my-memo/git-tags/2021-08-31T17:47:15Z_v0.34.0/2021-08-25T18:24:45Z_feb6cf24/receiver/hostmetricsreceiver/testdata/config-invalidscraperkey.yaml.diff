@@ -1,0 +1,24 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config-invalidscraperkey.yaml b/receiver/hostmetricsreceiver/testdata/config-invalidscraperkey.yaml
+deleted file mode 100644
+index 6d7a55ba5..000000000
+--- a/receiver/hostmetricsreceiver/testdata/config-invalidscraperkey.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-receivers:
+-  hostmetrics:
+-    scrapers:
+-      invalidscraperkey:
+-
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [hostmetrics]
+-      processors: [nop]
+-      exporters: [nop]

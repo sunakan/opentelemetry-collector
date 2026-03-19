@@ -1,0 +1,17 @@
+diff --git a/component/componentstatus/status_test.go b/component/componentstatus/status_test.go
+index 87efdd245..43789e589 100644
+--- a/component/componentstatus/status_test.go
++++ b/component/componentstatus/status_test.go
+@@ -105,8 +105,10 @@ func Test_ReportStatus(t *testing.T) {
+ 	})
+ }
+ 
+-var _ = (component.Host)(nil)
+-var _ = (Reporter)(nil)
++var (
++	_ = (component.Host)(nil)
++	_ = (Reporter)(nil)
++)
+ 
+ type reporter struct {
+ 	reportStatusCalled bool

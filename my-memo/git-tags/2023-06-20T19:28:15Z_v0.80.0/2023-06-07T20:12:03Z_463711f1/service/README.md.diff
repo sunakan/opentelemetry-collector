@@ -1,0 +1,17 @@
+diff --git a/service/README.md b/service/README.md
+index 30bebe03f..645ac3fa4 100644
+--- a/service/README.md
++++ b/service/README.md
+@@ -143,5 +143,10 @@ exporters:
+ extensions:
+    - zpages
+    - memory_ballast
++```
++
++## How to validate configuration file and return all errors without running collector
+ 
+-```
+\ No newline at end of file
++```bash
++   ./otelcorecol validate --config=file:examples/local/otel-config.yaml
++```

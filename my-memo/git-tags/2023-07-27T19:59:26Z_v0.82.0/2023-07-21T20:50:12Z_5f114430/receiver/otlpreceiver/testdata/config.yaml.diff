@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index 84c658d4f..018f8d664 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -39,3 +39,8 @@ protocols:
+         - https://*.test.com # Wildcard subdomain. Allows domains like https://www.test.com and https://foo.test.com but not https://wwwtest.com.
+         - https://test.com # Fully qualified domain name. Allows https://test.com only.
+       max_age: 7200
++    
++    # The following shows URL paths for endpoints where signals are listened for bt the OTLP receiver
++    traces_url_path: traces
++    metrics_url_path: /v2/metrics
++    logs_url_path: log/ingest

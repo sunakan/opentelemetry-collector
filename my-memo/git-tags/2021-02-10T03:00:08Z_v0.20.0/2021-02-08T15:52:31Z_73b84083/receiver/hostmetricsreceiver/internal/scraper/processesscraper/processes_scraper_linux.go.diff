@@ -1,0 +1,21 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_linux.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_linux.go
+index c9f03f6a0..02d7389f1 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_linux.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/shirou/gopsutil/load"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ )
+ 
+ const unixSystemSpecificMetricsLen = 1
+@@ -30,7 +31,7 @@ func appendUnixSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startIn
+ }
+ 
+ func initializeProcessesCreatedMetric(metric pdata.Metric, now pdata.TimestampUnixNano, misc *load.MiscStat) {
+-	processesCreatedDescriptor.CopyTo(metric)
++	metadata.Metrics.SystemProcessesCreated.Init(metric)
+ 
+ 	ddps := metric.IntSum().DataPoints()
+ 	ddps.Resize(1)

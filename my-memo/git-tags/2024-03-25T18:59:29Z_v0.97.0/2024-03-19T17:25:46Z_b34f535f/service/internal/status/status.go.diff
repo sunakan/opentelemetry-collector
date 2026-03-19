@@ -1,0 +1,37 @@
+diff --git a/service/internal/status/status.go b/service/internal/status/status.go
+index 21790b106..e1d524906 100644
+--- a/service/internal/status/status.go
++++ b/service/internal/status/status.go
+@@ -121,17 +121,6 @@ func (r *Reporter) Ready() {
+ 	r.ready = true
+ }
+ 
+-// ReportComponentStatus reports status for the given InstanceID
+-// Deprecated: [v0.92.0] This function will be removed in a future release.
+-// Use ReportStatus instead.
+-func (r *Reporter) ReportComponentStatus(
+-	id *component.InstanceID,
+-	ev *component.StatusEvent,
+-) error {
+-	r.ReportStatus(id, ev)
+-	return nil
+-}
+-
+ // ReportStatus reports status for the given InstanceID
+ func (r *Reporter) ReportStatus(
+ 	id *component.InstanceID,
+@@ -148,14 +137,6 @@ func (r *Reporter) ReportStatus(
+ 	}
+ }
+ 
+-// ReportComponentOkIfStarting reports StatusOK if the component's current status is Starting
+-// Deprecated: [v0.92.0] This function will be removed in a future release.
+-// Use ReportOKIfStarting instead.
+-func (r *Reporter) ReportComponentOKIfStarting(id *component.InstanceID) error {
+-	r.ReportOKIfStarting(id)
+-	return nil
+-}
+-
+ func (r *Reporter) ReportOKIfStarting(id *component.InstanceID) {
+ 	r.mu.Lock()
+ 	defer r.mu.Unlock()

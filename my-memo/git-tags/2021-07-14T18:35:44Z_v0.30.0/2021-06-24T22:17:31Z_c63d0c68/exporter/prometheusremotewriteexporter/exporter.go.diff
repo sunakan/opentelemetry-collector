@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter.go b/exporter/prometheusremotewriteexporter/exporter.go
+index f8d81e540..262e25e53 100644
+--- a/exporter/prometheusremotewriteexporter/exporter.go
++++ b/exporter/prometheusremotewriteexporter/exporter.go
+@@ -35,7 +35,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ const maxBatchByteSize = 3000000

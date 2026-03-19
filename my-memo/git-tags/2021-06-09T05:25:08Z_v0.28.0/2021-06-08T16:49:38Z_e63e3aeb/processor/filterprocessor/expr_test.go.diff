@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/expr_test.go b/processor/filterprocessor/expr_test.go
+index 7fa72edc2..6bffec0c7 100644
+--- a/processor/filterprocessor/expr_test.go
++++ b/processor/filterprocessor/expr_test.go
+@@ -193,7 +193,7 @@ func testDataSlice(size int, mdType pdata.MetricDataType) []pdata.Metrics {
+ }
+ 
+ func testData(prefix string, size int, mdType pdata.MetricDataType) pdata.Metrics {
+-	c := goldendataset.MetricCfg{
++	c := goldendataset.MetricsCfg{
+ 		MetricDescriptorType: mdType,
+ 		MetricNamePrefix:     prefix,
+ 		NumILMPerResource:    size,

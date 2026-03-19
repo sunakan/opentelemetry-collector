@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 5d5736d40..1e9829b0f 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -55,7 +55,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ 	require.NotNil(t, oexp)
+ }
+ 
+-func TestCreateTraceExporter(t *testing.T) {
++func TestCreateTracesExporter(t *testing.T) {
+ 	endpoint := testutil.GetAvailableLocalAddress(t)
+ 
+ 	tests := []struct {

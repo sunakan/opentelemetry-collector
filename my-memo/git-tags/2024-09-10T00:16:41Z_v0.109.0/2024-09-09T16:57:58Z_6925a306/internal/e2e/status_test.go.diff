@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index 67ac0721b..617f03b61 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -121,7 +121,7 @@ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
+ 	err = s.Shutdown(context.Background())
+ 	require.NoError(t, err)
+ 
+-	require.Equal(t, 2, len(eventsReceived))
++	require.Len(t, eventsReceived, 2)
+ 
+ 	for instanceID, events := range eventsReceived {
+ 		pipelineIDs := ""

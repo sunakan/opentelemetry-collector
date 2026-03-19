@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp.go b/receiver/otlpreceiver/metrics/otlp.go
+index 7c8030900..375dd97a6 100644
+--- a/receiver/otlpreceiver/metrics/otlp.go
++++ b/receiver/otlpreceiver/metrics/otlp.go
+@@ -17,12 +17,11 @@ package metrics
+ import (
+ 	"context"
+ 
+-	collectormetrics "github.com/open-telemetry/opentelemetry-proto/gen/go/collector/metrics/v1"
+-
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdatautil"
+ 	"go.opentelemetry.io/collector/internal/data"
++	collectormetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/metrics/v1"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 

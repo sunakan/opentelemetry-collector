@@ -1,0 +1,10 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 1e104f7b8..b4838a47e 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -194,4 +194,4 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ replace go.opentelemetry.io/collector/service => ../../service
+ 
+ // ambiguous import: found package cloud.google.com/go/compute/metadata in multiple modules
+-replace cloud.google.com/go => cloud.google.com/go v0.110.2
++replace cloud.google.com/go => cloud.google.com/go v0.110.9

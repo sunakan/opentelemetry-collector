@@ -1,0 +1,42 @@
+diff --git a/otelcol/testdata/weak-implicit-string-to-int.yaml b/otelcol/testdata/weak-implicit-string-to-int.yaml
+deleted file mode 100644
+index d22178a84..000000000
+--- a/otelcol/testdata/weak-implicit-string-to-int.yaml
++++ /dev/null
+@@ -1,36 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-extensions:
+-  nop:
+-
+-connectors:
+-  nop/con:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      address: localhost:8888
+-    logs:
+-      sampling:
+-        initial: "100" # <-- Implicit cast string to int
+-  extensions: [nop]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop, nop/con]
+-    metrics:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-    logs:
+-      receivers: [nop, nop/con]
+-      processors: [nop]
+-      exporters: [nop]

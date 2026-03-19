@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index d9295356d..6679a42a4 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -23,6 +23,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configauth"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configtls"
+@@ -46,7 +47,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 	assert.NoError(t, component.UnmarshalExporterConfig(cm, cfg))
+ 	assert.Equal(t,
+ 		&Config{
+-			ExporterConfigSettings: component.NewExporterConfigSettings(component.NewID(typeStr)),
++			ExporterSettings: config.NewExporterSettings(component.NewID(typeStr)),
+ 			TimeoutSettings: exporterhelper.TimeoutSettings{
+ 				Timeout: 10 * time.Second,
+ 			},

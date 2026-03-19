@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusexporter/factory_test.go b/exporter/prometheusexporter/factory_test.go
+index 3de2f4cb5..a587acaa1 100644
+--- a/exporter/prometheusexporter/factory_test.go
++++ b/exporter/prometheusexporter/factory_test.go
+@@ -41,7 +41,6 @@ func TestCreateTraceExporter(t *testing.T) {
+ }
+ 
+ func TestCreateMetricsExporter(t *testing.T) {
+-	const defaultTestEndPoint = "127.0.0.1:55678"
+ 	tests := []struct {
+ 		name     string
+ 		config   Config

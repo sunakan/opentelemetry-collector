@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/healthcheckextension_test.go b/extension/healthcheckextension/healthcheckextension_test.go
+index 182367c87..644720314 100644
+--- a/extension/healthcheckextension/healthcheckextension_test.go
++++ b/extension/healthcheckextension/healthcheckextension_test.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/extension/extensiontest"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ )
+ 
+ func TestHealthCheckExtensionUsage(t *testing.T) {

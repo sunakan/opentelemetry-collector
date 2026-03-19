@@ -1,0 +1,19 @@
+diff --git a/cmd/occollector/app/builder/processor_builder.go b/cmd/occollector/app/builder/processor_builder.go
+index f7c4275b2..e641dd76b 100644
+--- a/cmd/occollector/app/builder/processor_builder.go
++++ b/cmd/occollector/app/builder/processor_builder.go
+@@ -1,4 +1,4 @@
+-// Copyright 2018, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/spf13/viper"
+ 
+-	"github.com/census-instrumentation/opencensus-service/processor/attributekeyprocessor"
++	"github.com/open-telemetry/opentelemetry-service/processor/attributekeyprocessor"
+ )
+ 
+ // SenderType indicates the type of sender

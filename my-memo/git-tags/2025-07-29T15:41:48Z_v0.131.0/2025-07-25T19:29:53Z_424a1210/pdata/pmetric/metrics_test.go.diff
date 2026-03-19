@@ -1,0 +1,22 @@
+diff --git a/pdata/pmetric/metrics_test.go b/pdata/pmetric/metrics_test.go
+index 4db384b9e..e23947ec5 100644
+--- a/pdata/pmetric/metrics_test.go
++++ b/pdata/pmetric/metrics_test.go
+@@ -998,3 +998,17 @@ func BenchmarkMetricsUsage(b *testing.B) {
+ 		}
+ 	}
+ }
++
++func BenchmarkMetricsMarshalJSON(b *testing.B) {
++	md := NewMetrics()
++	fillTestResourceMetricsSlice(md.ResourceMetrics())
++	encoder := &JSONMarshaler{}
++
++	b.ReportAllocs()
++	b.ResetTimer()
++	for i := 0; i < b.N; i++ {
++		jsonBuf, err := encoder.MarshalMetrics(md)
++		require.NoError(b, err)
++		require.NotNil(b, jsonBuf)
++	}
++}

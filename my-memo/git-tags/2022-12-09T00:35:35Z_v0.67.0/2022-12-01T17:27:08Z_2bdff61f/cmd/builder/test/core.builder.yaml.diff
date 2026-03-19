@@ -1,0 +1,9 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+index 449f99bdd..65df07800 100644
+--- a/cmd/builder/test/core.builder.yaml
++++ b/cmd/builder/test/core.builder.yaml
+@@ -20,3 +20,4 @@ exporters:
+ replaces:
+   - go.opentelemetry.io/collector => ${WORKSPACE_DIR}
+   - go.opentelemetry.io/collector/component => ${WORKSPACE_DIR}/component
++  - go.opentelemetry.io/collector/confmap => ${WORKSPACE_DIR}/confmap

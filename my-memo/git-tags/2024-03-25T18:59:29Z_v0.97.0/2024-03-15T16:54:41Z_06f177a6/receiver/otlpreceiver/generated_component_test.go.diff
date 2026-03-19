@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/generated_component_test.go b/receiver/otlpreceiver/generated_component_test.go
+index 06fd87aa9..310eaa3d6 100644
+--- a/receiver/otlpreceiver/generated_component_test.go
++++ b/receiver/otlpreceiver/generated_component_test.go
+@@ -51,7 +51,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, sub.Unmarshal(&cfg))
++	require.NoError(t, component.UnmarshalConfig(sub, cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {

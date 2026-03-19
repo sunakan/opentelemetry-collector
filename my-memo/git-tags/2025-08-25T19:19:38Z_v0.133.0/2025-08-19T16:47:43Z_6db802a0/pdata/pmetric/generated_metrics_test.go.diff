@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_metrics_test.go b/pdata/pmetric/generated_metrics_test.go
+index 37c2501e7..b1abfa037 100644
+--- a/pdata/pmetric/generated_metrics_test.go
++++ b/pdata/pmetric/generated_metrics_test.go
+@@ -49,5 +49,6 @@ func TestMetrics_ResourceMetrics(t *testing.T) {
+ }
+ 
+ func generateTestMetrics() Metrics {
+-	return Metrics(internal.GenerateTestMetrics())
++	ms := newMetrics(internal.GenTestOrigExportMetricsServiceRequest(), internal.NewState())
++	return ms
+ }

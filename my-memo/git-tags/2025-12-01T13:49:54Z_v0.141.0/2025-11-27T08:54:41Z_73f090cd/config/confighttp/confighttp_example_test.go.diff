@@ -1,0 +1,18 @@
+diff --git a/config/confighttp/confighttp_example_test.go b/config/confighttp/confighttp_example_test.go
+index 73a287d9e..dc711d70d 100644
+--- a/config/confighttp/confighttp_example_test.go
++++ b/config/confighttp/confighttp_example_test.go
+@@ -14,9 +14,12 @@ func ExampleServerConfig() {
+ 	settings := NewDefaultServerConfig()
+ 	settings.Endpoint = "localhost:443"
+ 
++	// Typically obtained as an argument of Component.Start()
++	host := componenttest.NewNopHost()
++
+ 	s, err := settings.ToServer(
+ 		context.Background(),
+-		componenttest.NewNopHost(),
++		host.GetExtensions(),
+ 		componenttest.NewNopTelemetrySettings(),
+ 		http.HandlerFunc(func(http.ResponseWriter, *http.Request) {}))
+ 	if err != nil {

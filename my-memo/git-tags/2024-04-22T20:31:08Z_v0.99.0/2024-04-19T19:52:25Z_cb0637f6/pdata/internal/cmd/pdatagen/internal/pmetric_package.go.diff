@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pmetric_package.go b/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
+index 95487c00f..68aee5219 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pmetric_package.go
+@@ -115,6 +115,10 @@ var metric = &messageValueStruct{
+ 			defaultVal: `""`,
+ 			testVal:    `"1"`,
+ 		},
++		&sliceField{
++			fieldName:   "Metadata",
++			returnSlice: mapStruct,
++		},
+ 		&oneOfField{
+ 			typeName:                   "MetricType",
+ 			originFieldName:            "Data",

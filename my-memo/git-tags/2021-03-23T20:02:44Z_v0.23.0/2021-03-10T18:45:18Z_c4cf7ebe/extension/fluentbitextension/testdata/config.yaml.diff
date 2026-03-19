@@ -1,0 +1,25 @@
+diff --git a/extension/fluentbitextension/testdata/config.yaml b/extension/fluentbitextension/testdata/config.yaml
+index a7ff30fbe..7c955584e 100644
+--- a/extension/fluentbitextension/testdata/config.yaml
++++ b/extension/fluentbitextension/testdata/config.yaml
+@@ -7,14 +7,14 @@ service:
+   extensions: [fluentbit/1]
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]
+ 
+ # Data pipeline is required to load the config.
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:

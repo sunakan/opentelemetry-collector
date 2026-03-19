@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 1b7092418..3e7238ae6 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -106,7 +106,7 @@ func createExampleService(t *testing.T) *service {
+ 
+ 	srv, err := newService(&settings{
+ 		Factories: factories,
+-		StartInfo: component.DefaultApplicationStartInfo(),
++		BuildInfo: component.DefaultBuildInfo(),
+ 		Config:    cfg,
+ 		Logger:    zap.NewNop(),
+ 	})

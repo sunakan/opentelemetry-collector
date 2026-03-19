@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets.go b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets.go
+index 4b40f1fe8..1f7c39e40 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets.go
+@@ -33,7 +33,7 @@ func newExponentialHistogramDataPointBuckets(orig *otlpmetrics.ExponentialHistog
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewExponentialHistogramDataPointBuckets() ExponentialHistogramDataPointBuckets {
+-	return newExponentialHistogramDataPointBuckets(internal.NewOrigPtrExponentialHistogramDataPoint_Buckets(), internal.NewState())
++	return newExponentialHistogramDataPointBuckets(internal.NewOrigExponentialHistogramDataPoint_Buckets(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

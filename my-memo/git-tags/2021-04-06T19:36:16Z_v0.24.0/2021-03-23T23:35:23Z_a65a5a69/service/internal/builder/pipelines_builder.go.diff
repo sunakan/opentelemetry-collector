@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder.go b/service/internal/builder/pipelines_builder.go
+index 53d0f65d6..d19a0204b 100644
+--- a/service/internal/builder/pipelines_builder.go
++++ b/service/internal/builder/pipelines_builder.go
+@@ -76,7 +76,7 @@ func (bps BuiltPipelines) ShutdownProcessors(ctx context.Context) error {
+ 		bp.logger.Info("Pipeline is shutdown.")
+ 	}
+ 
+-	return consumererror.CombineErrors(errs)
++	return consumererror.Combine(errs)
+ }
+ 
+ // pipelinesBuilder builds Pipelines from config.

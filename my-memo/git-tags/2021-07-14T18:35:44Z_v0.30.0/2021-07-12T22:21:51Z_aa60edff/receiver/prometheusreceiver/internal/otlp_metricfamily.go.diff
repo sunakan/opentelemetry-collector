@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/otlp_metricfamily.go b/receiver/prometheusreceiver/internal/otlp_metricfamily.go
+index 3b370b83b..a92dc91f6 100644
+--- a/receiver/prometheusreceiver/internal/otlp_metricfamily.go
++++ b/receiver/prometheusreceiver/internal/otlp_metricfamily.go
+@@ -100,7 +100,7 @@ func (mf *metricFamilyPdata) updateLabelKeys(ls labels.Labels) {
+ var _ = (*metricFamilyPdata)(nil).updateLabelKeys
+ 
+ func (mf *metricFamilyPdata) isCumulativeTypePdata() bool {
+-	return mf.mtype == pdata.MetricDataTypeDoubleSum ||
++	return mf.mtype == pdata.MetricDataTypeSum ||
+ 		mf.mtype == pdata.MetricDataTypeIntSum ||
+ 		mf.mtype == pdata.MetricDataTypeHistogram ||
+ 		mf.mtype == pdata.MetricDataTypeSummary

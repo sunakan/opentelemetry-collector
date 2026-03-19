@@ -1,0 +1,24 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index ba45bbefd..7b38cb3b6 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -264,7 +264,7 @@ func TestSendMetrics(t *testing.T) {
+ 	// Ensure that initially there is no data in the receiver.
+ 	assert.EqualValues(t, 0, atomic.LoadInt32(&rcv.requestCount))
+ 
+-	// Send empty trace.
++	// Send empty metric.
+ 	md := pdata.NewMetrics()
+ 	assert.NoError(t, exp.ConsumeMetrics(context.Background(), md))
+ 
+@@ -276,8 +276,8 @@ func TestSendMetrics(t *testing.T) {
+ 	// Ensure it was received empty.
+ 	assert.EqualValues(t, 0, atomic.LoadInt32(&rcv.totalItems))
+ 
+-	// A trace with 2 spans.
+-	md = testdata.GenerateMetricsTwoMetrics()
++	// Send two metrics.
++	md = testdata.GenerateMetricsTwoSumMetrics()
+ 
+ 	err = exp.ConsumeMetrics(context.Background(), md)
+ 	assert.NoError(t, err)

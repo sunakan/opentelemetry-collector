@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogs.go b/pdata/internal/generated_wrapper_resourcelogs.go
+index 81718f6d4..e5addc949 100644
+--- a/pdata/internal/generated_wrapper_resourcelogs.go
++++ b/pdata/internal/generated_wrapper_resourcelogs.go
+@@ -31,7 +31,13 @@ func MarshalJSONOrigResourceLogs(orig *otlplogs.ResourceLogs, dest *json.Stream)
+ 	MarshalJSONOrigResource(&orig.Resource, dest)
+ 	if len(orig.ScopeLogs) > 0 {
+ 		dest.WriteObjectField("scopeLogs")
+-		MarshalJSONOrigScopeLogsSlice(orig.ScopeLogs, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigScopeLogs(orig.ScopeLogs[0], dest)
++		for i := 1; i < len(orig.ScopeLogs); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigScopeLogs(orig.ScopeLogs[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	if orig.SchemaUrl != "" {
+ 		dest.WriteObjectField("schemaUrl")

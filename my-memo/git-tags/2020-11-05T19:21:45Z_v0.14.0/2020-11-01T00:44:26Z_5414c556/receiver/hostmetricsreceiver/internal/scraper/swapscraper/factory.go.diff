@@ -1,0 +1,31 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/factory.go
+index fb304e736..436575a76 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/factory.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+-	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/obsreportscraper"
++	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+ // This file implements Factory for Swap scraper.
+@@ -44,7 +44,15 @@ func (f *Factory) CreateMetricsScraper(
+ 	ctx context.Context,
+ 	_ *zap.Logger,
+ 	config internal.Config,
+-) (internal.Scraper, error) {
++) (receiverhelper.MetricsScraper, error) {
+ 	cfg := config.(*Config)
+-	return obsreportscraper.WrapScraper(newSwapScraper(ctx, cfg), TypeStr), nil
++	s := newSwapScraper(ctx, cfg)
++
++	ms := receiverhelper.NewMetricsScraper(
++		TypeStr,
++		s.Scrape,
++		receiverhelper.WithInitialize(s.Initialize),
++	)
++
++	return ms, nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_scopeprofilesslice_test.go b/pdata/pprofile/generated_scopeprofilesslice_test.go
+index 78dc1f05f..d78ef7446 100644
+--- a/pdata/pprofile/generated_scopeprofilesslice_test.go
++++ b/pdata/pprofile/generated_scopeprofilesslice_test.go
+@@ -13,7 +13,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ func TestScopeProfilesSlice(t *testing.T) {

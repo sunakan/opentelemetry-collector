@@ -1,0 +1,17 @@
+diff --git a/vendor/github.com/DataDog/datadog-go/.travis.yml b/vendor/github.com/DataDog/datadog-go/.travis.yml
+new file mode 100644
+index 000000000..73556a1cd
+--- /dev/null
++++ b/vendor/github.com/DataDog/datadog-go/.travis.yml
+@@ -0,0 +1,11 @@
++language: go
++
++go:
++  - 1.5
++  - 1.6
++  - 1.7
++  - 1.8
++  - 1.9
++
++script:
++ - go test -race -v ./...

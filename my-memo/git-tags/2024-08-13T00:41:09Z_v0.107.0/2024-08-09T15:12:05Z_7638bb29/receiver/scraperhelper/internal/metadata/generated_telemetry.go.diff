@@ -1,0 +1,21 @@
+diff --git a/receiver/scraperhelper/internal/metadata/generated_telemetry.go b/receiver/scraperhelper/internal/metadata/generated_telemetry.go
+index 98cf15f41..42e96d62d 100644
+--- a/receiver/scraperhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/scraperhelper/internal/metadata/generated_telemetry.go
+@@ -13,12 +13,14 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
++const ScopeName = "go.opentelemetry.io/collector/receiver/scraperhelper"
++
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/receiver/scraperhelper")
++	return settings.MeterProvider.Meter(ScopeName)
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/receiver/scraperhelper")
++	return settings.TracerProvider.Tracer(ScopeName)
+ }
+ 
+ // TelemetryBuilder provides an interface for components to report telemetry

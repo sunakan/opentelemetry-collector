@@ -1,0 +1,12 @@
+diff --git a/pdata/xpdata/entity/resource_entity_ref_test.go b/pdata/xpdata/entity/resource_entity_ref_test.go
+index 2a8605ba3..8df43d104 100644
+--- a/pdata/xpdata/entity/resource_entity_ref_test.go
++++ b/pdata/xpdata/entity/resource_entity_ref_test.go
+@@ -13,6 +13,6 @@ import (
+ )
+ 
+ func TestResourceEntityRefs(t *testing.T) {
+-	res := internal.GenerateTestResource()
++	res := internal.NewResource(internal.GenTestOrigResource(), internal.NewState())
+ 	assert.EqualValues(t, internal.GenerateTestEntityRefSlice(), ResourceEntityRefs(pcommon.Resource(res)))
+ }

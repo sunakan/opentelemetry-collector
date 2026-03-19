@@ -1,0 +1,17 @@
+diff --git a/exporter/nopexporter/internal/metadata/generated_status.go b/exporter/nopexporter/internal/metadata/generated_status.go
+index 6c8429f74..54a82afc0 100644
+--- a/exporter/nopexporter/internal/metadata/generated_status.go
++++ b/exporter/nopexporter/internal/metadata/generated_status.go
+@@ -14,9 +14,9 @@ var (
+ )
+ 
+ const (
+-	TracesStability  = component.StabilityLevelDevelopment
+-	MetricsStability = component.StabilityLevelDevelopment
+-	LogsStability    = component.StabilityLevelDevelopment
++	TracesStability  = component.StabilityLevelBeta
++	MetricsStability = component.StabilityLevelBeta
++	LogsStability    = component.StabilityLevelBeta
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {

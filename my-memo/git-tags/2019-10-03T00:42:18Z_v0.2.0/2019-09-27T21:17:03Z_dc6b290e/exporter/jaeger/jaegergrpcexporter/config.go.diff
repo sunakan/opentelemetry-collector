@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/config.go b/exporter/jaeger/jaegergrpcexporter/config.go
+index 2e7c775a8..3b7eef485 100644
+--- a/exporter/jaeger/jaegergrpcexporter/config.go
++++ b/exporter/jaeger/jaegergrpcexporter/config.go
+@@ -15,7 +15,7 @@
+ package jaegergrpcexporter
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config defines configuration for Jaeger gRPC exporter.

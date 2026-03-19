@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+index e6345f604..ee9089590 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+@@ -57,7 +57,7 @@ func TestExportPartialSuccess_RejectedDataPoints(t *testing.T) {
+ 
+ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ 	ms := NewExportPartialSuccess()
+-	assert.Equal(t, "", ms.ErrorMessage())
++	assert.Empty(t, ms.ErrorMessage())
+ 	ms.SetErrorMessage("error message")
+ 	assert.Equal(t, "error message", ms.ErrorMessage())
+ 	sharedState := internal.StateReadOnly

@@ -1,0 +1,12 @@
+diff --git a/consumer/pdata/common.go b/consumer/pdata/common.go
+index 4bbaaac1a..d9262fb13 100644
+--- a/consumer/pdata/common.go
++++ b/consumer/pdata/common.go
+@@ -86,6 +86,7 @@ func NewAttributeValueNull() AttributeValue {
+ 	return AttributeValue{orig: orig}
+ }
+ 
++// NewAttributeValue is deprecated.
+ // Deprecated: Use NewAttributeValueNull()
+ func NewAttributeValue() AttributeValue {
+ 	return NewAttributeValueNull()

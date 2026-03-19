@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/config_test.go b/processor/batchprocessor/config_test.go
+index 7c1790313..b954557cb 100644
+--- a/processor/batchprocessor/config_test.go
++++ b/processor/batchprocessor/config_test.go
+@@ -49,7 +49,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	assert.Equal(t, p1,
+ 		&Config{
+-			ProcessorSettings: config.ProcessorSettings{
++			ProcessorSettings: &config.ProcessorSettings{
+ 				TypeVal: "batch",
+ 				NameVal: "batch/2",
+ 			},

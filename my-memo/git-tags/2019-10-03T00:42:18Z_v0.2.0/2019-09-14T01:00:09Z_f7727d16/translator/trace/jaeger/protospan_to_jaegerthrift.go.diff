@@ -1,0 +1,31 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerthrift.go b/translator/trace/jaeger/protospan_to_jaegerthrift.go
+index 4a888fd7e..641ab77a4 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerthrift.go
++++ b/translator/trace/jaeger/protospan_to_jaegerthrift.go
+@@ -136,18 +136,21 @@ func ocNodeAndResourceToJaegerProcess(node *commonpb.Node, resource *resourcepb.
+ 	if resource != nil {
+ 		resourceType := resource.GetType()
+ 		if resourceType != "" {
+-			jTags = append(jTags, &jaeger.Tag{
++			resourceTypeTag := &jaeger.Tag{
+ 				Key:   opencensusResourceType,
+ 				VType: jaeger.TagType_STRING,
+ 				VStr:  &resourceType,
+-			})
++			}
++			jTags = append(jTags, resourceTypeTag)
+ 		}
+ 		for k, v := range resource.GetLabels() {
+-			jTags = append(jTags, &jaeger.Tag{
++			str := v
++			resourceTag := &jaeger.Tag{
+ 				Key:   k,
+ 				VType: jaeger.TagType_STRING,
+-				VStr:  &v,
+-			})
++				VStr:  &str,
++			}
++			jTags = append(jTags, resourceTag)
+ 		}
+ 	}
+ 

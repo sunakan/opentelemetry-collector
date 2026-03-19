@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/nop_processor.go b/component/componenttest/nop_processor.go
+index c773d12b7..e4f7a4d34 100644
+--- a/component/componenttest/nop_processor.go
++++ b/component/componenttest/nop_processor.go
+@@ -25,7 +25,9 @@ import (
+ )
+ 
+ // nopProcessorFactory is factory for nopProcessor.
+-type nopProcessorFactory struct{}
++type nopProcessorFactory struct {
++	component.BaseProcessorFactory
++}
+ 
+ var nopProcessorFactoryInstance = &nopProcessorFactory{}
+ 

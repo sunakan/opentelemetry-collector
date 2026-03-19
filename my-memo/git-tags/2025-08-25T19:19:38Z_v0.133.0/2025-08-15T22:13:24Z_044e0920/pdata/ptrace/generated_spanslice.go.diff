@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanslice.go b/pdata/ptrace/generated_spanslice.go
+index 046ac3965..c40a8b431 100644
+--- a/pdata/ptrace/generated_spanslice.go
++++ b/pdata/ptrace/generated_spanslice.go
+@@ -99,7 +99,7 @@ func (es SpanSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Span.
+ func (es SpanSlice) AppendEmpty() Span {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlptrace.Span{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrSpan())
+ 	return es.At(es.Len() - 1)
+ }
+ 

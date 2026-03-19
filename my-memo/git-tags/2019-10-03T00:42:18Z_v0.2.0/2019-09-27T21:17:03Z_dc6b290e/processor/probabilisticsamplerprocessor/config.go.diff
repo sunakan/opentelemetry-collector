@@ -1,0 +1,13 @@
+diff --git a/processor/probabilisticsamplerprocessor/config.go b/processor/probabilisticsamplerprocessor/config.go
+index fc8f610e5..ac888eb64 100644
+--- a/processor/probabilisticsamplerprocessor/config.go
++++ b/processor/probabilisticsamplerprocessor/config.go
+@@ -14,7 +14,7 @@
+ 
+ package probabilisticsamplerprocessor
+ 
+-import "github.com/open-telemetry/opentelemetry-service/config/configmodels"
++import "github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 
+ // Config has the configuration guiding the trace sampler processor.
+ type Config struct {

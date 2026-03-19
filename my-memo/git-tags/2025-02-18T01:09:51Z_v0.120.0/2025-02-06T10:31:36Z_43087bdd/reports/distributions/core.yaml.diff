@@ -1,0 +1,27 @@
+diff --git a/reports/distributions/core.yaml b/reports/distributions/core.yaml
+new file mode 100644
+index 000000000..109424b7d
+--- /dev/null
++++ b/reports/distributions/core.yaml
+@@ -0,0 +1,21 @@
++name: core
++url: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol
++maintainers: []
++components:
++    connector:
++        - forward
++    exporter:
++        - debug
++        - nop
++        - otlp
++        - otlphttp
++    extension:
++        - zpages
++    pkg:
++        - service
++    processor:
++        - batch
++        - memory_limiter
++    receiver:
++        - nop
++        - otlp

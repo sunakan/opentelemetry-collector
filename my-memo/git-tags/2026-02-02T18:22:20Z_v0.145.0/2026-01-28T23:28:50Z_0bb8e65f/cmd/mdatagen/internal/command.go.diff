@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index 9ecf8f58f..8bc9c8116 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -19,9 +19,9 @@ import (
+ 	"text/template"
+ 
+ 	"github.com/spf13/cobra"
++	"go.yaml.in/yaml/v3"
+ 	"golang.org/x/text/cases"
+ 	"golang.org/x/text/language"
+-	"gopkg.in/yaml.v3"
+ )
+ 
+ const (

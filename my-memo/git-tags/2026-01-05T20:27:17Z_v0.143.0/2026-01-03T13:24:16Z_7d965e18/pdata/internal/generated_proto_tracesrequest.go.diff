@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_tracesrequest.go b/pdata/internal/generated_proto_tracesrequest.go
+index 5027298a9..b8bb39687 100644
+--- a/pdata/internal/generated_proto_tracesrequest.go
++++ b/pdata/internal/generated_proto_tracesrequest.go
+@@ -45,7 +45,6 @@ func DeleteTracesRequest(orig *TracesRequest, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteRequestContext(orig.RequestContext, true)
+ 	DeleteTracesData(&orig.TracesData, false)
+ 

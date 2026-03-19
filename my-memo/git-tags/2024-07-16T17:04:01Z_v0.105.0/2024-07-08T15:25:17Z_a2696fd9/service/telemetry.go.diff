@@ -1,0 +1,13 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index c2a67c7f1..a44aaa4e4 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -24,7 +24,7 @@ import (
+ 
+ const (
+ 	zapKeyTelemetryAddress = "address"
+-	zapKeyTelemetryLevel   = "level"
++	zapKeyTelemetryLevel   = "metrics level"
+ )
+ 
+ type meterProvider struct {

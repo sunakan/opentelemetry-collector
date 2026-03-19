@@ -1,0 +1,13 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index f086c1b78..64a867d6d 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -62,7 +62,7 @@ workflows:
+             - coverage
+           filters:
+             branches:
+-              ignore: /.*/
++              ignore: /master/
+             tags:
+               only: /^v[0-9].[0-9].[0-9]+.*/
+ 

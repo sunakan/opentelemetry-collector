@@ -1,0 +1,32 @@
+diff --git a/pdata/pmetric/metrics.go b/pdata/pmetric/metrics.go
+index 2d85f0d71..37032670a 100644
+--- a/pdata/pmetric/metrics.go
++++ b/pdata/pmetric/metrics.go
+@@ -3,13 +3,14 @@
+ 
+ package pmetric // import "go.opentelemetry.io/collector/pdata/pmetric"
+ 
+-import (
+-	"go.opentelemetry.io/collector/pdata/internal"
+-)
++// MarkReadOnly marks the Metrics as shared so that no further modifications can be done on it.
++func (ms Metrics) MarkReadOnly() {
++	ms.getState().MarkReadOnly()
++}
+ 
+ // IsReadOnly returns true if this Metrics instance is read-only.
+ func (ms Metrics) IsReadOnly() bool {
+-	return *ms.getState() == internal.StateReadOnly
++	return ms.getState().IsReadOnly()
+ }
+ 
+ // MetricCount calculates the total number of metrics.
+@@ -55,8 +56,3 @@ func (ms Metrics) DataPointCount() (dataPointCount int) {
+ 	}
+ 	return
+ }
+-
+-// MarkReadOnly marks the Metrics as shared so that no further modifications can be done on it.
+-func (ms Metrics) MarkReadOnly() {
+-	internal.SetMetricsState(internal.Metrics(ms), internal.StateReadOnly)
+-}

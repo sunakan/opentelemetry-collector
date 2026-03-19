@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index f8f754564..d9d3e20cf 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -83,7 +83,7 @@ func TestNew(t *testing.T) {
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			cfg := generateDefaultConfig()
++			cfg := createDefaultConfig().(*Config)
+ 			cfg.CheckInterval = tt.args.checkInterval
+ 			cfg.MemoryLimitMiB = tt.args.memoryLimitMiB
+ 			cfg.MemorySpikeLimitMiB = tt.args.memorySpikeLimitMiB

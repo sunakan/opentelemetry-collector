@@ -1,0 +1,12 @@
+diff --git a/service/config.go b/service/config.go
+index 922dde3a7..e37893165 100644
+--- a/service/config.go
++++ b/service/config.go
+@@ -19,4 +19,7 @@ type Config struct {
+ 
+ 	// Pipelines are the set of data pipelines configured for the service.
+ 	Pipelines pipelines.Config `mapstructure:"pipelines"`
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }

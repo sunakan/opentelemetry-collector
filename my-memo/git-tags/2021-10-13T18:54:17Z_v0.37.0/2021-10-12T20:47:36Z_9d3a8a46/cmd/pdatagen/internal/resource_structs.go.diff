@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/resource_structs.go b/cmd/pdatagen/internal/resource_structs.go
+index e14c0f3b3..2f42384f8 100644
+--- a/cmd/pdatagen/internal/resource_structs.go
++++ b/cmd/pdatagen/internal/resource_structs.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/cmd/pdatagen/internal"
+ 
+ var resourceFile = &File{
+ 	Name: "resource",

@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_scopeprofilesslice.go b/pdata/pprofile/generated_scopeprofilesslice.go
+index b186c23a8..a00083ca5 100644
+--- a/pdata/pprofile/generated_scopeprofilesslice.go
++++ b/pdata/pprofile/generated_scopeprofilesslice.go
+@@ -109,6 +109,10 @@ func (es ScopeProfilesSlice) AppendEmpty() ScopeProfiles {
+ func (es ScopeProfilesSlice) MoveAndAppendTo(dest ScopeProfilesSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

@@ -1,0 +1,25 @@
+diff --git a/otelcol/testdata/configs/2-config-output.yaml b/otelcol/testdata/configs/2-config-output.yaml
+new file mode 100644
+index 000000000..32a9cf82d
+--- /dev/null
++++ b/otelcol/testdata/configs/2-config-output.yaml
+@@ -0,0 +1,19 @@
++exporters:
++    bar:
++        key: val
++    foo:
++        key: val
++receivers:
++    bar:
++        key: val
++    foo:
++        key: val
++service:
++    pipelines:
++        logs:
++            exporters:
++                - foo
++                - bar
++            receivers:
++                - foo
++                - bar

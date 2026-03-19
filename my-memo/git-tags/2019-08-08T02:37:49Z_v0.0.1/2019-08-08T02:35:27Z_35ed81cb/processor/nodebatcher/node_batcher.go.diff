@@ -1,0 +1,14 @@
+diff --git a/processor/nodebatcher/node_batcher.go b/processor/nodebatcher/node_batcher.go
+index 4dad033a2..cf1cac089 100644
+--- a/processor/nodebatcher/node_batcher.go
++++ b/processor/nodebatcher/node_batcher.go
+@@ -31,8 +31,8 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/internal/collector/processor"
+ 	"github.com/open-telemetry/opentelemetry-service/observability"
++	"github.com/open-telemetry/opentelemetry-service/processor"
+ )
+ 
+ const (

@@ -1,0 +1,33 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/ptraceotlp_package.go b/pdata/internal/cmd/pdatagen/internal/ptraceotlp_package.go
+index 621f42bf2..ca574f1b4 100644
+--- a/pdata/internal/cmd/pdatagen/internal/ptraceotlp_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/ptraceotlp_package.go
+@@ -8,15 +8,19 @@ import (
+ )
+ 
+ var ptraceotlp = &Package{
+-	name: "ptraceotlp",
+-	path: filepath.Join("ptrace", "ptraceotlp"),
+-	imports: []string{
+-		`otlpcollectortrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/trace/v1"`,
+-	},
+-	testImports: []string{
+-		`"testing"`,
+-		``,
+-		`"github.com/stretchr/testify/assert"`,
++	info: &PackageInfo{
++		name: "ptraceotlp",
++		path: filepath.Join("ptrace", "ptraceotlp"),
++		imports: []string{
++			`otlpcollectortrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/trace/v1"`,
++		},
++		testImports: []string{
++			`"testing"`,
++			``,
++			`"github.com/stretchr/testify/assert"`,
++			``,
++			`"go.opentelemetry.io/collector/pdata/internal"`,
++		},
+ 	},
+ 	structs: []baseStruct{
+ 		exportTracePartialSuccess,

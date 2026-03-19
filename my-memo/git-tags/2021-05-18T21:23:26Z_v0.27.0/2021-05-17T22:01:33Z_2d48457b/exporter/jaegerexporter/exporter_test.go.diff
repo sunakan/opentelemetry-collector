@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index 6e585892b..1b177fe29 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -158,7 +158,7 @@ func TestNew(t *testing.T) {
+ 			}
+ 
+ 			// This is expected to fail.
+-			err = got.ConsumeTraces(context.Background(), testdata.GenerateTraceDataNoLibraries())
++			err = got.ConsumeTraces(context.Background(), testdata.GenerateTracesNoLibraries())
+ 			assert.Error(t, err)
+ 		})
+ 	}

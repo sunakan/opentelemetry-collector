@@ -1,0 +1,19 @@
+diff --git a/service/internal/builder/pipelines_builder.go b/service/internal/builder/pipelines_builder.go
+index c589b6918..978cdb2d2 100644
+--- a/service/internal/builder/pipelines_builder.go
++++ b/service/internal/builder/pipelines_builder.go
+@@ -161,9 +161,11 @@ func (pb *pipelinesBuilder) buildPipeline(ctx context.Context, pipelineCfg *conf
+ 		// which we will build in the next loop iteration).
+ 		var err error
+ 		set := component.ProcessorCreateSettings{
+-			Logger:         pb.logger.With(zap.String(zapKindKey, zapKindProcessor), zap.String(zapNameKey, procID.String())),
+-			TracerProvider: pb.tracerProvider,
+-			BuildInfo:      pb.buildInfo,
++			TelemetryCreateSettings: component.TelemetryCreateSettings{
++				Logger:         pb.logger.With(zap.String(zapKindKey, zapKindProcessor), zap.String(zapNameKey, procID.String())),
++				TracerProvider: pb.tracerProvider,
++			},
++			BuildInfo: pb.buildInfo,
+ 		}
+ 
+ 		switch pipelineCfg.InputType {

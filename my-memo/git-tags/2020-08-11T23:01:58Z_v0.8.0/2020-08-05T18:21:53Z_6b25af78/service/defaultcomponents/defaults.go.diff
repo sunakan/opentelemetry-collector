@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 1353c920b..ef5caff09 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -54,7 +54,7 @@ func Components() (
+ 	component.Factories,
+ 	error,
+ ) {
+-	errs := []error{}
++	var errs []error
+ 
+ 	extensions, err := component.MakeExtensionFactoryMap(
+ 		&healthcheckextension.Factory{},

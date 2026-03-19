@@ -1,0 +1,13 @@
+diff --git a/processor/addattributesprocessor/config_test.go b/processor/addattributesprocessor/config_test.go
+index f0534f32a..808c604e7 100644
+--- a/processor/addattributesprocessor/config_test.go
++++ b/processor/addattributesprocessor/config_test.go
+@@ -42,7 +42,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	p1 := cfg.Processors["attributes/2"]
+ 	assert.Equal(t, p1,
+-		&ConfigV2{
++		&Config{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: "attributes",
+ 				NameVal: "attributes/2",

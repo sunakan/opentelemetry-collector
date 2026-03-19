@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/sizer.go b/exporter/exporterhelper/internal/queuebatch/sizer.go
+new file mode 100644
+index 000000000..ba7459462
+--- /dev/null
++++ b/exporter/exporterhelper/internal/queuebatch/sizer.go
+@@ -0,0 +1,16 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package queuebatch // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
++
++// sizer is an interface that returns the size of the given element.
++type sizer[T any] interface {
++	Sizeof(T) int64
++}
++
++// requestSizer is a sizer implementation that returns the size of a queue element as one request.
++type requestSizer[T any] struct{}
++
++func (rs *requestSizer[T]) Sizeof(T) int64 {
++	return 1
++}

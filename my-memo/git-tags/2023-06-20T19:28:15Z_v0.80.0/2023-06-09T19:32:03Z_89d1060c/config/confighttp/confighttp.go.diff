@@ -1,0 +1,16 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 994913023..5f85b98e2 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -155,7 +155,10 @@ func (hcs *HTTPClientSettings) ToClient(host component.Host, settings component.
+ 	// Compress the body using specified compression methods if non-empty string is provided.
+ 	// Supporting gzip, zlib, deflate, snappy, and zstd; none is treated as uncompressed.
+ 	if configcompression.IsCompressed(hcs.Compression) {
+-		clientTransport = newCompressRoundTripper(clientTransport, hcs.Compression)
++		clientTransport, err = newCompressRoundTripper(clientTransport, hcs.Compression)
++		if err != nil {
++			return nil, err
++		}
+ 	}
+ 
+ 	// wrapping http transport with otelhttp transport to enable otel instrumenetation

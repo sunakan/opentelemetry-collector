@@ -1,0 +1,12 @@
+diff --git a/internal/cgroups/mountpoint.go b/internal/cgroups/mountpoint.go
+index aacbdace0..ce952352c 100644
+--- a/internal/cgroups/mountpoint.go
++++ b/internal/cgroups/mountpoint.go
+@@ -34,6 +34,7 @@
+ // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ // THE SOFTWARE.
+ 
++//go:build linux
+ // +build linux
+ 
+ package cgroups

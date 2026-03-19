@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue_test.go b/exporter/exporterhelper/internal/persistent_queue_test.go
+index bd13ec83c..e39c63fe8 100644
+--- a/exporter/exporterhelper/internal/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/persistent_queue_test.go
+@@ -83,6 +83,7 @@ func TestPersistentQueue_FullCapacity(t *testing.T) {
+ 
+ 	// First request is picked by the consumer. Wait until the consumer is blocked on done.
+ 	assert.NoError(t, pq.Offer(context.Background(), req))
++	start <- struct{}{}
+ 	close(start)
+ 
+ 	for i := 0; i < 10; i++ {

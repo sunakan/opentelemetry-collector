@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metrics.go b/processor/batchprocessor/metrics.go
+index 375a54c87..2e803809f 100644
+--- a/processor/batchprocessor/metrics.go
++++ b/processor/batchprocessor/metrics.go
+@@ -66,7 +66,7 @@ func (bpt *batchProcessorTelemetry) createOtelMetrics(set component.TelemetrySet
+ 		meter = noopmetric.Meter{}
+ 	}
+ 
+-	bpt.telemetryBuilder, err = metadata.NewTelemetryBuilder(set)
++	bpt.telemetryBuilder, err = metadata.NewTelemetryBuilder(set, metadata.WithLevel(bpt.level))
+ 	errors = multierr.Append(errors, err)
+ 
+ 	bpt.batchMetadataCardinality, err = meter.Int64ObservableUpDownCounter(

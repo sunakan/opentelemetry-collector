@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index ceb7ecd9d..cbe4d38ac 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -9,7 +9,7 @@ jobs:
+   setup-environment:
+     timeout-minutes: 30
+     runs-on: ubuntu-latest
+-    if: ${{ contains(github.event.pull_request.labels.*.name, 'renovatebot') }}
++    if: ${{ !contains(github.event.pull_request.labels.*.name, 'dependency-major-update') && (github.actor == 'renovate[bot]' || contains(github.event.pull_request.labels.*.name, 'renovatebot')) }}
+     steps:
+       - uses: actions/checkout@v4
+         with:

@@ -1,0 +1,14 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 23bb24b75..7c2ea7689 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -118,6 +118,9 @@ func NewResolver(set ResolverSettings) (*Resolver, error) {
+ 		if err != nil {
+ 			return nil, err
+ 		}
++		if _, ok := set.Providers[lURI.scheme]; !ok {
++			return nil, fmt.Errorf("unsupported scheme on URI %q", uri)
++		}
+ 		uris[i] = lURI
+ 	}
+ 	providersCopy := make(map[string]Provider, len(set.Providers))

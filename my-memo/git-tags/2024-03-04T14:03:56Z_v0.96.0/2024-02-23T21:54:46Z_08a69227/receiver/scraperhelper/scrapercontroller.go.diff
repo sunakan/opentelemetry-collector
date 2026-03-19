@@ -1,0 +1,14 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index d2b7410da..2f2896f69 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -70,9 +70,6 @@ func NewScraperControllerReceiver(
+ 	nextConsumer consumer.Metrics,
+ 	options ...ScraperControllerOption,
+ ) (component.Component, error) {
+-	if nextConsumer == nil {
+-		return nil, component.ErrNilNextConsumer
+-	}
+ 
+ 	if cfg.CollectionInterval <= 0 {
+ 		return nil, errors.New("collection_interval must be a positive duration")

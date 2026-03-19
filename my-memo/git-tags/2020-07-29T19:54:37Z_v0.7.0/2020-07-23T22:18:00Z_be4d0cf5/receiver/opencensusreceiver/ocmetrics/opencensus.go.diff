@@ -1,0 +1,12 @@
+diff --git a/receiver/opencensusreceiver/ocmetrics/opencensus.go b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+index 659b1350d..b261f696f 100644
+--- a/receiver/opencensusreceiver/ocmetrics/opencensus.go
++++ b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+@@ -31,6 +31,7 @@ import (
+ 
+ // Receiver is the type used to handle metrics from OpenCensus exporters.
+ type Receiver struct {
++	agentmetricspb.UnimplementedMetricsServiceServer
+ 	instanceName string
+ 	nextConsumer consumer.MetricsConsumerOld
+ }

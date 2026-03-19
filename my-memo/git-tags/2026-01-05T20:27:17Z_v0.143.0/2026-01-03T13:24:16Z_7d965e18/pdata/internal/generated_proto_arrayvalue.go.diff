@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_arrayvalue.go b/pdata/internal/generated_proto_arrayvalue.go
+index a4367eac2..f973831cf 100644
+--- a/pdata/internal/generated_proto_arrayvalue.go
++++ b/pdata/internal/generated_proto_arrayvalue.go
+@@ -43,11 +43,9 @@ func DeleteArrayValue(orig *ArrayValue, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.Values {
+ 		DeleteAnyValue(&orig.Values[i], false)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolArrayValue.Put(orig)

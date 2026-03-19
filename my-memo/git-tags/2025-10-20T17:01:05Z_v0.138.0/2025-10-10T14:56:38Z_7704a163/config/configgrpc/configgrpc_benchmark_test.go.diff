@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_benchmark_test.go b/config/configgrpc/configgrpc_benchmark_test.go
+index 2aac1d550..c53047e5e 100644
+--- a/config/configgrpc/configgrpc_benchmark_test.go
++++ b/config/configgrpc/configgrpc_benchmark_test.go
+@@ -45,7 +45,7 @@ func BenchmarkCompressors(b *testing.B) {
+ 
+ 			b.Run(name, func(b *testing.B) {
+ 				b.ResetTimer()
+-				for i := 0; i < b.N; i++ {
++				for b.Loop() {
+ 					require.NoError(b, err, "marshal(_) returned an error")
+ 					_, err := compress(compressor, messageBytes)
+ 					require.NoError(b, err, "compress(_) returned an error")

@@ -1,0 +1,27 @@
+diff --git a/reports/distributions/contrib.yaml b/reports/distributions/contrib.yaml
+new file mode 100644
+index 000000000..975550e1b
+--- /dev/null
++++ b/reports/distributions/contrib.yaml
+@@ -0,0 +1,21 @@
++name: contrib
++url: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib
++maintainers: []
++components:
++    connector:
++        - forward
++    exporter:
++        - debug
++        - nop
++        - otlp
++        - otlphttp
++    extension:
++        - zpages
++    pkg:
++        - service
++    processor:
++        - batch
++        - memory_limiter
++    receiver:
++        - nop
++        - otlp

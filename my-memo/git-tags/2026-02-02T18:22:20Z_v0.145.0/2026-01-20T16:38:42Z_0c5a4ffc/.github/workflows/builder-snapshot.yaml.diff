@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-snapshot.yaml b/.github/workflows/builder-snapshot.yaml
+index fc365b25f..fc31f0283 100644
+--- a/.github/workflows/builder-snapshot.yaml
++++ b/.github/workflows/builder-snapshot.yaml
+@@ -52,7 +52,7 @@ jobs:
+ 
+       - name: Cache Go
+         id: go-cache
+-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
++        uses: actions/cache@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
+         with:
+           path: |
+             ~/go/bin

@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index c26a86dbe..d5ab33d03 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -28,7 +28,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+@@ -42,8 +41,8 @@ const (
+ )
+ 
+ var (
+-	fakeMetricsExporterName   = config.NewComponentIDWithName("fake_metrics_exporter", "with_name")
+-	fakeMetricsExporterConfig = config.NewExporterSettings(fakeMetricsExporterName)
++	fakeMetricsExporterName   = component.NewIDWithName("fake_metrics_exporter", "with_name")
++	fakeMetricsExporterConfig = component.NewExporterConfigSettings(fakeMetricsExporterName)
+ )
+ 
+ func TestMetricsRequest(t *testing.T) {

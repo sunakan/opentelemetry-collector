@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/generated_component_test.go b/processor/memorylimiterprocessor/generated_component_test.go
+index 7144d4a39..0805632c3 100644
+--- a/processor/memorylimiterprocessor/generated_component_test.go
++++ b/processor/memorylimiterprocessor/generated_component_test.go
+@@ -64,7 +64,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, component.UnmarshalConfig(sub, cfg))
++	require.NoError(t, sub.Unmarshal(&cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-lifecycle", func(t *testing.T) {

@@ -1,0 +1,26 @@
+diff --git a/processor/processorprofiles/processor.go b/processor/processorprofiles/processor.go
+index a79147c4d..7532e98ed 100644
+--- a/processor/processorprofiles/processor.go
++++ b/processor/processorprofiles/processor.go
+@@ -24,9 +24,6 @@ type Factory interface {
+ 	// an error will be returned instead.
+ 	CreateProfiles(ctx context.Context, set processor.Settings, cfg component.Config, next consumerprofiles.Profiles) (Profiles, error)
+ 
+-	// Deprecated: [v0.111.0] use CreateProfiles.
+-	CreateProfilesProcessor(ctx context.Context, set processor.Settings, cfg component.Config, next consumerprofiles.Profiles) (Profiles, error)
+-
+ 	// ProfilesStability gets the stability level of the Profiles processor.
+ 	ProfilesStability() component.StabilityLevel
+ }
+@@ -49,11 +46,6 @@ func (f CreateProfilesFunc) CreateProfiles(ctx context.Context, set processor.Se
+ 	return f(ctx, set, cfg, next)
+ }
+ 
+-// Deprecated: [v0.111.0] use CreateProfiles.
+-func (f CreateProfilesFunc) CreateProfilesProcessor(ctx context.Context, set processor.Settings, cfg component.Config, next consumerprofiles.Profiles) (Profiles, error) {
+-	return f.CreateProfiles(ctx, set, cfg, next)
+-}
+-
+ // FactoryOption apply changes to ReceiverOptions.
+ type FactoryOption interface {
+ 	// applyOption applies the option.

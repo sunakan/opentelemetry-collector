@@ -1,0 +1,11 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index 288514523..3f24a26e1 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -57,6 +57,4 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+ 
+-replace go.opentelemetry.io/collector/extension/ballastextension => ../../extension/ballastextension
+-
+ replace go.opentelemetry.io/collector/processor/batchprocessor => ../../processor/batchprocessor

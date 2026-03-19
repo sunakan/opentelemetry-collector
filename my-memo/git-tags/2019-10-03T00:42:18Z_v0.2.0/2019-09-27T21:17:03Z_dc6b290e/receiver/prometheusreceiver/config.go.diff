@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/config.go b/receiver/prometheusreceiver/config.go
+index 7ac427c59..9e69b8669 100644
+--- a/receiver/prometheusreceiver/config.go
++++ b/receiver/prometheusreceiver/config.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/prometheus/prometheus/config"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config defines configuration for Prometheus receiver.

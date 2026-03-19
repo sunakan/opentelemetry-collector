@@ -1,0 +1,12 @@
+diff --git a/internal/collector/processor/metrics.go b/internal/collector/processor/metrics.go
+index 0f6a3b566..fa371d8dc 100644
+--- a/internal/collector/processor/metrics.go
++++ b/internal/collector/processor/metrics.go
+@@ -55,7 +55,6 @@ func MetricTagKeys(level telemetry.Level) []tag.Key {
+ 		fallthrough
+ 	case telemetry.Basic:
+ 		tagKeys = append(tagKeys, TagExporterNameKey)
+-		break
+ 	default:
+ 		return nil
+ 	}

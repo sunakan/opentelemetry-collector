@@ -1,0 +1,12 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 8debff0d6..3ea884be3 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -155,7 +155,6 @@ var metricDescriptor = &messageStruct{
+ 			defaultVal:      "MetricTypeUnspecified",
+ 			testVal:         "MetricTypeGaugeInt64",
+ 		},
+-		labelsField,
+ 	},
+ }
+ 

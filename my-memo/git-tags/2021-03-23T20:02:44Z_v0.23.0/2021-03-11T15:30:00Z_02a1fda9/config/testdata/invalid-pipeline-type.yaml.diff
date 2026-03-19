@@ -1,0 +1,13 @@
+diff --git a/config/testdata/invalid-pipeline-type.yaml b/config/testdata/invalid-pipeline-type.yaml
+index 7c88405a9..889dd6b1b 100644
+--- a/config/testdata/invalid-pipeline-type.yaml
++++ b/config/testdata/invalid-pipeline-type.yaml
+@@ -7,7 +7,7 @@ exporters:
+ 
+ service:
+   pipelines:
+-    wrongdatatype:
++    /metrics:
+       receivers: [examplereceiver]
+       processors: [exampleprocessor]
+       exporters: [exampleexporter]

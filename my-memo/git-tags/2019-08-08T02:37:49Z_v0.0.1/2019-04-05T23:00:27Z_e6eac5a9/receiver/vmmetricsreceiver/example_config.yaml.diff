@@ -1,0 +1,17 @@
+diff --git a/receiver/vmmetricsreceiver/example_config.yaml b/receiver/vmmetricsreceiver/example_config.yaml
+new file mode 100644
+index 000000000..f3805e714
+--- /dev/null
++++ b/receiver/vmmetricsreceiver/example_config.yaml
+@@ -0,0 +1,11 @@
++receivers:
++  vmmetrics:
++    scrape_interval: 10s
++
++zpages:
++  port: 55679
++
++exporters:
++  prometheus:
++    namespace: "vmmetrics_test"
++    address: "localhost:8888"

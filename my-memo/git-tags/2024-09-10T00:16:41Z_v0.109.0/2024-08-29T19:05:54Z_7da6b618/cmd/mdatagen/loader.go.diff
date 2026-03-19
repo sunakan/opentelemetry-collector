@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index c091d3905..9353aae40 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -127,6 +127,11 @@ type metric struct {
+ 
+ 	// Attributes is the list of attributes that the metric emits.
+ 	Attributes []attributeName `mapstructure:"attributes"`
++
++	// Level specifies the minimum `configtelemetry.Level` for which
++	// the metric will be emitted. This only applies to internal telemetry
++	// configuration.
++	Level configtelemetry.Level `mapstructure:"level"`
+ }
+ 
+ func (m *metric) Unmarshal(parser *confmap.Conf) error {
+@@ -237,6 +242,14 @@ type telemetry struct {
+ 	Metrics map[metricName]metric `mapstructure:"metrics"`
+ }
+ 
++func (t telemetry) Levels() map[string]interface{} {
++	levels := map[string]interface{}{}
++	for _, m := range t.Metrics {
++		levels[m.Level.String()] = nil
++	}
++	return levels
++}
++
+ type metadata struct {
+ 	// Type of the component.
+ 	Type string `mapstructure:"type"`

@@ -1,0 +1,10 @@
+diff --git a/featuregate/go.mod b/featuregate/go.mod
+index 5de972a59..bfa98b205 100644
+--- a/featuregate/go.mod
++++ b/featuregate/go.mod
+@@ -9,3 +9,5 @@ require (
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	gopkg.in/yaml.v3 v3.0.1 // indirect
+ )
++
++retract v0.69.0 // Release failed, use v0.69.1

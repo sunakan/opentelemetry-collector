@@ -1,0 +1,22 @@
+diff --git a/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess.go b/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess.go
+index 15ab96d5f..efb9b1f2b 100644
+--- a/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess.go
++++ b/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess.go
+@@ -75,7 +75,7 @@ func (ms ExportPartialSuccess) SetErrorMessage(v string) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ExportPartialSuccess) CopyTo(dest ExportPartialSuccess) {
+ 	dest.state.AssertMutable()
+-	copyOrigExportPartialSuccess(dest.orig, ms.orig)
++	internal.CopyOrigExportTracePartialSuccess(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -106,8 +106,3 @@ func (ms ExportPartialSuccess) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigExportPartialSuccess(dest, src *otlpcollectortrace.ExportTracePartialSuccess) {
+-	dest.RejectedSpans = src.RejectedSpans
+-	dest.ErrorMessage = src.ErrorMessage
+-}

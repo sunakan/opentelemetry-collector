@@ -1,0 +1,12 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces.go b/translator/trace/jaeger/jaegerproto_to_traces.go
+index 1e21be4b8..1cf2d8068 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces.go
+@@ -150,7 +150,6 @@ func jSpansToInternal(spans []*model.Span) map[instrumentationLibrary]pdata.Inst
+ 			spansByLibrary[library] = ils
+ 
+ 			if library.name != "" {
+-				ils.InstrumentationLibrary().InitEmpty()
+ 				ils.InstrumentationLibrary().SetName(library.name)
+ 				ils.InstrumentationLibrary().SetVersion(library.version)
+ 			}

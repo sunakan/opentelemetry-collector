@@ -1,0 +1,13 @@
+diff --git a/model/otlp/pb_marshaler.go b/model/otlp/pb_marshaler.go
+index 4c596723a..e5a8279b6 100644
+--- a/model/otlp/pb_marshaler.go
++++ b/model/otlp/pb_marshaler.go
+@@ -15,7 +15,7 @@
+ package otlp // import "go.opentelemetry.io/collector/model/otlp"
+ 
+ import (
+-	ipdata "go.opentelemetry.io/collector/model/internal/pdata"
++	ipdata "go.opentelemetry.io/collector/model/internal"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

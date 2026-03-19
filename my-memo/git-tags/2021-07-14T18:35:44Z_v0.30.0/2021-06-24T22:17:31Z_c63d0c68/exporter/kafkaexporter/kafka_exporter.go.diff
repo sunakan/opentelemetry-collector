@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/kafka_exporter.go b/exporter/kafkaexporter/kafka_exporter.go
+index 087dc75d7..50921e244 100644
+--- a/exporter/kafkaexporter/kafka_exporter.go
++++ b/exporter/kafkaexporter/kafka_exporter.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var errUnrecognizedEncoding = fmt.Errorf("unrecognized encoding")

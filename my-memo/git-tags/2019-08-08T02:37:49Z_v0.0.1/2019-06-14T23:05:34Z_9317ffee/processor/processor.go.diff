@@ -1,0 +1,13 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 5274db847..417d50ba8 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -31,3 +31,8 @@ type MetricsProcessor interface {
+ 
+ 	// TODO: Add processor specific functions.
+ }
++
++// Processor is a data consumer.
++type Processor interface {
++	consumer.DataConsumer
++}

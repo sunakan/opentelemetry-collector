@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/templates/metrics_test.go.tmpl b/cmd/mdatagen/templates/metrics_test.go.tmpl
+index bfcdc2c70..13c4ac952 100644
+--- a/cmd/mdatagen/templates/metrics_test.go.tmpl
++++ b/cmd/mdatagen/templates/metrics_test.go.tmpl
+@@ -43,6 +43,7 @@ func TestMetricsBuilder(t *testing.T) {
+ 			resAttrsConfigured: true,
+ 			expectEmpty:        true,
+ 		},
++		{{- if .ResourceAttributes }}
+ 		{
+ 			name:               "filter_set_include",
+ 			resAttrsConfigured: true,
+@@ -52,6 +53,7 @@ func TestMetricsBuilder(t *testing.T) {
+ 			resAttrsConfigured: true,
+ 			expectEmpty:        true,
+ 		},
++		{{- end }}
+ 	}
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {

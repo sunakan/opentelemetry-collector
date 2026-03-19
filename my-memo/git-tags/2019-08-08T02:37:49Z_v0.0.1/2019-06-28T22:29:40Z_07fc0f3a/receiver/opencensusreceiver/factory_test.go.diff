@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/factory_test.go b/receiver/opencensusreceiver/factory_test.go
+index 88d6ae1f3..5b4fd04b5 100644
+--- a/receiver/opencensusreceiver/factory_test.go
++++ b/receiver/opencensusreceiver/factory_test.go
+@@ -20,8 +20,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
++	"github.com/open-telemetry/opentelemetry-service/factories"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
+-	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

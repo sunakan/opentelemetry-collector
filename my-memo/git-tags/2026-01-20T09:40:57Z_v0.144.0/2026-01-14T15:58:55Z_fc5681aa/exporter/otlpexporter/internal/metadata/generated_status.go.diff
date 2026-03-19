@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/internal/metadata/generated_status.go b/exporter/otlpexporter/internal/metadata/generated_status.go
+index 02066a673..d066fb70f 100644
+--- a/exporter/otlpexporter/internal/metadata/generated_status.go
++++ b/exporter/otlpexporter/internal/metadata/generated_status.go
+@@ -7,7 +7,7 @@ import (
+ )
+ 
+ var (
+-	Type      = component.MustNewType("otlp")
++	Type      = component.MustNewType("otlp_grpc")
+ 	ScopeName = "go.opentelemetry.io/collector/exporter/otlpexporter"
+ )
+ 

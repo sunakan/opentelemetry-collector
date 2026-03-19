@@ -1,0 +1,14 @@
+diff --git a/processor/processortest/nop_processor.go b/processor/processortest/nop_processor.go
+index c5af55084..6e16dbc78 100644
+--- a/processor/processortest/nop_processor.go
++++ b/processor/processortest/nop_processor.go
+@@ -63,6 +63,9 @@ type nopProcessor struct {
+ }
+ 
+ // NewNopBuilder returns a processor.Builder that constructs nop processors.
++//
++// Deprecated: [v0.108.0] this builder is being internalized within the service module,
++// and will be removed soon.
+ func NewNopBuilder() *processor.Builder {
+ 	nopFactory := NewNopFactory()
+ 	return processor.NewBuilder(

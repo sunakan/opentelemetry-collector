@@ -1,0 +1,13 @@
+diff --git a/service/config.go b/service/config.go
+index 9c3eb4d7d..2cf2d2693 100644
+--- a/service/config.go
++++ b/service/config.go
+@@ -29,7 +29,7 @@ func (cfg *Config) Validate() error {
+ 	}
+ 
+ 	if err := cfg.Telemetry.Validate(); err != nil {
+-		fmt.Printf("service::telemetry config validation failed: %v\n", err)
++		return fmt.Errorf("service::telemetry config validation failed: %w", err)
+ 	}
+ 
+ 	return nil

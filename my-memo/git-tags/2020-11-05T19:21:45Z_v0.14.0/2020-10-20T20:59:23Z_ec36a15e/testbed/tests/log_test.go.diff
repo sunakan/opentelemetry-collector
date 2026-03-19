@@ -1,0 +1,20 @@
+diff --git a/testbed/tests/log_test.go b/testbed/tests/log_test.go
+index 21beeea09..60b88f913 100644
+--- a/testbed/tests/log_test.go
++++ b/testbed/tests/log_test.go
+@@ -41,6 +41,15 @@ func TestLog10kDPS(t *testing.T) {
+ 				ExpectedMaxRAM: 70,
+ 			},
+ 		},
++		{
++			name:     "OTLP-HTTP",
++			sender:   testbed.NewOTLPHTTPLogsDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
++			receiver: testbed.NewOTLPHTTPDataReceiver(testbed.GetAvailablePort(t)),
++			resourceSpec: testbed.ResourceSpec{
++				ExpectedMaxCPU: 30,
++				ExpectedMaxRAM: 70,
++			},
++		},
+ 		{
+ 			name:     "FluentBitToOTLP",
+ 			sender:   flw,

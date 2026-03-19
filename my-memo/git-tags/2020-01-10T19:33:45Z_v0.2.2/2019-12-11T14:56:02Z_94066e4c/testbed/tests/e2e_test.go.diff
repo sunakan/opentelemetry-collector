@@ -1,0 +1,36 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index 5539b33b8..5b940c9b9 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -28,6 +28,22 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/testbed/testbed"
+ )
+ 
++func TestIdleMode(t *testing.T) {
++	tc := testbed.NewTestCase(
++		t,
++		testbed.NewJaegerExporter(testbed.DefaultJaegerPort),
++		testbed.NewOCReceiver(testbed.DefaultOCPort),
++	)
++	defer tc.Stop()
++
++	tc.SetExpectedMaxCPU(4)
++	tc.SetExpectedMaxRAM(50)
++
++	tc.StartAgent()
++
++	tc.Sleep(tc.Duration)
++}
++
+ func TestBallastMemory(t *testing.T) {
+ 	tests := []struct {
+ 		ballastSize uint32
+@@ -42,7 +58,7 @@ func TestBallastMemory(t *testing.T) {
+ 		tc := testbed.NewTestCase(
+ 			t,
+ 			testbed.NewJaegerExporter(testbed.DefaultJaegerPort),
+-			&testbed.OCReceiver{},
++			testbed.NewOCReceiver(testbed.DefaultOCPort),
+ 			testbed.WithSkipResults(),
+ 		)
+ 		tc.SetExpectedMaxRAM(test.maxRSS)

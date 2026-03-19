@@ -1,0 +1,26 @@
+diff --git a/exporter/exporterhelper/resource_to_label.go b/exporter/exporterhelper/resource_to_label.go
+index aff57e696..6fbc01693 100644
+--- a/exporter/exporterhelper/resource_to_label.go
++++ b/exporter/exporterhelper/resource_to_label.go
+@@ -79,8 +79,6 @@ func addLabelsToMetric(metric *pdata.Metric, labelMap pdata.StringMap) {
+ 		addLabelsToIntDataPoints(metric.IntSum().DataPoints(), labelMap)
+ 	case pdata.MetricDataTypeSum:
+ 		addLabelsToNumberDataPoints(metric.Sum().DataPoints(), labelMap)
+-	case pdata.MetricDataTypeIntHistogram:
+-		addLabelsToIntHistogramDataPoints(metric.IntHistogram().DataPoints(), labelMap)
+ 	case pdata.MetricDataTypeHistogram:
+ 		addLabelsToDoubleHistogramDataPoints(metric.Histogram().DataPoints(), labelMap)
+ 	}
+@@ -98,12 +96,6 @@ func addLabelsToNumberDataPoints(ps pdata.NumberDataPointSlice, newLabelMap pdat
+ 	}
+ }
+ 
+-func addLabelsToIntHistogramDataPoints(ps pdata.IntHistogramDataPointSlice, newLabelMap pdata.StringMap) {
+-	for i := 0; i < ps.Len(); i++ {
+-		joinStringMaps(newLabelMap, ps.At(i).LabelsMap())
+-	}
+-}
+-
+ func addLabelsToDoubleHistogramDataPoints(ps pdata.HistogramDataPointSlice, newLabelMap pdata.StringMap) {
+ 	for i := 0; i < ps.Len(); i++ {
+ 		joinStringMaps(newLabelMap, ps.At(i).LabelsMap())

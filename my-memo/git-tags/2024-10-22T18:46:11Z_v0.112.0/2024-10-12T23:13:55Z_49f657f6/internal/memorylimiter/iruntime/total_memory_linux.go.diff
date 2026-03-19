@@ -1,0 +1,11 @@
+diff --git a/internal/memorylimiter/iruntime/total_memory_linux.go b/internal/memorylimiter/iruntime/total_memory_linux.go
+index 2380f5e16..526fefbb1 100644
+--- a/internal/memorylimiter/iruntime/total_memory_linux.go
++++ b/internal/memorylimiter/iruntime/total_memory_linux.go
+@@ -49,5 +49,6 @@ func TotalMemory() (uint64, error) {
+ 		return totalMem, nil
+ 	}
+ 
++	// nolint:gosec
+ 	return uint64(memoryQuota), nil
+ }

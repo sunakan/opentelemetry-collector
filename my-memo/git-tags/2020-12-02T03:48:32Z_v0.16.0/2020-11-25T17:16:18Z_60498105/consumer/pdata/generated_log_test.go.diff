@@ -1,0 +1,22 @@
+diff --git a/consumer/pdata/generated_log_test.go b/consumer/pdata/generated_log_test.go
+index 502171f24..e9360a7f6 100644
+--- a/consumer/pdata/generated_log_test.go
++++ b/consumer/pdata/generated_log_test.go
+@@ -310,9 +310,6 @@ func TestInstrumentationLibraryLogs_CopyTo(t *testing.T) {
+ func TestInstrumentationLibraryLogs_InstrumentationLibrary(t *testing.T) {
+ 	ms := NewInstrumentationLibraryLogs()
+ 	ms.InitEmpty()
+-	assert.True(t, ms.InstrumentationLibrary().IsNil())
+-	ms.InstrumentationLibrary().InitEmpty()
+-	assert.False(t, ms.InstrumentationLibrary().IsNil())
+ 	fillTestInstrumentationLibrary(ms.InstrumentationLibrary())
+ 	assert.EqualValues(t, generateTestInstrumentationLibrary(), ms.InstrumentationLibrary())
+ }
+@@ -596,7 +593,6 @@ func generateTestInstrumentationLibraryLogs() InstrumentationLibraryLogs {
+ }
+ 
+ func fillTestInstrumentationLibraryLogs(tv InstrumentationLibraryLogs) {
+-	tv.InstrumentationLibrary().InitEmpty()
+ 	fillTestInstrumentationLibrary(tv.InstrumentationLibrary())
+ 	fillTestLogSlice(tv.Logs())
+ }

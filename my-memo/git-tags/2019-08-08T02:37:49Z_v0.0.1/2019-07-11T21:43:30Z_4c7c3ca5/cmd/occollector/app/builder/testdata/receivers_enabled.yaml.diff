@@ -1,0 +1,12 @@
+diff --git a/cmd/occollector/app/builder/testdata/receivers_enabled.yaml b/cmd/occollector/app/builder/testdata/receivers_enabled.yaml
+deleted file mode 100644
+index 0c011be00..000000000
+--- a/cmd/occollector/app/builder/testdata/receivers_enabled.yaml
++++ /dev/null
+@@ -1,6 +0,0 @@
+-# Enable receivers with default configuration
+-receivers:
+-  jaeger: {} 
+-  opencensus: {}
+-  zipkin: {}
+-  zipkin-scribe: {}

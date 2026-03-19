@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/config.go b/exporter/otlpexporter/config.go
+index 060622cec..2507cf055 100644
+--- a/exporter/otlpexporter/config.go
++++ b/exporter/otlpexporter/config.go
+@@ -29,3 +29,10 @@ type Config struct {
+ 
+ 	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

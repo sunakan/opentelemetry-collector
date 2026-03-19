@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 5a4522fae..56ea7a3d7 100644
+--- a/Makefile
++++ b/Makefile
+@@ -61,7 +61,7 @@ testbed-loadtest: otelcol
+ 
+ .PHONY: testbed-correctness
+ testbed-correctness: otelcol
+-	cd ./testbed/correctness && ./runtests.sh
++	cd ./testbed/correctness/traces && ./runtests.sh
+ 
+ .PHONY: testbed-list-loadtest
+ testbed-list-loadtest:

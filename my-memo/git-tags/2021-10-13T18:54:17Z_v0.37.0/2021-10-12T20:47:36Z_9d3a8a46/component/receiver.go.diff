@@ -1,0 +1,13 @@
+diff --git a/component/receiver.go b/component/receiver.go
+index fcc0cec44..18096f16d 100644
+--- a/component/receiver.go
++++ b/component/receiver.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package component
++package component // import "go.opentelemetry.io/collector/component"
+ 
+ import (
+ 	"context"

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exemplarslice.go b/pdata/pmetric/generated_exemplarslice.go
+index bc25d001d..24f54d61d 100644
+--- a/pdata/pmetric/generated_exemplarslice.go
++++ b/pdata/pmetric/generated_exemplarslice.go
+@@ -145,5 +145,8 @@ func (es ExemplarSlice) RemoveIf(f func(Exemplar) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ExemplarSlice) CopyTo(dest ExemplarSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigExemplarSlice(*dest.orig, *es.orig)
+ }

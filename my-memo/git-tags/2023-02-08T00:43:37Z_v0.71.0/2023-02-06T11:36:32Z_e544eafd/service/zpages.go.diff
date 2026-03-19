@@ -1,0 +1,13 @@
+diff --git a/service/zpages.go b/service/zpages.go
+index c6a7760f3..669070f22 100644
+--- a/service/zpages.go
++++ b/service/zpages.go
+@@ -99,7 +99,7 @@ type zpagesPipeline interface {
+ 	mutatesData() bool
+ }
+ 
+-func handleZPages(w http.ResponseWriter, r *http.Request, pipes map[component.ID]zpagesPipeline) {
++func handleZPages[V zpagesPipeline](w http.ResponseWriter, r *http.Request, pipes map[component.ID]V) {
+ 	qValues := r.URL.Query()
+ 	pipelineName := qValues.Get(zPipelineName)
+ 	componentName := qValues.Get(zComponentName)

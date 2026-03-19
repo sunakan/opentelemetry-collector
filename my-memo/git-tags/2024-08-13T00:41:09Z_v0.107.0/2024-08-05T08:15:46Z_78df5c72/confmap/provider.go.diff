@@ -1,0 +1,16 @@
+diff --git a/confmap/provider.go b/confmap/provider.go
+index 3338d72bd..b78221d34 100644
+--- a/confmap/provider.go
++++ b/confmap/provider.go
+@@ -137,6 +137,11 @@ func withStringRepresentation(stringRepresentation string) RetrievedOption {
+ func NewRetrievedFromYAML(yamlBytes []byte, opts ...RetrievedOption) (*Retrieved, error) {
+ 	var rawConf any
+ 	if err := yaml.Unmarshal(yamlBytes, &rawConf); err != nil {
++		if globalgates.StrictlyTypedInputGate.IsEnabled() {
++			// If the string is not valid YAML, we try to use it verbatim as a string.
++			strRep := string(yamlBytes)
++			return NewRetrieved(strRep, append(opts, withStringRepresentation(strRep))...)
++		}
+ 		return nil, err
+ 	}
+ 

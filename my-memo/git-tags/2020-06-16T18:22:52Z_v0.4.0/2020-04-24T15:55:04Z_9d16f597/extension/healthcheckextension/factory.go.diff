@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/factory.go b/extension/healthcheckextension/factory.go
+index 72f79f927..eb09a68e1 100644
+--- a/extension/healthcheckextension/factory.go
++++ b/extension/healthcheckextension/factory.go
+@@ -33,7 +33,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

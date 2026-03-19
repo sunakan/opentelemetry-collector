@@ -1,0 +1,30 @@
+diff --git a/service/pipelines_test.go b/service/pipelines_test.go
+index 2a0ac3934..16734a127 100644
+--- a/service/pipelines_test.go
++++ b/service/pipelines_test.go
+@@ -28,6 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/exporter"
++	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/service/internal/testcomponents"
+ )
+@@ -290,7 +291,7 @@ func TestBuildPipelines(t *testing.T) {
+ func TestBuildErrors(t *testing.T) {
+ 	nopReceiverFactory := componenttest.NewNopReceiverFactory()
+ 	nopProcessorFactory := componenttest.NewNopProcessorFactory()
+-	nopExporterFactory := componenttest.NewNopExporterFactory()
++	nopExporterFactory := exportertest.NewNopFactory()
+ 	badReceiverFactory := newBadReceiverFactory()
+ 	badProcessorFactory := newBadProcessorFactory()
+ 	badExporterFactory := newBadExporterFactory()
+@@ -606,7 +607,7 @@ func TestFailToStartAndShutdown(t *testing.T) {
+ 	errExporterFactory := newErrExporterFactory()
+ 	nopReceiverFactory := componenttest.NewNopReceiverFactory()
+ 	nopProcessorFactory := componenttest.NewNopProcessorFactory()
+-	nopExporterFactory := componenttest.NewNopExporterFactory()
++	nopExporterFactory := exportertest.NewNopFactory()
+ 
+ 	set := pipelinesSettings{
+ 		Telemetry: componenttest.NewNopTelemetrySettings(),

@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go b/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
+index 05e4424af..c0b6d0e98 100644
+--- a/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
++++ b/pdata/internal/generated_wrapper_exporttracepartialsuccess_test.go
+@@ -50,9 +50,9 @@ func TestMarshalAndUnmarshalJSONOrigExportTracePartialSuccess(t *testing.T) {
+ func TestMarshalAndUnmarshalProtoOrigExportTracePartialSuccess(t *testing.T) {
+ 	src := &otlpcollectortrace.ExportTracePartialSuccess{}
+ 	FillOrigTestExportTracePartialSuccess(src)
+-	buf, err := MarshalProtoOrigExportTracePartialSuccess(src)
+-	require.NoError(t, err)
+-	assert.Equal(t, len(buf), SizeProtoOrigExportTracePartialSuccess(src))
++	buf := make([]byte, SizeProtoOrigExportTracePartialSuccess(src))
++	gotSize := MarshalProtoOrigExportTracePartialSuccess(src, buf)
++	assert.Equal(t, len(buf), gotSize)
+ 
+ 	dest := &otlpcollectortrace.ExportTracePartialSuccess{}
+ 	require.NoError(t, UnmarshalProtoOrigExportTracePartialSuccess(dest, buf))
+@@ -61,9 +61,9 @@ func TestMarshalAndUnmarshalProtoOrigExportTracePartialSuccess(t *testing.T) {
+ 
+ func TestMarshalAndUnmarshalProtoOrigEmptyExportTracePartialSuccess(t *testing.T) {
+ 	src := &otlpcollectortrace.ExportTracePartialSuccess{}
+-	buf, err := MarshalProtoOrigExportTracePartialSuccess(src)
+-	require.NoError(t, err)
+-	assert.Equal(t, len(buf), SizeProtoOrigExportTracePartialSuccess(src))
++	buf := make([]byte, SizeProtoOrigExportTracePartialSuccess(src))
++	gotSize := MarshalProtoOrigExportTracePartialSuccess(src, buf)
++	assert.Equal(t, len(buf), gotSize)
+ 
+ 	dest := &otlpcollectortrace.ExportTracePartialSuccess{}
+ 	require.NoError(t, UnmarshalProtoOrigExportTracePartialSuccess(dest, buf))

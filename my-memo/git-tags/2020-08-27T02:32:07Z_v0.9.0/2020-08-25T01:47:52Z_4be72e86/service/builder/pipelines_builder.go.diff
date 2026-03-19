@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder.go b/service/builder/pipelines_builder.go
+index ec82789fa..b15371b35 100644
+--- a/service/builder/pipelines_builder.go
++++ b/service/builder/pipelines_builder.go
+@@ -330,7 +330,7 @@ func createLogsProcessor(
+ 	cfg configmodels.Processor,
+ 	nextConsumer consumer.LogsConsumer,
+ ) (component.LogsProcessor, error) {
+-	factory, ok := factoryBase.(component.LogsProcessorFactory)
++	factory, ok := factoryBase.(component.ProcessorFactory)
+ 	if !ok {
+ 		return nil, fmt.Errorf("processor %q does support data type %q",
+ 			cfg.Name(), configmodels.LogsDataType)

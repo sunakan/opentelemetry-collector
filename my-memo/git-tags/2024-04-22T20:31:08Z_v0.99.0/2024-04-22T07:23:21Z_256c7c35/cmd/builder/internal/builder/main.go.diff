@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 5acfd2275..c3458b890 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -235,7 +235,8 @@ func (c *Config) allComponents() []Module {
+ 		append(c.Receivers,
+ 			append(c.Processors,
+ 				append(c.Extensions,
+-					c.Connectors...)...)...)...)
++					append(c.Connectors,
++						*c.Providers...)...)...)...)...)
+ }
+ 
+ func (c *Config) readGoModFile() (string, map[string]string, error) {

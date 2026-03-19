@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_processor.go b/obsreport/obsreport_processor.go
+index fe48b2a24..fdc492211 100644
+--- a/obsreport/obsreport_processor.go
++++ b/obsreport/obsreport_processor.go
+@@ -49,8 +49,6 @@ type Processor struct {
+ 
+ // ProcessorSettings are settings for creating a Processor.
+ type ProcessorSettings struct {
+-	// Deprecated: [v0.58.0] set the level in the ProcessorSettings.ProcessorCreateSettings.
+-	Level                   configtelemetry.Level
+ 	ProcessorID             config.ComponentID
+ 	ProcessorCreateSettings component.ProcessorCreateSettings
+ }

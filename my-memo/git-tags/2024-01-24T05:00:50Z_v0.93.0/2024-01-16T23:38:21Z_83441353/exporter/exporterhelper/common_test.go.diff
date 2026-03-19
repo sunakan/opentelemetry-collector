@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 13568ffb4..bbc009fb7 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -9,7 +9,6 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+-	"go.opencensus.io/tag"
+ 	"go.opentelemetry.io/otel/codes"
+ 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+ 	"go.uber.org/zap"
+@@ -29,10 +28,6 @@ var (
+ 		set.ID = defaultID
+ 		return set
+ 	}()
+-	exporterTag, _      = tag.NewKey("exporter")
+-	defaultExporterTags = []tag.Tag{
+-		{Key: exporterTag, Value: "test"},
+-	}
+ )
+ 
+ func newNoopObsrepSender(_ *ObsReport) requestSender {

@@ -1,0 +1,17 @@
+diff --git a/processor/memorylimiterprocessor/generated_component_test.go b/processor/memorylimiterprocessor/generated_component_test.go
+index 8cedb2a48..908970c78 100644
+--- a/processor/memorylimiterprocessor/generated_component_test.go
++++ b/processor/memorylimiterprocessor/generated_component_test.go
+@@ -69,6 +69,12 @@ func TestComponentLifecycle(t *testing.T) {
+ 	require.NoError(t, sub.Unmarshal(&cfg))
+ 
+ 	for _, tt := range tests {
++		t.Run(tt.name+"-shutdown", func(t *testing.T) {
++			c, err := tt.createFn(context.Background(), processortest.NewNopSettings(typ), cfg)
++			require.NoError(t, err)
++			err = c.Shutdown(context.Background())
++			require.NoError(t, err)
++		})
+ 		t.Run(tt.name+"-lifecycle", func(t *testing.T) {
+ 			c, err := tt.createFn(context.Background(), processortest.NewNopSettings(typ), cfg)
+ 			require.NoError(t, err)

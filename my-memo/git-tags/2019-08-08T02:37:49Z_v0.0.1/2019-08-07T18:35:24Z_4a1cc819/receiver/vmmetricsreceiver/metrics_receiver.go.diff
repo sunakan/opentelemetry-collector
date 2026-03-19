@@ -1,0 +1,13 @@
+diff --git a/receiver/vmmetricsreceiver/metrics_receiver.go b/receiver/vmmetricsreceiver/metrics_receiver.go
+index 8c2297bc6..96f6b78ba 100644
+--- a/receiver/vmmetricsreceiver/metrics_receiver.go
++++ b/receiver/vmmetricsreceiver/metrics_receiver.go
+@@ -26,6 +26,8 @@ var (
+ 	errAlreadyStopped = errors.New("already stopped")
+ )
+ 
++var _ receiver.MetricsReceiver = (*Receiver)(nil)
++
+ // Receiver is the type used to handle metrics from VM metrics.
+ type Receiver struct {
+ 	mu sync.Mutex

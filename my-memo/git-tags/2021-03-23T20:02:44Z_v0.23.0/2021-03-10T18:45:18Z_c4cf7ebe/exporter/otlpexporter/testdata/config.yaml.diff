@@ -1,0 +1,24 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index c889a7af6..0333234ba 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -1,8 +1,8 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+   otlp:
+@@ -36,6 +36,6 @@ exporters:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      processors: [nop]
+       exporters: [otlp]

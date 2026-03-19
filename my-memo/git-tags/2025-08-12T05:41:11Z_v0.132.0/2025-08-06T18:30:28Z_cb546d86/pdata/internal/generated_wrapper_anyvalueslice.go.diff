@@ -1,0 +1,39 @@
+diff --git a/pdata/internal/generated_wrapper_anyvalueslice.go b/pdata/internal/generated_wrapper_anyvalueslice.go
+index fd1619e46..3ed84b339 100644
+--- a/pdata/internal/generated_wrapper_anyvalueslice.go
++++ b/pdata/internal/generated_wrapper_anyvalueslice.go
+@@ -29,19 +29,9 @@ func NewSlice(orig *[]otlpcommon.AnyValue, state *State) Slice {
+ }
+ 
+ func GenerateTestSlice() Slice {
+-	orig := []otlpcommon.AnyValue(nil)
++	orig := GenerateOrigTestAnyValueSlice()
+ 	state := StateMutable
+-	es := NewSlice(&orig, &state)
+-	FillTestSlice(es)
+-	return es
+-}
+-
+-func FillTestSlice(es Slice) {
+-	*es.orig = make([]otlpcommon.AnyValue, 7)
+-	for i := 0; i < 7; i++ {
+-		(*es.orig)[i] = otlpcommon.AnyValue{}
+-		FillTestValue(NewValue(&(*es.orig)[i], es.state))
+-	}
++	return NewSlice(&orig, &state)
+ }
+ 
+ // MarshalJSONStreamSlice marshals all properties from the current struct to the destination stream.
+@@ -83,3 +73,12 @@ func CopyOrigAnyValueSlice(dest, src []otlpcommon.AnyValue) []otlpcommon.AnyValu
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestAnyValueSlice() []otlpcommon.AnyValue {
++	orig := make([]otlpcommon.AnyValue, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = otlpcommon.AnyValue{}
++		FillOrigTestAnyValue(&orig[i])
++	}
++	return orig
++}

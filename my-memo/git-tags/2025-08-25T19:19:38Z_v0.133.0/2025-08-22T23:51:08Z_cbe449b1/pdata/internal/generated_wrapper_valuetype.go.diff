@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_valuetype.go b/pdata/internal/generated_wrapper_valuetype.go
+index 8396b707d..b0b79601d 100644
+--- a/pdata/internal/generated_wrapper_valuetype.go
++++ b/pdata/internal/generated_wrapper_valuetype.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolValueType = sync.Pool{
+-	New: func() any {
+-		return &otlpprofiles.ValueType{}
+-	},
+-}
++var (
++	protoPoolValueType = sync.Pool{
++		New: func() any {
++			return &otlpprofiles.ValueType{}
++		},
++	}
++)
+ 
+ func NewOrigValueType() *otlpprofiles.ValueType {
+ 	if !UseProtoPooling.IsEnabled() {

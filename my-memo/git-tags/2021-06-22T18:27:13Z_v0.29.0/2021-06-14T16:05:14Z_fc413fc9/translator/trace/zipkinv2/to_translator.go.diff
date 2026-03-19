@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv2/to_translator.go b/translator/trace/zipkinv2/to_translator.go
+index 0d1c429e4..0eafcd5cb 100644
+--- a/translator/trace/zipkinv2/to_translator.go
++++ b/translator/trace/zipkinv2/to_translator.go
+@@ -33,7 +33,7 @@ import (
+ 	"go.opentelemetry.io/collector/internal/occonventions"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+-	"go.opentelemetry.io/collector/translator/trace/zipkin"
++	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"
+ )
+ 
+ var _ model.ToTracesTranslator = (*ToTranslator)(nil)

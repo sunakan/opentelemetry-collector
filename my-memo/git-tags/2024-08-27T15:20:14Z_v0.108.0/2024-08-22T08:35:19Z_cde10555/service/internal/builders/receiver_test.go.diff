@@ -1,0 +1,31 @@
+diff --git a/service/internal/builders/receiver_test.go b/service/internal/builders/receiver_test.go
+index ea7c28179..ba355de5e 100644
+--- a/service/internal/builders/receiver_test.go
++++ b/service/internal/builders/receiver_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
+-func TestBuilder(t *testing.T) {
++func TestReceiverBuilder(t *testing.T) {
+ 	defaultCfg := struct{}{}
+ 	factories, err := receiver.MakeFactoryMap([]receiver.Factory{
+ 		receiver.NewFactory(component.MustNewType("err"), nil),
+@@ -115,7 +115,7 @@ func TestBuilder(t *testing.T) {
+ 	}
+ }
+ 
+-func TestBuilderMissingConfig(t *testing.T) {
++func TestReceiverBuilderMissingConfig(t *testing.T) {
+ 	defaultCfg := struct{}{}
+ 	factories, err := receiver.MakeFactoryMap([]receiver.Factory{
+ 		receiver.NewFactory(
+@@ -145,7 +145,7 @@ func TestBuilderMissingConfig(t *testing.T) {
+ 	assert.Nil(t, le)
+ }
+ 
+-func TestBuilderFactory(t *testing.T) {
++func TestReceiverBuilderFactory(t *testing.T) {
+ 	factories, err := receiver.MakeFactoryMap([]receiver.Factory{receiver.NewFactory(component.MustNewType("foo"), nil)}...)
+ 	require.NoError(t, err)
+ 

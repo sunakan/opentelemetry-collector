@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint.go b/pdata/pmetric/generated_numberdatapoint.go
+index 0b97545c6..13e7981d5 100644
+--- a/pdata/pmetric/generated_numberdatapoint.go
++++ b/pdata/pmetric/generated_numberdatapoint.go
+@@ -45,8 +45,8 @@ func (ms NumberDataPoint) MoveTo(dest NumberDataPoint) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpmetrics.NumberDataPoint{}
++	internal.DeleteOrigNumberDataPoint(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Attributes returns the Attributes associated with this NumberDataPoint.

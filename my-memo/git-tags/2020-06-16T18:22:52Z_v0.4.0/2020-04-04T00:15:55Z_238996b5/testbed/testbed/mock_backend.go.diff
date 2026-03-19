@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index 702ca8450..e0a8de90e 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -64,10 +64,6 @@ func NewMockBackend(logFilePath string, receiver DataReceiver) *MockBackend {
+ 	return mb
+ }
+ 
+-func (mb *MockBackend) Context() context.Context {
+-	return context.Background()
+-}
+-
+ func (mb *MockBackend) ReportFatalError(err error) {
+ 	log.Printf("Fatal error reported: %v", err)
+ }

@@ -1,0 +1,26 @@
+diff --git a/vendor/google.golang.org/appengine/timeout.go b/vendor/google.golang.org/appengine/timeout.go
+deleted file mode 100644
+index 05642a992..000000000
+--- a/vendor/google.golang.org/appengine/timeout.go
++++ /dev/null
+@@ -1,20 +0,0 @@
+-// Copyright 2013 Google Inc. All rights reserved.
+-// Use of this source code is governed by the Apache 2.0
+-// license that can be found in the LICENSE file.
+-
+-package appengine
+-
+-import "golang.org/x/net/context"
+-
+-// IsTimeoutError reports whether err is a timeout error.
+-func IsTimeoutError(err error) bool {
+-	if err == context.DeadlineExceeded {
+-		return true
+-	}
+-	if t, ok := err.(interface {
+-		IsTimeout() bool
+-	}); ok {
+-		return t.IsTimeout()
+-	}
+-	return false
+-}

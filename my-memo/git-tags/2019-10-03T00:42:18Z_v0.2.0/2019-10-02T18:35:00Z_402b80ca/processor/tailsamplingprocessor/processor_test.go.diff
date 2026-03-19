@@ -1,0 +1,12 @@
+diff --git a/processor/tailsamplingprocessor/processor_test.go b/processor/tailsamplingprocessor/processor_test.go
+index b733f542c..d9f9139ed 100644
+--- a/processor/tailsamplingprocessor/processor_test.go
++++ b/processor/tailsamplingprocessor/processor_test.go
+@@ -327,3 +327,7 @@ func (p *mockSpanProcessor) ConsumeTraceData(ctx context.Context, td consumerdat
+ 	p.TotalSpans += batchSize
+ 	return nil
+ }
++
++func (p *mockSpanProcessor) GetCapabilities() processor.Capabilities {
++	return processor.Capabilities{MutatesConsumedData: false}
++}

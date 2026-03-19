@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 70eb59546..4f2e4d7a8 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -303,7 +303,7 @@ func (app *Application) execute(ctx context.Context, factory ConfigFactory) erro
+ 	app.stateChannel <- Closed
+ 	close(app.stateChannel)
+ 
+-	return consumererror.CombineErrors(errs)
++	return consumererror.Combine(errs)
+ }
+ 
+ // Run starts the collector according to the command and configuration

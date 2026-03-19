@@ -1,0 +1,15 @@
+diff --git a/receiver/opencensusreceiver/factory_test.go b/receiver/opencensusreceiver/factory_test.go
+index 2a049ac80..9601c8b6a 100644
+--- a/receiver/opencensusreceiver/factory_test.go
++++ b/receiver/opencensusreceiver/factory_test.go
+@@ -26,9 +26,9 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/receivertest"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

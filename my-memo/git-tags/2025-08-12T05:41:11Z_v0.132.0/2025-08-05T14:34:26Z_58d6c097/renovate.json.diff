@@ -1,0 +1,13 @@
+diff --git a/renovate.json b/renovate.json
+index 788130bcf..e8cd735b3 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -79,7 +79,7 @@
+       "matchSourceUrls": [
+         "https://go.opentelemetry.io/otel{/,}**"
+       ],
+-      "ignoreVersions": ["v0.59.0", "v0.59.1"]
++      "allowedVersions": "!/v0.59.*/"
+     },
+     {
+       "matchManagers": [

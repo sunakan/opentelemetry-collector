@@ -1,0 +1,13 @@
+diff --git a/examples/k8s/otel-config.yaml b/examples/k8s/otel-config.yaml
+index 7e61d01ba..e942bd457 100644
+--- a/examples/k8s/otel-config.yaml
++++ b/examples/k8s/otel-config.yaml
+@@ -206,7 +206,7 @@ spec:
+                 apiVersion: v1
+                 fieldPath: status.podIP
+           - name: GOMEMLIMIT
+-              value: 1600MiB
++            value: 1600MiB
+         volumeMounts:
+         - name: otel-collector-config-vol
+           mountPath: /conf

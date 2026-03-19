@@ -1,0 +1,13 @@
+diff --git a/internal/internalconsumertest/err_or_sink_consumer.go b/internal/internalconsumertest/err_or_sink_consumer.go
+index 8c01f84d0..ddb2ca5cb 100644
+--- a/internal/internalconsumertest/err_or_sink_consumer.go
++++ b/internal/internalconsumertest/err_or_sink_consumer.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type ErrOrSinkConsumer struct {

@@ -1,0 +1,17 @@
+diff --git a/processor/batchprocessor/internal/metadata/generated_status.go b/processor/batchprocessor/internal/metadata/generated_status.go
+index eb9c10bda..2ccbff8e2 100644
+--- a/processor/batchprocessor/internal/metadata/generated_status.go
++++ b/processor/batchprocessor/internal/metadata/generated_status.go
+@@ -9,8 +9,11 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++var (
++	Type = component.MustNewType("batch")
++)
++
+ const (
+-	Type             = "batch"
+ 	TracesStability  = component.StabilityLevelBeta
+ 	MetricsStability = component.StabilityLevelBeta
+ 	LogsStability    = component.StabilityLevelBeta

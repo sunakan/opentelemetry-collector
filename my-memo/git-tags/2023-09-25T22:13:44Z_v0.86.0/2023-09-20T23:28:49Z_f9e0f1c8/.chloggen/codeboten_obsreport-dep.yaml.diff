@@ -1,0 +1,17 @@
+diff --git a/.chloggen/codeboten_obsreport-dep.yaml b/.chloggen/codeboten_obsreport-dep.yaml
+index 1f137e88b..dc524453e 100755
+--- a/.chloggen/codeboten_obsreport-dep.yaml
++++ b/.chloggen/codeboten_obsreport-dep.yaml
+@@ -17,9 +17,9 @@ issues: [8492]
+ # Use pipe (|) for multiline entries.
+ subtext: |
+   These deprecated methods/structs have been moved to exporterhelper:
+-  - `obsreport.Exporter` -> `exporterhelper.Exporter`
+-  - `obsreport.ExporterSettings` -> `exporterhelper.Settings`
+-  - `obsreport.NewExporter` -> `exporterhelper.New`
++  - `obsreport.Exporter` -> `exporterhelper.ObsReport`
++  - `obsreport.ExporterSettings` -> `exporterhelper.ObsReportSettings`
++  - `obsreport.NewExporter` -> `exporterhelper.NewObsReport`
+ 
+ # Optional: The change log or logs in which this entry should be included.
+ # e.g. '[user]' or '[user, api]'

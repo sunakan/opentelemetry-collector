@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/README.md b/connector/forwardconnector/README.md
+index bf71e5785..413b87a74 100644
+--- a/connector/forwardconnector/README.md
++++ b/connector/forwardconnector/README.md
+@@ -129,7 +129,7 @@ service:
+       # - forward
+   # traces/log:
+   #   receivers: [forward]
+-  #   exporters: [logging]
++  #   exporters: [debug]
+ ```
+ 
+ [Connectors README]:../README.md

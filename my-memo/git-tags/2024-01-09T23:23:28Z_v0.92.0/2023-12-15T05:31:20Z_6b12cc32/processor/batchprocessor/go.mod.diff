@@ -1,0 +1,10 @@
+diff --git a/processor/batchprocessor/go.mod b/processor/batchprocessor/go.mod
+index d875971fc..75f876c84 100644
+--- a/processor/batchprocessor/go.mod
++++ b/processor/batchprocessor/go.mod
+@@ -88,3 +88,5 @@ retract (
+ )
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
++
++replace go.opentelemetry.io/collector/config/configretry => ../../config/configretry

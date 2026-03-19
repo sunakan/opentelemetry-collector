@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+index 07f9a0b47..9e9d8a144 100644
+--- a/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -127,10 +127,11 @@ var metric = &messageValueStruct{
+ 			testVal:         `"1"`,
+ 		},
+ 		&oneOfField{
+-			typeName:         "MetricDataType",
+-			originFieldName:  "Data",
+-			originTypePrefix: "otlpmetrics.Metric_",
+-			testValueIdx:     1, // Sum
++			typeName:                   "MetricType",
++			originFieldName:            "Data",
++			originTypePrefix:           "otlpmetrics.Metric_",
++			testValueIdx:               1, // Sum
++			omitOriginFieldNameInNames: true,
+ 			values: []oneOfValue{
+ 				&oneOfMessageValue{
+ 					fieldName:              "Gauge",

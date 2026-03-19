@@ -1,0 +1,22 @@
+diff --git a/exporter/fileexporter/file_exporter.go b/exporter/fileexporter/file_exporter.go
+index f1f647be0..75705ec79 100644
+--- a/exporter/fileexporter/file_exporter.go
++++ b/exporter/fileexporter/file_exporter.go
+@@ -225,10 +225,13 @@ func (e *Exporter) ConsumeLogs(ctx context.Context, ld data.Logs) error {
+ 			return err
+ 		}
+ 
+-		for _, log := range rl.Logs {
+-			if log != nil {
+-				if err := jw.MarshalArrayItem(log); err != nil {
+-					return err
++		for _, ill := range rl.InstrumentationLibraryLogs {
++			// TODO: output ill.InstrumentationLibrary
++			for _, log := range ill.Logs {
++				if log != nil {
++					if err := jw.MarshalArrayItem(log); err != nil {
++						return err
++					}
+ 				}
+ 			}
+ 		}

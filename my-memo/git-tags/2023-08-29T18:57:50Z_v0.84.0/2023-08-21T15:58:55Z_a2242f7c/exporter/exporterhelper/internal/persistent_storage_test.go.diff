@@ -1,0 +1,33 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_test.go b/exporter/exporterhelper/internal/persistent_storage_test.go
+index b27836fd2..5d33fc110 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_test.go
+@@ -36,7 +36,13 @@ func createTestClient(extension storage.Extension) storage.Client {
+ }
+ 
+ func createTestPersistentStorageWithLoggingAndCapacity(client storage.Client, logger *zap.Logger, capacity uint64) *persistentContiguousStorage {
+-	return newPersistentContiguousStorage(context.Background(), "foo", capacity, logger, client, newFakeTracesRequestUnmarshalerFunc())
++	return newPersistentContiguousStorage(context.Background(), "foo", PersistentQueueSettings{
++		Capacity:    capacity,
++		Logger:      logger,
++		Client:      client,
++		Unmarshaler: newFakeTracesRequestUnmarshalerFunc(),
++		Marshaler:   newFakeTracesRequestMarshalerFunc(),
++	})
+ }
+ 
+ func createTestPersistentStorage(client storage.Client) *persistentContiguousStorage {
+@@ -82,6 +88,13 @@ func newFakeTracesRequestUnmarshalerFunc() RequestUnmarshaler {
+ 	}
+ }
+ 
++func newFakeTracesRequestMarshalerFunc() RequestMarshaler {
++	return func(req Request) ([]byte, error) {
++		marshaler := ptrace.ProtoMarshaler{}
++		return marshaler.MarshalTraces(req.(*fakeTracesRequest).td)
++	}
++}
++
+ func TestPersistentStorage_CorruptedData(t *testing.T) {
+ 	path := t.TempDir()
+ 

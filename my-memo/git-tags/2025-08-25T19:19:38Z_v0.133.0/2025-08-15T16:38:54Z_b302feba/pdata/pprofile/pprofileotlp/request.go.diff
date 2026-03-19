@@ -1,0 +1,16 @@
+diff --git a/pdata/pprofile/pprofileotlp/request.go b/pdata/pprofile/pprofileotlp/request.go
+index 49ec2b064..6655aef2c 100644
+--- a/pdata/pprofile/pprofileotlp/request.go
++++ b/pdata/pprofile/pprofileotlp/request.go
+@@ -24,10 +24,9 @@ type ExportRequest struct {
+ 
+ // NewExportRequest returns an empty ExportRequest.
+ func NewExportRequest() ExportRequest {
+-	state := internal.StateMutable
+ 	return ExportRequest{
+ 		orig:  &otlpcollectorprofile.ExportProfilesServiceRequest{},
+-		state: &state,
++		state: internal.NewState(),
+ 	}
+ }
+ 

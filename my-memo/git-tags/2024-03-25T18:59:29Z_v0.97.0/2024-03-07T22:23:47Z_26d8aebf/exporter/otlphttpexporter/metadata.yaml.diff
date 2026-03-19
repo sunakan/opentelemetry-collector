@@ -1,0 +1,15 @@
+diff --git a/exporter/otlphttpexporter/metadata.yaml b/exporter/otlphttpexporter/metadata.yaml
+index b40c1e125..5e1c41d32 100644
+--- a/exporter/otlphttpexporter/metadata.yaml
++++ b/exporter/otlphttpexporter/metadata.yaml
+@@ -7,7 +7,7 @@ status:
+     beta: [logs]
+   distributions: [core, contrib]
+ 
+-# TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/9685
+ tests:
+-  skip_lifecycle: true
+-  skip_shutdown: true
++  config:
++    endpoint: "https://1.2.3.4:1234"
++    

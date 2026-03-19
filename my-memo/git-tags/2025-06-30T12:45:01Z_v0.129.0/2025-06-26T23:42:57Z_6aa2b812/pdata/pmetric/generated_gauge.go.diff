@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_gauge.go b/pdata/pmetric/generated_gauge.go
+index 5a21e0439..46ca09fd1 100644
+--- a/pdata/pmetric/generated_gauge.go
++++ b/pdata/pmetric/generated_gauge.go
+@@ -57,5 +57,9 @@ func (ms Gauge) DataPoints() NumberDataPointSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms Gauge) CopyTo(dest Gauge) {
+ 	dest.state.AssertMutable()
+-	ms.DataPoints().CopyTo(dest.DataPoints())
++	copyOrigGauge(dest.orig, ms.orig)
++}
++
++func copyOrigGauge(dest, src *otlpmetrics.Gauge) {
++	dest.DataPoints = copyOrigNumberDataPointSlice(dest.DataPoints, src.DataPoints)
+ }

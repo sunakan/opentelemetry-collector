@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_gauge.go b/pdata/internal/generated_proto_gauge.go
+index e39eb2e79..996d66242 100644
+--- a/pdata/internal/generated_proto_gauge.go
++++ b/pdata/internal/generated_proto_gauge.go
+@@ -43,11 +43,9 @@ func DeleteGauge(orig *Gauge, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.DataPoints {
+ 		DeleteNumberDataPoint(orig.DataPoints[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolGauge.Put(orig)

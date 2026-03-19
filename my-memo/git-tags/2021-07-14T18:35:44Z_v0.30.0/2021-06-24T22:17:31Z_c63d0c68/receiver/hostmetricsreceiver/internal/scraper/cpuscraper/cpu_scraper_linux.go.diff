@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_linux.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_linux.go
+index e8636fe3d..ccf9ad14e 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_linux.go
+@@ -19,7 +19,7 @@ package cpuscraper
+ import (
+ 	"github.com/shirou/gopsutil/cpu"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ )
+ 

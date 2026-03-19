@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopemetrics.go b/pdata/internal/generated_proto_scopemetrics.go
+index 1fac11cbe..42f048a42 100644
+--- a/pdata/internal/generated_proto_scopemetrics.go
++++ b/pdata/internal/generated_proto_scopemetrics.go
+@@ -45,7 +45,6 @@ func DeleteScopeMetrics(orig *ScopeMetrics, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteInstrumentationScope(&orig.Scope, false)
+ 	for i := range orig.Metrics {
+ 		DeleteMetric(orig.Metrics[i], true)

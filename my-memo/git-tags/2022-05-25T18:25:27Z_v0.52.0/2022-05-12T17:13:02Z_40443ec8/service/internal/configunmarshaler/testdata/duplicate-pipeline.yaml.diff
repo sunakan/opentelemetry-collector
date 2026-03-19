@@ -1,0 +1,22 @@
+diff --git a/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml b/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml
+new file mode 100644
+index 000000000..45fc037b7
+--- /dev/null
++++ b/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces /pipe:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]
++    traces/ pipe :
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

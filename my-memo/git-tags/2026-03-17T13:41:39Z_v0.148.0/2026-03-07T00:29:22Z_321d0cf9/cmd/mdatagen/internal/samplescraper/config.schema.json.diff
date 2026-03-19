@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/config.schema.json b/cmd/mdatagen/internal/samplescraper/config.schema.json
+index f48047ae3..bb71e11be 100644
+--- a/cmd/mdatagen/internal/samplescraper/config.schema.json
++++ b/cmd/mdatagen/internal/samplescraper/config.schema.json
+@@ -28,9 +28,6 @@
+     }
+   ],
+   "properties": {
+-    "options": {
+-      "description": "Custom options for the scraper."
+-    },
+     "targets": {
+       "description": "Targets configuration for the scraper.",
+       "type": "array",

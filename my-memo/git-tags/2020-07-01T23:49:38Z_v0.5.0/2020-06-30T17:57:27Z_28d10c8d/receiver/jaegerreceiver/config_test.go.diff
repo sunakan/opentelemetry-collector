@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index 1b87b12d3..0744c3448 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -123,7 +123,7 @@ func TestLoadConfig(t *testing.T) {
+ 			Protocols: Protocols{
+ 				GRPC: &configgrpc.GRPCServerSettings{
+ 					Endpoint: "localhost:9876",
+-					TLSCredentials: &configtls.TLSServerSetting{
++					TLSSetting: &configtls.TLSServerSetting{
+ 						TLSSetting: configtls.TLSSetting{
+ 							CertFile: "/test.crt",
+ 							KeyFile:  "/test.key",

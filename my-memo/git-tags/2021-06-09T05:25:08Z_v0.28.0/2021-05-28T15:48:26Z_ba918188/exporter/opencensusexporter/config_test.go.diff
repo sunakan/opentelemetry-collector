@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index f7f0add58..529537d00 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -36,7 +36,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Exporters[typeStr] = factory
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)

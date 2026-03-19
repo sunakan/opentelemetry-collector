@@ -1,0 +1,37 @@
+diff --git a/renovate.json b/renovate.json
+new file mode 100644
+index 000000000..df04fb366
+--- /dev/null
++++ b/renovate.json
+@@ -0,0 +1,31 @@
++{
++    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
++    "labels": [
++      "dependencies"
++    ],
++    "extends": [
++      "config:base"
++    ],
++    "schedule": ["every tuesday"],
++    "packageRules": [
++      {
++        "matchManagers": ["dockerfile"],
++        "groupName": "dockerfile deps"
++      },
++      {
++        "matchManagers": ["docker-compose"],
++        "groupName": "docker-compose deps"
++      },
++      {
++        "matchManagers": ["github-actions"],
++        "groupName": "github-actions deps"
++      },
++      {
++        "matchManagers": ["gomod"],
++        "matchUpdateTypes": ["minor", "major"]
++      }
++    ],
++    "ignoreDeps": [
++      "github.com/mattn/go-ieproxy"
++    ]
++  }

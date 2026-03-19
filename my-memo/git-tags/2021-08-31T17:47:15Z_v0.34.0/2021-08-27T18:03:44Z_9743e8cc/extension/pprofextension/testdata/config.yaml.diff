@@ -1,0 +1,28 @@
+diff --git a/extension/pprofextension/testdata/config.yaml b/extension/pprofextension/testdata/config.yaml
+deleted file mode 100644
+index 9f5cad076..000000000
+--- a/extension/pprofextension/testdata/config.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-extensions:
+-  pprof:
+-  pprof/1:
+-    endpoint: "0.0.0.0:1777"
+-    block_profile_fraction: 3
+-    mutex_profile_fraction: 5
+-
+-service:
+-  extensions: [pprof/1]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-
+-# Data pipeline is required to load the config.
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:

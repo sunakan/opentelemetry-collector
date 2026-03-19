@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/release-branch.yml b/.github/workflows/release-branch.yml
+index 8df1a1042..0d61af2d2 100644
+--- a/.github/workflows/release-branch.yml
++++ b/.github/workflows/release-branch.yml
+@@ -23,7 +23,7 @@ jobs:
+           fetch-depth: 0
+ 
+       - name: Setup Go
+-        uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
++        uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6.1.0
+         with:
+           go-version: oldstable
+           cache: false

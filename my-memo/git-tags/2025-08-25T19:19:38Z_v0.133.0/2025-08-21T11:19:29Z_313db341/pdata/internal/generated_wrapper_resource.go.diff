@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_resource.go b/pdata/internal/generated_wrapper_resource.go
+index b98e79379..9db21b52f 100644
+--- a/pdata/internal/generated_wrapper_resource.go
++++ b/pdata/internal/generated_wrapper_resource.go
+@@ -70,6 +70,10 @@ func DeleteOrigResource(orig *otlpresource.Resource, nullable bool) {
+ }
+ 
+ func CopyOrigResource(dest, src *otlpresource.Resource) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)
+ 	dest.DroppedAttributesCount = src.DroppedAttributesCount
+ 	dest.EntityRefs = CopyOrigEntityRefSlice(dest.EntityRefs, src.EntityRefs)

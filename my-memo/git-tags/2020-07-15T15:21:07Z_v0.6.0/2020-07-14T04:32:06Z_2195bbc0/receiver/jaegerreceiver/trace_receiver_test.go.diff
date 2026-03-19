@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index ebf6e9469..431eabda2 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -574,7 +574,7 @@ func TestSamplingStrategiesMutualTLS(t *testing.T) {
+ 	port, err := randomAvailablePort()
+ 	require.NoError(t, err)
+ 	hostEndpoint := fmt.Sprintf("localhost:%d", port)
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)
+ 	cfg.RemoteSampling = &RemoteSamplingConfig{
+ 		GRPCClientSettings: configgrpc.GRPCClientSettings{

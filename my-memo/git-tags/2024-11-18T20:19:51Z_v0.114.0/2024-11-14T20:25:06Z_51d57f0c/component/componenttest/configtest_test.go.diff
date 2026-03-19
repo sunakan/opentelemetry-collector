@@ -1,0 +1,14 @@
+diff --git a/component/componenttest/configtest_test.go b/component/componenttest/configtest_test.go
+index 70f776b03..a51df5fce 100644
+--- a/component/componenttest/configtest_test.go
++++ b/component/componenttest/configtest_test.go
+@@ -139,8 +139,7 @@ func TestCheckConfigStruct(t *testing.T) {
+ 			if tt.wantErrMsgSubStr == "" {
+ 				assert.NoError(t, err)
+ 			} else {
+-				require.Error(t, err)
+-				assert.Contains(t, err.Error(), tt.wantErrMsgSubStr)
++				require.ErrorContains(t, err, tt.wantErrMsgSubStr)
+ 			}
+ 		})
+ 	}

@@ -1,0 +1,26 @@
+diff --git a/connector/forwardconnector/internal/metadata/generated_status.go b/connector/forwardconnector/internal/metadata/generated_status.go
+index 9505adb84..201502cd3 100644
+--- a/connector/forwardconnector/internal/metadata/generated_status.go
++++ b/connector/forwardconnector/internal/metadata/generated_status.go
+@@ -10,7 +10,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("forward")
++	Type      = component.MustNewType("forward")
++	scopeName = "go.opentelemetry.io/collector/connector/forwardconnector"
+ )
+ 
+ const (
+@@ -20,9 +21,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("otelcol/forward")
++	return settings.MeterProvider.Meter(scopeName)
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("otelcol/forward")
++	return settings.TracerProvider.Tracer(scopeName)
+ }

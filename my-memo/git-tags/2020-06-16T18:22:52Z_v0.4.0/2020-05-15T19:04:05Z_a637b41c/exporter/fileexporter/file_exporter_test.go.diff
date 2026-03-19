@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/file_exporter_test.go b/exporter/fileexporter/file_exporter_test.go
+index 56be37dc7..09bd22696 100644
+--- a/exporter/fileexporter/file_exporter_test.go
++++ b/exporter/fileexporter/file_exporter_test.go
+@@ -25,7 +25,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
+ )
+ 
+ type mockFile struct {

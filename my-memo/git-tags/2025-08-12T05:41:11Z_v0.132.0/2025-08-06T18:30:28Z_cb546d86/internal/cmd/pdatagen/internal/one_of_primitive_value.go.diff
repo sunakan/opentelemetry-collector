@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_primitive_value.go b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+index ba0a1a364..03bc45495 100644
+--- a/internal/cmd/pdatagen/internal/one_of_primitive_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+@@ -44,7 +44,7 @@ const oneOfPrimitiveAccessorTestTemplate = `func Test{{ .structName }}_{{ .acces
+ }
+ `
+ 
+-const oneOfPrimitiveSetTestTemplate = `tv.orig.{{ .originOneOfFieldName }} = &{{ .originStructName }}_{{ .originFieldName }}{
++const oneOfPrimitiveSetTestTemplate = `orig.{{ .originOneOfFieldName }} = &{{ .originStructName }}_{{ .originFieldName }}{
+ {{- .originFieldName }}: {{ .testValue }}}`
+ 
+ const oneOfPrimitiveCopyOrigTemplate = `case *{{ .originStructName }}_{{ .originFieldName }}:

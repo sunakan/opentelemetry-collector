@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunitslice.go b/pdata/internal/generated_wrapper_attributeunitslice.go
+index 3964113a2..b6a4af2b7 100644
+--- a/pdata/internal/generated_wrapper_attributeunitslice.go
++++ b/pdata/internal/generated_wrapper_attributeunitslice.go
+@@ -25,6 +25,7 @@ func CopyOrigAttributeUnitSlice(dest, src []*otlpprofiles.AttributeUnit) []*otlp
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
++			DeleteOrigAttributeUnit(dest[i], true)
+ 			dest[i] = nil
+ 		}
+ 		// Add new pointers for missing elements.

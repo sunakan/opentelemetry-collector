@@ -1,0 +1,12 @@
+diff --git a/internal/memorylimiter/cgroups/mountpoint.go b/internal/memorylimiter/cgroups/mountpoint.go
+index 28da20fdb..03f2cfa3d 100644
+--- a/internal/memorylimiter/cgroups/mountpoint.go
++++ b/internal/memorylimiter/cgroups/mountpoint.go
+@@ -131,7 +131,6 @@ func NewMountPointFromLine(line string) (*MountPoint, error) {
+ // the host file system path in the mount namespace the *MountPoint belongs to.
+ func (mp *MountPoint) Translate(absPath string) (string, error) {
+ 	relPath, err := filepath.Rel(mp.Root, absPath)
+-
+ 	if err != nil {
+ 		return "", err
+ 	}

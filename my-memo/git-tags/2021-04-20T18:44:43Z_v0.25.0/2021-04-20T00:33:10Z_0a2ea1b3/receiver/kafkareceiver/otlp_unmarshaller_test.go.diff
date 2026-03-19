@@ -1,0 +1,36 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaller_test.go b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+index cd3a77b5f..2259e1f8a 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaller_test.go
++++ b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+@@ -21,6 +21,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ func TestUnmarshallOTLP(t *testing.T) {
+@@ -44,3 +45,23 @@ func TestUnmarshallOTLP_error(t *testing.T) {
+ 	_, err := p.Unmarshal([]byte("+$%"))
+ 	assert.Error(t, err)
+ }
++
++func TestUnmarshallOTLPLogs(t *testing.T) {
++	ld := testdata.GenerateLogDataOneLog()
++
++	expected, err := ld.ToOtlpProtoBytes()
++	require.NoError(t, err)
++
++	p := otlpLogsPbUnmarshaller{}
++	got, err := p.Unmarshal(expected)
++	require.NoError(t, err)
++
++	assert.Equal(t, ld, got)
++	assert.Equal(t, "otlp_proto", p.Encoding())
++}
++
++func TestUnmarshallOTLPLogs_error(t *testing.T) {
++	p := otlpLogsPbUnmarshaller{}
++	_, err := p.Unmarshal([]byte("+$%"))
++	assert.Error(t, err)
++}

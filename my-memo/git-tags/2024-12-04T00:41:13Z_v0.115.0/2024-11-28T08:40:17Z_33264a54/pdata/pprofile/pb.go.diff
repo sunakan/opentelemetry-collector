@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/pb.go b/pdata/pprofile/pb.go
+index b9c8bacd1..5da9ceda2 100644
+--- a/pdata/pprofile/pb.go
++++ b/pdata/pprofile/pb.go
+@@ -5,7 +5,7 @@ package pprofile // import "go.opentelemetry.io/collector/pdata/pprofile"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1experimental"
++	otlpprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ var _ MarshalSizer = (*ProtoMarshaler)(nil)

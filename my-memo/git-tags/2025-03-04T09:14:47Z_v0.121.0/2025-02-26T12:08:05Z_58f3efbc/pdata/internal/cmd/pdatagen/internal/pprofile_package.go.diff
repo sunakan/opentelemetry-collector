@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+index 146743f79..aca1593a0 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -325,6 +325,12 @@ var sample = &messageValueStruct{
+ 			fieldName:   "AttributeIndices",
+ 			returnSlice: int32Slice,
+ 		},
++		&optionalPrimitiveValue{
++			fieldName:  "LinkIndex",
++			returnType: "int32",
++			defaultVal: "int32(0)",
++			testVal:    "int32(1)",
++		},
+ 		&sliceField{
+ 			fieldName:   "TimestampsUnixNano",
+ 			returnSlice: uInt64Slice,

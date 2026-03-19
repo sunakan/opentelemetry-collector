@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index c02b9c860..e3d193aba 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,9 @@
+ 
+ ## Unreleased
+ 
++## 🛑 Breaking changes 🛑
++- Removed `configauth.HTTPClientAuthenticator` and `configauth.GRPCClientAuthenticator` in favor of `configauth.ClientAuthenticator` (#4255)
++
+ ## 🛑 Breaking changes 🛑
+ 
+ - Rename `parserprovider.MapProvider` as `config.MapProvider` (#4178)

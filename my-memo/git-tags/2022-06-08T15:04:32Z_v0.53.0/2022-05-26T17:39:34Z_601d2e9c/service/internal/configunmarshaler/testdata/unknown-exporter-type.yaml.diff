@@ -1,0 +1,22 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-exporter-type.yaml b/service/internal/configunmarshaler/testdata/unknown-exporter-type.yaml
+index df98a241f..5a0074b12 100644
+--- a/service/internal/configunmarshaler/testdata/unknown-exporter-type.yaml
++++ b/service/internal/configunmarshaler/testdata/unknown-exporter-type.yaml
+@@ -1,12 +1,12 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+   nosuchexporter:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      exporters: [nop]
++      processors: [nop]

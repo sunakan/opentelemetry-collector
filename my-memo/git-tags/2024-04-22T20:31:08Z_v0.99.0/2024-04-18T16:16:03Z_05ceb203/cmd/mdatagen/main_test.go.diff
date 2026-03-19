@@ -1,0 +1,49 @@
+diff --git a/cmd/mdatagen/main_test.go b/cmd/mdatagen/main_test.go
+index 695b988cb..a8a4b0021 100644
+--- a/cmd/mdatagen/main_test.go
++++ b/cmd/mdatagen/main_test.go
+@@ -25,6 +25,8 @@ func TestRunContents(t *testing.T) {
+ 		wantStatusGenerated  bool
+ 		wantGoleakIgnore     bool
+ 		wantGoleakSkip       bool
++		wantGoleakSetup      bool
++		wantGoleakTeardown   bool
+ 		wantErr              bool
+ 	}{
+ 		{
+@@ -76,6 +78,16 @@ func TestRunContents(t *testing.T) {
+ 			wantStatusGenerated: true,
+ 			wantGoleakSkip:      true,
+ 		},
++		{
++			yml:                 "with_goleak_setup.yaml",
++			wantStatusGenerated: true,
++			wantGoleakSetup:     true,
++		},
++		{
++			yml:                 "with_goleak_teardown.yaml",
++			wantStatusGenerated: true,
++			wantGoleakTeardown:  true,
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.yml, func(t *testing.T) {
+@@ -156,6 +168,18 @@ foo
+ 				require.NotContains(t, string(contents), "IgnoreTopFunction")
+ 				require.NotContains(t, string(contents), "IgnoreAnyFunction")
+ 			}
++
++			if tt.wantGoleakSetup {
++				require.Contains(t, string(contents), "setupFunc")
++			} else {
++				require.NotContains(t, string(contents), "setupFunc")
++			}
++
++			if tt.wantGoleakTeardown {
++				require.Contains(t, string(contents), "teardownFunc")
++			} else {
++				require.NotContains(t, string(contents), "teardownFunc")
++			}
+ 		})
+ 	}
+ }

@@ -1,0 +1,34 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice.go b/pdata/pmetric/generated_histogramdatapointslice.go
+index 7ee6ef737..ac9e49671 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice.go
++++ b/pdata/pmetric/generated_histogramdatapointslice.go
+@@ -7,6 +7,7 @@
+ package pmetric
+ 
+ import (
++	"iter"
+ 	"sort"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -56,6 +57,21 @@ func (es HistogramDataPointSlice) At(i int) HistogramDataPoint {
+ 	return newHistogramDataPoint((*es.orig)[i], es.state)
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++//
++//	for i, v := range es.All() {
++//	    ... // Do something with index-value pair
++//	}
++func (es HistogramDataPointSlice) All() iter.Seq2[int, HistogramDataPoint] {
++	return func(yield func(int, HistogramDataPoint) bool) {
++		for i := 0; i < es.Len(); i++ {
++			if !yield(i, es.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // EnsureCapacity is an operation that ensures the slice has at least the specified capacity.
+ // 1. If the newCap <= cap then no change in capacity.
+ // 2. If the newCap > cap then the slice capacity will be expanded to equal newCap.

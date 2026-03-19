@@ -1,0 +1,22 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 30087b31c..7cf39d2b1 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/defaults"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
+-	"github.com/open-telemetry/opentelemetry-service/internal/zpagesserver"
++	"github.com/open-telemetry/opentelemetry-service/zpages"
+ )
+ 
+ func TestApplication_StartUnified(t *testing.T) {
+@@ -36,7 +36,7 @@ func TestApplication_StartUnified(t *testing.T) {
+ 
+ 	portArg := []string{
+ 		healthCheckHTTPPort, // Keep it as first since its address is used later.
+-		zpagesserver.ZPagesHTTPPort,
++		zpages.ZPagesHTTPPort,
+ 		"metrics-port",
+ 	}
+ 	addresses := getMultipleAvailableLocalAddresses(t, uint(len(portArg)))

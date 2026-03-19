@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_scopespans.go b/pdata/internal/generated_wrapper_scopespans.go
+index 8277c5a8e..d8778228f 100644
+--- a/pdata/internal/generated_wrapper_scopespans.go
++++ b/pdata/internal/generated_wrapper_scopespans.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolScopeSpans = sync.Pool{
+-	New: func() any {
+-		return &otlptrace.ScopeSpans{}
+-	},
+-}
++var (
++	protoPoolScopeSpans = sync.Pool{
++		New: func() any {
++			return &otlptrace.ScopeSpans{}
++		},
++	}
++)
+ 
+ func NewOrigScopeSpans() *otlptrace.ScopeSpans {
+ 	if !UseProtoPooling.IsEnabled() {

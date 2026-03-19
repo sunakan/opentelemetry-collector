@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index a9ec08078..a5164f4a2 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -45,6 +45,7 @@ const (
+ 	legacyGRPCEndpoint  = "0.0.0.0:55680"
+ )
+ 
++// NewFactory creates a new OTLP receiver factory.
+ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,

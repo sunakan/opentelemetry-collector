@@ -1,0 +1,31 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index 9fbf78fde..786e0bd3b 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -27,6 +27,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+@@ -92,6 +93,10 @@ func (pe *prometheusExporter) Start(_ context.Context, _ component.Host) error {
+ 	return nil
+ }
+ 
++func (pe *prometheusExporter) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ func (pe *prometheusExporter) ConsumeMetrics(ctx context.Context, md pdata.Metrics) error {
+ 	pe.obsrep.StartMetricsExportOp(ctx)
+ 	n := 0
+@@ -104,6 +109,6 @@ func (pe *prometheusExporter) ConsumeMetrics(ctx context.Context, md pdata.Metri
+ 	return nil
+ }
+ 
+-func (pe *prometheusExporter) Shutdown(_ context.Context) error {
++func (pe *prometheusExporter) Shutdown(context.Context) error {
+ 	return pe.shutdownFunc()
+ }

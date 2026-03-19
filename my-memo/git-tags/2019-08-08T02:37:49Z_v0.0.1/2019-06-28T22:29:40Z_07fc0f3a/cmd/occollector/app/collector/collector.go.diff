@@ -1,0 +1,17 @@
+diff --git a/cmd/occollector/app/collector/collector.go b/cmd/occollector/app/collector/collector.go
+index 6ee626b06..4cd254d03 100644
+--- a/cmd/occollector/app/collector/collector.go
++++ b/cmd/occollector/app/collector/collector.go
+@@ -29,11 +29,11 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/cmd/occollector/app/builder"
++	"github.com/open-telemetry/opentelemetry-service/configv2"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/config/viperutils"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/pprofserver"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/zpagesserver"
+-	"github.com/open-telemetry/opentelemetry-service/pkg/configv2"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 

@@ -1,0 +1,76 @@
+diff --git a/translator/trace/jaeger/testdata/ocproto_batch_02.json b/translator/trace/jaeger/testdata/ocproto_batch_02.json
+deleted file mode 100644
+index 8db79571b..000000000
+--- a/translator/trace/jaeger/testdata/ocproto_batch_02.json
++++ /dev/null
+@@ -1,69 +0,0 @@
+-{
+-    "Node": {
+-      "identifier": {},
+-      "library_info": {},
+-      "service_info": {
+-        "name": "api"
+-      }
+-    },
+-    "Resource": null,
+-    "Spans": [
+-      {
+-        "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+-        "span_id": "AAAAAABkfZg=",
+-        "parent_span_id": "AAAAAABoxOM=",
+-        "name": {
+-          "value": "get"
+-        },
+-        "start_time": {
+-          "seconds": 1485467191,
+-          "nanos": 639875000
+-        },
+-        "end_time": {
+-          "seconds": 1485467191,
+-          "nanos": 662813000
+-        },
+-        "attributes": {
+-          "attribute_map": {
+-            "peer.service": {
+-              "Value": {
+-                "StringValue": {
+-                  "value": "AAAAAAAAMDk="
+-                }
+-              }
+-            }
+-          }
+-        }
+-      },
+-      {
+-        "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+-        "span_id": "AAAAAABkfZk=",
+-        "parent_span_id": "AAAAAABoxOM=",
+-        "name": {
+-          "value": "get"
+-        },
+-        "start_time": {
+-          "seconds": 1485467191,
+-          "nanos": 639875000
+-        },
+-        "end_time": {
+-          "seconds": 1485467191,
+-          "nanos": 662813000
+-        },
+-        "links": {
+-          "link": [
+-            {
+-              "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+-              "span_id": "AAAAAABkfZg=",
+-              "type": 2
+-            },
+-            {
+-              "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
+-              "span_id": "AAAAAABoxOM="
+-            }
+-          ]
+-        }
+-      }
+-    ],
+-    "SourceFormat": ""
+-  }
+\ No newline at end of file

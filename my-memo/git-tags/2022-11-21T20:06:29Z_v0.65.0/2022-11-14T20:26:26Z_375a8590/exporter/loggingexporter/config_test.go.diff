@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config_test.go b/exporter/loggingexporter/config_test.go
+index b100d490d..71822c5cc 100644
+--- a/exporter/loggingexporter/config_test.go
++++ b/exporter/loggingexporter/config_test.go
+@@ -108,7 +108,7 @@ func TestValidate(t *testing.T) {
+ 			cfg: &Config{
+ 				Verbosity: configtelemetry.LevelNone,
+ 			},
+-			expectedErr: "verbosity level \"none\" is not supported",
++			expectedErr: "verbosity level \"None\" is not supported",
+ 		},
+ 		{
+ 			name: "verbosity detailed",

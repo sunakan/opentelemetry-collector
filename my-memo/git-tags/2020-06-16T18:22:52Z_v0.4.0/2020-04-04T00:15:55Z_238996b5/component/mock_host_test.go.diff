@@ -1,0 +1,14 @@
+diff --git a/component/mock_host_test.go b/component/mock_host_test.go
+index 63b13a344..57118f6e1 100644
+--- a/component/mock_host_test.go
++++ b/component/mock_host_test.go
+@@ -26,9 +26,6 @@ func TestNewMockHost(t *testing.T) {
+ 	if got == nil {
+ 		t.Fatal("NewMockHost() = nil, want non-nil", got)
+ 	}
+-	if ctx := got.Context(); ctx == nil {
+-		t.Fatalf("Context() = nil, want non-nil")
+-	}
+ 	_, ok := got.(*MockHost)
+ 	if !ok {
+ 		t.Fatal("got.(*MockHost) failed")

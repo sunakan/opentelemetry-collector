@@ -1,0 +1,31 @@
+diff --git a/exporter/prometheusremotewriteexporter/testutil_test.go b/exporter/prometheusremotewriteexporter/testutil_test.go
+index 97d73350e..193b95290 100644
+--- a/exporter/prometheusremotewriteexporter/testutil_test.go
++++ b/exporter/prometheusremotewriteexporter/testutil_test.go
+@@ -94,6 +94,7 @@ var (
+ 	validIntHistogram    = "valid_IntHistogram"
+ 	validDoubleHistogram = "valid_DoubleHistogram"
+ 	validDoubleSummary   = "valid_DoubleSummary"
++	suffixedCounter      = "valid_IntSum_total"
+ 
+ 	validIntGaugeDirty = "*valid_IntGauge$"
+ 
+@@ -136,6 +137,18 @@ var (
+ 				},
+ 			},
+ 		},
++		suffixedCounter: {
++			Name: suffixedCounter,
++			Data: &otlp.Metric_IntSum{
++				IntSum: &otlp.IntSum{
++					DataPoints: []*otlp.IntDataPoint{
++						getIntDataPoint(lbs1, intVal1, time1),
++						nil,
++					},
++					AggregationTemporality: otlp.AggregationTemporality_AGGREGATION_TEMPORALITY_CUMULATIVE,
++				},
++			},
++		},
+ 		validDoubleSum: {
+ 			Name: validDoubleSum,
+ 			Data: &otlp.Metric_DoubleSum{

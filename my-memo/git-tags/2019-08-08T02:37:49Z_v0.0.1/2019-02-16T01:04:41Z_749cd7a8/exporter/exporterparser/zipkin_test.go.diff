@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterparser/zipkin_test.go b/exporter/exporterparser/zipkin_test.go
+index ff06a7679..309c9f9cc 100644
+--- a/exporter/exporterparser/zipkin_test.go
++++ b/exporter/exporterparser/zipkin_test.go
+@@ -35,7 +35,7 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/exporter"
+ 	"github.com/census-instrumentation/opencensus-service/internal/config/viperutils"
+ 	"github.com/census-instrumentation/opencensus-service/internal/testutils"
+-	"github.com/census-instrumentation/opencensus-service/receiver/zipkin"
++	"github.com/census-instrumentation/opencensus-service/receiver/zipkinreceiver"
+ )
+ 
+ func TestZipkinEndpointFromNode(t *testing.T) {

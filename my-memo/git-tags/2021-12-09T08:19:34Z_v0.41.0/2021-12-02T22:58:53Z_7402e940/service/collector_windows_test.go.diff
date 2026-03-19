@@ -1,0 +1,21 @@
+diff --git a/service/collector_windows_test.go b/service/collector_windows_test.go
+index e79d547d8..784a7169d 100644
+--- a/service/collector_windows_test.go
++++ b/service/collector_windows_test.go
+@@ -19,6 +19,7 @@ package service
+ 
+ import (
+ 	"os"
++	"path"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -30,7 +31,7 @@ import (
+ )
+ 
+ func TestWindowsService_Execute(t *testing.T) {
+-	os.Args = []string{"otelcol", "--config", "testdata/otelcol-config.yaml"}
++	os.Args = []string{"otelcol", "--config", path.Join("testdata", "otelcol-config.yaml")}
+ 
+ 	factories, err := defaultcomponents.Components()
+ 	require.NoError(t, err)

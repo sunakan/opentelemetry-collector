@@ -1,0 +1,13 @@
+diff --git a/processor/nodebatcher/node_batcher.go b/processor/nodebatcher/node_batcher.go
+index 9fd04c230..4dad033a2 100644
+--- a/processor/nodebatcher/node_batcher.go
++++ b/processor/nodebatcher/node_batcher.go
+@@ -71,8 +71,6 @@ type batcher struct {
+ 	numTickers        int
+ 	tickTime          time.Duration
+ 	timeout           time.Duration
+-
+-	bucketMu sync.RWMutex
+ }
+ 
+ var _ consumer.TraceConsumer = (*batcher)(nil)

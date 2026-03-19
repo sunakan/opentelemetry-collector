@@ -1,0 +1,24 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index 0ebb0b04d..cb7ccdd4d 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -345,15 +345,11 @@ func TestLoadTLSServerConfigReload(t *testing.T) {
+ 
+ 	overwriteClientCA(t, tmpCaPath, "ca-2.crt")
+ 
+-	assert.Eventually(t, func() bool {
+-		_, loadError := tlsCfg.GetConfigForClient(nil)
+-		return loadError == nil
++	assert.EventuallyWithT(t, func(t *assert.CollectT) {
++		secondClient, err := tlsCfg.GetConfigForClient(nil)
++		require.NoError(t, err)
++		assert.NotEqual(t, firstClient.ClientCAs, secondClient.ClientCAs)
+ 	}, 5*time.Second, 10*time.Millisecond)
+-
+-	secondClient, err := tlsCfg.GetConfigForClient(nil)
+-	require.NoError(t, err)
+-
+-	assert.NotEqual(t, firstClient.ClientCAs, secondClient.ClientCAs)
+ }
+ 
+ func TestLoadTLSServerConfigFailingReload(t *testing.T) {

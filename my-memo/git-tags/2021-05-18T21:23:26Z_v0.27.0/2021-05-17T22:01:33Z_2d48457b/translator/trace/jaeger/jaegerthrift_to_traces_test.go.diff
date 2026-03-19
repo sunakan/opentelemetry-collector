@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces_test.go b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+index 68fbfa52b..ce0f66f7e 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+@@ -92,7 +92,7 @@ func TestThriftBatchToInternalTraces(t *testing.T) {
+ 			jb: &jaeger.Batch{
+ 				Process: generateThriftProcess(),
+ 			},
+-			td: testdata.GenerateTraceDataNoLibraries(),
++			td: testdata.GenerateTracesNoLibraries(),
+ 		},
+ 
+ 		{

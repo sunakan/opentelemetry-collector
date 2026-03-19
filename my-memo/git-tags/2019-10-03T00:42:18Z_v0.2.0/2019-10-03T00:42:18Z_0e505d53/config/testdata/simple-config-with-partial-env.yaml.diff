@@ -1,0 +1,27 @@
+diff --git a/config/testdata/simple-config-with-partial-env.yaml b/config/testdata/simple-config-with-partial-env.yaml
+index be256990c..7d3087b4a 100644
+--- a/config/testdata/simple-config-with-partial-env.yaml
++++ b/config/testdata/simple-config-with-partial-env.yaml
+@@ -31,12 +31,6 @@ exporters:
+       - "${EXPORTERS_EXAMPLEEXPORTER_EXTRA_LIST_VALUE_1}"
+       - "${EXPORTERS_EXAMPLEEXPORTER_EXTRA_LIST_VALUE_2}"
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter]
+-
+ extensions:
+   exampleextension:
+     extra: "${EXTENSIONS_EXAMPLEEXTENSION_EXTRA}"
+@@ -49,3 +43,9 @@ extensions:
+ 
+ service:
+   extensions: [exampleextension]
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
++

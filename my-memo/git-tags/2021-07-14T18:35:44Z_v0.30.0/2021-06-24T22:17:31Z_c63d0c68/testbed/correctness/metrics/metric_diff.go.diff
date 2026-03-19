@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metric_diff.go b/testbed/correctness/metrics/metric_diff.go
+index 1eb529312..5e5f1a797 100644
+--- a/testbed/correctness/metrics/metric_diff.go
++++ b/testbed/correctness/metrics/metric_diff.go
+@@ -18,7 +18,7 @@ import (
+ 	"fmt"
+ 	"reflect"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // MetricDiff is intended to support producing human-readable diffs between two MetricData structs during

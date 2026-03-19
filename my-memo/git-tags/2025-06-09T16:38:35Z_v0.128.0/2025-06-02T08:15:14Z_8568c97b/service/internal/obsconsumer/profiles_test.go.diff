@@ -1,0 +1,13 @@
+diff --git a/service/internal/obsconsumer/profiles_test.go b/service/internal/obsconsumer/profiles_test.go
+index afb7794c2..4b6d7b005 100644
+--- a/service/internal/obsconsumer/profiles_test.go
++++ b/service/internal/obsconsumer/profiles_test.go
+@@ -396,7 +396,7 @@ func TestProfilesMultipleItemsMixedOutcomes(t *testing.T) {
+ 		}
+ 	}
+ 	require.Equal(t, int64(68), successSizeDP.Value)
+-	require.Equal(t, int64(34), failureSizeDP.Value)
++	require.Equal(t, int64(36), failureSizeDP.Value)
+ }
+ 
+ func TestProfilesCapabilities(t *testing.T) {

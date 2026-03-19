@@ -1,0 +1,33 @@
+diff --git a/pdata/pcommon/generated_resource.go b/pdata/pcommon/generated_resource.go
+index f98f10f53..c4b36a2e8 100644
+--- a/pdata/pcommon/generated_resource.go
++++ b/pdata/pcommon/generated_resource.go
+@@ -29,17 +29,12 @@ import (
+ //
+ // Must use NewResource function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
+-
+ type Resource internal.Resource
+ 
+ func newResource(orig *otlpresource.Resource) Resource {
+ 	return Resource(internal.NewResource(orig))
+ }
+ 
+-func (ms Resource) getOrig() *otlpresource.Resource {
+-	return internal.GetOrigResource(internal.Resource(ms))
+-}
+-
+ // NewResource creates a new empty Resource.
+ //
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+@@ -55,6 +50,10 @@ func (ms Resource) MoveTo(dest Resource) {
+ 	*ms.getOrig() = otlpresource.Resource{}
+ }
+ 
++func (ms Resource) getOrig() *otlpresource.Resource {
++	return internal.GetOrigResource(internal.Resource(ms))
++}
++
+ // Attributes returns the Attributes associated with this Resource.
+ func (ms Resource) Attributes() Map {
+ 	return Map(internal.NewMap(&ms.getOrig().Attributes))

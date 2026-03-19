@@ -1,0 +1,33 @@
+diff --git a/otelcol/testdata/otelcol-invalidprop.yaml b/otelcol/testdata/otelcol-invalidprop.yaml
+deleted file mode 100644
+index a47e5902c..000000000
+--- a/otelcol/testdata/otelcol-invalidprop.yaml
++++ /dev/null
+@@ -1,27 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    traces:
+-      propagators:
+-      - "unknown"
+-      - "tracecontext"
+-    metrics:
+-      readers:
+-        - pull:
+-            exporter:
+-              prometheus:
+-                host: "localhost"
+-                port: 9999
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

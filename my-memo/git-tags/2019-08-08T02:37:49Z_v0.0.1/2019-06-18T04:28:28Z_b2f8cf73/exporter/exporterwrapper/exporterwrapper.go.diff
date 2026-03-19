@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterwrapper/exporterwrapper.go b/exporter/exporterwrapper/exporterwrapper.go
+index e80837ba6..670e590c4 100644
+--- a/exporter/exporterwrapper/exporterwrapper.go
++++ b/exporter/exporterwrapper/exporterwrapper.go
+@@ -16,8 +16,6 @@
+ // consumer.TraceConsumer.
+ // For now it currently only provides statically imported OpenCensus
+ // exporters like:
+-//  * Stackdriver Tracing and Monitoring
+-//  * DataDog
+ //  * Zipkin
+ package exporterwrapper
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/testdata/no_type.yaml b/cmd/mdatagen/testdata/no_type.yaml
+new file mode 100644
+index 000000000..72d92e5de
+--- /dev/null
++++ b/cmd/mdatagen/testdata/no_type.yaml
+@@ -0,0 +1,6 @@
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
+\ No newline at end of file

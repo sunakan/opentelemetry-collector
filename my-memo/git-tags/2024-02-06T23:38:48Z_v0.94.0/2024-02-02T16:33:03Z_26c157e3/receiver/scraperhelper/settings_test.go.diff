@@ -1,0 +1,22 @@
+diff --git a/receiver/scraperhelper/settings_test.go b/receiver/scraperhelper/settings_test.go
+index 0fa0d57f9..64a5cd673 100644
+--- a/receiver/scraperhelper/settings_test.go
++++ b/receiver/scraperhelper/settings_test.go
+@@ -8,6 +8,8 @@ import (
+ 	"time"
+ 
+ 	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/component"
+ )
+ 
+ func TestScrapeControllerSettings(t *testing.T) {
+@@ -20,7 +22,7 @@ func TestScrapeControllerSettings(t *testing.T) {
+ 	}{
+ 		{
+ 			name:   "default configuration",
+-			set:    NewDefaultScraperControllerSettings(""),
++			set:    NewDefaultScraperControllerSettings(component.MustNewType("test")),
+ 			errVal: "",
+ 		},
+ 		{

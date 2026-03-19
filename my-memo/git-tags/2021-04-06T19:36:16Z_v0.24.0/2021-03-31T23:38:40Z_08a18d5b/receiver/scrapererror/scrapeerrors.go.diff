@@ -1,0 +1,13 @@
+diff --git a/receiver/scrapererror/scrapeerrors.go b/receiver/scrapererror/scrapeerrors.go
+index 58600f5f7..de6e499c1 100644
+--- a/receiver/scrapererror/scrapeerrors.go
++++ b/receiver/scrapererror/scrapeerrors.go
+@@ -24,7 +24,7 @@ type ScrapeErrors struct {
+ 	failedScrapeCount int
+ }
+ 
+-// Add adds a PartialScrapeError with the provided failed count and error.
++// AddPartial adds a PartialScrapeError with the provided failed count and error.
+ func (s *ScrapeErrors) AddPartial(failed int, err error) {
+ 	s.errs = append(s.errs, NewPartialScrapeError(err, failed))
+ 	s.failedScrapeCount += failed

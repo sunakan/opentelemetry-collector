@@ -1,0 +1,32 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper_windows_test.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper_windows_test.go
+index ae1fa7a41..f18b89321 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper_windows_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper_windows_test.go
+@@ -63,7 +63,7 @@ func TestStartSampling(t *testing.T) {
+ 	// second call to stopSampling should close perf counter, stop
+ 	// sampling, and clean up the sampler
+ 	stopSampling(context.Background())
+-	assert.Nil(t, samplerInstance)
++	assertSamplingStopped(t)
+ }
+ 
+ func assertSamplingUnderway(t *testing.T) {
+@@ -77,6 +77,18 @@ func assertSamplingUnderway(t *testing.T) {
+ 	}
+ }
+ 
++func assertSamplingStopped(t *testing.T) {
++	// validate perf counter was closed by trying to close again
++	err := samplerInstance.processorQueueLengthCounter.Close()
++	assert.EqualError(t, err, "attempted to call close more than once")
++
++	select {
++	case <-samplerInstance.done:
++	default:
++		assert.Fail(t, "Load scraper sampling done channel not closed")
++	}
++}
++
+ func TestSampleLoad(t *testing.T) {
+ 	counterReturnValues := []interface{}{10.0, 20.0, 30.0, 40.0, 50.0}
+ 	mockCounter := pdh.NewMockPerfCounter(counterReturnValues...)

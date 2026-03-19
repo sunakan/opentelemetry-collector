@@ -1,0 +1,12 @@
+diff --git a/internal/cgroups/mountpoint.go b/internal/cgroups/mountpoint.go
+index d4a6a4f97..69582b35a 100644
+--- a/internal/cgroups/mountpoint.go
++++ b/internal/cgroups/mountpoint.go
+@@ -24,7 +24,6 @@
+ // THE SOFTWARE.
+ 
+ //go:build linux
+-// +build linux
+ 
+ package cgroups // import "go.opentelemetry.io/collector/internal/cgroups"
+ 

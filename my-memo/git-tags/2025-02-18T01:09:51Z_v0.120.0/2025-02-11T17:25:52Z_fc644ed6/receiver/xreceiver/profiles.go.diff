@@ -1,0 +1,44 @@
+diff --git a/receiver/xreceiver/profiles.go b/receiver/xreceiver/profiles.go
+index 2e0cbbd8c..532a233b5 100644
+--- a/receiver/xreceiver/profiles.go
++++ b/receiver/xreceiver/profiles.go
+@@ -41,6 +41,7 @@ type Factory interface {
+ type CreateProfilesFunc func(context.Context, receiver.Settings, component.Config, xconsumer.Profiles) (Profiles, error)
+ 
+ // CreateProfiles implements Factory.CreateProfiles.
++// Deprecated: [v0.120.0] No longer used, will be removed.
+ func (f CreateProfilesFunc) CreateProfiles(ctx context.Context, set receiver.Settings, cfg component.Config, next xconsumer.Profiles) (Profiles, error) {
+ 	if f == nil {
+ 		return nil, pipeline.ErrSignalNotSupported
+@@ -63,7 +64,7 @@ func (f factoryOptionFunc) applyOption(o *factoryOpts) {
+ 
+ type factory struct {
+ 	receiver.Factory
+-	CreateProfilesFunc
++	createProfilesFunc     CreateProfilesFunc
+ 	profilesStabilityLevel component.StabilityLevel
+ }
+ 
+@@ -71,6 +72,13 @@ func (f *factory) ProfilesStability() component.StabilityLevel {
+ 	return f.profilesStabilityLevel
+ }
+ 
++func (f *factory) CreateProfiles(ctx context.Context, set receiver.Settings, cfg component.Config, next xconsumer.Profiles) (Profiles, error) {
++	if f.createProfilesFunc == nil {
++		return nil, pipeline.ErrSignalNotSupported
++	}
++	return f.createProfilesFunc(ctx, set, cfg, next)
++}
++
+ type factoryOpts struct {
+ 	opts []receiver.FactoryOption
+ 	*factory
+@@ -101,7 +109,7 @@ func WithLogs(createLogs receiver.CreateLogsFunc, sl component.StabilityLevel) F
+ func WithProfiles(createProfiles CreateProfilesFunc, sl component.StabilityLevel) FactoryOption {
+ 	return factoryOptionFunc(func(o *factoryOpts) {
+ 		o.profilesStabilityLevel = sl
+-		o.CreateProfilesFunc = createProfiles
++		o.createProfilesFunc = createProfiles
+ 	})
+ }
+ 

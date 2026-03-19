@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index 8979ed0d1..490010e51 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -34,7 +34,7 @@ func verifyTracesProcessorDoesntProduceAfterShutdown(t *testing.T, factory compo
+ 	nextSink := new(consumertest.TracesSink)
+ 	processor, err := factory.CreateTracesProcessor(
+ 		context.Background(),
+-		component.ProcessorCreateParams{Logger: zap.NewNop()},
++		component.ProcessorCreateSettings{Logger: zap.NewNop()},
+ 		cfg,
+ 		nextSink,
+ 	)

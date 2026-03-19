@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index 7099ab924..1a71ad0e6 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -34,8 +34,6 @@ func NewDefaultQueueConfig() queuebatch.Config {
+ 		// This default is probably still too high, and may be adjusted further down in a future release
+ 		QueueSize:       1_000,
+ 		BlockOnOverflow: false,
+-		StorageID:       nil,
+-		Batch:           nil,
+ 	}
+ }
+ 

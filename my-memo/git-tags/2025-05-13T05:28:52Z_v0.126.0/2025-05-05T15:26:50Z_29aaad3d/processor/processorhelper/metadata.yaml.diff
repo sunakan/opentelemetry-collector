@@ -1,0 +1,12 @@
+diff --git a/processor/processorhelper/metadata.yaml b/processor/processorhelper/metadata.yaml
+index b6197f1e4..fbfdc1544 100644
+--- a/processor/processorhelper/metadata.yaml
++++ b/processor/processorhelper/metadata.yaml
+@@ -2,6 +2,7 @@ type: processorhelper
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   stability:
+     beta: [traces, metrics, logs]

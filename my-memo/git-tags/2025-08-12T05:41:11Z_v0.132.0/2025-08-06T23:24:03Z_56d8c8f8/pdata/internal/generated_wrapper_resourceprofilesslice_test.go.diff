@@ -1,0 +1,35 @@
+diff --git a/pdata/internal/generated_wrapper_resourceprofilesslice_test.go b/pdata/internal/generated_wrapper_resourceprofilesslice_test.go
+index 2e732b3ef..096ce4b70 100644
+--- a/pdata/internal/generated_wrapper_resourceprofilesslice_test.go
++++ b/pdata/internal/generated_wrapper_resourceprofilesslice_test.go
+@@ -10,8 +10,10 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestCopyOrigResourceProfilesSlice(t *testing.T) {
+@@ -38,3 +40,19 @@ func TestCopyOrigResourceProfilesSlice(t *testing.T) {
+ 	dest = CopyOrigResourceProfilesSlice(dest, src)
+ 	assert.Equal(t, GenerateOrigTestResourceProfilesSlice(), dest)
+ }
++
++func TestMarshalAndUnmarshalJSONOrigResourceProfilesSlice(t *testing.T) {
++	src := GenerateOrigTestResourceProfilesSlice()
++
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	MarshalJSONOrigResourceProfilesSlice(src, stream)
++	require.NoError(t, stream.Error())
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := UnmarshalJSONOrigResourceProfilesSlice(iter)
++	require.NoError(t, iter.Error())
++
++	assert.Equal(t, src, dest)
++}

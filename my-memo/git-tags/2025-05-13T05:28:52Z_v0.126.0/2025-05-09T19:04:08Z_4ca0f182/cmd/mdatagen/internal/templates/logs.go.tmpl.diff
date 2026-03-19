@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/logs.go.tmpl b/cmd/mdatagen/internal/templates/logs.go.tmpl
+index ce174d396..b2ffce51b 100644
+--- a/cmd/mdatagen/internal/templates/logs.go.tmpl
++++ b/cmd/mdatagen/internal/templates/logs.go.tmpl
+@@ -10,7 +10,7 @@ import (
+ 	"go.opentelemetry.io/collector/{{ .Status.Class }}"
+ 	{{- end }}
+ 	{{- if .SemConvVersion }}
+-	conventions "go.opentelemetry.io/collector/semconv/v{{ .SemConvVersion }}"
++	conventions "go.opentelemetry.io/otel/semconv/v{{ .SemConvVersion }}"
+ 	{{- end }}
+ )
+ 

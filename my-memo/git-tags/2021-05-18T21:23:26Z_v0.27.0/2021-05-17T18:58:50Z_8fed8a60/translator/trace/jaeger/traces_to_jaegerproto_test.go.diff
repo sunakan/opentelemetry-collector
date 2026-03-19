@@ -1,0 +1,21 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto_test.go b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+index 0cd2ec184..1bfeff4b0 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+@@ -23,7 +23,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+@@ -229,7 +228,7 @@ func TestInternalTracesToJaegerProto(t *testing.T) {
+ 	}{
+ 		{
+ 			name: "empty",
+-			td:   testdata.GenerateTraceDataEmpty(),
++			td:   pdata.NewTraces(),
+ 			err:  nil,
+ 		},
+ 

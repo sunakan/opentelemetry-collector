@@ -1,0 +1,15 @@
+diff --git a/receiver/opencensusreceiver/octrace/observability_test.go b/receiver/opencensusreceiver/octrace/observability_test.go
+index 64bdde6ce..f3c5199ab 100644
+--- a/receiver/opencensusreceiver/octrace/observability_test.go
++++ b/receiver/opencensusreceiver/octrace/observability_test.go
+@@ -28,8 +28,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.opencensus.io/trace"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
+-	"github.com/open-telemetry/opentelemetry-collector/observability/observabilitytest"
++	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/observability/observabilitytest"
+ )
+ 
+ // Ensure that if we add a metrics exporter that our target metrics

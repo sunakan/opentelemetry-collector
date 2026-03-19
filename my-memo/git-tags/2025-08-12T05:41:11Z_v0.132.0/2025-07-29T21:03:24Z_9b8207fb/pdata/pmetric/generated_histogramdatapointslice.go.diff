@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice.go b/pdata/pmetric/generated_histogramdatapointslice.go
+index 342e19738..2a5095abd 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice.go
++++ b/pdata/pmetric/generated_histogramdatapointslice.go
+@@ -130,6 +130,7 @@ func (es HistogramDataPointSlice) RemoveIf(f func(HistogramDataPoint) bool) {
+ 	newLen := 0
+ 	for i := 0; i < len(*es.orig); i++ {
+ 		if f(es.At(i)) {
++			(*es.orig)[i] = nil
+ 			continue
+ 		}
+ 		if newLen == i {
+@@ -138,6 +139,7 @@ func (es HistogramDataPointSlice) RemoveIf(f func(HistogramDataPoint) bool) {
+ 			continue
+ 		}
+ 		(*es.orig)[newLen] = (*es.orig)[i]
++		(*es.orig)[i] = nil
+ 		newLen++
+ 	}
+ 	*es.orig = (*es.orig)[:newLen]

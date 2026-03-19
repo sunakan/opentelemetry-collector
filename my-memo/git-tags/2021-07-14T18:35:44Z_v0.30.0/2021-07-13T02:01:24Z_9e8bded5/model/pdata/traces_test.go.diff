@@ -1,0 +1,20 @@
+diff --git a/model/pdata/traces_test.go b/model/pdata/traces_test.go
+index 63e5d1218..6e3161ec9 100644
+--- a/model/pdata/traces_test.go
++++ b/model/pdata/traces_test.go
+@@ -42,9 +42,12 @@ func TestSpanCount(t *testing.T) {
+ 	assert.EqualValues(t, 1, md.SpanCount())
+ 
+ 	rms := md.ResourceSpans()
+-	rms.Resize(3)
+-	rms.At(1).InstrumentationLibrarySpans().AppendEmpty()
+-	rms.At(2).InstrumentationLibrarySpans().AppendEmpty().Spans().Resize(5)
++	rms.EnsureCapacity(3)
++	rms.AppendEmpty().InstrumentationLibrarySpans().AppendEmpty()
++	ilss := rms.AppendEmpty().InstrumentationLibrarySpans().AppendEmpty().Spans()
++	for i := 0; i < 5; i++ {
++		ilss.AppendEmpty()
++	}
+ 	// 5 + 1 (from rms.At(0) initialized first)
+ 	assert.EqualValues(t, 6, md.SpanCount())
+ }

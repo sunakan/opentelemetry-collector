@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/marshal_jsonpb_test.go b/receiver/otlpreceiver/marshal_jsonpb_test.go
+index 0f1b07f84..9ecad8848 100644
+--- a/receiver/otlpreceiver/marshal_jsonpb_test.go
++++ b/receiver/otlpreceiver/marshal_jsonpb_test.go
+@@ -68,8 +68,9 @@ const expectedJSON = `{
+           ],
+           "droppedEventsCount": 1,
+           "status": {
+-            "code": "STATUS_CODE_CANCELLED",
+-            "message": "status-cancelled"
++            "deprecatedCode": "DEPRECATED_STATUS_CODE_UNKNOWN_ERROR",
++            "message": "status-cancelled",
++            "code": "STATUS_CODE_ERROR"
+           }
+         }
+       ]

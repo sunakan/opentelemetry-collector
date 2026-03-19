@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_byteslice.go b/pdata/internal/generated_wrapper_byteslice.go
+index 112484fe6..3dcd76768 100644
+--- a/pdata/internal/generated_wrapper_byteslice.go
++++ b/pdata/internal/generated_wrapper_byteslice.go
+@@ -31,8 +31,7 @@ func NewByteSlice(orig *[]byte, state *State) ByteSlice {
+ 
+ func GenerateTestByteSlice() ByteSlice {
+ 	orig := GenerateOrigTestByteSlice()
+-	state := StateMutable
+-	return NewByteSlice(&orig, &state)
++	return NewByteSlice(&orig, NewState())
+ }
+ 
+ func CopyOrigByteSlice(dst, src []byte) []byte {

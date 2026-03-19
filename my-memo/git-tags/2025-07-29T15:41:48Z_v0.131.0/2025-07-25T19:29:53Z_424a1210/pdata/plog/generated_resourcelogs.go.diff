@@ -1,0 +1,35 @@
+diff --git a/pdata/plog/generated_resourcelogs.go b/pdata/plog/generated_resourcelogs.go
+index c20885393..290380b57 100644
+--- a/pdata/plog/generated_resourcelogs.go
++++ b/pdata/plog/generated_resourcelogs.go
+@@ -9,6 +9,7 @@ package plog
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlplogs "go.opentelemetry.io/collector/pdata/internal/data/protogen/logs/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -77,6 +78,22 @@ func (ms ResourceLogs) CopyTo(dest ResourceLogs) {
+ 	copyOrigResourceLogs(dest.orig, ms.orig)
+ }
+ 
++// marshalJSONStream marshals all properties from the current struct to the destination stream.
++func (ms ResourceLogs) marshalJSONStream(dest *json.Stream) {
++	dest.WriteObjectStart()
++	dest.WriteObjectField("resource")
++	internal.MarshalJSONStreamResource(internal.NewResource(&ms.orig.Resource, ms.state), dest)
++	if ms.orig.SchemaUrl != "" {
++		dest.WriteObjectField("schemaUrl")
++		dest.WriteString(ms.orig.SchemaUrl)
++	}
++	if len(ms.orig.ScopeLogs) > 0 {
++		dest.WriteObjectField("scopeLogs")
++		ms.ScopeLogs().marshalJSONStream(dest)
++	}
++	dest.WriteObjectEnd()
++}
++
+ func copyOrigResourceLogs(dest, src *otlplogs.ResourceLogs) {
+ 	internal.CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.SchemaUrl = src.SchemaUrl

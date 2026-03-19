@@ -1,0 +1,14 @@
+diff --git a/testbed/correctness/traces/correctness_test.go b/testbed/correctness/traces/correctness_test.go
+index 6d712dd7d..1b57bf7ab 100644
+--- a/testbed/correctness/traces/correctness_test.go
++++ b/testbed/correctness/traces/correctness_test.go
+@@ -61,8 +61,7 @@ func testWithTracingGoldenDataset(
+ 	dataProvider := testbed.NewGoldenDataProvider(
+ 		"../../../internal/goldendataset/testdata/generated_pict_pairs_traces.txt",
+ 		"../../../internal/goldendataset/testdata/generated_pict_pairs_spans.txt",
+-		"",
+-		161803)
++		"")
+ 	factories, err := defaultcomponents.Components()
+ 	require.NoError(t, err, "default components resulted in: %v", err)
+ 	runner := testbed.NewInProcessCollector(factories)

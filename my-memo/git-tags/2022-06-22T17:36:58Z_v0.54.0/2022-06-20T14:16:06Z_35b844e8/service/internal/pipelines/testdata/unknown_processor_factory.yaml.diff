@@ -1,0 +1,20 @@
+diff --git a/service/internal/pipelines/testdata/unknown_processor_factory.yaml b/service/internal/pipelines/testdata/unknown_processor_factory.yaml
+new file mode 100644
+index 000000000..315b40c00
+--- /dev/null
++++ b/service/internal/pipelines/testdata/unknown_processor_factory.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  nop:
++processors:
++  unknown:
++exporters:
++  nop:
++
++service:
++  pipelines:
++    metrics:
++      receivers: [nop]
++      processors: [unknown]
++      exporters: [nop]
+\ No newline at end of file

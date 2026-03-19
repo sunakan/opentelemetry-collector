@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/shellcheck.yml b/.github/workflows/shellcheck.yml
+index 723bbbf77..0971d621d 100644
+--- a/.github/workflows/shellcheck.yml
++++ b/.github/workflows/shellcheck.yml
+@@ -1,7 +1,7 @@
+ name: Shellcheck lint
+ on:
+   push:
+-    branches: [ main ]
++    branches: [ main, 'renovatebot/**' ]
+   pull_request:
+     branches: [ main ]
+ 

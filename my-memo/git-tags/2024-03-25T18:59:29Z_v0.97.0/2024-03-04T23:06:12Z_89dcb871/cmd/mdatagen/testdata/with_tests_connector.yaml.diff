@@ -1,0 +1,11 @@
+diff --git a/cmd/mdatagen/testdata/with_tests_connector.yaml b/cmd/mdatagen/testdata/with_tests_connector.yaml
+index ad0587269..2c1f542cc 100644
+--- a/cmd/mdatagen/testdata/with_tests_connector.yaml
++++ b/cmd/mdatagen/testdata/with_tests_connector.yaml
+@@ -4,6 +4,3 @@ status:
+   class: connector
+   stability:
+     beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
+-
+-tests:
+-  config:

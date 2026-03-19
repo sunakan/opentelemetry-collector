@@ -1,0 +1,16 @@
+diff --git a/consumer/pdata/trace.go b/consumer/pdata/trace.go
+index 74428462e..45cf0e259 100644
+--- a/consumer/pdata/trace.go
++++ b/consumer/pdata/trace.go
+@@ -17,8 +17,9 @@ package pdata
+ import (
+ 	"encoding/hex"
+ 
+-	"github.com/golang/protobuf/proto"
+-	otlptrace "github.com/open-telemetry/opentelemetry-proto/gen/go/trace/v1"
++	"github.com/gogo/protobuf/proto"
++
++	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
+ )
+ 
+ // This file defines in-memory data structures to represent traces (spans).

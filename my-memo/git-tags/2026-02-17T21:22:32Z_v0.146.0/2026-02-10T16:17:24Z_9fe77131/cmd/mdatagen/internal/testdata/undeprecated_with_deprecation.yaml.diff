@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/internal/testdata/undeprecated_with_deprecation.yaml b/cmd/mdatagen/internal/testdata/undeprecated_with_deprecation.yaml
+new file mode 100644
+index 000000000..6d563178a
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/undeprecated_with_deprecation.yaml
+@@ -0,0 +1,25 @@
++type: metricreceiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++  distributions: [contrib]
++  warnings:
++    - Any additional information that should be brought to the consumer's attention
++
++metrics:
++  default.metric:
++    enabled: true
++    description: Monotonic cumulative sum int metric enabled by default.
++    extended_documentation: The metric will be become optional soon.
++    stability: development
++    deprecated:
++      note: this should not happen
++    unit: s
++    sum:
++      value_type: int
++      monotonic: true
++      aggregation_temporality: cumulative

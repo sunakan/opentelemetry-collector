@@ -1,0 +1,21 @@
+diff --git a/processor/processorhelper/processorhelperprofiles/go.mod b/processor/processorhelper/processorhelperprofiles/go.mod
+index ffbb8b076..d6dcd4dc6 100644
+--- a/processor/processorhelper/processorhelperprofiles/go.mod
++++ b/processor/processorhelper/processorhelperprofiles/go.mod
+@@ -5,6 +5,7 @@ go 1.22.0
+ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/consumer v0.113.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.113.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.113.0
+@@ -59,6 +60,8 @@ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../../../cons
+ 
+ replace go.opentelemetry.io/collector/component => ../../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../../component/componenttest
++
+ replace go.opentelemetry.io/collector/pdata => ../../../pdata
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../../config/configtelemetry

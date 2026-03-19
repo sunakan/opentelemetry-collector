@@ -1,0 +1,11 @@
+diff --git a/.codecov.yml b/.codecov.yml
+index be374c579..09135cfe1 100644
+--- a/.codecov.yml
++++ b/.codecov.yml
+@@ -16,3 +16,6 @@ coverage:
+       default:
+         enabled: yes
+         target: 95%
++
++ignore:
++  - **/*/metadata/generated_metrics.go

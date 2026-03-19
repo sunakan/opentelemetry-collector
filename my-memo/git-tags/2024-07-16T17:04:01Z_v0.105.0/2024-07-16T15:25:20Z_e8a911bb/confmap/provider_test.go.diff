@@ -1,0 +1,16 @@
+diff --git a/confmap/provider_test.go b/confmap/provider_test.go
+index e43b56080..ebbd5562e 100644
+--- a/confmap/provider_test.go
++++ b/confmap/provider_test.go
+@@ -113,9 +113,8 @@ func TestNewRetrievedFromYAMLString(t *testing.T) {
+ 			value: 0.123,
+ 		},
+ 		{
+-			yaml:       "{key: value}",
+-			value:      map[string]any{"key": "value"},
+-			strReprErr: "retrieved value does not have unambiguous string representation",
++			yaml:  "{key: value}",
++			value: map[string]any{"key": "value"},
+ 		},
+ 	}
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/exporters_builder_test.go b/cmd/occollector/app/builder/exporters_builder_test.go
+index ece225572..c87c95958 100644
+--- a/cmd/occollector/app/builder/exporters_builder_test.go
++++ b/cmd/occollector/app/builder/exporters_builder_test.go
+@@ -94,7 +94,7 @@ func TestExportersBuilder_StopAll(t *testing.T) {
+ 	exporters := make(Exporters)
+ 	expCfg := &configmodels.ExporterSettings{}
+ 	stopCalled := false
+-	exporters[expCfg] = &exporterImpl{
++	exporters[expCfg] = &builtExporter{
+ 		stop: func() error {
+ 			stopCalled = true
+ 			return nil

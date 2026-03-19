@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/internal/templates/component_test.go.tmpl b/cmd/mdatagen/internal/templates/component_test.go.tmpl
+index 27bdf0b4a..3ba603dbc 100644
+--- a/cmd/mdatagen/internal/templates/component_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/component_test.go.tmpl
+@@ -173,7 +173,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 		{
+ 			name: "logs",
+ 			createFn: func(ctx context.Context, set processor.Settings, cfg component.Config) (component.Component, error) {
+-				return factory.CreateLogsProcessor(ctx, set, cfg, consumertest.NewNop())
++				return factory.CreateLogs(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+ {{ end }}
+@@ -181,7 +181,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 		{
+ 			name: "metrics",
+ 			createFn: func(ctx context.Context, set processor.Settings, cfg component.Config) (component.Component, error) {
+-				return factory.CreateMetricsProcessor(ctx, set, cfg, consumertest.NewNop())
++				return factory.CreateMetrics(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+ {{ end }}
+@@ -189,7 +189,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 		{
+ 			name: "traces",
+ 			createFn: func(ctx context.Context, set processor.Settings, cfg component.Config) (component.Component, error) {
+-				return factory.CreateTracesProcessor(ctx, set, cfg, consumertest.NewNop())
++				return factory.CreateTraces(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
+ {{ end }}

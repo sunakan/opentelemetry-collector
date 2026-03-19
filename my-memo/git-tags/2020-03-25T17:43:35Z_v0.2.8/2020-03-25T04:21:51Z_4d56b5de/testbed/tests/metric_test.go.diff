@@ -1,0 +1,20 @@
+diff --git a/testbed/tests/metric_test.go b/testbed/tests/metric_test.go
+index cf1d38829..77bfd0bb5 100644
+--- a/testbed/tests/metric_test.go
++++ b/testbed/tests/metric_test.go
+@@ -55,6 +55,15 @@ func TestMetric10kDPS(t *testing.T) {
+ 				ExpectedMaxRAM: 59,
+ 			},
+ 		},
++		{
++			"OTLP",
++			testbed.NewOTLPMetricDataSender(testbed.GetAvailablePort(t)),
++			testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)),
++			testbed.ResourceSpec{
++				ExpectedMaxCPU: 69,
++				ExpectedMaxRAM: 59,
++			},
++		},
+ 	}
+ 
+ 	for _, test := range tests {

@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index ebf6e9469..5de0adc7c 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -74,7 +74,7 @@ func (t traceConsumer) ConsumeTraces(ctx context.Context, td pdata.Traces) error
+ }
+ 
+ func jaegerBatchToHTTPBody(b *tJaeger.Batch) (*http.Request, error) {
+-	body, err := thrift.NewTSerializer().Write(context.Background(), b)
++	body, err := thrift.NewTSerializer().Write(b)
+ 	if err != nil {
+ 		return nil, err
+ 	}

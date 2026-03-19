@@ -1,0 +1,13 @@
+diff --git a/config/testdata/invalid-bool-value.yaml b/config/testdata/invalid-bool-value.yaml
+index f74598188..67b6ef5ee 100644
+--- a/config/testdata/invalid-bool-value.yaml
++++ b/config/testdata/invalid-bool-value.yaml
+@@ -4,7 +4,7 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-    enabled: [2,3]
++    disabled: [2,3]
+ pipelines:
+   traces:
+     receivers: [examplereceiver]

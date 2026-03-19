@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 463b78eb5..bf97296d9 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -17,6 +17,8 @@ package internal
+ var metricsFile = &File{
+ 	Name: "metrics",
+ 	imports: []string{
++		`"sort"`,
++		``,
+ 		`otlpmetrics "go.opentelemetry.io/collector/model/internal/data/protogen/metrics/v1"`,
+ 	},
+ 	testImports: []string{

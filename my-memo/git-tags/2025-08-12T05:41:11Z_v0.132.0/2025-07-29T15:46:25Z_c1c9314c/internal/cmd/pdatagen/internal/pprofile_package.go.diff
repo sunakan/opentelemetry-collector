@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pprofile_package.go b/internal/cmd/pdatagen/internal/pprofile_package.go
+index cf5d78f0e..c4395bab3 100644
+--- a/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -292,7 +292,7 @@ var valueType = &messageStruct{
+ 			returnType: &TypedType{
+ 				structName: "AggregationTemporality",
+ 				rawType:    "otlpprofiles.AggregationTemporality",
+-				isType:     true,
++				isEnum:     true,
+ 				defaultVal: "otlpprofiles.AggregationTemporality(0)",
+ 				testVal:    "otlpprofiles.AggregationTemporality(1)",
+ 			},

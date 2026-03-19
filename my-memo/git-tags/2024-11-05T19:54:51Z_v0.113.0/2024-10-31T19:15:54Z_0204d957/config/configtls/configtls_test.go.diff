@@ -1,0 +1,44 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index 53876b09b..4c2cd6a7c 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -327,7 +327,6 @@ func TestLoadTLSServerConfig(t *testing.T) {
+ }
+ 
+ func TestLoadTLSServerConfigReload(t *testing.T) {
+-
+ 	tmpCaPath := createTempClientCaFile(t)
+ 
+ 	overwriteClientCA(t, tmpCaPath, "ca-1.crt")
+@@ -358,7 +357,6 @@ func TestLoadTLSServerConfigReload(t *testing.T) {
+ }
+ 
+ func TestLoadTLSServerConfigFailingReload(t *testing.T) {
+-
+ 	tmpCaPath := createTempClientCaFile(t)
+ 
+ 	overwriteClientCA(t, tmpCaPath, "ca-1.crt")
+@@ -389,7 +387,6 @@ func TestLoadTLSServerConfigFailingReload(t *testing.T) {
+ }
+ 
+ func TestLoadTLSServerConfigFailingInitialLoad(t *testing.T) {
+-
+ 	tmpCaPath := createTempClientCaFile(t)
+ 
+ 	overwriteClientCA(t, tmpCaPath, "testCA-bad.txt")
+@@ -405,7 +402,6 @@ func TestLoadTLSServerConfigFailingInitialLoad(t *testing.T) {
+ }
+ 
+ func TestLoadTLSServerConfigWrongPath(t *testing.T) {
+-
+ 	tmpCaPath := createTempClientCaFile(t)
+ 
+ 	tlsSetting := ServerConfig{
+@@ -419,7 +415,6 @@ func TestLoadTLSServerConfigWrongPath(t *testing.T) {
+ }
+ 
+ func TestLoadTLSServerConfigFailing(t *testing.T) {
+-
+ 	tmpCaPath := createTempClientCaFile(t)
+ 
+ 	overwriteClientCA(t, tmpCaPath, "ca-1.crt")

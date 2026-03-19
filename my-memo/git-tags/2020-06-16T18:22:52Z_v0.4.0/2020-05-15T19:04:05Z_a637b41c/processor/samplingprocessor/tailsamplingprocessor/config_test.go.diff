@@ -1,0 +1,15 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/config_test.go b/processor/samplingprocessor/tailsamplingprocessor/config_test.go
+index 100349d5a..4092679d8 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/config_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/config_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

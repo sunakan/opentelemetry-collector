@@ -1,0 +1,45 @@
+diff --git a/service/internal/builders/receiver.go b/service/internal/builders/receiver.go
+index 41fc9aaeb..94dba2e42 100644
+--- a/service/internal/builders/receiver.go
++++ b/service/internal/builders/receiver.go
+@@ -5,22 +5,14 @@ package builders // import "go.opentelemetry.io/collector/service/internal/build
+ 
+ import (
+ 	"context"
+-	"errors"
+ 	"fmt"
+ 
+-	"go.uber.org/zap"
+-
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/receiver"
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
+-var (
+-	errNilNextConsumer = errors.New("nil next Consumer")
+-	nopType            = component.MustNewType("nop")
+-)
+-
+ // Receiver is an interface that allows using implementations of the builder
+ // from different packages.
+ type Receiver interface {
+@@ -104,17 +96,6 @@ func (b *ReceiverBuilder) Factory(componentType component.Type) component.Factor
+ 	return b.factories[componentType]
+ }
+ 
+-// logStabilityLevel logs the stability level of a component. The log level is set to info for
+-// undefined, unmaintained, deprecated and development. The log level is set to debug
+-// for alpha, beta and stable.
+-func logStabilityLevel(logger *zap.Logger, sl component.StabilityLevel) {
+-	if sl >= component.StabilityLevelAlpha {
+-		logger.Debug(sl.LogMessage())
+-	} else {
+-		logger.Info(sl.LogMessage())
+-	}
+-}
+-
+ // NewNopReceiverConfigsAndFactories returns a configuration and factories that allows building a new nop receiver.
+ func NewNopReceiverConfigsAndFactories() (map[component.ID]component.Config, map[component.Type]receiver.Factory) {
+ 	nopFactory := receivertest.NewNopFactory()

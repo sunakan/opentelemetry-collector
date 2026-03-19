@@ -1,0 +1,17 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/factory_test.go
+index 054a73e85..29e4ce025 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/factory_test.go
+@@ -37,3 +37,12 @@ func TestCreateMetricsScraper(t *testing.T) {
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, scraper)
+ }
++
++func TestCreateMetricsScraper_Error(t *testing.T) {
++	factory := &Factory{}
++	cfg := &Config{Include: MatchConfig{Interfaces: []string{""}}}
++
++	_, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg)
++
++	assert.Error(t, err)
++}

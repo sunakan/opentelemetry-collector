@@ -1,0 +1,23 @@
+diff --git a/exporter/kafkaexporter/factory.go b/exporter/kafkaexporter/factory.go
+index 79d41bead..cd0855313 100644
+--- a/exporter/kafkaexporter/factory.go
++++ b/exporter/kafkaexporter/factory.go
+@@ -37,6 +37,8 @@ const (
+ 	defaultMetadataRetryBackoff = time.Millisecond * 250
+ 	// default from sarama.NewConfig()
+ 	defaultMetadataFull = true
++	// default max.message.bytes for the producer
++	defaultProducerMaxMessageBytes = 1000000
+ )
+ 
+ // FactoryOption applies changes to kafkaExporterFactory.
+@@ -87,6 +89,9 @@ func createDefaultConfig() config.Exporter {
+ 				Backoff: defaultMetadataRetryBackoff,
+ 			},
+ 		},
++		Producer: Producer{
++			MaxMessageBytes: defaultProducerMaxMessageBytes,
++		},
+ 	}
+ }
+ 

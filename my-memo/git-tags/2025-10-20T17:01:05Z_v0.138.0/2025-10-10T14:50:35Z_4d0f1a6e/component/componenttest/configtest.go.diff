@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/configtest.go b/component/componenttest/configtest.go
+index d0d34ffb3..394673ede 100644
+--- a/component/componenttest/configtest.go
++++ b/component/componenttest/configtest.go
+@@ -45,7 +45,7 @@ func validateConfigDataType(t reflect.Type) error {
+ 	case reflect.Struct:
+ 		// Reflect on the pointed data and check each of its fields.
+ 		nf := t.NumField()
+-		for i := 0; i < nf; i++ {
++		for i := range nf {
+ 			f := t.Field(i)
+ 			errs = multierr.Append(errs, checkStructFieldTags(f))
+ 		}

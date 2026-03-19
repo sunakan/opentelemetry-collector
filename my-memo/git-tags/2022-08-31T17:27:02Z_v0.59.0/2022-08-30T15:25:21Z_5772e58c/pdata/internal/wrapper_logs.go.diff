@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/wrapper_logs.go b/pdata/internal/wrapper_logs.go
+index 58311f451..e66b06296 100644
+--- a/pdata/internal/wrapper_logs.go
++++ b/pdata/internal/wrapper_logs.go
+@@ -44,26 +44,3 @@ func LogsFromProto(orig otlplogs.LogsData) Logs {
+ 		ResourceLogs: orig.ResourceLogs,
+ 	}}
+ }
+-
+-type LogRecordFlags struct {
+-	orig *uint32
+-}
+-
+-func GetOrigLogRecordFlags(ms LogRecordFlags) *uint32 {
+-	return ms.orig
+-}
+-
+-func NewLogRecordFlags(orig *uint32) LogRecordFlags {
+-	return LogRecordFlags{orig: orig}
+-}
+-
+-func FillTestLogRecordFlags(tv LogRecordFlags) {
+-	*tv.orig = uint32(1)
+-}
+-
+-func GenerateTestLogRecordFlags() LogRecordFlags {
+-	var orig uint32
+-	tv := NewLogRecordFlags(&orig)
+-	FillTestLogRecordFlags(tv)
+-	return tv
+-}

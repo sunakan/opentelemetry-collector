@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/go.mod b/extension/ballastextension/go.mod
+index b45e7d1c5..1fa62b9b9 100644
+--- a/extension/ballastextension/go.mod
++++ b/extension/ballastextension/go.mod
+@@ -1,7 +1,7 @@
+ // Deprecated: Use the GOMEMLIMIT environment variable instead.
+ module go.opentelemetry.io/collector/extension/ballastextension
+ 
+-go 1.21
++go 1.21.0
+ 
+ require (
+ 	github.com/stretchr/testify v1.9.0

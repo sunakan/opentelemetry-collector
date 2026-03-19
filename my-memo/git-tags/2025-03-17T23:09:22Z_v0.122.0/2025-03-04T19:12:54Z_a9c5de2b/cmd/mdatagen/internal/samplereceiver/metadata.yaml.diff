@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index 45eab3b04..c42138f29 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -12,6 +12,11 @@ status:
+     development: [logs]
+     beta: [traces]
+     stable: [metrics]
++    deprecated: [profiles]
++  deprecation:
++    profiles:
++      migration: "no migration needed"
++      date: "2025-02-05"
+   distributions: []
+   unsupported_platforms: [freebsd, illumos]
+   codeowners:

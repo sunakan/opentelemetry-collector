@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 75428e489..5e5a5a823 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -34,7 +34,7 @@ import (
+ // Settings holds configuration for building a new service.
+ type Settings struct {
+ 	// Factories component factories.
+-	Factories component.Factories
++	Factories Factories
+ 
+ 	// BuildInfo provides collector start information.
+ 	BuildInfo component.BuildInfo

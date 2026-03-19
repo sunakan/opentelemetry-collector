@@ -1,0 +1,25 @@
+diff --git a/extension/healthcheckextension/testdata/config.yaml b/extension/healthcheckextension/testdata/config.yaml
+index 79b7d9758..e415cac68 100644
+--- a/extension/healthcheckextension/testdata/config.yaml
++++ b/extension/healthcheckextension/testdata/config.yaml
+@@ -7,14 +7,14 @@ service:
+   extensions: [health_check/1]
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]
+ 
+ # Data pipeline is required to load the config.
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:

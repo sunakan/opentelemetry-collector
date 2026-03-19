@@ -1,0 +1,15 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-processor.yaml b/config/configunmarshaler/testdata/duplicate-processor.yaml
+index 5345cec59..0871b540f 100644
+--- a/config/configunmarshaler/testdata/duplicate-processor.yaml
++++ b/config/configunmarshaler/testdata/duplicate-processor.yaml
+@@ -3,8 +3,8 @@ receivers:
+ exporters:
+   exampleexporter:
+ processors:
+-  exampleprocessor/       abc:
+-  exampleprocessor/abc:
++  exampleprocessor/ proc:
++  exampleprocessor /proc :
+ service:
+   pipelines:
+     traces:

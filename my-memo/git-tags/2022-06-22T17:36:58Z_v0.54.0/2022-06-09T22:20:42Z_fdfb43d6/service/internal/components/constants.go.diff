@@ -1,0 +1,24 @@
+diff --git a/service/internal/components/constants.go b/service/internal/components/constants.go
+index 5d580d5fc..971e7b33b 100644
+--- a/service/internal/components/constants.go
++++ b/service/internal/components/constants.go
+@@ -15,11 +15,12 @@
+ package components // import "go.opentelemetry.io/collector/service/internal/components"
+ 
+ const (
+-	ZapKindKey         = "kind"
+-	ZapKindReceiver    = "receiver"
+-	ZapKindProcessor   = "processor"
+-	ZapKindLogExporter = "exporter"
+-	ZapKindExtension   = "extension"
+-	ZapKindPipeline    = "pipeline"
+-	ZapNameKey         = "name"
++	ZapKindKey       = "kind"
++	ZapKindReceiver  = "receiver"
++	ZapKindProcessor = "processor"
++	ZapKindExporter  = "exporter"
++	ZapKindExtension = "extension"
++	ZapKindPipeline  = "pipeline"
++	ZapNameKey       = "name"
++	ZapDataTypeKey   = "data_type"
+ )

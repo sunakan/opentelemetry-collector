@@ -1,0 +1,14 @@
+diff --git a/filter/testdata/config.yaml b/filter/testdata/config.yaml
+new file mode 100644
+index 000000000..82778b24f
+--- /dev/null
++++ b/filter/testdata/config.yaml
+@@ -0,0 +1,8 @@
++# Yaml form of the configuration for Filters
++# This configuration can be embedded into other component's yamls
++# The top level here are just test names and do not represent part of the actual configuration.
++
++regexp/default:
++  - regexp: "one|two"
++strict/default:
++  - strict: "strict"

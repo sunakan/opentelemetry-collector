@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/logs.go b/processor/processorhelper/logs.go
+index 3ffc3adc7..569ae46a2 100644
+--- a/processor/processorhelper/logs.go
++++ b/processor/processorhelper/logs.go
+@@ -36,7 +36,7 @@ type logProcessor struct {
+ 	consumer.Logs
+ }
+ 
+-// NewLogsProcessor creates a component.LogsProcessor that ensure context propagation and the right tags are set.
++// NewLogsProcessor creates a processor.Logs that ensure context propagation and the right tags are set.
+ func NewLogsProcessor(
+ 	_ context.Context,
+ 	set processor.CreateSettings,

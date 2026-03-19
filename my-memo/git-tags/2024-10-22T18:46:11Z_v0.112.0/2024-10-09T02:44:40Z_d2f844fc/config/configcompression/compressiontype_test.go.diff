@@ -1,0 +1,17 @@
+diff --git a/config/configcompression/compressiontype_test.go b/config/configcompression/compressiontype_test.go
+index cf8166d5a..5fb78c054 100644
+--- a/config/configcompression/compressiontype_test.go
++++ b/config/configcompression/compressiontype_test.go
+@@ -57,6 +57,12 @@ func TestUnmarshalText(t *testing.T) {
+ 			compressionName: []byte("none"),
+ 			shouldError:     false,
+ 		},
++		{
++			name:            "ValidLz4",
++			compressionName: []byte("lz4"),
++			isCompressed:    true,
++			shouldError:     false,
++		},
+ 		{
+ 			name:            "Invalid",
+ 			compressionName: []byte("ggip"),

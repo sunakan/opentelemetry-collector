@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index bf3032a09..64bdd8f5d 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -31,7 +31,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

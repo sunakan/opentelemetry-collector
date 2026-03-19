@@ -1,0 +1,15 @@
+diff --git a/.chloggen/move-configauth-to-extension-step-1.yaml b/.chloggen/move-configauth-to-extension-step-1.yaml
+index 956ba9b50..16e21c1fe 100755
+--- a/.chloggen/move-configauth-to-extension-step-1.yaml
++++ b/.chloggen/move-configauth-to-extension-step-1.yaml
+@@ -18,3 +18,10 @@ subtext: |-
+   - configauth.WithClientShutdown -> auth.WithClientShutdown
+   - configauth.WithClientRoundTripper -> auth.WithClientRoundTripper
+   - configauth.WithPerRPCCredentials -> auth.WithClientPerRPCCredentials
++  - configauth.ServerAuthenticator -> auth.Server
++  - configauth.NewServerAuthenticator -> auth.NewServer
++  - configauth.Option -> auth.ServerOption
++  - configauth.AuthenticateFunc -> auth.ServerAuthenticateFunc
++  - configauth.WithAuthenticate -> auth.WithServerAuthenticate
++  - configauth.WithStart -> auth.WithServerStart
++  - configauth.WithShutdown -> auth.WithServerShutdown

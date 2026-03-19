@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 472b92240..08d075a62 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -634,7 +634,7 @@ func TestGRPCServerSettings_ToListener_Error(t *testing.T) {
+ 	assert.Error(t, err)
+ }
+ 
+-func TestHttpReception(t *testing.T) {
++func TestHTTPReception(t *testing.T) {
+ 	tests := []struct {
+ 		name           string
+ 		tlsServerCreds configoptional.Optional[configtls.ServerConfig]

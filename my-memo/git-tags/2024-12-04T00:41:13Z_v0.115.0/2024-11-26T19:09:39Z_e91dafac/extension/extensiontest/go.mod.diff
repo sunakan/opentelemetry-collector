@@ -1,0 +1,13 @@
+diff --git a/extension/extensiontest/go.mod b/extension/extensiontest/go.mod
+index 98e9cd801..36f77484f 100644
+--- a/extension/extensiontest/go.mod
++++ b/extension/extensiontest/go.mod
+@@ -6,7 +6,7 @@ replace go.opentelemetry.io/collector/extension => ..
+ 
+ require (
+ 	github.com/google/uuid v1.6.0
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/component/componenttest v0.114.0
+ 	go.opentelemetry.io/collector/extension v0.114.0

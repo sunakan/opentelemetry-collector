@@ -1,0 +1,33 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 20873909f..d963bbee2 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -19,9 +19,8 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+@@ -37,7 +36,7 @@ func TestCreateReceiver(t *testing.T) {
+ 
+ 	tReceiver, err := createTracesReceiver(
+ 		context.Background(),
+-		component.ReceiverCreateSettings{Logger: zap.NewNop()},
++		componenttest.NewNopReceiverCreateSettings(),
+ 		cfg,
+ 		consumertest.NewNop())
+ 	assert.NoError(t, err, "receiver creation failed")
+@@ -45,7 +44,7 @@ func TestCreateReceiver(t *testing.T) {
+ 
+ 	tReceiver, err = createTracesReceiver(
+ 		context.Background(),
+-		component.ReceiverCreateSettings{Logger: zap.NewNop()},
++		componenttest.NewNopReceiverCreateSettings(),
+ 		cfg,
+ 		consumertest.NewNop())
+ 	assert.NoError(t, err, "receiver creation failed")

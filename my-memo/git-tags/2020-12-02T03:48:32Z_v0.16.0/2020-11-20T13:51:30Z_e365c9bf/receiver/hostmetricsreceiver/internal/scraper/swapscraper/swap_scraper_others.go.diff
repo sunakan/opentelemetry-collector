@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_others.go
+index 89b84bbd3..e9eaba4da 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_others.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+-	"go.opentelemetry.io/collector/receiver/receiverhelper"
++	"go.opentelemetry.io/collector/receiver/scraperhelper"
+ )
+ 
+ const (
+@@ -77,7 +77,7 @@ func (s *scraper) Scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 		errors = append(errors, err)
+ 	}
+ 
+-	return metrics, receiverhelper.CombineScrapeErrors(errors)
++	return metrics, scraperhelper.CombineScrapeErrors(errors)
+ }
+ 
+ func (s *scraper) scrapeAndAppendSwapUsageMetric(metrics pdata.MetricSlice) error {

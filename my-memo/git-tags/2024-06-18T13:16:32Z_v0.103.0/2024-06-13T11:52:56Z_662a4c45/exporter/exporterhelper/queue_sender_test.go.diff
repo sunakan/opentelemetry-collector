@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queue_sender_test.go b/exporter/exporterhelper/queue_sender_test.go
+index c76b136a4..0cb344ddc 100644
+--- a/exporter/exporterhelper/queue_sender_test.go
++++ b/exporter/exporterhelper/queue_sender_test.go
+@@ -235,7 +235,7 @@ func TestNoCancellationContext(t *testing.T) {
+ 	require.True(t, ok)
+ 	require.Equal(t, deadline, d)
+ 
+-	nctx := noCancellationContext{Context: ctx}
++	nctx := context.WithoutCancel(ctx)
+ 	assert.NoError(t, nctx.Err())
+ 	d, ok = nctx.Deadline()
+ 	assert.False(t, ok)

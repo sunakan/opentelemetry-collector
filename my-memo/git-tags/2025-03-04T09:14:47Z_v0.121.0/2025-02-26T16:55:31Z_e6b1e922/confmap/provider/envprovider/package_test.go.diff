@@ -1,0 +1,20 @@
+diff --git a/confmap/provider/envprovider/package_test.go b/confmap/provider/envprovider/package_test.go
+deleted file mode 100644
+index 1465f46f8..000000000
+--- a/confmap/provider/envprovider/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package envprovider
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

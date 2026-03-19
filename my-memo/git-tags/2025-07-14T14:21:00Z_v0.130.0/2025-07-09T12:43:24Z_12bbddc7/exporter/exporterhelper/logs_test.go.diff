@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index 0a04ed2ec..5420c2776 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -22,6 +22,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
++	"go.opentelemetry.io/collector/config/configoptional"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+@@ -172,7 +173,7 @@ func TestLogs_WithPersistentQueue(t *testing.T) {
+ 	fgOrigState := queue.PersistRequestContextFeatureGate.IsEnabled()
+ 	qCfg := NewDefaultQueueConfig()
+ 	storageID := component.MustNewIDWithName("file_storage", "storage")
+-	qCfg.StorageID = &storageID
++	qCfg.StorageID = configoptional.Some(storageID)
+ 	set := exportertest.NewNopSettings(exportertest.NopType)
+ 	set.ID = component.MustNewIDWithName("test_logs", "with_persistent_queue")
+ 	host := hosttest.NewHost(map[component.ID]component.Component{

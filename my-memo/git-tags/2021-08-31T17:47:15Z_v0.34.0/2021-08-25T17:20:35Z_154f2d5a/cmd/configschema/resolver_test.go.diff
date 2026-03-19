@@ -1,0 +1,13 @@
+diff --git a/cmd/configschema/resolver_test.go b/cmd/configschema/resolver_test.go
+index afd653f23..f61f1fc6f 100644
+--- a/cmd/configschema/resolver_test.go
++++ b/cmd/configschema/resolver_test.go
+@@ -58,7 +58,7 @@ func TestExternalPkgDirErr(t *testing.T) {
+ 
+ func TestExternalPkgDir(t *testing.T) {
+ 	dr := testDR()
+-	testPkg := "grpc-ecosystem/grpc-gateway"
++	testPkg := "google.golang.org/grpc"
+ 	pkgPath, err := dr.externalPackageDir(testPkg)
+ 	assert.NoError(t, err)
+ 	goPath := os.Getenv("GOPATH")

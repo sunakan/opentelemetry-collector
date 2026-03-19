@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerproto.go b/translator/trace/jaeger/protospan_to_jaegerproto.go
+index 20e95b51f..de8628ef3 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerproto.go
++++ b/translator/trace/jaeger/protospan_to_jaegerproto.go
+@@ -26,8 +26,8 @@ import (
+ 	wrappers "github.com/golang/protobuf/ptypes/wrappers"
+ 	jaeger "github.com/jaegertracing/jaeger/model"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ var (

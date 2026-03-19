@@ -1,0 +1,26 @@
+diff --git a/cmd/mdatagen/internal/event.go b/cmd/mdatagen/internal/event.go
+index 9f89d973d..328243879 100644
+--- a/cmd/mdatagen/internal/event.go
++++ b/cmd/mdatagen/internal/event.go
+@@ -6,6 +6,7 @@ package internal // import "go.opentelemetry.io/collector/cmd/mdatagen/internal"
+ import (
+ 	"errors"
+ 
++	"go.opentelemetry.io/collector/cmd/mdatagen/internal/helpers"
+ 	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+@@ -14,11 +15,11 @@ type (
+ )
+ 
+ func (ln EventName) Render() (string, error) {
+-	return FormatIdentifier(string(ln), true)
++	return helpers.FormatIdentifier(string(ln), true)
+ }
+ 
+ func (ln EventName) RenderUnexported() (string, error) {
+-	return FormatIdentifier(string(ln), false)
++	return helpers.FormatIdentifier(string(ln), false)
+ }
+ 
+ type Event struct {

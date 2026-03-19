@@ -1,0 +1,23 @@
+diff --git a/cmd/occollector/app/builder/receivers_builder_test.go b/cmd/occollector/app/builder/receivers_builder_test.go
+index 80c4ec3ee..c799e0733 100644
+--- a/cmd/occollector/app/builder/receivers_builder_test.go
++++ b/cmd/occollector/app/builder/receivers_builder_test.go
+@@ -29,6 +29,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/configv2"
+ 	"github.com/open-telemetry/opentelemetry-service/data"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
++	"github.com/open-telemetry/opentelemetry-service/receiver/receivertest"
+ )
+ 
+ type testCase struct {
+@@ -228,8 +229,8 @@ func TestReceiversBuilder_StartAll(t *testing.T) {
+ 	assert.Equal(t, false, receiver.TraceStarted)
+ 	assert.Equal(t, false, receiver.MetricsStarted)
+ 
+-	ch := make(chan error)
+-	err := receivers.StartAll(zap.NewNop(), ch)
++	mh := receivertest.NewMockHost()
++	err := receivers.StartAll(zap.NewNop(), mh)
+ 	assert.Nil(t, err)
+ 
+ 	assert.Equal(t, true, receiver.TraceStarted)

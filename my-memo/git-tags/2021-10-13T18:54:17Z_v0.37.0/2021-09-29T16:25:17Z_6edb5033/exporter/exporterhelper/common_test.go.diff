@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 3283d1f1d..95c13a3a2 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -27,6 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumerhelper"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+@@ -75,6 +76,6 @@ func nopTracePusher() consumerhelper.ConsumeTracesFunc {
+ 	}
+ }
+ 
+-func nopRequestUnmarshaler() requestUnmarshaler {
++func nopRequestUnmarshaler() internal.RequestUnmarshaler {
+ 	return newTraceRequestUnmarshalerFunc(nopTracePusher())
+ }

@@ -1,0 +1,16 @@
+diff --git a/processor/attributesprocessor/attributes_log_test.go b/processor/attributesprocessor/attributes_log_test.go
+index 483a7b5b2..aef764c8b 100644
+--- a/processor/attributesprocessor/attributes_log_test.go
++++ b/processor/attributesprocessor/attributes_log_test.go
+@@ -24,10 +24,10 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 

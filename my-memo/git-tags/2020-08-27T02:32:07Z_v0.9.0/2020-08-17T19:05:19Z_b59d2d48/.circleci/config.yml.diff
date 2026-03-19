@@ -1,0 +1,28 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 995fd93b7..60a04d7fc 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -149,6 +149,7 @@ workflows:
+           requires:
+             - cross-compile
+             - loadtest
++            - lint
+             - test
+             - gosec
+             - coverage
+@@ -160,6 +161,7 @@ workflows:
+           requires:
+             - cross-compile
+             - loadtest
++            - lint
+             - test
+             - gosec
+             - coverage
+@@ -176,6 +178,7 @@ workflows:
+           requires:
+             - cross-compile
+             - loadtest
++            - lint
+             - test
+             - gosec
+             - coverage

@@ -1,0 +1,19 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index bb31a570e..4b779e384 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -19,10 +19,10 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configerror"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ // This file implements factory for Zipkin receiver.

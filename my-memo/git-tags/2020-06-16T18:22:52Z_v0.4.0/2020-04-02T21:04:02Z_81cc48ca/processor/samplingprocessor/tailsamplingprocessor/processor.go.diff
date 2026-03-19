@@ -1,0 +1,16 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/processor.go b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+index 9513dee4c..3781fd7cb 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/processor.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+@@ -70,9 +70,9 @@ const (
+ 	sourceFormat = "tail_sampling"
+ )
+ 
+-// NewTraceProcessor returns a processor.TraceProcessor that will perform tail sampling according to the given
++// newTraceProcessor returns a processor.TraceProcessor that will perform tail sampling according to the given
+ // configuration.
+-func NewTraceProcessor(logger *zap.Logger, nextConsumer consumer.TraceConsumerOld, cfg Config) (component.TraceProcessorOld, error) {
++func newTraceProcessor(logger *zap.Logger, nextConsumer consumer.TraceConsumerOld, cfg Config) (component.TraceProcessorOld, error) {
+ 	if nextConsumer == nil {
+ 		return nil, oterr.ErrNilNextConsumer
+ 	}

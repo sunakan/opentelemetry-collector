@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/metadata.yaml b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/metadata.yaml
+deleted file mode 100644
+index 04a2154c6..000000000
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/metadata.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-name: memory
+-
+-labels:
+-  state:
+-    description: Breakdown of memory usage by type.
+-    enum: [buffered, cached, inactive, free, slab_reclaimable, slab_unreclaimable, used]
+-
+-metrics:
+-  system.memory.usage:
+-    description: Bytes of memory in use.
+-    unit: By
+-    data:
+-      type: sum
+-      aggregation: cumulative
+-      monotonic: false
+-    labels: [state]

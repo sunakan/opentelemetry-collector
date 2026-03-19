@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_int64slice.go b/pdata/internal/generated_wrapper_int64slice.go
+index 02b976f38..123b923f2 100644
+--- a/pdata/internal/generated_wrapper_int64slice.go
++++ b/pdata/internal/generated_wrapper_int64slice.go
+@@ -27,11 +27,6 @@ func NewInt64Slice(orig *[]int64, state *State) Int64Slice {
+ 	return Int64Slice{orig: orig, state: state}
+ }
+ 
+-func CopyOrigInt64Slice(dst, src []int64) []int64 {
+-	dst = dst[:0]
+-	return append(dst, src...)
+-}
+-
+ func FillTestInt64Slice(ms Int64Slice) {
+ 	*ms.orig = []int64{1, 2, 3}
+ }
+@@ -64,3 +59,7 @@ func UnmarshalJSONIterInt64Slice(ms Int64Slice, iter *json.Iterator) {
+ 		return true
+ 	})
+ }
++
++func CopyOrigInt64Slice(dst, src []int64) []int64 {
++	return append(dst[:0], src...)
++}

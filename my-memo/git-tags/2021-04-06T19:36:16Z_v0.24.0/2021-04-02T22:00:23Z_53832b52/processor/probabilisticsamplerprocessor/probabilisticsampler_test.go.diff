@@ -1,0 +1,32 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index 896016970..e63378f91 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -45,23 +45,23 @@ func TestNewTraceProcessor(t *testing.T) {
+ 		},
+ 		{
+ 			name:         "happy_path",
+-			nextConsumer: consumertest.NewTracesNop(),
++			nextConsumer: consumertest.NewNop(),
+ 			cfg: Config{
+ 				SamplingPercentage: 15.5,
+ 			},
+ 			want: &tracesamplerprocessor{
+-				nextConsumer: consumertest.NewTracesNop(),
++				nextConsumer: consumertest.NewNop(),
+ 			},
+ 		},
+ 		{
+ 			name:         "happy_path_hash_seed",
+-			nextConsumer: consumertest.NewTracesNop(),
++			nextConsumer: consumertest.NewNop(),
+ 			cfg: Config{
+ 				SamplingPercentage: 13.33,
+ 				HashSeed:           4321,
+ 			},
+ 			want: &tracesamplerprocessor{
+-				nextConsumer: consumertest.NewTracesNop(),
++				nextConsumer: consumertest.NewNop(),
+ 				hashSeed:     4321,
+ 			},
+ 		},

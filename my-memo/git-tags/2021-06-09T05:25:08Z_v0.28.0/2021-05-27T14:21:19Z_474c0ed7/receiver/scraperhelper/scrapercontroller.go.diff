@@ -1,0 +1,16 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index e2ed524a5..a7aa9f0c8 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -213,9 +213,9 @@ func (sc *controller) scrapeMetricsAndReport(ctx context.Context) {
+ 
+ 	_, dataPointCount := metrics.MetricAndDataPointCount()
+ 
+-	ctx = sc.obsrecv.StartMetricsReceiveOp(ctx)
++	ctx = sc.obsrecv.StartMetricsOp(ctx)
+ 	err := sc.nextConsumer.ConsumeMetrics(ctx, metrics)
+-	sc.obsrecv.EndMetricsReceiveOp(ctx, "", dataPointCount, err)
++	sc.obsrecv.EndMetricsOp(ctx, "", dataPointCount, err)
+ }
+ 
+ // stopScraping stops the ticker

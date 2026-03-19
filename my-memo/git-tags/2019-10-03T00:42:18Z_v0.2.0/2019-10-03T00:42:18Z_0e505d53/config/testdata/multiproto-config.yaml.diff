@@ -1,0 +1,25 @@
+diff --git a/config/testdata/multiproto-config.yaml b/config/testdata/multiproto-config.yaml
+index f8a076464..6c916e3c3 100644
+--- a/config/testdata/multiproto-config.yaml
++++ b/config/testdata/multiproto-config.yaml
+@@ -17,11 +17,12 @@ exporters:
+   exampleexporter:
+     extra: "locahost:1010"
+ 
+-pipelines:
+-  traces:
+-      receivers: [multireceiver/myreceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
+-  metrics:
+-      receivers: [multireceiver/myreceiver]
+-      exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++        receivers: [multireceiver/myreceiver]
++        processors: [exampleprocessor]
++        exporters: [exampleexporter]
++    metrics:
++        receivers: [multireceiver/myreceiver]
++        exporters: [exampleexporter]

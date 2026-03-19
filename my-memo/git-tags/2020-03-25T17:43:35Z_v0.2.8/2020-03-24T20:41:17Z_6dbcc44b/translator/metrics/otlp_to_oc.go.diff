@@ -1,0 +1,13 @@
+diff --git a/translator/metrics/otlp_to_oc.go b/translator/metrics/otlp_to_oc.go
+index 8b5f5c320..fa3e2b5b9 100644
+--- a/translator/metrics/otlp_to_oc.go
++++ b/translator/metrics/otlp_to_oc.go
+@@ -108,7 +108,7 @@ func labelKeysToOC(metric *otlpmetrics.Metric) *labelKeys {
+ 	// TODO: Support common labels from otlpmetrics.MetricDescriptor.Labels
+ 
+ 	// First, collect a set of all labels present in the metric
+-	keySet := make(map[string]struct{}, 0)
++	keySet := make(map[string]struct{})
+ 	for _, point := range metric.Int64DataPoints {
+ 		addLabelKeys(keySet, point.Labels)
+ 	}

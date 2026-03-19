@@ -1,0 +1,13 @@
+diff --git a/internal/fanoutconsumer/logs_test.go b/internal/fanoutconsumer/logs_test.go
+index 8c247cb12..c1b91a7a4 100644
+--- a/internal/fanoutconsumer/logs_test.go
++++ b/internal/fanoutconsumer/logs_test.go
+@@ -12,7 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestLogsNotMultiplexing(t *testing.T) {

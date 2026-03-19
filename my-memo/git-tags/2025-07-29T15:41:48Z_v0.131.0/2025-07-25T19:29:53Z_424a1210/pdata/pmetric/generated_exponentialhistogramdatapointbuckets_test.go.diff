@@ -1,0 +1,33 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+index 30484b93d..239de726f 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+@@ -13,6 +13,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestExponentialHistogramDataPointBuckets_MoveTo(t *testing.T) {
+@@ -46,6 +47,20 @@ func TestExponentialHistogramDataPointBuckets_CopyTo(t *testing.T) {
+ 	})
+ }
+ 
++func TestExponentialHistogramDataPointBuckets_MarshalAndUnmarshal(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTestExponentialHistogramDataPointBuckets()
++	src.marshalJSONStream(stream)
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := NewExponentialHistogramDataPointBuckets()
++	dest.unmarshalJsoniter(iter)
++
++	assert.Equal(t, src, dest)
++}
++
+ func TestExponentialHistogramDataPointBuckets_Offset(t *testing.T) {
+ 	ms := NewExponentialHistogramDataPointBuckets()
+ 	assert.Equal(t, int32(0), ms.Offset())

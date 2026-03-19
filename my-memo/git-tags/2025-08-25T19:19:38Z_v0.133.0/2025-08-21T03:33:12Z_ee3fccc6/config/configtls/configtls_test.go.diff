@@ -1,0 +1,16 @@
+diff --git a/config/configtls/configtls_test.go b/config/configtls/configtls_test.go
+index 9eb92e364..0ebb0b04d 100644
+--- a/config/configtls/configtls_test.go
++++ b/config/configtls/configtls_test.go
+@@ -881,6 +881,11 @@ func TestCurvePreferences(t *testing.T) {
+ 		expectedCurveIDs []tls.CurveID
+ 		expectedErr      string
+ 	}{
++		{
++			name:             "X25519MLKEM768",
++			preferences:      []string{"X25519MLKEM768"},
++			expectedCurveIDs: []tls.CurveID{tls.X25519MLKEM768},
++		},
+ 		{
+ 			name:             "X25519",
+ 			preferences:      []string{"X25519"},

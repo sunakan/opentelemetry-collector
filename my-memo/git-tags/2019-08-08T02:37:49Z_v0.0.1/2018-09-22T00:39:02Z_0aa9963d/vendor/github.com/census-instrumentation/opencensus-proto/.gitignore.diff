@@ -1,0 +1,39 @@
+diff --git a/vendor/github.com/census-instrumentation/opencensus-proto/.gitignore b/vendor/github.com/census-instrumentation/opencensus-proto/.gitignore
+deleted file mode 100644
+index 4ea5bd52b..000000000
+--- a/vendor/github.com/census-instrumentation/opencensus-proto/.gitignore
++++ /dev/null
+@@ -1,33 +0,0 @@
+-# Gradle
+-.gradle
+-build
+-gen_gradle
+-protobuf-gradle-plugin.i*
+-gradle.properties
+-local.properties
+-
+-# Bazel
+-bazel-*
+-
+-# Maven
+-target
+-
+-# IntelliJ IDEA
+-.idea
+-*.iml
+-
+-# Eclipse
+-.classpath
+-.project
+-.settings
+-bin
+-
+-# OS X
+-.DS_Store
+-
+-# Emacs
+-*~
+-\#*\#
+-
+-# Other
+-TAGS

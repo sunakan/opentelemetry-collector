@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/collector.go b/exporter/prometheusexporter/collector.go
+index e6bbdda68..0fd3cc820 100644
+--- a/exporter/prometheusexporter/collector.go
++++ b/exporter/prometheusexporter/collector.go
+@@ -43,7 +43,7 @@ func newCollector(config *Config, logger *zap.Logger) *collector {
+ 	}
+ }
+ 
+-// Collector dynamically allocates metrics, describe shoud be noop
++// Describe is a no-op, because the collector dynamically allocates metrics.
+ // https://github.com/prometheus/client_golang/blob/v1.9.0/prometheus/collector.go#L28-L40
+ func (c *collector) Describe(_ chan<- *prometheus.Desc) {}
+ 

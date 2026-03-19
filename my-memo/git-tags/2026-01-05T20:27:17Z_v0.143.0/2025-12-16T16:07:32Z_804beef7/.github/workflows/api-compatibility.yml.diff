@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index 9bd0c979d..90a2a297c 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -38,7 +38,7 @@ jobs:
+ 
+       - name: Cache Go
+         id: go-cache
+-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
++        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+         with:
+           path: |
+             ~/go/bin

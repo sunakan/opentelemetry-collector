@@ -1,0 +1,14 @@
+diff --git a/pdata/plog/generated_scopelogsslice.go b/pdata/plog/generated_scopelogsslice.go
+index 4ee1fb881..30cb1e501 100644
+--- a/pdata/plog/generated_scopelogsslice.go
++++ b/pdata/plog/generated_scopelogsslice.go
+@@ -34,8 +34,7 @@ func newScopeLogsSlice(orig *[]*otlplogs.ScopeLogs, state *internal.State) Scope
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewScopeLogsSlice() ScopeLogsSlice {
+ 	orig := []*otlplogs.ScopeLogs(nil)
+-	state := internal.StateMutable
+-	return newScopeLogsSlice(&orig, &state)
++	return newScopeLogsSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

@@ -1,0 +1,42 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+index cb6ba264d..7365b8342 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+@@ -8,7 +8,7 @@ package internal
+ 
+ import (
+ 	{{ range $index, $element := .imports -}}
+-	{{ if ne $element "go.opentelemetry.io/collector/pdata/internal" }}
++	{{ if ne $element "\"go.opentelemetry.io/collector/pdata/internal\"" }}
+ 	{{ $element }}
+ 	{{- end }}
+ 	{{- end }}
+@@ -34,16 +34,9 @@ func New{{ .structName }}(orig *{{ .originFullName }}, state *State) {{ .structN
+ 
+ func GenerateTest{{ .structName }}() {{ .structName }} {
+ 	orig := {{ .originFullName }}{}
++	FillOrigTest{{ .originName }}(&orig)
+ 	state := StateMutable
+-	tv := New{{ .structName }}(&orig, &state)
+-	FillTest{{ .structName }}(tv)
+-	return tv
+-}
+-
+-func FillTest{{ .structName }}(tv {{ .structName }}) {
+-	{{- range .fields }}
+-	{{ .GenerateSetWithTestValue $.messageStruct }}
+-	{{- end }}
++	return New{{ .structName }}(&orig, &state)
+ }
+ 
+ // MarshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -75,3 +68,9 @@ func CopyOrig{{ .originName }}(dest, src *{{ .originFullName }}) {
+ 	{{ .GenerateCopyOrig $.messageStruct }}
+ 	{{- end }}
+ }
++
++func FillOrigTest{{ .originName }}(orig *{{ .originFullName }}) {
++	{{- range .fields }}
++	{{ .GenerateSetWithTestValue $.messageStruct }}
++	{{- end }}
++}

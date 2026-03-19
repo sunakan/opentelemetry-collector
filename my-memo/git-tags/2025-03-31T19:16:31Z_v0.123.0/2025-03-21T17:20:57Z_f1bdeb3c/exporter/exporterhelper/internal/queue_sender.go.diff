@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index 0c625e75b..2ab0224b1 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -20,7 +20,7 @@ import (
+ 
+ type QueueSender struct {
+ 	queue   queuebatch.Queue[request.Request]
+-	batcher component.Component
++	batcher batcher.Batcher[request.Request]
+ }
+ 
+ func NewQueueSender(

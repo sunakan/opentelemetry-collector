@@ -1,0 +1,12 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index dc5d49155..081326eae 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -19,6 +19,6 @@ var DisableHighCardinalityMetricsfeatureGate = featuregate.GlobalRegistry().Must
+ // supports configuring the OpenTelemetry SDK via configuration
+ var UseOtelWithSDKConfigurationForInternalTelemetryFeatureGate = featuregate.GlobalRegistry().MustRegister(
+ 	"telemetry.useOtelWithSDKConfigurationForInternalTelemetry",
+-	featuregate.StageAlpha,
++	featuregate.StageBeta,
+ 	featuregate.WithRegisterDescription("controls whether the collector supports extended OpenTelemetry"+
+ 		"configuration for internal telemetry"))

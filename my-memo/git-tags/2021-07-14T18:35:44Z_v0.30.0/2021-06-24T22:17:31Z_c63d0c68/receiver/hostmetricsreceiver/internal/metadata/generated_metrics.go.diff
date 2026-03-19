@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go b/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
+index 0d8298ee1..fe755d72f 100644
+--- a/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
++++ b/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
+@@ -18,7 +18,7 @@ package metadata
+ 
+ import (
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Type is the component type name.

@@ -1,0 +1,17 @@
+diff --git a/connector/forwardconnector/forward.go b/connector/forwardconnector/forward.go
+index 21ef6a15a..734c55e35 100644
+--- a/connector/forwardconnector/forward.go
++++ b/connector/forwardconnector/forward.go
+@@ -26,9 +26,11 @@ func NewFactory() connector.Factory {
+ 	)
+ }
+ 
++type Config struct{}
++
+ // createDefaultConfig creates the default configuration.
+ func createDefaultConfig() component.Config {
+-	return &struct{}{}
++	return &Config{}
+ }
+ 
+ // createTracesToTraces creates a trace receiver based on provided config.

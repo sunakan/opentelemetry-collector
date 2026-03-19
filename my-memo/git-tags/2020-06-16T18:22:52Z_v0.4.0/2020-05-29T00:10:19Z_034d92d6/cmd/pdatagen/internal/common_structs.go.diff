@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/common_structs.go b/cmd/pdatagen/internal/common_structs.go
+index a1be50bc4..88b5dc61a 100644
+--- a/cmd/pdatagen/internal/common_structs.go
++++ b/cmd/pdatagen/internal/common_structs.go
+@@ -64,7 +64,7 @@ var attributeMap = &sliceStruct{
+ var attributeKeyValue = &messageStruct{}
+ 
+ var instrumentationLibraryField = &messageField{
+-	fieldMame:       "InstrumentationLibrary",
++	fieldName:       "InstrumentationLibrary",
+ 	originFieldName: "InstrumentationLibrary",
+ 	returnMessage:   instrumentationLibrary,
+ }

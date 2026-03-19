@@ -1,0 +1,33 @@
+diff --git a/pdata/pmetric/generated_gauge_test.go b/pdata/pmetric/generated_gauge_test.go
+index e6fb594ca..0384e7a38 100644
+--- a/pdata/pmetric/generated_gauge_test.go
++++ b/pdata/pmetric/generated_gauge_test.go
+@@ -13,6 +13,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestGauge_MoveTo(t *testing.T) {
+@@ -40,6 +41,20 @@ func TestGauge_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newGauge(&otlpmetrics.Gauge{}, &sharedState)) })
+ }
+ 
++func TestGauge_MarshalAndUnmarshal(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTestGauge()
++	src.marshalJSONStream(stream)
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := NewGauge()
++	dest.unmarshalJsoniter(iter)
++
++	assert.Equal(t, src, dest)
++}
++
+ func TestGauge_DataPoints(t *testing.T) {
+ 	ms := NewGauge()
+ 	assert.Equal(t, NewNumberDataPointSlice(), ms.DataPoints())

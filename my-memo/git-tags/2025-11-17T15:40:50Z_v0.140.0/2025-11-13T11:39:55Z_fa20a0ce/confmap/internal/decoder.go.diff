@@ -1,0 +1,13 @@
+diff --git a/confmap/internal/decoder.go b/confmap/internal/decoder.go
+index 17f172a2e..d3f8af797 100644
+--- a/confmap/internal/decoder.go
++++ b/confmap/internal/decoder.go
+@@ -168,7 +168,7 @@ func mapKeyStringToMapKeyTextUnmarshalerHookFunc() mapstructure.DecodeHookFuncTy
+ 		}
+ 
+ 		// Create a map with key value of to's key to bool.
+-		fieldNameSet := reflect.MakeMap(reflect.MapOf(to.Key(), reflect.TypeOf(true)))
++		fieldNameSet := reflect.MakeMap(reflect.MapOf(to.Key(), reflect.TypeFor[bool]()))
+ 		for k := range data.(map[string]any) {
+ 			// Create a new value of the to's key type.
+ 			tKey := reflect.New(to.Key())

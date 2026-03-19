@@ -1,0 +1,22 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index dcc0262db..1958f1b8a 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -234,7 +234,7 @@ func assertZPages(t *testing.T) {
+ 
+ type minimalParserLoader struct{}
+ 
+-func (*minimalParserLoader) Get() (*configparser.Parser, error) {
++func (*minimalParserLoader) Get() (*configparser.ConfigMap, error) {
+ 	configStr := `
+ receivers:
+   otlp:
+@@ -265,7 +265,7 @@ type errParserLoader struct {
+ 	err error
+ }
+ 
+-func (epl *errParserLoader) Get() (*configparser.Parser, error) {
++func (epl *errParserLoader) Get() (*configparser.ConfigMap, error) {
+ 	return nil, epl.err
+ }
+ 

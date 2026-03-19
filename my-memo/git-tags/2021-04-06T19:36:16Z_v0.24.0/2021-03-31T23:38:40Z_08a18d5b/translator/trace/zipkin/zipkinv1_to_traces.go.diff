@@ -1,0 +1,12 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_traces.go b/translator/trace/zipkin/zipkinv1_to_traces.go
+index 2f894cfbb..997edb16d 100644
+--- a/translator/trace/zipkin/zipkinv1_to_traces.go
++++ b/translator/trace/zipkin/zipkinv1_to_traces.go
+@@ -19,6 +19,7 @@ import (
+ 	"go.opentelemetry.io/collector/translator/internaldata"
+ )
+ 
++// V1JSONBatchToInternalTraces transforms a JSON blob with a list of Zipkin v1 spans into pdata.Traces.
+ func V1JSONBatchToInternalTraces(blob []byte, parseStringTags bool) (pdata.Traces, error) {
+ 	traces := pdata.NewTraces()
+ 

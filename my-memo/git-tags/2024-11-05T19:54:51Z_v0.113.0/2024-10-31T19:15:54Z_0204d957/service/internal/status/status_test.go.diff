@@ -1,0 +1,12 @@
+diff --git a/service/internal/status/status_test.go b/service/internal/status/status_test.go
+index 8c9498bd1..6a61b863a 100644
+--- a/service/internal/status/status_test.go
++++ b/service/internal/status/status_test.go
+@@ -175,7 +175,6 @@ func TestValidSeqsToStopped(t *testing.T) {
+ 			}
+ 		})
+ 	}
+-
+ }
+ 
+ func TestStatusFuncs(t *testing.T) {

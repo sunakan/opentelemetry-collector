@@ -1,0 +1,20 @@
+diff --git a/consumer/traces_test.go b/consumer/traces_test.go
+index 114ae6525..168db58ce 100644
+--- a/consumer/traces_test.go
++++ b/consumer/traces_test.go
+@@ -9,6 +9,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+@@ -45,6 +46,6 @@ func TestConsumeTraces(t *testing.T) {
+ func TestConsumeTraces_ReturnError(t *testing.T) {
+ 	want := errors.New("my_error")
+ 	cp, err := NewTraces(func(context.Context, ptrace.Traces) error { return want })
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 	assert.Equal(t, want, cp.ConsumeTraces(context.Background(), ptrace.NewTraces()))
+ }

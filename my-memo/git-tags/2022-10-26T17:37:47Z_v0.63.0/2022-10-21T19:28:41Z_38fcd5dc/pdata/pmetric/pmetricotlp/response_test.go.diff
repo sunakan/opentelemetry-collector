@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/pmetricotlp/response_test.go b/pdata/pmetric/pmetricotlp/response_test.go
+index 73627c91d..44bce583f 100644
+--- a/pdata/pmetric/pmetricotlp/response_test.go
++++ b/pdata/pmetric/pmetricotlp/response_test.go
+@@ -18,5 +18,5 @@ import (
+ 	"encoding/json"
+ )
+ 
+-var _ json.Unmarshaler = Response{}
+-var _ json.Marshaler = Response{}
++var _ json.Unmarshaler = ExportResponse{}
++var _ json.Marshaler = ExportResponse{}

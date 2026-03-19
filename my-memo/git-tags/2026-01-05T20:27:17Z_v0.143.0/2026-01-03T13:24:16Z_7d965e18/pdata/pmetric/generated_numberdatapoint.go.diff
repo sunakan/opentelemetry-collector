@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint.go b/pdata/pmetric/generated_numberdatapoint.go
+index e61eba8a8..8dc926bbe 100644
+--- a/pdata/pmetric/generated_numberdatapoint.go
++++ b/pdata/pmetric/generated_numberdatapoint.go
+@@ -103,9 +103,7 @@ func (ms NumberDataPoint) SetDoubleValue(v float64) {
+ 	}
+ 	ov.AsDouble = v
+ 	ms.orig.Value = ov
+-}
+-
+-// IntValue returns the int associated with this NumberDataPoint.
++} // IntValue returns the int associated with this NumberDataPoint.
+ func (ms NumberDataPoint) IntValue() int64 {
+ 	return ms.orig.GetAsInt()
+ }

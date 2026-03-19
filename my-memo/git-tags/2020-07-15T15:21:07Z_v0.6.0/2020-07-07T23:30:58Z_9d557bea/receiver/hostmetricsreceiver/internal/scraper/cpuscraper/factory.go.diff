@@ -1,0 +1,19 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+index 2956f540d..5daa4ea2f 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/obsreportscraper"
+ )
+ 
+ // This file implements Factory for CPU scraper.
+@@ -45,5 +46,5 @@ func (f *Factory) CreateMetricsScraper(
+ 	config internal.Config,
+ ) (internal.Scraper, error) {
+ 	cfg := config.(*Config)
+-	return newCPUScraper(ctx, cfg), nil
++	return obsreportscraper.WrapScraper(newCPUScraper(ctx, cfg), TypeStr), nil
+ }

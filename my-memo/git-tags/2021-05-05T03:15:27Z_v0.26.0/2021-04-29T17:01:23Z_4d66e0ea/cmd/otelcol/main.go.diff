@@ -1,0 +1,19 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 543af8395..07bb29c93 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -32,12 +32,12 @@ func main() {
+ 		log.Fatalf("failed to build default components: %v", err)
+ 	}
+ 
+-	info := component.ApplicationStartInfo{
++	info := component.BuildInfo{
+ 		ExeName: "otelcol",
+ 		Version: version.Version,
+ 	}
+ 
+-	if err := run(service.Parameters{ApplicationStartInfo: info, Factories: factories}); err != nil {
++	if err := run(service.Parameters{BuildInfo: info, Factories: factories}); err != nil {
+ 		log.Fatal(err)
+ 	}
+ }

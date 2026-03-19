@@ -1,0 +1,10 @@
+diff --git a/processor/memorylimiterprocessor/go.mod b/processor/memorylimiterprocessor/go.mod
+index e184f3f0e..2d70d4d35 100644
+--- a/processor/memorylimiterprocessor/go.mod
++++ b/processor/memorylimiterprocessor/go.mod
+@@ -82,3 +82,5 @@ retract (
+ )
+ 
+ replace go.opentelemetry.io/collector/connector => ../../connector
++
++replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression

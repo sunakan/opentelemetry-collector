@@ -1,0 +1,12 @@
+diff --git a/extension/memorylimiterextension/metadata.yaml b/extension/memorylimiterextension/metadata.yaml
+index 76835b00c..c14628cb0 100644
+--- a/extension/memorylimiterextension/metadata.yaml
++++ b/extension/memorylimiterextension/metadata.yaml
+@@ -2,6 +2,7 @@ type: memory_limiter
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: extension
+   stability:
+     development: [extension]

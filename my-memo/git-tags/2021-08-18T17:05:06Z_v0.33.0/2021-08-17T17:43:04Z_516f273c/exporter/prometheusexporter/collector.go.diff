@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/collector.go b/exporter/prometheusexporter/collector.go
+index 55fc06fa4..407eab4b9 100644
+--- a/exporter/prometheusexporter/collector.go
++++ b/exporter/prometheusexporter/collector.go
+@@ -84,7 +84,7 @@ func (c *collector) getMetricMetadata(metric pdata.Metric, attributes pdata.Attr
+ 
+ 	attributes.Range(func(k string, v pdata.AttributeValue) bool {
+ 		keys = append(keys, sanitize(k))
+-		values = append(values, v.StringVal())
++		values = append(values, pdata.AttributeValueToString(v))
+ 		return true
+ 	})
+ 

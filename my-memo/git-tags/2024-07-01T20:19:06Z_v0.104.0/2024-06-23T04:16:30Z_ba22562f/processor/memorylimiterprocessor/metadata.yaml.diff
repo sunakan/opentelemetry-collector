@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+index 92f9d2f82..cf155ca04 100644
+--- a/processor/memorylimiterprocessor/metadata.yaml
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -4,7 +4,7 @@ status:
+   class: processor
+   stability:
+     beta: [traces, metrics, logs]
+-  distributions: [core, contrib]
++  distributions: [core, contrib, k8s]
+ 
+ tests:
+   config:

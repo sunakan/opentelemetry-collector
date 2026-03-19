@@ -1,0 +1,12 @@
+diff --git a/examples/otel-local-config.yaml b/examples/otel-local-config.yaml
+index ee766b1bb..9f1e6cd3f 100644
+--- a/examples/otel-local-config.yaml
++++ b/examples/otel-local-config.yaml
+@@ -46,6 +46,7 @@
+ 
+        metrics:
+          receivers: [opencensus, prometheus]
++         processors: [batch]
+          exporters: [logging]
+ 
+      extensions: [health_check, pprof, zpages]

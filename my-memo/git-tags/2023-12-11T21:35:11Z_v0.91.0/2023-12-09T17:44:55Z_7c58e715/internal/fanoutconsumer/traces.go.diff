@@ -1,0 +1,13 @@
+diff --git a/internal/fanoutconsumer/traces.go b/internal/fanoutconsumer/traces.go
+index c8d0871d0..69dac49dd 100644
+--- a/internal/fanoutconsumer/traces.go
++++ b/internal/fanoutconsumer/traces.go
+@@ -42,7 +42,7 @@ type tracesConsumer struct {
+ }
+ 
+ func (tsc *tracesConsumer) Capabilities() consumer.Capabilities {
+-	return consumer.Capabilities{MutatesData: false}
++	return consumer.Capabilities{MutatesData: len(tsc.mutable) > 0}
+ }
+ 
+ // ConsumeTraces exports the ptrace.Traces to all consumers wrapped by the current one.

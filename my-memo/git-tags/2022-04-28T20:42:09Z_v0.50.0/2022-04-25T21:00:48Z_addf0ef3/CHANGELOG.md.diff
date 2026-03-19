@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 5b5f1ea89..6f718b6ef 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -23,6 +23,7 @@
+   - `pmetric.MetricValueTypeInt` is deprecated in favor of `NumberDataPointValueTypeInt`
+   - `pmetric.MetricValueTypeDouble` is deprecated in favor of `NumberDataPointValueTypeDouble`
+ - Deprecate `plog.LogRecord.SetName()` function (#5230)
++- Deprecate global `featuregate` funcs in favor of `GetRegistry` and a public `Registry` type (#5160)
+ 
+ ### 💡 Enhancements 💡
+ 

@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogs.go b/pdata/internal/generated_wrapper_resourcelogs.go
+index c4c463522..b93b1ae3c 100644
+--- a/pdata/internal/generated_wrapper_resourcelogs.go
++++ b/pdata/internal/generated_wrapper_resourcelogs.go
+@@ -101,7 +101,7 @@ func MarshalProtoOrigResourceLogs(orig *otlplogs.ResourceLogs, buf []byte) int {
+ 	pos--
+ 	buf[pos] = 0xa
+ 
+-	for i := range orig.ScopeLogs {
++	for i := len(orig.ScopeLogs) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigScopeLogs(orig.ScopeLogs[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

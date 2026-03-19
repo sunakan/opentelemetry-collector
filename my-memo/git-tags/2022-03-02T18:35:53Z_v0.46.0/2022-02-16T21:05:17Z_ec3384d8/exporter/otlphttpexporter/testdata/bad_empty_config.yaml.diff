@@ -1,0 +1,21 @@
+diff --git a/exporter/otlphttpexporter/testdata/bad_empty_config.yaml b/exporter/otlphttpexporter/testdata/bad_empty_config.yaml
+new file mode 100644
+index 000000000..c52b900bb
+--- /dev/null
++++ b/exporter/otlphttpexporter/testdata/bad_empty_config.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  otlphttp:
++
++service:
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [otlphttp]

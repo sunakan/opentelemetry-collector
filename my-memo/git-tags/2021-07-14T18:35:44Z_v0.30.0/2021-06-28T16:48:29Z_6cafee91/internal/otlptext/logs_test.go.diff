@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/logs_test.go b/internal/otlptext/logs_test.go
+index bc344e5be..0bfe4a105 100644
+--- a/internal/otlptext/logs_test.go
++++ b/internal/otlptext/logs_test.go
+@@ -39,7 +39,7 @@ func TestLogs(t *testing.T) {
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			logs, err := NewTextLogsMarshaler().Marshal(tt.args.ld)
++			logs, err := NewTextLogsMarshaler().MarshalLogs(tt.args.ld)
+ 			assert.NoError(t, err)
+ 			if !tt.empty {
+ 				assert.NotEmpty(t, logs)

@@ -1,0 +1,13 @@
+diff --git a/internal/middleware/compression.go b/internal/middleware/compression.go
+index 8b0f3cdd0..d69a57fa6 100644
+--- a/internal/middleware/compression.go
++++ b/internal/middleware/compression.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package middleware
++package middleware // import "go.opentelemetry.io/collector/internal/middleware"
+ 
+ import (
+ 	"bytes"

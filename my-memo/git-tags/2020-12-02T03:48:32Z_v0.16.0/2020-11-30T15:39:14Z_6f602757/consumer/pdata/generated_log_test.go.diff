@@ -1,0 +1,22 @@
+diff --git a/consumer/pdata/generated_log_test.go b/consumer/pdata/generated_log_test.go
+index e9360a7f6..5f6f55d3d 100644
+--- a/consumer/pdata/generated_log_test.go
++++ b/consumer/pdata/generated_log_test.go
+@@ -522,9 +522,6 @@ func TestLogRecord_Name(t *testing.T) {
+ func TestLogRecord_Body(t *testing.T) {
+ 	ms := NewLogRecord()
+ 	ms.InitEmpty()
+-	assert.True(t, ms.Body().IsNil())
+-	ms.Body().InitEmpty()
+-	assert.False(t, ms.Body().IsNil())
+ 	fillTestAttributeValue(ms.Body())
+ 	assert.EqualValues(t, generateTestAttributeValue(), ms.Body())
+ }
+@@ -625,7 +622,6 @@ func fillTestLogRecord(tv LogRecord) {
+ 	tv.SetSeverityText("INFO")
+ 	tv.SetSeverityNumber(SeverityNumberINFO)
+ 	tv.SetName("test_name")
+-	tv.Body().InitEmpty()
+ 	fillTestAttributeValue(tv.Body())
+ 	fillTestAttributeMap(tv.Attributes())
+ 	tv.SetDroppedAttributesCount(uint32(17))

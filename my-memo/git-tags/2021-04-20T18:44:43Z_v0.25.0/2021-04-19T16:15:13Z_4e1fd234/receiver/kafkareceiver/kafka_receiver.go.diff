@@ -1,0 +1,15 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver.go b/receiver/kafkareceiver/kafka_receiver.go
+index d6f42b677..c811b2234 100644
+--- a/receiver/kafkareceiver/kafka_receiver.go
++++ b/receiver/kafkareceiver/kafka_receiver.go
+@@ -171,8 +171,9 @@ func (c *consumerGroupHandler) ConsumeClaim(session sarama.ConsumerGroupSession,
+ 			return err
+ 		}
+ 
++		spanCount := traces.SpanCount()
+ 		err = c.nextConsumer.ConsumeTraces(session.Context(), traces)
+-		obsreport.EndTraceDataReceiveOp(ctx, c.unmarshaller.Encoding(), traces.SpanCount(), err)
++		obsreport.EndTraceDataReceiveOp(ctx, c.unmarshaller.Encoding(), spanCount, err)
+ 		if err != nil {
+ 			return err
+ 		}

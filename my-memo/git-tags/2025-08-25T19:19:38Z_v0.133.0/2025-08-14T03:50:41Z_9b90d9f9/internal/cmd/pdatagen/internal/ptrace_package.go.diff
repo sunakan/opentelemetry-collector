@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/ptrace_package.go b/internal/cmd/pdatagen/internal/ptrace_package.go
+index b7a8da5ea..4f1b1fa03 100644
+--- a/internal/cmd/pdatagen/internal/ptrace_package.go
++++ b/internal/cmd/pdatagen/internal/ptrace_package.go
+@@ -9,6 +9,7 @@ var ptrace = &Package{
+ 		path: "ptrace",
+ 		imports: []string{
+ 			`"encoding/binary"`,
++			`"fmt"`,
+ 			`"iter"`,
+ 			`"math"`,
+ 			`"sort"`,
+@@ -27,6 +28,9 @@ var ptrace = &Package{
+ 			``,
+ 			`"github.com/stretchr/testify/assert"`,
+ 			`"github.com/stretchr/testify/require"`,
++			`"google.golang.org/protobuf/proto"`,
++			`gootlpcollectortrace "go.opentelemetry.io/proto/slim/otlp/collector/trace/v1"`,
++			`gootlptrace "go.opentelemetry.io/proto/slim/otlp/trace/v1"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,
+ 			`"go.opentelemetry.io/collector/pdata/internal/data"`,

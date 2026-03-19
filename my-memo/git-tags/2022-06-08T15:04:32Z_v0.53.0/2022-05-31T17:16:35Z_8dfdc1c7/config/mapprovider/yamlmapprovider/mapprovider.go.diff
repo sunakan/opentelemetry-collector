@@ -1,0 +1,13 @@
+diff --git a/config/mapprovider/yamlmapprovider/mapprovider.go b/config/mapprovider/yamlmapprovider/mapprovider.go
+index 9b2aaf5d4..f11a94c72 100644
+--- a/config/mapprovider/yamlmapprovider/mapprovider.go
++++ b/config/mapprovider/yamlmapprovider/mapprovider.go
+@@ -19,7 +19,7 @@ import (
+ 	"fmt"
+ 	"strings"
+ 
+-	"gopkg.in/yaml.v2"
++	"gopkg.in/yaml.v3"
+ 
+ 	"go.opentelemetry.io/collector/config"
+ )

@@ -1,0 +1,10 @@
+diff --git a/component/experimental/component/doc.go b/component/experimental/component/doc.go
+index 1041d4bfb..c5082e45c 100644
+--- a/component/experimental/component/doc.go
++++ b/component/experimental/component/doc.go
+@@ -16,4 +16,4 @@
+ // that typically live under the "go.opentelemetry.io/collector/component"
+ // package but aren't stable yet to be published there.
+ // ATTENTION: the package is still experimental and subject to changes without advanced notice.
+-package component
++package component // import "go.opentelemetry.io/collector/component/experimental/component"

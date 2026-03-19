@@ -1,0 +1,19 @@
+diff --git a/internal/compression/grpc/grpc_test.go b/internal/compression/grpc/grpc_test.go
+index 372d1799f..8edea5482 100644
+--- a/internal/compression/grpc/grpc_test.go
++++ b/internal/compression/grpc/grpc_test.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -17,7 +17,7 @@ package grpc
+ import (
+ 	"testing"
+ 
+-	"github.com/census-instrumentation/opencensus-service/internal/compression"
++	"github.com/open-telemetry/opentelemetry-service/internal/compression"
+ )
+ 
+ func TestGetGRPCCompressionKey(t *testing.T) {

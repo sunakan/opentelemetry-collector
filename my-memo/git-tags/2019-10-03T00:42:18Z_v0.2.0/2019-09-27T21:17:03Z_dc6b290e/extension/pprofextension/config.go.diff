@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/config.go b/extension/pprofextension/config.go
+index e216dc785..c183e5e6a 100644
+--- a/extension/pprofextension/config.go
++++ b/extension/pprofextension/config.go
+@@ -15,7 +15,7 @@
+ package pprofextension
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config has the configuration for the extension enabling the golang

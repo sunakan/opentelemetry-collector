@@ -1,0 +1,13 @@
+diff --git a/versions.yaml b/versions.yaml
+index 54980d66b..e525790af 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -17,7 +17,7 @@ module-sets:
+     version: v0.38.0
+     modules:
+       - go.opentelemetry.io/collector
++      - go.opentelemetry.io/collector/cmd/builder
+       - go.opentelemetry.io/collector/model
+-      - go.opentelemetry.io/collector/builder
+ excluded-modules:
+       - go.opentelemetry.io/collector/internal/tools

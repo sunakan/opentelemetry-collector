@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/ptraceotlp_package.go b/internal/cmd/pdatagen/internal/ptraceotlp_package.go
+index afd484ee5..4bb5d90c0 100644
+--- a/internal/cmd/pdatagen/internal/ptraceotlp_package.go
++++ b/internal/cmd/pdatagen/internal/ptraceotlp_package.go
+@@ -12,6 +12,11 @@ var ptraceotlp = &Package{
+ 		name: "ptraceotlp",
+ 		path: filepath.Join("ptrace", "ptraceotlp"),
+ 		imports: []string{
++			`"encoding/binary"`,
++			`"iter"`,
++			`"math"`,
++			`"sort"`,
++			``,
+ 			`otlpcollectortrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/trace/v1"`,
+ 		},
+ 		testImports: []string{

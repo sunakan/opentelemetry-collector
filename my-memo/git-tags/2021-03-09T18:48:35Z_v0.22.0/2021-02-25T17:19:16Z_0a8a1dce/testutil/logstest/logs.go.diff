@@ -1,0 +1,13 @@
+diff --git a/testutil/logstest/logs.go b/testutil/logstest/logs.go
+index 962e2e621..7d16ea026 100644
+--- a/testutil/logstest/logs.go
++++ b/testutil/logstest/logs.go
+@@ -43,7 +43,7 @@ func Logs(recs ...Log) pdata.Logs {
+ 	for i := range recs {
+ 		l := logSlice.At(i)
+ 		recs[i].Body.CopyTo(l.Body())
+-		l.SetTimestamp(pdata.TimestampUnixNano(recs[i].Timestamp))
++		l.SetTimestamp(pdata.Timestamp(recs[i].Timestamp))
+ 		l.Attributes().InitFromMap(recs[i].Attributes)
+ 		l.Attributes().Sort()
+ 	}

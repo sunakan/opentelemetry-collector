@@ -1,0 +1,13 @@
+diff --git a/config/configtls/clientcasfilereloader_test.go b/config/configtls/clientcasfilereloader_test.go
+index 925c77e1a..7eb77da8a 100644
+--- a/config/configtls/clientcasfilereloader_test.go
++++ b/config/configtls/clientcasfilereloader_test.go
+@@ -106,7 +106,7 @@ func (r *testLoader) loadClientCAFile() (*x509.CertPool, error) {
+ }
+ 
+ func (r *testLoader) returnErrorOnSubsequentCalls(msg string) {
+-	r.err.Store(fmt.Errorf(msg))
++	r.err.Store(fmt.Errorf("%s", msg))
+ }
+ 
+ func (r *testLoader) reloadNumber() int {

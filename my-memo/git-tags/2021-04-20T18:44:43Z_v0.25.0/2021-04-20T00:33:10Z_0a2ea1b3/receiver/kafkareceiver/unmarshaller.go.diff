@@ -1,0 +1,31 @@
+diff --git a/receiver/kafkareceiver/unmarshaller.go b/receiver/kafkareceiver/unmarshaller.go
+index 25680fa06..57973b75a 100644
+--- a/receiver/kafkareceiver/unmarshaller.go
++++ b/receiver/kafkareceiver/unmarshaller.go
+@@ -27,6 +27,15 @@ type Unmarshaller interface {
+ 	Encoding() string
+ }
+ 
++// LogsUnmarshaller deserializes the message body.
++type LogsUnmarshaller interface {
++	// Unmarshal deserializes the message body into traces.
++	Unmarshal([]byte) (pdata.Logs, error)
++
++	// Encoding of the serialized messages.
++	Encoding() string
++}
++
+ // defaultUnmarshallers returns map of supported encodings with Unmarshaller.
+ func defaultUnmarshallers() map[string]Unmarshaller {
+ 	otlp := &otlpTracesPbUnmarshaller{}
+@@ -44,3 +53,10 @@ func defaultUnmarshallers() map[string]Unmarshaller {
+ 		zipkinThrift.Encoding(): zipkinThrift,
+ 	}
+ }
++
++func defaultLogsUnmarshallers() map[string]LogsUnmarshaller {
++	otlp := &otlpLogsPbUnmarshaller{}
++	return map[string]LogsUnmarshaller{
++		otlp.Encoding(): otlp,
++	}
++}

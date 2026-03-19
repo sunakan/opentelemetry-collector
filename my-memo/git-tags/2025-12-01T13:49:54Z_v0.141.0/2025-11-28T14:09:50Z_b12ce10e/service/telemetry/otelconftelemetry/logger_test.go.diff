@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/otelconftelemetry/logger_test.go b/service/telemetry/otelconftelemetry/logger_test.go
+index 98697b53f..97c999cf5 100644
+--- a/service/telemetry/otelconftelemetry/logger_test.go
++++ b/service/telemetry/otelconftelemetry/logger_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.opentelemetry.io/otel/attribute"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.18.0"
++	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 	"go.uber.org/zap/zaptest/observer"

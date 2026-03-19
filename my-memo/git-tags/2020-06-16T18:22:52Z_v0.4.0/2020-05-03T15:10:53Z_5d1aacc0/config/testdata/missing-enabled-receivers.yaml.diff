@@ -1,0 +1,30 @@
+diff --git a/config/testdata/missing-enabled-receivers.yaml b/config/testdata/missing-enabled-receivers.yaml
+deleted file mode 100644
+index 548a6503a..000000000
+--- a/config/testdata/missing-enabled-receivers.yaml
++++ /dev/null
+@@ -1,24 +0,0 @@
+-receivers:
+-  examplereceiver:
+-    disabled: true
+-  examplereceiver/disabled:
+-    disabled: true
+-
+-processors:
+-  exampleprocessor:
+-  exampleprocessor/disabled:
+-    disabled: true
+-
+-exporters:
+-  exampleexporter/myexporter:
+-    extra: "some export string 2"
+-  exampleexporter/disabled:
+-    disabled: true
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver, examplereceiver/disabled]
+-      processors: [exampleprocessor, exampleprocessor/disabled]
+-      exporters: [exampleexporter/disabled, exampleexporter]

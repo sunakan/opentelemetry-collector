@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/testdata/config_invalid_metrics_views_feature_gate.yaml b/service/telemetry/testdata/config_invalid_metrics_views_feature_gate.yaml
+new file mode 100644
+index 000000000..f612751dc
+--- /dev/null
++++ b/service/telemetry/testdata/config_invalid_metrics_views_feature_gate.yaml
+@@ -0,0 +1,5 @@
++metrics:
++  level: detailed
++  views:
++    - selector: {}
++      stream: {}

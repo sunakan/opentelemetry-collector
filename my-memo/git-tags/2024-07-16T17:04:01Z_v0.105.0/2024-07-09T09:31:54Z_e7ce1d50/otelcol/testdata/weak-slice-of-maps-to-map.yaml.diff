@@ -1,0 +1,39 @@
+diff --git a/otelcol/testdata/weak-slice-of-maps-to-map.yaml b/otelcol/testdata/weak-slice-of-maps-to-map.yaml
+new file mode 100644
+index 000000000..2b3aeb2e1
+--- /dev/null
++++ b/otelcol/testdata/weak-slice-of-maps-to-map.yaml
+@@ -0,0 +1,33 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  nop:
++
++extensions:
++  nop:
++
++connectors:
++  nop/con:
++
++service:
++  telemetry:
++    metrics:
++      address: localhost:8888
++  extensions: [nop]
++  pipelines:
++    - traces:  # <-- Slice of maps casted to map
++        receivers: [nop]
++        processors: [nop]
++        exporters: [nop, nop/con]
++      metrics:
++        receivers: [nop]
++        processors: [nop]
++        exporters: [nop]
++    - logs:
++        receivers: [nop, nop/con]
++        processors: [nop]
++        exporters: [nop]

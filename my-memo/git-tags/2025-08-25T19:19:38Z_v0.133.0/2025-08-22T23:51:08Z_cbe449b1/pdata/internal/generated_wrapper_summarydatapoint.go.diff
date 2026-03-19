@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint.go b/pdata/internal/generated_wrapper_summarydatapoint.go
+index 44726e132..35b413201 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint.go
+@@ -18,11 +18,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolSummaryDataPoint = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.SummaryDataPoint{}
+-	},
+-}
++var (
++	protoPoolSummaryDataPoint = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.SummaryDataPoint{}
++		},
++	}
++)
+ 
+ func NewOrigSummaryDataPoint() *otlpmetrics.SummaryDataPoint {
+ 	if !UseProtoPooling.IsEnabled() {

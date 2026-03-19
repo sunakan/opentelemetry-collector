@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_histogram.go b/pdata/internal/generated_wrapper_histogram.go
+index 0834c439b..dfef41ca9 100644
+--- a/pdata/internal/generated_wrapper_histogram.go
++++ b/pdata/internal/generated_wrapper_histogram.go
+@@ -86,7 +86,7 @@ func MarshalProtoOrigHistogram(orig *otlpmetrics.Histogram, buf []byte) int {
+ 	pos := len(buf)
+ 	var l int
+ 	_ = l
+-	for i := range orig.DataPoints {
++	for i := len(orig.DataPoints) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigHistogramDataPoint(orig.DataPoints[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

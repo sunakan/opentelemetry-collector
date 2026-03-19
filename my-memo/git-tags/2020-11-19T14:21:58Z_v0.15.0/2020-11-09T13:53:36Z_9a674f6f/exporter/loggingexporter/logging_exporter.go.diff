@@ -1,0 +1,44 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 37d6035df..c31fdf06b 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -106,6 +106,9 @@ func (b *logDataBuffer) logMetricDataPoints(m pdata.Metric) {
+ 		data := m.DoubleHistogram()
+ 		b.logEntry("     -> AggregationTemporality: %s", data.AggregationTemporality().String())
+ 		b.logDoubleHistogramDataPoints(data.DataPoints())
++	case pdata.MetricDataTypeDoubleSummary:
++		data := m.DoubleSummary()
++		b.logDoubleSummaryDataPoints(data.DataPoints())
+ 	}
+ }
+ 
+@@ -203,6 +206,29 @@ func (b *logDataBuffer) logIntHistogramDataPoints(ps pdata.IntHistogramDataPoint
+ 	}
+ }
+ 
++func (b *logDataBuffer) logDoubleSummaryDataPoints(ps pdata.DoubleSummaryDataPointSlice) {
++	for i := 0; i < ps.Len(); i++ {
++		p := ps.At(i)
++		if p.IsNil() {
++			continue
++		}
++
++		b.logEntry("SummaryDataPoints #%d", i)
++		b.logDataPointLabels(p.LabelsMap())
++
++		b.logEntry("StartTime: %d", p.StartTime())
++		b.logEntry("Timestamp: %d", p.Timestamp())
++		b.logEntry("Count: %d", p.Count())
++		b.logEntry("Sum: %f", p.Sum())
++
++		quantiles := p.QuantileValues()
++		for i := 0; i < quantiles.Len(); i++ {
++			quantile := quantiles.At(i)
++			b.logEntry("QuantileValue #%d: Quantile %f, Value %f", i, quantile.Quantile(), quantile.Value())
++		}
++	}
++}
++
+ func (b *logDataBuffer) logDataPointLabels(labels pdata.StringMap) {
+ 	b.logStringMap("Data point labels", labels)
+ }

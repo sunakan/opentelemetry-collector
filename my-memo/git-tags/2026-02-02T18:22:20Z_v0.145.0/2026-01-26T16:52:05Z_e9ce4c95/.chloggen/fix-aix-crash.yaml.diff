@@ -1,0 +1,11 @@
+diff --git a/.chloggen/fix-aix-crash.yaml b/.chloggen/fix-aix-crash.yaml
+new file mode 100644
+index 000000000..2fa2786a0
+--- /dev/null
++++ b/.chloggen/fix-aix-crash.yaml
+@@ -0,0 +1,4 @@
++change_type: bug_fix
++component: pkg/service
++note: "Don't error on startup when process metrics are enabled on unsupported OSes (e.g. AIX)"
++issues: [14307]
+\ No newline at end of file

@@ -1,0 +1,14 @@
+diff --git a/exporter/internal/otlptext/traces_test.go b/exporter/internal/otlptext/traces_test.go
+index f3a7fdad6..2c4b69280 100644
+--- a/exporter/internal/otlptext/traces_test.go
++++ b/exporter/internal/otlptext/traces_test.go
+@@ -12,8 +12,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestTracesText(t *testing.T) {

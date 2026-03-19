@@ -1,0 +1,12 @@
+diff --git a/consumer/pdata/log.go b/consumer/pdata/log.go
+index 613da4b3d..6d528e3b5 100644
+--- a/consumer/pdata/log.go
++++ b/consumer/pdata/log.go
+@@ -99,6 +99,7 @@ func (ld Logs) OtlpProtoSize() int {
+ 	return ld.orig.Size()
+ }
+ 
++// ResourceLogs returns the ResourceLogsSlice associated with this Logs.
+ func (ld Logs) ResourceLogs() ResourceLogsSlice {
+ 	return newResourceLogsSlice(&ld.orig.ResourceLogs)
+ }

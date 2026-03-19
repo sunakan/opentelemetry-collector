@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index 9b9fa436a..36c203e35 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -54,7 +54,7 @@ func createDefaultConfig() configmodels.Exporter {
+ 	}
+ }
+ 
+-func createTraceExporter(_ context.Context, _ component.ExporterCreateParams, config configmodels.Exporter) (component.TraceExporter, error) {
++func createTraceExporter(_ context.Context, _ component.ExporterCreateParams, config configmodels.Exporter) (component.TracesExporter, error) {
+ 	cfg := config.(*Config)
+ 
+ 	exporterLogger, err := createLogger(cfg)

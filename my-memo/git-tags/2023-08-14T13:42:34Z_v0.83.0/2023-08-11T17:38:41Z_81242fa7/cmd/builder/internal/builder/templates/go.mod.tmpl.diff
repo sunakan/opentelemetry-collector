@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/templates/go.mod.tmpl b/cmd/builder/internal/builder/templates/go.mod.tmpl
+index 1260b820e..5aebc67da 100644
+--- a/cmd/builder/internal/builder/templates/go.mod.tmpl
++++ b/cmd/builder/internal/builder/templates/go.mod.tmpl
+@@ -2,7 +2,7 @@
+ 
+ module {{.Distribution.Module}}
+ 
+-go 1.19
++go 1.20
+ 
+ require (
+ 	{{- range .Connectors}}

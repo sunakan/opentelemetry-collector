@@ -1,0 +1,29 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pcommon_package.go b/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
+index d6085334f..017c88201 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -27,6 +27,7 @@ var pcommon = &Package{
+ 		float64Slice,
+ 		uInt64Slice,
+ 		int64Slice,
++		int32Slice,
+ 		stringSlice,
+ 	},
+ }
+@@ -207,6 +208,16 @@ var int64Slice = &primitiveSliceStruct{
+ 	testNewVal:           "1, 5, 3",
+ }
+ 
++var int32Slice = &primitiveSliceStruct{
++	structName:           "Int32Slice",
++	packageName:          "pcommon",
++	itemType:             "int32",
++	testOrigVal:          "1, 2, 3",
++	testInterfaceOrigVal: []interface{}{1, 2, 3},
++	testSetVal:           "5",
++	testNewVal:           "1, 5, 3",
++}
++
+ var stringSlice = &primitiveSliceStruct{
+ 	structName:           "StringSlice",
+ 	packageName:          "pcommon",

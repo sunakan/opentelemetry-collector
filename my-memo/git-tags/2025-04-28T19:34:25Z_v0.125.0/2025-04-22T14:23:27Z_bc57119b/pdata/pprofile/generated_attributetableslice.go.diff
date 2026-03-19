@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_attributetableslice.go b/pdata/pprofile/generated_attributetableslice.go
+index 071c528cf..c6447c4b7 100644
+--- a/pdata/pprofile/generated_attributetableslice.go
++++ b/pdata/pprofile/generated_attributetableslice.go
+@@ -108,6 +108,10 @@ func (es AttributeTableSlice) AppendEmpty() Attribute {
+ func (es AttributeTableSlice) MoveAndAppendTo(dest AttributeTableSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

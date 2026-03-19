@@ -1,0 +1,32 @@
+diff --git a/pdata/pprofile/generated_attributetableslice.go b/pdata/pprofile/generated_attributetableslice.go
+index 8d98cb639..8e62f5022 100644
+--- a/pdata/pprofile/generated_attributetableslice.go
++++ b/pdata/pprofile/generated_attributetableslice.go
+@@ -11,6 +11,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	v1 "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ // AttributeTableSlice logically represents a slice of Attribute.
+@@ -147,6 +148,19 @@ func (es AttributeTableSlice) CopyTo(dest AttributeTableSlice) {
+ 	*dest.orig = copyOrigAttributeTableSlice(*dest.orig, *es.orig)
+ }
+ 
++// marshalJSONStream marshals all properties from the current struct to the destination stream.
++func (ms AttributeTableSlice) marshalJSONStream(dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(*ms.orig) > 0 {
++		ms.At(0).marshalJSONStream(dest)
++	}
++	for i := 1; i < len(*ms.orig); i++ {
++		dest.WriteMore()
++		ms.At(i).marshalJSONStream(dest)
++	}
++	dest.WriteArrayEnd()
++}
++
+ func copyOrigAttributeTableSlice(dest, src []v1.KeyValue) []v1.KeyValue {
+ 	if cap(dest) < len(src) {
+ 		dest = make([]v1.KeyValue, len(src))

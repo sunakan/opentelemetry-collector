@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 60ea0b909..d4fb010bb 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -250,7 +250,7 @@ func TestCreateLogReceiver(t *testing.T) {
+ 		cfg          *Config
+ 		wantStartErr bool
+ 		wantErr      bool
+-		sink         consumer.LogsConsumer
++		sink         consumer.Logs
+ 	}{
+ 		{
+ 			name: "default",

@@ -1,0 +1,44 @@
+diff --git a/cmd/occollector/app/builder/processor_builder.go b/cmd/occollector/app/builder/processor_builder.go
+index 2f22e1617..fdf992526 100644
+--- a/cmd/occollector/app/builder/processor_builder.go
++++ b/cmd/occollector/app/builder/processor_builder.go
+@@ -28,6 +28,8 @@ const (
+ 	ThriftTChannelSenderType SenderType = "jaeger-thrift-tchannel"
+ 	// ThriftHTTPSenderType represents a thrift-format http-transport sender
+ 	ThriftHTTPSenderType = "jaeger-thrift-http"
++	// ProtoGRPCSenderType represents a proto-format grpc-transport sender
++	ProtoGRPCSenderType = "jaeger-proto-grpc"
+ 	// InvalidSenderType represents an invalid sender
+ 	InvalidSenderType = "invalid"
+ )
+@@ -67,6 +69,16 @@ func NewJaegerThriftHTTPSenderCfg() *JaegerThriftHTTPSenderCfg {
+ 	return opts
+ }
+ 
++// JaegerProtoGRPCSenderCfg holds configuration for Jaeger Proto GRPC sender
++type JaegerProtoGRPCSenderCfg struct {
++	CollectorEndpoint string `mapstructure:"collector-endpoint"`
++}
++
++// NewJaegerProtoGRPCSenderCfg returns an instance of JaegerProtoGRPCSenderCfg with default values
++func NewJaegerProtoGRPCSenderCfg() *JaegerProtoGRPCSenderCfg {
++	return &JaegerProtoGRPCSenderCfg{}
++}
++
+ // BatchingConfig contains configuration around the queueing batching.
+ // It contains some advanced configurations, which should not be used
+ // by a typical user, but are provided as advanced features to increase
+@@ -155,6 +167,13 @@ func (qOpts *QueuedSpanProcessorCfg) InitFromViper(v *viper.Viper) *QueuedSpanPr
+ 			vthsOpts.Unmarshal(thsOpts)
+ 		}
+ 		qOpts.SenderConfig = thsOpts
++	case ProtoGRPCSenderType:
++		pgopts := NewJaegerProtoGRPCSenderCfg()
++		vpgopts := v.Sub(string(ProtoGRPCSenderType))
++		if vpgopts != nil {
++			vpgopts.Unmarshal(pgopts)
++		}
++		qOpts.SenderConfig = pgopts
+ 	}
+ 	qOpts.RawConfig = v
+ 	return qOpts

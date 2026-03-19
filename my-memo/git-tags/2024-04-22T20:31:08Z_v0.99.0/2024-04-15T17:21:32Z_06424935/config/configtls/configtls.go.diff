@@ -1,0 +1,44 @@
+diff --git a/config/configtls/configtls.go b/config/configtls/configtls.go
+index b21e0a9ca..2090f775d 100644
+--- a/config/configtls/configtls.go
++++ b/config/configtls/configtls.go
+@@ -72,6 +72,11 @@ type Config struct {
+ 	ReloadInterval time.Duration `mapstructure:"reload_interval"`
+ }
+ 
++// NewDefaultConfig creates a new TLSSetting with any default values set.
++func NewDefaultConfig() Config {
++	return Config{}
++}
++
+ // ClientConfig contains TLS configurations that are specific to client
+ // connections in addition to the common configurations. This should be used by
+ // components configuring TLS client connections.
+@@ -96,6 +101,13 @@ type ClientConfig struct {
+ 	ServerName string `mapstructure:"server_name_override"`
+ }
+ 
++// NewDefaultClientConfig creates a new TLSClientSetting with any default values set.
++func NewDefaultClientConfig() ClientConfig {
++	return ClientConfig{
++		Config: NewDefaultConfig(),
++	}
++}
++
+ // ServerConfig contains TLS configurations that are specific to server
+ // connections in addition to the common configurations. This should be used by
+ // components configuring TLS server connections.
+@@ -115,6 +127,13 @@ type ServerConfig struct {
+ 	ReloadClientCAFile bool `mapstructure:"client_ca_file_reload"`
+ }
+ 
++// NewDefaultServerConfig creates a new TLSServerSetting with any default values set.
++func NewDefaultServerConfig() ServerConfig {
++	return ServerConfig{
++		Config: NewDefaultConfig(),
++	}
++}
++
+ // certReloader is a wrapper object for certificate reloading
+ // Its GetCertificate method will either return the current certificate or reload from disk
+ // if the last reload happened more than ReloadInterval ago

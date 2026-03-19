@@ -1,0 +1,24 @@
+diff --git a/pdata/xpdata/entity/resource_entity_ref_test.go b/pdata/xpdata/entity/resource_entity_ref_test.go
+new file mode 100644
+index 000000000..2a8605ba3
+--- /dev/null
++++ b/pdata/xpdata/entity/resource_entity_ref_test.go
+@@ -0,0 +1,18 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package entity
++
++import (
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++
++	"go.opentelemetry.io/collector/pdata/internal"
++	"go.opentelemetry.io/collector/pdata/pcommon"
++)
++
++func TestResourceEntityRefs(t *testing.T) {
++	res := internal.GenerateTestResource()
++	assert.EqualValues(t, internal.GenerateTestEntityRefSlice(), ResourceEntityRefs(pcommon.Resource(res)))
++}

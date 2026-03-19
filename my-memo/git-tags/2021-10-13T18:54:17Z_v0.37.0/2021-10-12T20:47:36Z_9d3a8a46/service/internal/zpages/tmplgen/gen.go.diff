@@ -1,0 +1,13 @@
+diff --git a/service/internal/zpages/tmplgen/gen.go b/service/internal/zpages/tmplgen/gen.go
+index 19aaa91c5..41151765f 100644
+--- a/service/internal/zpages/tmplgen/gen.go
++++ b/service/internal/zpages/tmplgen/gen.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package tmplgen
++package tmplgen // import "go.opentelemetry.io/collector/service/internal/zpages/tmplgen"
+ 
+ //go:generate esc -pkg tmplgen -o resources.go -modtime "0" ../templates/
+ //go:generate addlicense -y "" -c "The OpenTelemetry Authors" resources.go

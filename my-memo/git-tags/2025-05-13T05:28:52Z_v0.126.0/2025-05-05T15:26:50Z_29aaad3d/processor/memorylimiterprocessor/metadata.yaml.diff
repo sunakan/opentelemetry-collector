@@ -1,0 +1,12 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+index 870b22863..af1385799 100644
+--- a/processor/memorylimiterprocessor/metadata.yaml
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -2,6 +2,7 @@ type: memory_limiter
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: processor
+   stability:
+     alpha: [profiles]

@@ -1,0 +1,13 @@
+diff --git a/component/host.go b/component/host.go
+index 56375b871..2d564d8cd 100644
+--- a/component/host.go
++++ b/component/host.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package component
++package component // import "go.opentelemetry.io/collector/component"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/config"

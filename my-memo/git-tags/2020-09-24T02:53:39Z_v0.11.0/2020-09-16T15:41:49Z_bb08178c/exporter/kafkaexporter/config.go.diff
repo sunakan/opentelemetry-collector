@@ -1,0 +1,15 @@
+diff --git a/exporter/kafkaexporter/config.go b/exporter/kafkaexporter/config.go
+index 1b3124d61..d10c3c00c 100644
+--- a/exporter/kafkaexporter/config.go
++++ b/exporter/kafkaexporter/config.go
+@@ -41,8 +41,8 @@ type Config struct {
+ 	// Client, and shared by the Producer/Consumer.
+ 	Metadata Metadata `mapstructure:"metadata"`
+ 
+-	// TODO authentication
+-	// TODO batch settings
++	// Authentication defines used authentication mechanism.
++	Authentication Authentication `mapstructure:"auth"`
+ }
+ 
+ // Metadata defines configuration for retrieving metadata from the broker.

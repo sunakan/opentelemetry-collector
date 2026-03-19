@@ -1,0 +1,15 @@
+diff --git a/processor/processortest/nop_processor_test.go b/processor/processortest/nop_processor_test.go
+index 728c7cf3c..bf7710571 100644
+--- a/processor/processortest/nop_processor_test.go
++++ b/processor/processortest/nop_processor_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/exporter/exportertest"
+ )
+ 
+ func TestNopTraceProcessorNoErrors(t *testing.T) {

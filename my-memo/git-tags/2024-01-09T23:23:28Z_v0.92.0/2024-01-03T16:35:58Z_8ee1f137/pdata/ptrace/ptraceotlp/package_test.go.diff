@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/ptraceotlp/package_test.go b/pdata/ptrace/ptraceotlp/package_test.go
+new file mode 100644
+index 000000000..4b8a352c4
+--- /dev/null
++++ b/pdata/ptrace/ptraceotlp/package_test.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package ptraceotlp
++
++import (
++	"testing"
++
++	"go.uber.org/goleak"
++)
++
++func TestMain(m *testing.M) {
++	goleak.VerifyTestMain(m)
++}

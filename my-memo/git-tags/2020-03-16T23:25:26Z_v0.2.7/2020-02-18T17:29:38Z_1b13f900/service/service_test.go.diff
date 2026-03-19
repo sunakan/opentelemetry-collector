@@ -1,0 +1,12 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index d49291371..37b5f4264 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -41,6 +41,7 @@ func TestApplication_Start(t *testing.T) {
+ 
+ 	app, err := New(factories, ApplicationStartInfo{})
+ 	require.NoError(t, err)
++	assert.Equal(t, app.rootCmd, app.Command())
+ 
+ 	const testPrefix = "a_test"
+ 	metricsPort := testutils.GetAvailablePort(t)

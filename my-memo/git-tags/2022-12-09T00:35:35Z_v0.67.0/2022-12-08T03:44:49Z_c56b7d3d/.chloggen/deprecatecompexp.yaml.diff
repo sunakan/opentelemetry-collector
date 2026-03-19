@@ -1,0 +1,11 @@
+diff --git a/.chloggen/deprecatecompexp.yaml b/.chloggen/deprecatecompexp.yaml
+index 4e4e09924..3ef48e46a 100755
+--- a/.chloggen/deprecatecompexp.yaml
++++ b/.chloggen/deprecatecompexp.yaml
+@@ -22,4 +22,4 @@ subtext: |-
+   - `component.NewExporterFactory` -> `exporter.NewFactory`
+   - `component.MakeExporterFactoryMap` -> `exporter.MakeFactoryMap`
+   - `componenttest.NewNopExporterCreateSettings` -> `exportertest.NewNopCreateSettings`
+-  - `componenttest.NewNopExporterFactory` -> `exportertest.NewNopFactory`
+\ No newline at end of file
++  - `componenttest.NewNopExporterFactory` -> `exportertest.NewNopFactory`

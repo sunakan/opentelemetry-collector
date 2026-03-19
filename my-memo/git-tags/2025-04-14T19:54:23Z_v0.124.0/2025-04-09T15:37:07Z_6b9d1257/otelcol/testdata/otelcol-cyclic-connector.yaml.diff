@@ -1,0 +1,26 @@
+diff --git a/otelcol/testdata/otelcol-cyclic-connector.yaml b/otelcol/testdata/otelcol-cyclic-connector.yaml
+new file mode 100644
+index 000000000..a25b8b2d1
+--- /dev/null
++++ b/otelcol/testdata/otelcol-cyclic-connector.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  nop:
++
++exporters:
++  nop:
++
++connectors:
++  nop/forward:
++
++service:
++  pipelines:
++    traces/in:
++      receivers: [nop/forward]
++      processors: [ ]
++      exporters: [nop/forward]
++    traces/out:
++      receivers: [nop/forward]
++      processors: [ ]
++      exporters: [nop/forward]
+\ No newline at end of file

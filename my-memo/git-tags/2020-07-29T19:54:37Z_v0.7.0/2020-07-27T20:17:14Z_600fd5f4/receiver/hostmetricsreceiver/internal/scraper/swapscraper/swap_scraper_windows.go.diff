@@ -1,0 +1,17 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_windows.go
+index d854c8d84..f755cf042 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/swapscraper/swap_scraper_windows.go
+@@ -105,11 +105,7 @@ func (s *scraper) ScrapeMetrics(_ context.Context) (pdata.MetricSlice, error) {
+ 		errors = append(errors, err)
+ 	}
+ 
+-	if len(errors) > 0 {
+-		return metrics, componenterror.CombineErrors(errors)
+-	}
+-
+-	return metrics, nil
++	return metrics, componenterror.CombineErrors(errors)
+ }
+ 
+ func (s *scraper) scrapeAndAppendSwapUsageMetric(metrics pdata.MetricSlice) error {

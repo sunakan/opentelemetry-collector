@@ -1,0 +1,13 @@
+diff --git a/service/internal/fanoutconsumer/consumer.go b/service/internal/fanoutconsumer/consumer.go
+index ded5f4a1e..77c474298 100644
+--- a/service/internal/fanoutconsumer/consumer.go
++++ b/service/internal/fanoutconsumer/consumer.go
+@@ -24,7 +24,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // NewMetrics wraps multiple metrics consumers in a single one.

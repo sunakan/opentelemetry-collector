@@ -1,0 +1,19 @@
+diff --git a/otelcol/testdata/otelcol-invalid-telemetry.yaml b/otelcol/testdata/otelcol-invalid-telemetry.yaml
+new file mode 100644
+index 000000000..de79c1f01
+--- /dev/null
++++ b/otelcol/testdata/otelcol-invalid-telemetry.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  nop:
++
++exporters:
++  nop:
++
++service:
++  telemetry:
++    unknown: key
++  pipelines:
++    metrics:
++      receivers: [nop]
++      exporters: [nop]

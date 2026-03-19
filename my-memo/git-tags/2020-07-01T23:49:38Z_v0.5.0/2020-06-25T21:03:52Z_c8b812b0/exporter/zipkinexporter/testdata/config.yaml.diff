@@ -1,0 +1,16 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+index 14412f193..1154b6dca 100644
+--- a/exporter/zipkinexporter/testdata/config.yaml
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -6,9 +6,9 @@ processors:
+ 
+ exporters:
+   zipkin:
+-    url: "http://some.location.org:9411/api/v2/spans"
++    endpoint: "http://some.location.org:9411/api/v2/spans"
+   zipkin/2:
+-    url: "https://somedest:1234/api/v2/spans"
++    endpoint: "https://somedest:1234/api/v2/spans"
+     format: proto
+     default_service_name: test_name
+ 

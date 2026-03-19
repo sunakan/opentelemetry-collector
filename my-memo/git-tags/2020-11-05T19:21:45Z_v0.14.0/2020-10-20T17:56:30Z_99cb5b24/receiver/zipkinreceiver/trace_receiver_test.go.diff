@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index 8505a36e6..dc1eef162 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -54,7 +54,7 @@ const zipkinReceiverName = "zipkin_receiver_test"
+ func TestNew(t *testing.T) {
+ 	type args struct {
+ 		address      string
+-		nextConsumer consumer.TraceConsumer
++		nextConsumer consumer.TracesConsumer
+ 	}
+ 	tests := []struct {
+ 		name    string

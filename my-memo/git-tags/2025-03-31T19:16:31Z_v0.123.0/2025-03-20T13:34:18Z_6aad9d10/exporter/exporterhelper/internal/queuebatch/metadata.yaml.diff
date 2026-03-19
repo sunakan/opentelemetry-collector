@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/metadata.yaml b/exporter/exporterhelper/internal/queuebatch/metadata.yaml
+new file mode 100644
+index 000000000..00f0f2fad
+--- /dev/null
++++ b/exporter/exporterhelper/internal/queuebatch/metadata.yaml
+@@ -0,0 +1,7 @@
++type: queuebatch
++github_project: open-telemetry/opentelemetry-collector
++
++status:
++  class: pkg
++  stability:
++    beta: [traces, metrics, logs]

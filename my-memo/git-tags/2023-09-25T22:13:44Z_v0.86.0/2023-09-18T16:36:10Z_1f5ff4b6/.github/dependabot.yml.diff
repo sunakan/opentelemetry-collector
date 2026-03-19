@@ -1,0 +1,16 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index a3ffb6991..3614e5e92 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -147,6 +147,11 @@ updates:
+     schedule:
+       interval: "weekly"
+       day: "wednesday"
++  - package-ecosystem: "gomod"
++    directory: "/otelcol"
++    schedule:
++      interval: "weekly"
++      day: "wednesday"
+   - package-ecosystem: "gomod"
+     directory: "/pdata"
+     schedule:

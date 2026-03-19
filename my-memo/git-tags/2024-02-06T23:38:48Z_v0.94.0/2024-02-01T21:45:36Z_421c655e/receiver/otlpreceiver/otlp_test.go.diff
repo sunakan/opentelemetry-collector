@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 24615227d..81728fbd6 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -633,7 +633,7 @@ func TestOTLPReceiverHTTPTracesIngestTest(t *testing.T) {
+ func TestGRPCInvalidTLSCredentials(t *testing.T) {
+ 	cfg := &Config{
+ 		Protocols: Protocols{
+-			GRPC: &configgrpc.GRPCServerSettings{
++			GRPC: &configgrpc.ServerConfig{
+ 				NetAddr: confignet.NetAddr{
+ 					Endpoint:  testutil.GetAvailableLocalAddress(t),
+ 					Transport: "tcp",

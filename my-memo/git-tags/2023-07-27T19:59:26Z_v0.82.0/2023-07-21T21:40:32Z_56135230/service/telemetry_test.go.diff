@@ -1,0 +1,22 @@
+diff --git a/service/telemetry_test.go b/service/telemetry_test.go
+index 5686ad8f0..a4144e278 100644
+--- a/service/telemetry_test.go
++++ b/service/telemetry_test.go
+@@ -195,6 +195,17 @@ func TestTelemetryInit(t *testing.T) {
+ 				Metrics: telemetry.MetricsConfig{
+ 					Level: configtelemetry.LevelDetailed,
+ 				},
++				Traces: telemetry.TracesConfig{
++					Processors: []telemetry.SpanProcessor{
++						{
++							Batch: &telemetry.BatchSpanProcessor{
++								Exporter: telemetry.SpanExporter{
++									Console: telemetry.Console{},
++								},
++							},
++						},
++					},
++				},
+ 				Resource: map[string]*string{
+ 					semconv.AttributeServiceInstanceID: &testInstanceID,
+ 				},

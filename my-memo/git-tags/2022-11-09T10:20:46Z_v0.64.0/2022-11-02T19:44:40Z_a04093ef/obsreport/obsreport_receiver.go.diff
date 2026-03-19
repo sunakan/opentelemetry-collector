@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 309f73222..bc8956704 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -81,7 +81,7 @@ type ReceiverSettings struct {
+ func NewReceiver(cfg ReceiverSettings) *Receiver {
+ 	rcv, err := newReceiver(cfg, featuregate.GetRegistry())
+ 	if err != nil && cfg.ReceiverCreateSettings.Logger != nil {
+-		cfg.ReceiverCreateSettings.Logger.Warn("Error creating an obsreport.Exporter", zap.Error(err))
++		cfg.ReceiverCreateSettings.Logger.Warn("Error creating an obsreport.Receiver", zap.Error(err))
+ 	}
+ 	return rcv
+ }

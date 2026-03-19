@@ -1,0 +1,12 @@
+diff --git a/consumer/pdata/generated_common.go b/consumer/pdata/generated_common.go
+index 3e5cf2b64..c54f817e4 100644
+--- a/consumer/pdata/generated_common.go
++++ b/consumer/pdata/generated_common.go
+@@ -29,7 +29,6 @@ import (
+ // Must use NewInstrumentationLibrary function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
+ type InstrumentationLibrary struct {
+-	// orig points to the pointer otlpcommon.InstrumentationLibrary field contained somewhere else.
+ 	orig *otlpcommon.InstrumentationLibrary
+ }
+ 

@@ -1,0 +1,10 @@
+diff --git a/config/configtls/go.mod b/config/configtls/go.mod
+index f56500101..5d13acf23 100644
+--- a/config/configtls/go.mod
++++ b/config/configtls/go.mod
+@@ -17,3 +17,5 @@ require (
+ )
+ 
+ replace go.opentelemetry.io/collector/config/configopaque => ../configopaque
++
++replace go.opentelemetry.io/collector/confmap => ../../confmap

@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/logs_test.go b/processor/processorhelper/logs_test.go
+index b01b78e83..942676b6a 100644
+--- a/processor/processorhelper/logs_test.go
++++ b/processor/processorhelper/logs_test.go
+@@ -184,8 +184,7 @@ func TestLogs_RecordIn_ErrorOut(t *testing.T) {
+ }
+ 
+ func newSettings(tel *componenttest.Telemetry) processor.Settings {
+-	set := processortest.NewNopSettings()
+-	set.ID = component.NewID(component.MustNewType("processorhelper"))
++	set := processortest.NewNopSettingsWithType(component.MustNewType("processorhelper"))
+ 	set.TelemetrySettings = tel.NewTelemetrySettings()
+ 	return set
+ }

@@ -1,0 +1,13 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index a830863d0..8afc49a2b 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -13,7 +13,7 @@ package tools // import "go.opentelemetry.io/collector/internal/tools"
+ import (
+ 	_ "github.com/a8m/envsubst/cmd/envsubst"
+ 	_ "github.com/client9/misspell/cmd/misspell"
+-	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
++	_ "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+ 	_ "github.com/google/addlicense"
+ 	_ "github.com/jcchavezs/porto/cmd/porto"
+ 	_ "github.com/pavius/impi/cmd/impi"

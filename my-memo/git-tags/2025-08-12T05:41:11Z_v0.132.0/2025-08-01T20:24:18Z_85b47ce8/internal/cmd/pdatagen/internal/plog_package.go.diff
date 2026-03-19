@@ -1,0 +1,42 @@
+diff --git a/internal/cmd/pdatagen/internal/plog_package.go b/internal/cmd/pdatagen/internal/plog_package.go
+index aac11ec6a..f269905d6 100644
+--- a/internal/cmd/pdatagen/internal/plog_package.go
++++ b/internal/cmd/pdatagen/internal/plog_package.go
+@@ -111,16 +111,12 @@ var logRecord = &messageStruct{
+ 			},
+ 		},
+ 		&PrimitiveField{
+-			fieldName:  "EventName",
+-			returnType: "string",
+-			defaultVal: `""`,
+-			testVal:    `""`,
++			fieldName: "EventName",
++			protoType: ProtoTypeString,
+ 		},
+ 		&PrimitiveField{
+-			fieldName:  "SeverityText",
+-			returnType: "string",
+-			defaultVal: `""`,
+-			testVal:    `"INFO"`,
++			fieldName: "SeverityText",
++			protoType: ProtoTypeString,
+ 		},
+ 		&TypedField{
+ 			fieldName: "SeverityNumber",
+@@ -133,8 +129,14 @@ var logRecord = &messageStruct{
+ 			},
+ 		},
+ 		bodyField,
+-		attributes,
+-		droppedAttributesCount,
++		&SliceField{
++			fieldName:   "Attributes",
++			returnSlice: mapStruct,
++		},
++		&PrimitiveField{
++			fieldName: "DroppedAttributesCount",
++			protoType: ProtoTypeUint32,
++		},
+ 	},
+ }
+ 

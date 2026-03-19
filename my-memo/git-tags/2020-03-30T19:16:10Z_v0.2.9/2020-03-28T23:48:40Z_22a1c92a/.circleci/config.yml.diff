@@ -1,0 +1,45 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index c0fb588b7..6ebaf1ae0 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -47,6 +47,9 @@ workflows:
+       - test:
+           requires:
+             - setup-and-lint
++      - gosec:
++          requires:
++            - setup-and-lint
+       - coverage:
+           requires:
+             - setup-and-lint
+@@ -55,6 +58,7 @@ workflows:
+             - cross-compile
+             - loadtest
+             - test
++            - gosec
+             - coverage
+           filters:
+             branches:
+@@ -66,6 +70,7 @@ workflows:
+             - cross-compile
+             - loadtest
+             - test
++            - gosec
+             - coverage
+           filters:
+             branches:
+@@ -143,6 +148,14 @@ jobs:
+           command: make test
+       - save_module_cache
+ 
++  gosec:
++    executor: golang
++    steps:
++      - attach_to_workspace
++      - run:
++          name: Golang Security Checker
++          command: make lint-gosec
++
+   coverage:
+     executor: golang
+     steps:

@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 89690640c..ff5c3903a 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -91,6 +91,10 @@ func TestUnmarshalInvalidConfig(t *testing.T) {
+ 			name:     "no_endpoint",
+ 			errorMsg: `requires a non-empty "endpoint"`,
+ 		},
++		{
++			name:     "https_endpoint",
++			errorMsg: `requires a non-empty "endpoint"`,
++		},
+ 		{
+ 			name:     "http_endpoint",
+ 			errorMsg: `requires a non-empty "endpoint"`,

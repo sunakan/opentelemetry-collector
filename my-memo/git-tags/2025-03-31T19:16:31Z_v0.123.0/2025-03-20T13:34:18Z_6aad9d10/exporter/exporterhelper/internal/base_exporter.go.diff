@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index 10d702e12..a7af51ae1 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -94,7 +94,7 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, pusher func(
+ 	}
+ 
+ 	if be.queueCfg.Enabled || be.batcherCfg.Enabled {
+-		qSet := exporterqueue.Settings[request.Request]{
++		qSet := queuebatch.QueueSettings[request.Request]{
+ 			Signal:           signal,
+ 			ExporterSettings: set,
+ 			Encoding:         be.queueBatchSettings.Encoding,

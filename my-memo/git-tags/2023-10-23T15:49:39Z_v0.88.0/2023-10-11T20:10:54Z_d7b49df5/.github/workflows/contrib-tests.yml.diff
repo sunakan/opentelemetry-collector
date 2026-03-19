@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 2a9d85d4f..aa2adb838 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -23,7 +23,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.20.8
++          go-version: ~1.20.10
+       - name: Run Contrib Tests
+         run: |
+           contrib_path=/tmp/opentelemetry-collector-contrib

@@ -1,0 +1,13 @@
+diff --git a/internal/fanoutconsumer/profiles.go b/internal/fanoutconsumer/profiles.go
+index 17c6d1dce..287d1832c 100644
+--- a/internal/fanoutconsumer/profiles.go
++++ b/internal/fanoutconsumer/profiles.go
+@@ -24,7 +24,7 @@ func NewProfiles(tcs []xconsumer.Profiles) xconsumer.Profiles {
+ 	}
+ 
+ 	tc := &profilesConsumer{}
+-	for i := 0; i < len(tcs); i++ {
++	for i := range tcs {
+ 		if tcs[i].Capabilities().MutatesData {
+ 			tc.mutable = append(tc.mutable, tcs[i])
+ 		} else {

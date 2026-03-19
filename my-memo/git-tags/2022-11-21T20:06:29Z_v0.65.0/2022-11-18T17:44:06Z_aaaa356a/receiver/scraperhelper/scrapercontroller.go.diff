@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index 7c6f52c66..55759422e 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -95,7 +95,7 @@ func NewScraperControllerReceiver(
+ 	set component.ReceiverCreateSettings,
+ 	nextConsumer consumer.Metrics,
+ 	options ...ScraperControllerOption,
+-) (component.Receiver, error) {
++) (component.Component, error) {
+ 	if nextConsumer == nil {
+ 		return nil, component.ErrNilNextConsumer
+ 	}

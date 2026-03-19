@@ -1,0 +1,17 @@
+diff --git a/.github/workflows/ping-codeowners-on-new-issue.yml b/.github/workflows/ping-codeowners-on-new-issue.yml
+index 25e296255..de531fee0 100644
+--- a/.github/workflows/ping-codeowners-on-new-issue.yml
++++ b/.github/workflows/ping-codeowners-on-new-issue.yml
+@@ -3,8 +3,12 @@ on:
+   issues:
+     types: [opened]
+ 
++permissions: read-all
++
+ jobs:
+   ping-owners-on-new-issue:
++    permissions:
++      issues: write
+     runs-on: ubuntu-24.04
+     if: ${{ github.repository_owner == 'open-telemetry' }}
+     steps:

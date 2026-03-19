@@ -1,0 +1,27 @@
+diff --git a/config/testdata/invalid-receiver-section.yaml b/config/testdata/invalid-receiver-section.yaml
+new file mode 100644
+index 000000000..01c62e3fd
+--- /dev/null
++++ b/config/testdata/invalid-receiver-section.yaml
+@@ -0,0 +1,21 @@
++receivers:
++  examplereceiver:
++    unknown_section:
++      a_num: 2
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++extensions:
++  exampleextension:
++service:
++  extensions:
++    - examapleextension
++pipelines:
++  traces:
++    receivers:
++      - examplereceiver
++    processors:
++      - exampleprocessor
++    exporters:
++      - exampleexporter

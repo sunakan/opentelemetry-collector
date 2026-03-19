@@ -1,0 +1,29 @@
+diff --git a/pdata/internal/generated_wrapper_instrumentationscope.go b/pdata/internal/generated_wrapper_instrumentationscope.go
+index ba4c13fda..c547b8bdf 100644
+--- a/pdata/internal/generated_wrapper_instrumentationscope.go
++++ b/pdata/internal/generated_wrapper_instrumentationscope.go
+@@ -28,13 +28,6 @@ func NewInstrumentationScope(orig *otlpcommon.InstrumentationScope, state *State
+ 	return InstrumentationScope{orig: orig, state: state}
+ }
+ 
+-func CopyOrigInstrumentationScope(dest, src *otlpcommon.InstrumentationScope) {
+-	dest.Name = src.Name
+-	dest.Version = src.Version
+-	dest.Attributes = CopyOrigMap(dest.Attributes, src.Attributes)
+-	dest.DroppedAttributesCount = src.DroppedAttributesCount
+-}
+-
+ func GenerateTestInstrumentationScope() InstrumentationScope {
+ 	orig := otlpcommon.InstrumentationScope{}
+ 	state := StateMutable
+@@ -90,3 +83,10 @@ func UnmarshalJSONIterInstrumentationScope(ms InstrumentationScope, iter *json.I
+ 		return true
+ 	})
+ }
++
++func CopyOrigInstrumentationScope(dest, src *otlpcommon.InstrumentationScope) {
++	dest.Name = src.Name
++	dest.Version = src.Version
++	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)
++	dest.DroppedAttributesCount = src.DroppedAttributesCount
++}

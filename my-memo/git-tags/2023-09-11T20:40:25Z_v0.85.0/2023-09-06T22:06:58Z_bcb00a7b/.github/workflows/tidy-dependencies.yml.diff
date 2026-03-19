@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index bdcf6d9e1..d0901a163 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -18,7 +18,7 @@ jobs:
+           token: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+       - uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.20.7
++          go-version: ~1.20.8
+           cache: false
+       - name: Cache Go
+         id: go-cache

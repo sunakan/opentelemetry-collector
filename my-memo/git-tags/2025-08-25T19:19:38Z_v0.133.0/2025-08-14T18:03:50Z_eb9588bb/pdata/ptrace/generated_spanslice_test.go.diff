@@ -1,0 +1,16 @@
+diff --git a/pdata/ptrace/generated_spanslice_test.go b/pdata/ptrace/generated_spanslice_test.go
+index 580d2e2f0..148acaffb 100644
+--- a/pdata/ptrace/generated_spanslice_test.go
++++ b/pdata/ptrace/generated_spanslice_test.go
+@@ -117,9 +117,9 @@ func TestSpanSlice_RemoveIf(t *testing.T) {
+ 	pos := 0
+ 	filtered.RemoveIf(func(el Span) bool {
+ 		pos++
+-		return pos%3 == 0
++		return pos%2 == 1
+ 	})
+-	assert.Equal(t, 5, filtered.Len())
++	assert.Equal(t, 2, filtered.Len())
+ }
+ 
+ func TestSpanSlice_RemoveIfAll(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/extension/extensionmiddleware/go.mod b/extension/extensionmiddleware/go.mod
+index a0b325b2b..f6487ee57 100644
+--- a/extension/extensionmiddleware/go.mod
++++ b/extension/extensionmiddleware/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/extension/extensionmiddleware
+ go 1.24
+ 
+ require (
+-	github.com/stretchr/testify v1.10.0
++	github.com/stretchr/testify v1.11.1
+ 	google.golang.org/grpc v1.75.0
+ )
+ 

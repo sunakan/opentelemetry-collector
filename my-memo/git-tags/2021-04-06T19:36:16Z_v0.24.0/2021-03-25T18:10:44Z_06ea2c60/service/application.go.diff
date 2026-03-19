@@ -1,0 +1,21 @@
+diff --git a/service/application.go b/service/application.go
+index e0439a3a0..8afa38978 100644
+--- a/service/application.go
++++ b/service/application.go
+@@ -32,6 +32,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configcheck"
++	"go.opentelemetry.io/collector/config/configload"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/config/configparser"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+@@ -236,7 +237,7 @@ func (app *Application) setupConfigurationComponents(ctx context.Context, factor
+ 
+ 	app.logger.Info("Loading configuration...")
+ 
+-	cfg, err := factory(configparser.NewViper(), app.rootCmd, app.factories)
++	cfg, err := factory(configload.NewViper(), app.rootCmd, app.factories)
+ 	if err != nil {
+ 		return fmt.Errorf("cannot load configuration: %w", err)
+ 	}

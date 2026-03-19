@@ -1,0 +1,13 @@
+diff --git a/consumer/consumererror/signalerrors_test.go b/consumer/consumererror/signalerrors_test.go
+index 141db2020..475d3173b 100644
+--- a/consumer/consumererror/signalerrors_test.go
++++ b/consumer/consumererror/signalerrors_test.go
+@@ -10,7 +10,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestTraces(t *testing.T) {

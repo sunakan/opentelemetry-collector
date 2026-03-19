@@ -1,0 +1,18 @@
+diff --git a/pdata/plog/pb_test.go b/pdata/plog/pb_test.go
+index c650b7506..64dbe7b2b 100644
+--- a/pdata/plog/pb_test.go
++++ b/pdata/plog/pb_test.go
+@@ -31,12 +31,11 @@ func TestProtoLogsUnmarshaler_error(t *testing.T) {
+ }
+ 
+ func TestProtoSizer(t *testing.T) {
+-	sizer := NewProtoMarshaler().(Sizer)
+ 	marshaler := NewProtoMarshaler()
+ 	ld := NewLogs()
+ 	ld.ResourceLogs().AppendEmpty().ScopeLogs().AppendEmpty().LogRecords().AppendEmpty().SetSeverityText("error")
+ 
+-	size := sizer.LogsSize(ld)
++	size := marshaler.LogsSize(ld)
+ 
+ 	bytes, err := marshaler.MarshalLogs(ld)
+ 	require.NoError(t, err)

@@ -1,0 +1,21 @@
+diff --git a/service/internal/testcomponents/example_exporter.go b/service/internal/testcomponents/example_exporter.go
+index 0c17ea003..6c33be0ae 100644
+--- a/service/internal/testcomponents/example_exporter.go
++++ b/service/internal/testcomponents/example_exporter.go
+@@ -21,12 +21,12 @@ var testType = component.MustNewType("exampleexporter")
+ const stability = component.StabilityLevelDevelopment
+ 
+ // ExampleExporterFactory is factory for ExampleExporter.
+-var ExampleExporterFactory = exporter.NewFactory(
++var ExampleExporterFactory = exporterprofiles.NewFactory(
+ 	testType,
+ 	createExporterDefaultConfig,
+-	exporter.WithTraces(createTracesExporter, stability),
+-	exporter.WithMetrics(createMetricsExporter, stability),
+-	exporter.WithLogs(createLogsExporter, stability),
++	exporterprofiles.WithTraces(createTracesExporter, stability),
++	exporterprofiles.WithMetrics(createMetricsExporter, stability),
++	exporterprofiles.WithLogs(createLogsExporter, stability),
+ 	exporterprofiles.WithProfiles(createProfilesExporter, stability),
+ )
+ 

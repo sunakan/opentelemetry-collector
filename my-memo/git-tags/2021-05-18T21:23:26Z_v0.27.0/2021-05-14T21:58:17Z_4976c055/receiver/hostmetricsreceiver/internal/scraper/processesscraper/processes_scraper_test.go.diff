@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
+index 80bbde4d3..71e2ed0e8 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
+@@ -51,8 +51,8 @@ func TestScrape(t *testing.T) {
+ 
+ 	for _, test := range testCases {
+ 		t.Run(test.name, func(t *testing.T) {
+-			expectProcessesCountMetric := (runtime.GOOS == "linux" || runtime.GOOS == "openbsd" || runtime.GOOS == "darwin" || runtime.GOOS == "freebsd")
+-			expectProcessesCreatedMetric := (runtime.GOOS == "linux" || runtime.GOOS == "openbsd")
++			expectProcessesCountMetric := runtime.GOOS == "linux" || runtime.GOOS == "openbsd" || runtime.GOOS == "darwin" || runtime.GOOS == "freebsd"
++			expectProcessesCreatedMetric := runtime.GOOS == "linux" || runtime.GOOS == "openbsd"
+ 
+ 			scraper := newProcessesScraper(context.Background(), &Config{})
+ 			if test.miscFunc != nil {

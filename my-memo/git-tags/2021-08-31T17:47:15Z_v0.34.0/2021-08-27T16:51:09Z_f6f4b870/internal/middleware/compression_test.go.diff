@@ -1,0 +1,13 @@
+diff --git a/internal/middleware/compression_test.go b/internal/middleware/compression_test.go
+index b49cdb1ef..f35a5931c 100644
+--- a/internal/middleware/compression_test.go
++++ b/internal/middleware/compression_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestHTTPClientCompression(t *testing.T) {

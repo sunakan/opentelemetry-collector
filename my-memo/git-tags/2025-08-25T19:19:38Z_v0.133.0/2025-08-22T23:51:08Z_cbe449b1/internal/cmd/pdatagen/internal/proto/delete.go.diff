@@ -1,0 +1,36 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/delete.go b/internal/cmd/pdatagen/internal/proto/delete.go
+index 10a29ea54..c8b15701c 100644
+--- a/internal/cmd/pdatagen/internal/proto/delete.go
++++ b/internal/cmd/pdatagen/internal/proto/delete.go
+@@ -7,6 +7,12 @@ import (
+ 	"go.opentelemetry.io/collector/internal/cmd/pdatagen/internal/template"
+ )
+ 
++const deleteOrigOther = `{{ if ne .oneOfGroup "" -}}
++	if UseProtoPooling.IsEnabled() {
++		protoPool{{ .oneOfMessageName }}.Put(ov)
++	}
++{{ end }}`
++
+ const deleteOrigMessage = `{{ if .repeated -}}
+ 	for i := range orig.{{ .fieldName }} {
+ 	{{ if .nullable -}}
+@@ -16,6 +22,9 @@ const deleteOrigMessage = `{{ if .repeated -}}
+ 	{{- end }}
+ 	}
+ {{- else if ne .oneOfGroup "" -}}
++	if UseProtoPooling.IsEnabled() {
++		protoPool{{ .oneOfMessageName }}.Put(ov)
++	}
+ 	DeleteOrig{{ .origName }}(ov.{{ .fieldName }}, true)
+ {{- else if .nullable -}}
+ 	DeleteOrig{{ .origName }}(orig.{{ .fieldName }}, true)
+@@ -29,5 +38,8 @@ func (pf *Field) GenDeleteOrig() string {
+ 	if pf.Type == TypeMessage {
+ 		return template.Execute(template.Parse("deleteOrigMessage", []byte(deleteOrigMessage)), tf)
+ 	}
++	if pf.OneOfGroup != "" {
++		return template.Execute(template.Parse("deleteOrigOther", []byte(deleteOrigOther)), tf)
++	}
+ 	return ""
+ }

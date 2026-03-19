@@ -1,0 +1,20 @@
+diff --git a/internal/data/generated_resource_test.go b/internal/data/generated_resource_test.go
+index 8b71daecb..0f18a679d 100644
+--- a/internal/data/generated_resource_test.go
++++ b/internal/data/generated_resource_test.go
+@@ -19,13 +19,13 @@ package data
+ 
+ import (
+ 	"testing"
+-	
++
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+ func TestResource(t *testing.T) {
+ 	ms := NewResource()
+-	assert.EqualValues(t, true,ms.IsNil())
++	assert.EqualValues(t, true, ms.IsNil())
+ 	ms.InitEmpty()
+ 	assert.EqualValues(t, false, ms.IsNil())
+ 

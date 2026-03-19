@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metrics.tmpl b/cmd/mdatagen/metrics.tmpl
+index 1c0066b4e..be1abbca3 100644
+--- a/cmd/mdatagen/metrics.tmpl
++++ b/cmd/mdatagen/metrics.tmpl
+@@ -18,7 +18,7 @@ package {{ .Package }}
+ 
+ import (
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Type is the component type name.

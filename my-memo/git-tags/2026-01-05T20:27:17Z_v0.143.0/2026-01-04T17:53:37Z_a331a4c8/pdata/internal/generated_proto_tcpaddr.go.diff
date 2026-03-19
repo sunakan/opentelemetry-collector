@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_proto_tcpaddr.go b/pdata/internal/generated_proto_tcpaddr.go
+index fb903efab..08c350ffe 100644
+--- a/pdata/internal/generated_proto_tcpaddr.go
++++ b/pdata/internal/generated_proto_tcpaddr.go
+@@ -15,9 +15,9 @@ import (
+ )
+ 
+ type TCPAddr struct {
++	Zone string
+ 	IP   []byte
+ 	Port int64
+-	Zone string
+ }
+ 
+ var (

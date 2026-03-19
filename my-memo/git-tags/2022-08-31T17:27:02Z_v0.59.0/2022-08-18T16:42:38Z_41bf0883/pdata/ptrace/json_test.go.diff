@@ -1,0 +1,21 @@
+diff --git a/pdata/ptrace/json_test.go b/pdata/ptrace/json_test.go
+index 77b620f89..46e5089ff 100644
+--- a/pdata/ptrace/json_test.go
++++ b/pdata/ptrace/json_test.go
+@@ -199,16 +199,6 @@ func TestReadScopeSpansUnknownField(t *testing.T) {
+ 	}
+ }
+ 
+-func TestReadScopeSpansUnknownScopeField(t *testing.T) {
+-	jsonStr := `{"scope":{"extra":""}}`
+-	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))
+-	defer jsoniter.ConfigFastest.ReturnIterator(iter)
+-	readScopeSpans(iter)
+-	if assert.Error(t, iter.Error) {
+-		assert.Contains(t, iter.Error.Error(), "unknown field")
+-	}
+-}
+-
+ func TestReadSpanUnknownField(t *testing.T) {
+ 	jsonStr := `{"extra":""}`
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))

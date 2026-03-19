@@ -1,0 +1,15 @@
+diff --git a/processor/resourceprocessor/resource_processor.go b/processor/resourceprocessor/resource_processor.go
+index a7441e059..9dbee5d82 100644
+--- a/processor/resourceprocessor/resource_processor.go
++++ b/processor/resourceprocessor/resource_processor.go
+@@ -130,6 +130,10 @@ func mergeResource(to, from *resourcepb.Resource) *resourcepb.Resource {
+ 		to.Type = from.Type
+ 	}
+ 	if from.Labels != nil {
++		if to.Labels == nil {
++			to.Labels = make(map[string]string, len(from.Labels))
++		}
++
+ 		for k, v := range from.Labels {
+ 			to.Labels[k] = v
+ 		}

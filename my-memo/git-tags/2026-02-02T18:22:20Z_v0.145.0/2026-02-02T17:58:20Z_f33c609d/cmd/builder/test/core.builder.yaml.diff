@@ -1,0 +1,18 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+index 266bee0c7..5b0389d5b 100644
+--- a/cmd/builder/test/core.builder.yaml
++++ b/cmd/builder/test/core.builder.yaml
+@@ -4,10 +4,10 @@ dist:
+   go: ${GOBIN}
+ 
+ extensions:
+-  - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.144.0
++  - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.145.0
+ 
+ receivers:
+-  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.144.0
++  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.145.0
+ 
+ exporters:
+-  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.144.0
++  - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.145.0

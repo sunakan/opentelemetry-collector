@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go b/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
+index 0e3c45d6b..808347061 100644
+--- a/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
+@@ -16,7 +16,7 @@ type primitiveSliceStruct struct {
+ 	itemType    string
+ 
+ 	testOrigVal          string
+-	testInterfaceOrigVal []interface{}
++	testInterfaceOrigVal []any
+ 	testSetVal           string
+ 	testNewVal           string
+ }

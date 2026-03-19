@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+index 07e4addbb..073a563df 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory.go
+@@ -47,7 +47,7 @@ func (f *Factory) CreateResourceMetricsScraper(
+ 	_ context.Context,
+ 	_ *zap.Logger,
+ 	cfg internal.Config,
+-) (scraperhelper.ResourceMetricsScraper, error) {
++) (scraperhelper.Scraper, error) {
+ 	if runtime.GOOS != "linux" && runtime.GOOS != "windows" {
+ 		return nil, errors.New("process scraper only available on Linux or Windows")
+ 	}

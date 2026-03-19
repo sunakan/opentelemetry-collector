@@ -1,0 +1,13 @@
+diff --git a/internal/otlp/unmarshaler.go b/internal/otlp/unmarshaler.go
+index 45af9e677..c863990eb 100644
+--- a/internal/otlp/unmarshaler.go
++++ b/internal/otlp/unmarshaler.go
+@@ -15,7 +15,7 @@
+ package otlp
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // NewJSONTracesUnmarshaler returns a model.TracesUnmarshaler. Unmarshals from OTLP json bytes.

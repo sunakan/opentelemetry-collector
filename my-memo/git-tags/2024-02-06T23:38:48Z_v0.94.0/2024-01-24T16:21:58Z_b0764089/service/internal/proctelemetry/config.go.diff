@@ -1,0 +1,15 @@
+diff --git a/service/internal/proctelemetry/config.go b/service/internal/proctelemetry/config.go
+index 6f1d74f50..9d315b48c 100644
+--- a/service/internal/proctelemetry/config.go
++++ b/service/internal/proctelemetry/config.go
+@@ -71,7 +71,9 @@ func InitMetricReader(ctx context.Context, reader config.MetricReader, asyncErro
+ 		return initPullExporter(reader.Pull.Exporter, asyncErrorChannel)
+ 	}
+ 	if reader.Periodic != nil {
+-		opts := []sdkmetric.PeriodicReaderOption{}
++		opts := []sdkmetric.PeriodicReaderOption{
++			sdkmetric.WithProducer(opencensus.NewMetricProducer()),
++		}
+ 		if reader.Periodic.Interval != nil {
+ 			opts = append(opts, sdkmetric.WithInterval(time.Duration(*reader.Periodic.Interval)*time.Millisecond))
+ 		}

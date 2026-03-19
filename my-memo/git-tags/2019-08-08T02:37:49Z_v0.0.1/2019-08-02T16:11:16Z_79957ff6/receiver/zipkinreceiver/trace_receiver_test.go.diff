@@ -1,0 +1,12 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver_test.go b/receiver/zipkinreceiver/trace_receiver_test.go
+index 0276791d1..351fc734d 100644
+--- a/receiver/zipkinreceiver/trace_receiver_test.go
++++ b/receiver/zipkinreceiver/trace_receiver_test.go
+@@ -125,7 +125,6 @@ func TestNew(t *testing.T) {
+ 	tests := []struct {
+ 		name    string
+ 		args    args
+-		want    *ZipkinReceiver
+ 		wantErr error
+ 	}{
+ 		{

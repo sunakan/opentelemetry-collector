@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/codeql-analysis.yml b/.github/workflows/codeql-analysis.yml
+index 166d65343..fe864f6a1 100644
+--- a/.github/workflows/codeql-analysis.yml
++++ b/.github/workflows/codeql-analysis.yml
+@@ -17,7 +17,7 @@ jobs:
+         uses: actions/checkout@v4
+ 
+       - name: Setup Go
+-        uses: actions/setup-go@v4
++        uses: actions/setup-go@v5
+         with:
+           go-version: ~1.20.12
+ 

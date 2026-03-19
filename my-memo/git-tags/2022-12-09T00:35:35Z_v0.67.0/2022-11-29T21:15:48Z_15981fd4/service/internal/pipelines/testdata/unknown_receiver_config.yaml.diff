@@ -1,0 +1,16 @@
+diff --git a/service/internal/pipelines/testdata/unknown_receiver_config.yaml b/service/internal/pipelines/testdata/unknown_receiver_config.yaml
+deleted file mode 100644
+index ad1558070..000000000
+--- a/service/internal/pipelines/testdata/unknown_receiver_config.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop/1]
+-      exporters: [nop]

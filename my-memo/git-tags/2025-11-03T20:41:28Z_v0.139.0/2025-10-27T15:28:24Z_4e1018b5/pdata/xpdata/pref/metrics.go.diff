@@ -1,0 +1,13 @@
+diff --git a/pdata/xpdata/pref/metrics.go b/pdata/xpdata/pref/metrics.go
+index c3ba8add8..02610780d 100644
+--- a/pdata/xpdata/pref/metrics.go
++++ b/pdata/xpdata/pref/metrics.go
+@@ -27,7 +27,7 @@ func UnrefMetrics(md pmetric.Metrics) {
+ 		if !internal.GetMetricsState(internal.MetricsWrapper(md)).Unref() {
+ 			return
+ 		}
+-		// Don't call DeleteOrigExportLogsServiceRequest without the gate because we reset the data and that may still cause issues.
++		// Don't call DeleteExportLogsServiceRequest without the gate because we reset the data and that may still cause issues.
+ 		if internal.UseProtoPooling.IsEnabled() {
+ 			internal.DeleteExportMetricsServiceRequest(internal.GetMetricsOrig(internal.MetricsWrapper(md)), true)
+ 		}

@@ -1,0 +1,14 @@
+diff --git a/service/telemetry/telemetry.go b/service/telemetry/telemetry.go
+index 11f770f41..b8328dfb5 100644
+--- a/service/telemetry/telemetry.go
++++ b/service/telemetry/telemetry.go
+@@ -60,6 +60,9 @@ type TracerSettings struct {
+ type Settings struct {
+ 	// BuildInfo contains build information about the collector.
+ 	BuildInfo component.BuildInfo
++
++	// Resource is the telemetry resource that should be used by all telemetry providers.
++	Resource *pcommon.Resource
+ }
+ 
+ // Factory is a factory interface for internal telemetry.

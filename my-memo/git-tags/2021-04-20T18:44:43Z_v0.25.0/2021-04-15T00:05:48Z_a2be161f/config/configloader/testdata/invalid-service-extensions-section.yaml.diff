@@ -1,0 +1,24 @@
+diff --git a/config/configloader/testdata/invalid-service-extensions-section.yaml b/config/configloader/testdata/invalid-service-extensions-section.yaml
+new file mode 100644
+index 000000000..00b123c19
+--- /dev/null
++++ b/config/configloader/testdata/invalid-service-extensions-section.yaml
+@@ -0,0 +1,18 @@
++extensions:
++  exampleextension:
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++
++service:
++  extensions:
++    exampleextension:
++      error: true
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

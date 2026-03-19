@@ -1,0 +1,35 @@
+diff --git a/service/testdata/otelsvc-config.yaml b/service/testdata/otelsvc-config.yaml
+deleted file mode 100644
+index fae644088..000000000
+--- a/service/testdata/otelsvc-config.yaml
++++ /dev/null
+@@ -1,29 +0,0 @@
+-receivers:
+-  jaeger:
+-
+-exporters:
+-  opencensus:
+-    endpoint: "locahost:55678"
+-
+-processors:
+-  attributes:
+-    actions:
+-      - key: key1
+-        value: 123
+-        action: insert
+-  queued_retry:
+-  batch:
+-
+-pipelines:
+-  traces:
+-    receivers: [jaeger]
+-    processors: [attributes, batch, queued_retry]
+-    exporters: [opencensus]
+-
+-extensions:
+-  health_check:
+-  pprof:
+-  zpages:
+-
+-service:
+-  extensions: [pprof, zpages, health_check]

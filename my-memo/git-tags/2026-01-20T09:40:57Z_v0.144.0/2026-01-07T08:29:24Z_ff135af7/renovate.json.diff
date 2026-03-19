@@ -1,0 +1,23 @@
+diff --git a/renovate.json b/renovate.json
+index d6eb38a63..985a03ccf 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -86,8 +86,8 @@
+         "gomod"
+       ],
+       "groupName": "All google.golang.org packages",
+-      "matchSourceUrls": [
+-        "https://google.golang.org{/,}**"
++      "matchPackageNames": [
++        "google.golang.org{/,}**"
+       ]
+     },
+     {
+@@ -144,6 +144,6 @@
+     "prEditedNotification"
+   ],
+   "postUpdateOptions": [
+-    "gomodTidy",
++    "gomodTidy"
+   ]
+ }

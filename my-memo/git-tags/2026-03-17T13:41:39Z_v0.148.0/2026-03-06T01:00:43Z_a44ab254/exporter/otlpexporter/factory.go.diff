@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index 7a031df8c..2f3f9c45a 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -24,7 +24,7 @@ func NewFactory() exporter.Factory {
+ 	return xexporter.NewFactory(
+ 		metadata.Type,
+ 		createDefaultConfig,
+-		xexporter.WithDeprecatedTypeAlias(component.MustNewType("otlp")),
++		xexporter.WithDeprecatedTypeAlias(metadata.DeprecatedType),
+ 		xexporter.WithTraces(createTraces, metadata.TracesStability),
+ 		xexporter.WithMetrics(createMetrics, metadata.MetricsStability),
+ 		xexporter.WithLogs(createLogs, metadata.LogsStability),

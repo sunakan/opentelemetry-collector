@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_batch.go b/exporter/exporterhelper/internal/persistent_storage_batch.go
+index b71b18a93..a5803db21 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_batch.go
++++ b/exporter/exporterhelper/internal/persistent_storage_batch.go
+@@ -15,7 +15,7 @@
+ //go:build enable_unstable
+ // +build enable_unstable
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 
+ import (
+ 	"bytes"

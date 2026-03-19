@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc_test.go b/translator/internaldata/metrics_to_oc_test.go
+index a0c77ec95..52865548a 100644
+--- a/translator/internaldata/metrics_to_oc_test.go
++++ b/translator/internaldata/metrics_to_oc_test.go
+@@ -183,7 +183,7 @@ func TestMetricsType(t *testing.T) {
+ 			name: "double-gauge",
+ 			internal: func() pdata.Metric {
+ 				m := pdata.NewMetric()
+-				m.SetDataType(pdata.MetricDataTypeDoubleGauge)
++				m.SetDataType(pdata.MetricDataTypeGauge)
+ 				return m
+ 			},
+ 			descType: ocmetrics.MetricDescriptor_GAUGE_DOUBLE,

@@ -1,0 +1,12 @@
+diff --git a/exporter/otlphttpexporter/testdata/config.yaml b/exporter/otlphttpexporter/testdata/config.yaml
+index a600a7bc9..410ff12a4 100644
+--- a/exporter/otlphttpexporter/testdata/config.yaml
++++ b/exporter/otlphttpexporter/testdata/config.yaml
+@@ -20,6 +20,6 @@ retry_on_failure:
+   max_elapsed_time: 10m
+ headers:
+   "can you have a . here?": "F0000000-0000-0000-0000-000000000000"
+-  header1: 234
++  header1: "234"
+   another: "somevalue"
+ compression: gzip

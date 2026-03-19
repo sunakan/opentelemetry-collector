@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index 1c51c0ec2..b495d3876 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -160,7 +160,7 @@ func BuildExporters(
+ 	// Build exporters exporters based on configuration and required input data types.
+ 	for expID, expCfg := range cfg.Exporters {
+ 		set := component.ExporterCreateSettings{
+-			TelemetryCreateSettings: component.TelemetryCreateSettings{
++			TelemetrySettings: component.TelemetrySettings{
+ 				Logger:         logger.With(zap.String(zapNameKey, expID.String())),
+ 				TracerProvider: tracerProvider,
+ 			},

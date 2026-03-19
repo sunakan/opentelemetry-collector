@@ -1,0 +1,17 @@
+diff --git a/pdata/plog/plogotlp/request.go b/pdata/plog/plogotlp/request.go
+index fc1b29ba6..35ba4e0fe 100644
+--- a/pdata/plog/plogotlp/request.go
++++ b/pdata/plog/plogotlp/request.go
+@@ -73,12 +73,3 @@ func (ms ExportRequest) UnmarshalJSON(data []byte) error {
+ func (ms ExportRequest) Logs() plog.Logs {
+ 	return plog.Logs(internal.NewLogs(ms.orig))
+ }
+-
+-// Deprecated: [v0.63.0] use ExportRequest.
+-type Request = ExportRequest
+-
+-// Deprecated: [v0.63.0] use NewExportRequest.
+-var NewRequest = NewExportRequest
+-
+-// Deprecated: [v0.63.0] use NewExportRequestFromLogs.
+-var NewRequestFromLogs = NewExportRequestFromLogs

@@ -1,0 +1,22 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces_test.go b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+index 064154d38..ee3315f9c 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+@@ -154,7 +154,7 @@ func generateThriftSpan() *jaeger.Span {
+ 	intAttrVal := int64(123)
+ 	eventName := "event-with-attr"
+ 	eventStrAttrVal := "span-event-attr-val"
+-	statusCode := int64(tracetranslator.OCCancelled)
++	statusCode := int64(pdata.StatusCodeError)
+ 	statusMsg := "status-cancelled"
+ 	kind := string(tracetranslator.OpenTracingSpanKindClient)
+ 
+@@ -242,7 +242,7 @@ func generateThriftChildSpan() *jaeger.Span {
+ }
+ 
+ func generateThriftFollowerSpan() *jaeger.Span {
+-	statusCode := int64(tracetranslator.OCOK)
++	statusCode := int64(pdata.StatusCodeOk)
+ 	statusMsg := "status-ok"
+ 	kind := string(tracetranslator.OpenTracingSpanKindConsumer)
+ 

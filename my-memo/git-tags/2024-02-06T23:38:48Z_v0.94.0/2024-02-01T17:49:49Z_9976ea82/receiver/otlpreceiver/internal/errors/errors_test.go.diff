@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/errors/errors_test.go b/receiver/otlpreceiver/internal/errors/errors_test.go
+index 1e52032c2..c75b5bf04 100644
+--- a/receiver/otlpreceiver/internal/errors/errors_test.go
++++ b/receiver/otlpreceiver/internal/errors/errors_test.go
+@@ -28,7 +28,7 @@ func Test_GetStatusFromError(t *testing.T) {
+ 		{
+ 			name:     "Permanent Error",
+ 			input:    consumererror.NewPermanent(fmt.Errorf("test")),
+-			expected: status.New(codes.InvalidArgument, "Permanent error: test"),
++			expected: status.New(codes.Internal, "Permanent error: test"),
+ 		},
+ 		{
+ 			name:     "Non-Permanent Error",

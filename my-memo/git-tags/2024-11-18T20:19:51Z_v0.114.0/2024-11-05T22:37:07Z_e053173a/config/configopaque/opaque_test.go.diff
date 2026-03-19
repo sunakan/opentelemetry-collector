@@ -1,0 +1,21 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index 044a5ea84..09ebcab6b 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -5,6 +5,7 @@ package configopaque // import "go.opentelemetry.io/collector/config/configopaqu
+ 
+ import (
+ 	"encoding"
++	"encoding/hex"
+ 	"encoding/json"
+ 	"fmt"
+ 	"testing"
+@@ -69,7 +70,7 @@ func TestStringFmt(t *testing.T) {
+ 				case "%q", "%#v":
+ 					expected = "\"" + string(example) + "\""
+ 				case "%x":
+-					expected = fmt.Sprintf("%x", []byte(example))
++					expected = hex.EncodeToString([]byte(example))
+ 				default:
+ 					t.Errorf("unexpected verb %q", verb)
+ 				}

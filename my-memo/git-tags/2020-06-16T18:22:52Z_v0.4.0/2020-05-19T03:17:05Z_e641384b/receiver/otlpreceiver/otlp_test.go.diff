@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 7e9a44682..a857e9bf6 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -395,10 +395,9 @@ func TestStartWithoutConsumersShouldFail(t *testing.T) {
+ func tempSocketName(t *testing.T) string {
+ 	tmpfile, err := ioutil.TempFile("", "sock")
+ 	require.NoError(t, err)
++	require.NoError(t, tmpfile.Close())
+ 	socket := tmpfile.Name()
+-	err = os.Remove(socket)
+-	require.NoError(t, err)
+-
++	require.NoError(t, os.Remove(socket))
+ 	return socket
+ }
+ 

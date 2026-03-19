@@ -1,0 +1,15 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/exporter_test.go b/exporter/jaeger/jaegergrpcexporter/exporter_test.go
+index 2155f0609..ee584f91e 100644
+--- a/exporter/jaeger/jaegergrpcexporter/exporter_test.go
++++ b/exporter/jaeger/jaegergrpcexporter/exporter_test.go
+@@ -20,8 +20,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ func TestNew(t *testing.T) {

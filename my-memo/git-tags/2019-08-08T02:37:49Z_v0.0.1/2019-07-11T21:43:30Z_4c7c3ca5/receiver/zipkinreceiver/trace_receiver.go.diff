@@ -1,0 +1,14 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index b374a20e7..f36d65bb5 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -581,9 +581,3 @@ func zipkinTagsToTraceAttributes(tags map[string]string) *tracepb.Span_Attribute
+ 	}
+ 	return &tracepb.Span_Attributes{AttributeMap: amap}
+ }
+-
+-func setIfNonEmpty(key, value string, dest map[string]string) {
+-	if value != "" {
+-		dest[key] = value
+-	}
+-}

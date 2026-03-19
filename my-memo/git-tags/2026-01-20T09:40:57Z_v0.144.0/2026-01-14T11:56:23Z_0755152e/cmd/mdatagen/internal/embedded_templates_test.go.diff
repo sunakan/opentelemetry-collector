@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/embedded_templates_test.go b/cmd/mdatagen/internal/embedded_templates_test.go
+index c3f7c0bcf..b52dd4fef 100644
+--- a/cmd/mdatagen/internal/embedded_templates_test.go
++++ b/cmd/mdatagen/internal/embedded_templates_test.go
+@@ -40,6 +40,7 @@ func TestEnsureTemplatesLoaded(t *testing.T) {
+ 			path.Join(rootDir, "telemetrytest.go.tmpl"):        {},
+ 			path.Join(rootDir, "telemetrytest_test.go.tmpl"):   {},
+ 			path.Join(rootDir, "helper.tmpl"):                  {},
++			path.Join(rootDir, "feature_gates.md.tmpl"):        {},
+ 		}
+ 		count = 0
+ 	)

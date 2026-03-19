@@ -1,0 +1,33 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml
+index 01d2a086e..8223a53d5 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-processor-section.yaml
+@@ -1,21 +1,21 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+     unknown_section:
+       a_num: 2
+ exporters:
+-  exampleexporter:
++  nop:
+ extensions:
+-  exampleextension:
++  nop:
+ service:
+   extensions:
+     - examapleextension
+   pipelines:
+     traces:
+       receivers:
+-        - examplereceiver
++        - nop
+       processors:
+-        - exampleprocessor
++        - nop
+       exporters:
+-        - exampleexporter
++        - nop

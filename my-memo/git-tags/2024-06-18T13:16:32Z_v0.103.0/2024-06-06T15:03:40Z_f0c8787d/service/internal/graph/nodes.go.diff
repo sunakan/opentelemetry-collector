@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/nodes.go b/service/internal/graph/nodes.go
+index 757e52c09..4136fc3c5 100644
+--- a/service/internal/graph/nodes.go
++++ b/service/internal/graph/nodes.go
+@@ -181,7 +181,7 @@ func (n *exporterNode) buildComponent(
+ 	info component.BuildInfo,
+ 	builder *exporter.Builder,
+ ) error {
+-	set := exporter.CreateSettings{ID: n.componentID, TelemetrySettings: tel, BuildInfo: info}
++	set := exporter.Settings{ID: n.componentID, TelemetrySettings: tel, BuildInfo: info}
+ 	set.TelemetrySettings.Logger = components.ExporterLogger(set.TelemetrySettings.Logger, n.componentID, n.pipelineType)
+ 	var err error
+ 	switch n.pipelineType {

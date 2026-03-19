@@ -1,0 +1,13 @@
+diff --git a/docs/troubleshooting.md b/docs/troubleshooting.md
+index b612b30d3..2f482c1c4 100644
+--- a/docs/troubleshooting.md
++++ b/docs/troubleshooting.md
+@@ -211,7 +211,7 @@ or to find only errors:
+ The Collector may exit/restart because:
+ 
+ - Memory pressure due to missing or misconfigured
+-  [memory_limiter](https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiter/README.md)
++  [memory_limiter](https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiterprocessor/README.md)
+   processor.
+ - [Improperly sized](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/performance.md)
+   for load.

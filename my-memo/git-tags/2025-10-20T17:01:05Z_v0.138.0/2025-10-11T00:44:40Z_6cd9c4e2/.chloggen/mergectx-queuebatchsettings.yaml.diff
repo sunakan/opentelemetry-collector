@@ -1,0 +1,13 @@
+diff --git a/.chloggen/mergectx-queuebatchsettings.yaml b/.chloggen/mergectx-queuebatchsettings.yaml
+index ddbb907f9..886c3887d 100644
+--- a/.chloggen/mergectx-queuebatchsettings.yaml
++++ b/.chloggen/mergectx-queuebatchsettings.yaml
+@@ -4,7 +4,7 @@
+ change_type: enhancement
+ 
+ # The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: exporter/exporterhelper
++component: pkg/exporterhelper
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+ note: Expose `MergeCtx` in exporterhelper's queue batch settings`

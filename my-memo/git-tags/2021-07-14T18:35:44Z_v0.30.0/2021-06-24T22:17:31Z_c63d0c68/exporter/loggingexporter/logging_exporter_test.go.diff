@@ -1,0 +1,14 @@
+diff --git a/exporter/loggingexporter/logging_exporter_test.go b/exporter/loggingexporter/logging_exporter_test.go
+index cde7da2af..f38bb06ea 100644
+--- a/exporter/loggingexporter/logging_exporter_test.go
++++ b/exporter/loggingexporter/logging_exporter_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestLoggingTracesExporterNoErrors(t *testing.T) {

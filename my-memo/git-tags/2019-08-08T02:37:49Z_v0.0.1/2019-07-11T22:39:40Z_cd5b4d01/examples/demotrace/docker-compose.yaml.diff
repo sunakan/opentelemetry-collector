@@ -1,0 +1,16 @@
+diff --git a/examples/demotrace/docker-compose.yaml b/examples/demotrace/docker-compose.yaml
+index 03ffced18..58e8fe3ef 100644
+--- a/examples/demotrace/docker-compose.yaml
++++ b/examples/demotrace/docker-compose.yaml
+@@ -49,3 +49,11 @@ services:
+       - JAEGER_COLLECTOR_URL=http://otel-agent:14268
+     depends_on:
+       - otel-agent
++
++  prometheus:
++    container_name: prometheus
++    image: prom/prometheus:latest
++    volumes:
++      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
++    ports:
++      - "9090:9090"

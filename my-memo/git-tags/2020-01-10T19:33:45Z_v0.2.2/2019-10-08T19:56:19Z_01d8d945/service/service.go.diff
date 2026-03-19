@@ -1,0 +1,14 @@
+diff --git a/service/service.go b/service/service.go
+index 78d9ba0de..80983067c 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -284,7 +284,8 @@ func (app *Application) shutdownPipelines() {
+ 	app.logger.Info("Stopping receivers...")
+ 	app.builtReceivers.StopAll()
+ 
+-	// TODO: shutdown processors
++	// TODO: shutdown processors by calling Shutdown() for each processor in the
++	// order they are arranged in the pipeline.
+ 
+ 	app.logger.Info("Shutting down exporters...")
+ 	app.exporters.ShutdownAll()

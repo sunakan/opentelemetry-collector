@@ -1,0 +1,13 @@
+diff --git a/processor/processortest/unhealthy_processor_test.go b/processor/processortest/unhealthy_processor_test.go
+index adc80322f..f00c4236a 100644
+--- a/processor/processortest/unhealthy_processor_test.go
++++ b/processor/processortest/unhealthy_processor_test.go
+@@ -22,7 +22,7 @@ import (
+ func TestNewUnhealthyProcessorFactory(t *testing.T) {
+ 	factory := NewUnhealthyProcessorFactory()
+ 	require.NotNil(t, factory)
+-	assert.Equal(t, component.Type("unhealthy"), factory.Type())
++	assert.Equal(t, component.MustNewType("unhealthy"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.Equal(t, &struct{}{}, cfg)
+ 

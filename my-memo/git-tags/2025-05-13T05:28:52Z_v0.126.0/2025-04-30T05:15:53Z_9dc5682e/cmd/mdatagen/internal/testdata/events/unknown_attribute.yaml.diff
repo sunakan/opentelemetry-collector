@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/testdata/events/unknown_attribute.yaml b/cmd/mdatagen/internal/testdata/events/unknown_attribute.yaml
+new file mode 100644
+index 000000000..d45d8e5ac
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/events/unknown_attribute.yaml
+@@ -0,0 +1,14 @@
++type: receiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++
++events:
++  system.event:
++    enabled: true
++    description: The system event collected by opentelemetry collector.
++    attributes: [missing]

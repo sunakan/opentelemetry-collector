@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 7ade581f2..b46253b06 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -19,7 +19,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer v1.21.0
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.115.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.115.0
+-	go.opentelemetry.io/collector/consumer/xconsumer v0.115.0
++	go.opentelemetry.io/collector/consumer/xconsumer v0.115.1-0.20241213185000-4593ba7de234
+ 	go.opentelemetry.io/collector/internal/sharedcomponent v0.115.0
+ 	go.opentelemetry.io/collector/pdata v1.21.0
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.115.0

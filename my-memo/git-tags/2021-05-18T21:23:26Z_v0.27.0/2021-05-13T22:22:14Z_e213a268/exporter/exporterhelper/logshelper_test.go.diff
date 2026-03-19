@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logshelper_test.go b/exporter/exporterhelper/logshelper_test.go
+index 57812eadb..7c21c9797 100644
+--- a/exporter/exporterhelper/logshelper_test.go
++++ b/exporter/exporterhelper/logshelper_test.go
+@@ -37,7 +37,7 @@ const (
+ 	fakeLogsParentSpanName = "fake_logs_parent_span_name"
+ )
+ 
+-var fakeLogsExporterName = config.MustIDFromString("fake_logs_exporter/with_name")
++var fakeLogsExporterName = config.NewIDWithName("fake_logs_exporter", "with_name")
+ 
+ var (
+ 	fakeLogsExporterConfig = config.NewExporterSettings(fakeLogsExporterName)

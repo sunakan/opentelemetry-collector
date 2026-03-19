@@ -1,0 +1,20 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index b25b2aefe..545b4d7ca 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -151,7 +151,6 @@ func TestCreateTracesReceiver(t *testing.T) {
+ 			assert.NoError(t, err)
+ 			if tt.wantStartErr {
+ 				assert.Error(t, tr.Start(context.Background(), componenttest.NewNopHost()))
+-				assert.NoError(t, tr.Shutdown(context.Background()))
+ 			} else {
+ 				assert.NoError(t, tr.Start(context.Background(), componenttest.NewNopHost()))
+ 				assert.NoError(t, tr.Shutdown(context.Background()))
+@@ -370,7 +369,6 @@ func TestCreateLogReceiver(t *testing.T) {
+ 			assert.NoError(t, err)
+ 			if tt.wantStartErr {
+ 				assert.Error(t, mr.Start(context.Background(), componenttest.NewNopHost()))
+-				assert.NoError(t, mr.Shutdown(context.Background()))
+ 			} else {
+ 				require.NoError(t, mr.Start(context.Background(), componenttest.NewNopHost()))
+ 				assert.NoError(t, mr.Shutdown(context.Background()))

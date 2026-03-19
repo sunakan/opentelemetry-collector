@@ -1,0 +1,22 @@
+diff --git a/exporter/otlphttpexporter/factory_test.go b/exporter/otlphttpexporter/factory_test.go
+index a36a9548d..d81b0c7bd 100644
+--- a/exporter/otlphttpexporter/factory_test.go
++++ b/exporter/otlphttpexporter/factory_test.go
+@@ -97,7 +97,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 				ClientConfig: confighttp.ClientConfig{
+ 					Endpoint: endpoint,
+ 					TLSSetting: configtls.ClientConfig{
+-						TLSSetting: configtls.Config{
++						Config: configtls.Config{
+ 							CAFile: filepath.Join("testdata", "test_cert.pem"),
+ 						},
+ 					},
+@@ -110,7 +110,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 				ClientConfig: confighttp.ClientConfig{
+ 					Endpoint: endpoint,
+ 					TLSSetting: configtls.ClientConfig{
+-						TLSSetting: configtls.Config{
++						Config: configtls.Config{
+ 							CAFile: "nosuchfile",
+ 						},
+ 					},

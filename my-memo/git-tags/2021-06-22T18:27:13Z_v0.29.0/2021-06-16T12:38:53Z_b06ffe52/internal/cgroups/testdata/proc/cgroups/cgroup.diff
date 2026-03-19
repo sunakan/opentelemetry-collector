@@ -1,0 +1,9 @@
+diff --git a/internal/cgroups/testdata/proc/cgroups/cgroup b/internal/cgroups/testdata/proc/cgroups/cgroup
+new file mode 100644
+index 000000000..1724dc838
+--- /dev/null
++++ b/internal/cgroups/testdata/proc/cgroups/cgroup
+@@ -0,0 +1,3 @@
++3:memory:/docker/large
++2:cpu,cpuacct:/docker
++1:cpuset:/

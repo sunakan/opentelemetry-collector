@@ -1,0 +1,15 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index 973f4bf09..db430f9fa 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -24,8 +24,8 @@ import (
+ 	"strconv"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/internal/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/internal/factories"
++	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 

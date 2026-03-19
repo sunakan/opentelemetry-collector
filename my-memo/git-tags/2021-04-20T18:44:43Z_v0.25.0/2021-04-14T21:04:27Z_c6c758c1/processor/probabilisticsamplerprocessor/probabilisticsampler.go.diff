@@ -1,0 +1,16 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/probabilisticsamplerprocessor/probabilisticsampler.go
+index 88237d063..64f6a08f5 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -54,9 +54,9 @@ type tracesamplerprocessor struct {
+ 	hashSeed           uint32
+ }
+ 
+-// newTraceProcessor returns a processor.TracesProcessor that will perform head sampling according to the given
++// newTracesProcessor returns a processor.TracesProcessor that will perform head sampling according to the given
+ // configuration.
+-func newTraceProcessor(nextConsumer consumer.Traces, cfg Config) (component.TracesProcessor, error) {
++func newTracesProcessor(nextConsumer consumer.Traces, cfg Config) (component.TracesProcessor, error) {
+ 	if nextConsumer == nil {
+ 		return nil, componenterror.ErrNilNextConsumer
+ 	}

@@ -1,0 +1,26 @@
+diff --git a/exporter/loggingexporter/testdata/config.yaml b/exporter/loggingexporter/testdata/config.yaml
+new file mode 100644
+index 000000000..568327d0d
+--- /dev/null
++++ b/exporter/loggingexporter/testdata/config.yaml
+@@ -0,0 +1,20 @@
++receivers:
++  examplereceiver:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  logging:
++  logging/2:
++    enabled: true
++
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [exampleprocessor]
++    exporters: [logging]
++  metrics:
++    receivers: [examplereceiver]
++    exporters: [logging]

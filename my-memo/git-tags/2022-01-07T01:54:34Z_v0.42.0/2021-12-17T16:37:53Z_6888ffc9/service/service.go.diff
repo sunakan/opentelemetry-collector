@@ -1,0 +1,15 @@
+diff --git a/service/service.go b/service/service.go
+index 039563526..526cbc16e 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -43,10 +43,6 @@ type service struct {
+ }
+ 
+ func newService(set *svcSettings) (*service, error) {
+-	if err := set.Config.Validate(); err != nil {
+-		return nil, fmt.Errorf("invalid configuration: %w", err)
+-	}
+-
+ 	srv := &service{
+ 		factories:           set.Factories,
+ 		buildInfo:           set.BuildInfo,

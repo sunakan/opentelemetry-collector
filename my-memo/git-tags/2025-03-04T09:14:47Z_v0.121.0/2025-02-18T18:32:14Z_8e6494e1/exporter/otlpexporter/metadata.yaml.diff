@@ -1,0 +1,14 @@
+diff --git a/exporter/otlpexporter/metadata.yaml b/exporter/otlpexporter/metadata.yaml
+index 0c909a549..817b723bd 100644
+--- a/exporter/otlpexporter/metadata.yaml
++++ b/exporter/otlpexporter/metadata.yaml
+@@ -4,8 +4,7 @@ github_project: open-telemetry/opentelemetry-collector
+ status:
+   class: exporter
+   stability:
+-    stable: [traces, metrics]
+-    beta: [logs]
++    stable: [traces, metrics, logs]
+     development: [profiles]
+   distributions: [core, contrib, k8s, otlp]
+ 

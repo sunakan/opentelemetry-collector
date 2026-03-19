@@ -1,0 +1,10 @@
+diff --git a/.github/workflows/scripts/release-prepare-release.sh b/.github/workflows/scripts/release-prepare-release.sh
+index 183210f99..fcacd5a6d 100755
+--- a/.github/workflows/scripts/release-prepare-release.sh
++++ b/.github/workflows/scripts/release-prepare-release.sh
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/bin/bash -ex
+ 
+ make chlog-update VERSION="${CANDIDATE_STABLE}/${CANDIDATE_BETA}"
+ git config user.name opentelemetrybot

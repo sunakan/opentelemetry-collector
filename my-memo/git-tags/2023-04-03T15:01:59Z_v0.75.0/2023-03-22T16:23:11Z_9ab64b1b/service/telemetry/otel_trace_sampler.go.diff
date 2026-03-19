@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/otel_trace_sampler.go b/service/telemetry/otel_trace_sampler.go
+index f8e6f0716..0787d7c09 100644
+--- a/service/telemetry/otel_trace_sampler.go
++++ b/service/telemetry/otel_trace_sampler.go
+@@ -20,7 +20,7 @@ import (
+ 
+ type recordSampler struct{}
+ 
+-func (r recordSampler) ShouldSample(parameters sdktrace.SamplingParameters) sdktrace.SamplingResult {
++func (r recordSampler) ShouldSample(_ sdktrace.SamplingParameters) sdktrace.SamplingResult {
+ 	return sdktrace.SamplingResult{Decision: sdktrace.RecordOnly}
+ }
+ 

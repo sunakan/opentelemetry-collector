@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/line.go b/pdata/pprofile/line.go
+index 57ba32bcf..7ed3461dd 100644
+--- a/pdata/pprofile/line.go
++++ b/pdata/pprofile/line.go
+@@ -31,7 +31,7 @@ func (l Line) Equal(val Line) bool {
+ // dictionary to another.
+ func (l Line) switchDictionary(src, dst ProfilesDictionary) error {
+ 	if l.FunctionIndex() > 0 {
+-		if src.FunctionTable().Len() < int(l.FunctionIndex()) {
++		if src.FunctionTable().Len() <= int(l.FunctionIndex()) {
+ 			return fmt.Errorf("invalid function index %d", l.FunctionIndex())
+ 		}
+ 

@@ -1,0 +1,19 @@
+diff --git a/pdata/pprofile/generated_lineslice_test.go b/pdata/pprofile/generated_lineslice_test.go
+index eac1d8b3a..a471b5b22 100644
+--- a/pdata/pprofile/generated_lineslice_test.go
++++ b/pdata/pprofile/generated_lineslice_test.go
+@@ -141,6 +141,14 @@ func TestLineSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestLineSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestLineSlice()
++	got.RemoveIf(func(el Line) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestLineSliceAll(t *testing.T) {
+ 	ms := generateTestLineSlice()
+ 	assert.NotEmpty(t, ms.Len())

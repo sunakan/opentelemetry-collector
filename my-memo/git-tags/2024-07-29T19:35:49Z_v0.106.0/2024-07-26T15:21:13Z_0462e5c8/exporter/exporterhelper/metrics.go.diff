@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 683dc576f..e0412230e 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -155,7 +155,8 @@ func newMetricsSenderWithObservability(obsrep *ObsReport) requestSender {
+ 
+ func (mewo *metricsSenderWithObservability) send(ctx context.Context, req Request) error {
+ 	c := mewo.obsrep.StartMetricsOp(ctx)
++	numMetricDataPoints := req.ItemsCount()
+ 	err := mewo.nextSender.send(c, req)
+-	mewo.obsrep.EndMetricsOp(c, req.ItemsCount(), err)
++	mewo.obsrep.EndMetricsOp(c, numMetricDataPoints, err)
+ 	return err
+ }

@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/memory_ballast.go b/extension/ballastextension/memory_ballast.go
+index c7a37365e..f8f78605b 100644
+--- a/extension/ballastextension/memory_ballast.go
++++ b/extension/ballastextension/memory_ballast.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package ballastextension
++package ballastextension // import "go.opentelemetry.io/collector/extension/ballastextension"
+ 
+ import (
+ 	"context"

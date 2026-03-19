@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricspartialsuccess.go b/pdata/internal/generated_wrapper_exportmetricspartialsuccess.go
+index c9ab5a696..0d92896fd 100644
+--- a/pdata/internal/generated_wrapper_exportmetricspartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportmetricspartialsuccess.go
+@@ -45,6 +45,10 @@ func DeleteOrigExportMetricsPartialSuccess(orig *otlpcollectormetrics.ExportMetr
+ }
+ 
+ func CopyOrigExportMetricsPartialSuccess(dest, src *otlpcollectormetrics.ExportMetricsPartialSuccess) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.RejectedDataPoints = src.RejectedDataPoints
+ 	dest.ErrorMessage = src.ErrorMessage
+ }

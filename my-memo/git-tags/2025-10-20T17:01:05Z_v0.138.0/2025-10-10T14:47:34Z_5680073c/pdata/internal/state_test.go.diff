@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/state_test.go b/pdata/internal/state_test.go
+index bfe470c2a..d0baeded7 100644
+--- a/pdata/internal/state_test.go
++++ b/pdata/internal/state_test.go
+@@ -20,9 +20,9 @@ func TestAssertMutable(t *testing.T) {
+ 
+ func BenchmarkAssertMutable(b *testing.B) {
+ 	b.ReportAllocs()
+-	b.ResetTimer()
++
+ 	mutable := NewState()
+-	for n := 0; n < b.N; n++ {
++	for b.Loop() {
+ 		mutable.AssertMutable()
+ 	}
+ }

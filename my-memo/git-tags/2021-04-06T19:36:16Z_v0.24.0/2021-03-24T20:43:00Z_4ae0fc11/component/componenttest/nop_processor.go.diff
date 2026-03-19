@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_processor.go b/component/componenttest/nop_processor.go
+index e8ff907c1..682d790b6 100644
+--- a/component/componenttest/nop_processor.go
++++ b/component/componenttest/nop_processor.go
+@@ -77,7 +77,7 @@ func (f *nopProcessorFactory) CreateLogsProcessor(
+ }
+ 
+ var nopProcessorInstance = &nopProcessor{
+-	Component: componenthelper.NewComponent(componenthelper.DefaultComponentSettings()),
++	Component: componenthelper.New(),
+ 	Traces:    consumertest.NewTracesNop(),
+ 	Metrics:   consumertest.NewMetricsNop(),
+ 	Logs:      consumertest.NewLogsNop(),

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 425cc93df..1e92b1c38 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -199,7 +199,7 @@ func TestFailedLoadConfig(t *testing.T) {
+ 	factory := NewFactory()
+ 	factories.Receivers[typeStr] = factory
+ 	_, err = configtest.LoadConfigAndValidate(path.Join(".", "testdata", "typo_default_proto_config.yaml"), factories)
+-	assert.EqualError(t, err, `error reading receivers configuration for otlp: unknown protocols in the OTLP receiver`)
++	assert.EqualError(t, err, "error reading receivers configuration for otlp: 1 error(s) decoding:\n\n* 'protocols' has invalid keys: htttp")
+ 
+ 	_, err = configtest.LoadConfigAndValidate(path.Join(".", "testdata", "bad_proto_config.yaml"), factories)
+ 	assert.EqualError(t, err, "error reading receivers configuration for otlp: 1 error(s) decoding:\n\n* 'protocols' has invalid keys: thrift")

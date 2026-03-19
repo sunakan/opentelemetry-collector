@@ -1,0 +1,12 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index cb4360c56..ba9a33efa 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -223,6 +223,7 @@ func (mr *Resolver) closeIfNeeded(ctx context.Context) error {
+ 	for _, ret := range mr.closers {
+ 		err = multierr.Append(err, ret(ctx))
+ 	}
++	mr.closers = nil
+ 	return err
+ }
+ 

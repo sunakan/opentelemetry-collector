@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/json_test.go b/pdata/pmetric/json_test.go
+index cebc40e8e..552eee39e 100644
+--- a/pdata/pmetric/json_test.go
++++ b/pdata/pmetric/json_test.go
+@@ -21,11 +21,13 @@ var metricsOTLP = func() Metrics {
+ 	il := rm.ScopeMetrics().AppendEmpty()
+ 	il.Scope().SetName("name")
+ 	il.Scope().SetVersion("version")
+-	il.Metrics().AppendEmpty().SetName("testMetric")
++	m := il.Metrics().AppendEmpty()
++	m.SetName("testMetric")
++	m.Metadata().PutStr("metadatakey", "metadatavalue")
+ 	return md
+ }()
+ 
+-var metricsJSON = `{"resourceMetrics":[{"resource":{"attributes":[{"key":"host.name","value":{"stringValue":"testHost"}}]},"scopeMetrics":[{"scope":{"name":"name","version":"version"},"metrics":[{"name":"testMetric"}]}]}]}`
++var metricsJSON = `{"resourceMetrics":[{"resource":{"attributes":[{"key":"host.name","value":{"stringValue":"testHost"}}]},"scopeMetrics":[{"scope":{"name":"name","version":"version"},"metrics":[{"name":"testMetric","metadata":[{"key":"metadatakey","value":{"stringValue":"metadatavalue"}}]}]}]}]}`
+ 
+ func TestMetricsJSON(t *testing.T) {
+ 	encoder := &JSONMarshaler{}

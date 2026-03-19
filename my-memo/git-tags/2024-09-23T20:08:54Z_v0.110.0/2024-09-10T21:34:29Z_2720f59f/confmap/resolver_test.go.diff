@@ -1,0 +1,13 @@
+diff --git a/confmap/resolver_test.go b/confmap/resolver_test.go
+index e939d124a..8509ba4fd 100644
+--- a/confmap/resolver_test.go
++++ b/confmap/resolver_test.go
+@@ -389,7 +389,7 @@ func TestResolverShutdownClosesWatch(t *testing.T) {
+ 	go func() {
+ 		errW, ok := <-resolver.Watch()
+ 		// Channel is closed, no exception
+-		assert.Nil(t, errW)
++		assert.NoError(t, errW)
+ 		assert.False(t, ok)
+ 		watcherWG.Done()
+ 	}()

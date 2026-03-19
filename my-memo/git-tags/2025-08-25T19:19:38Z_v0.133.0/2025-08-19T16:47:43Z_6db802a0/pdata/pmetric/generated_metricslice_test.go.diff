@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_metricslice_test.go b/pdata/pmetric/generated_metricslice_test.go
+index d33fd4594..ba5957ca5 100644
+--- a/pdata/pmetric/generated_metricslice_test.go
++++ b/pdata/pmetric/generated_metricslice_test.go
+@@ -27,7 +27,7 @@ func TestMetricSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestMetric((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigMetric()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

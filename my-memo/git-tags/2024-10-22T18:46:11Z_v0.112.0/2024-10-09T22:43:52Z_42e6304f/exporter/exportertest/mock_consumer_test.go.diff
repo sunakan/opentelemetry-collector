@@ -1,0 +1,13 @@
+diff --git a/exporter/exportertest/mock_consumer_test.go b/exporter/exportertest/mock_consumer_test.go
+index 1368e4df6..7a04137e5 100644
+--- a/exporter/exportertest/mock_consumer_test.go
++++ b/exporter/exportertest/mock_consumer_test.go
+@@ -245,7 +245,7 @@ func TestConsumeMetricsSuccess(t *testing.T) {
+ 
+ }
+ 
+-func TestCapabilites(t *testing.T) {
++func TestCapabilities(t *testing.T) {
+ 	mc := newMockConsumer(func() error { return nil })
+ 	assert.Equal(t, consumer.Capabilities{}, mc.Capabilities())
+ }

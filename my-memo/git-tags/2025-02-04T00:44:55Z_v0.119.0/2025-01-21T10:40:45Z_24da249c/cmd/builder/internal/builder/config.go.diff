@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index bda4bf1b0..07d25408d 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -35,6 +35,9 @@ type Config struct {
+ 	SkipGetModules       bool   `mapstructure:"-"`
+ 	SkipStrictVersioning bool   `mapstructure:"-"`
+ 	LDFlags              string `mapstructure:"-"`
++	LDSet                bool   `mapstructure:"-"` // only used to override LDFlags
++	GCFlags              string `mapstructure:"-"`
++	GCSet                bool   `mapstructure:"-"` // only used to override GCFlags
+ 	Verbose              bool   `mapstructure:"-"`
+ 
+ 	Distribution      Distribution `mapstructure:"dist"`

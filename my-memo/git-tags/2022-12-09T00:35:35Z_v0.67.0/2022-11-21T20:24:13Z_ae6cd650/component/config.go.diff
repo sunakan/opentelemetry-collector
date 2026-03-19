@@ -1,0 +1,13 @@
+diff --git a/component/config.go b/component/config.go
+index 6de79f3dc..619e9b458 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -20,8 +20,6 @@ import (
+ 
+ type Config interface {
+ 	identifiable
+-	// Deprecated: [v0.65.0] use component.ValidateConfig.
+-	Validate() error
+ 
+ 	privateConfig()
+ }

@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 42559e212..8fc926269 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+-	"go.opentelemetry.io/collector/model/pdata"
++	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
+ var (
+@@ -71,7 +71,7 @@ func checkStatus(t *testing.T, sd sdktrace.ReadOnlySpan, err error) {
+ }
+ 
+ func nopTracePusher() consumer.ConsumeTracesFunc {
+-	return func(ctx context.Context, ld pdata.Traces) error {
++	return func(ctx context.Context, ld ptrace.Traces) error {
+ 		return nil
+ 	}
+ }

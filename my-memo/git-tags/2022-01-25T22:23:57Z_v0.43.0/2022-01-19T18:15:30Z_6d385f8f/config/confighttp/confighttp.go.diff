@@ -1,0 +1,29 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 5df836d63..66c417fc3 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -98,7 +98,7 @@ func DefaultHTTPClientSettings() HTTPClientSettings {
+ }
+ 
+ // ToClient creates an HTTP client.
+-func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Extension) (*http.Client, error) {
++func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Extension, settings component.TelemetrySettings) (*http.Client, error) {
+ 	tlsCfg, err := hcs.TLSSetting.LoadTLSConfig()
+ 	if err != nil {
+ 		return nil, err
+@@ -137,6 +137,15 @@ func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Ext
+ 			headers:   hcs.Headers,
+ 		}
+ 	}
++	// wrapping http transport with otelhttp transport to enable otel instrumenetation
++	if settings.TracerProvider != nil && settings.MeterProvider != nil {
++		clientTransport = otelhttp.NewTransport(
++			clientTransport,
++			otelhttp.WithTracerProvider(settings.TracerProvider),
++			otelhttp.WithMeterProvider(settings.MeterProvider),
++			otelhttp.WithPropagators(otel.GetTextMapPropagator()),
++		)
++	}
+ 
+ 	// Compress the body using specified compression methods if non-empty string is provided.
+ 	// Supporting gzip, zlib, deflate, snappy, and zstd; none is treated as uncompressed.

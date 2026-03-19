@@ -1,0 +1,16 @@
+diff --git a/translator/trace/zipkin/protospan_to_zipkinv1.go b/translator/trace/zipkin/protospan_to_zipkinv1.go
+index 5f6da87bb..d3be1c867 100644
+--- a/translator/trace/zipkin/protospan_to_zipkinv1.go
++++ b/translator/trace/zipkin/protospan_to_zipkinv1.go
+@@ -79,6 +79,11 @@ func zipkinEndpointFromAttributes(
+ ) (endpoint *zipkinmodel.Endpoint) {
+ 
+ 	if attrMap == nil {
++		if serviceName != "" {
++			return &zipkinmodel.Endpoint{
++				ServiceName: serviceName,
++			}
++		}
+ 		return nil
+ 	}
+ 

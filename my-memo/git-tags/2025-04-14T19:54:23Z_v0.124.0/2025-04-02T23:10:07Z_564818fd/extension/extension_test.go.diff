@@ -1,0 +1,13 @@
+diff --git a/extension/extension_test.go b/extension/extension_test.go
+index 60f14ea75..bb147b04a 100644
+--- a/extension/extension_test.go
++++ b/extension/extension_test.go
+@@ -31,7 +31,7 @@ func TestNewFactory(t *testing.T) {
+ 			return nopExtensionInstance, nil
+ 		},
+ 		component.StabilityLevelDevelopment)
+-	assert.EqualValues(t, testType, factory.Type())
++	assert.Equal(t, testType, factory.Type())
+ 	assert.EqualValues(t, &defaultCfg, factory.CreateDefaultConfig())
+ 
+ 	assert.Equal(t, component.StabilityLevelDevelopment, factory.Stability())

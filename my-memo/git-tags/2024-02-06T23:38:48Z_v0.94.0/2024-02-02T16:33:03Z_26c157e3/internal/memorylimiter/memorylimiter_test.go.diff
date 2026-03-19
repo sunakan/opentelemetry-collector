@@ -1,0 +1,13 @@
+diff --git a/internal/memorylimiter/memorylimiter_test.go b/internal/memorylimiter/memorylimiter_test.go
+index c3395791a..e9e92a33f 100644
+--- a/internal/memorylimiter/memorylimiter_test.go
++++ b/internal/memorylimiter/memorylimiter_test.go
+@@ -173,7 +173,7 @@ type host struct {
+ 
+ func (h *host) GetExtensions() map[component.ID]component.Component {
+ 	ret := make(map[component.ID]component.Component)
+-	ret[component.NewID("ballast")] = &ballastExtension{ballastSize: h.ballastSize}
++	ret[component.MustNewID("ballast")] = &ballastExtension{ballastSize: h.ballastSize}
+ 	return ret
+ }
+ 

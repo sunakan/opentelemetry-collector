@@ -1,0 +1,12 @@
+diff --git a/connector/forwardconnector/metadata.yaml b/connector/forwardconnector/metadata.yaml
+index 5d7b4a813..8b20d96b0 100644
+--- a/connector/forwardconnector/metadata.yaml
++++ b/connector/forwardconnector/metadata.yaml
+@@ -2,6 +2,7 @@ type: forward
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: connector
+   stability:
+     beta: [traces_to_traces, metrics_to_metrics, logs_to_logs]

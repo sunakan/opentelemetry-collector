@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 1b6f483a1..99c2bb542 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -46,7 +46,7 @@ func createDefaultConfig() component.Config {
+ 	grpcCfg.ReadBufferSize = 512 * 1024
+ 
+ 	httpCfg := confighttp.NewDefaultServerConfig()
+-	httpCfg.Endpoint = "localhost:4318"
++	httpCfg.NetAddr.Endpoint = "localhost:4318"
+ 	// For backward compatibility:
+ 	httpCfg.TLS = configoptional.None[configtls.ServerConfig]()
+ 	httpCfg.WriteTimeout = 0

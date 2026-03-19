@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_functionslice.go b/pdata/internal/generated_wrapper_functionslice.go
+index f60641aaa..95b9bf557 100644
+--- a/pdata/internal/generated_wrapper_functionslice.go
++++ b/pdata/internal/generated_wrapper_functionslice.go
+@@ -38,3 +38,12 @@ func CopyOrigFunctionSlice(dest, src []*otlpprofiles.Function) []*otlpprofiles.F
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestFunctionSlice() []*otlpprofiles.Function {
++	orig := make([]*otlpprofiles.Function, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpprofiles.Function{}
++		FillOrigTestFunction(orig[i])
++	}
++	return orig
++}

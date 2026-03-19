@@ -1,0 +1,15 @@
+diff --git a/exporter/loggingexporter/logging_exporter_test.go b/exporter/loggingexporter/logging_exporter_test.go
+index 8850bbfe2..8d37ddd1b 100644
+--- a/exporter/loggingexporter/logging_exporter_test.go
++++ b/exporter/loggingexporter/logging_exporter_test.go
+@@ -50,6 +50,10 @@ func TestLoggingMetricsExporterNoErrors(t *testing.T) {
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataOneEmptyOneNilInstrumentationLibrary())))
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataOneMetricOneNil())))
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataWithCountersHistogramAndSummary())))
++	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataAllTypesNilDataPoint())))
++	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataAllTypesEmptyDataPoint())))
++	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataNilMetricDescriptor())))
++	assert.NoError(t, lme.ConsumeMetrics(context.Background(), pdatautil.MetricsFromInternalMetrics(testdata.GenerateMetricDataMetricTypeInvalid())))
+ 
+ 	assert.NoError(t, lme.Shutdown(context.Background()))
+ }

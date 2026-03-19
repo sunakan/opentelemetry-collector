@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 90eb5ec53..c1348a540 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -36,6 +36,10 @@
+   - `component.ReceiverFactory.MetricsReceiverStability`
+   - `component.ReceiverFactory.LogsReceiverStability`
+ - Deprecate `obsreport.ProcessorSettings.Level` and `obsreport.ExporterSettings.Level`, use MetricsLevel from CreateSettings (#5824)
++- Deprecates `FlagsStruct` in favor of `Flags` (#5842)
++  - `MetricDataPointFlagsStruct` -> `MetricDataPointFlags`
++  - `NewMetricDataPointFlagsStruct` -> `NewMetricDataPointFlags`
++  - `FlagsStruct` -> `Flags`
+ 
+ ### 💡 Enhancements 💡
+ 

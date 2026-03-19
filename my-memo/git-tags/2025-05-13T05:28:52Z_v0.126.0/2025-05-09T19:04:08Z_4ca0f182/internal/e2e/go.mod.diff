@@ -1,0 +1,21 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index d312726ab..df50746f6 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -108,7 +108,6 @@ require (
+ 	go.opentelemetry.io/collector/processor/xprocessor v0.125.0 // indirect
+ 	go.opentelemetry.io/collector/receiver/receiverhelper v0.125.0 // indirect
+ 	go.opentelemetry.io/collector/receiver/xreceiver v0.125.0 // indirect
+-	go.opentelemetry.io/collector/semconv v0.125.0 // indirect
+ 	go.opentelemetry.io/collector/service/hostcapabilities v0.125.0 // indirect
+ 	go.opentelemetry.io/contrib/bridges/otelzap v0.10.0 // indirect
+ 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect
+@@ -214,8 +213,6 @@ replace go.opentelemetry.io/collector/connector => ../../connector
+ 
+ replace go.opentelemetry.io/collector/connector/connectortest => ../../connector/connectortest
+ 
+-replace go.opentelemetry.io/collector/semconv => ../../semconv
+-
+ replace go.opentelemetry.io/collector/processor => ../../processor
+ 
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension

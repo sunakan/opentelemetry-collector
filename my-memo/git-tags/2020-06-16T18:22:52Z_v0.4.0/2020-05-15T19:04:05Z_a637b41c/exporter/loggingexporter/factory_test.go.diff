@@ -1,0 +1,15 @@
+diff --git a/exporter/loggingexporter/factory_test.go b/exporter/loggingexporter/factory_test.go
+index 25a2b5a2d..78ed3381a 100644
+--- a/exporter/loggingexporter/factory_test.go
++++ b/exporter/loggingexporter/factory_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configcheck"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

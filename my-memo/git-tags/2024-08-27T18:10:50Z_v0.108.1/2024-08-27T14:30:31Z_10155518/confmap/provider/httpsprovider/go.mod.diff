@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/httpsprovider/go.mod b/confmap/provider/httpsprovider/go.mod
+index 647da6cb7..09ccc2c56 100644
+--- a/confmap/provider/httpsprovider/go.mod
++++ b/confmap/provider/httpsprovider/go.mod
+@@ -4,7 +4,7 @@ go 1.22.0
+ 
+ require (
+ 	github.com/stretchr/testify v1.9.0
+-	go.opentelemetry.io/collector/confmap v0.107.0
++	go.opentelemetry.io/collector/confmap v1.14.0
+ 	go.uber.org/goleak v1.3.0
+ )
+ 

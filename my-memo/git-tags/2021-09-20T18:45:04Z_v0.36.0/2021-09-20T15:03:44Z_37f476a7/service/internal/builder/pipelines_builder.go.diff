@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder.go b/service/internal/builder/pipelines_builder.go
+index a8930b0af..a6ea53f6c 100644
+--- a/service/internal/builder/pipelines_builder.go
++++ b/service/internal/builder/pipelines_builder.go
+@@ -199,7 +199,7 @@ func (pb *pipelinesBuilder) buildPipeline(ctx context.Context, pipelineCfg *conf
+ 		}
+ 
+ 		if err != nil {
+-			return nil, fmt.Errorf("error creating processor %q in pipeline %q: %v",
++			return nil, fmt.Errorf("error creating processor %q in pipeline %q: %w",
+ 				procID, pipelineCfg.Name, err)
+ 		}
+ 

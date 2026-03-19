@@ -1,0 +1,12 @@
+diff --git a/model/otlpgrpc/traces.go b/model/otlpgrpc/traces.go
+index 41c8ddebc..a2b4233be 100644
+--- a/model/otlpgrpc/traces.go
++++ b/model/otlpgrpc/traces.go
+@@ -81,7 +81,6 @@ type rawTracesServer struct {
+ }
+ 
+ func (s rawTracesServer) Export(ctx context.Context, request *otlpcollectortrace.ExportTraceServiceRequest) (*otlpcollectortrace.ExportTraceServiceResponse, error) {
+-	internal.TracesCompatibilityChanges(request)
+ 	rsp, err := s.srv.Export(ctx, pdata.TracesFromInternalRep(internal.TracesFromOtlp(request)))
+ 	return rsp.orig, err
+ }

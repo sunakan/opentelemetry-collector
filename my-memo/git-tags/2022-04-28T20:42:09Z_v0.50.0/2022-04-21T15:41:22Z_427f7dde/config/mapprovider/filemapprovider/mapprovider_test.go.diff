@@ -1,0 +1,34 @@
+diff --git a/config/mapprovider/filemapprovider/mapprovider_test.go b/config/mapprovider/filemapprovider/mapprovider_test.go
+index bdd87f0cf..443ee7972 100644
+--- a/config/mapprovider/filemapprovider/mapprovider_test.go
++++ b/config/mapprovider/filemapprovider/mapprovider_test.go
+@@ -64,11 +64,13 @@ func TestRelativePath(t *testing.T) {
+ 	fp := New()
+ 	ret, err := fp.Retrieve(context.Background(), fileSchemePrefix+filepath.Join("testdata", "default-config.yaml"), nil)
+ 	require.NoError(t, err)
++	retMap, err := ret.AsMap()
++	assert.NoError(t, err)
+ 	expectedMap := config.NewMapFromStringMap(map[string]interface{}{
+ 		"processors::batch":         nil,
+ 		"exporters::otlp::endpoint": "localhost:4317",
+ 	})
+-	assert.Equal(t, expectedMap, ret.Map)
++	assert.Equal(t, expectedMap, retMap)
+ 	assert.NoError(t, fp.Shutdown(context.Background()))
+ }
+ 
+@@ -76,11 +78,13 @@ func TestAbsolutePath(t *testing.T) {
+ 	fp := New()
+ 	ret, err := fp.Retrieve(context.Background(), fileSchemePrefix+absolutePath(t, filepath.Join("testdata", "default-config.yaml")), nil)
+ 	require.NoError(t, err)
++	retMap, err := ret.AsMap()
++	assert.NoError(t, err)
+ 	expectedMap := config.NewMapFromStringMap(map[string]interface{}{
+ 		"processors::batch":         nil,
+ 		"exporters::otlp::endpoint": "localhost:4317",
+ 	})
+-	assert.Equal(t, expectedMap, ret.Map)
++	assert.Equal(t, expectedMap, retMap)
+ 	assert.NoError(t, fp.Shutdown(context.Background()))
+ }
+ 

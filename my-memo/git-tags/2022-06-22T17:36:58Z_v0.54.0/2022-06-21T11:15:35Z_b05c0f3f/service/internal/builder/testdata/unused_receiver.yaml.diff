@@ -1,0 +1,19 @@
+diff --git a/service/internal/builder/testdata/unused_receiver.yaml b/service/internal/builder/testdata/unused_receiver.yaml
+deleted file mode 100644
+index f8dc448ac..000000000
+--- a/service/internal/builder/testdata/unused_receiver.yaml
++++ /dev/null
+@@ -1,12 +0,0 @@
+-receivers:
+-  examplereceiver:
+-  examplereceiver/2:
+-processors:
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+\ No newline at end of file

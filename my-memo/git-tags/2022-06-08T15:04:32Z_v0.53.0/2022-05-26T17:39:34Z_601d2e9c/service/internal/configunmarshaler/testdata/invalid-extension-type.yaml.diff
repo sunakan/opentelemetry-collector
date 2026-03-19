@@ -1,0 +1,26 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml
+index 95bca7040..0486eeb2f 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-extension-type.yaml
+@@ -1,14 +1,14 @@
+ extensions:
+   /custom:
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
+\ No newline at end of file
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

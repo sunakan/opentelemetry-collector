@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice.go b/pdata/pmetric/generated_histogramdatapointslice.go
+index ac9e49671..f9e1ef75c 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice.go
++++ b/pdata/pmetric/generated_histogramdatapointslice.go
+@@ -109,6 +109,10 @@ func (es HistogramDataPointSlice) AppendEmpty() HistogramDataPoint {
+ func (es HistogramDataPointSlice) MoveAndAppendTo(dest HistogramDataPointSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

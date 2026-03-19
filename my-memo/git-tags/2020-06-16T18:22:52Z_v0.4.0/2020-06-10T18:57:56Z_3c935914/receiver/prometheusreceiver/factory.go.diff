@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index f3817acb7..147529c3a 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -97,7 +97,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 		ReceiverSettings: configmodels.ReceiverSettings{
+ 			TypeVal:  typeStr,
+ 			NameVal:  typeStr,
+-			Endpoint: "localhost:9090",
++			Endpoint: "0.0.0.0:9090",
+ 		},
+ 	}
+ }

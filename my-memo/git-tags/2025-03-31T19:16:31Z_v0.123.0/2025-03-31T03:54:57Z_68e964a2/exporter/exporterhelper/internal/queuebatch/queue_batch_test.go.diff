@@ -1,0 +1,47 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go b/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
+index 13b7ea480..10b7854d9 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
+@@ -35,6 +35,7 @@ func newFakeRequestSettings() Settings[request.Request] {
+ 		Sizers: map[request.SizerType]request.Sizer[request.Request]{
+ 			request.SizerTypeRequests: request.RequestsSizer[request.Request]{},
+ 			request.SizerTypeItems:    request.NewItemsSizer(),
++			request.SizerTypeBytes:    newFakeBytesSizer(),
+ 		},
+ 	}
+ }
+@@ -118,6 +119,34 @@ func TestQueueBatchHappyPath(t *testing.T) {
+ 	require.NoError(t, qb.Shutdown(context.Background()))
+ }
+ 
++func TestQueueBatchHappyPathLegacyBatcher(t *testing.T) {
++	// Set up the config so that the request is accepted in the queue
++	// because the bytes size is used for the queue,
++	// but split because the items size is used for batch.
++	cfg := Config{
++		Enabled:         true,
++		WaitForResult:   false,
++		Sizer:           request.SizerTypeBytes,
++		QueueSize:       100,
++		BlockOnOverflow: false,
++		NumConsumers:    1,
++		Batch: &BatchConfig{
++			FlushTimeout: 200 * time.Millisecond,
++			MinSize:      100,
++			MaxSize:      200,
++		},
++	}
++	sink := requesttest.NewSink()
++	qb, err := NewQueueBatchLegacyBatcher(newFakeRequestSettings(), cfg, sink.Export)
++	require.NoError(t, err)
++	require.NoError(t, qb.Start(context.Background(), componenttest.NewNopHost()))
++	require.NoError(t, qb.Send(context.Background(), &requesttest.FakeRequest{Items: 1000, Bytes: 100}))
++	assert.Eventually(t, func() bool {
++		return sink.RequestsCount() == 5 && sink.ItemsCount() == 1000
++	}, 1*time.Second, 10*time.Millisecond)
++	require.NoError(t, qb.Shutdown(context.Background()))
++}
++
+ func TestQueueBatchPersistenceEnabled(t *testing.T) {
+ 	cfg := newTestConfig()
+ 	storageID := component.MustNewIDWithName("file_storage", "storage")

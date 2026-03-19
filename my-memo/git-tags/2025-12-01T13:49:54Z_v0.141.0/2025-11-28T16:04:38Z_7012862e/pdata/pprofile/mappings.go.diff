@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/mappings.go b/pdata/pprofile/mappings.go
+index 34023f34a..39943bf8e 100644
+--- a/pdata/pprofile/mappings.go
++++ b/pdata/pprofile/mappings.go
+@@ -18,7 +18,7 @@ func SetMapping(table MappingSlice, ma Mapping) (int32, error) {
+ 			if j > math.MaxInt32 {
+ 				return 0, errTooManyMappingTableEntries
+ 			}
+-			return int32(j), nil //nolint:gosec // G115 overflow checked
++			return int32(j), nil
+ 		}
+ 	}
+ 
+@@ -27,5 +27,5 @@ func SetMapping(table MappingSlice, ma Mapping) (int32, error) {
+ 	}
+ 
+ 	ma.CopyTo(table.AppendEmpty())
+-	return int32(table.Len() - 1), nil //nolint:gosec // G115 overflow checked
++	return int32(table.Len() - 1), nil
+ }

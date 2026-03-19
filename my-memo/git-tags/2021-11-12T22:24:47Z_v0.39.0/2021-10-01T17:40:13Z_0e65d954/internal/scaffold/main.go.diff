@@ -1,0 +1,15 @@
+diff --git a/internal/scaffold/main.go b/internal/scaffold/main.go
+index 78760b6b9..ddf60f52b 100644
+--- a/internal/scaffold/main.go
++++ b/internal/scaffold/main.go
+@@ -58,8 +58,8 @@ func main() {
+ 		log.Fatalf("failed to construct the application: %v", err)
+ 	}
+ 
+-	err = app.Run()
+-	if err != nil {
++	cmd := service.NewCommand(app)
++	if err = cmd.Execute(); err != nil {
+ 		log.Fatalf("application run finished with error: %v", err)
+ 	}
+ }

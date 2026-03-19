@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/otelconftelemetry/testdata/config_invalid_unknown_field.yaml b/service/telemetry/otelconftelemetry/testdata/config_invalid_unknown_field.yaml
+new file mode 100644
+index 000000000..4feeb7eb2
+--- /dev/null
++++ b/service/telemetry/otelconftelemetry/testdata/config_invalid_unknown_field.yaml
+@@ -0,0 +1,5 @@
++metrics:
++  unknown: basic
++  views:
++    - selector: {}
++      stream: {}

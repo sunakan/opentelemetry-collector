@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/generated_spanevent_test.go b/pdata/ptrace/generated_spanevent_test.go
+index 642798085..f89590e39 100644
+--- a/pdata/ptrace/generated_spanevent_test.go
++++ b/pdata/ptrace/generated_spanevent_test.go
+@@ -48,13 +48,13 @@ func TestSpanEvent_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestSpanEvent()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewSpanEvent()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

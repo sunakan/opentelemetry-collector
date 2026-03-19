@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/codeql-analysis.yml b/.github/workflows/codeql-analysis.yml
+index e426e7591..66cd66e6d 100644
+--- a/.github/workflows/codeql-analysis.yml
++++ b/.github/workflows/codeql-analysis.yml
+@@ -26,7 +26,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+         with:
+-          go-version: ~1.21.5
++          go-version: ~1.21.13
+ 
+       # Initializes the CodeQL tools for scanning.
+       - name: Initialize CodeQL

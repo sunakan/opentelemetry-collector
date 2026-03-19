@@ -1,0 +1,19 @@
+diff --git a/configv2/testdata/duplicate-exporter.yaml b/configv2/testdata/duplicate-exporter.yaml
+deleted file mode 100644
+index 32fef8765..000000000
+--- a/configv2/testdata/duplicate-exporter.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter/exp:
+-  exampleexporter/ exp :
+-processors:
+-  exampleprocessor:
+-    enabled: true
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]

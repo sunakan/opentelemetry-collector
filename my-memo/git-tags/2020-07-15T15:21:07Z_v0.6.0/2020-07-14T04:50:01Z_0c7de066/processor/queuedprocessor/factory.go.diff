@@ -1,0 +1,88 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index 3a8b1ee29..290debba1 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 
+ const (
+@@ -28,51 +29,42 @@ const (
+ 	typeStr = "queued_retry"
+ )
+ 
+-// Factory is the factory for OpenCensus exporter.
+-type Factory struct {
++// NewFactory returns a new factory for the Queued processor.
++func NewFactory() component.ProcessorFactory {
++	return processorhelper.NewFactory(
++		typeStr,
++		createDefaultConfig,
++		processorhelper.WithTraceProcessor(createTraceProcessor),
++		processorhelper.WithMetricsProcessor(createMetricsProcessor))
+ }
+ 
+-// Type gets the type of the Option config created by this factory.
+-func (f *Factory) Type() configmodels.Type {
+-	return typeStr
+-}
+-
+-// CreateDefaultConfig creates the default configuration for exporter.
+-func (f *Factory) CreateDefaultConfig() configmodels.Processor {
+-	return generateDefaultConfig()
++func createDefaultConfig() configmodels.Processor {
++	return &Config{
++		ProcessorSettings: configmodels.ProcessorSettings{
++			TypeVal: typeStr,
++			NameVal: typeStr,
++		},
++		NumWorkers:     10,
++		QueueSize:      5000,
++		RetryOnFailure: true,
++		BackoffDelay:   time.Second * 5,
++	}
+ }
+ 
+-// CreateTraceProcessor creates a trace processor based on this config.
+-func (f *Factory) CreateTraceProcessor(
++func createTraceProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+-	nextConsumer consumer.TraceConsumer,
+ 	cfg configmodels.Processor,
++	nextConsumer consumer.TraceConsumer,
+ ) (component.TraceProcessor, error) {
+-	oCfg := cfg.(*Config)
+-	return newQueuedTracesProcessor(params, nextConsumer, oCfg), nil
++	return newQueuedTracesProcessor(params, nextConsumer, cfg.(*Config)), nil
+ }
+ 
+-// CreateMetricsProcessor creates a metrics processor based on this config.
+-func (f *Factory) CreateMetricsProcessor(
++func createMetricsProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+-	nextConsumer consumer.MetricsConsumer,
+ 	cfg configmodels.Processor,
++	nextConsumer consumer.MetricsConsumer,
+ ) (component.MetricsProcessor, error) {
+-	oCfg := cfg.(*Config)
+-	return newQueuedMetricsProcessor(params, nextConsumer, oCfg), nil
+-}
+-
+-func generateDefaultConfig() *Config {
+-	return &Config{
+-		ProcessorSettings: configmodels.ProcessorSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
+-		NumWorkers:     10,
+-		QueueSize:      5000,
+-		RetryOnFailure: true,
+-		BackoffDelay:   time.Second * 5,
+-	}
++	return newQueuedMetricsProcessor(params, nextConsumer, cfg.(*Config)), nil
+ }

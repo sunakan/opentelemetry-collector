@@ -1,0 +1,15 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 580d3e2c1..2567cd221 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -180,8 +180,8 @@ func NewMetricsExporter(config configmodels.Exporter, logger *zap.Logger) (compo
+ 	)
+ }
+ 
+-func loggerSync(logger *zap.Logger) func() error {
+-	return func() error {
++func loggerSync(logger *zap.Logger) func(context.Context) error {
++	return func(context.Context) error {
+ 		// Currently Sync() on stdout and stderr return errors on Linux and macOS,
+ 		// respectively:
+ 		//

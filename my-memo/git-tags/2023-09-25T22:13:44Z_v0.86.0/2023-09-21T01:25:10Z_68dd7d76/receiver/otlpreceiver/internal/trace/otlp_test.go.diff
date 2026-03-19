@@ -1,0 +1,30 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index 4f2a0251c..fcb7611c7 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -18,8 +18,8 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+-	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
++	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
+@@ -76,13 +76,13 @@ func otlpReceiverOnGRPCServer(t *testing.T, tc consumer.Traces) net.Addr {
+ 
+ 	set := receivertest.NewNopCreateSettings()
+ 	set.ID = component.NewIDWithName("otlp", "trace")
+-	obsrecv, err := obsreport.NewReceiver(obsreport.ReceiverSettings{
++	obsreport, err := receiverhelper.NewObsReport(receiverhelper.ObsReportSettings{
+ 		ReceiverID:             set.ID,
+ 		Transport:              "grpc",
+ 		ReceiverCreateSettings: set,
+ 	})
+ 	require.NoError(t, err)
+-	r := New(tc, obsrecv)
++	r := New(tc, obsreport)
+ 	// Now run it as a gRPC server
+ 	srv := grpc.NewServer()
+ 	ptraceotlp.RegisterGRPCServer(srv, r)

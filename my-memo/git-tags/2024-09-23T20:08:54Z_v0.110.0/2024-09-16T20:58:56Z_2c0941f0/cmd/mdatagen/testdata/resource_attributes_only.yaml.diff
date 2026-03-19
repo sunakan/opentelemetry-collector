@@ -1,0 +1,27 @@
+diff --git a/cmd/mdatagen/testdata/resource_attributes_only.yaml b/cmd/mdatagen/testdata/resource_attributes_only.yaml
+deleted file mode 100644
+index a6fe611fe..000000000
+--- a/cmd/mdatagen/testdata/resource_attributes_only.yaml
++++ /dev/null
+@@ -1,21 +0,0 @@
+-type: test
+-
+-status:
+-  class: receiver
+-  stability:
+-    development: [logs]
+-    beta: [traces]
+-    stable: [metrics]
+-  distributions: [contrib]
+-  warnings:
+-    - Any additional information that should be brought to the consumer's attention
+-
+-resource_attributes:
+-  res.attr1:
+-    description: Resource attribute 1.
+-    type: string
+-    enabled: true
+-
+-tests:
+-  skip_lifecycle: true
+-  skip_shutdown: true

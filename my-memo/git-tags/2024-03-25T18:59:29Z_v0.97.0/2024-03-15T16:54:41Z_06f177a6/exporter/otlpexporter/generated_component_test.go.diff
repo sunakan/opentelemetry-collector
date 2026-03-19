@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/generated_component_test.go b/exporter/otlpexporter/generated_component_test.go
+index a275a447c..cad24cfa8 100644
+--- a/exporter/otlpexporter/generated_component_test.go
++++ b/exporter/otlpexporter/generated_component_test.go
+@@ -55,7 +55,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, sub.Unmarshal(&cfg))
++	require.NoError(t, component.UnmarshalConfig(sub, cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {

@@ -1,0 +1,22 @@
+diff --git a/consumer/pdata/generated_trace_test.go b/consumer/pdata/generated_trace_test.go
+index fbb008aef..862bac614 100644
+--- a/consumer/pdata/generated_trace_test.go
++++ b/consumer/pdata/generated_trace_test.go
+@@ -310,9 +310,6 @@ func TestInstrumentationLibrarySpans_CopyTo(t *testing.T) {
+ func TestInstrumentationLibrarySpans_InstrumentationLibrary(t *testing.T) {
+ 	ms := NewInstrumentationLibrarySpans()
+ 	ms.InitEmpty()
+-	assert.True(t, ms.InstrumentationLibrary().IsNil())
+-	ms.InstrumentationLibrary().InitEmpty()
+-	assert.False(t, ms.InstrumentationLibrary().IsNil())
+ 	fillTestInstrumentationLibrary(ms.InstrumentationLibrary())
+ 	assert.EqualValues(t, generateTestInstrumentationLibrary(), ms.InstrumentationLibrary())
+ }
+@@ -1030,7 +1027,6 @@ func generateTestInstrumentationLibrarySpans() InstrumentationLibrarySpans {
+ }
+ 
+ func fillTestInstrumentationLibrarySpans(tv InstrumentationLibrarySpans) {
+-	tv.InstrumentationLibrary().InitEmpty()
+ 	fillTestInstrumentationLibrary(tv.InstrumentationLibrary())
+ 	fillTestSpanSlice(tv.Spans())
+ }

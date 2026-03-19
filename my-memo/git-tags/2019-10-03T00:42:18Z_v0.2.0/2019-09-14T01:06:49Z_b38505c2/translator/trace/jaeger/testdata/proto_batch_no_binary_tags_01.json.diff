@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
+index 572575d24..99e36923d 100644
+--- a/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
++++ b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_01.json
+@@ -66,7 +66,7 @@
+       "tags": [
+         {
+           "key": "http.url",
+-          "v_str": "http://127.0.0.1:15598/client_transactions"
++          "v_str": "http://localhost:15598/client_transactions"
+         },
+         {
+           "key": "span.kind",

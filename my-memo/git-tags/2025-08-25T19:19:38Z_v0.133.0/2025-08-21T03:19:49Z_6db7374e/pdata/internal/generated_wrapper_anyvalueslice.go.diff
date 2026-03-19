@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_anyvalueslice.go b/pdata/internal/generated_wrapper_anyvalueslice.go
+index ab3d1f895..7381e5f77 100644
+--- a/pdata/internal/generated_wrapper_anyvalueslice.go
++++ b/pdata/internal/generated_wrapper_anyvalueslice.go
+@@ -41,7 +41,7 @@ func CopyOrigAnyValueSlice(dest, src []otlpcommon.AnyValue) []otlpcommon.AnyValu
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
+-			dest[i].Reset()
++			DeleteOrigAnyValue(&dest[i], false)
+ 		}
+ 	}
+ 	for i := range src {

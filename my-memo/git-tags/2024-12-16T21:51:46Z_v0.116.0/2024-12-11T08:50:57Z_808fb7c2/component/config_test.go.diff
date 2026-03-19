@@ -1,0 +1,13 @@
+diff --git a/component/config_test.go b/component/config_test.go
+index 9e6daa0f6..2ac8f0a4f 100644
+--- a/component/config_test.go
++++ b/component/config_test.go
+@@ -75,7 +75,7 @@ func newErrMapType() *errMapType {
+ }
+ 
+ func TestValidateConfig(t *testing.T) {
+-	var tests = []struct {
++	tests := []struct {
+ 		name     string
+ 		cfg      any
+ 		expected error

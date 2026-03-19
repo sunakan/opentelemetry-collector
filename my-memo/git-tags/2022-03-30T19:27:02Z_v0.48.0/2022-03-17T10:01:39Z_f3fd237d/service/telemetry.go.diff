@@ -1,0 +1,13 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index daed07bd0..fa9e2f7ce 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -62,7 +62,7 @@ func init() {
+ 	featuregate.Register(featuregate.Gate{
+ 		ID:          useOtelForInternalMetricsfeatureGateID,
+ 		Description: "controls whether the collector to uses open telemetry for internal metrics",
+-		Enabled:     configtelemetry.UseOpenTelemetryForInternalMetrics,
++		Enabled:     false,
+ 	})
+ }
+ 

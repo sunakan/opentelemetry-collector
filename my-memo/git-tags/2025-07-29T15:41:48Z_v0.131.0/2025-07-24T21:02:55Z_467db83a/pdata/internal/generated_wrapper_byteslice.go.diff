@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_byteslice.go b/pdata/internal/generated_wrapper_byteslice.go
+index 0bba4ca1d..a4d54fc0e 100644
+--- a/pdata/internal/generated_wrapper_byteslice.go
++++ b/pdata/internal/generated_wrapper_byteslice.go
+@@ -28,12 +28,14 @@ func CopyOrigByteSlice(dst, src []byte) []byte {
+ 	return append(dst, src...)
+ }
+ 
+-func FillTestByteSlice(tv ByteSlice) {
++func FillTestByteSlice(ms ByteSlice) {
++	*ms.orig = []byte{1, 2, 3}
+ }
+ 
+ func GenerateTestByteSlice() ByteSlice {
++	orig := []byte(nil)
+ 	state := StateMutable
+-	var orig []byte = nil
+-
+-	return ByteSlice{&orig, &state}
++	ms := NewByteSlice(&orig, &state)
++	FillTestByteSlice(ms)
++	return ms
+ }

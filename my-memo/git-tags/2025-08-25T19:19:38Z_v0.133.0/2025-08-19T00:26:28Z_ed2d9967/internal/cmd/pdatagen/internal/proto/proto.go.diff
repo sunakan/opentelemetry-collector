@@ -1,0 +1,38 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/proto.go b/internal/cmd/pdatagen/internal/proto/proto.go
+new file mode 100644
+index 000000000..06428111b
+--- /dev/null
++++ b/internal/cmd/pdatagen/internal/proto/proto.go
+@@ -0,0 +1,32 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package proto // import "go.opentelemetry.io/collector/internal/cmd/pdatagen/internal/proto"
++
++type Type int32
++
++const (
++	TypeDouble Type = iota
++	TypeFloat
++
++	TypeInt32
++	TypeInt64
++	TypeUint32
++	TypeUint64
++
++	TypeSInt32
++	TypeSInt64
++
++	TypeFixed32
++	TypeFixed64
++	TypeSFixed32
++	TypeSFixed64
++
++	TypeBool
++	TypeEnum
++
++	TypeString
++	TypeBytes
++
++	TypeMessage
++)

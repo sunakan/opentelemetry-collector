@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespans_test.go b/pdata/internal/generated_wrapper_resourcespans_test.go
+index 5f78d7f8b..3b476df36 100644
+--- a/pdata/internal/generated_wrapper_resourcespans_test.go
++++ b/pdata/internal/generated_wrapper_resourcespans_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigResourceSpans(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigResourceSpans(t *testing.T) {
++	src := &otlptrace.ResourceSpans{}
++	FillOrigTestResourceSpans(src)
++	buf, err := MarshalProtoOrigResourceSpans(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigResourceSpans(src))
++
++	dest := &otlptrace.ResourceSpans{}
++	require.NoError(t, UnmarshalProtoOrigResourceSpans(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptyResourceSpans(t *testing.T) {
++	src := &otlptrace.ResourceSpans{}
++	buf, err := MarshalProtoOrigResourceSpans(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigResourceSpans(src))
++
++	dest := &otlptrace.ResourceSpans{}
++	require.NoError(t, UnmarshalProtoOrigResourceSpans(dest, buf))
++	assert.Equal(t, src, dest)
++}

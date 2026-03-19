@@ -1,0 +1,21 @@
+diff --git a/otelcol/signals_wasm.go b/otelcol/signals_wasm.go
+new file mode 100644
+index 000000000..2e738f657
+--- /dev/null
++++ b/otelcol/signals_wasm.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:build js && wasm
++
++package otelcol // import "go.opentelemetry.io/collector/otelcol"
++
++import (
++	"syscall"
++)
++
++const (
++	SIGHUP  = syscall.Signal(-1)
++	SIGTERM = syscall.Signal(-1)
++)

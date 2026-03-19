@@ -1,0 +1,16 @@
+diff --git a/processor/probabilisticsamplerprocessor/factory.go b/processor/probabilisticsamplerprocessor/factory.go
+index f0cfef8b4..8f66958a4 100644
+--- a/processor/probabilisticsamplerprocessor/factory.go
++++ b/processor/probabilisticsamplerprocessor/factory.go
+@@ -38,10 +38,7 @@ func NewFactory() component.ProcessorFactory {
+ 
+ func createDefaultConfig() config.Processor {
+ 	return &Config{
+-		ProcessorSettings: config.ProcessorSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 	}
+ }
+ 

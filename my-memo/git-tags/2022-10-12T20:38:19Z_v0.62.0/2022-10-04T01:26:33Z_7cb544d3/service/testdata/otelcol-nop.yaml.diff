@@ -1,0 +1,14 @@
+diff --git a/service/testdata/otelcol-nop.yaml b/service/testdata/otelcol-nop.yaml
+index b4f799a78..6780b937e 100644
+--- a/service/testdata/otelcol-nop.yaml
++++ b/service/testdata/otelcol-nop.yaml
+@@ -11,6 +11,9 @@ extensions:
+   nop:
+ 
+ service:
++  telemetry:
++    metrics:
++      address: localhost:8888
+   extensions: [nop]
+   pipelines:
+     traces:

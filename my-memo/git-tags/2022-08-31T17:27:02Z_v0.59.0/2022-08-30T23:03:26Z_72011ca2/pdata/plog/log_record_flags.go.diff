@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/log_record_flags.go b/pdata/plog/log_record_flags.go
+index a5620237d..a3b179b29 100644
+--- a/pdata/plog/log_record_flags.go
++++ b/pdata/plog/log_record_flags.go
+@@ -22,7 +22,7 @@ var DefaultLogRecordFlags = LogRecordFlags(0)
+ // defined in W3C Trace Context specification. 24 most significant bits are reserved and must be set to 0.
+ type LogRecordFlags uint32
+ 
+-// IsSampled returns true if the LogRecordFlags contains the TraceFlags.IsSampled flag.
++// IsSampled returns true if the LogRecordFlags contains the IsSampled flag.
+ func (ms LogRecordFlags) IsSampled() bool {
+ 	return uint32(ms)&isSampledMask != 0
+ }

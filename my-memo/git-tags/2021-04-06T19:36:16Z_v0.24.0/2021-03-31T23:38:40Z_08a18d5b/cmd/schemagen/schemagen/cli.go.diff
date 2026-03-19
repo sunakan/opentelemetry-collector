@@ -1,0 +1,12 @@
+diff --git a/cmd/schemagen/schemagen/cli.go b/cmd/schemagen/schemagen/cli.go
+index 3b1424e05..266f51211 100644
+--- a/cmd/schemagen/schemagen/cli.go
++++ b/cmd/schemagen/schemagen/cli.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++// CLI defines the command-line interface for the schemagen util.
+ func CLI(c component.Factories) {
+ 	prepUsage()
+ 

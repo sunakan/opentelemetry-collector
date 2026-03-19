@@ -1,0 +1,12 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index b9c7a91a1..1f1aad83a 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -61,6 +61,7 @@ func (f *Factory) CreateTraceProcessor(
+ ) (processor.TraceProcessor, error) {
+ 	oCfg := cfg.(*Config)
+ 	return NewQueuedSpanProcessor(nextConsumer,
++		Options.WithName(oCfg.Name()),
+ 		Options.WithNumWorkers(oCfg.NumWorkers),
+ 		Options.WithQueueSize(oCfg.QueueSize),
+ 		Options.WithRetryOnProcessingFailures(oCfg.RetryOnFailure),

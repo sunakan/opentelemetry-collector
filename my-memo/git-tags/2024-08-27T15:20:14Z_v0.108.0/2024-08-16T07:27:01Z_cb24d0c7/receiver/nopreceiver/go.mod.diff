@@ -1,0 +1,10 @@
+diff --git a/receiver/nopreceiver/go.mod b/receiver/nopreceiver/go.mod
+index bdd2711e4..735cff2cb 100644
+--- a/receiver/nopreceiver/go.mod
++++ b/receiver/nopreceiver/go.mod
+@@ -84,3 +84,5 @@ replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile
+ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../../consumer/consumerprofiles
+ 
+ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/consumertest
++
++replace go.opentelemetry.io/collector/component/componentstatus => ../../component/componentstatus

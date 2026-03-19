@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index 3627d1f3f..38ffd790a 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -45,8 +45,8 @@ func TestMetricsExporter_Default(t *testing.T) {
+ 	if err := te.ConsumeMetricsData(context.Background(), td); err != nil {
+ 		t.Fatalf("ConsumeMetricsData returns: Want nil Got %v", err)
+ 	}
+-	if g, w := te.MetricsExportFormat(), fakeExporterName; g != w {
+-		t.Fatalf("MetricsExportFormat returns: Want %s Got %s", w, g)
++	if g, w := te.Name(), fakeExporterName; g != w {
++		t.Fatalf("Name returns: Want %s Got %s", w, g)
+ 	}
+ }
+ 

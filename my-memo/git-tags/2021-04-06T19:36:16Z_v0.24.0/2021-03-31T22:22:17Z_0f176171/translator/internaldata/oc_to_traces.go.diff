@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/oc_to_traces.go b/translator/internaldata/oc_to_traces.go
+index b034091d0..866d1909a 100644
+--- a/translator/internaldata/oc_to_traces.go
++++ b/translator/internaldata/oc_to_traces.go
+@@ -144,8 +144,8 @@ func ocSpanToInternal(src *octrace.Span, dest pdata.Span) {
+ 	dest.SetParentSpanID(spanIDToInternal(src.ParentSpanId))
+ 
+ 	dest.SetName(src.Name.GetValue())
+-	dest.SetStartTime(pdata.TimestampFromTime(src.StartTime.AsTime()))
+-	dest.SetEndTime(pdata.TimestampFromTime(src.EndTime.AsTime()))
++	dest.SetStartTimestamp(pdata.TimestampFromTime(src.StartTime.AsTime()))
++	dest.SetEndTimestamp(pdata.TimestampFromTime(src.EndTime.AsTime()))
+ 
+ 	ocStatusToInternal(src.Status, src.Attributes, dest.Status())
+ 

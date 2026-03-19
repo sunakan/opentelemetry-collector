@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/templates/testdata/config.yaml.tmpl b/cmd/mdatagen/templates/testdata/config.yaml.tmpl
+index 862aa0aaf..a587b803c 100644
+--- a/cmd/mdatagen/templates/testdata/config.yaml.tmpl
++++ b/cmd/mdatagen/templates/testdata/config.yaml.tmpl
+@@ -34,6 +34,7 @@ filter_set_include:
+   resource_attributes:
+     {{- range $name, $attr := .ResourceAttributes }}
+     {{ $name }}:
++      enabled: true
+       include:
+         - regexp: ".*"
+     {{- end }}
+@@ -41,6 +42,7 @@ filter_set_exclude:
+   resource_attributes:
+     {{- range $name, $attr := .ResourceAttributes }}
+     {{ $name }}:
++      enabled: true
+       exclude:
+         {{- if eq $attr.Type.String "Str" }}
+         - strict: {{ $attr.TestValue }}

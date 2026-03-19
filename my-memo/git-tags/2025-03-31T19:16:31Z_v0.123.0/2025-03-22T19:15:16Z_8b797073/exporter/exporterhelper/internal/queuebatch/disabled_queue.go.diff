@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/disabled_queue.go b/exporter/exporterhelper/internal/queuebatch/disabled_queue.go
+index 364a87b8c..2439ccc84 100644
+--- a/exporter/exporterhelper/internal/queuebatch/disabled_queue.go
++++ b/exporter/exporterhelper/internal/queuebatch/disabled_queue.go
+@@ -19,7 +19,7 @@ var donePool = sync.Pool{
+ 
+ func newDisabledQueue[T any](consumeFunc ConsumeFunc[T]) Queue[T] {
+ 	return &disabledQueue[T]{
+-		sizer:       &requestSizer[T]{},
++		sizer:       RequestsSizer[T]{},
+ 		consumeFunc: consumeFunc,
+ 		size:        &atomic.Int64{},
+ 	}
+@@ -29,7 +29,7 @@ type disabledQueue[T any] struct {
+ 	component.StartFunc
+ 	component.ShutdownFunc
+ 	consumeFunc ConsumeFunc[T]
+-	sizer       sizer[T]
++	sizer       Sizer[T]
+ 	size        *atomic.Int64
+ }
+ 

@@ -1,0 +1,23 @@
+diff --git a/vendor/github.com/golang/protobuf/.gitignore b/vendor/github.com/golang/protobuf/.gitignore
+new file mode 100644
+index 000000000..c7dd40587
+--- /dev/null
++++ b/vendor/github.com/golang/protobuf/.gitignore
+@@ -0,0 +1,17 @@
++.DS_Store
++*.[568ao]
++*.ao
++*.so
++*.pyc
++._*
++.nfs.*
++[568a].out
++*~
++*.orig
++core
++_obj
++_test
++_testmain.go
++
++# Conformance test output and transient files.
++conformance/failing_tests.txt

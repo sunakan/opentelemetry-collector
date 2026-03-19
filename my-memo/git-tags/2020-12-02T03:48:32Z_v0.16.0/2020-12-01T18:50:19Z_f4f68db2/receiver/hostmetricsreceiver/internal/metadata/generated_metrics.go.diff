@@ -1,0 +1,20 @@
+diff --git a/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go b/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
+index 7ddbcd3b2..0462614b1 100644
+--- a/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
++++ b/receiver/hostmetricsreceiver/internal/metadata/generated_metrics.go
+@@ -79,7 +79,6 @@ var Metrics = &metricStruct{
+ 		"system.cpu.time",
+ 		func() pdata.Metric {
+ 			metric := pdata.NewMetric()
+-			metric.InitEmpty()
+ 			metric.SetName("system.cpu.time")
+ 			metric.SetDescription("Total CPU seconds broken down by different states.")
+ 			metric.SetUnit("s")
+@@ -94,7 +93,6 @@ var Metrics = &metricStruct{
+ 		"system.memory.usage",
+ 		func() pdata.Metric {
+ 			metric := pdata.NewMetric()
+-			metric.InitEmpty()
+ 			metric.SetName("system.memory.usage")
+ 			metric.SetDescription("Bytes of memory in use.")
+ 			metric.SetUnit("By")

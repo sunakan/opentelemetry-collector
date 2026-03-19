@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_gauge_test.go b/pdata/pmetric/generated_gauge_test.go
+index e1506be11..b50f72d49 100644
+--- a/pdata/pmetric/generated_gauge_test.go
++++ b/pdata/pmetric/generated_gauge_test.go
+@@ -21,6 +21,8 @@ func TestGauge_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewGauge(), ms)
+ 	assert.Equal(t, generateTestGauge(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestGauge(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newGauge(&otlpmetrics.Gauge{}, &sharedState)) })
+ 	assert.Panics(t, func() { newGauge(&otlpmetrics.Gauge{}, &sharedState).MoveTo(dest) })

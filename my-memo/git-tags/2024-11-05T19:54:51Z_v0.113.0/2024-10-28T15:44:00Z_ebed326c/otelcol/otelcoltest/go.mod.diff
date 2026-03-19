@@ -1,0 +1,21 @@
+diff --git a/otelcol/otelcoltest/go.mod b/otelcol/otelcoltest/go.mod
+index 8b27e704e..871409049 100644
+--- a/otelcol/otelcoltest/go.mod
++++ b/otelcol/otelcoltest/go.mod
+@@ -20,6 +20,7 @@ require (
+ 	go.opentelemetry.io/collector/processor v0.112.0
+ 	go.opentelemetry.io/collector/processor/processortest v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	go.opentelemetry.io/collector/service v0.112.0
+ 	go.uber.org/goleak v1.3.0
+ )
+@@ -171,6 +172,8 @@ replace go.opentelemetry.io/collector/extension/extensioncapabilities => ../../e
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../../receiver/receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../../receiver/receivertest
++
+ replace go.opentelemetry.io/collector/processor/processorprofiles => ../../processor/processorprofiles
+ 
+ replace go.opentelemetry.io/collector/connector/connectorprofiles => ../../connector/connectorprofiles

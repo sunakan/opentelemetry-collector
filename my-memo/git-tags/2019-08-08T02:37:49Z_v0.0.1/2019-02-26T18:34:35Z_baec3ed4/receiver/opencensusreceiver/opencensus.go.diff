@@ -1,0 +1,37 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index 50b1c693a..26d208446 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -64,6 +64,8 @@ var (
+ 	errAlreadyStopped = errors.New("already stopped")
+ )
+ 
++const source string = "OpenCensus"
++
+ // New just creates the OpenCensus receiver services. It is the caller's
+ // responsibility to invoke the respective Start*Reception methods as well
+ // as the various Stop*Reception methods or simply Stop to end it.
+@@ -87,6 +89,11 @@ func New(addr string, opts ...Option) (*Receiver, error) {
+ 	return ocr, nil
+ }
+ 
++// TraceSource returns the name of the trace data source.
++func (ocr *Receiver) TraceSource() string {
++	return source
++}
++
+ // StartTraceReception exclusively runs the Trace receiver on the gRPC server.
+ // To start both Trace and Metrics receivers/services, please use Start.
+ func (ocr *Receiver) StartTraceReception(ctx context.Context, ts processor.TraceDataProcessor) error {
+@@ -111,6 +118,11 @@ func (ocr *Receiver) registerTraceDataProcessor(ts processor.TraceDataProcessor)
+ 	return err
+ }
+ 
++// MetricsSource returns the name of the metrics data source.
++func (ocr *Receiver) MetricsSource() string {
++	return source
++}
++
+ // StartMetricsReception exclusively runs the Metrics receiver on the gRPC server.
+ // To start both Trace and Metrics receivers/services, please use Start.
+ func (ocr *Receiver) StartMetricsReception(ctx context.Context, ms processor.MetricsDataProcessor) error {

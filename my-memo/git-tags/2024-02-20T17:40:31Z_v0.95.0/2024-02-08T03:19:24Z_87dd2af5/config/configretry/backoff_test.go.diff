@@ -1,0 +1,17 @@
+diff --git a/config/configretry/backoff_test.go b/config/configretry/backoff_test.go
+index 417ebe861..ad9151d69 100644
+--- a/config/configretry/backoff_test.go
++++ b/config/configretry/backoff_test.go
+@@ -66,6 +66,12 @@ func TestInvalidMaxElapsedTime(t *testing.T) {
+ 	assert.NoError(t, cfg.Validate())
+ 	cfg.MaxElapsedTime = -1
+ 	assert.Error(t, cfg.Validate())
++	cfg.MaxElapsedTime = 60
++	assert.Error(t, cfg.Validate())
++	cfg.InitialInterval = 0
++	assert.Error(t, cfg.Validate())
++	cfg.MaxInterval = 0
++	assert.NoError(t, cfg.Validate())
+ }
+ 
+ func TestDisabledWithInvalidValues(t *testing.T) {

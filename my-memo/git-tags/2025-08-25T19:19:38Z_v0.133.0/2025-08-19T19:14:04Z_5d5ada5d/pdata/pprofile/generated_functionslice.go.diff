@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_functionslice.go b/pdata/pprofile/generated_functionslice.go
+index 2e1b7b105..67db02a0a 100644
+--- a/pdata/pprofile/generated_functionslice.go
++++ b/pdata/pprofile/generated_functionslice.go
+@@ -99,7 +99,7 @@ func (es FunctionSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Function.
+ func (es FunctionSlice) AppendEmpty() Function {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrFunction())
++	*es.orig = append(*es.orig, internal.NewOrigFunction())
+ 	return es.At(es.Len() - 1)
+ }
+ 

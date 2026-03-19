@@ -1,0 +1,12 @@
+diff --git a/otelcol/unmarshaler_test.go b/otelcol/unmarshaler_test.go
+index 4cb3ac616..57829e944 100644
+--- a/otelcol/unmarshaler_test.go
++++ b/otelcol/unmarshaler_test.go
+@@ -43,6 +43,7 @@ func TestUnmarshalEmptyAllSections(t *testing.T) {
+ 		"receivers":  nil,
+ 		"processors": nil,
+ 		"exporters":  nil,
++		"connectors": nil,
+ 		"extensions": nil,
+ 		"service":    nil,
+ 	})

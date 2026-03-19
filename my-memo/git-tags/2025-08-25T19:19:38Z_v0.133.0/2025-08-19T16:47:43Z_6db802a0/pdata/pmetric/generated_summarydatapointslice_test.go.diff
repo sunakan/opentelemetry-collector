@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapointslice_test.go b/pdata/pmetric/generated_summarydatapointslice_test.go
+index 2cd0f5152..84c380213 100644
+--- a/pdata/pmetric/generated_summarydatapointslice_test.go
++++ b/pdata/pmetric/generated_summarydatapointslice_test.go
+@@ -27,7 +27,7 @@ func TestSummaryDataPointSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestSummaryDataPoint((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigSummaryDataPoint()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

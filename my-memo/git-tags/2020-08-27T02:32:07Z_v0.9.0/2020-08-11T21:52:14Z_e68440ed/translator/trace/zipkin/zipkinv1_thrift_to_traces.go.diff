@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_traces.go b/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
+index 65399c2b2..85f814bcf 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
+@@ -24,7 +24,7 @@ import (
+ func V1ThriftBatchToInternalTraces(zSpans []*zipkincore.Span) (pdata.Traces, error) {
+ 	traces := pdata.NewTraces()
+ 
+-	ocTraces, _ := V1ThriftBatchToOCProto(zSpans)
++	ocTraces, _ := v1ThriftBatchToOCProto(zSpans)
+ 
+ 	for _, td := range ocTraces {
+ 		tmp := internaldata.OCToTraceData(td)

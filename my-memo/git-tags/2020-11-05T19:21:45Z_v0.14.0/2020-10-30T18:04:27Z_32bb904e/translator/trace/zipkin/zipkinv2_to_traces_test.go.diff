@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces_test.go b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+index aff053d39..6a64891d0 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces_test.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+@@ -60,7 +60,7 @@ func TestZipkinSpansToInternalTraces(t *testing.T) {
+ 	}
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {
+-			td, err := V2SpansToInternalTraces(test.zs)
++			td, err := V2SpansToInternalTraces(test.zs, false)
+ 			assert.EqualValues(t, test.err, err)
+ 			if test.name != "nilSpan" {
+ 				assert.Equal(t, len(test.zs), td.SpanCount())

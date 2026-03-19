@@ -1,0 +1,17 @@
+diff --git a/exporter/debugexporter/internal/normal/profiles_test.go b/exporter/debugexporter/internal/normal/profiles_test.go
+index 8f8e4f7f6..4e06ea0e6 100644
+--- a/exporter/debugexporter/internal/normal/profiles_test.go
++++ b/exporter/debugexporter/internal/normal/profiles_test.go
+@@ -28,8 +28,11 @@ func TestMarshalProfiles(t *testing.T) {
+ 			input: func() pprofile.Profiles {
+ 				profiles := pprofile.NewProfiles()
+ 				dic := profiles.Dictionary()
++				dic.StringTable().Append("")
++				dic.StringTable().Append("key1")
++
+ 				a := dic.AttributeTable().AppendEmpty()
+-				a.SetKey("key1")
++				a.SetKeyStrindex(1)
+ 				a.Value().SetStr("value1")
+ 
+ 				profile := profiles.ResourceProfiles().AppendEmpty().ScopeProfiles().AppendEmpty().Profiles().AppendEmpty()

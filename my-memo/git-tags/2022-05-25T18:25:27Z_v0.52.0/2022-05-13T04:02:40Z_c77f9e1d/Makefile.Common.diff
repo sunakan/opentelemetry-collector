@@ -1,0 +1,18 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 1b3b4e567..70cfe2f2a 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -38,11 +38,11 @@ tidy:
+ 
+ .PHONY: lint
+ lint:
+-	$(LINT) run --allow-parallel-runners
++	$(LINT) run
+ 
+ .PHONY: lint-unstable
+ lint-unstable:
+-	$(LINT) run --allow-parallel-runners --build-tags enable_unstable
++	$(LINT) run --build-tags enable_unstable
+ 
+ .PHONY: generate
+ generate:

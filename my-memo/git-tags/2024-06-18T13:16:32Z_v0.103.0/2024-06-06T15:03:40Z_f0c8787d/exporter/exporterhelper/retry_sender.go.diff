@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender.go b/exporter/exporterhelper/retry_sender.go
+index 6e8a36f9e..03b1dba80 100644
+--- a/exporter/exporterhelper/retry_sender.go
++++ b/exporter/exporterhelper/retry_sender.go
+@@ -51,7 +51,7 @@ type retrySender struct {
+ 	logger         *zap.Logger
+ }
+ 
+-func newRetrySender(config configretry.BackOffConfig, set exporter.CreateSettings) *retrySender {
++func newRetrySender(config configretry.BackOffConfig, set exporter.Settings) *retrySender {
+ 	return &retrySender{
+ 		traceAttribute: attribute.String(obsmetrics.ExporterKey, set.ID.String()),
+ 		cfg:            config,

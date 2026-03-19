@@ -1,0 +1,18 @@
+diff --git a/pdata/ptrace/ptraceotlp/traces_test.go b/pdata/ptrace/ptraceotlp/traces_test.go
+index 235507b8f..b3eac4f3e 100644
+--- a/pdata/ptrace/ptraceotlp/traces_test.go
++++ b/pdata/ptrace/ptraceotlp/traces_test.go
+@@ -126,6 +126,13 @@ var tracesTransitionData = [][]byte{
+ 	}`),
+ }
+ 
++func TestRequestToPData(t *testing.T) {
++	tr := NewRequest()
++	assert.Equal(t, tr.Traces().SpanCount(), 0)
++	tr.Traces().ResourceSpans().AppendEmpty().ScopeSpans().AppendEmpty().Spans().AppendEmpty()
++	assert.Equal(t, tr.Traces().SpanCount(), 1)
++}
++
+ func TestRequestJSON(t *testing.T) {
+ 	tr := NewRequest()
+ 	assert.NoError(t, tr.UnmarshalJSON(tracesRequestJSON))

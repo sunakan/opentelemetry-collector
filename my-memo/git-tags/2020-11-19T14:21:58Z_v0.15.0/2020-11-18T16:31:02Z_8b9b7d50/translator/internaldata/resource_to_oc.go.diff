@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index 41ebd6a28..135e9f6dc 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -108,7 +108,7 @@ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.
+ 				ocNode.Identifier = &occommon.ProcessIdentifier{}
+ 			}
+ 			ocNode.Identifier.StartTimestamp = ts
+-		case conventions.AttributeHostHostname:
++		case conventions.AttributeHostName:
+ 			if ocNode.Identifier == nil {
+ 				ocNode.Identifier = &occommon.ProcessIdentifier{}
+ 			}

@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config_test.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config_test.go
+index b10e0ac6c..dd90f1d08 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config_test.go
+@@ -57,6 +57,11 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 						AggregationStrategy: AggregationStrategyAvg,
+ 						EnabledAttributes:   []string{"string_attr", "boolean_attr"},
+ 					},
++					ReaggregateMetricWithRequired: MetricConfig{
++						Enabled:             true,
++						AggregationStrategy: AggregationStrategyAvg,
++						EnabledAttributes:   []string{"required_string_attr", "string_attr", "boolean_attr"},
++					},
+ 					SystemCPUTime: MetricConfig{
+ 						Enabled:             true,
+ 						AggregationStrategy: AggregationStrategySum,
+@@ -109,6 +114,11 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 						AggregationStrategy: AggregationStrategyAvg,
+ 						EnabledAttributes:   []string{"string_attr", "boolean_attr"},
+ 					},
++					ReaggregateMetricWithRequired: MetricConfig{
++						Enabled:             false,
++						AggregationStrategy: AggregationStrategyAvg,
++						EnabledAttributes:   []string{"required_string_attr", "string_attr", "boolean_attr"},
++					},
+ 					SystemCPUTime: MetricConfig{
+ 						Enabled:             false,
+ 						AggregationStrategy: AggregationStrategySum,

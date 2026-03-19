@@ -1,0 +1,19 @@
+diff --git a/testbed/tests/testdata/agent-config.yaml b/testbed/tests/testdata/agent-config.yaml
+index e5d1bfb44..e6b7e11cd 100644
+--- a/testbed/tests/testdata/agent-config.yaml
++++ b/testbed/tests/testdata/agent-config.yaml
+@@ -11,8 +11,9 @@ exporters:
+ processors:
+   queued_retry:
+ 
+-pipelines:
+-  traces:
+-    receivers: [jaeger]
+-    processors: [queued_retry]
+-    exporters: [opencensus]
++service:
++  pipelines:
++    traces:
++      receivers: [jaeger]
++      processors: [queued_retry]
++      exporters: [opencensus]

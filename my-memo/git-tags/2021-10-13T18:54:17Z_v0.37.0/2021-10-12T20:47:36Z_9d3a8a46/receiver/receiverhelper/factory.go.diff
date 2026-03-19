@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/factory.go b/receiver/receiverhelper/factory.go
+index 650afcf7d..94c0f26f1 100644
+--- a/receiver/receiverhelper/factory.go
++++ b/receiver/receiverhelper/factory.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package receiverhelper
++package receiverhelper // import "go.opentelemetry.io/collector/receiver/receiverhelper"
+ 
+ import (
+ 	"context"

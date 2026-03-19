@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/doc.go b/exporter/loggingexporter/doc.go
+deleted file mode 100644
+index 3a5c01850..000000000
+--- a/exporter/loggingexporter/doc.go
++++ /dev/null
+@@ -1,7 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-//go:generate mdatagen metadata.yaml
+-
+-// Package loggingexporter exports data to console as logs.
+-package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"

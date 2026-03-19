@@ -1,0 +1,17 @@
+diff --git a/.chloggen/deprecateremoval.yaml b/.chloggen/deprecateremoval.yaml
+deleted file mode 100755
+index e57648043..000000000
+--- a/.chloggen/deprecateremoval.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: deprecation
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: featuregate
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Deprecate Gate.RemovalVersion and WithRegisterRemovalVersion in favor of ToVersion.
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7043]

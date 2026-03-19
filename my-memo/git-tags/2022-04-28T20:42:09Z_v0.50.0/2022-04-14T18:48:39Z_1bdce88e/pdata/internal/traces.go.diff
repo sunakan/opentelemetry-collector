@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/traces.go b/pdata/internal/traces.go
+index 2cea47ab9..0ba7fc218 100644
+--- a/pdata/internal/traces.go
++++ b/pdata/internal/traces.go
+@@ -138,13 +138,3 @@ const (
+ 
+ // String returns the string representation of the StatusCode.
+ func (sc StatusCode) String() string { return otlptrace.Status_StatusCode(sc).String() }
+-
+-// Deprecated: [v0.48.0] Use ScopeSpans instead.
+-func (ms ResourceSpans) InstrumentationLibrarySpans() ScopeSpansSlice {
+-	return ms.ScopeSpans()
+-}
+-
+-// Deprecated: [v0.48.0] Use Scope instead.
+-func (ms ScopeSpans) InstrumentationLibrary() InstrumentationScope {
+-	return ms.Scope()
+-}

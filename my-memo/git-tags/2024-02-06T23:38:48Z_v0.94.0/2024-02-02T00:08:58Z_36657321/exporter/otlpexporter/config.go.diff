@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config.go b/exporter/otlpexporter/config.go
+index 7c9106dda..a657fa684 100644
+--- a/exporter/otlpexporter/config.go
++++ b/exporter/otlpexporter/config.go
+@@ -16,7 +16,7 @@ type Config struct {
+ 	QueueConfig                    exporterhelper.QueueSettings `mapstructure:"sending_queue"`
+ 	RetryConfig                    configretry.BackOffConfig    `mapstructure:"retry_on_failure"`
+ 
+-	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
++	configgrpc.ClientConfig `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ }
+ 
+ var _ component.Config = (*Config)(nil)

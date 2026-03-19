@@ -1,0 +1,18 @@
+diff --git a/confmap/converter/expandconverter/expand.go b/confmap/converter/expandconverter/expand.go
+index b6670d09c..f98100df3 100644
+--- a/confmap/converter/expandconverter/expand.go
++++ b/confmap/converter/expandconverter/expand.go
+@@ -31,10 +31,11 @@ func New() confmap.Converter {
+ }
+ 
+ func (converter) Convert(_ context.Context, conf *confmap.Conf) error {
++	out := make(map[string]interface{})
+ 	for _, k := range conf.AllKeys() {
+-		conf.Set(k, expandStringValues(conf.Get(k)))
++		out[k] = expandStringValues(conf.Get(k))
+ 	}
+-	return nil
++	return conf.Merge(confmap.NewFromStringMap(out))
+ }
+ 
+ func expandStringValues(value interface{}) interface{} {

@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/client_middleware_test.go b/config/confighttp/client_middleware_test.go
+index 011559626..6483eb7b7 100644
+--- a/config/confighttp/client_middleware_test.go
++++ b/config/confighttp/client_middleware_test.go
+@@ -123,7 +123,7 @@ func TestClientMiddlewares(t *testing.T) {
+ 			require.NoError(t, err)
+ 
+ 			// Create a request to the test server
+-			req, err := http.NewRequest(http.MethodGet, server.URL, nil)
++			req, err := http.NewRequest(http.MethodGet, server.URL, http.NoBody)
+ 			require.NoError(t, err)
+ 
+ 			// Send the request

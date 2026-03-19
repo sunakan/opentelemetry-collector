@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/templates/main_windows.go.tmpl b/cmd/builder/internal/builder/templates/main_windows.go.tmpl
+index ad96fd1e8..ba3271805 100644
+--- a/cmd/builder/internal/builder/templates/main_windows.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main_windows.go.tmpl
+@@ -8,9 +8,7 @@ package main
+ import (
+ 	"fmt"
+ 	"os"
+-
+ 	"golang.org/x/sys/windows/svc"
+-
+ 	"go.opentelemetry.io/collector/otelcol"
+ )
+ 

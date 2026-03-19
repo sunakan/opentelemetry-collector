@@ -1,0 +1,26 @@
+diff --git a/receiver/vmmetricsreceiver/testdata/config.yaml b/receiver/vmmetricsreceiver/testdata/config.yaml
+deleted file mode 100644
+index 85f46fd37..000000000
+--- a/receiver/vmmetricsreceiver/testdata/config.yaml
++++ /dev/null
+@@ -1,20 +0,0 @@
+-receivers:
+-  vmmetrics:
+-  vmmetrics/customname:
+-    scrape_interval: 5s
+-    mount_point: /mountpoint
+-    process_mount_point: /proc
+-    metric_prefix: testmetric
+-
+-processors:
+-  exampleprocessor:
+-
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [vmmetrics]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

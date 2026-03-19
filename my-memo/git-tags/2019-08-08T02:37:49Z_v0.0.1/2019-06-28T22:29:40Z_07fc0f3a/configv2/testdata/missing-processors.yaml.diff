@@ -1,0 +1,14 @@
+diff --git a/configv2/testdata/missing-processors.yaml b/configv2/testdata/missing-processors.yaml
+new file mode 100644
+index 000000000..68a1954ec
+--- /dev/null
++++ b/configv2/testdata/missing-processors.yaml
+@@ -0,0 +1,8 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++pipelines:
++  traces:
++    receivers: [invalidreceivername]

@@ -1,0 +1,12 @@
+diff --git a/config/configretry/go.mod b/config/configretry/go.mod
+index 054a91e92..b08340a19 100644
+--- a/config/configretry/go.mod
++++ b/config/configretry/go.mod
+@@ -5,6 +5,7 @@ go 1.20
+ require (
+ 	github.com/cenkalti/backoff/v4 v4.2.1
+ 	github.com/stretchr/testify v1.8.4
++	go.uber.org/goleak v1.3.0
+ )
+ 
+ require (

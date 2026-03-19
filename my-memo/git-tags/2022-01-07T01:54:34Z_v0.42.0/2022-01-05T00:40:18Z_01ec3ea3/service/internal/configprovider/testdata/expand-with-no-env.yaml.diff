@@ -1,0 +1,14 @@
+diff --git a/service/internal/configprovider/testdata/expand-with-no-env.yaml b/service/internal/configprovider/testdata/expand-with-no-env.yaml
+new file mode 100644
+index 000000000..5d2af19c7
+--- /dev/null
++++ b/service/internal/configprovider/testdata/expand-with-no-env.yaml
+@@ -0,0 +1,8 @@
++test_map:
++  extra: "some string"
++  extra_map:
++    recv.1: "some map value_1"
++    recv.2: "some map value_2"
++  extra_list:
++    - "some list value_1"
++    - "some list value_2"

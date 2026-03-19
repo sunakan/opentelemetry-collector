@@ -1,0 +1,14 @@
+diff --git a/component/exporter.go b/component/exporter.go
+index 01fc3fc1e..acc607826 100644
+--- a/component/exporter.go
++++ b/component/exporter.go
+@@ -34,9 +34,6 @@ func UnmarshalExporterConfig(conf *confmap.Conf, cfg ExporterConfig) error {
+ 	return unmarshal(conf, cfg)
+ }
+ 
+-// Deprecated: [v0.65.0] unnecessary interface, will be removed.
+-type Exporter = Component
+-
+ // TracesExporter is an Exporter that can consume traces.
+ type TracesExporter interface {
+ 	Component

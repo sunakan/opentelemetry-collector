@@ -1,0 +1,41 @@
+diff --git a/internal/testcomponents/example_extension.go b/internal/testcomponents/example_extension.go
+index 772fc531c..859cb4667 100644
+--- a/internal/testcomponents/example_extension.go
++++ b/internal/testcomponents/example_extension.go
+@@ -18,7 +18,6 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
+@@ -33,8 +32,18 @@ type ExampleExtensionCfg struct {
+ 
+ const extType = "exampleextension"
+ 
++type extension struct {
++	component.StartFunc
++	component.ShutdownFunc
++}
++
+ // ExampleExtensionFactory is factory for ExampleExtensionCfg.
+-var ExampleExtensionFactory = component.NewExtensionFactory(extType, createExtensionDefaultConfig, createExtension)
++var ExampleExtensionFactory = component.NewExtensionFactory(
++	extType,
++	createExtensionDefaultConfig,
++	func(context.Context, component.ExtensionCreateSettings, config.Extension) (component.Extension, error) {
++		return &extension{}, nil
++	})
+ 
+ // CreateDefaultConfig creates the default configuration for the Extension.
+ func createExtensionDefaultConfig() config.Extension {
+@@ -45,8 +54,3 @@ func createExtensionDefaultConfig() config.Extension {
+ 		ExtraListSetting:  nil,
+ 	}
+ }
+-
+-// CreateExtension creates an Extension based on this config.
+-func createExtension(context.Context, component.ExtensionCreateSettings, config.Extension) (component.Extension, error) {
+-	return componenthelper.New(), nil
+-}

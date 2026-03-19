@@ -1,0 +1,13 @@
+diff --git a/otelcol/config_test.go b/otelcol/config_test.go
+index d9adc5ce5..199700609 100644
+--- a/otelcol/config_test.go
++++ b/otelcol/config_test.go
+@@ -9,7 +9,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.uber.org/zap/zapcore"
+ 
+ 	"go.opentelemetry.io/collector/component"

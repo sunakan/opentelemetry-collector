@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/databuffer.go b/internal/otlptext/databuffer.go
+index de91b13bd..417530bdc 100644
+--- a/internal/otlptext/databuffer.go
++++ b/internal/otlptext/databuffer.go
+@@ -304,7 +304,7 @@ func attributeMapToString(av pdata.AttributeMap) string {
+ 	b.WriteString("{\n")
+ 
+ 	av.Sort().Range(func(k string, v pdata.AttributeValue) bool {
+-		fmt.Fprintf(&b, "     -> %s: %s(%s)\n", k, v.Type(), tracetranslator.AttributeValueToString(v, false))
++		fmt.Fprintf(&b, "     -> %s: %s(%s)\n", k, v.Type(), tracetranslator.AttributeValueToString(v))
+ 		return true
+ 	})
+ 	b.WriteByte('}')

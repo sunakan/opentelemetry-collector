@@ -1,0 +1,26 @@
+diff --git a/component/config.go b/component/config.go
+index 6d4dbea1c..b961d1fdb 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -9,8 +9,6 @@ import (
+ 	"regexp"
+ 
+ 	"go.uber.org/multierr"
+-
+-	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+ // Config defines the configuration for a component.Component.
+@@ -26,12 +24,6 @@ type Config any
+ // for an interface type Foo is to use a *Foo value.
+ var configValidatorType = reflect.TypeOf((*ConfigValidator)(nil)).Elem()
+ 
+-// UnmarshalConfig helper function to UnmarshalConfig a Config.
+-// Deprecated: [v0.101.0] Use conf.Unmarshal(&intoCfg)
+-func UnmarshalConfig(conf *confmap.Conf, intoCfg Config) error {
+-	return conf.Unmarshal(intoCfg)
+-}
+-
+ // ConfigValidator defines an optional interface for configurations to implement to do validation.
+ type ConfigValidator interface {
+ 	// Validate the configuration and returns an error if invalid.

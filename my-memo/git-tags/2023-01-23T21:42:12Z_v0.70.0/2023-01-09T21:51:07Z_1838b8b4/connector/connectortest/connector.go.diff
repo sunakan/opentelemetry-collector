@@ -1,0 +1,25 @@
+diff --git a/connector/connectortest/connector.go b/connector/connectortest/connector.go
+index c5d8e7fcd..1b38729fd 100644
+--- a/connector/connectortest/connector.go
++++ b/connector/connectortest/connector.go
+@@ -24,6 +24,8 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+ 
++const typeStr = "nop"
++
+ // NewNopCreateSettings returns a new nop settings for Create* functions.
+ func NewNopCreateSettings() connector.CreateSettings {
+ 	return connector.CreateSettings{
+@@ -95,3 +97,11 @@ type nopConnector struct {
+ 	component.ShutdownFunc
+ 	consumertest.Consumer
+ }
++
++// NewNopBuilder returns a connector.Builder that constructs nop receivers.
++func NewNopBuilder() *connector.Builder {
++	nopFactory := NewNopFactory()
++	return connector.NewBuilder(
++		map[component.ID]component.Config{component.NewID(typeStr): nopFactory.CreateDefaultConfig()},
++		map[component.Type]connector.Factory{typeStr: nopFactory})
++}

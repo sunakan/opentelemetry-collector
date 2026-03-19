@@ -1,0 +1,17 @@
+diff --git a/internal/processor/filtermetric/config_test.go b/internal/processor/filtermetric/config_test.go
+index 38906e857..c36343b23 100644
+--- a/internal/processor/filtermetric/config_test.go
++++ b/internal/processor/filtermetric/config_test.go
+@@ -21,9 +21,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configtest"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterset"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterset/regexp"
++	"go.opentelemetry.io/collector/config/configtest"
++	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/internal/processor/filterset/regexp"
+ )
+ 
+ var (

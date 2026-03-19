@@ -1,0 +1,18 @@
+diff --git a/processor/resourceprocessor/resource_processor.go b/processor/resourceprocessor/resource_processor.go
+index 796756374..2a42918e5 100644
+--- a/processor/resourceprocessor/resource_processor.go
++++ b/processor/resourceprocessor/resource_processor.go
+@@ -19,11 +19,11 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/consumer/pdatautil"
+-	"go.opentelemetry.io/collector/internal/processor/attraction"
++	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 
+ type resourceProcessor struct {
+-	attrProc *attraction.AttrProc
++	attrProc *processorhelper.AttrProc
+ }
+ 
+ // ProcessTraces implements the TProcessor interface

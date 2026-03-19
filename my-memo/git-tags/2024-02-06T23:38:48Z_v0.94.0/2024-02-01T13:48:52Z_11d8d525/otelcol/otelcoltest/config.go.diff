@@ -1,0 +1,22 @@
+diff --git a/otelcol/otelcoltest/config.go b/otelcol/otelcoltest/config.go
+index 74cdb18f2..fc2957d89 100644
+--- a/otelcol/otelcoltest/config.go
++++ b/otelcol/otelcoltest/config.go
+@@ -20,9 +20,14 @@ func LoadConfig(fileName string, factories otelcol.Factories) (*otelcol.Config,
+ 	// Read yaml config from file
+ 	provider, err := otelcol.NewConfigProvider(otelcol.ConfigProviderSettings{
+ 		ResolverSettings: confmap.ResolverSettings{
+-			URIs:       []string{fileName},
+-			Providers:  makeMapProvidersMap(fileprovider.New(), envprovider.New(), yamlprovider.New(), httpprovider.New()),
+-			Converters: []confmap.Converter{expandconverter.New()},
++			URIs: []string{fileName},
++			Providers: makeMapProvidersMap(
++				fileprovider.NewWithSettings(confmap.ProviderSettings{}),
++				envprovider.NewWithSettings(confmap.ProviderSettings{}),
++				yamlprovider.NewWithSettings(confmap.ProviderSettings{}),
++				httpprovider.NewWithSettings(confmap.ProviderSettings{}),
++			),
++			Converters: []confmap.Converter{expandconverter.New(confmap.ConverterSettings{})},
+ 		},
+ 	})
+ 	if err != nil {

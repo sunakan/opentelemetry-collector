@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index e183ebc5e..7a644b7ef 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -130,3 +130,10 @@ func TestUnmarshalInvalidConfig(t *testing.T) {
+ 	}
+ 
+ }
++
++func TestValidDNSEndpoint(t *testing.T) {
++	factory := NewFactory()
++	cfg := factory.CreateDefaultConfig().(*Config)
++	cfg.Endpoint = "dns:///backend.example.com:4317"
++	assert.NoError(t, cfg.Validate())
++}

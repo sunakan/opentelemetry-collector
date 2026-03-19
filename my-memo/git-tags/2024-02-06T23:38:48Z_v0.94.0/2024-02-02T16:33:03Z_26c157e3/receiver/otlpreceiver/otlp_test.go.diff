@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 81728fbd6..3c8409fd4 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -48,7 +48,7 @@ import (
+ 
+ const otlpReceiverName = "receiver_test"
+ 
+-var otlpReceiverID = component.NewIDWithName("otlp", otlpReceiverName)
++var otlpReceiverID = component.MustNewIDWithName("otlp", otlpReceiverName)
+ 
+ func TestJsonHttp(t *testing.T) {
+ 	tests := []struct {

@@ -1,0 +1,13 @@
+diff --git a/internal/telemetry/componentattribute/tracer_test.go b/internal/telemetry/componentattribute/tracer_test.go
+index 9fa80a3e1..265ae3725 100644
+--- a/internal/telemetry/componentattribute/tracer_test.go
++++ b/internal/telemetry/componentattribute/tracer_test.go
+@@ -98,7 +98,7 @@ func TestTPWA(t *testing.T) {
+ 			i := slices.IndexFunc(spans, func(s tracetest.SpanStub) bool {
+ 				return s.InstrumentationScope.Name == tracerName
+ 			})
+-			assert.NotEqual(t, i, -1)
++			assert.NotEqual(t, -1, i)
+ 			span := spans[i]
+ 			assert.Equal(t, "testspan", span.Name)
+ 			assert.Equal(t, test.expAttrs, span.InstrumentationScope.Attributes)

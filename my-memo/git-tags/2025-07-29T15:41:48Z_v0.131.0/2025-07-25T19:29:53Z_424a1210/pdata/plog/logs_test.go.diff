@@ -1,0 +1,22 @@
+diff --git a/pdata/plog/logs_test.go b/pdata/plog/logs_test.go
+index 840308628..3cc408115 100644
+--- a/pdata/plog/logs_test.go
++++ b/pdata/plog/logs_test.go
+@@ -172,3 +172,17 @@ func BenchmarkLogsUsage(b *testing.B) {
+ 		}
+ 	}
+ }
++
++func BenchmarkLogsMarshalJSON(b *testing.B) {
++	md := NewLogs()
++	fillTestResourceLogsSlice(md.ResourceLogs())
++	encoder := &JSONMarshaler{}
++
++	b.ReportAllocs()
++	b.ResetTimer()
++	for i := 0; i < b.N; i++ {
++		jsonBuf, err := encoder.MarshalLogs(md)
++		require.NoError(b, err)
++		require.NotNil(b, jsonBuf)
++	}
++}

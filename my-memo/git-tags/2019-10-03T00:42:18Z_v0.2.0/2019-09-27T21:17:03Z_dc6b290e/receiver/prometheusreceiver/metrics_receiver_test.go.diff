@@ -1,0 +1,17 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver_test.go b/receiver/prometheusreceiver/metrics_receiver_test.go
+index 2b466c789..435541ee0 100644
+--- a/receiver/prometheusreceiver/metrics_receiver_test.go
++++ b/receiver/prometheusreceiver/metrics_receiver_test.go
+@@ -35,9 +35,9 @@ import (
+ 	"go.uber.org/zap"
+ 	"gopkg.in/yaml.v2"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/exporter/exportertest"
+-	"github.com/open-telemetry/opentelemetry-service/receiver/receivertest"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
++	"github.com/open-telemetry/opentelemetry-collector/receiver/receivertest"
+ )
+ 
+ var logger, _ = zap.NewDevelopment()

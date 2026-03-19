@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_line.go b/pdata/pprofile/generated_line.go
+index 66e703463..0d89ef88e 100644
+--- a/pdata/pprofile/generated_line.go
++++ b/pdata/pprofile/generated_line.go
+@@ -32,7 +32,7 @@ func newLine(orig *otlpprofiles.Line, state *internal.State) Line {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewLine() Line {
+-	return newLine(&otlpprofiles.Line{}, internal.NewState())
++	return newLine(internal.NewOrigPtrLine(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-pipeline-type.yaml b/config/testdata/invalid-pipeline-type.yaml
+deleted file mode 100644
+index 889dd6b1b..000000000
+--- a/config/testdata/invalid-pipeline-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    /metrics:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

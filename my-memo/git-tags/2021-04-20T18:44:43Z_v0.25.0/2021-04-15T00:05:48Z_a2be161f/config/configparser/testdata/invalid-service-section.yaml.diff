@@ -1,0 +1,27 @@
+diff --git a/config/configparser/testdata/invalid-service-section.yaml b/config/configparser/testdata/invalid-service-section.yaml
+deleted file mode 100644
+index 6a3b8f927..000000000
+--- a/config/configparser/testdata/invalid-service-section.yaml
++++ /dev/null
+@@ -1,21 +0,0 @@
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-extensions:
+-  exampleextension:
+-service:
+-  extenstions:
+-    - examapleextension
+-  unknown_section:
+-    a_num: 2
+-  pipelines:
+-    traces:
+-      receivers:
+-        - examplereceiver
+-      processors:
+-        - exampleprocessor
+-      exporters:
+-        - exampleexporter

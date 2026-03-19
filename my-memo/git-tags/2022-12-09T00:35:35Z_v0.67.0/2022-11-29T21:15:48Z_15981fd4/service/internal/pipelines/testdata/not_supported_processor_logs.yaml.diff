@@ -1,0 +1,19 @@
+diff --git a/service/internal/pipelines/testdata/not_supported_processor_logs.yaml b/service/internal/pipelines/testdata/not_supported_processor_logs.yaml
+deleted file mode 100644
+index 49636decb..000000000
+--- a/service/internal/pipelines/testdata/not_supported_processor_logs.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  bf:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    logs:
+-      receivers: [nop]
+-      processors: [bf]
+-      exporters: [nop]

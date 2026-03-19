@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go b/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
+index ceba59b6d..c9d01c3b4 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
+@@ -54,7 +54,7 @@ func (f *Factory) CreateTraceProcessor(
+ 	cfg configmodels.Processor,
+ ) (component.TraceProcessorOld, error) {
+ 	oCfg := cfg.(*Config)
+-	return NewTraceProcessor(nextConsumer, *oCfg)
++	return newTraceProcessor(nextConsumer, *oCfg)
+ }
+ 
+ // CreateMetricsProcessor creates a metrics processor based on this config.

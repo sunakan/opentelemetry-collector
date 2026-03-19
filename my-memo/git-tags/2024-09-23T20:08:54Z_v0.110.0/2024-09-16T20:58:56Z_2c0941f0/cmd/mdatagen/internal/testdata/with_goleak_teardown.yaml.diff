@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_goleak_teardown.yaml b/cmd/mdatagen/internal/testdata/with_goleak_teardown.yaml
+new file mode 100644
+index 000000000..51a1dc4cf
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/with_goleak_teardown.yaml
+@@ -0,0 +1,10 @@
++type: foobar
++
++status:
++  class: connector
++  stability:
++    beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
++
++tests:
++  goleak:
++    teardown: "teardownFunc()"
+\ No newline at end of file

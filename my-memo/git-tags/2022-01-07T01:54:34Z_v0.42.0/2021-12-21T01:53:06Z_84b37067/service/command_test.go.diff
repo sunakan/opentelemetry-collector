@@ -1,0 +1,13 @@
+diff --git a/service/command_test.go b/service/command_test.go
+index 2ff6b634b..cb478958f 100644
+--- a/service/command_test.go
++++ b/service/command_test.go
+@@ -33,7 +33,7 @@ func TestNewCommand(t *testing.T) {
+ 
+ func TestNewCommandMapProviderIsNil(t *testing.T) {
+ 	settings := CollectorSettings{}
+-	settings.ConfigMapProvider = nil
++	settings.ConfigProvider = nil
+ 	cmd := NewCommand(settings)
+ 	err := cmd.Execute()
+ 	require.Error(t, err)

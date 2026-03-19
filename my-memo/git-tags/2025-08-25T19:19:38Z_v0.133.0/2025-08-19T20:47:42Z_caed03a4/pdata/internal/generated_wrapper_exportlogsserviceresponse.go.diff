@@ -1,0 +1,22 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogsserviceresponse.go b/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
+index 8a32ab9f7..90b29a44e 100644
+--- a/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportlogsserviceresponse.go
+@@ -38,15 +38,14 @@ func MarshalJSONOrigExportLogsServiceResponse(orig *otlpcollectorlogs.ExportLogs
+ 
+ // UnmarshalJSONOrigExportResponse unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigExportLogsServiceResponse(orig *otlpcollectorlogs.ExportLogsServiceResponse, iter *json.Iterator) {
+-	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
++	for f := iter.ReadObject(); f != ""; f = iter.ReadObject() {
+ 		switch f {
+ 		case "partialSuccess", "partial_success":
+ 			UnmarshalJSONOrigExportLogsPartialSuccess(&orig.PartialSuccess, iter)
+ 		default:
+ 			iter.Skip()
+ 		}
+-		return true
+-	})
++	}
+ }
+ 
+ func SizeProtoOrigExportLogsServiceResponse(orig *otlpcollectorlogs.ExportLogsServiceResponse) int {

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index c26b9fd33..731489f07 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -73,6 +73,9 @@ type metricsExporter struct {
+ }
+ 
+ func (mexp *metricsExporter) ConsumeMetrics(ctx context.Context, md pdata.Metrics) error {
++	if mexp.baseExporter.convertResourceToTelemetry {
++		md = convertResourceToLabels(md)
++	}
+ 	exporterCtx := obsreport.ExporterContext(ctx, mexp.cfg.Name())
+ 	req := newMetricsRequest(exporterCtx, md, mexp.pusher)
+ 	_, err := mexp.sender.send(req)

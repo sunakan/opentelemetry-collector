@@ -1,0 +1,14 @@
+diff --git a/processor/processorhelper/attraction.go b/processor/processorhelper/attraction.go
+index 502c39bd4..63afdbe74 100644
+--- a/processor/processorhelper/attraction.go
++++ b/processor/processorhelper/attraction.go
+@@ -19,8 +19,8 @@ import (
+ 	"regexp"
+ 	"strings"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterhelper"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Settings specifies the processor settings.

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 0827be638..8df55dab1 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/storagetest"
+ 	"go.opentelemetry.io/collector/exporter/exporterqueue"
+-	"go.opentelemetry.io/collector/exporter/internal/storagetest"
+ )
+ 
+ type fakeEncoding struct {

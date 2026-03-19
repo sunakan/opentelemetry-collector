@@ -1,0 +1,16 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index eac349e1a..2b95ca809 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -100,8 +100,9 @@ func (mb *MockBackend) Stop() {
+ 		log.Printf("Stopping mock backend...")
+ 
+ 		mb.logFile.Close()
+-		mb.receiver.Stop()
+-
++		if err := mb.receiver.Stop(); err != nil {
++			log.Printf("Failed to stop receiver: %v", err)
++		}
+ 		// Print stats.
+ 		log.Printf("Stopped backend. %s", mb.GetStats())
+ 	})

@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 3ba99ad8e..9f5884445 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -222,7 +222,7 @@ func (gcs *GRPCClientSettings) ToDialOptions(host component.Host) ([]grpc.DialOp
+ 			return nil, fmt.Errorf("no extensions configuration available")
+ 		}
+ 
+-		grpcAuthenticator, cerr := gcs.Auth.GetGRPCClientAuthenticator(host.GetExtensions())
++		grpcAuthenticator, cerr := gcs.Auth.GetClientAuthenticator(host.GetExtensions())
+ 		if cerr != nil {
+ 			return nil, cerr
+ 		}

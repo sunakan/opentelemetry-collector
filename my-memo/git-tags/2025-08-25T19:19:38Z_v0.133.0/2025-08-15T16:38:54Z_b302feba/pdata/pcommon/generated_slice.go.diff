@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_slice.go b/pdata/pcommon/generated_slice.go
+index 8b84e46ce..b32520b5c 100644
+--- a/pdata/pcommon/generated_slice.go
++++ b/pdata/pcommon/generated_slice.go
+@@ -30,8 +30,7 @@ func newSlice(orig *[]otlpcommon.AnyValue, state *internal.State) Slice {
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewSlice() Slice {
+ 	orig := []otlpcommon.AnyValue(nil)
+-	state := internal.StateMutable
+-	return newSlice(&orig, &state)
++	return newSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

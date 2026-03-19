@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index 606397cd2..0951b4800 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -191,7 +191,7 @@ func TestScrapeController(t *testing.T) {
+ 			otel.SetTracerProvider(tp)
+ 			defer otel.SetTracerProvider(trace.NewNoopTracerProvider())
+ 
+-			set, err := obsreporttest.SetupRecordedMetricsTest()
++			set, err := obsreporttest.SetupTelemetry()
+ 			require.NoError(t, err)
+ 			defer set.Shutdown(context.Background())
+ 

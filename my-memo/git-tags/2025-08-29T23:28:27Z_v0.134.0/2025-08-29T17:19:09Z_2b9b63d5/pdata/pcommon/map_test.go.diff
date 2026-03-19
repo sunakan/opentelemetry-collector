@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index dae162fcf..1ec51e0db 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -440,6 +440,10 @@ func TestMap_CopyTo(t *testing.T) {
+ 	(*dest.getOrig())[0].Value = otlpcommon.AnyValue{}
+ 	Map(internal.GenerateTestMap()).CopyTo(dest)
+ 	assert.Equal(t, Map(internal.GenerateTestMap()), dest)
++
++	// Test CopyTo same size slice
++	dest.CopyTo(dest)
++	assert.Equal(t, Map(internal.GenerateTestMap()), dest)
+ }
+ 
+ func TestMap_CopyToAndEnsureCapacity(t *testing.T) {

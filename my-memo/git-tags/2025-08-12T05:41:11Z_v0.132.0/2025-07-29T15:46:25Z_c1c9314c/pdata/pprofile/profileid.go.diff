@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/profileid.go b/pdata/pprofile/profileid.go
+index 892e92e6a..52ee2e812 100644
+--- a/pdata/pprofile/profileid.go
++++ b/pdata/pprofile/profileid.go
+@@ -7,7 +7,6 @@ import (
+ 	"encoding/hex"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/data"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ var emptyProfileID = ProfileID([16]byte{})
+@@ -36,7 +35,3 @@ func (ms ProfileID) String() string {
+ func (ms ProfileID) IsEmpty() bool {
+ 	return data.ProfileID(ms).IsEmpty()
+ }
+-
+-func (ms ProfileID) marshalJSONStream(dest *json.Stream) {
+-	data.ProfileID(ms).MarshalJSONStream(dest)
+-}

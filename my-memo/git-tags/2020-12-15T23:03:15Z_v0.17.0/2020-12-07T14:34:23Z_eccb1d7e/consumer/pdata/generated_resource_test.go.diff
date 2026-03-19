@@ -1,0 +1,12 @@
+diff --git a/consumer/pdata/generated_resource_test.go b/consumer/pdata/generated_resource_test.go
+index a74781ca2..cff3992e3 100644
+--- a/consumer/pdata/generated_resource_test.go
++++ b/consumer/pdata/generated_resource_test.go
+@@ -31,7 +31,6 @@ func TestResource_CopyTo(t *testing.T) {
+ 
+ func TestResource_Attributes(t *testing.T) {
+ 	ms := NewResource()
+-	ms.InitEmpty()
+ 	assert.EqualValues(t, NewAttributeMap(), ms.Attributes())
+ 	fillTestAttributeMap(ms.Attributes())
+ 	testValAttributes := generateTestAttributeMap()

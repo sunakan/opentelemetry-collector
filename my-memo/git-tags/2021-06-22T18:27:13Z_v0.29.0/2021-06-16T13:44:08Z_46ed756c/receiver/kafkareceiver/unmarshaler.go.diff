@@ -1,0 +1,34 @@
+diff --git a/receiver/kafkareceiver/unmarshaler.go b/receiver/kafkareceiver/unmarshaler.go
+index b2f9fcf1c..5186026f9 100644
+--- a/receiver/kafkareceiver/unmarshaler.go
++++ b/receiver/kafkareceiver/unmarshaler.go
+@@ -30,6 +30,15 @@ type TracesUnmarshaler interface {
+ 	Encoding() string
+ }
+ 
++// MetricsUnmarshaler deserializes the message body
++type MetricsUnmarshaler interface {
++	// Unmarshal deserializes the message body into traces
++	Unmarshal([]byte) (pdata.Metrics, error)
++
++	// Encoding of the serialized messages
++	Encoding() string
++}
++
+ // LogsUnmarshaler deserializes the message body.
+ type LogsUnmarshaler interface {
+ 	// Unmarshal deserializes the message body into traces.
+@@ -57,6 +66,13 @@ func defaultTracesUnmarshalers() map[string]TracesUnmarshaler {
+ 	}
+ }
+ 
++func defaultMetricsUnmarshalers() map[string]MetricsUnmarshaler {
++	otlpPb := newPdataMetricsUnmarshaler(otlp.NewProtobufMetricsUnmarshaler(), defaultEncoding)
++	return map[string]MetricsUnmarshaler{
++		otlpPb.Encoding(): otlpPb,
++	}
++}
++
+ func defaultLogsUnmarshalers() map[string]LogsUnmarshaler {
+ 	otlpPb := newPdataLogsUnmarshaler(otlp.NewProtobufLogsUnmarshaler(), defaultEncoding)
+ 	return map[string]LogsUnmarshaler{

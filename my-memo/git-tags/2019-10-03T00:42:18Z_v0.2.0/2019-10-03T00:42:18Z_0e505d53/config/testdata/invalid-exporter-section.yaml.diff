@@ -1,0 +1,24 @@
+diff --git a/config/testdata/invalid-exporter-section.yaml b/config/testdata/invalid-exporter-section.yaml
+index 624c593a7..fa5e0257b 100644
+--- a/config/testdata/invalid-exporter-section.yaml
++++ b/config/testdata/invalid-exporter-section.yaml
+@@ -10,11 +10,11 @@ extensions:
+ service:
+   extensions:
+     - exampleextension
+-pipelines:
+-  traces:
+-    receivers:
+-      - examplereceiver
+-    processors:
+-      - exampleprocessor
+-    exporters:
+-      - exampleexporter
++  pipelines:
++    traces:
++      receivers:
++        - examplereceiver
++      processors:
++        - exampleprocessor
++      exporters:
++        - exampleexporter

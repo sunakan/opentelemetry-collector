@@ -1,0 +1,24 @@
+diff --git a/.github/workflows/create-dependabot-pr.yml b/.github/workflows/create-dependabot-pr.yml
+deleted file mode 100644
+index bcc350abc..000000000
+--- a/.github/workflows/create-dependabot-pr.yml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-name: Automation - Dependabot PR
+-
+-on:
+-  workflow_dispatch:
+-
+-jobs:
+-  create-pr:
+-    runs-on: ubuntu-latest
+-    steps:
+-      - uses: actions/checkout@v4
+-      - name: Setup Go
+-        uses: actions/setup-go@v4
+-        with:
+-          go-version: ~1.20.11
+-      - name: Run dependabot-pr.sh
+-        run: ./.github/workflows/scripts/dependabot-pr.sh
+-        env:
+-          GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}

@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go b/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
+index 7867a49b6..a61699e98 100644
+--- a/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
+@@ -14,3 +14,8 @@ func CopyOrigExportProfilesPartialSuccess(dest, src *otlpcollectorprofile.Export
+ 	dest.RejectedProfiles = src.RejectedProfiles
+ 	dest.ErrorMessage = src.ErrorMessage
+ }
++
++func FillOrigTestExportProfilesPartialSuccess(orig *otlpcollectorprofile.ExportProfilesPartialSuccess) {
++	orig.RejectedProfiles = int64(13)
++	orig.ErrorMessage = "test_errormessage"
++}

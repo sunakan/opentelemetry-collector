@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metric_diff.go b/testbed/correctness/metrics/metric_diff.go
+index 920fff0eb..a0cae123f 100644
+--- a/testbed/correctness/metrics/metric_diff.go
++++ b/testbed/correctness/metrics/metric_diff.go
+@@ -155,7 +155,7 @@ func diffDoublePt(
+ 	expected pdata.NumberDataPoint,
+ 	actual pdata.NumberDataPoint,
+ ) []*MetricDiff {
+-	diffs = diff(diffs, expected.Value(), actual.Value(), "NumberDataPoint value")
++	diffs = diff(diffs, expected.DoubleVal(), actual.DoubleVal(), "NumberDataPoint value")
+ 	return diffDoubleExemplars(diffs, expected.Exemplars(), actual.Exemplars())
+ }
+ 

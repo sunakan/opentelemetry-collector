@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/factory.go b/processor/spanprocessor/factory.go
+index 8c60560cc..85045f753 100644
+--- a/processor/spanprocessor/factory.go
++++ b/processor/spanprocessor/factory.go
+@@ -42,7 +42,7 @@ type Factory struct {
+ var _ component.ProcessorFactory = (*Factory)(nil)
+ 
+ // Type gets the type of the config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

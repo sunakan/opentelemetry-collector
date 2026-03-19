@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsreport.go b/exporter/exporterhelper/obsreport.go
+index 0836363bb..87fc830e7 100644
+--- a/exporter/exporterhelper/obsreport.go
++++ b/exporter/exporterhelper/obsreport.go
+@@ -83,7 +83,7 @@ func newInstruments(registry *metric.Registry) *instruments {
+ 	return insts
+ }
+ 
+-// obsExporter is a helper to add observability to a component.Exporter.
++// obsExporter is a helper to add observability to an exporter.
+ type obsExporter struct {
+ 	*obsreport.Exporter
+ 	failedToEnqueueTraceSpansEntry   *metric.Int64CumulativeEntry

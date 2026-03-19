@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index 76de5298f..79a0fe940 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -129,8 +129,8 @@ func TestLogsExporter_WithRecordEnqueueFailedMetrics(t *testing.T) {
+ 	require.NoError(t, err)
+ 	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-	rCfg := DefaultRetrySettings()
+-	qCfg := DefaultQueueSettings()
++	rCfg := NewDefaultRetrySettings()
++	qCfg := NewDefaultQueueSettings()
+ 	qCfg.NumConsumers = 1
+ 	qCfg.QueueSize = 2
+ 	wantErr := errors.New("some-error")

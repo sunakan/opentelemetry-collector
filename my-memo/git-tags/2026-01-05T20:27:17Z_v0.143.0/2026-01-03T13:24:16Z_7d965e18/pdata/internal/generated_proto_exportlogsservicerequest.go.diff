@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_exportlogsservicerequest.go b/pdata/internal/generated_proto_exportlogsservicerequest.go
+index 1c849ec22..7fb48b36a 100644
+--- a/pdata/internal/generated_proto_exportlogsservicerequest.go
++++ b/pdata/internal/generated_proto_exportlogsservicerequest.go
+@@ -44,11 +44,9 @@ func DeleteExportLogsServiceRequest(orig *ExportLogsServiceRequest, nullable boo
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceLogs {
+ 		DeleteResourceLogs(orig.ResourceLogs[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolExportLogsServiceRequest.Put(orig)

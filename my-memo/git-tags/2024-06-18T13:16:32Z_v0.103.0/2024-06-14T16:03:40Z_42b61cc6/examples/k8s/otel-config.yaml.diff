@@ -1,0 +1,22 @@
+diff --git a/examples/k8s/otel-config.yaml b/examples/k8s/otel-config.yaml
+index 791af80fc..8538e82ad 100644
+--- a/examples/k8s/otel-config.yaml
++++ b/examples/k8s/otel-config.yaml
+@@ -65,7 +65,7 @@ spec:
+       - command:
+           - "/otelcol"
+           - "--config=/conf/otel-agent-config.yaml"
+-        image: otel/opentelemetry-collector:0.94.0
++        image: otel/opentelemetry-collector:latest
+         name: otel-agent
+         resources:
+           limits:
+@@ -183,7 +183,7 @@ spec:
+       - command:
+           - "/otelcol"
+           - "--config=/conf/otel-collector-config.yaml"
+-        image: otel/opentelemetry-collector:0.94.0
++        image: otel/opentelemetry-collector:latest
+         name: otel-collector
+         resources:
+           limits:

@@ -1,0 +1,15 @@
+diff --git a/service/internal/metadatatest/generated_telemetrytest.go b/service/internal/metadatatest/generated_telemetrytest.go
+index 4be0c0cbf..bda59ab3e 100644
+--- a/service/internal/metadatatest/generated_telemetrytest.go
++++ b/service/internal/metadatatest/generated_telemetrytest.go
+@@ -17,8 +17,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ 
+ func (tt *Telemetry) AssertMetrics(t *testing.T, expected []metricdata.Metrics, opts ...metricdatatest.Option) {

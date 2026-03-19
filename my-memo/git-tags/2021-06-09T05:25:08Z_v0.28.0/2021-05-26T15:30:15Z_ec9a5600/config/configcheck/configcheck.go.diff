@@ -1,0 +1,13 @@
+diff --git a/config/configcheck/configcheck.go b/config/configcheck/configcheck.go
+index 3a507a206..f479e4855 100644
+--- a/config/configcheck/configcheck.go
++++ b/config/configcheck/configcheck.go
+@@ -167,7 +167,7 @@ func checkStructFieldTags(f reflect.StructField) error {
+ 
+ 	switch f.Type.Kind() {
+ 	case reflect.Struct:
+-		// It is another struct, continue down-level
++		// It is another struct, continue down-level.
+ 		return validateConfigDataType(f.Type)
+ 
+ 	case reflect.Map, reflect.Slice, reflect.Array:

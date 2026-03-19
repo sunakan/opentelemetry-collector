@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_span_event.go b/pdata/internal/generated_wrapper_span_event.go
+index 0e4400168..8931b6267 100644
+--- a/pdata/internal/generated_wrapper_span_event.go
++++ b/pdata/internal/generated_wrapper_span_event.go
+@@ -17,11 +17,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolSpan_Event = sync.Pool{
+-	New: func() any {
+-		return &otlptrace.Span_Event{}
+-	},
+-}
++var (
++	protoPoolSpan_Event = sync.Pool{
++		New: func() any {
++			return &otlptrace.Span_Event{}
++		},
++	}
++)
+ 
+ func NewOrigSpan_Event() *otlptrace.Span_Event {
+ 	if !UseProtoPooling.IsEnabled() {

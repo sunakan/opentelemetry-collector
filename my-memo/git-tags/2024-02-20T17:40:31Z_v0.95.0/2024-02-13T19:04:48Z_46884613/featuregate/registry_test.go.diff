@@ -1,0 +1,13 @@
+diff --git a/featuregate/registry_test.go b/featuregate/registry_test.go
+index b67bd9aae..4c97833d2 100644
+--- a/featuregate/registry_test.go
++++ b/featuregate/registry_test.go
+@@ -17,7 +17,7 @@ func TestGlobalRegistry(t *testing.T) {
+ func TestRegistry(t *testing.T) {
+ 	r := NewRegistry()
+ 	// Expect that no gates to visit.
+-	r.VisitAll(func(gate *Gate) {
++	r.VisitAll(func(_ *Gate) {
+ 		t.FailNow()
+ 	})
+ 

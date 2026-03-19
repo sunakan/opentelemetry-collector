@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 57890d037..27714a06b 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -257,7 +257,7 @@ func (gcs *ClientConfig) ToClientConn(
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	//nolint:staticcheck //SA1019 see https://github.com/open-telemetry/opentelemetry-collector/pull/11575
++	//nolint:staticcheck // SA1019 see https://github.com/open-telemetry/opentelemetry-collector/pull/11575
+ 	return grpc.DialContext(ctx, gcs.sanitizedEndpoint(), grpcOpts...)
+ }
+ 

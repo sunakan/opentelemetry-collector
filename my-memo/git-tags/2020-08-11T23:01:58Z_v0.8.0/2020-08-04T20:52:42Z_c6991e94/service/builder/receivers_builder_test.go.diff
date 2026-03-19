@@ -1,0 +1,26 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index 73116058b..7371ace5e 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -427,10 +427,6 @@ func (b *badReceiverFactory) CreateDefaultConfig() configmodels.Receiver {
+ 	return &configmodels.ReceiverSettings{}
+ }
+ 
+-func (b *badReceiverFactory) CustomUnmarshaler() component.CustomUnmarshaler {
+-	return nil
+-}
+-
+ func (b *badReceiverFactory) CreateTraceReceiver(
+ 	_ context.Context,
+ 	_ *zap.Logger,
+@@ -455,10 +451,6 @@ func (b *newStyleReceiverFactory) CreateDefaultConfig() configmodels.Receiver {
+ 	return &configmodels.ReceiverSettings{}
+ }
+ 
+-func (b *newStyleReceiverFactory) CustomUnmarshaler() component.CustomUnmarshaler {
+-	return nil
+-}
+-
+ func (b *newStyleReceiverFactory) CreateTraceReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,

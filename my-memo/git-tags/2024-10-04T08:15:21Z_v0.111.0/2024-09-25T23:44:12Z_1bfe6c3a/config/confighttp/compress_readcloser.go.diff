@@ -1,0 +1,29 @@
+diff --git a/config/confighttp/compress_readcloser.go b/config/confighttp/compress_readcloser.go
+new file mode 100644
+index 000000000..411a06a7f
+--- /dev/null
++++ b/config/confighttp/compress_readcloser.go
+@@ -0,0 +1,23 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package confighttp // import "go.opentelemetry.io/collector/config/confighttp"
++
++import "io"
++
++// compressReadCloser couples the original compressed reader
++// and the compression reader to ensure that the original body
++// is correctly closed to ensure resources are freed.
++type compressReadCloser struct {
++	io.Reader
++	orig io.ReadCloser
++}
++
++var (
++	_ io.Reader = (*compressReadCloser)(nil)
++	_ io.Closer = (*compressReadCloser)(nil)
++)
++
++func (crc *compressReadCloser) Close() error {
++	return crc.orig.Close()
++}

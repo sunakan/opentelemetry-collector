@@ -1,0 +1,22 @@
+diff --git a/extension/zpagesextension/factory_test.go b/extension/zpagesextension/factory_test.go
+index fc1bcc512..ba36df321 100644
+--- a/extension/zpagesextension/factory_test.go
++++ b/extension/zpagesextension/factory_test.go
+@@ -26,7 +26,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 		cfg)
+ 
+ 	assert.NoError(t, componenttest.CheckConfigStruct(cfg))
+-	ext, err := createExtension(context.Background(), extensiontest.NewNopCreateSettings(), cfg)
++	ext, err := createExtension(context.Background(), extensiontest.NewNopSettings(), cfg)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, ext)
+ }
+@@ -35,7 +35,7 @@ func TestFactory_CreateExtension(t *testing.T) {
+ 	cfg := createDefaultConfig().(*Config)
+ 	cfg.TCPAddr.Endpoint = testutil.GetAvailableLocalAddress(t)
+ 
+-	ext, err := createExtension(context.Background(), extensiontest.NewNopCreateSettings(), cfg)
++	ext, err := createExtension(context.Background(), extensiontest.NewNopSettings(), cfg)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, ext)
+ }

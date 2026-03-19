@@ -1,0 +1,39 @@
+diff --git a/receiver/zipkinreceiver/proto_parse_test.go b/receiver/zipkinreceiver/proto_parse_test.go
+index 4928ca4d8..be1ba99c2 100644
+--- a/receiver/zipkinreceiver/proto_parse_test.go
++++ b/receiver/zipkinreceiver/proto_parse_test.go
+@@ -30,8 +30,6 @@ import (
+ 	"go.opentelemetry.io/collector/translator/trace/zipkinv2"
+ )
+ 
+-var translator = zipkinv2.ToTranslator{ParseStringTags: false}
+-
+ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 	// TODO: (@odeke-em) examine the entire codepath that time goes through
+ 	//  in Zipkin-Go to ensure that all rounding matches. Otherwise
+@@ -100,7 +98,7 @@ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 	// 2. Serialize it
+ 	protoBlob, err := proto.Marshal(payloadFromWild)
+ 	require.NoError(t, err, "Failed to protobuf serialize payload: %v", err)
+-	zi := &ZipkinReceiver{translator: translator, config: createDefaultConfig().(*Config)}
++	zi := newTestZipkinReceiver()
+ 	hdr := make(http.Header)
+ 	hdr.Set("Content-Type", "application/x-protobuf")
+ 
+@@ -166,6 +164,16 @@ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 	}
+ }
+ 
++func newTestZipkinReceiver() *ZipkinReceiver {
++	cfg := createDefaultConfig().(*Config)
++	return &ZipkinReceiver{
++		config:                   cfg,
++		jsonUnmarshaler:          zipkinv2.NewJSONTracesUnmarshaler(cfg.ParseStringTags),
++		protobufUnmarshaler:      zipkinv2.NewProtobufTracesUnmarshaler(false, cfg.ParseStringTags),
++		protobufDebugUnmarshaler: zipkinv2.NewProtobufTracesUnmarshaler(true, cfg.ParseStringTags),
++	}
++}
++
+ func compareResourceSpans(t *testing.T, wantRS pdata.ResourceSpans, reqsRS pdata.ResourceSpans) {
+ 	assert.Equal(t, wantRS.InstrumentationLibrarySpans().Len(), reqsRS.InstrumentationLibrarySpans().Len())
+ 	wantIL := wantRS.InstrumentationLibrarySpans().At(0)

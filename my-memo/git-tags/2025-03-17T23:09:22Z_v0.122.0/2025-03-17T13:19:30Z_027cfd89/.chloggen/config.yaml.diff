@@ -1,0 +1,13 @@
+diff --git a/.chloggen/config.yaml b/.chloggen/config.yaml
+index 19a2957bd..0129fdff3 100644
+--- a/.chloggen/config.yaml
++++ b/.chloggen/config.yaml
+@@ -12,6 +12,8 @@ entries_dir: .chloggen
+ # (Optional) Default: .chloggen/TEMPLATE.yaml
+ template_yaml: .chloggen/TEMPLATE.yaml
+ 
++summary_template: .chloggen/summary.tmpl
++
+ # The CHANGELOG file or files to which 'chloggen update' will write new entries
+ # (Optional) Default filename: CHANGELOG.md
+ change_logs:

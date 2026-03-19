@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 898f1c4a2..6d4a3bade 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -7,6 +7,7 @@
+ - Add `linux-ppc64le` architecture to cross build tests in CI
+ - `client`: perform case insensitive lookups in case the requested metadata value isn't found (#5646)
+ - `loggingexporter`: Decouple `loglevel` field from level of logged messages (#5678)
++- Expose `pcommon.NewSliceFromRaw` function (#5679)
+ 
+ ### 🧰 Bug fixes 🧰
+ 

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterprofiles/go.mod b/exporter/exporterprofiles/go.mod
+index 9382654f1..8c532b55c 100644
+--- a/exporter/exporterprofiles/go.mod
++++ b/exporter/exporterprofiles/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/exporter/exporterprofiles
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.114.0

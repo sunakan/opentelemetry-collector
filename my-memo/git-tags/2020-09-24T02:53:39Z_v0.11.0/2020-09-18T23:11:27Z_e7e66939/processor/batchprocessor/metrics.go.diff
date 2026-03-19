@@ -1,0 +1,24 @@
+diff --git a/processor/batchprocessor/metrics.go b/processor/batchprocessor/metrics.go
+index 89ae8e7c3..20dcb9fad 100644
+--- a/processor/batchprocessor/metrics.go
++++ b/processor/batchprocessor/metrics.go
+@@ -19,7 +19,7 @@ import (
+ 	"go.opencensus.io/stats/view"
+ 	"go.opencensus.io/tag"
+ 
+-	"go.opentelemetry.io/collector/internal/collector/telemetry"
++	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/processor"
+ )
+@@ -32,8 +32,8 @@ var (
+ )
+ 
+ // MetricViews returns the metrics views related to batching
+-func MetricViews(level telemetry.Level) []*view.View {
+-	if level == telemetry.None {
++func MetricViews(level configtelemetry.Level) []*view.View {
++	if level == configtelemetry.LevelNone {
+ 		return nil
+ 	}
+ 

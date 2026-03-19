@@ -1,0 +1,20 @@
+diff --git a/processor/batchprocessor/generated_component_test.go b/processor/batchprocessor/generated_component_test.go
+index 77ed2fd0f..603f6e2ff 100644
+--- a/processor/batchprocessor/generated_component_test.go
++++ b/processor/batchprocessor/generated_component_test.go
+@@ -70,13 +70,13 @@ func TestComponentLifecycle(t *testing.T) {
+ 
+ 	for _, tt := range tests {
+ 		t.Run(tt.name+"-shutdown", func(t *testing.T) {
+-			c, err := tt.createFn(context.Background(), processortest.NewNopSettings(), cfg)
++			c, err := tt.createFn(context.Background(), processortest.NewNopSettingsWithType(typ), cfg)
+ 			require.NoError(t, err)
+ 			err = c.Shutdown(context.Background())
+ 			require.NoError(t, err)
+ 		})
+ 		t.Run(tt.name+"-lifecycle", func(t *testing.T) {
+-			c, err := tt.createFn(context.Background(), processortest.NewNopSettings(), cfg)
++			c, err := tt.createFn(context.Background(), processortest.NewNopSettingsWithType(typ), cfg)
+ 			require.NoError(t, err)
+ 			host := componenttest.NewNopHost()
+ 			err = c.Start(context.Background(), host)

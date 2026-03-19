@@ -1,0 +1,22 @@
+diff --git a/cmd/occollector/app/builder/pipelines_builder.go b/cmd/occollector/app/builder/pipelines_builder.go
+index 3706a6a0b..f8f883df7 100644
+--- a/cmd/occollector/app/builder/pipelines_builder.go
++++ b/cmd/occollector/app/builder/pipelines_builder.go
+@@ -39,7 +39,7 @@ type PipelineProcessors map[*configmodels.Pipeline]*builtProcessor
+ // PipelinesBuilder builds pipelines from config.
+ type PipelinesBuilder struct {
+ 	logger    *zap.Logger
+-	config    *configmodels.ConfigV2
++	config    *configmodels.Config
+ 	exporters Exporters
+ }
+ 
+@@ -47,7 +47,7 @@ type PipelinesBuilder struct {
+ // built via ExportersBuilder. Call Build() on the returned value.
+ func NewPipelinesBuilder(
+ 	logger *zap.Logger,
+-	config *configmodels.ConfigV2,
++	config *configmodels.Config,
+ 	exporters Exporters,
+ ) *PipelinesBuilder {
+ 	return &PipelinesBuilder{logger, config, exporters}

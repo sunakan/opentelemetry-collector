@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 21864d772..7de8c430b 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -46,7 +46,7 @@ type baseExporter struct {
+ 	userAgent string
+ }
+ 
+-func newExporter(cfg component.Config, set exporter.CreateSettings) *baseExporter {
++func newExporter(cfg component.Config, set exporter.Settings) *baseExporter {
+ 	oCfg := cfg.(*Config)
+ 
+ 	userAgent := fmt.Sprintf("%s/%s (%s/%s)",

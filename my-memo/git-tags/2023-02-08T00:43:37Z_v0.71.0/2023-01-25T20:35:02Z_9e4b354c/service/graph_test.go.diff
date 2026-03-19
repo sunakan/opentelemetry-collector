@@ -1,0 +1,13 @@
+diff --git a/service/graph_test.go b/service/graph_test.go
+index 11dbed0ea..fcea63d1a 100644
+--- a/service/graph_test.go
++++ b/service/graph_test.go
+@@ -36,6 +36,8 @@ type testNode struct {
+ 	shutdownErr error
+ }
+ 
++// ID satisfies the graph.Node interface, allowing
++// testNode to be used in a simple.DirectedGraph
+ func (n *testNode) ID() int64 {
+ 	return int64(newNodeID(n.id.String()))
+ }

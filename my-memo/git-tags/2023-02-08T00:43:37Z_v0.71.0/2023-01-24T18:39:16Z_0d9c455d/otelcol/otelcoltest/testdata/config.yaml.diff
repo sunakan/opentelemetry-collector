@@ -1,0 +1,14 @@
+diff --git a/otelcol/otelcoltest/testdata/config.yaml b/otelcol/otelcoltest/testdata/config.yaml
+index 38227d7a6..d9e21c553 100644
+--- a/otelcol/otelcoltest/testdata/config.yaml
++++ b/otelcol/otelcoltest/testdata/config.yaml
+@@ -10,6 +10,9 @@ exporters:
+     nop:
+     nop/myexporter:
+ 
++connectors:
++    nop/myconnector:
++
+ extensions:
+     nop:
+     nop/myextension:

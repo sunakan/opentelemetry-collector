@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exporttracepartialsuccess.go b/pdata/internal/generated_wrapper_exporttracepartialsuccess.go
+index bbd70b3a5..acb181062 100644
+--- a/pdata/internal/generated_wrapper_exporttracepartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exporttracepartialsuccess.go
+@@ -45,6 +45,10 @@ func DeleteOrigExportTracePartialSuccess(orig *otlpcollectortrace.ExportTracePar
+ }
+ 
+ func CopyOrigExportTracePartialSuccess(dest, src *otlpcollectortrace.ExportTracePartialSuccess) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.RejectedSpans = src.RejectedSpans
+ 	dest.ErrorMessage = src.ErrorMessage
+ }

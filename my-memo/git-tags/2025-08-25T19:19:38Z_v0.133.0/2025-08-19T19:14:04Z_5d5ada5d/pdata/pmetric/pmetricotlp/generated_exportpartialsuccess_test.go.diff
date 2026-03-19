@@ -1,0 +1,29 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+index 8744afca5..09eb63658 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+@@ -25,11 +25,9 @@ func TestExportPartialSuccess_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestExportPartialSuccess(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
++	assert.Panics(t, func() { ms.MoveTo(newExportPartialSuccess(internal.NewOrigExportMetricsPartialSuccess(), sharedState)) })
+ 	assert.Panics(t, func() {
+-		ms.MoveTo(newExportPartialSuccess(internal.NewOrigPtrExportMetricsPartialSuccess(), sharedState))
+-	})
+-	assert.Panics(t, func() {
+-		newExportPartialSuccess(internal.NewOrigPtrExportMetricsPartialSuccess(), sharedState).MoveTo(dest)
++		newExportPartialSuccess(internal.NewOrigExportMetricsPartialSuccess(), sharedState).MoveTo(dest)
+ 	})
+ }
+ 
+@@ -43,9 +41,7 @@ func TestExportPartialSuccess_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() {
+-		ms.CopyTo(newExportPartialSuccess(internal.NewOrigPtrExportMetricsPartialSuccess(), sharedState))
+-	})
++	assert.Panics(t, func() { ms.CopyTo(newExportPartialSuccess(internal.NewOrigExportMetricsPartialSuccess(), sharedState)) })
+ }
+ 
+ func TestExportPartialSuccess_RejectedDataPoints(t *testing.T) {

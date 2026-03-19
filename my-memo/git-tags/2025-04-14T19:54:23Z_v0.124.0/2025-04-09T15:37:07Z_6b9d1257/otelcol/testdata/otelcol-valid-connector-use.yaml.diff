@@ -1,0 +1,30 @@
+diff --git a/otelcol/testdata/otelcol-valid-connector-use.yaml b/otelcol/testdata/otelcol-valid-connector-use.yaml
+new file mode 100644
+index 000000000..48928526c
+--- /dev/null
++++ b/otelcol/testdata/otelcol-valid-connector-use.yaml
+@@ -0,0 +1,23 @@
++receivers:
++  nop:
++
++exporters:
++  nop:
++
++connectors:
++  nop/connector1:
++
++service:
++  pipelines:
++    logs/in1:
++      receivers: [nop]
++      processors: [ ]
++      exporters: [nop]
++    logs/in2:
++      receivers: [nop]
++      processors: [ ]
++      exporters: [nop/connector1]
++    logs/out:
++      receivers: [nop/connector1]
++      processors: [ ]
++      exporters: [nop]
+\ No newline at end of file

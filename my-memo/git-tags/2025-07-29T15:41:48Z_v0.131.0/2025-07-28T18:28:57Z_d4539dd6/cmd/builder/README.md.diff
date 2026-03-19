@@ -1,0 +1,23 @@
+diff --git a/cmd/builder/README.md b/cmd/builder/README.md
+index e016b3912..543bef318 100644
+--- a/cmd/builder/README.md
++++ b/cmd/builder/README.md
+@@ -36,9 +36,6 @@ receivers:
+       grpc:
+         endpoint: localhost:4317
+ 
+-processors:
+-  batch:
+-
+ exporters:
+   debug:
+ 
+@@ -47,8 +44,6 @@ service:
+     traces:
+       receivers:
+       - otlp
+-      processors:
+-      - batch
+       exporters:
+       - debug
+ EOF

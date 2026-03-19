@@ -1,0 +1,13 @@
+diff --git a/model/internal/data/bytesid.go b/model/internal/data/bytesid.go
+index 5b02eaa6a..0e1ed9e23 100644
+--- a/model/internal/data/bytesid.go
++++ b/model/internal/data/bytesid.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package data
++package data // import "go.opentelemetry.io/collector/model/internal/data"
+ 
+ import (
+ 	"encoding/hex"

@@ -1,0 +1,37 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index 0f7853759..c0a1787c6 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -226,28 +226,28 @@ func TestTraceBallast1kSPSWithAttrs(t *testing.T) {
+ 			attrCount:      0,
+ 			attrSizeByte:   0,
+ 			expectedMaxCPU: 30,
+-			expectedMaxRAM: 2000,
++			expectedMaxRAM: 2200,
+ 			resultsSummary: performanceResultsSummary,
+ 		},
+ 		{
+ 			attrCount:      100,
+ 			attrSizeByte:   50,
+ 			expectedMaxCPU: 80,
+-			expectedMaxRAM: 2000,
++			expectedMaxRAM: 2200,
+ 			resultsSummary: performanceResultsSummary,
+ 		},
+ 		{
+ 			attrCount:      10,
+ 			attrSizeByte:   1000,
+ 			expectedMaxCPU: 80,
+-			expectedMaxRAM: 2000,
++			expectedMaxRAM: 2200,
+ 			resultsSummary: performanceResultsSummary,
+ 		},
+ 		{
+ 			attrCount:      20,
+ 			attrSizeByte:   5000,
+ 			expectedMaxCPU: 120,
+-			expectedMaxRAM: 2000,
++			expectedMaxRAM: 2200,
+ 			resultsSummary: performanceResultsSummary,
+ 		},
+ 	}, nil, map[string]string{"memory_ballast": ballastExtCfg})

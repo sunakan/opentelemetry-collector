@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/ocastore_test.go b/receiver/prometheusreceiver/internal/ocastore_test.go
+index fe885a1d9..7ef0b9294 100644
+--- a/receiver/prometheusreceiver/internal/ocastore_test.go
++++ b/receiver/prometheusreceiver/internal/ocastore_test.go
+@@ -33,7 +33,7 @@ func TestOcaStore(t *testing.T) {
+ 	app := o.Appender(context.Background())
+ 	require.NotNil(t, app, "Expecting app")
+ 
+-	_ = o.Close()
++	o.Close()
+ 
+ 	app = o.Appender(context.Background())
+ 	assert.Equal(t, noop, app)

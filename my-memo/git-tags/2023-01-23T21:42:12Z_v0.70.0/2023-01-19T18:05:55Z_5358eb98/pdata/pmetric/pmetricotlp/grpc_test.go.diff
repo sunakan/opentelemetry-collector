@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/pmetricotlp/grpc_test.go b/pdata/pmetric/pmetricotlp/grpc_test.go
+index 6bb67a75e..60b55978b 100644
+--- a/pdata/pmetric/pmetricotlp/grpc_test.go
++++ b/pdata/pmetric/pmetricotlp/grpc_test.go
+@@ -102,6 +102,7 @@ func TestGrpcError(t *testing.T) {
+ }
+ 
+ type fakeMetricsServer struct {
++	UnimplementedGRPCServer
+ 	t   *testing.T
+ 	err error
+ }

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index 5b5f7d440..0ac80e79f 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -129,7 +129,7 @@ func NewProfilesRequestExporter(
+ 		return nil, errNilProfilesConverter
+ 	}
+ 
+-	be, err := internal.NewBaseExporter(set, xpipeline.SignalProfiles, internal.NewObsReportSender, options...)
++	be, err := internal.NewBaseExporter(set, xpipeline.SignalProfiles, options...)
+ 	if err != nil {
+ 		return nil, err
+ 	}

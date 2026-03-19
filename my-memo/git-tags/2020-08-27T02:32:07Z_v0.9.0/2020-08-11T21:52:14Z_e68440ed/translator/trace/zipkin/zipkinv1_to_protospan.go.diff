@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan.go b/translator/trace/zipkin/zipkinv1_to_protospan.go
+index 0aae16f22..fa0d79262 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan.go
+@@ -86,8 +86,8 @@ type binaryAnnotation struct {
+ 	Endpoint *endpoint `json:"endpoint"`
+ }
+ 
+-// V1JSONBatchToOCProto converts a JSON blob with a list of Zipkin v1 spans to OC Proto.
+-func V1JSONBatchToOCProto(blob []byte) ([]consumerdata.TraceData, error) {
++// v1JSONBatchToOCProto converts a JSON blob with a list of Zipkin v1 spans to OC Proto.
++func v1JSONBatchToOCProto(blob []byte) ([]consumerdata.TraceData, error) {
+ 	var zSpans []*zipkinV1Span
+ 	if err := json.Unmarshal(blob, &zSpans); err != nil {
+ 		return nil, errors.WithMessage(err, msgZipkinV1JSONUnmarshalError)

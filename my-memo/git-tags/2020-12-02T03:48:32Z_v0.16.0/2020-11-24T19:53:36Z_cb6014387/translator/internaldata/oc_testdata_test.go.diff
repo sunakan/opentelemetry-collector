@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_testdata_test.go b/translator/internaldata/oc_testdata_test.go
+index f7f2f4d12..1fffff247 100644
+--- a/translator/internaldata/oc_testdata_test.go
++++ b/translator/internaldata/oc_testdata_test.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

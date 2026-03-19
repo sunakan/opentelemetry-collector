@@ -1,0 +1,23 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index 098472e03..28204e656 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -43,17 +43,8 @@ const (
+ 	TestDoubleSummaryMetricName   = "double-summary"
+ )
+ 
+-func GenerateMetricsEmpty() pdata.Metrics {
+-	md := pdata.NewMetrics()
+-	return md
+-}
+-
+-func generateMetricsOtlpEmpty() *otlpcollectormetrics.ExportMetricsServiceRequest {
+-	return &otlpcollectormetrics.ExportMetricsServiceRequest{}
+-}
+-
+ func GenerateMetricsOneEmptyResourceMetrics() pdata.Metrics {
+-	md := GenerateMetricsEmpty()
++	md := pdata.NewMetrics()
+ 	md.ResourceMetrics().AppendEmpty()
+ 	return md
+ }

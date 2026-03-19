@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapoint.go b/pdata/pmetric/generated_summarydatapoint.go
+index 823895fe0..e1c7f6d4f 100644
+--- a/pdata/pmetric/generated_summarydatapoint.go
++++ b/pdata/pmetric/generated_summarydatapoint.go
+@@ -33,7 +33,7 @@ func newSummaryDataPoint(orig *otlpmetrics.SummaryDataPoint, state *internal.Sta
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewSummaryDataPoint() SummaryDataPoint {
+-	return newSummaryDataPoint(internal.NewOrigPtrSummaryDataPoint(), internal.NewState())
++	return newSummaryDataPoint(internal.NewOrigSummaryDataPoint(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

@@ -1,0 +1,19 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 9f8c83c38..fe3f70140 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -15,7 +15,7 @@
+ package exporter
+ 
+ import (
+-	"github.com/census-instrumentation/opencensus-service/consumer"
++	"github.com/open-telemetry/opentelemetry-service/consumer"
+ )
+ 
+ // TraceExporter composes TraceConsumer with some additional exporter-specific functions.

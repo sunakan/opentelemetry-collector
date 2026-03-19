@@ -1,0 +1,12 @@
+diff --git a/pdata/pprofile/pprofileotlp/response_test.go b/pdata/pprofile/pprofileotlp/response_test.go
+index 3ec4d77c1..3449513ac 100644
+--- a/pdata/pprofile/pprofileotlp/response_test.go
++++ b/pdata/pprofile/pprofileotlp/response_test.go
+@@ -44,6 +44,6 @@ func TestUnmarshalJsoniterExportPartialSuccess(t *testing.T) {
+ 	defer json.ReturnIterator(iter)
+ 	val := NewExportPartialSuccess()
+ 	val.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 	assert.Equal(t, NewExportPartialSuccess(), val)
+ }

@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 00c935a7d..24a79fd76 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -7,6 +7,10 @@
+ - Rename `service.Application` to `service.Collector` (#3268)
+ - Provide case sensitivity in config yaml mappings by using Koanf instead of Viper (#3337)
+ 
++## 💡 Enhancements 💡
++
++- Change obsreport helpers for scraper to use the same pattern as Processor/Exporter (#3327)
++
+ ## v0.28.0 Beta
+ 
+ ## 🛑 Breaking changes 🛑

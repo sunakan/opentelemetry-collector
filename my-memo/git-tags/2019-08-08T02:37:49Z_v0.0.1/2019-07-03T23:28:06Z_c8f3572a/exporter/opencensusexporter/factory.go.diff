@@ -1,0 +1,19 @@
+diff --git a/exporter/opencensusexporter/factory.go b/exporter/opencensusexporter/factory.go
+index 916a9be4d..3a0863b81 100644
+--- a/exporter/opencensusexporter/factory.go
++++ b/exporter/opencensusexporter/factory.go
+@@ -24,6 +24,7 @@ import (
+ 	"google.golang.org/grpc/credentials"
+ 	"google.golang.org/grpc/keepalive"
+ 
++	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/exporterhelper"
+@@ -148,5 +149,5 @@ func (f *factory) CreateTraceExporter(logger *zap.Logger, config models.Exporter
+ 
+ // CreateMetricsExporter creates a metrics exporter based on this config.
+ func (f *factory) CreateMetricsExporter(logger *zap.Logger, cfg models.Exporter) (consumer.MetricsConsumer, exporter.StopFunc, error) {
+-	return nil, nil, models.ErrDataTypeIsNotSupported
++	return nil, nil, configerror.ErrDataTypeIsNotSupported
+ }

@@ -1,0 +1,16 @@
+diff --git a/receiver/vmmetricsreceiver/metrics_receiver.go b/receiver/vmmetricsreceiver/metrics_receiver.go
+index 093ce124b..3098ca4af 100644
+--- a/receiver/vmmetricsreceiver/metrics_receiver.go
++++ b/receiver/vmmetricsreceiver/metrics_receiver.go
+@@ -19,11 +19,8 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/oterr"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+-var _ receiver.MetricsReceiver = (*Receiver)(nil)
+-
+ // Receiver is the type used to handle metrics from VM metrics.
+ type Receiver struct {
+ 	mu sync.Mutex

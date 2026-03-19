@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults_test.go b/defaults/defaults_test.go
+index 4c9a1fbeb..98fe62ace 100644
+--- a/defaults/defaults_test.go
++++ b/defaults/defaults_test.go
+@@ -41,6 +41,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/processor/queuedprocessor"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor/samplingprocessor/probabilisticsamplerprocessor"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor/samplingprocessor/tailsamplingprocessor"
++	"github.com/open-telemetry/opentelemetry-collector/processor/spanprocessor"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/jaegerreceiver"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/opencensusreceiver"
+@@ -69,6 +70,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"memory_limiter":        &memorylimiter.Factory{},
+ 		"tail_sampling":         &tailsamplingprocessor.Factory{},
+ 		"probabilistic_sampler": &probabilisticsamplerprocessor.Factory{},
++		"span":                  &spanprocessor.Factory{},
+ 	}
+ 	expectedExporters := map[string]exporter.Factory{
+ 		"opencensus":         &opencensusexporter.Factory{},

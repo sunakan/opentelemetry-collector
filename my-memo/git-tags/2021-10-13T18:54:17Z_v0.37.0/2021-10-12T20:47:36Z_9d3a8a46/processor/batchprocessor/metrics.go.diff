@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metrics.go b/processor/batchprocessor/metrics.go
+index 8ae203e91..a2a5a109c 100644
+--- a/processor/batchprocessor/metrics.go
++++ b/processor/batchprocessor/metrics.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package batchprocessor
++package batchprocessor // import "go.opentelemetry.io/collector/processor/batchprocessor"
+ 
+ import (
+ 	"go.opencensus.io/stats"

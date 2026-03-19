@@ -1,0 +1,15 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 3ea884be3..99a80095c 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -152,8 +152,8 @@ var metricDescriptor = &messageStruct{
+ 			originFieldName: "Type",
+ 			returnType:      "MetricType",
+ 			rawType:         "otlpmetrics.MetricDescriptor_Type",
+-			defaultVal:      "MetricTypeUnspecified",
+-			testVal:         "MetricTypeGaugeInt64",
++			defaultVal:      "MetricTypeInvalid",
++			testVal:         "MetricTypeInt64",
+ 		},
+ 	},
+ }

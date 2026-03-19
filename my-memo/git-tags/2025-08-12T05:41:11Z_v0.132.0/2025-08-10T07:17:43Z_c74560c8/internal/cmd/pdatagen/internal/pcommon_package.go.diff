@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pcommon_package.go b/internal/cmd/pdatagen/internal/pcommon_package.go
+index 3a636b57b..7dcf5084d 100644
+--- a/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -8,6 +8,7 @@ var pcommon = &Package{
+ 		name: "pcommon",
+ 		path: "pcommon",
+ 		imports: []string{
++			`"encoding/binary"`,
+ 			`"iter"`,
+ 			`"math"`,
+ 			`"sort"`,

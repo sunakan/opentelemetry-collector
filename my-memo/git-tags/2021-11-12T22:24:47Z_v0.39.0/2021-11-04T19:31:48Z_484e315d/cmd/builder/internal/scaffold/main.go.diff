@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/scaffold/main.go b/cmd/builder/internal/scaffold/main.go
+index 22394c264..17d9066df 100644
+--- a/cmd/builder/internal/scaffold/main.go
++++ b/cmd/builder/internal/scaffold/main.go
+@@ -48,8 +48,8 @@ func main() {
+ 	}
+ 
+ 	info := component.BuildInfo{
+-		Command:  "{{ .Distribution.ExeName }}",
+-		Description: "{{ .Distribution.LongName }}",
++		Command:  "{{ .Distribution.Name }}",
++		Description: "{{ .Distribution.Description }}",
+ 		Version:  "{{ .Distribution.Version }}",
+ 	}
+ 

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/fuzz_test.go b/receiver/otlpreceiver/fuzz_test.go
+index 5366638ab..1875c3a91 100644
+--- a/receiver/otlpreceiver/fuzz_test.go
++++ b/receiver/otlpreceiver/fuzz_test.go
+@@ -28,7 +28,7 @@ func FuzzReceiverHandlers(f *testing.F) {
+ 		} else {
+ 			req.Header.Add("Content-Type", jsonContentType)
+ 		}
+-		set := receivertest.NewNopSettingsWithType(receivertest.NopType)
++		set := receivertest.NewNopSettings(receivertest.NopType)
+ 		set.TelemetrySettings = componenttest.NewNopTelemetrySettings()
+ 		set.ID = otlpReceiverID
+ 		cfg := createDefaultConfig().(*Config)

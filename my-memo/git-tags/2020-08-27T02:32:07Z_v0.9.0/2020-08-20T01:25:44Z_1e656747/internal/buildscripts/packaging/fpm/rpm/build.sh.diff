@@ -1,0 +1,31 @@
+diff --git a/internal/buildscripts/packaging/fpm/rpm/build.sh b/internal/buildscripts/packaging/fpm/rpm/build.sh
+index 718184d42..4079e2bf6 100755
+--- a/internal/buildscripts/packaging/fpm/rpm/build.sh
++++ b/internal/buildscripts/packaging/fpm/rpm/build.sh
+@@ -1,5 +1,19 @@
+ #!/bin/bash
+ 
++# Copyright The OpenTelemetry Authors
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#       http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
+ set -euxo pipefail
+ 
+ SCRIPT_DIR="$( cd "$( dirname ${BASH_SOURCE[0]} )" && pwd )"
+@@ -35,4 +49,4 @@ fpm -s dir -t rpm -n $PKG_NAME -v ${VERSION#v} -f -p "$OUTPUT_DIR" \
+     --pre-uninstall "$PREUNINSTALL_PATH" \
+     $OTELCOL_PATH=/usr/bin/$PROCESS_NAME \
+     $SERVICE_PATH=/lib/systemd/system/$SERVICE_NAME.service \
+-    $CONFIG_PATH=/etc/otel-collector/config.yaml
+\ No newline at end of file
++    $CONFIG_PATH=/etc/otel-collector/config.yaml

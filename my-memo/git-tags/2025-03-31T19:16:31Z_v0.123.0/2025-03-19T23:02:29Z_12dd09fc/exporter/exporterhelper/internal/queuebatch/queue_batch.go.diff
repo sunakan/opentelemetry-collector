@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+new file mode 100644
+index 000000000..3e1ec8df9
+--- /dev/null
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -0,0 +1,12 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package queuebatch // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
++
++import (
++	"go.opentelemetry.io/collector/exporter/exporterqueue"
++)
++
++type Settings[K any] struct {
++	Encoding exporterqueue.Encoding[K]
++}

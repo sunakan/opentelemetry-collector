@@ -1,0 +1,28 @@
+diff --git a/internal/cmd/pdatagen/internal/proto_size.go b/internal/cmd/pdatagen/internal/proto_size.go
+index bb6faee84..b5f7f6a2d 100644
+--- a/internal/cmd/pdatagen/internal/proto_size.go
++++ b/internal/cmd/pdatagen/internal/proto_size.go
+@@ -107,7 +107,7 @@ const sizeProtoSignedVarint = `{{ if .repeated -}}
+ {{- end }}`
+ 
+ func (pf *ProtoField) genSizeProto() string {
+-	tf := pf.sizeTemplateFields()
++	tf := pf.getTemplateFields()
+ 	switch pf.Type {
+ 	case ProtoTypeFixed64, ProtoTypeSFixed64, ProtoTypeDouble:
+ 		return executeTemplate(template.Must(templateNew("sizeProtoI8").Parse(sizeProtoI8)), tf)
+@@ -126,14 +126,3 @@ func (pf *ProtoField) genSizeProto() string {
+ 	}
+ 	panic(fmt.Sprintf("unhandled case %T", pf.Type))
+ }
+-
+-func (pf *ProtoField) sizeTemplateFields() map[string]any {
+-	key := genProtoKey(pf.ID, pf.wireType())
+-	return map[string]any{
+-		"protoTagSize": len(key),
+-		"fieldName":    pf.Name,
+-		"origName":     extractNameFromFullQualified(pf.MessageFullName),
+-		"repeated":     pf.Repeated,
+-		"nullable":     pf.Nullable,
+-	}
+-}

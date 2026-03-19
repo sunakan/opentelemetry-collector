@@ -1,0 +1,10 @@
+diff --git a/connector/connectortest/go.mod b/connector/connectortest/go.mod
+index 2f4c6119e..1a79dc3af 100644
+--- a/connector/connectortest/go.mod
++++ b/connector/connectortest/go.mod
+@@ -69,3 +69,5 @@ replace go.opentelemetry.io/collector/pipeline/xpipeline => ../../pipeline/xpipe
+ replace go.opentelemetry.io/collector/internal/fanoutconsumer => ../../internal/fanoutconsumer
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

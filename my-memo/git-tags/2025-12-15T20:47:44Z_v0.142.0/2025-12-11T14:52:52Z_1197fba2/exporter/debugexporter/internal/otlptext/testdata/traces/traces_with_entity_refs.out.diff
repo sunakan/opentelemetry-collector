@@ -1,0 +1,11 @@
+diff --git a/exporter/debugexporter/internal/otlptext/testdata/traces/traces_with_entity_refs.out b/exporter/debugexporter/internal/otlptext/testdata/traces/traces_with_entity_refs.out
+index 88b5e4056..bf3053307 100644
+--- a/exporter/debugexporter/internal/otlptext/testdata/traces/traces_with_entity_refs.out
++++ b/exporter/debugexporter/internal/otlptext/testdata/traces/traces_with_entity_refs.out
+@@ -29,3 +29,6 @@ Span #0
+     End time       : 1970-01-01 00:00:00 +0000 UTC
+     Status code    : Unset
+     Status message : 
++    DroppedAttributesCount: 0
++    DroppedEventsCount: 0
++    DroppedLinksCount: 0

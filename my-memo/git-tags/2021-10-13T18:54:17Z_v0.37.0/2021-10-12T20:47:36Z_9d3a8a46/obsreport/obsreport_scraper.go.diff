@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_scraper.go b/obsreport/obsreport_scraper.go
+index 01775862d..3d496c24d 100644
+--- a/obsreport/obsreport_scraper.go
++++ b/obsreport/obsreport_scraper.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package obsreport
++package obsreport // import "go.opentelemetry.io/collector/obsreport"
+ 
+ import (
+ 	"context"

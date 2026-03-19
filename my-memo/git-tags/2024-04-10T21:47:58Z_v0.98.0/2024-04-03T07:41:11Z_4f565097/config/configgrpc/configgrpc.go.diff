@@ -1,0 +1,38 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 4ca405e56..fa1f03d0b 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -150,9 +150,8 @@ type ServerConfig struct {
+ 	IncludeMetadata bool `mapstructure:"include_metadata"`
+ }
+ 
+-// SanitizedEndpoint strips the prefix of either http:// or https:// from configgrpc.ClientConfig.Endpoint.
+-// Deprecated: [v0.97.0]
+-func (gcs *ClientConfig) SanitizedEndpoint() string {
++// sanitizedEndpoint strips the prefix of either http:// or https:// from configgrpc.ClientConfig.Endpoint.
++func (gcs *ClientConfig) sanitizedEndpoint() string {
+ 	switch {
+ 	case gcs.isSchemeHTTP():
+ 		return strings.TrimPrefix(gcs.Endpoint, "http://")
+@@ -181,7 +180,7 @@ func (gcs *ClientConfig) ToClientConn(ctx context.Context, host component.Host,
+ 		return nil, err
+ 	}
+ 	opts = append(opts, extraOpts...)
+-	return grpc.DialContext(ctx, gcs.SanitizedEndpoint(), opts...)
++	return grpc.DialContext(ctx, gcs.sanitizedEndpoint(), opts...)
+ }
+ 
+ func (gcs *ClientConfig) toDialOptions(host component.Host, settings component.TelemetrySettings) ([]grpc.DialOption, error) {
+@@ -278,12 +277,6 @@ func (gss *ServerConfig) ToServer(_ context.Context, host component.Host, settin
+ 	return grpc.NewServer(opts...), nil
+ }
+ 
+-// ToServerContext returns a grpc.Server for the configuration
+-// Deprecated: [v0.97.0] Use ToServer instead.
+-func (gss *ServerConfig) ToServerContext(ctx context.Context, host component.Host, settings component.TelemetrySettings, extraOpts ...grpc.ServerOption) (*grpc.Server, error) {
+-	return gss.ToServer(ctx, host, settings, extraOpts...)
+-}
+-
+ func (gss *ServerConfig) toServerOption(host component.Host, settings component.TelemetrySettings) ([]grpc.ServerOption, error) {
+ 	switch gss.NetAddr.Transport {
+ 	case confignet.TransportTypeTCP, confignet.TransportTypeTCP4, confignet.TransportTypeTCP6, confignet.TransportTypeUDP, confignet.TransportTypeUDP4, confignet.TransportTypeUDP6:

@@ -1,0 +1,26 @@
+diff --git a/exporter/exporterparser/opencensus.go b/exporter/exporterparser/opencensus.go
+index 6da453606..85b44b6d4 100644
+--- a/exporter/exporterparser/opencensus.go
++++ b/exporter/exporterparser/opencensus.go
+@@ -30,8 +30,9 @@ import (
+ )
+ 
+ type opencensusConfig struct {
+-	Endpoint    string `mapstructure:"endpoint,omitempty"`
+-	Compression string `mapstructure:"compression,omitempty"`
++	Endpoint    string            `mapstructure:"endpoint,omitempty"`
++	Compression string            `mapstructure:"compression,omitempty"`
++	Headers     map[string]string `mapstructure:"headers,omitempty"`
+ 	// TODO: add insecure, service name options.
+ }
+ 
+@@ -67,6 +68,9 @@ func OpenCensusTraceExportersFromViper(v *viper.Viper) (tes []exporter.TraceExpo
+ 			return nil, nil, nil, fmt.Errorf("Unsupported compression type: %s", ocac.Compression)
+ 		}
+ 	}
++	if len(ocac.Headers) > 0 {
++		opts = append(opts, ocagent.WithHeaders(ocac.Headers))
++	}
+ 
+ 	sde, serr := ocagent.NewExporter(opts...)
+ 	if serr != nil {

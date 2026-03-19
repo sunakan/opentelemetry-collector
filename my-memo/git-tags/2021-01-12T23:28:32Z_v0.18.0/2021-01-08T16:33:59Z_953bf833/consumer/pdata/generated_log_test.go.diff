@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_log_test.go b/consumer/pdata/generated_log_test.go
+index 3c25eed6d..512833f8d 100644
+--- a/consumer/pdata/generated_log_test.go
++++ b/consumer/pdata/generated_log_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
++	otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
+ )
+ 
+ func TestResourceLogsSlice(t *testing.T) {

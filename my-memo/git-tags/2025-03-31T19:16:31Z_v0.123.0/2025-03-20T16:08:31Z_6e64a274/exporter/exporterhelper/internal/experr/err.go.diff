@@ -1,0 +1,35 @@
+diff --git a/exporter/exporterhelper/internal/experr/err.go b/exporter/exporterhelper/internal/experr/err.go
+new file mode 100644
+index 000000000..4080e0369
+--- /dev/null
++++ b/exporter/exporterhelper/internal/experr/err.go
+@@ -0,0 +1,29 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package experr // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/experr"
++
++import (
++	"errors"
++)
++
++type shutdownErr struct {
++	err error
++}
++
++func NewShutdownErr(err error) error {
++	return shutdownErr{err: err}
++}
++
++func (s shutdownErr) Error() string {
++	return "interrupted due to shutdown: " + s.err.Error()
++}
++
++func (s shutdownErr) Unwrap() error {
++	return s.err
++}
++
++func IsShutdownErr(err error) bool {
++	var sdErr shutdownErr
++	return errors.As(err, &sdErr)
++}

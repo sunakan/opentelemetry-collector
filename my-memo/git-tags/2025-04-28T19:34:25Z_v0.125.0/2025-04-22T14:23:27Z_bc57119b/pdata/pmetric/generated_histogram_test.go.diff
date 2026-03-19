@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogram_test.go b/pdata/pmetric/generated_histogram_test.go
+index 8eb2dc9dd..9fad9edcb 100644
+--- a/pdata/pmetric/generated_histogram_test.go
++++ b/pdata/pmetric/generated_histogram_test.go
+@@ -21,6 +21,8 @@ func TestHistogram_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewHistogram(), ms)
+ 	assert.Equal(t, generateTestHistogram(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestHistogram(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newHistogram(&otlpmetrics.Histogram{}, &sharedState)) })
+ 	assert.Panics(t, func() { newHistogram(&otlpmetrics.Histogram{}, &sharedState).MoveTo(dest) })

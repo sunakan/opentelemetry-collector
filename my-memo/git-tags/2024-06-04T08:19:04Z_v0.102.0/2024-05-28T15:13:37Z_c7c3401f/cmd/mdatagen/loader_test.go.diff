@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/loader_test.go b/cmd/mdatagen/loader_test.go
+index 0c32493d2..bdd8ffeeb 100644
+--- a/cmd/mdatagen/loader_test.go
++++ b/cmd/mdatagen/loader_test.go
+@@ -248,6 +248,7 @@ func TestLoadMetadata(t *testing.T) {
+ 							Unit:        strPtr("s"),
+ 							Histogram: &histogram{
+ 								MetricValueType: MetricValueType{pmetric.NumberDataPointValueTypeDouble},
++								Boundaries:      []float64{1, 10, 100},
+ 							},
+ 						},
+ 						"process_runtime_total_alloc_bytes": {

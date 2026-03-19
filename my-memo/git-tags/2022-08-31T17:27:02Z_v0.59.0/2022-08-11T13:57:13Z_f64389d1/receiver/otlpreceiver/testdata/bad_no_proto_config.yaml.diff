@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/testdata/bad_no_proto_config.yaml b/receiver/otlpreceiver/testdata/bad_no_proto_config.yaml
+index cd1ffd31a..96ae057a3 100644
+--- a/receiver/otlpreceiver/testdata/bad_no_proto_config.yaml
++++ b/receiver/otlpreceiver/testdata/bad_no_proto_config.yaml
+@@ -1,16 +1 @@
+-receivers:
+-  otlp:
+-    protocols:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    traces:
+-     receivers: [otlp]
+-     processors: [nop]
+-     exporters: [nop]
++protocols:

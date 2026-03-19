@@ -1,0 +1,18 @@
+diff --git a/model/pdata/timestamp.go b/model/pdata/timestamp.go
+index 9ce0977ab..463551a88 100644
+--- a/model/pdata/timestamp.go
++++ b/model/pdata/timestamp.go
+@@ -22,7 +22,13 @@ import (
+ // 00:00:00 UTC on 1 January 1970.
+ type Timestamp uint64
+ 
++// NewTimestampFromTime constructs a new Timestamp from the provided time.Time.
++func NewTimestampFromTime(t time.Time) Timestamp {
++	return Timestamp(uint64(t.UnixNano()))
++}
++
+ // TimestampFromTime constructs a new Timestamp from the provided time.Time.
++// Deprecated: use NewTimestampFromTime instead.
+ func TimestampFromTime(t time.Time) Timestamp {
+ 	return Timestamp(uint64(t.UnixNano()))
+ }

@@ -1,0 +1,13 @@
+diff --git a/confmap/testdata/config2.yaml b/confmap/testdata/config2.yaml
+new file mode 100644
+index 000000000..6a7cc2534
+--- /dev/null
++++ b/confmap/testdata/config2.yaml
+@@ -0,0 +1,7 @@
++service:
++    extensions: [nop2]
++    pipelines:
++        traces:
++            receivers: [nop2]
++            processors: [nop]
++            exporters: [nop2]

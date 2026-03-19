@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces_test.go b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+index ad9335f40..50737b86b 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces_test.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

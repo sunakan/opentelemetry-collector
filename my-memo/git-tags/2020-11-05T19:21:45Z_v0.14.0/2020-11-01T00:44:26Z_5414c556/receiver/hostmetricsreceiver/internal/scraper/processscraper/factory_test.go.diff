@@ -1,0 +1,18 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
+index 217202f61..d16165e23 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
+@@ -29,11 +29,11 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	assert.IsType(t, &Config{}, cfg)
+ }
+ 
+-func TestCreateMetricsScraper(t *testing.T) {
++func TestCreateResourceMetricsScraper(t *testing.T) {
+ 	factory := &Factory{}
+ 	cfg := &Config{}
+ 
+-	scraper, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg)
++	scraper, err := factory.CreateResourceMetricsScraper(context.Background(), zap.NewNop(), cfg)
+ 
+ 	if runtime.GOOS == "linux" || runtime.GOOS == "windows" {
+ 		assert.NoError(t, err)

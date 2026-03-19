@@ -1,0 +1,19 @@
+diff --git a/component/componenttest/nop_host_test.go b/component/componenttest/nop_host_test.go
+index 111c8f335..68438fc7e 100644
+--- a/component/componenttest/nop_host_test.go
++++ b/component/componenttest/nop_host_test.go
+@@ -8,8 +8,6 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-
+-	"go.opentelemetry.io/collector/component"
+ )
+ 
+ func TestNewNopHost(t *testing.T) {
+@@ -18,5 +16,4 @@ func TestNewNopHost(t *testing.T) {
+ 	require.IsType(t, &nopHost{}, nh)
+ 
+ 	assert.Nil(t, nh.GetExtensions())
+-	assert.Nil(t, nh.GetFactory(component.KindReceiver, component.MustNewType("test")))
+ }

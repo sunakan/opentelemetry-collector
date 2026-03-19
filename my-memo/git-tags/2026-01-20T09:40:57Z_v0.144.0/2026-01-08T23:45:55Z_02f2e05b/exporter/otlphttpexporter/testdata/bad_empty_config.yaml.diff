@@ -1,0 +1,18 @@
+diff --git a/exporter/otlphttpexporter/testdata/bad_empty_config.yaml b/exporter/otlphttpexporter/testdata/bad_empty_config.yaml
+index c52b900bb..f77e33a72 100644
+--- a/exporter/otlphttpexporter/testdata/bad_empty_config.yaml
++++ b/exporter/otlphttpexporter/testdata/bad_empty_config.yaml
+@@ -5,11 +5,11 @@ processors:
+   nop:
+ 
+ exporters:
+-  otlphttp:
++  otlp_http:
+ 
+ service:
+   pipelines:
+     traces:
+       receivers: [nop]
+       processors: [nop]
+-      exporters: [otlphttp]
++      exporters: [otlp_http]

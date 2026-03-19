@@ -1,0 +1,13 @@
+diff --git a/extension/fluentbitextension/config_test.go b/extension/fluentbitextension/config_test.go
+index 35d81d767..cdac3f25f 100644
+--- a/extension/fluentbitextension/config_test.go
++++ b/extension/fluentbitextension/config_test.go
+@@ -27,7 +27,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

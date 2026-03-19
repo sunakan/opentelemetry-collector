@@ -1,0 +1,15 @@
+diff --git a/internal/cgroups/cgroups.go b/internal/cgroups/cgroups.go
+index ed9e46104..37eaaacc0 100644
+--- a/internal/cgroups/cgroups.go
++++ b/internal/cgroups/cgroups.go
+@@ -104,7 +104,9 @@ func NewCGroups(procPathMountInfo, procPathCGroup string) (CGroups, error) {
+ 			if err != nil {
+ 				return err
+ 			}
+-			cgroups[opt] = NewCGroup(cgroupPath)
++			if strings.HasPrefix(cgroupPath, "/sys") {
++				cgroups[opt] = NewCGroup(cgroupPath)
++			}
+ 		}
+ 
+ 		return nil

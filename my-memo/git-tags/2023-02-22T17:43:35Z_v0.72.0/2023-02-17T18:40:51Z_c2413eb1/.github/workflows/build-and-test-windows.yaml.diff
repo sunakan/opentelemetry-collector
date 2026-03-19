@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index d3c5883ce..b6fc359d8 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -19,7 +19,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v3
+         with:
+-          go-version: 1.19
++          go-version: ~1.19.6
+       - name: Cache Go
+         uses: actions/cache@v3
+         env:

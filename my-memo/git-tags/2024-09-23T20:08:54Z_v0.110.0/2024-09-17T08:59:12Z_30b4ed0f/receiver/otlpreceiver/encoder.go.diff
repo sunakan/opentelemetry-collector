@@ -1,0 +1,73 @@
+diff --git a/receiver/otlpreceiver/encoder.go b/receiver/otlpreceiver/encoder.go
+index d37437c7c..6462aec74 100644
+--- a/receiver/otlpreceiver/encoder.go
++++ b/receiver/otlpreceiver/encoder.go
+@@ -12,6 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/plog/plogotlp"
+ 	"go.opentelemetry.io/collector/pdata/pmetric/pmetricotlp"
++	"go.opentelemetry.io/collector/pdata/pprofile/pprofileotlp"
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
+ )
+ 
+@@ -30,10 +31,12 @@ type encoder interface {
+ 	unmarshalTracesRequest(buf []byte) (ptraceotlp.ExportRequest, error)
+ 	unmarshalMetricsRequest(buf []byte) (pmetricotlp.ExportRequest, error)
+ 	unmarshalLogsRequest(buf []byte) (plogotlp.ExportRequest, error)
++	unmarshalProfilesRequest(buf []byte) (pprofileotlp.ExportRequest, error)
+ 
+ 	marshalTracesResponse(ptraceotlp.ExportResponse) ([]byte, error)
+ 	marshalMetricsResponse(pmetricotlp.ExportResponse) ([]byte, error)
+ 	marshalLogsResponse(plogotlp.ExportResponse) ([]byte, error)
++	marshalProfilesResponse(pprofileotlp.ExportResponse) ([]byte, error)
+ 
+ 	marshalStatus(rsp *spb.Status) ([]byte, error)
+ 
+@@ -60,6 +63,12 @@ func (protoEncoder) unmarshalLogsRequest(buf []byte) (plogotlp.ExportRequest, er
+ 	return req, err
+ }
+ 
++func (protoEncoder) unmarshalProfilesRequest(buf []byte) (pprofileotlp.ExportRequest, error) {
++	req := pprofileotlp.NewExportRequest()
++	err := req.UnmarshalProto(buf)
++	return req, err
++}
++
+ func (protoEncoder) marshalTracesResponse(resp ptraceotlp.ExportResponse) ([]byte, error) {
+ 	return resp.MarshalProto()
+ }
+@@ -72,6 +81,10 @@ func (protoEncoder) marshalLogsResponse(resp plogotlp.ExportResponse) ([]byte, e
+ 	return resp.MarshalProto()
+ }
+ 
++func (protoEncoder) marshalProfilesResponse(resp pprofileotlp.ExportResponse) ([]byte, error) {
++	return resp.MarshalProto()
++}
++
+ func (protoEncoder) marshalStatus(resp *spb.Status) ([]byte, error) {
+ 	return proto.Marshal(resp)
+ }
+@@ -100,6 +113,12 @@ func (jsonEncoder) unmarshalLogsRequest(buf []byte) (plogotlp.ExportRequest, err
+ 	return req, err
+ }
+ 
++func (jsonEncoder) unmarshalProfilesRequest(buf []byte) (pprofileotlp.ExportRequest, error) {
++	req := pprofileotlp.NewExportRequest()
++	err := req.UnmarshalJSON(buf)
++	return req, err
++}
++
+ func (jsonEncoder) marshalTracesResponse(resp ptraceotlp.ExportResponse) ([]byte, error) {
+ 	return resp.MarshalJSON()
+ }
+@@ -112,6 +131,10 @@ func (jsonEncoder) marshalLogsResponse(resp plogotlp.ExportResponse) ([]byte, er
+ 	return resp.MarshalJSON()
+ }
+ 
++func (jsonEncoder) marshalProfilesResponse(resp pprofileotlp.ExportResponse) ([]byte, error) {
++	return resp.MarshalJSON()
++}
++
+ func (jsonEncoder) marshalStatus(resp *spb.Status) ([]byte, error) {
+ 	buf := new(bytes.Buffer)
+ 	err := jsonPbMarshaler.Marshal(buf, resp)

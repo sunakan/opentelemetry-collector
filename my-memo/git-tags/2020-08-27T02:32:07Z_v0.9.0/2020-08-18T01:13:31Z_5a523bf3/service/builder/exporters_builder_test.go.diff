@@ -1,0 +1,13 @@
+diff --git a/service/builder/exporters_builder_test.go b/service/builder/exporters_builder_test.go
+index cc166df03..c1b318b94 100644
+--- a/service/builder/exporters_builder_test.go
++++ b/service/builder/exporters_builder_test.go
+@@ -33,7 +33,7 @@ func TestExportersBuilder_Build(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	oceFactory := &opencensusexporter.Factory{}
++	oceFactory := opencensusexporter.NewFactory()
+ 	factories.Exporters[oceFactory.Type()] = oceFactory
+ 	cfg := &configmodels.Config{
+ 		Exporters: map[string]configmodels.Exporter{

@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 3199fee63..2099eec2b 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -93,7 +93,7 @@ var replaceModules = []string{
+ 	"/processor/processortest",
+ 	"/processor/batchprocessor",
+ 	"/processor/memorylimiterprocessor",
+-	"/processor/processorprofiles",
++	"/processor/xprocessor",
+ 	"/receiver",
+ 	"/receiver/nopreceiver",
+ 	"/receiver/otlpreceiver",

@@ -1,0 +1,10 @@
+diff --git a/config/configunmarshaler/doc.go b/config/configunmarshaler/doc.go
+index 93ed4cd05..d2a55f052 100644
+--- a/config/configunmarshaler/doc.go
++++ b/config/configunmarshaler/doc.go
+@@ -15,4 +15,4 @@
+ // Package configunmarshaler implements configuration unmarshalling from a config.Map.
+ // The implementation relies on registered factories that allow creating
+ // default configuration for each type of receiver/exporter/processor.
+-package configunmarshaler
++package configunmarshaler // import "go.opentelemetry.io/collector/config/configunmarshaler"

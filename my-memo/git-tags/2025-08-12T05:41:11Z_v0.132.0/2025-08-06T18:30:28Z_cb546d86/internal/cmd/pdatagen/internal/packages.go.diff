@@ -1,0 +1,31 @@
+diff --git a/internal/cmd/pdatagen/internal/packages.go b/internal/cmd/pdatagen/internal/packages.go
+index 6c4a33ac0..d212d97ec 100644
+--- a/internal/cmd/pdatagen/internal/packages.go
++++ b/internal/cmd/pdatagen/internal/packages.go
+@@ -65,7 +65,7 @@ func (p *Package) GenerateTestFiles() error {
+ 	return nil
+ }
+ 
+-// GenerateInternalFiles generates files with internal pdata structures for this Package.
++// GenerateInternalFiles generates files with internal structs for this Package.
+ func (p *Package) GenerateInternalFiles() error {
+ 	for _, s := range p.structs {
+ 		path := filepath.Join("pdata", "internal", "generated_wrapper_"+strings.ToLower(s.getOriginName())+".go")
+@@ -76,6 +76,17 @@ func (p *Package) GenerateInternalFiles() error {
+ 	return nil
+ }
+ 
++// GenerateInternalTestsFiles generates files with internal tests for this Package.
++func (p *Package) GenerateInternalTestsFiles() error {
++	for _, s := range p.structs {
++		path := filepath.Join("pdata", "internal", "generated_wrapper_"+strings.ToLower(s.getOriginName())+"_test.go")
++		if err := os.WriteFile(path, s.generateInternalTests(p.info), 0o600); err != nil {
++			return err
++		}
++	}
++	return nil
++}
++
+ // usedByOtherDataTypes defines if the package is used by other data types and orig fields of the package's structs
+ // need to be accessible from other pdata packages.
+ func usedByOtherDataTypes(packageName string) bool {

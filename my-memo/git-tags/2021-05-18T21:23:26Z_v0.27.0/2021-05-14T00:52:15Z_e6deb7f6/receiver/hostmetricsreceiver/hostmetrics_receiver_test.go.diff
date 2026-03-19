@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+index c1656fd58..3ecfc3781 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+@@ -165,7 +165,9 @@ func assertIncludesExpectedMetrics(t *testing.T, got pdata.Metrics) {
+ 	}
+ 
+ 	// verify the expected list of metrics returned (os dependent)
+-	expectedMetrics := append(standardMetrics, systemSpecificMetrics[runtime.GOOS]...)
++	var expectedMetrics []string
++	expectedMetrics = append(expectedMetrics, standardMetrics...)
++	expectedMetrics = append(expectedMetrics, systemSpecificMetrics[runtime.GOOS]...)
+ 	assert.Equal(t, len(expectedMetrics), len(returnedMetrics))
+ 	for _, expected := range expectedMetrics {
+ 		assert.Contains(t, returnedMetrics, expected)

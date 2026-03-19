@@ -1,0 +1,12 @@
+diff --git a/processor/memorylimiterprocessor/factory_test.go b/processor/memorylimiterprocessor/factory_test.go
+index bcf768ed7..e774fd542 100644
+--- a/processor/memorylimiterprocessor/factory_test.go
++++ b/processor/memorylimiterprocessor/factory_test.go
+@@ -59,7 +59,6 @@ func TestCreateProcessor(t *testing.T) {
+ 	pCfg := cfg.(*Config)
+ 	pCfg.MemoryLimitMiB = 5722
+ 	pCfg.MemorySpikeLimitMiB = 1907
+-	pCfg.BallastSizeMiB = 2048
+ 	pCfg.CheckInterval = 100 * time.Millisecond
+ 
+ 	tp, err = factory.CreateTracesProcessor(context.Background(), componenttest.NewNopProcessorCreateSettings(), cfg, consumertest.NewNop())

@@ -1,0 +1,24 @@
+diff --git a/processor/queuedprocessor/queued_processor.go b/processor/queuedprocessor/queued_processor.go
+index 4e195c67f..44dcec0e9 100644
+--- a/processor/queuedprocessor/queued_processor.go
++++ b/processor/queuedprocessor/queued_processor.go
+@@ -56,7 +56,7 @@ type queueItem struct {
+ // NewQueuedSpanProcessor returns a span processor that maintains a bounded
+ // in-memory queue of span batches, and sends out span batches using the
+ // provided sender
+-func NewQueuedSpanProcessor(sender consumer.TraceConsumer, opts ...Option) consumer.TraceConsumer {
++func NewQueuedSpanProcessor(sender consumer.TraceConsumer, opts ...Option) processor.TraceProcessor {
+ 	options := Options.apply(opts...)
+ 	sp := newQueuedSpanProcessor(sender, options)
+ 
+@@ -131,6 +131,10 @@ func (sp *queuedSpanProcessor) ConsumeTraceData(ctx context.Context, td consumer
+ 	return nil
+ }
+ 
++func (sp *queuedSpanProcessor) GetCapabilities() processor.Capabilities {
++	return processor.Capabilities{MutatesConsumedData: false}
++}
++
+ func (sp *queuedSpanProcessor) processItemFromQueue(item *queueItem) {
+ 	startTime := time.Now()
+ 	err := sp.sender.ConsumeTraceData(item.ctx, item.td)

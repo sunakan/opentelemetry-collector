@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 72eb6988b..11cf3dc66 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -48,7 +48,7 @@ func createDefaultConfig() component.Config {
+ 				// We almost write 0 bytes, so no need to tune WriteBufferSize.
+ 				ReadBufferSize: 512 * 1024,
+ 			},
+-			HTTP: &httpServerSettings{
++			HTTP: &HTTPConfig{
+ 				HTTPServerSettings: &confighttp.HTTPServerSettings{
+ 					Endpoint: defaultHTTPEndpoint,
+ 				},

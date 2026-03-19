@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+index bdb55f35a..e85c3acaa 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+@@ -105,6 +105,10 @@ func (ms {{ .structName }}) Append(elms ...{{ .itemType }}) {
+ func (ms {{ .structName }}) MoveTo(dest {{ .structName }}) {
+ 	ms.getState().AssertMutable()
+ 	dest.getState().AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = *ms.getOrig()
+ 	*ms.getOrig() = nil
+ }

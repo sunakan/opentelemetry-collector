@@ -1,0 +1,28 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 31f8d4d40..97d040690 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -74,10 +74,6 @@ linters-settings:
+       # See https://github.com/open-telemetry/opentelemetry-collector/issues/2789
+       - fieldalignment
+ 
+-  revive:
+-    # minimal confidence for issues, default is 0.8
+-    min-confidence: 0.8
+-
+   gofmt:
+     # simplify code: gofmt with `-s` option, true by default
+     simplify: true
+@@ -112,6 +108,12 @@ linters-settings:
+     # Optimizes into strings concatenation.
+     strconcat: true
+ 
++  revive:
++    # minimal confidence for issues, default is 0.8
++    min-confidence: 0.8
++    rules:
++      - name: use-any
++
+   depguard:
+     rules:
+       denied-deps:

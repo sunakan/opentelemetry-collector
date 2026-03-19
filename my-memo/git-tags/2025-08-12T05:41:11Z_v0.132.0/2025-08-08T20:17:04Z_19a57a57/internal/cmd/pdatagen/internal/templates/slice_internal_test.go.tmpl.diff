@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice_internal_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice_internal_test.go.tmpl
+index a0ecab3fd..e42c49a6c 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice_internal_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice_internal_test.go.tmpl
+@@ -8,10 +8,8 @@ package internal
+ 
+ import (
+ 	{{ range $index, $element := .testImports -}}
+-	{{ if ne $element "\"go.opentelemetry.io/collector/pdata/internal\"" }}
+ 	{{ $element }}
+-	{{- end }}
+-	{{- end }}
++	{{ end }}
+ )
+ 
+ func TestCopyOrig{{ .elementOriginName }}Slice(t *testing.T) {

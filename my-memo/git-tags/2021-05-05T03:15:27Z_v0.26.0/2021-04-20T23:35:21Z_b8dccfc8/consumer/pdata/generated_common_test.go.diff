@@ -1,0 +1,16 @@
+diff --git a/consumer/pdata/generated_common_test.go b/consumer/pdata/generated_common_test.go
+index fea7e4d4e..e98db0392 100644
+--- a/consumer/pdata/generated_common_test.go
++++ b/consumer/pdata/generated_common_test.go
+@@ -149,9 +149,8 @@ func TestAnyValueArray_Resize(t *testing.T) {
+ func TestAnyValueArray_Append(t *testing.T) {
+ 	es := generateTestAnyValueArray()
+ 
+-	emptyVal := newAttributeValue(&otlpcommon.AnyValue{})
+-	es.Append(emptyVal)
+-	assert.EqualValues(t, emptyVal, es.At(7))
++	es.AppendEmpty()
++	assert.EqualValues(t, newAttributeValue(&otlpcommon.AnyValue{}), es.At(7))
+ 
+ 	value := generateTestAttributeValue()
+ 	es.Append(value)

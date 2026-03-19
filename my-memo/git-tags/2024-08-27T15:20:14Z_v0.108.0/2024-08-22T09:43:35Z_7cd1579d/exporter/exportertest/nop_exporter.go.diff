@@ -1,0 +1,14 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 4034d70ef..73abe305d 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -62,6 +62,9 @@ type nopExporter struct {
+ }
+ 
+ // NewNopBuilder returns an exporter.Builder that constructs nop receivers.
++//
++// Deprecated: [v0.108.0] this builder is being internalized within the service module,
++// and will be removed soon.
+ func NewNopBuilder() *exporter.Builder {
+ 	nopFactory := NewNopFactory()
+ 	return exporter.NewBuilder(

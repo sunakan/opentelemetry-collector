@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils.go b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils.go
+index 9160119c5..690cd677b 100644
+--- a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils.go
++++ b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils.go
+@@ -19,8 +19,8 @@ package pdh
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
+ )
+ 
+ // InitializeMetric initializes the provided metric with

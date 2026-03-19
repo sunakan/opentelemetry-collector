@@ -1,0 +1,10 @@
+diff --git a/processor/memorylimiterprocessor/go.mod b/processor/memorylimiterprocessor/go.mod
+index 52cadcbeb..a043bfb3d 100644
+--- a/processor/memorylimiterprocessor/go.mod
++++ b/processor/memorylimiterprocessor/go.mod
+@@ -62,3 +62,5 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
++
++retract v0.69.0 // Release failed, use v0.69.1

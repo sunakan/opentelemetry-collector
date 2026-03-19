@@ -1,0 +1,33 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/plogotlp_package.go b/pdata/internal/cmd/pdatagen/internal/plogotlp_package.go
+index 4a91a4c96..a5d33fb5d 100644
+--- a/pdata/internal/cmd/pdatagen/internal/plogotlp_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/plogotlp_package.go
+@@ -7,15 +7,19 @@ import (
+ )
+ 
+ var plogotlp = &Package{
+-	name: "plogotlp",
+-	path: filepath.Join("plog", "plogotlp"),
+-	imports: []string{
+-		`otlpcollectorlog "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/logs/v1"`,
+-	},
+-	testImports: []string{
+-		`"testing"`,
+-		``,
+-		`"github.com/stretchr/testify/assert"`,
++	info: &PackageInfo{
++		name: "plogotlp",
++		path: filepath.Join("plog", "plogotlp"),
++		imports: []string{
++			`otlpcollectorlog "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/logs/v1"`,
++		},
++		testImports: []string{
++			`"testing"`,
++			``,
++			`"github.com/stretchr/testify/assert"`,
++			``,
++			`"go.opentelemetry.io/collector/pdata/internal"`,
++		},
+ 	},
+ 	structs: []baseStruct{
+ 		exportLogsPartialSuccess,

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/packages.go b/pdata/internal/cmd/pdatagen/internal/packages.go
+index b8c7fab27..f44b59770 100644
+--- a/pdata/internal/cmd/pdatagen/internal/packages.go
++++ b/pdata/internal/cmd/pdatagen/internal/packages.go
+@@ -119,6 +119,9 @@ func (p *Package) GenerateInternalFiles() error {
+ 		// Add imports
+ 		sb.WriteString("import (" + newLine)
+ 		for _, imp := range p.imports {
++			if imp == `"go.opentelemetry.io/collector/pdata/internal"` {
++				continue
++			}
+ 			if imp != "" {
+ 				sb.WriteString("\t" + imp + newLine)
+ 			} else {

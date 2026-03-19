@@ -1,0 +1,29 @@
+diff --git a/internal/cmd/pdatagen/internal/pprofileotlp_package.go b/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+index e20379e9c..1c0b440ff 100644
+--- a/internal/cmd/pdatagen/internal/pprofileotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pprofileotlp_package.go
+@@ -27,10 +27,24 @@ var pprofileotlp = &Package{
+ 		},
+ 	},
+ 	structs: []baseStruct{
++		exportProfilesResponse,
+ 		exportProfilesPartialSuccess,
+ 	},
+ }
+ 
++var exportProfilesResponse = &messageStruct{
++	structName:     "ExportResponse",
++	description:    "// ExportResponse represents the response for gRPC/HTTP client/server.",
++	originFullName: "otlpcollectorprofile.ExportProfilesServiceResponse",
++	fields: []Field{
++		&MessageField{
++			fieldName:     "PartialSuccess",
++			protoID:       1,
++			returnMessage: exportProfilesPartialSuccess,
++		},
++	},
++}
++
+ var exportProfilesPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",

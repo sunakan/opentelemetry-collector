@@ -1,0 +1,17 @@
+diff --git a/service/internal/zpages/templates/properties_table.html b/service/internal/zpages/templates/properties_table.html
+index a43841ba7..7c3318c10 100644
+--- a/service/internal/zpages/templates/properties_table.html
++++ b/service/internal/zpages/templates/properties_table.html
+@@ -6,9 +6,9 @@
+             <tr style="background: #eee">
+         {{else}}
+             <tr>{{end -}}
+-        <td align=center><b>{{$element|getKey}}</b></td>
++        <td style="text-align: center"><b>{{$element|getKey}}</b></td>
+         <td>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+-        <td align=center>{{$element|getValue}}</td>
++        <td style="text-align: center">{{$element|getValue}}</td>
+         </tr>
+     {{end}}
+ </table>
+\ No newline at end of file

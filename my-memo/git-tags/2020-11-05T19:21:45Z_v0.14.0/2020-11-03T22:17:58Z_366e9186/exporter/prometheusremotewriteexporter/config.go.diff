@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/config.go b/exporter/prometheusremotewriteexporter/config.go
+index 2bfc62109..ea265be0d 100644
+--- a/exporter/prometheusremotewriteexporter/config.go
++++ b/exporter/prometheusremotewriteexporter/config.go
+@@ -32,5 +32,8 @@ type Config struct {
+ 	// See: https://prometheus.io/docs/practices/naming/#metric-names
+ 	Namespace string `mapstructure:"namespace"`
+ 
++	// ExternalLabels defines a map of label keys and values that are allowed to start with reserved prefix "__"
++	ExternalLabels map[string]string `mapstructure:"external_labels"`
++
+ 	HTTPClientSettings confighttp.HTTPClientSettings `mapstructure:",squash"`
+ }

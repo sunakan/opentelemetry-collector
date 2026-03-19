@@ -1,0 +1,27 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index 820ae9955..044a5ea84 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -11,8 +11,6 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-
+-	"go.opentelemetry.io/collector/confmap"
+ )
+ 
+ var _ encoding.TextMarshaler = String("")
+@@ -48,13 +46,6 @@ func TestStringJSON(t *testing.T) {
+ 	assert.Equal(t, `{"opaque":"[REDACTED]","plain":"plain"}`, string(bytes))
+ }
+ 
+-func TestConfMapMarshalConfigOpaque(t *testing.T) {
+-	conf := confmap.New()
+-	assert.NoError(t, conf.Marshal(example))
+-	assert.Equal(t, "[REDACTED]", conf.Get("opaque"))
+-	assert.Equal(t, "plain", conf.Get("plain"))
+-}
+-
+ func TestStringFmt(t *testing.T) {
+ 	examples := []String{"opaque", "s", "veryveryveryveryveryveryveryveryveryverylong"}
+ 	verbs := []string{"%s", "%q", "%v", "%#v", "%+v", "%x"}

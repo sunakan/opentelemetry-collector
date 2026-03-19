@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/databuffer.go b/internal/otlptext/databuffer.go
+index e0ded503b..1c0b530d1 100644
+--- a/internal/otlptext/databuffer.go
++++ b/internal/otlptext/databuffer.go
+@@ -20,7 +20,7 @@ import (
+ 	"strconv"
+ 	"strings"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

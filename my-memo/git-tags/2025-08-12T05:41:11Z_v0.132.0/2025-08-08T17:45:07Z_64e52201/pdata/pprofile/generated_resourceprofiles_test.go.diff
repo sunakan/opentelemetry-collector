@@ -1,0 +1,32 @@
+diff --git a/pdata/pprofile/generated_resourceprofiles_test.go b/pdata/pprofile/generated_resourceprofiles_test.go
+index 9df9e68fd..e62048417 100644
+--- a/pdata/pprofile/generated_resourceprofiles_test.go
++++ b/pdata/pprofile/generated_resourceprofiles_test.go
+@@ -48,6 +48,13 @@ func TestResourceProfiles_Resource(t *testing.T) {
+ 	assert.Equal(t, pcommon.Resource(internal.GenerateTestResource()), ms.Resource())
+ }
+ 
++func TestResourceProfiles_ScopeProfiles(t *testing.T) {
++	ms := NewResourceProfiles()
++	assert.Equal(t, NewScopeProfilesSlice(), ms.ScopeProfiles())
++	ms.orig.ScopeProfiles = internal.GenerateOrigTestScopeProfilesSlice()
++	assert.Equal(t, generateTestScopeProfilesSlice(), ms.ScopeProfiles())
++}
++
+ func TestResourceProfiles_SchemaUrl(t *testing.T) {
+ 	ms := NewResourceProfiles()
+ 	assert.Empty(t, ms.SchemaUrl())
+@@ -59,13 +66,6 @@ func TestResourceProfiles_SchemaUrl(t *testing.T) {
+ 	})
+ }
+ 
+-func TestResourceProfiles_ScopeProfiles(t *testing.T) {
+-	ms := NewResourceProfiles()
+-	assert.Equal(t, NewScopeProfilesSlice(), ms.ScopeProfiles())
+-	ms.orig.ScopeProfiles = internal.GenerateOrigTestScopeProfilesSlice()
+-	assert.Equal(t, generateTestScopeProfilesSlice(), ms.ScopeProfiles())
+-}
+-
+ func generateTestResourceProfiles() ResourceProfiles {
+ 	ms := NewResourceProfiles()
+ 	internal.FillOrigTestResourceProfiles(ms.orig)

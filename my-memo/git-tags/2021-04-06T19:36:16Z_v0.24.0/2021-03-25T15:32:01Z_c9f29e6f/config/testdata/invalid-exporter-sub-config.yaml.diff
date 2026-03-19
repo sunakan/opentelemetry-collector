@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-exporter-sub-config.yaml b/config/testdata/invalid-exporter-sub-config.yaml
+deleted file mode 100644
+index a965a9e9e..000000000
+--- a/config/testdata/invalid-exporter-sub-config.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-    tests
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

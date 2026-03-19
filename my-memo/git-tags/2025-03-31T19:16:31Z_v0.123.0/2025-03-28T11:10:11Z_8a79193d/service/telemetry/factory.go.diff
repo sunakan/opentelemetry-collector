@@ -1,0 +1,37 @@
+diff --git a/service/telemetry/factory.go b/service/telemetry/factory.go
+index 0cff573e2..825744316 100644
+--- a/service/telemetry/factory.go
++++ b/service/telemetry/factory.go
+@@ -98,18 +98,20 @@ func createDefaultConfig() component.Config {
+ 		},
+ 		Metrics: MetricsConfig{
+ 			Level: configtelemetry.LevelNormal,
+-			Readers: []config.MetricReader{
+-				{
+-					Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
+-						WithoutScopeInfo:  newPtr(true),
+-						WithoutUnits:      newPtr(true),
+-						WithoutTypeSuffix: newPtr(true),
+-						Host:              &metricsHost,
+-						Port:              newPtr(8888),
+-						WithResourceConstantLabels: &config.IncludeExclude{
+-							Included: []string{},
+-						},
+-					}}},
++			MeterProvider: config.MeterProvider{
++				Readers: []config.MetricReader{
++					{
++						Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
++							WithoutScopeInfo:  newPtr(true),
++							WithoutUnits:      newPtr(true),
++							WithoutTypeSuffix: newPtr(true),
++							Host:              &metricsHost,
++							Port:              newPtr(8888),
++							WithResourceConstantLabels: &config.IncludeExclude{
++								Included: []string{},
++							},
++						}}},
++					},
+ 				},
+ 			},
+ 		},

@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/config_test.go b/exporter/fileexporter/config_test.go
+index 03d93a3a3..dc533dd59 100644
+--- a/exporter/fileexporter/config_test.go
++++ b/exporter/fileexporter/config_test.go
+@@ -30,7 +30,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	factories.Exporters[typeStr] = factory
+ 	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 

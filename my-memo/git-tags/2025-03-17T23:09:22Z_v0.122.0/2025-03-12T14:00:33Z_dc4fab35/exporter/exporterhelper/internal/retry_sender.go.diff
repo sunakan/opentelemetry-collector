@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/retry_sender.go b/exporter/exporterhelper/internal/retry_sender.go
+index 0bfc5ecf2..24729a66a 100644
+--- a/exporter/exporterhelper/internal/retry_sender.go
++++ b/exporter/exporterhelper/internal/retry_sender.go
+@@ -97,7 +97,7 @@ func (rs *retrySender) Send(ctx context.Context, req request.Request) error {
+ 			return fmt.Errorf("not retryable error: %w", err)
+ 		}
+ 
+-		if errReq, ok := req.(request.RequestErrorHandler); ok {
++		if errReq, ok := req.(request.ErrorHandler); ok {
+ 			req = errReq.OnError(err)
+ 		}
+ 

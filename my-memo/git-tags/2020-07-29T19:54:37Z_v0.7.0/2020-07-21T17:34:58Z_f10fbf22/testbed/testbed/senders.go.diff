@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index 85b88d90e..68b443bfc 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -141,6 +141,8 @@ func NewJaegerGRPCDataSender(host string, port int) *JaegerGRPCDataSender {
+ func (je *JaegerGRPCDataSender) Start() error {
+ 	factory := jaegerexporter.NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*jaegerexporter.Config)
++	// Disable retries, we should push data and if error just log it.
++	cfg.RetrySettings.Disabled = true
+ 	cfg.Endpoint = fmt.Sprintf("%s:%d", je.Host, je.Port)
+ 	cfg.TLSSetting = configtls.TLSClientSetting{
+ 		Insecure: true,

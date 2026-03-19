@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index f2159cf10..e11880d26 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -145,6 +145,9 @@ metrics:
+       level: <development|alpha|beta|stable|deprecated>
+       # Optional: the version current stability was introduced
+       from:
++    # Optional: the reference to a semantic convention
++    semantic_convention:
++      ref:
+ 
+ # Optional: map of event names with the key being the event name and value
+ # being described below.

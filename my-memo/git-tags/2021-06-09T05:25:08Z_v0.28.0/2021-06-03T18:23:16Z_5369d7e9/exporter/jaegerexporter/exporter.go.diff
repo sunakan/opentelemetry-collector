@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/exporter.go b/exporter/jaegerexporter/exporter.go
+index 342900bcc..cedfee983 100644
+--- a/exporter/jaegerexporter/exporter.go
++++ b/exporter/jaegerexporter/exporter.go
+@@ -130,7 +130,7 @@ func (s *protoGRPCSender) start(_ context.Context, host component.Host) error {
+ 	if s.clientSettings == nil {
+ 		return fmt.Errorf("client settings not found")
+ 	}
+-	opts, err := s.clientSettings.ToDialOptions()
++	opts, err := s.clientSettings.ToDialOptions(host.GetExtensions())
+ 	if err != nil {
+ 		return err
+ 	}

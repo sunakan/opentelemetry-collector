@@ -1,0 +1,32 @@
+diff --git a/cmd/mdatagen/main_test.go b/cmd/mdatagen/main_test.go
+index c2ece4eb0..7136b9b8f 100644
+--- a/cmd/mdatagen/main_test.go
++++ b/cmd/mdatagen/main_test.go
+@@ -538,9 +538,12 @@ func TestGenerateTelemetryMetadata(t *testing.T) {
+ package metadata
+ 
+ import (
+-	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/otel/metric"
++	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
++
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+@@ -569,9 +572,12 @@ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ package metadata
+ 
+ import (
+-	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/otel/metric"
++	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
++
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {

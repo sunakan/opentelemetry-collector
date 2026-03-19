@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 1cd6e9153..2b2c3ad8a 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -294,7 +294,7 @@ func (app *Application) executeUnified() {
+ // given by the user.
+ func (app *Application) StartUnified() error {
+ 	rootCmd := &cobra.Command{
+-		Use:  "otelsvc",
++		Use:  "otelcol",
+ 		Long: "OpenTelemetry Collector",
+ 		Run: func(cmd *cobra.Command, args []string) {
+ 			app.init()

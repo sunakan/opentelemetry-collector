@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index e1fd1b625..19f9faabe 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -40,7 +40,6 @@ type Protocols struct {
+ // Config defines configuration for OTLP receiver.
+ type Config struct {
+ 	config.ReceiverSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+-
+ 	// Protocols is the configuration for the supported protocols, currently gRPC and HTTP (Proto and JSON).
+ 	Protocols `mapstructure:"protocols"`
+ }

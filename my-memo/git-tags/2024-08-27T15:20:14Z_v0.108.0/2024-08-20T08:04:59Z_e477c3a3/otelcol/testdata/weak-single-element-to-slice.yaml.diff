@@ -1,0 +1,39 @@
+diff --git a/otelcol/testdata/weak-single-element-to-slice.yaml b/otelcol/testdata/weak-single-element-to-slice.yaml
+deleted file mode 100644
+index 8ce29a012..000000000
+--- a/otelcol/testdata/weak-single-element-to-slice.yaml
++++ /dev/null
+@@ -1,33 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-extensions:
+-  nop:
+-
+-connectors:
+-  nop/con:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      address: localhost:8888
+-  extensions: nop # <-- Single element casted to slice
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop, nop/con]
+-    metrics:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]
+-    logs:
+-      receivers: [nop, nop/con]
+-      processors: [nop]
+-      exporters: [nop]

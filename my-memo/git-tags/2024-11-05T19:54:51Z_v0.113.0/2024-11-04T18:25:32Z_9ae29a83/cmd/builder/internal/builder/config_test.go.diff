@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index a73fa570d..bc91d2d8c 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -235,3 +235,9 @@ func TestSkipsNilFieldValidation(t *testing.T) {
+ 	cfg.Providers = nil
+ 	assert.NoError(t, cfg.Validate())
+ }
++
++func TestValidateDeprecatedOtelColVersion(t *testing.T) {
++	cfg := NewDefaultConfig()
++	cfg.Distribution.OtelColVersion = "test"
++	assert.Error(t, cfg.Validate())
++}

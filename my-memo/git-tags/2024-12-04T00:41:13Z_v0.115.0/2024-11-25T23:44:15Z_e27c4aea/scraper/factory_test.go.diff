@@ -1,0 +1,11 @@
+diff --git a/scraper/factory_test.go b/scraper/factory_test.go
+index 5bb7b2ad0..b440e75e2 100644
+--- a/scraper/factory_test.go
++++ b/scraper/factory_test.go
+@@ -87,5 +87,5 @@ func TestMakeFactoryMap(t *testing.T) {
+ }
+ 
+ func createMetrics(context.Context, Settings, component.Config) (Metrics, error) {
+-	return NewMetrics(context.Background(), nopSettings(), newTestScrapeMetricsFunc(nil))
++	return NewMetrics(newTestScrapeMetricsFunc(nil))
+ }

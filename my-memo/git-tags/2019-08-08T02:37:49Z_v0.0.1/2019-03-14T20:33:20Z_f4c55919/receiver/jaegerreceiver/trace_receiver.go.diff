@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index a611cc9a6..2c98b912f 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -249,6 +249,7 @@ func (jr *jReceiver) SubmitBatches(ctx thrift.Context, batches []*jaeger.Batch)
+ 
+ 		if err == nil {
+ 			ok = true
++			td.SourceFormat = "jaeger"
+ 			jr.nextConsumer.ConsumeTraceData(ctx, td)
+ 			// We MUST unconditionally record metrics from this reception.
+ 			observability.RecordTraceReceiverMetrics(ctxWithReceiverName, len(batch.Spans), len(batch.Spans)-len(td.Spans))

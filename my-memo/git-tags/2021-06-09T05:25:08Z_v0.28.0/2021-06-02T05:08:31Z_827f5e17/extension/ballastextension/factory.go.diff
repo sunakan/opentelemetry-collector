@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/factory.go b/extension/ballastextension/factory.go
+index 828744a19..d12ecadf7 100644
+--- a/extension/ballastextension/factory.go
++++ b/extension/ballastextension/factory.go
+@@ -41,6 +41,6 @@ func createDefaultConfig() config.Extension {
+ 	}
+ }
+ 
+-func createExtension(_ context.Context, params component.ExtensionCreateParams, cfg config.Extension) (component.Extension, error) {
+-	return newMemoryBallast(cfg.(*Config), params.Logger), nil
++func createExtension(_ context.Context, set component.ExtensionCreateSettings, cfg config.Extension) (component.Extension, error) {
++	return newMemoryBallast(cfg.(*Config), set.Logger), nil
+ }

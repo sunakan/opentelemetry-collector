@@ -1,0 +1,12 @@
+diff --git a/translator/trace/jaeger/constants.go b/translator/trace/jaeger/constants.go
+index ff6eb8d64..769dcd790 100644
+--- a/translator/trace/jaeger/constants.go
++++ b/translator/trace/jaeger/constants.go
+@@ -31,6 +31,7 @@ const (
+ 	opencensusLanguage               = "opencensus.language"
+ 	opencensusExporterVersion        = "opencensus.exporterversion"
+ 	opencensusCoreLibVersion         = "opencensus.corelibversion"
++	opencensusResourceType           = "opencensus.resourcetype"
+ )
+ 
+ var (

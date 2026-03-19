@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index e3f62e6e6..5ada0cf22 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -43,7 +43,7 @@ type metric struct {
+ 	// Description of the metric.
+ 	Description string `validate:"required,notblank"`
+ 	// Unit of the metric.
+-	Unit string `validate:"oneof=s By"`
++	Unit string `yaml:"unit"`
+ 
+ 	// Raw data that is used to set Data interface below.
+ 	YmlData *ymlMetricData `yaml:"data" validate:"required"`

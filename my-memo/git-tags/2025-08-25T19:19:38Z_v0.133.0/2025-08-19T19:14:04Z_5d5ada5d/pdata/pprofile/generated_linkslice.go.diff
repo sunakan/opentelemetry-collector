@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_linkslice.go b/pdata/pprofile/generated_linkslice.go
+index 28f6d49de..d94593766 100644
+--- a/pdata/pprofile/generated_linkslice.go
++++ b/pdata/pprofile/generated_linkslice.go
+@@ -99,7 +99,7 @@ func (es LinkSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Link.
+ func (es LinkSlice) AppendEmpty() Link {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrLink())
++	*es.orig = append(*es.orig, internal.NewOrigLink())
+ 	return es.At(es.Len() - 1)
+ }
+ 

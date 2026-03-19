@@ -1,0 +1,13 @@
+diff --git a/service/extensions/extensions_test.go b/service/extensions/extensions_test.go
+index 5de04e431..e2a0db427 100644
+--- a/service/extensions/extensions_test.go
++++ b/service/extensions/extensions_test.go
+@@ -434,6 +434,8 @@ func TestStatusReportedOnStartupShutdown(t *testing.T) {
+ 			var actualStatuses []*component.StatusEvent
+ 			rep := status.NewReporter(func(id *component.InstanceID, ev *component.StatusEvent) {
+ 				actualStatuses = append(actualStatuses, ev)
++			}, func(err error) {
++				require.NoError(t, err)
+ 			})
+ 			extensions.telemetry.Status = rep
+ 			rep.Ready()

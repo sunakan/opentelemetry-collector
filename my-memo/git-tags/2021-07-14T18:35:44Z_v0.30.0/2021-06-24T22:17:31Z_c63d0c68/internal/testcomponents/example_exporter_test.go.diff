@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_exporter_test.go b/internal/testcomponents/example_exporter_test.go
+index fccbcd945..48ae7907b 100644
+--- a/internal/testcomponents/example_exporter_test.go
++++ b/internal/testcomponents/example_exporter_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestExampleExporterConsumer(t *testing.T) {

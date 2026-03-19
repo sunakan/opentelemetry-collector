@@ -1,0 +1,11 @@
+diff --git a/service/internal/configprovider/default.go b/service/internal/configprovider/default.go
+index bf68c5991..b57698c60 100644
+--- a/service/internal/configprovider/default.go
++++ b/service/internal/configprovider/default.go
+@@ -21,5 +21,5 @@ import (
+ // NewDefaultMapProvider returns the default configmapprovider.Provider, and it creates configuration from a file
+ // defined by the given configFile and overwrites fields using properties.
+ func NewDefaultMapProvider(configFileName string, properties []string) configmapprovider.Provider {
+-	return NewExpand(NewMerge(configmapprovider.NewFile(configFileName), configmapprovider.NewProperties(properties)))
++	return NewMerge(configmapprovider.NewFile(configFileName), configmapprovider.NewProperties(properties))
+ }

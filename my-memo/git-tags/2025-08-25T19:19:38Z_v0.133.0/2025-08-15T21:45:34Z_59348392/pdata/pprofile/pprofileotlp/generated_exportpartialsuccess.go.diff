@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+index 2a220583f..9eae053cd 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess.go
+@@ -32,7 +32,7 @@ func newExportPartialSuccess(orig *otlpcollectorprofiles.ExportProfilesPartialSu
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewExportPartialSuccess() ExportPartialSuccess {
+-	return newExportPartialSuccess(&otlpcollectorprofiles.ExportProfilesPartialSuccess{}, internal.NewState())
++	return newExportPartialSuccess(internal.NewOrigPtrExportProfilesPartialSuccess(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

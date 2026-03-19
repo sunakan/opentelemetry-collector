@@ -1,0 +1,22 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index 7ab84a8cf..352720555 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -299,7 +299,7 @@ func TestSendTraces(t *testing.T) {
+ 	assert.EqualValues(t, td, rcv.getLastRequest())
+ 
+ 	md := rcv.getMetadata()
+-	require.EqualValues(t, md.Get("header"), expectedHeader)
++	require.EqualValues(t, expectedHeader, md.Get("header"))
+ 	require.Len(t, md.Get("User-Agent"), 1)
+ 	require.Contains(t, md.Get("User-Agent")[0], "Collector/1.2.3test")
+ 
+@@ -471,7 +471,7 @@ func TestSendMetrics(t *testing.T) {
+ 	assert.EqualValues(t, md, rcv.getLastRequest())
+ 
+ 	mdata := rcv.getMetadata()
+-	require.EqualValues(t, mdata.Get("header"), expectedHeader)
++	require.EqualValues(t, expectedHeader, mdata.Get("header"))
+ 	require.Len(t, mdata.Get("User-Agent"), 1)
+ 	require.Contains(t, mdata.Get("User-Agent")[0], "Collector/1.2.3test")
+ 

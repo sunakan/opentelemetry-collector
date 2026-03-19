@@ -1,0 +1,21 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 5e24e56e7..5e98099e8 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -81,16 +81,6 @@ func NewReceiver(cfg ReceiverSettings) (*Receiver, error) {
+ 	return newReceiver(cfg, featuregate.GetRegistry())
+ }
+ 
+-// Deprecated: [v0.65.0] use NewReceiver.
+-func MustNewReceiver(cfg ReceiverSettings) *Receiver {
+-	rcv, err := NewReceiver(cfg)
+-	if err != nil {
+-		panic(err)
+-	}
+-
+-	return rcv
+-}
+-
+ func newReceiver(cfg ReceiverSettings, registry *featuregate.Registry) (*Receiver, error) {
+ 	rec := &Receiver{
+ 		level:          cfg.ReceiverCreateSettings.TelemetrySettings.MetricsLevel,

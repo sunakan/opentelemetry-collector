@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/log.go b/internal/testdata/log.go
+index b268f9059..7d683bd1e 100644
+--- a/internal/testdata/log.go
++++ b/internal/testdata/log.go
+@@ -17,7 +17,7 @@ package testdata
+ import (
+ 	"time"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var (

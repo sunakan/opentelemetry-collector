@@ -1,0 +1,14 @@
+diff --git a/pdata/plog/generated_resourcelogsslice.go b/pdata/plog/generated_resourcelogsslice.go
+index a9fc6f5c0..eb3584738 100644
+--- a/pdata/plog/generated_resourcelogsslice.go
++++ b/pdata/plog/generated_resourcelogsslice.go
+@@ -149,6 +149,9 @@ func (es ResourceLogsSlice) RemoveIf(f func(ResourceLogs) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ResourceLogsSlice) CopyTo(dest ResourceLogsSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigResourceLogsSlice(*dest.orig, *es.orig)
+ }
+ 

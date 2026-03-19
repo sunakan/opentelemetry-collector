@@ -1,0 +1,15 @@
+diff --git a/receiver/vmmetricsreceiver/config_test.go b/receiver/vmmetricsreceiver/config_test.go
+index d73d6ac7d..3d0e46e6b 100644
+--- a/receiver/vmmetricsreceiver/config_test.go
++++ b/receiver/vmmetricsreceiver/config_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

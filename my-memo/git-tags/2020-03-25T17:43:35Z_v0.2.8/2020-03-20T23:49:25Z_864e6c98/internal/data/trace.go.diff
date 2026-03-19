@@ -1,0 +1,15 @@
+diff --git a/internal/data/trace.go b/internal/data/trace.go
+index 180b9931e..a8b758a5d 100644
+--- a/internal/data/trace.go
++++ b/internal/data/trace.go
+@@ -453,10 +453,6 @@ func (m *SpanLink) SpanID() SpanID {
+ 	return NewSpanID(m.orig.SpanId)
+ }
+ 
+-func (m *SpanLink) SpanIDBytes() []byte {
+-	return m.orig.SpanId
+-}
+-
+ func (m *SpanLink) Attributes() AttributesMap {
+ 	return m.attributes
+ }

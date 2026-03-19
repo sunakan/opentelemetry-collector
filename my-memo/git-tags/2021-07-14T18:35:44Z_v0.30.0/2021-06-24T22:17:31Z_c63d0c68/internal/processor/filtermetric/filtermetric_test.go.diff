@@ -1,0 +1,14 @@
+diff --git a/internal/processor/filtermetric/filtermetric_test.go b/internal/processor/filtermetric/filtermetric_test.go
+index cdc82af17..f7ea026c7 100644
+--- a/internal/processor/filtermetric/filtermetric_test.go
++++ b/internal/processor/filtermetric/filtermetric_test.go
+@@ -19,8 +19,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var (

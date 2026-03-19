@@ -1,0 +1,51 @@
+diff --git a/internal/testcomponents/example_exporter.go b/internal/testcomponents/example_exporter.go
+index 57733314c..664391c51 100644
+--- a/internal/testcomponents/example_exporter.go
++++ b/internal/testcomponents/example_exporter.go
+@@ -17,14 +17,14 @@ package testcomponents
+ import (
+ 	"context"
+ 
+-	"github.com/spf13/viper"
+-
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ )
+ 
++var _ config.CustomUnmarshable = (*ExampleExporter)(nil)
++
+ // ExampleExporter is for testing purposes. We are defining an example config and factory
+ // for "exampleexporter" exporter type.
+ type ExampleExporter struct {
+@@ -35,13 +35,17 @@ type ExampleExporter struct {
+ 	ExtraListSetting        []string                 `mapstructure:"extra_list"`
+ }
+ 
++// Unmarshal a viper data into the config struct
++func (cfg *ExampleExporter) Unmarshal(componentParser *config.Parser) error {
++	return componentParser.UnmarshalExact(cfg)
++}
++
+ const expType = "exampleexporter"
+ 
+ // ExampleExporterFactory is factory for ExampleExporter.
+ var ExampleExporterFactory = exporterhelper.NewFactory(
+ 	expType,
+ 	createExporterDefaultConfig,
+-	exporterhelper.WithCustomUnmarshaler(customUnmarshal),
+ 	exporterhelper.WithTraces(createTracesExporter),
+ 	exporterhelper.WithMetrics(createMetricsExporter),
+ 	exporterhelper.WithLogs(createLogsExporter))
+@@ -59,10 +63,6 @@ func createExporterDefaultConfig() config.Exporter {
+ 	}
+ }
+ 
+-func customUnmarshal(componentViperSection *viper.Viper, intoCfg interface{}) error {
+-	return componentViperSection.UnmarshalExact(intoCfg)
+-}
+-
+ func createTracesExporter(
+ 	_ context.Context,
+ 	_ component.ExporterCreateParams,

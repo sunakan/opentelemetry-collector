@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+index 7ee88e8b6..d96dc6a00 100644
+--- a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+@@ -253,7 +253,7 @@ type workerPool struct {
+ 
+ func newWorkerPool(maxWorkers int) *workerPool {
+ 	workers := make(chan struct{}, maxWorkers)
+-	for i := 0; i < maxWorkers; i++ {
++	for range maxWorkers {
+ 		workers <- struct{}{}
+ 	}
+ 	return &workerPool{workers: workers}

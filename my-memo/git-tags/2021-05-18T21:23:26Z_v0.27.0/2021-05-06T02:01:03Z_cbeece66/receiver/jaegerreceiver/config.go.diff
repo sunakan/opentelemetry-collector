@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index d07f88308..51ab6352d 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -25,7 +25,7 @@ import (
+ )
+ 
+ const (
+-	// The config field name to load the protocol map from
++	// The config field id to load the protocol map from
+ 	protocolsFieldName = "protocols"
+ 
+ 	// Default UDP server options

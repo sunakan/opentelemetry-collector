@@ -1,0 +1,23 @@
+diff --git a/exporter/internal/queue/batcher.go b/exporter/internal/queue/batcher.go
+index 303683fdf..24d05e023 100644
+--- a/exporter/internal/queue/batcher.go
++++ b/exporter/internal/queue/batcher.go
+@@ -5,7 +5,6 @@ package queue // import "go.opentelemetry.io/collector/exporter/internal/queue"
+ 
+ import (
+ 	"context"
+-	"errors"
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -44,10 +43,6 @@ func NewBatcher(batchCfg exporterbatcher.Config, queue Queue[internal.Request],
+ 		}, nil
+ 	}
+ 
+-	if batchCfg.MaxSizeConfig.MaxSizeItems != 0 {
+-		return nil, errors.ErrUnsupported
+-	}
+-
+ 	return &DefaultBatcher{
+ 		BaseBatcher: BaseBatcher{
+ 			batchCfg:   batchCfg,

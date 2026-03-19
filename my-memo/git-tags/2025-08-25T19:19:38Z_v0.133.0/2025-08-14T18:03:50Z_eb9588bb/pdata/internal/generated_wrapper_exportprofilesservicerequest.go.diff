@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+index 8b708fe14..6039a5471 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+@@ -106,7 +106,7 @@ func MarshalProtoOrigExportProfilesServiceRequest(orig *otlpcollectorprofiles.Ex
+ 	pos := len(buf)
+ 	var l int
+ 	_ = l
+-	for i := range orig.ResourceProfiles {
++	for i := len(orig.ResourceProfiles) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigResourceProfiles(orig.ResourceProfiles[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

@@ -1,0 +1,13 @@
+diff --git a/service/internal/components/host_wrapper.go b/service/internal/components/host_wrapper.go
+index c0ce5bb25..78428e4e2 100644
+--- a/service/internal/components/host_wrapper.go
++++ b/service/internal/components/host_wrapper.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package components
++package components // import "go.opentelemetry.io/collector/service/internal/components"
+ 
+ import (
+ 	"net/http"

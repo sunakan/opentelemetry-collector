@@ -1,0 +1,25 @@
+diff --git a/receiver/scraperhelper/scraper.go b/receiver/scraperhelper/scraper.go
+index 9472b1b71..15c4eec63 100644
+--- a/receiver/scraperhelper/scraper.go
++++ b/receiver/scraperhelper/scraper.go
+@@ -23,10 +23,10 @@ import (
+ 	"go.opentelemetry.io/collector/obsreport"
+ )
+ 
+-// Scrape metrics.
++// ScrapeMetrics scrapes metrics.
+ type ScrapeMetrics func(context.Context) (pdata.MetricSlice, error)
+ 
+-// Scrape resource metrics.
++// ScrapeResourceMetrics scrapes resource metrics.
+ type ScrapeResourceMetrics func(context.Context) (pdata.ResourceMetricsSlice, error)
+ 
+ type baseSettings struct {
+@@ -36,6 +36,7 @@ type baseSettings struct {
+ // ScraperOption apply changes to internal options.
+ type ScraperOption func(*baseSettings)
+ 
++// BaseScraper is the base interface for scrapers.
+ type BaseScraper interface {
+ 	component.Component
+ 

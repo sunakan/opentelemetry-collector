@@ -1,0 +1,20 @@
+diff --git a/model/internal/otlp_wrapper.go b/model/internal/otlp_wrapper.go
+index 2acbf9a84..5f084022e 100644
+--- a/model/internal/otlp_wrapper.go
++++ b/model/internal/otlp_wrapper.go
+@@ -36,6 +36,7 @@ func MetricsToOtlp(mw MetricsWrapper) *otlpcollectormetrics.ExportMetricsService
+ 
+ // MetricsFromOtlp internal helper to convert protobuf representation to MetricsWrapper.
+ func MetricsFromOtlp(req *otlpcollectormetrics.ExportMetricsServiceRequest) MetricsWrapper {
++	MetricsCompatibilityChanges(req)
+ 	return MetricsWrapper{req: req}
+ }
+ 
+@@ -74,6 +75,7 @@ func TracesToOtlp(mw TracesWrapper) *otlpcollectortrace.ExportTraceServiceReques
+ 
+ // TracesFromOtlp internal helper to convert protobuf representation to TracesWrapper.
+ func TracesFromOtlp(req *otlpcollectortrace.ExportTraceServiceRequest) TracesWrapper {
++	TracesCompatibilityChanges(req)
+ 	return TracesWrapper{req: req}
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/factory_test.go b/processor/filterprocessor/factory_test.go
+index 7b93b4cf6..5cf12a6d2 100644
+--- a/processor/filterprocessor/factory_test.go
++++ b/processor/filterprocessor/factory_test.go
+@@ -70,7 +70,7 @@ func TestCreateProcessors(t *testing.T) {
+ 
+ 		factory := NewFactory()
+ 		factories.Processors[typeStr] = factory
+-		cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", test.configName), factories)
++		cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", test.configName), factories)
+ 		assert.Nil(t, err)
+ 
+ 		for name, cfg := range cfg.Processors {

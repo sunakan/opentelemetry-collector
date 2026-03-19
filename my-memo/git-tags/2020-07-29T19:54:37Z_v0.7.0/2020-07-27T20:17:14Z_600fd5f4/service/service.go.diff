@@ -1,0 +1,29 @@
+diff --git a/service/service.go b/service/service.go
+index 33856634e..2db988d06 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -396,11 +396,7 @@ func (app *Application) shutdownPipelines(ctx context.Context) error {
+ 		errs = append(errs, errors.Wrap(err, "failed to shutdown exporters"))
+ 	}
+ 
+-	if len(errs) != 0 {
+-		return componenterror.CombineErrors(errs)
+-	}
+-
+-	return nil
++	return componenterror.CombineErrors(errs)
+ }
+ 
+ func (app *Application) shutdownExtensions(ctx context.Context) error {
+@@ -475,10 +471,7 @@ func (app *Application) execute(ctx context.Context, factory ConfigFactory) erro
+ 	app.stateChannel <- Closed
+ 	close(app.stateChannel)
+ 
+-	if len(errs) != 0 {
+-		return componenterror.CombineErrors(errs)
+-	}
+-	return nil
++	return componenterror.CombineErrors(errs)
+ }
+ 
+ // Start starts the collector according to the command and configuration

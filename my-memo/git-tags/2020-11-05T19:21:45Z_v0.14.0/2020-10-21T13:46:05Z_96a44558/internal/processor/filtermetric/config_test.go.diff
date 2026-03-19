@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filtermetric/config_test.go b/internal/processor/filtermetric/config_test.go
+index c0fa0b257..2c28d5d57 100644
+--- a/internal/processor/filtermetric/config_test.go
++++ b/internal/processor/filtermetric/config_test.go
+@@ -42,7 +42,7 @@ var (
+ 
+ func createConfigWithRegexpOptions(filters []string, rCfg *regexp.Config) *MatchProperties {
+ 	cfg := createConfig(filters, filterset.Regexp)
+-	cfg.Config.RegexpConfig = rCfg
++	cfg.RegexpConfig = rCfg
+ 	return cfg
+ }
+ 

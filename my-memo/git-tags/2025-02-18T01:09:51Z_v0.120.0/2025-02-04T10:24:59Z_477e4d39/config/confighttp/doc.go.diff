@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/doc.go b/config/confighttp/doc.go
+index 281386267..70809993d 100644
+--- a/config/confighttp/doc.go
++++ b/config/confighttp/doc.go
+@@ -3,4 +3,7 @@
+ 
+ // Package confighttp defines the configuration settings
+ // for creating an HTTP client and server.
++//
++// The configuration structs in this package may be shared across signals, but
++// assume each struct is used for a single protocol and component.
+ package confighttp // import "go.opentelemetry.io/collector/config/confighttp"

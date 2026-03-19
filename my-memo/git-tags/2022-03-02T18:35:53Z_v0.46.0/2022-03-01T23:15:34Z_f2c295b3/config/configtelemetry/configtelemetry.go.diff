@@ -1,0 +1,13 @@
+diff --git a/config/configtelemetry/configtelemetry.go b/config/configtelemetry/configtelemetry.go
+index 01584f11c..4a1fdce7d 100644
+--- a/config/configtelemetry/configtelemetry.go
++++ b/config/configtelemetry/configtelemetry.go
+@@ -36,6 +36,8 @@ const (
+ 	levelDetailedStr = "detailed"
+ )
+ 
++// Deprecated: UseOpenTelemetryForInternalMetrics has been deprecated. Uses feature flag in
++// telemetry.useOtelForInternalMetrics to handle this feature
+ const UseOpenTelemetryForInternalMetrics = false
+ 
+ // Level is the level of internal telemetry (metrics, logs, traces about the component itself)

@@ -1,0 +1,13 @@
+diff --git a/otelcol/config_test.go b/otelcol/config_test.go
+index e0455330b..adcf0eca4 100644
+--- a/otelcol/config_test.go
++++ b/otelcol/config_test.go
+@@ -37,7 +37,7 @@ func (c *errConfig) Validate() error {
+ }
+ 
+ func TestConfigValidate(t *testing.T) {
+-	var testCases = []struct {
++	testCases := []struct {
+ 		name     string // test case name (also file name containing config yaml)
+ 		cfgFn    func() *Config
+ 		expected error

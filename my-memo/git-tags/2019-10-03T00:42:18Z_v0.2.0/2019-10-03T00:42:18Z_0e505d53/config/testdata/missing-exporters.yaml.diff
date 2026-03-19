@@ -1,0 +1,15 @@
+diff --git a/config/testdata/missing-exporters.yaml b/config/testdata/missing-exporters.yaml
+index 7c316118f..bcedbc83f 100644
+--- a/config/testdata/missing-exporters.yaml
++++ b/config/testdata/missing-exporters.yaml
+@@ -3,6 +3,7 @@ receivers:
+ exporters:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [invalidreceivername]
++service:
++  pipelines:
++    traces:
++      receivers: [invalidreceivername]

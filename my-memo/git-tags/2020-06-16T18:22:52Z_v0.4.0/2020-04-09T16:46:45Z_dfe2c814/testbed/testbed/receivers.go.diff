@@ -1,0 +1,24 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index 3d7041371..25e8ea9b9 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -22,6 +22,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/jaegerreceiver"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/opencensusreceiver"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/otlpreceiver"
+@@ -59,6 +60,11 @@ func (mb *DataReceiverBase) GetFactory(kind component.Kind, componentType string
+ 	return nil
+ }
+ 
++// Return map of extensions. Only enabled and created extensions will be returned.
++func (mb *DataReceiverBase) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++	return nil
++}
++
+ // OCDataReceiver implements OpenCensus format receiver.
+ type OCDataReceiver struct {
+ 	DataReceiverBase

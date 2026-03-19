@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 7d7b6d0e3..bb609ed1a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -146,6 +146,7 @@
+   in 0.11.0 are no longer converted to the messages and fields that replaced the deprecated ones.
+   Received deprecated messages and fields will be now ignored. In OTLP/JSON in the
+   instrumentationLibraryLogs object the "logs" field is now named "logRecords" (#4724)
++- Deprecate `service.NewWindowsService`, add `service.NewSvcHandler` (#4783).
+ 
+ ### 🚩 Deprecations 🚩
+ 

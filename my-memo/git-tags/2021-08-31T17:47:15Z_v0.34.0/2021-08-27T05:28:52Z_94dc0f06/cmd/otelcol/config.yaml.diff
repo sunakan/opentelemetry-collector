@@ -1,0 +1,16 @@
+diff --git a/cmd/otelcol/config.yaml b/cmd/otelcol/config.yaml
+index 747a00217..81d0566e9 100644
+--- a/cmd/otelcol/config.yaml
++++ b/cmd/otelcol/config.yaml
+@@ -1,5 +1,4 @@
+ extensions:
+-  health_check:
+   pprof:
+     endpoint: 0.0.0.0:1777
+   zpages:
+@@ -32,4 +31,4 @@ service:
+       processors: [batch]
+       exporters: [logging]
+ 
+-  extensions: [health_check, pprof, zpages]
++  extensions: [pprof, zpages]

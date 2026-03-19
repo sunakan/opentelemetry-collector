@@ -1,0 +1,23 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver_test.go b/receiver/kafkareceiver/kafka_receiver_test.go
+index 515a36c61..c914da0f8 100644
+--- a/receiver/kafkareceiver/kafka_receiver_test.go
++++ b/receiver/kafkareceiver/kafka_receiver_test.go
+@@ -282,15 +282,15 @@ func (t testConsumerGroupSession) GenerationID() int32 {
+ 	panic("implement me")
+ }
+ 
+-func (t testConsumerGroupSession) MarkOffset(topic string, partition int32, offset int64, metadata string) {
++func (t testConsumerGroupSession) MarkOffset(string, int32, int64, string) {
+ 	panic("implement me")
+ }
+ 
+-func (t testConsumerGroupSession) ResetOffset(topic string, partition int32, offset int64, metadata string) {
++func (t testConsumerGroupSession) ResetOffset(string, int32, int64, string) {
+ 	panic("implement me")
+ }
+ 
+-func (t testConsumerGroupSession) MarkMessage(msg *sarama.ConsumerMessage, metadata string) {
++func (t testConsumerGroupSession) MarkMessage(*sarama.ConsumerMessage, string) {
+ }
+ 
+ func (t testConsumerGroupSession) Context() context.Context {

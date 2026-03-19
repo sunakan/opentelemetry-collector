@@ -1,0 +1,25 @@
+diff --git a/builder/.github/mergify.yml b/builder/.github/mergify.yml
+new file mode 100644
+index 000000000..ca5b7649f
+--- /dev/null
++++ b/builder/.github/mergify.yml
+@@ -0,0 +1,19 @@
++pull_request_rules:
++  - name: remove outdated reviews
++    conditions:
++      - base=main
++    actions:
++      dismiss_reviews: {}
++
++  - name: Automatic merge when all checks pass and the PR is approved
++    conditions:
++      - "#approved-reviews-by>=1"
++      - "-draft"
++      - "status-success=Unit tests"
++      - "status-success=Code standards (linting)"
++      - "status-success=Security"
++      - "status-success=Integration test"
++    actions:
++      merge:
++        method: squash
++        commit_message: title+body

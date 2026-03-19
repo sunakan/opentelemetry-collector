@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index eb4d314ef..c2a9ba785 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -83,6 +83,10 @@ func NewMetricsExporter(
+ 		return nil, errNilConfig
+ 	}
+ 
++	if logger == nil {
++		return nil, errNilLogger
++	}
++
+ 	if pushMetricsData == nil {
+ 		return nil, errNilPushMetricsData
+ 	}

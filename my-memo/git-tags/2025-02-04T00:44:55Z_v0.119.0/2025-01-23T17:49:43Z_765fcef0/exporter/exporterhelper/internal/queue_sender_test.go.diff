@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 1f340f47b..003b23bb0 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -549,8 +549,9 @@ func TestQueueSenderNoStartShutdown(t *testing.T) {
+ 					ExporterSettings: set,
+ 				},
+ 				exporterqueue.NewDefaultConfig())
+-			obsrep, err := NewExporter(ObsReportSettings{
++			obsrep, err := NewObsReport(ObsReportSettings{
+ 				ExporterSettings: set,
++				Signal:           pipeline.SignalTraces,
+ 			})
+ 			require.NoError(t, err)
+ 			qs := NewQueueSender(queue, set, 1, "", obsrep, exporterbatcher.NewDefaultConfig())

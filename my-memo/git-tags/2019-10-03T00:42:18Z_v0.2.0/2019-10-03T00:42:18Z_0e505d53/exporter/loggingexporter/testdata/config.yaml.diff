@@ -1,0 +1,25 @@
+diff --git a/exporter/loggingexporter/testdata/config.yaml b/exporter/loggingexporter/testdata/config.yaml
+index ed67211f1..3e1c6004e 100644
+--- a/exporter/loggingexporter/testdata/config.yaml
++++ b/exporter/loggingexporter/testdata/config.yaml
+@@ -9,11 +9,12 @@ exporters:
+   logging/2:
+     loglevel: debug
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [logging]
+-  metrics:
+-    receivers: [examplereceiver]
+-    exporters: [logging,logging/2]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [logging]
++    metrics:
++      receivers: [examplereceiver]
++      exporters: [logging,logging/2]

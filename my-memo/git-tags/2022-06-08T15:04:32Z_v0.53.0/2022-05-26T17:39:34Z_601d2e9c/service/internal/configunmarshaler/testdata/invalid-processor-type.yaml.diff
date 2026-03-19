@@ -1,0 +1,24 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml
+index 69d87aac4..58973cc9d 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+   /custom:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

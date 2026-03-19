@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/jaeger_marshaller.go b/exporter/kafkaexporter/jaeger_marshaller.go
+index 10d2fc1da..7b9b2236d 100644
+--- a/exporter/kafkaexporter/jaeger_marshaller.go
++++ b/exporter/kafkaexporter/jaeger_marshaller.go
+@@ -29,7 +29,7 @@ type jaegerMarshaller struct {
+ 	marshaller jaegerSpanMarshaller
+ }
+ 
+-var _ TracesMarshaller = (*jaegerMarshaller)(nil)
++var _ Marshaller = (*jaegerMarshaller)(nil)
+ 
+ func (j jaegerMarshaller) Marshal(traces pdata.Traces) ([]Message, error) {
+ 	batches, err := jaegertranslator.InternalTracesToJaegerProto(traces)

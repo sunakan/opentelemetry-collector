@@ -1,0 +1,13 @@
+diff --git a/exporter/exportertest/nop_exporter_test.go b/exporter/exportertest/nop_exporter_test.go
+index 7797ec669..608bc2f33 100644
+--- a/exporter/exportertest/nop_exporter_test.go
++++ b/exporter/exportertest/nop_exporter_test.go
+@@ -22,7 +22,7 @@ import (
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ func TestNopTraceExporter_NoErrors(t *testing.T) {

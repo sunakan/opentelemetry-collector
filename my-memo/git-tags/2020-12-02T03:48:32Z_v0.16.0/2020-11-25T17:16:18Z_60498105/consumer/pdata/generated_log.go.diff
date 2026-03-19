@@ -1,0 +1,14 @@
+diff --git a/consumer/pdata/generated_log.go b/consumer/pdata/generated_log.go
+index 3ffb1ad82..4efff33d6 100644
+--- a/consumer/pdata/generated_log.go
++++ b/consumer/pdata/generated_log.go
+@@ -354,9 +354,6 @@ func (ms InstrumentationLibraryLogs) IsNil() bool {
+ }
+ 
+ // InstrumentationLibrary returns the instrumentationlibrary associated with this InstrumentationLibraryLogs.
+-// If no instrumentationlibrary available, it creates an empty message and associates it with this InstrumentationLibraryLogs.
+-//
+-//  Empty initialized InstrumentationLibraryLogs will return "nil" InstrumentationLibrary.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+ func (ms InstrumentationLibraryLogs) InstrumentationLibrary() InstrumentationLibrary {

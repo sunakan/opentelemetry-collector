@@ -1,0 +1,13 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 604f484ab..acc7149cb 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -87,7 +87,7 @@ func TestConfmapMarshalConfig(t *testing.T) {
+ 		Telemetry: defaultTelConfig,
+ 	}))
+ 	assert.Equal(t, map[string]any{
+-		"pipelines": map[string]any{},
++		"pipelines": map[string]any(nil),
+ 		"telemetry": map[string]any{
+ 			"logs": map[string]any{
+ 				"encoding":           "console",

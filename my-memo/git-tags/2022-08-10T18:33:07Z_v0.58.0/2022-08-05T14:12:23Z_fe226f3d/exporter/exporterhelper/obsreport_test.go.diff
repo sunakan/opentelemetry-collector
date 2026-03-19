@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterhelper/obsreport_test.go b/exporter/exporterhelper/obsreport_test.go
+index 16a781298..3a3669965 100644
+--- a/exporter/exporterhelper/obsreport_test.go
++++ b/exporter/exporterhelper/obsreport_test.go
+@@ -23,7 +23,6 @@ import (
+ 	"go.opencensus.io/tag"
+ 
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/obsreport/obsreporttest"
+ )
+@@ -37,7 +36,6 @@ func TestExportEnqueueFailure(t *testing.T) {
+ 
+ 	insts := newInstruments(metric.NewRegistry())
+ 	obsrep := newObsExporter(obsreport.ExporterSettings{
+-		Level:                  configtelemetry.LevelNormal,
+ 		ExporterID:             exporter,
+ 		ExporterCreateSettings: tt.ToExporterCreateSettings(),
+ 	}, insts)

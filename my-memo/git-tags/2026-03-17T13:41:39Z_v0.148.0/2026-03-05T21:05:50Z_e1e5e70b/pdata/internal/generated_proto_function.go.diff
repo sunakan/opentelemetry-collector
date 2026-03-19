@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_function.go b/pdata/internal/generated_proto_function.go
+index 06bc218b1..a2d0b1b86 100644
+--- a/pdata/internal/generated_proto_function.go
++++ b/pdata/internal/generated_proto_function.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -31,7 +32,7 @@ var (
+ )
+ 
+ func NewFunction() *Function {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &Function{}
+ 	}
+ 	return protoPoolFunction.Get().(*Function)
+@@ -42,7 +43,7 @@ func DeleteFunction(orig *Function, nullable bool) {
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

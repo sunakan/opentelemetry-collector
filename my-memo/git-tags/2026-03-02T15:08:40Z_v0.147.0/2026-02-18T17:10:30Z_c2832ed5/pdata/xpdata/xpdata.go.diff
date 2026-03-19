@@ -1,0 +1,12 @@
+diff --git a/pdata/xpdata/xpdata.go b/pdata/xpdata/xpdata.go
+new file mode 100644
+index 000000000..05fc0d9d9
+--- /dev/null
++++ b/pdata/xpdata/xpdata.go
+@@ -0,0 +1,6 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++package xpdata // import "go.opentelemetry.io/collector/pdata/xpdata"

@@ -1,0 +1,16 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+index 91ff39cdb..b421c9943 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+@@ -34,11 +34,6 @@ const (
+ type Factory struct {
+ }
+ 
+-// Type gets the type of the scraper config created by this Factory.
+-func (f *Factory) Type() string {
+-	return TypeStr
+-}
+-
+ // CreateDefaultConfig creates the default configuration for the Scraper.
+ func (f *Factory) CreateDefaultConfig() internal.Config {
+ 	return &Config{}

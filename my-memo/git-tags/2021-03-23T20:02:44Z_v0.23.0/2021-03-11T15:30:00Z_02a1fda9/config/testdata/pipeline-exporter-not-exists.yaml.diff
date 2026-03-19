@@ -1,0 +1,17 @@
+diff --git a/config/testdata/pipeline-exporter-not-exists.yaml b/config/testdata/pipeline-exporter-not-exists.yaml
+deleted file mode 100644
+index 4fd838376..000000000
+--- a/config/testdata/pipeline-exporter-not-exists.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [examplereceiver]
+-      exporters: [nosuchexporter]

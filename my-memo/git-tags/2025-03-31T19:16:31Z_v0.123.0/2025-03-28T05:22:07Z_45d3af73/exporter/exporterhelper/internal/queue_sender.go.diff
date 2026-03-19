@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index 2f8a2fe85..157328692 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -25,7 +25,7 @@ type QueueBatchSettings[K any] struct {
+ }
+ 
+ // NewDefaultQueueConfig returns the default config for queuebatch.Config.
+-// By default, the queue stores 1000 items of telemetry and is non-blocking when full.
++// By default, the queue stores 1000 requests of telemetry and is non-blocking when full.
+ func NewDefaultQueueConfig() queuebatch.Config {
+ 	return queuebatch.Config{
+ 		Enabled:      true,

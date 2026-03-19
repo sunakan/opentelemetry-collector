@@ -1,0 +1,39 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 40f201c89..1cb5460a6 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -28,6 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ type logDataBuffer struct {
+@@ -280,6 +281,8 @@ func attributeValueToString(av pdata.AttributeValue) string {
+ 		return strconv.FormatInt(av.IntVal(), 10)
+ 	case pdata.AttributeValueARRAY:
+ 		return attributeValueArrayToString(av.ArrayVal())
++	case pdata.AttributeValueMAP:
++		return attributeMapToString(av.MapVal())
+ 	default:
+ 		return fmt.Sprintf("<Unknown OpenTelemetry attribute value type %q>", av.Type())
+ 	}
+@@ -300,6 +303,17 @@ func attributeValueArrayToString(av pdata.AnyValueArray) string {
+ 	return b.String()
+ }
+ 
++func attributeMapToString(av pdata.AttributeMap) string {
++	var b strings.Builder
++	b.WriteString("{\n")
++
++	av.Sort().ForEach(func(k string, v pdata.AttributeValue) {
++		fmt.Fprintf(&b, "     -> %s: %s(%s)\n", k, v.Type(), tracetranslator.AttributeValueToString(v, false))
++	})
++	b.WriteByte('}')
++	return b.String()
++}
++
+ type loggingExporter struct {
+ 	logger *zap.Logger
+ 	debug  bool

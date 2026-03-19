@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 57f130b7a..6564ea4e8 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -57,7 +57,7 @@ func createDefaultConfig() component.Config {
+ 
+ 	return &Config{
+ 		Protocols: Protocols{
+-			GRPC: configoptional.Default(*grpcCfg),
++			GRPC: configoptional.Default(grpcCfg),
+ 			HTTP: configoptional.Default(HTTPConfig{
+ 				ServerConfig:   httpCfg,
+ 				TracesURLPath:  defaultTracesURLPath,

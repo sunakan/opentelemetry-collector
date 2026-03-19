@@ -1,0 +1,13 @@
+diff --git a/builder/internal/builder/config.go b/builder/internal/builder/config.go
+index 059fea92f..2dcf7cbec 100644
+--- a/builder/internal/builder/config.go
++++ b/builder/internal/builder/config.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package builder
++package builder // import "go.opentelemetry.io/collector/builder/internal/builder"
+ 
+ import (
+ 	"errors"

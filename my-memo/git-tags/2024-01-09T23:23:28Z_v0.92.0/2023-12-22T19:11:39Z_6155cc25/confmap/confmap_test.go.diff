@@ -1,0 +1,14 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 211eca429..7cfab3fb4 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -149,7 +149,8 @@ func TestUnmarshalWithErrorUnused(t *testing.T) {
+ 		"string":  "this is a string",
+ 	}
+ 	conf := NewFromStringMap(stringMap)
+-	assert.Error(t, conf.Unmarshal(&TestIDConfig{}, WithErrorUnused()))
++	assert.Error(t, conf.Unmarshal(&TestIDConfig{}))
++	assert.NoError(t, conf.Unmarshal(&TestIDConfig{}, WithIgnoreUnused()))
+ }
+ 
+ type TestConfig struct {

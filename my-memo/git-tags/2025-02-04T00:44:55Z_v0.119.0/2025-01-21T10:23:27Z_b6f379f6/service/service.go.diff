@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index cf4b34752..b47ecb0fd 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -208,7 +208,7 @@ func logsAboutMeterProvider(logger *zap.Logger, cfg telemetry.MetricsConfig, mp
+ 		return
+ 	}
+ 
+-	//nolint
++	//nolint:staticcheck
+ 	if len(cfg.Address) != 0 {
+ 		logger.Warn("service::telemetry::metrics::address is being deprecated in favor of service::telemetry::metrics::readers")
+ 	}

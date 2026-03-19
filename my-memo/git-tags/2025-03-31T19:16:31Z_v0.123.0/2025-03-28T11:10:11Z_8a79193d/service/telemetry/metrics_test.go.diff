@@ -1,0 +1,38 @@
+diff --git a/service/telemetry/metrics_test.go b/service/telemetry/metrics_test.go
+index 05035e9a2..b7c0d445e 100644
+--- a/service/telemetry/metrics_test.go
++++ b/service/telemetry/metrics_test.go
+@@ -97,11 +97,13 @@ func TestTelemetryInit(t *testing.T) {
+ 		cfg := Config{
+ 			Metrics: MetricsConfig{
+ 				Level: configtelemetry.LevelDetailed,
+-				Readers: []config.MetricReader{{
+-					Pull: &config.PullMetricReader{
+-						Exporter: config.PullMetricExporter{Prometheus: prom},
+-					},
+-				}},
++				MeterProvider: config.MeterProvider{
++					Readers: []config.MetricReader{{
++						Pull: &config.PullMetricReader{
++							Exporter: config.PullMetricExporter{Prometheus: prom},
++						},
++					}},
++				},
+ 			},
+ 		}
+ 		t.Run(tt.name, func(t *testing.T) {
+@@ -217,9 +219,11 @@ func TestInstrumentEnabled(t *testing.T) {
+ 	cfg := Config{
+ 		Metrics: MetricsConfig{
+ 			Level: configtelemetry.LevelDetailed,
+-			Readers: []config.MetricReader{{
+-				Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: prom}},
+-			}},
++			MeterProvider: config.MeterProvider{
++				Readers: []config.MetricReader{{
++					Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: prom}},
++				}},
++			},
+ 		},
+ 	}
+ 	sdk, err := config.NewSDK(

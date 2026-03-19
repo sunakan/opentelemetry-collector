@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/metric_data_point_flags.go b/pdata/pmetric/metric_data_point_flags.go
+index d7aa38820..23c15352a 100644
+--- a/pdata/pmetric/metric_data_point_flags.go
++++ b/pdata/pmetric/metric_data_point_flags.go
+@@ -18,9 +18,6 @@ const noRecordValueMask = uint32(1)
+ 
+ var DefaultMetricDataPointFlags = MetricDataPointFlags(0)
+ 
+-// Deprecated: [v0.60.0] Use MetricDataPointFlags.
+-type MetricDataPointFlagsImmutable = MetricDataPointFlags
+-
+ // MetricDataPointFlags defines how a metric aggregator reports aggregated values.
+ // It describes how those values relate to the time interval over which they are aggregated.
+ //

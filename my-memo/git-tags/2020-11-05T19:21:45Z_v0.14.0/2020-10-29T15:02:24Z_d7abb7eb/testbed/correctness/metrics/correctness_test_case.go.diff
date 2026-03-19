@@ -1,0 +1,12 @@
+diff --git a/testbed/correctness/metrics/correctness_test_case.go b/testbed/correctness/metrics/correctness_test_case.go
+index 1281dad7d..c8f44b06e 100644
+--- a/testbed/correctness/metrics/correctness_test_case.go
++++ b/testbed/correctness/metrics/correctness_test_case.go
+@@ -58,7 +58,6 @@ func (tc *correctnessTestCase) startCollector() {
+ 	err = tc.collector.Start(testbed.StartParams{
+ 		Name:        "Agent",
+ 		LogFilePath: fname,
+-		Cmd:         "foo",
+ 		CmdArgs:     []string{"--metrics-level=NONE"},
+ 	})
+ 	require.NoError(tc.t, err)

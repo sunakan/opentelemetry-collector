@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/contract_checker.go b/receiver/receivertest/contract_checker.go
+index c3378747b..a8b95e06b 100644
+--- a/receiver/receivertest/contract_checker.go
++++ b/receiver/receivertest/contract_checker.go
+@@ -193,7 +193,7 @@ func checkConsumeContractScenario(params CheckConsumeContractParams, decisionFun
+ 	}
+ 
+ 	err = receiver.Shutdown(ctx)
+-	assert.NoError(params.T, err)
++	require.NoError(params.T, err)
+ 
+ 	// Print some stats to help debug test failures.
+ 	fmt.Printf(

@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 6488250d2..e3d4ccbd2 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -15,7 +15,6 @@ import (
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 	"go.opentelemetry.io/collector/exporter/exporterqueue"
+-	"go.opentelemetry.io/collector/exporter/internal/queue"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/pipeline"
+ )
+@@ -135,7 +134,7 @@ func NewMetricsRequest(
+ 			return consumererror.NewPermanent(cErr)
+ 		}
+ 		sErr := be.Send(ctx, req)
+-		if errors.Is(sErr, queue.ErrQueueIsFull) {
++		if errors.Is(sErr, exporterqueue.ErrQueueIsFull) {
+ 			be.Obsrep.RecordEnqueueFailure(ctx, pipeline.SignalMetrics, int64(req.ItemsCount()))
+ 		}
+ 		return sErr

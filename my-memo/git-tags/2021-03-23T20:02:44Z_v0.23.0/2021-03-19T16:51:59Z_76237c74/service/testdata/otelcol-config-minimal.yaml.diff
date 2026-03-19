@@ -1,0 +1,9 @@
+diff --git a/service/testdata/otelcol-config-minimal.yaml b/service/testdata/otelcol-config-minimal.yaml
+index 372bd08d5..5cc350383 100644
+--- a/service/testdata/otelcol-config-minimal.yaml
++++ b/service/testdata/otelcol-config-minimal.yaml
+@@ -12,4 +12,3 @@ service:
+     traces:
+       receivers: [otlp]
+       exporters: [otlp]
+-

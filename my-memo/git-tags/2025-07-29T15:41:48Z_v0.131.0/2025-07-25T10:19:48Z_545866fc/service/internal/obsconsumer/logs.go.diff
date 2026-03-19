@@ -1,0 +1,26 @@
+diff --git a/service/internal/obsconsumer/logs.go b/service/internal/obsconsumer/logs.go
+index 53d129f94..8a0c9b91e 100644
+--- a/service/internal/obsconsumer/logs.go
++++ b/service/internal/obsconsumer/logs.go
+@@ -9,6 +9,7 @@ import (
+ 	"go.opentelemetry.io/otel/metric"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/internal/telemetry"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ )
+@@ -62,7 +63,12 @@ func (c obsLogs) ConsumeLogs(ctx context.Context, ld plog.Logs) error {
+ 
+ 	err := c.consumer.ConsumeLogs(ctx, ld)
+ 	if err != nil {
+-		attrs = &c.withFailureAttrs
++		if consumererror.IsDownstream(err) {
++			attrs = &c.withRefusedAttrs
++		} else {
++			attrs = &c.withFailureAttrs
++			err = consumererror.NewDownstream(err)
++		}
+ 	}
+ 	return err
+ }

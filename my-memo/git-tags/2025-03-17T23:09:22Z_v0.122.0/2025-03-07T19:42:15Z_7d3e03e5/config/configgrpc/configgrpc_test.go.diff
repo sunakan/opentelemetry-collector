@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 25d933e59..0584bfac4 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -1165,7 +1165,7 @@ func sendTestRequest(t *testing.T, gcs ClientConfig) (ptraceotlp.ExportResponse,
+ 
+ // tempSocketName provides a temporary Unix socket name for testing.
+ func tempSocketName(t *testing.T) string {
+-	tmpfile, err := os.CreateTemp("", "sock")
++	tmpfile, err := os.CreateTemp(t.TempDir(), "sock")
+ 	require.NoError(t, err)
+ 	require.NoError(t, tmpfile.Close())
+ 	socket := tmpfile.Name()

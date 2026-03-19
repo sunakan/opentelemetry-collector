@@ -1,0 +1,16 @@
+diff --git a/exporter/otlpexporter/generated_component_test.go b/exporter/otlpexporter/generated_component_test.go
+index e1bef03ed..bf5626cb5 100644
+--- a/exporter/otlpexporter/generated_component_test.go
++++ b/exporter/otlpexporter/generated_component_test.go
+@@ -20,8 +20,10 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
++var typ = component.MustNewType("otlp")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "otlp", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

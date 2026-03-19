@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/templates/documentation.md.tmpl b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+index d90a3025e..3adbc5ca8 100644
+--- a/cmd/mdatagen/internal/templates/documentation.md.tmpl
++++ b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+@@ -22,12 +22,12 @@
+ 
+ #### Attributes
+ 
+-| Name | Description | Values |
+-| ---- | ----------- | ------ |
++| Name | Description | Values | Optional |
++| ---- | ----------- | ------ | -------- |
+ {{- range $metric.Attributes }}
+ {{- $attribute := . | attributeInfo }}
+ | {{ $attribute.Name }} | {{ $attribute.Description }} |
+-{{- if $attribute.Enum }} {{ $attribute.Type }}: ``{{ stringsJoin $attribute.Enum "``, ``" }}``{{ else }} Any {{ $attribute.Type }}{{ end }} |
++{{- if $attribute.Enum }} {{ $attribute.Type }}: ``{{ stringsJoin $attribute.Enum "``, ``" }}``{{ else }} Any {{ $attribute.Type }}{{ end }} | {{ $attribute.Optional }} |
+ {{- end }}
+ 
+ {{- end }}

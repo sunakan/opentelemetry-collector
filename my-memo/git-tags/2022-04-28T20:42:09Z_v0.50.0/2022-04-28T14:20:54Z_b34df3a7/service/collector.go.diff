@@ -1,0 +1,20 @@
+diff --git a/service/collector.go b/service/collector.go
+index 85bf43202..4865381d6 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -201,11 +201,14 @@ func (col *Collector) setupConfigurationComponents(ctx context.Context) error {
+ 	if err != nil {
+ 		return fmt.Errorf("failed to get config: %w", err)
+ 	}
++
+ 	if col.logger, err = telemetrylogs.NewLogger(cfg.Service.Telemetry.Logs, col.set.LoggingOptions); err != nil {
+ 		return fmt.Errorf("failed to get logger: %w", err)
+ 	}
+ 
+-	telemetrylogs.SetColGRPCLogger(col.logger, cfg.Service.Telemetry.Logs.Level)
++	if !col.set.SkipSettingGRPCLogger {
++		telemetrylogs.SetColGRPCLogger(col.logger, cfg.Service.Telemetry.Logs.Level)
++	}
+ 
+ 	col.service, err = newService(&svcSettings{
+ 		BuildInfo: col.set.BuildInfo,

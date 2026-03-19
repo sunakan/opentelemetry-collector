@@ -1,0 +1,18 @@
+diff --git a/confmap/confmaptest/configtest_test.go b/confmap/confmaptest/configtest_test.go
+index 151a1c927..34d97d6b0 100644
+--- a/confmap/confmaptest/configtest_test.go
++++ b/confmap/confmaptest/configtest_test.go
+@@ -30,6 +30,13 @@ func TestLoadConf(t *testing.T) {
+ 	assert.Equal(t, map[string]any{"floating": 3.14}, cfg.ToStringMap())
+ }
+ 
++func TestToStringMapSanitizeEmptySlice(t *testing.T) {
++	cfg, err := LoadConf(filepath.Join("testdata", "empty-slice.yaml"))
++	require.NoError(t, err)
++	var nilSlice []interface{}
++	assert.Equal(t, map[string]any{"slice": nilSlice}, cfg.ToStringMap())
++}
++
+ func TestValidateProviderScheme(t *testing.T) {
+ 	assert.NoError(t, ValidateProviderScheme(&schemeProvider{scheme: "file"}))
+ 	assert.NoError(t, ValidateProviderScheme(&schemeProvider{scheme: "s3"}))

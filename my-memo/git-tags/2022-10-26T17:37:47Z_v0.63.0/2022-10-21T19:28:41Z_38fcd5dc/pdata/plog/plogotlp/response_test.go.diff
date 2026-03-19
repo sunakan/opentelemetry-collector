@@ -1,0 +1,12 @@
+diff --git a/pdata/plog/plogotlp/response_test.go b/pdata/plog/plogotlp/response_test.go
+index 9c5001b5e..d4fe0b6fc 100644
+--- a/pdata/plog/plogotlp/response_test.go
++++ b/pdata/plog/plogotlp/response_test.go
+@@ -18,5 +18,5 @@ import (
+ 	"encoding/json"
+ )
+ 
+-var _ json.Unmarshaler = Response{}
+-var _ json.Marshaler = Response{}
++var _ json.Unmarshaler = ExportResponse{}
++var _ json.Marshaler = ExportResponse{}

@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/build-and-test-arm.yml b/.github/workflows/build-and-test-arm.yml
+index 21872b4fc..6aa902538 100644
+--- a/.github/workflows/build-and-test-arm.yml
++++ b/.github/workflows/build-and-test-arm.yml
+@@ -45,9 +45,6 @@ jobs:
+       - name: Install dependencies
+         if: steps.go-cache.outputs.cache-hit != 'true'
+         run: make gomoddownload
+-      - name: Install Tools
+-        if: steps.go-cache.outputs.cache-hit != 'true'
+-        run: make install-tools
+       - name: Run Unit Tests
+         run: make -j4 gotest
+   arm-unittest:

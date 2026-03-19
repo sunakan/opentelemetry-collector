@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/zpagesextension_test.go b/extension/zpagesextension/zpagesextension_test.go
+index c3f40803e..462ca58cf 100644
+--- a/extension/zpagesextension/zpagesextension_test.go
++++ b/extension/zpagesextension/zpagesextension_test.go
+@@ -28,7 +28,7 @@ func newZPagesHost() *zpagesHost {
+ 	return &zpagesHost{Host: componenttest.NewNopHost()}
+ }
+ 
+-func (*zpagesHost) RegisterZPages(_ *http.ServeMux, _ string) {}
++func (*zpagesHost) RegisterZPages(*http.ServeMux, string) {}
+ 
+ var _ registerableTracerProvider = (*registerableProvider)(nil)
+ var _ registerableTracerProvider = sdktrace.NewTracerProvider()

@@ -1,0 +1,15 @@
+diff --git a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+index 03d4f7832..f7f8a377e 100644
+--- a/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/processor/processorhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -20,8 +20,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ func (tt *Telemetry) NewSettings() processor.Settings {
+ 	set := processortest.NewNopSettings()

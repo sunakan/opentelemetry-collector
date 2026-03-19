@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index 617f03b61..6cb3fd40c 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -38,6 +38,8 @@ var nopType = component.MustNewType("nop")
+ var wg = sync.WaitGroup{}
+ 
+ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
++	t.Skipf("Flaky Test - See https://github.com/open-telemetry/opentelemetry-collector/issues/10927#issuecomment-2343679185")
++
+ 	eventsReceived := make(map[*componentstatus.InstanceID][]*componentstatus.Event)
+ 	exporterFactory := exportertest.NewNopFactory()
+ 	connectorFactory := connectortest.NewNopFactory()

@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
+index 0424e020e..28443838b 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_test.go
+@@ -84,7 +84,7 @@ func assertResourceAttributes(t *testing.T, resourceMetrics pdata.ResourceMetric
+ 		internal.AssertContainsAttribute(t, attr, conventions.AttributeProcessExecutablePath)
+ 		internal.AssertContainsAttribute(t, attr, conventions.AttributeProcessCommand)
+ 		internal.AssertContainsAttribute(t, attr, conventions.AttributeProcessCommandLine)
+-		internal.AssertContainsAttribute(t, attr, conventions.AttributeProcessUsername)
++		internal.AssertContainsAttribute(t, attr, conventions.AttributeProcessOwner)
+ 	}
+ }
+ 

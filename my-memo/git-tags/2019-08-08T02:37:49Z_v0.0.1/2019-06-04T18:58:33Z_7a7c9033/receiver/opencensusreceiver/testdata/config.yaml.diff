@@ -1,0 +1,23 @@
+diff --git a/receiver/opencensusreceiver/testdata/config.yaml b/receiver/opencensusreceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..7a1d4a651
+--- /dev/null
++++ b/receiver/opencensusreceiver/testdata/config.yaml
+@@ -0,0 +1,17 @@
++receivers:
++  opencensus:
++  opencensus/customname:
++    endpoint: 0.0.0.0:9090
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++      receivers: [opencensus]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
++

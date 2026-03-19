@@ -1,0 +1,21 @@
+diff --git a/exporter/internal/profiles.go b/exporter/internal/profiles.go
+deleted file mode 100644
+index c04db4bc6..000000000
+--- a/exporter/internal/profiles.go
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package internal // import "go.opentelemetry.io/collector/exporter/internal"
+-
+-import (
+-	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/consumerprofiles"
+-)
+-
+-// Profiles is an exporter that can consume profiles.
+-type Profiles interface {
+-	component.Component
+-	consumerprofiles.Profiles
+-}

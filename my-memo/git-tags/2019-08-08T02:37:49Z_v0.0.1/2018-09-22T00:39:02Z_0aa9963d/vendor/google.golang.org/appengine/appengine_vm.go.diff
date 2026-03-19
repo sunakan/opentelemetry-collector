@@ -1,0 +1,26 @@
+diff --git a/vendor/google.golang.org/appengine/appengine_vm.go b/vendor/google.golang.org/appengine/appengine_vm.go
+deleted file mode 100644
+index f4b645aad..000000000
+--- a/vendor/google.golang.org/appengine/appengine_vm.go
++++ /dev/null
+@@ -1,20 +0,0 @@
+-// Copyright 2015 Google Inc. All rights reserved.
+-// Use of this source code is governed by the Apache 2.0
+-// license that can be found in the LICENSE file.
+-
+-// +build !appengine
+-
+-package appengine
+-
+-import (
+-	"golang.org/x/net/context"
+-
+-	"google.golang.org/appengine/internal"
+-)
+-
+-// BackgroundContext returns a context not associated with a request.
+-// This should only be used when not servicing a request.
+-// This only works in App Engine "flexible environment".
+-func BackgroundContext() context.Context {
+-	return internal.BackgroundContext()
+-}

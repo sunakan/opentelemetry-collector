@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 20c853bbb..0e6a6efb0 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -256,7 +256,7 @@ func TestGrpcServerAuthSettings_Deprecated(t *testing.T) {
+ 			mockID: auth.NewServer(),
+ 		},
+ 	}
+-	srv, err := gss.ToServer(host, componenttest.NewNopTelemetrySettings())
++	srv, err := gss.ToServer(context.Background(), host, componenttest.NewNopTelemetrySettings())
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, srv)
+ }

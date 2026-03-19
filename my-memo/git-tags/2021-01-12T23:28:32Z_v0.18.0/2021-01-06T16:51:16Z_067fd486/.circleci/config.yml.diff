@@ -1,0 +1,36 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 702dabb3b..15388b287 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -212,10 +212,6 @@ workflows:
+               only: master
+             tags:
+               ignore: /.*/
+-      - check-links:
+-          filters:
+-            tags:
+-              only: /^v[0-9]+\.[0-9]+\.[0-9]+.*/
+       - build-package:
+           name: deb-package
+           package_type: deb
+@@ -410,20 +406,6 @@ jobs:
+       - save_module_cache
+       - github_issue_generator
+ 
+-  check-links:
+-    docker:
+-      - image: circleci/node:9.10
+-    steps:
+-      - checkout
+-      - run:
+-          name: Check links in markdown docs
+-          command: |
+-            pushd $HOME
+-            npm install --save-dev markdown-link-check@3.8.1
+-            popd
+-            export NODE_PATH=$HOME/node_modules
+-            bash .circleci/check-links/check-links.sh
+-
+   windows-msi:
+     executor:
+       name: win/default

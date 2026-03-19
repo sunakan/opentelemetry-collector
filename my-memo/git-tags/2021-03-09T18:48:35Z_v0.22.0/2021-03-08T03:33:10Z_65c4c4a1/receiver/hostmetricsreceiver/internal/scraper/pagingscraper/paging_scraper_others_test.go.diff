@@ -1,0 +1,26 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_others_test.go b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_others_test.go
+index 7688d336f..9433dc980 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_others_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_others_test.go
+@@ -26,7 +26,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/consumer/consumererror"
++	"go.opentelemetry.io/collector/receiver/scrapererror"
+ )
+ 
+ func TestScrape_Errors(t *testing.T) {
+@@ -76,10 +76,10 @@ func TestScrape_Errors(t *testing.T) {
+ 			_, err = scraper.scrape(context.Background())
+ 			assert.EqualError(t, err, test.expectedError)
+ 
+-			isPartial := consumererror.IsPartialScrapeError(err)
++			isPartial := scrapererror.IsPartialScrapeError(err)
+ 			assert.True(t, isPartial)
+ 			if isPartial {
+-				assert.Equal(t, test.expectedErrCount, err.(consumererror.PartialScrapeError).Failed)
++				assert.Equal(t, test.expectedErrCount, err.(scrapererror.PartialScrapeError).Failed)
+ 			}
+ 		})
+ 	}

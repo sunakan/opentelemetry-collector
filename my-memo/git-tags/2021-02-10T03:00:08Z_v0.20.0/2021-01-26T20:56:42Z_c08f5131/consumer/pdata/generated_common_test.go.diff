@@ -1,0 +1,21 @@
+diff --git a/consumer/pdata/generated_common_test.go b/consumer/pdata/generated_common_test.go
+index 4ca67d685..04d0e1579 100644
+--- a/consumer/pdata/generated_common_test.go
++++ b/consumer/pdata/generated_common_test.go
+@@ -151,11 +151,12 @@ func TestAnyValueArray_Append(t *testing.T) {
+ 
+ 	emptyVal := NewAttributeValue()
+ 	es.Append(emptyVal)
+-	assert.EqualValues(t, *(es.At(7)).orig, *emptyVal.orig)
++	assert.EqualValues(t, emptyVal, es.At(7))
+ 
+-	emptyVal2 := NewAttributeValue()
+-	es.Append(emptyVal2)
+-	assert.EqualValues(t, *(es.At(8)).orig, *emptyVal2.orig)
++	value := NewAttributeValue()
++	fillTestAttributeValue(value)
++	es.Append(value)
++	assert.EqualValues(t, value, es.At(8))
+ 
+ 	assert.Equal(t, 9, es.Len())
+ }

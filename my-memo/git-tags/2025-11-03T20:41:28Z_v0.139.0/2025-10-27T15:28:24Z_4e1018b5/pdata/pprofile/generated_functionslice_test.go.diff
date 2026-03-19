@@ -1,0 +1,36 @@
+diff --git a/pdata/pprofile/generated_functionslice_test.go b/pdata/pprofile/generated_functionslice_test.go
+index 10d6b7663..7d1189ace 100644
+--- a/pdata/pprofile/generated_functionslice_test.go
++++ b/pdata/pprofile/generated_functionslice_test.go
+@@ -13,13 +13,12 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ )
+ 
+ func TestFunctionSlice(t *testing.T) {
+ 	es := NewFunctionSlice()
+ 	assert.Equal(t, 0, es.Len())
+-	es = newFunctionSlice(&[]*otlpprofiles.Function{}, internal.NewState())
++	es = newFunctionSlice(&[]*internal.Function{}, internal.NewState())
+ 	assert.Equal(t, 0, es.Len())
+ 
+ 	emptyVal := NewFunction()
+@@ -36,7 +35,7 @@ func TestFunctionSlice(t *testing.T) {
+ func TestFunctionSliceReadOnly(t *testing.T) {
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	es := newFunctionSlice(&[]*otlpprofiles.Function{}, sharedState)
++	es := newFunctionSlice(&[]*internal.Function{}, sharedState)
+ 	assert.Equal(t, 0, es.Len())
+ 	assert.Panics(t, func() { es.AppendEmpty() })
+ 	assert.Panics(t, func() { es.EnsureCapacity(2) })
+@@ -162,6 +161,6 @@ func TestFunctionSlice_Sort(t *testing.T) {
+ 
+ func generateTestFunctionSlice() FunctionSlice {
+ 	ms := NewFunctionSlice()
+-	*ms.orig = internal.GenTestFunctionSlice()
++	*ms.orig = internal.GenTestFunctionPtrSlice()
+ 	return ms
+ }

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 1cc9525c5..c1fb43278 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -9,6 +9,7 @@
+ ### 💡 Enhancements 💡
+ 
+ ### 🧰 Bug fixes 🧰
++- Fix translation from otlp.Request to pdata representation, changes to the returned pdata not all reflected to the otlp.Request (#5197)
+ 
+ ## v0.49.0 Beta
+ 

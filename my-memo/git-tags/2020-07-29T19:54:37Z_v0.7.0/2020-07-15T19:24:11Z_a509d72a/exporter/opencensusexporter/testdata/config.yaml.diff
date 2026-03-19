@@ -1,0 +1,12 @@
+diff --git a/exporter/opencensusexporter/testdata/config.yaml b/exporter/opencensusexporter/testdata/config.yaml
+index 603ae5192..470537973 100644
+--- a/exporter/opencensusexporter/testdata/config.yaml
++++ b/exporter/opencensusexporter/testdata/config.yaml
+@@ -16,6 +16,7 @@ exporters:
+       header1: 234
+       another: "somevalue"
+     reconnection_delay: 15
++    balancer_name: "round_robin"
+     keepalive:
+       time: 20
+       timeout: 30

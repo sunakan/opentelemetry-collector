@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_metricslice.go b/pdata/internal/generated_wrapper_metricslice.go
+index d586adeb6..3334779ef 100644
+--- a/pdata/internal/generated_wrapper_metricslice.go
++++ b/pdata/internal/generated_wrapper_metricslice.go
+@@ -38,3 +38,12 @@ func CopyOrigMetricSlice(dest, src []*otlpmetrics.Metric) []*otlpmetrics.Metric
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestMetricSlice() []*otlpmetrics.Metric {
++	orig := make([]*otlpmetrics.Metric, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpmetrics.Metric{}
++		FillOrigTestMetric(orig[i])
++	}
++	return orig
++}

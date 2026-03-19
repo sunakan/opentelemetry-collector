@@ -1,0 +1,22 @@
+diff --git a/pdata/pprofile/keyvalueandunit.go b/pdata/pprofile/keyvalueandunit.go
+index 4ec70d911..47bf4d151 100644
+--- a/pdata/pprofile/keyvalueandunit.go
++++ b/pdata/pprofile/keyvalueandunit.go
+@@ -17,7 +17,7 @@ func (ms KeyValueAndUnit) Equal(val KeyValueAndUnit) bool {
+ // dictionary to another.
+ func (ms KeyValueAndUnit) switchDictionary(src, dst ProfilesDictionary) error {
+ 	if ms.KeyStrindex() > 0 {
+-		if src.StringTable().Len() < int(ms.KeyStrindex()) {
++		if src.StringTable().Len() <= int(ms.KeyStrindex()) {
+ 			return fmt.Errorf("invalid key index %d", ms.KeyStrindex())
+ 		}
+ 
+@@ -29,7 +29,7 @@ func (ms KeyValueAndUnit) switchDictionary(src, dst ProfilesDictionary) error {
+ 	}
+ 
+ 	if ms.UnitStrindex() > 0 {
+-		if src.StringTable().Len() < int(ms.UnitStrindex()) {
++		if src.StringTable().Len() <= int(ms.UnitStrindex()) {
+ 			return fmt.Errorf("invalid unit index %d", ms.UnitStrindex())
+ 		}
+ 

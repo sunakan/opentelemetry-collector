@@ -1,0 +1,14 @@
+diff --git a/pdata/plog/json_test.go b/pdata/plog/json_test.go
+index 9d2e0a0f0..7e44cbda7 100644
+--- a/pdata/plog/json_test.go
++++ b/pdata/plog/json_test.go
+@@ -87,8 +87,7 @@ func TestLogsJSON(t *testing.T) {
+ 						jsonBuf, err := encoder.MarshalLogs(ld)
+ 						assert.NoError(t, err)
+ 						decoder := &JSONUnmarshaler{}
+-						var got interface{}
+-						got, err = decoder.UnmarshalLogs(jsonBuf)
++						got, err := decoder.UnmarshalLogs(jsonBuf)
+ 						assert.NoError(t, err)
+ 						assert.EqualValues(t, ld, got)
+ 					}

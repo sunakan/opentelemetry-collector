@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/factory.go b/extension/ballastextension/factory.go
+index cbf542e51..112e7df32 100644
+--- a/extension/ballastextension/factory.go
++++ b/extension/ballastextension/factory.go
+@@ -32,7 +32,7 @@ var memHandler = iruntime.TotalMemory
+ 
+ // NewFactory creates a factory for FluentBit extension.
+ func NewFactory() component.ExtensionFactory {
+-	return component.NewExtensionFactory(typeStr, createDefaultConfig, createExtension)
++	return component.NewExtensionFactoryWithStabilityLevel(typeStr, createDefaultConfig, createExtension, component.StabilityLevelBeta)
+ }
+ 
+ func createDefaultConfig() config.Extension {

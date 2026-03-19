@@ -1,0 +1,21 @@
+diff --git a/processor/internal/logs.go b/processor/internal/logs.go
+new file mode 100644
+index 000000000..defced909
+--- /dev/null
++++ b/processor/internal/logs.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/processor/internal"
++
++import (
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/consumer"
++)
++
++// Logs is a processor that can consume logs.
++type Logs interface {
++	component.Component
++	consumer.Logs
++}

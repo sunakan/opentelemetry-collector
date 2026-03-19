@@ -1,0 +1,23 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp.go b/receiver/otlpreceiver/internal/metrics/otlp.go
+index 71a37bb0e..3a6c01bee 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp.go
+@@ -17,7 +17,6 @@ package metrics // import "go.opentelemetry.io/collector/receiver/otlpreceiver/i
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -56,10 +55,6 @@ func (r *Receiver) Export(ctx context.Context, req otlpgrpc.MetricsRequest) (otl
+ 		return otlpgrpc.NewMetricsResponse(), nil
+ 	}
+ 
+-	if c, ok := client.FromGRPC(ctx); ok {
+-		ctx = client.NewContext(ctx, c)
+-	}
+-
+ 	ctx = r.obsrecv.StartMetricsOp(ctx)
+ 	err := r.nextConsumer.ConsumeMetrics(ctx, md)
+ 	r.obsrecv.EndMetricsOp(ctx, dataFormatProtobuf, dataPointCount, err)

@@ -1,0 +1,28 @@
+diff --git a/pdata/pmetric/pb.go b/pdata/pmetric/pb.go
+index bd3ac0800..35778d9d0 100644
+--- a/pdata/pmetric/pb.go
++++ b/pdata/pmetric/pb.go
+@@ -19,11 +19,6 @@ import (
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+ )
+ 
+-// Deprecated: [v0.63.0] use &ProtoMarshaler{}
+-func NewProtoMarshaler() MarshalSizer {
+-	return &ProtoMarshaler{}
+-}
+-
+ var _ MarshalSizer = (*ProtoMarshaler)(nil)
+ 
+ type ProtoMarshaler struct{}
+@@ -40,11 +35,6 @@ func (e *ProtoMarshaler) MetricsSize(md Metrics) int {
+ 
+ type ProtoUnmarshaler struct{}
+ 
+-// Deprecated: [v0.63.0] use &ProtoUnmarshaler{}
+-func NewProtoUnmarshaler() Unmarshaler {
+-	return &ProtoUnmarshaler{}
+-}
+-
+ func (d *ProtoUnmarshaler) UnmarshalMetrics(buf []byte) (Metrics, error) {
+ 	pb := otlpmetrics.MetricsData{}
+ 	err := pb.Unmarshal(buf)

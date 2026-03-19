@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/batcher/disabled_batcher_test.go b/exporter/exporterhelper/internal/batcher/disabled_batcher_test.go
+index 75dccd198..09cd3f4a7 100644
+--- a/exporter/exporterhelper/internal/batcher/disabled_batcher_test.go
++++ b/exporter/exporterhelper/internal/batcher/disabled_batcher_test.go
+@@ -49,7 +49,7 @@ func TestDisabledBatcher_Basic(t *testing.T) {
+ 				context.Background(),
+ 				exporterqueue.Settings{
+ 					Signal:           pipeline.SignalTraces,
+-					ExporterSettings: exportertest.NewNopSettingsWithType(exportertest.NopType),
++					ExporterSettings: exportertest.NewNopSettings(exportertest.NopType),
+ 				},
+ 				exporterqueue.NewDefaultConfig(),
+ 				ba.Consume)

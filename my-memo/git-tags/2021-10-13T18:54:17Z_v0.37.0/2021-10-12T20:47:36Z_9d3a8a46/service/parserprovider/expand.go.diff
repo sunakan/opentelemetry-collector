@@ -1,0 +1,13 @@
+diff --git a/service/parserprovider/expand.go b/service/parserprovider/expand.go
+index 4cb6ce6c8..7a756c3c2 100644
+--- a/service/parserprovider/expand.go
++++ b/service/parserprovider/expand.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package parserprovider
++package parserprovider // import "go.opentelemetry.io/collector/service/parserprovider"
+ 
+ import (
+ 	"context"

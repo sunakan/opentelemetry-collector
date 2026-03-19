@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_resource.go b/pdata/internal/generated_proto_resource.go
+index c1b1986d4..0b846c62b 100644
+--- a/pdata/internal/generated_proto_resource.go
++++ b/pdata/internal/generated_proto_resource.go
+@@ -17,8 +17,8 @@ import (
+ // Resource is a message representing the resource information.
+ type Resource struct {
+ 	Attributes             []KeyValue
+-	DroppedAttributesCount uint32
+ 	EntityRefs             []*EntityRef
++	DroppedAttributesCount uint32
+ }
+ 
+ var (

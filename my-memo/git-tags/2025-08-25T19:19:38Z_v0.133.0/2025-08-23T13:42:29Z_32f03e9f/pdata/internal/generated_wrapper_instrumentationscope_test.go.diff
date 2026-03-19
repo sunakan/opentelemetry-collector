@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_instrumentationscope_test.go b/pdata/internal/generated_wrapper_instrumentationscope_test.go
+index 0e130f7e7..4878f47ea 100644
+--- a/pdata/internal/generated_wrapper_instrumentationscope_test.go
++++ b/pdata/internal/generated_wrapper_instrumentationscope_test.go
+@@ -23,7 +23,7 @@ import (
+ func TestCopyOrigInstrumentationScope(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesInstrumentationScope() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -52,7 +52,7 @@ func TestMarshalAndUnmarshalJSONOrigInstrumentationScopeUnknown(t *testing.T) {
+ func TestMarshalAndUnmarshalJSONOrigInstrumentationScope(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesInstrumentationScope() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -96,7 +96,7 @@ func TestMarshalAndUnmarshalProtoOrigInstrumentationScopeUnknown(t *testing.T) {
+ func TestMarshalAndUnmarshalProtoOrigInstrumentationScope(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesInstrumentationScope() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {

@@ -1,0 +1,67 @@
+diff --git a/service/defaultcomponents/default_processors_test.go b/service/defaultcomponents/default_processors_test.go
+index b072875db..3e37ab683 100644
+--- a/service/defaultcomponents/default_processors_test.go
++++ b/service/defaultcomponents/default_processors_test.go
+@@ -28,11 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/processor/attributesprocessor"
+ 	"go.opentelemetry.io/collector/processor/memorylimiter"
+-	"go.opentelemetry.io/collector/processor/processorhelper"
+-	"go.opentelemetry.io/collector/processor/resourceprocessor"
+-	"go.opentelemetry.io/collector/processor/spanprocessor"
+ )
+ 
+ func TestDefaultProcessors(t *testing.T) {
+@@ -45,22 +41,9 @@ func TestDefaultProcessors(t *testing.T) {
+ 		processor   config.Type
+ 		getConfigFn getProcessorConfigFn
+ 	}{
+-		{
+-			processor: "attributes",
+-			getConfigFn: func() config.Processor {
+-				cfg := procFactories["attributes"].CreateDefaultConfig().(*attributesprocessor.Config)
+-				cfg.Actions = []processorhelper.ActionKeyValue{
+-					{Key: "attribute1", Action: processorhelper.INSERT, Value: 123},
+-				}
+-				return cfg
+-			},
+-		},
+ 		{
+ 			processor: "batch",
+ 		},
+-		{
+-			processor: "filter",
+-		},
+ 		{
+ 			processor: "memory_limiter",
+ 			getConfigFn: func() config.Processor {
+@@ -70,27 +53,6 @@ func TestDefaultProcessors(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
+-		{
+-			processor: "probabilistic_sampler",
+-		},
+-		{
+-			processor: "resource",
+-			getConfigFn: func() config.Processor {
+-				cfg := procFactories["resource"].CreateDefaultConfig().(*resourceprocessor.Config)
+-				cfg.AttributesActions = []processorhelper.ActionKeyValue{
+-					{Key: "attribute1", Action: processorhelper.INSERT, Value: 123},
+-				}
+-				return cfg
+-			},
+-		},
+-		{
+-			processor: "span",
+-			getConfigFn: func() config.Processor {
+-				cfg := procFactories["span"].CreateDefaultConfig().(*spanprocessor.Config)
+-				cfg.Rename.FromAttributes = []string{"test-key"}
+-				return cfg
+-			},
+-		},
+ 	}
+ 
+ 	assert.Equal(t, len(tests), len(procFactories))

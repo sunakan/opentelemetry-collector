@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index 13a0ed78d..01d7be769 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -180,9 +180,9 @@ func checkRecordedMetricsForTracesExporter(t *testing.T, te component.TracesExpo
+ 
+ 	// TODO: When the new metrics correctly count partial dropped fix this.
+ 	if wantError != nil {
+-		obsreporttest.CheckExporterTracesViews(t, fakeTracesExporterName, 0, int64(numBatches*td.SpanCount()))
++		obsreporttest.CheckExporterTraces(t, fakeTracesExporterName, 0, int64(numBatches*td.SpanCount()))
+ 	} else {
+-		obsreporttest.CheckExporterTracesViews(t, fakeTracesExporterName, int64(numBatches*td.SpanCount()), 0)
++		obsreporttest.CheckExporterTraces(t, fakeTracesExporterName, int64(numBatches*td.SpanCount()), 0)
+ 	}
+ }
+ 

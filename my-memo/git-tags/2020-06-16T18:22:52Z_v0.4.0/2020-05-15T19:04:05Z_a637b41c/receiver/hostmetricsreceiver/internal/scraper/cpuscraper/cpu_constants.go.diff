@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
+index ff280dab0..8d21ef3d8 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_constants.go
+@@ -15,7 +15,7 @@
+ package cpuscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // cpu metric constants

@@ -1,0 +1,21 @@
+diff --git a/receiver/end_to_end_test.go b/receiver/end_to_end_test.go
+index c0cec6acf..19f1d1110 100644
+--- a/receiver/end_to_end_test.go
++++ b/receiver/end_to_end_test.go
+@@ -25,14 +25,14 @@ import (
+ 
+ 	"github.com/census-instrumentation/opencensus-service/data"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+-	"github.com/census-instrumentation/opencensus-service/receiver/opencensus"
++	"github.com/census-instrumentation/opencensus-service/receiver/opencensusreceiver"
+ )
+ 
+ func Example_endToEnd() {
+ 	// This is what the cmd/ocagent code would look like this.
+ 	// A trace receiver as per the trace receiver
+ 	// configs that have been parsed.
+-	tr, err := opencensus.New("localhost:55678")
++	tr, err := opencensusreceiver.New("localhost:55678")
+ 	if err != nil {
+ 		log.Fatalf("Failed to create trace receiver: %v", err)
+ 	}

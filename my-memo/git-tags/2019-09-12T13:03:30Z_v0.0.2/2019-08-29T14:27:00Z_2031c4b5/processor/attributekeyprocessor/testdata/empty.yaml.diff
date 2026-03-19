@@ -1,0 +1,21 @@
+diff --git a/processor/attributekeyprocessor/testdata/empty.yaml b/processor/attributekeyprocessor/testdata/empty.yaml
+deleted file mode 100644
+index 460c5fd52..000000000
+--- a/processor/attributekeyprocessor/testdata/empty.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  attribute-key:
+-    
+-
+-exporters:
+-  exampleexporter:
+-
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [attribute-key]
+-    exporters: [exampleexporter]

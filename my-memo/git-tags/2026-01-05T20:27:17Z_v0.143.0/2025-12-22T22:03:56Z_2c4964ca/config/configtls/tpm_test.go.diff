@@ -1,0 +1,12 @@
+diff --git a/config/configtls/tpm_test.go b/config/configtls/tpm_test.go
+index 72f49877b..d6ce70701 100644
+--- a/config/configtls/tpm_test.go
++++ b/config/configtls/tpm_test.go
+@@ -101,6 +101,7 @@ func TestTPM_loadCertificate_error(t *testing.T) {
+ }
+ 
+ func TestTPM_tpmCertificate_errors(t *testing.T) {
++	testutil.SkipIfFIPSOnly(t, "use of CFB is not allowed in FIPS 140-only mode")
+ 	tpm, err := simulator.OpenSimulator()
+ 	require.NoError(t, err)
+ 	defer tpm.Close()

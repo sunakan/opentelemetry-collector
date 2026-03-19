@@ -1,0 +1,21 @@
+diff --git a/connector/connectortest/go.mod b/connector/connectortest/go.mod
+index 6a946f898..4c9bc4668 100644
+--- a/connector/connectortest/go.mod
++++ b/connector/connectortest/go.mod
+@@ -27,7 +27,6 @@ require (
+ 	github.com/modern-go/reflect2 v1.0.2 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
+-	go.opentelemetry.io/collector/config/configtelemetry v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/internal/fanoutconsumer v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline/xpipeline v0.119.0 // indirect
+@@ -65,8 +64,6 @@ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/co
+ 
+ replace go.opentelemetry.io/collector/connector/xconnector => ../xconnector
+ 
+-replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+-
+ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline

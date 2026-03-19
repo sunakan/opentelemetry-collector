@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/persistent_queue_test.go b/exporter/exporterhelper/persistent_queue_test.go
+index ddbbcb45c..92b0a7bf1 100644
+--- a/exporter/exporterhelper/persistent_queue_test.go
++++ b/exporter/exporterhelper/persistent_queue_test.go
+@@ -30,7 +30,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/extension/storage"
++	"go.opentelemetry.io/collector/extension/experimental/storage"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

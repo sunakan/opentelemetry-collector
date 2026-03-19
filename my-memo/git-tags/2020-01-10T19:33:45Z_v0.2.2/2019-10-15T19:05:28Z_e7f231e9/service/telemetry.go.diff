@@ -1,0 +1,13 @@
+diff --git a/service/telemetry.go b/service/telemetry.go
+index 3f3bf6045..cc74d2c57 100644
+--- a/service/telemetry.go
++++ b/service/telemetry.go
+@@ -29,7 +29,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/processor"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor/nodebatcherprocessor"
+ 	"github.com/open-telemetry/opentelemetry-collector/processor/queuedprocessor"
+-	"github.com/open-telemetry/opentelemetry-collector/processor/tailsamplingprocessor"
++	"github.com/open-telemetry/opentelemetry-collector/processor/samplingprocessor/tailsamplingprocessor"
+ )
+ 
+ const (

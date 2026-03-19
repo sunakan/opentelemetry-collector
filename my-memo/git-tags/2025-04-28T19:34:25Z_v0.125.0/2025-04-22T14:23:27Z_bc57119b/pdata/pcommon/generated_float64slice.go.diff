@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/generated_float64slice.go b/pdata/pcommon/generated_float64slice.go
+index 7cd0a7b63..a1bb52b09 100644
+--- a/pdata/pcommon/generated_float64slice.go
++++ b/pdata/pcommon/generated_float64slice.go
+@@ -106,6 +106,10 @@ func (ms Float64Slice) Append(elms ...float64) {
+ func (ms Float64Slice) MoveTo(dest Float64Slice) {
+ 	ms.getState().AssertMutable()
+ 	dest.getState().AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = *ms.getOrig()
+ 	*ms.getOrig() = nil
+ }

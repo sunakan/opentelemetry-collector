@@ -1,0 +1,12 @@
+diff --git a/otelcol/command.go b/otelcol/command.go
+index 3a6e882b0..88f3b9a81 100644
+--- a/otelcol/command.go
++++ b/otelcol/command.go
+@@ -66,6 +66,7 @@ func updateSettingsUsingFlags(set *CollectorSettings, flags *flag.FlagSet) error
+ 	if len(resolverSet.ProviderFactories) == 0 {
+ 		return errors.New("at least one Provider must be supplied")
+ 	}
++
+ 	return nil
+ }
+ 

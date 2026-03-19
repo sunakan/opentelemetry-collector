@@ -1,0 +1,15 @@
+diff --git a/internal/collector/processor/queued/factory.go b/internal/collector/processor/queued/factory.go
+index 79a706644..31d4d0737 100644
+--- a/internal/collector/processor/queued/factory.go
++++ b/internal/collector/processor/queued/factory.go
+@@ -17,8 +17,8 @@ package queued
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+ 	"go.uber.org/zap"

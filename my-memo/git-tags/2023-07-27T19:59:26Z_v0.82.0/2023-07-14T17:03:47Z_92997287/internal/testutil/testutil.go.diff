@@ -1,0 +1,42 @@
+diff --git a/internal/testutil/testutil.go b/internal/testutil/testutil.go
+index 8f573b8ba..427e51d2e 100644
+--- a/internal/testutil/testutil.go
++++ b/internal/testutil/testutil.go
+@@ -7,11 +7,14 @@ import (
+ 	"net"
+ 	"os/exec"
+ 	"runtime"
++	"strconv"
+ 	"strings"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/service/telemetry"
+ )
+ 
+ type portpair struct {
+@@ -54,6 +57,22 @@ func GetAvailableLocalAddress(t testing.TB) string {
+ 	return endpoint
+ }
+ 
++func GetAvailableLocalAddressPrometheus(t testing.TB) *telemetry.Prometheus {
++	address := GetAvailableLocalAddress(t)
++	host, port, err := net.SplitHostPort(address)
++	if err != nil {
++		return nil
++	}
++	portInt, err := strconv.Atoi(port)
++	if err != nil {
++		return nil
++	}
++	return &telemetry.Prometheus{
++		Host: &host,
++		Port: &portInt,
++	}
++}
++
+ func findAvailableAddress(t testing.TB) string {
+ 	ln, err := net.Listen("tcp", "localhost:0")
+ 	require.NoError(t, err, "Failed to get a free local port")

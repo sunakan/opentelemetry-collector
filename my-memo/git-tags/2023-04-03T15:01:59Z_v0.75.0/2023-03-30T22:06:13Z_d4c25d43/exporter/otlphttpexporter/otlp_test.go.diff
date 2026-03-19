@@ -1,0 +1,40 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index 2b26acdd2..df245b130 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -443,6 +443,20 @@ func TestErrorResponses(t *testing.T) {
+ 				errors.New(errMsgPrefix+"429, Message=Quota exceeded, Details=[]"),
+ 				time.Duration(0)*time.Second),
+ 		},
++		{
++			name:           "500",
++			responseStatus: http.StatusInternalServerError,
++			responseBody:   status.New(codes.InvalidArgument, "Internal server error"),
++			isPermErr:      true,
++		},
++		{
++			name:           "502",
++			responseStatus: http.StatusBadGateway,
++			responseBody:   status.New(codes.InvalidArgument, "Bad gateway"),
++			err: exporterhelper.NewThrottleRetry(
++				errors.New(errMsgPrefix+"502, Message=Bad gateway, Details=[]"),
++				time.Duration(0)*time.Second),
++		},
+ 		{
+ 			name:           "503",
+ 			responseStatus: http.StatusServiceUnavailable,
+@@ -460,6 +474,14 @@ func TestErrorResponses(t *testing.T) {
+ 				errors.New(errMsgPrefix+"503, Message=Server overloaded, Details=[]"),
+ 				time.Duration(30)*time.Second),
+ 		},
++		{
++			name:           "504",
++			responseStatus: http.StatusGatewayTimeout,
++			responseBody:   status.New(codes.InvalidArgument, "Gateway timeout"),
++			err: exporterhelper.NewThrottleRetry(
++				errors.New(errMsgPrefix+"504, Message=Gateway timeout, Details=[]"),
++				time.Duration(0)*time.Second),
++		},
+ 	}
+ 
+ 	for _, test := range tests {

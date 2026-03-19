@@ -1,0 +1,12 @@
+diff --git a/testbed/testbed/load_generator.go b/testbed/testbed/load_generator.go
+index 4a7a0a70f..e277e8741 100644
+--- a/testbed/testbed/load_generator.go
++++ b/testbed/testbed/load_generator.go
+@@ -366,6 +366,7 @@ func (lg *LoadGenerator) generateMetrics() {
+ 	metricData.ResourceMetrics().At(0).InstrumentationLibraryMetrics().Resize(1)
+ 	if lg.options.Attributes != nil {
+ 		attrs := metricData.ResourceMetrics().At(0).Resource().Attributes()
++		attrs.InitEmptyWithCapacity(len(lg.options.Attributes))
+ 		for k, v := range lg.options.Attributes {
+ 			attrs.UpsertString(k, v)
+ 		}

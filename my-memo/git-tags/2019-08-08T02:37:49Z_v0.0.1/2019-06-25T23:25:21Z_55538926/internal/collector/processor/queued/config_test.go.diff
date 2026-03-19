@@ -1,0 +1,12 @@
+diff --git a/internal/collector/processor/queued/config_test.go b/internal/collector/processor/queued/config_test.go
+index 0acccc7ff..b9624204d 100644
+--- a/internal/collector/processor/queued/config_test.go
++++ b/internal/collector/processor/queued/config_test.go
+@@ -46,6 +46,7 @@ func TestLoadConfig(t *testing.T) {
+ 		&ConfigV2{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: "queued-retry",
++				NameVal: "queued-retry/2",
+ 			},
+ 			NumWorkers:     2,
+ 			QueueSize:      10,

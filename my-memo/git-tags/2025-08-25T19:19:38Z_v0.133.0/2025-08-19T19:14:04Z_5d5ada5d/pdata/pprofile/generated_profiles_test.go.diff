@@ -1,0 +1,24 @@
+diff --git a/pdata/pprofile/generated_profiles_test.go b/pdata/pprofile/generated_profiles_test.go
+index 62d1d09f5..96427303d 100644
+--- a/pdata/pprofile/generated_profiles_test.go
++++ b/pdata/pprofile/generated_profiles_test.go
+@@ -24,8 +24,8 @@ func TestProfiles_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestProfiles(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newProfiles(internal.NewOrigPtrExportProfilesServiceRequest(), sharedState)) })
+-	assert.Panics(t, func() { newProfiles(internal.NewOrigPtrExportProfilesServiceRequest(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newProfiles(internal.NewOrigExportProfilesServiceRequest(), sharedState)) })
++	assert.Panics(t, func() { newProfiles(internal.NewOrigExportProfilesServiceRequest(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestProfiles_CopyTo(t *testing.T) {
+@@ -38,7 +38,7 @@ func TestProfiles_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newProfiles(internal.NewOrigPtrExportProfilesServiceRequest(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newProfiles(internal.NewOrigExportProfilesServiceRequest(), sharedState)) })
+ }
+ 
+ func TestProfiles_ResourceProfiles(t *testing.T) {

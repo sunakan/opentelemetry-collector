@@ -1,0 +1,16 @@
+diff --git a/exporter/otlphttpexporter/internal/metadata/generated_status.go b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+index c38e6de25..07bd3d1d7 100644
+--- a/exporter/otlphttpexporter/internal/metadata/generated_status.go
++++ b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+@@ -12,7 +12,8 @@ var (
+ )
+ 
+ const (
+-	LogsStability    = component.StabilityLevelBeta
+-	TracesStability  = component.StabilityLevelStable
+-	MetricsStability = component.StabilityLevelStable
++	ProfilesStability = component.StabilityLevelDevelopment
++	LogsStability     = component.StabilityLevelBeta
++	TracesStability   = component.StabilityLevelStable
++	MetricsStability  = component.StabilityLevelStable
+ )

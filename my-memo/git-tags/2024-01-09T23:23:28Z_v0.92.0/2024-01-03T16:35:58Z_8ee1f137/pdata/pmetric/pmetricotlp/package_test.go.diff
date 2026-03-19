@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/pmetricotlp/package_test.go b/pdata/pmetric/pmetricotlp/package_test.go
+new file mode 100644
+index 000000000..f8191b76d
+--- /dev/null
++++ b/pdata/pmetric/pmetricotlp/package_test.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package pmetricotlp
++
++import (
++	"testing"
++
++	"go.uber.org/goleak"
++)
++
++func TestMain(m *testing.M) {
++	goleak.VerifyTestMain(m)
++}

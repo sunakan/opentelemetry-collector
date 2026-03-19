@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice.go b/pdata/ptrace/generated_spanlinkslice.go
+index 512dbf329..86f747eb6 100644
+--- a/pdata/ptrace/generated_spanlinkslice.go
++++ b/pdata/ptrace/generated_spanlinkslice.go
+@@ -99,7 +99,7 @@ func (es SpanLinkSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added SpanLink.
+ func (es SpanLinkSlice) AppendEmpty() SpanLink {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlptrace.Span_Link{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrSpan_Link())
+ 	return es.At(es.Len() - 1)
+ }
+ 

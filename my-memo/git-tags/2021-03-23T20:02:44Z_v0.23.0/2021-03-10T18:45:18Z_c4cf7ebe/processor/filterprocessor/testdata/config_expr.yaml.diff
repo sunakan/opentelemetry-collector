@@ -1,0 +1,26 @@
+diff --git a/processor/filterprocessor/testdata/config_expr.yaml b/processor/filterprocessor/testdata/config_expr.yaml
+index 01afa0287..4a36657d6 100644
+--- a/processor/filterprocessor/testdata/config_expr.yaml
++++ b/processor/filterprocessor/testdata/config_expr.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-    examplereceiver:
++    nop:
+ 
+ processors:
+     filter/empty:
+@@ -31,11 +31,11 @@ processors:
+                 expressions:
+                     - HasLabel("bar")
+ exporters:
+-    exampleexporter:
++    nop:
+ 
+ service:
+     pipelines:
+         metrics:
+-            receivers: [examplereceiver]
++            receivers: [nop]
+             processors: [filter/empty]
+-            exporters: [exampleexporter]
++            exporters: [nop]

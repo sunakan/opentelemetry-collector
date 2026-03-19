@@ -1,0 +1,21 @@
+diff --git a/processor/memorylimiterprocessor/factory.go b/processor/memorylimiterprocessor/factory.go
+index ea26c45b4..9a86faf20 100644
+--- a/processor/memorylimiterprocessor/factory.go
++++ b/processor/memorylimiterprocessor/factory.go
+@@ -32,12 +32,12 @@ var processorCapabilities = consumer.Capabilities{MutatesData: false}
+ 
+ // NewFactory returns a new factory for the Memory Limiter processor.
+ func NewFactory() component.ProcessorFactory {
+-	return processorhelper.NewFactory(
++	return component.NewProcessorFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		processorhelper.WithTraces(createTracesProcessor),
+-		processorhelper.WithMetrics(createMetricsProcessor),
+-		processorhelper.WithLogs(createLogsProcessor))
++		component.WithTracesProcessor(createTracesProcessor),
++		component.WithMetricsProcessor(createMetricsProcessor),
++		component.WithLogsProcessor(createLogsProcessor))
+ }
+ 
+ // CreateDefaultConfig creates the default configuration for processor. Notice

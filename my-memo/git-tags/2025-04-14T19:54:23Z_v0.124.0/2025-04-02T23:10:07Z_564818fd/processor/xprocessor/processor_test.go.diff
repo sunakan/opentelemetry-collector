@@ -1,0 +1,13 @@
+diff --git a/processor/xprocessor/processor_test.go b/processor/xprocessor/processor_test.go
+index ee95f9f92..215464eba 100644
+--- a/processor/xprocessor/processor_test.go
++++ b/processor/xprocessor/processor_test.go
+@@ -27,7 +27,7 @@ func TestNewFactoryWithProfiles(t *testing.T) {
+ 		func() component.Config { return &defaultCfg },
+ 		WithProfiles(createProfiles, component.StabilityLevelAlpha),
+ 	)
+-	assert.EqualValues(t, testType, factory.Type())
++	assert.Equal(t, testType, factory.Type())
+ 	assert.EqualValues(t, &defaultCfg, factory.CreateDefaultConfig())
+ 
+ 	assert.Equal(t, component.StabilityLevelAlpha, factory.ProfilesStability())

@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index e99055260..0f914720d 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -302,7 +302,6 @@ func expectedTraceData(t1, t2, t3 time.Time) pdata.Traces {
+ 	traces := pdata.NewTraces()
+ 	traces.ResourceSpans().Resize(1)
+ 	rs := traces.ResourceSpans().At(0)
+-	rs.Resource().InitEmpty()
+ 	rs.Resource().Attributes().InsertString(conventions.AttributeServiceName, "issaTest")
+ 	rs.Resource().Attributes().InsertBool("bool", true)
+ 	rs.Resource().Attributes().InsertString("string", "yes")

@@ -1,0 +1,19 @@
+diff --git a/.circleci/check-links/config.json b/.circleci/check-links/config.json
+deleted file mode 100644
+index 6119b5335..000000000
+--- a/.circleci/check-links/config.json
++++ /dev/null
+@@ -1,13 +0,0 @@
+-{
+-    "ignorePatterns": [
+-        {
+-            "pattern": "http(s)?://\\d+\\.\\d+\\.\\d+\\.\\d+"
+-        },
+-        {
+-            "pattern": "http(s)?://localhost"
+-        },
+-        {
+-            "pattern": "http(s)?://example.com"
+-        }
+-    ]
+-}

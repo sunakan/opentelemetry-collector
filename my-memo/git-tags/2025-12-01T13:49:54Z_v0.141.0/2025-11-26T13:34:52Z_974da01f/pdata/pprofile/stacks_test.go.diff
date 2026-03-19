@@ -1,0 +1,21 @@
+diff --git a/pdata/pprofile/stacks_test.go b/pdata/pprofile/stacks_test.go
+index abe65335b..5eaadec38 100644
+--- a/pdata/pprofile/stacks_test.go
++++ b/pdata/pprofile/stacks_test.go
+@@ -8,6 +8,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestSetStack(t *testing.T) {
+@@ -50,6 +52,7 @@ func TestSetStack(t *testing.T) {
+ }
+ 
+ func BenchmarkSetStack(b *testing.B) {
++	testutil.SkipMemoryBench(b)
+ 	for _, bb := range []struct {
+ 		name  string
+ 		stack Stack

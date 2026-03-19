@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/config.go b/processor/memorylimiterprocessor/config.go
+index 9c7e5f2d1..9cd03f28c 100644
+--- a/processor/memorylimiterprocessor/config.go
++++ b/processor/memorylimiterprocessor/config.go
+@@ -50,7 +50,7 @@ type Config struct {
+ 	MemorySpikePercentage uint32 `mapstructure:"spike_limit_percentage"`
+ }
+ 
+-var _ component.ProcessorConfig = (*Config)(nil)
++var _ component.Config = (*Config)(nil)
+ 
+ // Validate checks if the processor configuration is valid
+ func (cfg *Config) Validate() error {

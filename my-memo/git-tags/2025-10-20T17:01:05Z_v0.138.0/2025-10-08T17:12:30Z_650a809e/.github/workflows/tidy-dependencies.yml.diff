@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index 2e0d6fe5c..111705bf8 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -33,9 +33,6 @@ jobs:
+       - name: Install dependencies
+         if: steps.go-cache.outputs.cache-hit != 'true'
+         run: make -j2 gomoddownload
+-      - name: Install Tools
+-        if: steps.go-cache.outputs.cache-hit != 'true'
+-        run: make install-tools
+       - name: go mod tidy
+         run: |
+           make gotidy

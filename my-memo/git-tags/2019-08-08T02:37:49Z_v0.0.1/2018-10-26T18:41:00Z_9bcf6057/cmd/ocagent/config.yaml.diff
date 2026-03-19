@@ -1,0 +1,14 @@
+diff --git a/cmd/ocagent/config.yaml b/cmd/ocagent/config.yaml
+index a935c4866..336c7cd2a 100644
+--- a/cmd/ocagent/config.yaml
++++ b/cmd/ocagent/config.yaml
+@@ -2,6 +2,9 @@ interceptors:
+     opencensus:
+         address: "127.0.0.1:55678"
+ 
++    zipkin:
++        address: "localhost:9411"
++
+ exporters:
+     stackdriver:
+         project: "project-id"

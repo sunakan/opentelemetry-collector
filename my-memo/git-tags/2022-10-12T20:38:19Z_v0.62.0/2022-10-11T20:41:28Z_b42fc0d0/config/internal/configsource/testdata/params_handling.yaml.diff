@@ -1,0 +1,19 @@
+diff --git a/config/internal/configsource/testdata/params_handling.yaml b/config/internal/configsource/testdata/params_handling.yaml
+deleted file mode 100644
+index 5543d2ee2..000000000
+--- a/config/internal/configsource/testdata/params_handling.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-single_line:
+-  ex0: $tstcfgsrc:elem0
+-  ex1: $tstcfgsrc:elem1?p0=true&p1=a string with spaces&p3=42
+-multi_line:
+-  k0: |
+-    $tstcfgsrc: k0
+-  k1: |
+-    $tstcfgsrc: k1
+-    p0: true
+-    p1: a string with spaces
+-    p2:
+-      p2_0: a nested map0
+-      p2_1: true

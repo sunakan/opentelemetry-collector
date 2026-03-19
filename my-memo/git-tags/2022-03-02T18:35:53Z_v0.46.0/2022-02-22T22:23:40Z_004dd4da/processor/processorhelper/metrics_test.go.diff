@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/metrics_test.go b/processor/processorhelper/metrics_test.go
+index 66059283f..5e5680375 100644
+--- a/processor/processorhelper/metrics_test.go
++++ b/processor/processorhelper/metrics_test.go
+@@ -31,7 +31,7 @@ import (
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+-var testMetricsCfg = config.NewProcessorSettings(config.NewComponentID(typeStr))
++var testMetricsCfg = config.NewProcessorSettings(config.NewComponentID("test"))
+ 
+ func TestNewMetricsProcessor(t *testing.T) {
+ 	mp, err := NewMetricsProcessor(&testMetricsCfg, consumertest.NewNop(), newTestMProcessor(nil))

@@ -1,0 +1,21 @@
+diff --git a/config/confighttp/xconfighttp/go.mod b/config/confighttp/xconfighttp/go.mod
+index 7dae7d22e..f58ffecd3 100644
+--- a/config/confighttp/xconfighttp/go.mod
++++ b/config/confighttp/xconfighttp/go.mod
+@@ -30,7 +30,6 @@ require (
+ 	go.opentelemetry.io/collector/config/configauth v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/config/configcompression v1.25.0 // indirect
+ 	go.opentelemetry.io/collector/config/configopaque v1.25.0 // indirect
+-	go.opentelemetry.io/collector/config/configtelemetry v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtls v1.25.0 // indirect
+ 	go.opentelemetry.io/collector/extension v0.119.0 // indirect
+ 	go.opentelemetry.io/collector/extension/auth v0.119.0 // indirect
+@@ -51,8 +50,6 @@ require (
+ 
+ replace go.opentelemetry.io/collector/config/confighttp => ../../confighttp
+ 
+-replace go.opentelemetry.io/collector/config/configtelemetry => ../../configtelemetry
+-
+ replace go.opentelemetry.io/collector/client => ../../../client
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../../consumer

@@ -1,0 +1,18 @@
+diff --git a/obsreport/obsreporttest/obsreporttest_test.go b/obsreport/obsreporttest/obsreporttest_test.go
+index 9c1804327..f54f0fa39 100644
+--- a/obsreport/obsreporttest/obsreporttest_test.go
++++ b/obsreport/obsreporttest/obsreporttest_test.go
+@@ -28,12 +28,12 @@ import (
+ )
+ 
+ const (
+-	receiver  = "fakeReicever"
+ 	transport = "fakeTransport"
+ 	format    = "fakeFormat"
+ )
+ 
+ var (
++	receiver = config.NewID("fakeReicever")
+ 	exporter = config.NewID("fakeExporter")
+ )
+ 

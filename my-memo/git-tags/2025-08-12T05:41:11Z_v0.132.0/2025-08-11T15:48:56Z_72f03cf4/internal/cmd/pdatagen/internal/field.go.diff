@@ -1,0 +1,24 @@
+diff --git a/internal/cmd/pdatagen/internal/field.go b/internal/cmd/pdatagen/internal/field.go
+index 532fd3e74..654821cd6 100644
+--- a/internal/cmd/pdatagen/internal/field.go
++++ b/internal/cmd/pdatagen/internal/field.go
+@@ -21,15 +21,15 @@ type Field interface {
+ 	GenerateMarshalProto(ms *messageStruct) string
+ }
+ 
+-func origAccessor(packageName string) string {
+-	if usedByOtherDataTypes(packageName) {
++func origAccessor(hasWrapper bool) string {
++	if hasWrapper {
+ 		return "getOrig()"
+ 	}
+ 	return "orig"
+ }
+ 
+-func stateAccessor(packageName string) string {
+-	if usedByOtherDataTypes(packageName) {
++func stateAccessor(hasWrapper bool) string {
++	if hasWrapper {
+ 		return "getState()"
+ 	}
+ 	return "state"

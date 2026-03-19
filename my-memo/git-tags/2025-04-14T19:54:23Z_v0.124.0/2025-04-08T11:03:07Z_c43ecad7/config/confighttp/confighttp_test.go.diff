@@ -1,0 +1,58 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index 9d36ac5c5..f8da78b71 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -1212,7 +1212,7 @@ func TestFailedServerAuth(t *testing.T) {
+ 	host := &mockHost{
+ 		ext: map[component.ID]component.Component{
+ 			mockID: newMockAuthServer(func(ctx context.Context, _ map[string][]string) (context.Context, error) {
+-				return ctx, errors.New("Settings failed")
++				return ctx, errors.New("invalid authorization")
+ 			}),
+ 		},
+ 	}
+@@ -1229,6 +1229,44 @@ func TestFailedServerAuth(t *testing.T) {
+ 	assert.Equal(t, fmt.Sprintf("%v %s", http.StatusUnauthorized, http.StatusText(http.StatusUnauthorized)), response.Result().Status)
+ }
+ 
++func TestFailedServerAuthWithErrorHandler(t *testing.T) {
++	// prepare
++	hss := ServerConfig{
++		Endpoint: "localhost:0",
++		Auth: &AuthConfig{
++			Authentication: configauth.Authentication{
++				AuthenticatorID: mockID,
++			},
++		},
++	}
++	host := &mockHost{
++		ext: map[component.ID]component.Component{
++			mockID: newMockAuthServer(func(ctx context.Context, _ map[string][]string) (context.Context, error) {
++				return ctx, errors.New("invalid authorization")
++			}),
++		},
++	}
++
++	eh := func(w http.ResponseWriter, _ *http.Request, err string, statusCode int) {
++		assert.Equal(t, http.StatusUnauthorized, statusCode)
++		// custom error handler uses real error string
++		assert.Equal(t, "invalid authorization", err)
++		// custom error handler changes returned status code
++		http.Error(w, err, http.StatusInternalServerError)
++	}
++
++	srv, err := hss.ToServer(context.Background(), host, componenttest.NewNopTelemetrySettings(), http.HandlerFunc(func(http.ResponseWriter, *http.Request) {}), WithErrorHandler(eh))
++	require.NoError(t, err)
++
++	// tt
++	response := &httptest.ResponseRecorder{}
++	srv.Handler.ServeHTTP(response, httptest.NewRequest(http.MethodGet, "/", nil))
++
++	// verify
++	assert.Equal(t, http.StatusInternalServerError, response.Result().StatusCode)
++	assert.Equal(t, fmt.Sprintf("%v %s", http.StatusInternalServerError, http.StatusText(http.StatusInternalServerError)), response.Result().Status)
++}
++
+ func TestServerWithErrorHandler(t *testing.T) {
+ 	// prepare
+ 	hss := ServerConfig{

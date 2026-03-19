@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index e7246609a..25e0adcd4 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -49,7 +49,6 @@ func TestSummary_DataPoints(t *testing.T) {
+ }
+ 
+ func generateTestSummary() Summary {
+-	ms := NewSummary()
+-	internal.FillOrigTestSummary(ms.orig)
++	ms := newSummary(internal.GenTestOrigSummary(), internal.NewState())
+ 	return ms
+ }

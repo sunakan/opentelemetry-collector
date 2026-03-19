@@ -1,0 +1,21 @@
+diff --git a/vendor/github.com/tinylib/msgp/msgp/appengine.go b/vendor/github.com/tinylib/msgp/msgp/appengine.go
+deleted file mode 100644
+index bff9e768a..000000000
+--- a/vendor/github.com/tinylib/msgp/msgp/appengine.go
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// +build appengine
+-
+-package msgp
+-
+-// let's just assume appengine
+-// uses 64-bit hardware...
+-const smallint = false
+-
+-func UnsafeString(b []byte) string {
+-	return string(b)
+-}
+-
+-func UnsafeBytes(s string) []byte {
+-	return []byte(s)
+-}

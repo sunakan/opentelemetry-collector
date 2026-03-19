@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/config_test.go b/exporter/prometheusremotewriteexporter/config_test.go
+index 724c72335..0135e46f9 100644
+--- a/exporter/prometheusremotewriteexporter/config_test.go
++++ b/exporter/prometheusremotewriteexporter/config_test.go
+@@ -50,7 +50,7 @@ func Test_loadConfig(t *testing.T) {
+ 	e1 := cfg.Exporters["prometheusremotewrite/2"]
+ 	assert.Equal(t, e1,
+ 		&Config{
+-			ExporterSettings: config.ExporterSettings{
++			ExporterSettings: &config.ExporterSettings{
+ 				NameVal: "prometheusremotewrite/2",
+ 				TypeVal: "prometheusremotewrite",
+ 			},

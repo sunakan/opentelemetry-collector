@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 13c886a0a..616ff80ba 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -79,7 +79,7 @@ type ReceiverSettings struct {
+ 
+ // NewReceiver creates a new Receiver.
+ func NewReceiver(cfg ReceiverSettings) (*Receiver, error) {
+-	return newReceiver(cfg, featuregate.GetRegistry())
++	return newReceiver(cfg, featuregate.GlobalRegistry())
+ }
+ 
+ func newReceiver(cfg ReceiverSettings, registry *featuregate.Registry) (*Receiver, error) {

@@ -1,0 +1,21 @@
+diff --git a/receiver/fluentforwardreceiver/testdata/config.yaml b/receiver/fluentforwardreceiver/testdata/config.yaml
+deleted file mode 100644
+index 06a7ad62d..000000000
+--- a/receiver/fluentforwardreceiver/testdata/config.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  fluentforward:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    logs:
+-      receivers: [fluentforward]
+-      processors: [nop]
+-      exporters: [nop]

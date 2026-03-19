@@ -1,0 +1,22 @@
+diff --git a/exporter/fileexporter/config_test.go b/exporter/fileexporter/config_test.go
+index fe3e4ee9c..0fc858a96 100644
+--- a/exporter/fileexporter/config_test.go
++++ b/exporter/fileexporter/config_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+@@ -43,7 +43,7 @@ func TestLoadConfig(t *testing.T) {
+ 	e1 := cfg.Exporters["file/2"]
+ 	assert.Equal(t, e1,
+ 		&Config{
+-			ExporterSettings: configmodels.ExporterSettings{
++			ExporterSettings: config.ExporterSettings{
+ 				NameVal: "file/2",
+ 				TypeVal: "file",
+ 			},

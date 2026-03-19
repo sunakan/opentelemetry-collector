@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 3601deba0..4f8a44bd1 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -174,7 +174,7 @@ func GetModules(cfg *Config) error {
+ 	}
+ 
+ 	coreDepVersion, ok := dependencyVersions[otelcolPath]
+-	betaVersion := semver.MajorMinor(defaultBetaOtelColVersion)
++	betaVersion := semver.MajorMinor(DefaultBetaOtelColVersion)
+ 	if !ok {
+ 		return fmt.Errorf("core collector %w: '%s'. %s", ErrDepNotFound, otelcolPath, skipStrictMsg)
+ 	}

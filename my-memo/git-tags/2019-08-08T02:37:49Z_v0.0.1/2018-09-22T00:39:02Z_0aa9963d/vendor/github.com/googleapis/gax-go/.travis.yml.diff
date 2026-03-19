@@ -1,0 +1,21 @@
+diff --git a/vendor/github.com/googleapis/gax-go/.travis.yml b/vendor/github.com/googleapis/gax-go/.travis.yml
+deleted file mode 100644
+index 6db28b6c6..000000000
+--- a/vendor/github.com/googleapis/gax-go/.travis.yml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-sudo: false
+-language: go
+-go:
+-  - 1.6
+-  - 1.7
+-before_install:
+-  - go get golang.org/x/tools/cmd/cover
+-  - go get golang.org/x/tools/cmd/goimports
+-script:
+-  - gofmt -l .
+-  - goimports -l .
+-  - go tool vet .
+-  - go test -coverprofile=coverage.txt -covermode=atomic
+-after_success:
+-  - bash <(curl -s https://codecov.io/bash)

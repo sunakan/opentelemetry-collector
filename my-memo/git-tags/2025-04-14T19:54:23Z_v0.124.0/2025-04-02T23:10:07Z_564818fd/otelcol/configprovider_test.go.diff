@@ -1,0 +1,20 @@
+diff --git a/otelcol/configprovider_test.go b/otelcol/configprovider_test.go
+index 5183dc72f..dd131a103 100644
+--- a/otelcol/configprovider_test.go
++++ b/otelcol/configprovider_test.go
+@@ -73,7 +73,7 @@ func TestConfigProviderYaml(t *testing.T) {
+ 	configNop, err := newConfig(yamlBytes, factories)
+ 	require.NoError(t, err)
+ 
+-	assert.EqualValues(t, configNop, cfg)
++	assert.Equal(t, configNop, cfg)
+ }
+ 
+ func TestConfigProviderFile(t *testing.T) {
+@@ -103,5 +103,5 @@ func TestConfigProviderFile(t *testing.T) {
+ 	configNop, err := newConfig(yamlBytes, factories)
+ 	require.NoError(t, err)
+ 
+-	assert.EqualValues(t, configNop, cfg)
++	assert.Equal(t, configNop, cfg)
+ }

@@ -1,0 +1,13 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 6b1c68b5a..87e5f3b4c 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -133,7 +133,7 @@ func openEventLog(serviceName string) (*eventlog.Log, error) {
+ 
+ func newWithWindowsEventLogCore(set CollectorSettings, elog *eventlog.Log) (*Collector, error) {
+ 	if set.ConfigMapProvider == nil {
+-		set.ConfigMapProvider = configmapprovider.NewDefaultMapProvider(getConfigFlag(), getSetFlag())
++		set.ConfigMapProvider = configmapprovider.NewDefault(getConfigFlag(), getSetFlag())
+ 	}
+ 	set.LoggingOptions = append(
+ 		set.LoggingOptions,

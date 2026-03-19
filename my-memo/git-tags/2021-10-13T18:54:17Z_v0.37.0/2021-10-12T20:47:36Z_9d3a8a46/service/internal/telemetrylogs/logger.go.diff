@@ -1,0 +1,13 @@
+diff --git a/service/internal/telemetrylogs/logger.go b/service/internal/telemetrylogs/logger.go
+index a40bb582b..913ce6e05 100644
+--- a/service/internal/telemetrylogs/logger.go
++++ b/service/internal/telemetrylogs/logger.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package telemetrylogs
++package telemetrylogs // import "go.opentelemetry.io/collector/service/internal/telemetrylogs"
+ 
+ import (
+ 	"flag"

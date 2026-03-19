@@ -1,0 +1,17 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index 718899f60..e30e005e8 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -279,10 +279,10 @@ func initMetric(m pdata.Metric, name string, ty pdata.MetricDataType) {
+ 	case pdata.MetricDataTypeSum:
+ 		sum := m.Sum()
+ 		sum.SetIsMonotonic(true)
+-		sum.SetAggregationTemporality(pdata.AggregationTemporalityCumulative)
++		sum.SetAggregationTemporality(pdata.MetricAggregationTemporalityCumulative)
+ 	case pdata.MetricDataTypeHistogram:
+ 		histo := m.Histogram()
+-		histo.SetAggregationTemporality(pdata.AggregationTemporalityCumulative)
++		histo.SetAggregationTemporality(pdata.MetricAggregationTemporalityCumulative)
+ 	}
+ }
+ 

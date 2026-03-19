@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/config.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/config.go
+index e79ae2037..83d310e0c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/config.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/config.go
+@@ -14,7 +14,7 @@
+ 
+ package cpuscraper
+ 
+-import "github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++import "go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 
+ // Config relating to CPU Metric Scraper.
+ type Config struct {

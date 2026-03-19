@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/changelog.yml b/.github/workflows/changelog.yml
+index e502f8019..a23df78ac 100644
+--- a/.github/workflows/changelog.yml
++++ b/.github/workflows/changelog.yml
+@@ -6,7 +6,7 @@ name: changelog
+ 
+ on:
+   pull_request:
+-    types: [opened, synchronize, reopened, labeled, unlabeled]
++    types: [opened, ready_for_review, synchronize, reopened, labeled, unlabeled]
+     branches:
+       - main
+ 

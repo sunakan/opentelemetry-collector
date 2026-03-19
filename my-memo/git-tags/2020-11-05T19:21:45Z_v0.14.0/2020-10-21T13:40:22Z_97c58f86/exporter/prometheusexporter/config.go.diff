@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusexporter/config.go b/exporter/prometheusexporter/config.go
+index a74d2374a..e02185d35 100644
+--- a/exporter/prometheusexporter/config.go
++++ b/exporter/prometheusexporter/config.go
+@@ -32,4 +32,7 @@ type Config struct {
+ 
+ 	// ConstLabels are values that are applied for every exported metric.
+ 	ConstLabels prometheus.Labels `mapstructure:"const_labels"`
++
++	// SendTimestamps will send the underlying scrape timestamp with the export
++	SendTimestamps bool `mapstructure:"send_timestamps"`
+ }

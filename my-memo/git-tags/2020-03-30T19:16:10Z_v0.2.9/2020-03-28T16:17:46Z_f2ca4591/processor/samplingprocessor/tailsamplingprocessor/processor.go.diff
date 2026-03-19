@@ -1,0 +1,15 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/processor.go b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+index 6f6f0ce86..9513dee4c 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/processor.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+@@ -226,8 +226,8 @@ func (tsp *tailSamplingSpanProcessor) ConsumeTraceData(ctx context.Context, td c
+ 			tsp.logger.Warn("Span without valid TraceId", zap.String("SourceFormat", td.SourceFormat))
+ 			continue
+ 		}
+-		traceKey := traceKey(span.TraceId)
+-		idToSpans[traceKey] = append(idToSpans[traceKey], span)
++		tk := traceKey(span.TraceId)
++		idToSpans[tk] = append(idToSpans[tk], span)
+ 	}
+ 
+ 	var newTraceIDs int64

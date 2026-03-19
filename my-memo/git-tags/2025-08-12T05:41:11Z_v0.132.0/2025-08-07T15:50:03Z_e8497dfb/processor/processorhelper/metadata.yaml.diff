@@ -1,0 +1,18 @@
+diff --git a/processor/processorhelper/metadata.yaml b/processor/processorhelper/metadata.yaml
+index fbfdc1544..89f2775dd 100644
+--- a/processor/processorhelper/metadata.yaml
++++ b/processor/processorhelper/metadata.yaml
+@@ -28,3 +28,13 @@ telemetry:
+       sum:
+         value_type: int
+         monotonic: true
++
++    processor_internal_duration:
++      enabled: true
++      stability:
++        level: alpha
++      description: Duration of time taken to process a batch of telemetry data through the processor.
++      unit: s
++      histogram:
++        async: false
++        value_type: double

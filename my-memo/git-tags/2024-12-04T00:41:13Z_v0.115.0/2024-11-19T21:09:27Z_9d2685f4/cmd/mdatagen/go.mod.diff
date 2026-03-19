@@ -1,0 +1,10 @@
+diff --git a/cmd/mdatagen/go.mod b/cmd/mdatagen/go.mod
+index 8f330a6ff..cdfce449e 100644
+--- a/cmd/mdatagen/go.mod
++++ b/cmd/mdatagen/go.mod
+@@ -114,3 +114,5 @@ replace go.opentelemetry.io/collector/component/componentstatus => ../../compone
+ replace go.opentelemetry.io/collector/processor => ../../processor
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror
++
++replace go.opentelemetry.io/collector/scraper => ../../scraper

@@ -1,0 +1,22 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index 20e74ef8f..ecad6f2d4 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -31,7 +31,7 @@ import (
+ func TestIdleMode(t *testing.T) {
+ 	tc := testbed.NewTestCase(
+ 		t,
+-		testbed.NewJaegerThriftDataSender(testbed.DefaultJaegerPort),
++		testbed.NewJaegerGRPCDataSender(testbed.DefaultJaegerPort),
+ 		testbed.NewOCDataReceiver(testbed.DefaultOCPort),
+ 	)
+ 	defer tc.Stop()
+@@ -55,7 +55,7 @@ func TestBallastMemory(t *testing.T) {
+ 	for _, test := range tests {
+ 		tc := testbed.NewTestCase(
+ 			t,
+-			testbed.NewJaegerThriftDataSender(testbed.DefaultJaegerPort),
++			testbed.NewJaegerGRPCDataSender(testbed.DefaultJaegerPort),
+ 			testbed.NewOCDataReceiver(testbed.DefaultOCPort),
+ 			testbed.WithSkipResults(),
+ 		)

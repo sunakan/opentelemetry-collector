@@ -1,0 +1,9 @@
+diff --git a/service/testdata/otelcol-config.yaml b/service/testdata/otelcol-config.yaml
+index 61e61d150..3a616757a 100644
+--- a/service/testdata/otelcol-config.yaml
++++ b/service/testdata/otelcol-config.yaml
+@@ -27,4 +27,3 @@ service:
+       receivers: [jaeger]
+       processors: [attributes, batch]
+       exporters: [opencensus]
+-

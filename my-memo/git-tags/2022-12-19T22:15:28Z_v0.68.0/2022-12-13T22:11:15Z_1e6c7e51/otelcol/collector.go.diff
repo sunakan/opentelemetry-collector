@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector.go b/otelcol/collector.go
+index 2ee567b3d..00282d81b 100644
+--- a/otelcol/collector.go
++++ b/otelcol/collector.go
+@@ -60,7 +60,7 @@ func (s State) String() string {
+ // CollectorSettings holds configuration for creating a new Collector.
+ type CollectorSettings struct {
+ 	// Factories service factories.
+-	Factories service.Factories
++	Factories Factories
+ 
+ 	// BuildInfo provides collector start information.
+ 	BuildInfo component.BuildInfo

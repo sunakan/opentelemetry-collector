@@ -1,0 +1,17 @@
+diff --git a/config/identifiable.go b/config/identifiable.go
+index b4482d7ca..10637e2c8 100644
+--- a/config/identifiable.go
++++ b/config/identifiable.go
+@@ -69,6 +69,12 @@ func (id ComponentID) Name() string {
+ 	return id.nameVal
+ }
+ 
++// MarshalText implements the encoding.TextMarshaler interface.
++// This marshals the type and name as one string in the config.
++func (id ComponentID) MarshalText() (text []byte, err error) {
++	return []byte(id.String()), nil
++}
++
+ // UnmarshalText implements the encoding.TextUnmarshaler interface.
+ func (id *ComponentID) UnmarshalText(text []byte) error {
+ 	idStr := string(text)

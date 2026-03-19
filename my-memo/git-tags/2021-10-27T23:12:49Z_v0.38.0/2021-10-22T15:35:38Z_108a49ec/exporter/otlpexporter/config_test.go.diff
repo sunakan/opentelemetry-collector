@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index 3ad431d4e..242625088 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -85,7 +85,7 @@ func TestLoadConfig(t *testing.T) {
+ 				},
+ 				WriteBufferSize: 512 * 1024,
+ 				BalancerName:    "round_robin",
+-				Auth:            &configauth.Authentication{AuthenticatorName: "nop"},
++				Auth:            &configauth.Authentication{AuthenticatorID: config.NewComponentID("nop")},
+ 			},
+ 		})
+ }

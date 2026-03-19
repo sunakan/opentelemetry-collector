@@ -1,0 +1,12 @@
+diff --git a/config/testdata/unknown-exporter-type.yaml b/config/testdata/unknown-exporter-type.yaml
+index deb74322a..df98a241f 100644
+--- a/config/testdata/unknown-exporter-type.yaml
++++ b/config/testdata/unknown-exporter-type.yaml
+@@ -7,6 +7,6 @@ processors:
+ service:
+   pipelines:
+     traces:
+-      receivers: [multireceiver]
++      receivers: [examplereceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]

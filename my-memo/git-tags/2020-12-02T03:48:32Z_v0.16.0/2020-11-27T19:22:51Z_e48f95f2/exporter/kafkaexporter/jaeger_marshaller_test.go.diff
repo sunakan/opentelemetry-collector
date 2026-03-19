@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/jaeger_marshaller_test.go b/exporter/kafkaexporter/jaeger_marshaller_test.go
+index af1a7e27e..e593195d9 100644
+--- a/exporter/kafkaexporter/jaeger_marshaller_test.go
++++ b/exporter/kafkaexporter/jaeger_marshaller_test.go
+@@ -49,7 +49,7 @@ func TestJaegerMarshaller(t *testing.T) {
+ 	require.NoError(t, jsonMarshaller.Marshal(jsonByteBuffer, batches[0].Spans[0]))
+ 
+ 	tests := []struct {
+-		unmarshaller TracesMarshaller
++		unmarshaller Marshaller
+ 		encoding     string
+ 		messages     []Message
+ 	}{

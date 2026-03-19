@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index 2e4f864f6..dec5eae74 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -320,7 +320,7 @@ func TestMap_Range(t *testing.T) {
+ 		delete(rawMap, k)
+ 		return true
+ 	})
+-	assert.EqualValues(t, 0, len(rawMap))
++	assert.Empty(t, rawMap)
+ }
+ 
+ func TestMap_FromRaw(t *testing.T) {

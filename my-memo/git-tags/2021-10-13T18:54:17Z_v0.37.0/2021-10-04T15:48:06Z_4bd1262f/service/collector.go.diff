@@ -1,0 +1,13 @@
+diff --git a/service/collector.go b/service/collector.go
+index e838a72fb..cf7c0ab1c 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -213,7 +213,7 @@ func (col *Collector) Run(ctx context.Context) error {
+ 	// global TracerProvider.
+ 	otel.SetTracerProvider(col.tracerProvider)
+ 
+-	col.meterProvider = metric.NoopMeterProvider{}
++	col.meterProvider = metric.NewNoopMeterProvider()
+ 
+ 	col.stateChannel <- Starting
+ 

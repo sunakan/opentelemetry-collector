@@ -1,0 +1,16 @@
+diff --git a/processor/batchprocessor/internal/metadata/generated_telemetry_test.go b/processor/batchprocessor/internal/metadata/generated_telemetry_test.go
+index f05add260..1591d07b7 100644
+--- a/processor/batchprocessor/internal/metadata/generated_telemetry_test.go
++++ b/processor/batchprocessor/internal/metadata/generated_telemetry_test.go
+@@ -75,9 +75,9 @@ func TestNewTelemetryBuilder(t *testing.T) {
+ 		TracerProvider: mockTracerProvider{},
+ 	}
+ 	applied := false
+-	_, err := NewTelemetryBuilder(set, func(b *TelemetryBuilder) {
++	_, err := NewTelemetryBuilder(set, telemetryBuilderOptionFunc(func(b *TelemetryBuilder) {
+ 		applied = true
+-	})
++	}))
+ 	require.NoError(t, err)
+ 	require.True(t, applied)
+ }

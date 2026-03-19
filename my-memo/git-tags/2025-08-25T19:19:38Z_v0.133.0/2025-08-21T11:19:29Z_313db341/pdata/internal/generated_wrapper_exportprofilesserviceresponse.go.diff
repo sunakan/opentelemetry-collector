@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+index f38e4aa4a..c0a4e1e0d 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+@@ -47,6 +47,10 @@ func DeleteOrigExportProfilesServiceResponse(orig *otlpcollectorprofiles.ExportP
+ }
+ 
+ func CopyOrigExportProfilesServiceResponse(dest, src *otlpcollectorprofiles.ExportProfilesServiceResponse) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigExportProfilesPartialSuccess(&dest.PartialSuccess, &src.PartialSuccess)
+ }
+ 

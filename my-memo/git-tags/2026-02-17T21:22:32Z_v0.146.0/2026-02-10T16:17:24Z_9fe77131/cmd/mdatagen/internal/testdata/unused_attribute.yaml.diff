@@ -1,0 +1,27 @@
+diff --git a/cmd/mdatagen/internal/testdata/unused_attribute.yaml b/cmd/mdatagen/internal/testdata/unused_attribute.yaml
+index 4d07147fa..a7daa3dd2 100644
+--- a/cmd/mdatagen/internal/testdata/unused_attribute.yaml
++++ b/cmd/mdatagen/internal/testdata/unused_attribute.yaml
+@@ -26,8 +26,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
+-    stability:
+-      level: development
++    stability: development
+     unit: "1"
+     gauge:
+       value_type: double
+@@ -38,9 +37,8 @@ telemetry:
+     metric:
+       enabled: true
+       description: Metric.
+-      stability:
+-        level: development
++      stability: development
+       unit: "1"
+       gauge:
+         value_type: double
+-      attributes: [used_attr_in_telemetry_section]
+\ No newline at end of file
++      attributes: [used_attr_in_telemetry_section]

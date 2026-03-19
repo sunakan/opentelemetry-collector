@@ -1,0 +1,15 @@
+diff --git a/exporter/internal/queue/disabled_batcher_test.go b/exporter/internal/queue/disabled_batcher_test.go
+index 10bede060..bba4427c2 100644
+--- a/exporter/internal/queue/disabled_batcher_test.go
++++ b/exporter/internal/queue/disabled_batcher_test.go
+@@ -26,10 +26,6 @@ func TestDisabledBatcher_Basic(t *testing.T) {
+ 		name       string
+ 		maxWorkers int
+ 	}{
+-		{
+-			name:       "infinate_workers",
+-			maxWorkers: 0,
+-		},
+ 		{
+ 			name:       "one_worker",
+ 			maxWorkers: 1,

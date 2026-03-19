@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter.go b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter.go
+index a8b773d34..113758fa1 100644
+--- a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter.go
++++ b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter.go
+@@ -16,7 +16,7 @@
+ 
+ package pdh
+ 
+-import "github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
++import "go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
+ 
+ const totalInstanceName = "_Total"
+ 

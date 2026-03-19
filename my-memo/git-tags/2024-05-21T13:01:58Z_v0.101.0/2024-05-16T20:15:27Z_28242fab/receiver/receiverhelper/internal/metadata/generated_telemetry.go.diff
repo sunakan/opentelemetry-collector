@@ -1,0 +1,14 @@
+diff --git a/receiver/receiverhelper/internal/metadata/generated_telemetry.go b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+index 5226a3d64..96b5b5b5f 100644
+--- a/receiver/receiverhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+@@ -37,6 +37,9 @@ type telemetryBuilderOption func(*TelemetryBuilder)
+ // for a component
+ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...telemetryBuilderOption) (*TelemetryBuilder, error) {
+ 	builder := TelemetryBuilder{}
++	for _, op := range options {
++		op(&builder)
++	}
+ 	var err, errs error
+ 	meter := Meter(settings)
+ 	builder.ReceiverAcceptedLogRecords, err = meter.Int64Counter(

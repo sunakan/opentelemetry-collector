@@ -1,0 +1,14 @@
+diff --git a/exporter/debugexporter/metadata.yaml b/exporter/debugexporter/metadata.yaml
+index aa7baef4c..da3e38283 100644
+--- a/exporter/debugexporter/metadata.yaml
++++ b/exporter/debugexporter/metadata.yaml
+@@ -2,6 +2,9 @@ type: debug
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  codeowners:
++    active:
++      - andrzej-stencel
+   class: exporter
+   stability:
+     development: [traces, metrics, logs, profiles]

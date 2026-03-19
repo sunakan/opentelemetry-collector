@@ -1,0 +1,13 @@
+diff --git a/config/test_helpers.go b/config/test_helpers.go
+index 4bf5f3c0d..d4aa2a440 100644
+--- a/config/test_helpers.go
++++ b/config/test_helpers.go
+@@ -21,7 +21,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // LoadConfigFile loads a config from file.

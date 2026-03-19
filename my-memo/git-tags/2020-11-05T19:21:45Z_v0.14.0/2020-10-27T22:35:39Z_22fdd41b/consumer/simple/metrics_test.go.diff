@@ -1,0 +1,20 @@
+diff --git a/consumer/simple/metrics_test.go b/consumer/simple/metrics_test.go
+index a318dd8cc..110ff8836 100644
+--- a/consumer/simple/metrics_test.go
++++ b/consumer/simple/metrics_test.go
+@@ -229,6 +229,7 @@ func TestMetrics(t *testing.T) {
+               "int_histogram": {
+                 "data_points": [
+                   {
++                    "labels": null,
+                     "time_unix_nano": 1597266546570840817
+                   }
+                 ]
+@@ -241,6 +242,7 @@ func TestMetrics(t *testing.T) {
+               "double_histogram": {
+                 "data_points": [
+                   {
++                    "labels": null,
+                     "time_unix_nano": 1597266546570840817
+                   }
+                 ]

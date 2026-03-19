@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/factory_test.go b/service/telemetry/factory_test.go
+index 8b8d20bc1..09ad25a3b 100644
+--- a/service/telemetry/factory_test.go
++++ b/service/telemetry/factory_test.go
+@@ -11,7 +11,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 

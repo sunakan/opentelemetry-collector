@@ -1,0 +1,10 @@
+diff --git a/processor/memorylimiterprocessor/go.mod b/processor/memorylimiterprocessor/go.mod
+index a38963967..ebb36c034 100644
+--- a/processor/memorylimiterprocessor/go.mod
++++ b/processor/memorylimiterprocessor/go.mod
+@@ -115,3 +115,5 @@ replace go.opentelemetry.io/collector/processor/processorhelper/xprocessorhelper
+ replace go.opentelemetry.io/collector/processor/processorhelper => ../processorhelper
+ 
+ replace go.opentelemetry.io/collector/pipeline/xpipeline => ../../pipeline/xpipeline
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

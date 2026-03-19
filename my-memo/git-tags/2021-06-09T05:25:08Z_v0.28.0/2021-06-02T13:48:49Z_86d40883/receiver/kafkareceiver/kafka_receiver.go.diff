@@ -1,0 +1,40 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver.go b/receiver/kafkareceiver/kafka_receiver.go
+index f0c4d9aac..2d2d912e0 100644
+--- a/receiver/kafkareceiver/kafka_receiver.go
++++ b/receiver/kafkareceiver/kafka_receiver.go
+@@ -64,7 +64,7 @@ type kafkaLogsConsumer struct {
+ var _ component.Receiver = (*kafkaTracesConsumer)(nil)
+ var _ component.Receiver = (*kafkaLogsConsumer)(nil)
+ 
+-func newTracesReceiver(config Config, params component.ReceiverCreateParams, unmarshalers map[string]TracesUnmarshaler, nextConsumer consumer.Traces) (*kafkaTracesConsumer, error) {
++func newTracesReceiver(config Config, set component.ReceiverCreateSettings, unmarshalers map[string]TracesUnmarshaler, nextConsumer consumer.Traces) (*kafkaTracesConsumer, error) {
+ 	unmarshaler := unmarshalers[config.Encoding]
+ 	if unmarshaler == nil {
+ 		return nil, errUnrecognizedEncoding
+@@ -95,7 +95,7 @@ func newTracesReceiver(config Config, params component.ReceiverCreateParams, unm
+ 		topics:        []string{config.Topic},
+ 		nextConsumer:  nextConsumer,
+ 		unmarshaler:   unmarshaler,
+-		logger:        params.Logger,
++		logger:        set.Logger,
+ 	}, nil
+ }
+ 
+@@ -136,7 +136,7 @@ func (c *kafkaTracesConsumer) Shutdown(context.Context) error {
+ 	return c.consumerGroup.Close()
+ }
+ 
+-func newLogsReceiver(config Config, params component.ReceiverCreateParams, unmarshalers map[string]LogsUnmarshaler, nextConsumer consumer.Logs) (*kafkaLogsConsumer, error) {
++func newLogsReceiver(config Config, set component.ReceiverCreateSettings, unmarshalers map[string]LogsUnmarshaler, nextConsumer consumer.Logs) (*kafkaLogsConsumer, error) {
+ 	unmarshaler := unmarshalers[config.Encoding]
+ 	if unmarshaler == nil {
+ 		return nil, errUnrecognizedEncoding
+@@ -167,7 +167,7 @@ func newLogsReceiver(config Config, params component.ReceiverCreateParams, unmar
+ 		topics:        []string{config.Topic},
+ 		nextConsumer:  nextConsumer,
+ 		unmarshaler:   unmarshaler,
+-		logger:        params.Logger,
++		logger:        set.Logger,
+ 	}, nil
+ }
+ 

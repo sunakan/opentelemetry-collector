@@ -1,0 +1,35 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 1fc661a5d..45bf9def7 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -23,22 +23,28 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
++var defaultExporterCfg = &configmodels.ExporterSettings{
++	TypeVal: "test",
++	NameVal: "test",
++}
++
+ func TestErrorToStatus(t *testing.T) {
+ 	require.Equal(t, okStatus, errToStatus(nil))
+ 	require.Equal(t, trace.Status{Code: trace.StatusCodeUnknown, Message: "my_error"}, errToStatus(errors.New("my_error")))
+ }
+ 
+ func TestBaseExporter(t *testing.T) {
+-	be := newBaseExporter("test")
++	be := newBaseExporter(defaultExporterCfg)
+ 	require.NoError(t, be.Start(context.Background(), componenttest.NewNopHost()))
+ 	require.NoError(t, be.Shutdown(context.Background()))
+ }
+ 
+ func TestBaseExporterWithOptions(t *testing.T) {
+ 	be := newBaseExporter(
+-		"test",
++		defaultExporterCfg,
+ 		WithStart(func(ctx context.Context, host component.Host) error { return errors.New("my error") }),
+ 		WithShutdown(func(ctx context.Context) error { return errors.New("my error") }))
+ 	require.Error(t, be.Start(context.Background(), componenttest.NewNopHost()))

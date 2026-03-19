@@ -1,0 +1,19 @@
+diff --git a/cmd/pdatagen/internal/files.go b/cmd/pdatagen/internal/files.go
+index 81485b060..62b9b673c 100644
+--- a/cmd/pdatagen/internal/files.go
++++ b/cmd/pdatagen/internal/files.go
+@@ -62,8 +62,12 @@ func (f *File) GenerateFile() string {
+ 	sb.WriteString(newLine + newLine)
+ 	// Add imports
+ 	sb.WriteString("import (" + newLine)
+-	for _, i := range f.imports {
+-		sb.WriteString("\t" + i + newLine)
++	for _, imp := range f.imports {
++		if imp != "" {
++			sb.WriteString("\t" + imp + newLine)
++		} else {
++			sb.WriteString(newLine)
++		}
+ 	}
+ 	sb.WriteString(")")
+ 	// Write all structs

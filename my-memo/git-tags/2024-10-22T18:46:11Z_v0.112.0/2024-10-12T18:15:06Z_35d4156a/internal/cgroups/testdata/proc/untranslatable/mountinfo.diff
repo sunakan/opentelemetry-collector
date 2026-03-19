@@ -1,0 +1,8 @@
+diff --git a/internal/cgroups/testdata/proc/untranslatable/mountinfo b/internal/cgroups/testdata/proc/untranslatable/mountinfo
+deleted file mode 100644
+index 245daae6e..000000000
+--- a/internal/cgroups/testdata/proc/untranslatable/mountinfo
++++ /dev/null
+@@ -1,2 +0,0 @@
+-31 23 0:24 / /sys/fs/cgroup/cpu rw,nosuid,nodev,noexec,relatime shared:1 - cgroup cgroup rw,cpu
+-32 23 0:25 /docker/0123456789abcdef /sys/fs/cgroup/cpuacct rw,nosuid,nodev,noexec,relatime shared:2 - cgroup cgroup rw,cpuacct

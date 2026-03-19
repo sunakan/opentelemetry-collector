@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index fa0c0d35d..ea39bcf78 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -78,6 +78,7 @@ var (
+ 		"/otelcol",
+ 		"/pdata",
+ 		"/pdata/testdata",
++		"/pdata/pprofile",
+ 		"/semconv",
+ 		"/service",
+ 	}

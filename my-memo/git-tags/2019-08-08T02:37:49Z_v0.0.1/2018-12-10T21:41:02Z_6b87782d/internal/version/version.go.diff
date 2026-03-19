@@ -1,0 +1,15 @@
+diff --git a/internal/version/version.go b/internal/version/version.go
+index 07dce3f58..4969c15d2 100644
+--- a/internal/version/version.go
++++ b/internal/version/version.go
+@@ -20,8 +20,8 @@ import (
+ 	"runtime"
+ )
+ 
+-// Please increment this value per release.
+-const version = "0.0.1"
++// version variable will be replaced at link time after `make` has been run.
++var version = "latest"
+ 
+ // GitHash variable will be replaced at link time after `make` has been run.
+ var GitHash = "<NOT PROPERLY GENERATED>"

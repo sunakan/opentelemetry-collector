@@ -1,0 +1,22 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index a3e982936..803f87bf5 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -70,8 +70,7 @@ type jReceiver struct {
+ 
+ 	config *Configuration
+ 
+-	agent       *agentapp.Agent
+-	agentServer *http.Server
++	agent *agentapp.Agent
+ 
+ 	grpc            *grpc.Server
+ 	tchannel        *tchannel.Channel
+@@ -93,7 +92,6 @@ const (
+ 	// 5775	UDP accept zipkin.thrift over compact thrift protocol
+ 	// 6831	UDP accept jaeger.thrift over compact thrift protocol
+ 	// 6832	UDP accept jaeger.thrift over binary thrift protocol
+-	defaultZipkinThriftUDPPort  = 5775
+ 	defaultCompactThriftUDPPort = 6831
+ 	defaultBinaryThriftUDPPort  = 6832
+ 

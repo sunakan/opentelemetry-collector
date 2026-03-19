@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/known_sync_error.go b/exporter/loggingexporter/known_sync_error.go
+index cad34d12b..da1eb9c65 100644
+--- a/exporter/loggingexporter/known_sync_error.go
++++ b/exporter/loggingexporter/known_sync_error.go
+@@ -15,7 +15,7 @@
+ //go:build !windows
+ // +build !windows
+ 
+-package loggingexporter
++package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"
+ 
+ import (
+ 	"syscall"

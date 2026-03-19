@@ -1,0 +1,31 @@
+diff --git a/processor/spanprocessor/factory.go b/processor/spanprocessor/factory.go
+index 5a03da679..c7ebd3ca6 100644
+--- a/processor/spanprocessor/factory.go
++++ b/processor/spanprocessor/factory.go
+@@ -42,7 +42,7 @@ func NewFactory() component.ProcessorFactory {
+ 	return processorhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		processorhelper.WithTraces(createTraceProcessor))
++		processorhelper.WithTraces(createTracesProcessor))
+ }
+ 
+ func createDefaultConfig() config.Processor {
+@@ -51,7 +51,7 @@ func createDefaultConfig() config.Processor {
+ 	}
+ }
+ 
+-func createTraceProcessor(
++func createTracesProcessor(
+ 	_ context.Context,
+ 	_ component.ProcessorCreateParams,
+ 	cfg config.Processor,
+@@ -70,7 +70,7 @@ func createTraceProcessor(
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	return processorhelper.NewTraceProcessor(
++	return processorhelper.NewTracesProcessor(
+ 		cfg,
+ 		nextConsumer,
+ 		sp,

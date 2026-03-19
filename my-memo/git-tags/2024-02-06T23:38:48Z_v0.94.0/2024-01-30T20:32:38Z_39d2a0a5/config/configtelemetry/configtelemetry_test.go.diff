@@ -1,0 +1,20 @@
+diff --git a/config/configtelemetry/configtelemetry_test.go b/config/configtelemetry/configtelemetry_test.go
+index 409a60cd6..27236bbe3 100644
+--- a/config/configtelemetry/configtelemetry_test.go
++++ b/config/configtelemetry/configtelemetry_test.go
+@@ -4,11 +4,15 @@
+ package configtelemetry
+ 
+ import (
++	"encoding"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
++var _ encoding.TextMarshaler = (*Level)(nil)
++var _ encoding.TextUnmarshaler = (*Level)(nil)
++
+ func TestUnmarshalText(t *testing.T) {
+ 	tests := []struct {
+ 		str   []string

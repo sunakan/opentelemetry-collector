@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/logger.go b/service/telemetry/logger.go
+index d1f06b34f..b6fe6d22a 100644
+--- a/service/telemetry/logger.go
++++ b/service/telemetry/logger.go
+@@ -33,7 +33,6 @@ func newLogger(set Settings, cfg Config) (*zap.Logger, log.LoggerProvider, error
+ 	}
+ 
+ 	logger, err := zapCfg.Build(set.ZapOptions...)
+-
+ 	if err != nil {
+ 		return nil, nil, err
+ 	}

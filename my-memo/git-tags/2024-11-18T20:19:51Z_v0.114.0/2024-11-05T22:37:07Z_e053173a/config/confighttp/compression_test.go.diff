@@ -1,0 +1,21 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 870e9ba83..e173f087a 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -9,7 +9,6 @@ import (
+ 	"compress/zlib"
+ 	"context"
+ 	"errors"
+-	"fmt"
+ 	"io"
+ 	"net/http"
+ 	"net/http/httptest"
+@@ -335,7 +334,7 @@ type closeFailBody struct {
+ }
+ 
+ func (*closeFailBody) Close() error {
+-	return fmt.Errorf("close failed")
++	return errors.New("close failed")
+ }
+ 
+ func TestHTTPContentCompressionRequestBodyCloseError(t *testing.T) {

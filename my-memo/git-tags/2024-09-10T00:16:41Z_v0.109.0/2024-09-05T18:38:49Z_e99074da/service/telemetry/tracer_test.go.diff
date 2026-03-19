@@ -1,0 +1,28 @@
+diff --git a/service/telemetry/tracer_test.go b/service/telemetry/tracer_test.go
+index b9503276e..80184dac2 100644
+--- a/service/telemetry/tracer_test.go
++++ b/service/telemetry/tracer_test.go
+@@ -9,7 +9,6 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+-	"go.opentelemetry.io/otel/trace/noop"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+@@ -76,13 +75,13 @@ func TestNewTracerProvider(t *testing.T) {
+ 					Level: configtelemetry.LevelNone,
+ 				},
+ 			},
+-			wantTracerProvider: noop.TracerProvider{},
++			wantTracerProvider: &noopNoContextTracerProvider{},
+ 		},
+ 		{
+ 			name:               "noop tracer feature gate",
+ 			cfg:                Config{},
+ 			noopTracerGate:     true,
+-			wantTracerProvider: noop.TracerProvider{},
++			wantTracerProvider: &noopNoContextTracerProvider{},
+ 		},
+ 		{
+ 			name:               "tracer provider",

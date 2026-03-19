@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcol/main_others.go b/cmd/otelcol/main_others.go
+index e1957c2fb..199832888 100644
+--- a/cmd/otelcol/main_others.go
++++ b/cmd/otelcol/main_others.go
+@@ -18,6 +18,6 @@ package main
+ 
+ import "go.opentelemetry.io/collector/service"
+ 
+-func run(params service.Parameters) error {
+-	return runInteractive(params)
++func run(settings service.AppSettings) error {
++	return runInteractive(settings)
+ }

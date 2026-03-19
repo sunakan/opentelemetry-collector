@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/oc_to_traces.go b/translator/internaldata/oc_to_traces.go
+index d6835d079..9b97c089a 100644
+--- a/translator/internaldata/oc_to_traces.go
++++ b/translator/internaldata/oc_to_traces.go
+@@ -248,6 +248,10 @@ func ocSpanKindToInternal(ocKind octrace.Span_SpanKind, ocAttrs *octrace.Span_At
+ 				if ok && strVal != nil {
+ 					var otlpKind pdata.SpanKind
+ 					switch tracetranslator.OpenTracingSpanKind(strVal.StringValue.GetValue()) {
++					case tracetranslator.OpenTracingSpanKindClient:
++						otlpKind = pdata.SpanKindCLIENT
++					case tracetranslator.OpenTracingSpanKindServer:
++						otlpKind = pdata.SpanKindSERVER
+ 					case tracetranslator.OpenTracingSpanKindConsumer:
+ 						otlpKind = pdata.SpanKindCONSUMER
+ 					case tracetranslator.OpenTracingSpanKindProducer:

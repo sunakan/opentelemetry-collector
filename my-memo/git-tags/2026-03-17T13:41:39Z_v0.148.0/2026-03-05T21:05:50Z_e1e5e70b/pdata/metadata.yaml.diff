@@ -1,0 +1,21 @@
+diff --git a/pdata/metadata.yaml b/pdata/metadata.yaml
+index a6b702e9a..f79a0901b 100644
+--- a/pdata/metadata.yaml
++++ b/pdata/metadata.yaml
+@@ -10,3 +10,16 @@ status:
+       - dmitryax
+   stability:
+     stable: [traces, metrics, logs]
++
++feature_gates:
++  - id: pdata.useCustomProtoEncoding
++    description: 'When enabled, enable custom proto encoding. This is a required step to enable featuregate pdata.useProtoPooling.'
++    stage: stable
++    from_version: 'v0.133.0'
++    to_version: 'v0.137.0'
++    reference_url: 'https://github.com/open-telemetry/opentelemetry-collector/issues/13631'
++  - id: pdata.useProtoPooling
++    description: 'When enabled, enable using local memory pools for underlying data that the pdata messages are pushed to.'
++    stage: alpha
++    from_version: 'v0.133.0'
++    reference_url: 'https://github.com/open-telemetry/opentelemetry-collector/issues/13631'

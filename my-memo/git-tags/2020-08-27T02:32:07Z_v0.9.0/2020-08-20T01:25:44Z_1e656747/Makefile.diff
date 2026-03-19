@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index a356f2f1b..5a4522fae 100644
+--- a/Makefile
++++ b/Makefile
+@@ -90,7 +90,7 @@ test-with-cover:
+ 
+ .PHONY: addlicense
+ addlicense:
+-	$(ADDLICENSE) -c 'The OpenTelemetry Authors' $(ALL_SRC)
++	$(ADDLICENSE) -y "" -c 'The OpenTelemetry Authors' $(ALL_SRC)
+ 
+ .PHONY: checklicense
+ checklicense:

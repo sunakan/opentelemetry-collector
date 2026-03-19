@@ -1,0 +1,13 @@
+diff --git a/vendor/go.opencensus.io/.gitignore b/vendor/go.opencensus.io/.gitignore
+new file mode 100644
+index 000000000..806230244
+--- /dev/null
++++ b/vendor/go.opencensus.io/.gitignore
+@@ -0,0 +1,7 @@
++/.idea/
++
++# go.opencensus.io/exporter/aws
++/exporter/aws/
++
++# Exclude vendor, use dep ensure after checkout:
++/vendor/

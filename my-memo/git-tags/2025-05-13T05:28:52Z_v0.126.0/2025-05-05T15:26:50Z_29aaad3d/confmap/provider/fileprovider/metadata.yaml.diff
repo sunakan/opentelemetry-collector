@@ -1,0 +1,12 @@
+diff --git a/confmap/provider/fileprovider/metadata.yaml b/confmap/provider/fileprovider/metadata.yaml
+index 88737b2c8..09b1a3a67 100644
+--- a/confmap/provider/fileprovider/metadata.yaml
++++ b/confmap/provider/fileprovider/metadata.yaml
+@@ -2,6 +2,7 @@ type: file
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: provider
+   stability:
+     stable: [provider]

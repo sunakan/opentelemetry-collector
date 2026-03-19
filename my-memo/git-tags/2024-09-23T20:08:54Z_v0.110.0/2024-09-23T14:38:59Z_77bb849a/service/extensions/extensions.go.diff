@@ -1,0 +1,13 @@
+diff --git a/service/extensions/extensions.go b/service/extensions/extensions.go
+index fcefcb33f..140d8b3b6 100644
+--- a/service/extensions/extensions.go
++++ b/service/extensions/extensions.go
+@@ -209,7 +209,7 @@ func New(ctx context.Context, set Settings, cfg Config, options ...Option) (*Ext
+ 	}
+ 
+ 	for _, extID := range cfg {
+-		instanceID := componentstatus.NewInstanceID(extID, component.KindExtension)
++		instanceID := componentstatus.NewInstanceIDWithPipelineIDs(extID, component.KindExtension)
+ 		extSet := extension.Settings{
+ 			ID:                extID,
+ 			TelemetrySettings: set.Telemetry,

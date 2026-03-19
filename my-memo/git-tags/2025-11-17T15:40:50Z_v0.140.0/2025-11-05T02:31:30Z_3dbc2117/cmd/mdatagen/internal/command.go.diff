@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index 9ac3a7f7e..3e41a5e77 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -462,6 +462,7 @@ func validateYAMLKeyOrder(raw []byte) error {
+ 	}
+ 	for _, p := range [][]string{
+ 		{"resource_attributes"},
++		{"entities"},
+ 		{"attributes"},
+ 		{"metrics"},
+ 		{"events"},

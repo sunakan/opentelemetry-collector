@@ -1,0 +1,17 @@
+diff --git a/internal/testcomponents/example_exporter.go b/internal/testcomponents/example_exporter.go
+index 7c3dc8ed4..ddb473ff7 100644
+--- a/internal/testcomponents/example_exporter.go
++++ b/internal/testcomponents/example_exporter.go
+@@ -39,9 +39,9 @@ type ExampleExporterConfig struct {
+ var ExampleExporterFactory = component.NewExporterFactory(
+ 	typeStr,
+ 	createExporterDefaultConfig,
+-	component.WithTracesExporterAndStabilityLevel(createTracesExporter, stability),
+-	component.WithMetricsExporterAndStabilityLevel(createMetricsExporter, stability),
+-	component.WithLogsExporterAndStabilityLevel(createLogsExporter, stability),
++	component.WithTracesExporter(createTracesExporter, stability),
++	component.WithMetricsExporter(createMetricsExporter, stability),
++	component.WithLogsExporter(createLogsExporter, stability),
+ )
+ 
+ func createExporterDefaultConfig() config.Exporter {

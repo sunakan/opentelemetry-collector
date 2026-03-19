@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory.go b/processor/attributesprocessor/factory.go
+index 8723f3c5f..ebfcefd77 100644
+--- a/processor/attributesprocessor/factory.go
++++ b/processor/attributesprocessor/factory.go
+@@ -37,7 +37,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

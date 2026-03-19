@@ -1,0 +1,15 @@
+diff --git a/configv2/testdata/pipeline-must-have-receiver.yaml b/configv2/testdata/pipeline-must-have-receiver.yaml
+new file mode 100644
+index 000000000..92acc6639
+--- /dev/null
++++ b/configv2/testdata/pipeline-must-have-receiver.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  metrics:
++    exporters: [exampleexporter]

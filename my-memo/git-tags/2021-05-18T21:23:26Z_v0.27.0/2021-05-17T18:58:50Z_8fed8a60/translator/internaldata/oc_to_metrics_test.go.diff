@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index 45f97d02f..4312c7d45 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -49,7 +49,7 @@ func TestOCToMetrics(t *testing.T) {
+ 		{
+ 			name:     "empty",
+ 			oc:       &agentmetricspb.ExportMetricsServiceRequest{},
+-			internal: testdata.GenerateMetricsEmpty(),
++			internal: pdata.NewMetrics(),
+ 		},
+ 
+ 		{

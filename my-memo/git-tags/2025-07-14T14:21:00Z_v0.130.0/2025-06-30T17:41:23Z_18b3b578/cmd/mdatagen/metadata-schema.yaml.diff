@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index 341c3f4b5..4de8ffc1e 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -78,6 +78,8 @@ attributes:
+     enum: [string]
+     # Required: attribute value type.
+     type: <string|int|double|bool|bytes|slice|map>
++    # Optional: indicates whether the attribute is optional or not.
++    optional:
+ 
+ # Optional: map of metric names with the key being the metric name and value
+ # being described below.

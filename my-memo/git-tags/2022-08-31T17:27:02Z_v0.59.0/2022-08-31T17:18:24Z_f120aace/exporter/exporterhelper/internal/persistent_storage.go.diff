@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage.go b/exporter/exporterhelper/internal/persistent_storage.go
+index c618852d0..fcfbe1573 100644
+--- a/exporter/exporterhelper/internal/persistent_storage.go
++++ b/exporter/exporterhelper/internal/persistent_storage.go
+@@ -204,6 +204,9 @@ func (pcs *persistentContiguousStorage) stop() {
+ 	pcs.logger.Debug("Stopping persistentContiguousStorage", zap.String(zapQueueNameKey, pcs.queueName))
+ 	pcs.stopOnce.Do(func() {
+ 		close(pcs.stopChan)
++		if err := pcs.client.Close(context.Background()); err != nil {
++			pcs.logger.Warn("failed to close client", zap.Error(err))
++		}
+ 	})
+ }
+ 

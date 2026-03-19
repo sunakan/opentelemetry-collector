@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+index 8eb437779..11bffede3 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+@@ -51,7 +51,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, component.UnmarshalConfig(sub, cfg))
++	require.NoError(t, sub.Unmarshal(&cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/defaultunmarshaler.go b/config/configunmarshaler/defaultunmarshaler.go
+index 188c98f30..fb8be2114 100644
+--- a/config/configunmarshaler/defaultunmarshaler.go
++++ b/config/configunmarshaler/defaultunmarshaler.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configunmarshaler
++package configunmarshaler // import "go.opentelemetry.io/collector/config/configunmarshaler"
+ 
+ import (
+ 	"fmt"

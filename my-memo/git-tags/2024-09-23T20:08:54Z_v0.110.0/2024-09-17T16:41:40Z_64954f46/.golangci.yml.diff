@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index a0a56fd5f..8c9784977 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -125,7 +125,6 @@ linters-settings:
+     # TODO: enable all rules
+     disable:
+       - float-compare
+-      - formatter
+       - go-require
+       - require-error
+     enable-all: true   

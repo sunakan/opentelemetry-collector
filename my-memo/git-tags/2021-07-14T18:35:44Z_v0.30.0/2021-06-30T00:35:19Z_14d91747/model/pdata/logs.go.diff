@@ -1,0 +1,16 @@
+diff --git a/model/pdata/logs.go b/model/pdata/logs.go
+index 82cddb207..87d82c230 100644
+--- a/model/pdata/logs.go
++++ b/model/pdata/logs.go
+@@ -15,9 +15,9 @@
+ package pdata
+ 
+ import (
+-	otlpcollectorlog "go.opentelemetry.io/collector/internal/data/protogen/collector/logs/v1"
+-	otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
+ 	"go.opentelemetry.io/collector/model/internal"
++	otlpcollectorlog "go.opentelemetry.io/collector/model/internal/data/protogen/collector/logs/v1"
++	otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"
+ )
+ 
+ // LogsMarshaler marshals pdata.Logs into bytes.

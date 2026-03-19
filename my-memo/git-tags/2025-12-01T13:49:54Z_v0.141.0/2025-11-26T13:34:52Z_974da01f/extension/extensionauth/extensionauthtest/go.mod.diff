@@ -1,0 +1,10 @@
+diff --git a/extension/extensionauth/extensionauthtest/go.mod b/extension/extensionauth/extensionauthtest/go.mod
+index 5f7d49291..bc750cd93 100644
+--- a/extension/extensionauth/extensionauthtest/go.mod
++++ b/extension/extensionauth/extensionauthtest/go.mod
+@@ -38,3 +38,5 @@ replace go.opentelemetry.io/collector/pdata => ../../../pdata
+ replace go.opentelemetry.io/collector/extension => ../..
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../../internal/testutil

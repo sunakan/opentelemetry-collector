@@ -1,0 +1,17 @@
+diff --git a/receiver/opencensusreceiver/opencensus_test.go b/receiver/opencensusreceiver/opencensus_test.go
+index d486f515f..e24260d9d 100644
+--- a/receiver/opencensusreceiver/opencensus_test.go
++++ b/receiver/opencensusreceiver/opencensus_test.go
+@@ -371,10 +371,9 @@ func TestStartWithoutConsumersShouldFail(t *testing.T) {
+ func tempSocketName(t *testing.T) string {
+ 	tmpfile, err := ioutil.TempFile("", "sock")
+ 	require.NoError(t, err)
++	require.NoError(t, tmpfile.Close())
+ 	socket := tmpfile.Name()
+-	err = os.Remove(socket)
+-	require.NoError(t, err)
+-
++	require.NoError(t, os.Remove(socket))
+ 	return socket
+ }
+ 

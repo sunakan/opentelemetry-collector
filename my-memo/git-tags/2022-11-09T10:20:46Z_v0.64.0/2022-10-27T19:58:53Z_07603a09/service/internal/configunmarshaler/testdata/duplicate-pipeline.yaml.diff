@@ -1,0 +1,22 @@
+diff --git a/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml b/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml
+deleted file mode 100644
+index de1cda0a3..000000000
+--- a/service/internal/configunmarshaler/testdata/duplicate-pipeline.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces /pipe:
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]
+-    traces/ pipe :
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]

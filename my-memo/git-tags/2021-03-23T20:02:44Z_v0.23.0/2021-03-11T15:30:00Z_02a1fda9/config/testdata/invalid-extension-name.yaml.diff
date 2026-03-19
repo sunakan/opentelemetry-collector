@@ -1,0 +1,21 @@
+diff --git a/config/testdata/invalid-extension-name.yaml b/config/testdata/invalid-extension-name.yaml
+deleted file mode 100644
+index 8ed982925..000000000
+--- a/config/testdata/invalid-extension-name.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-extensions:
+-  exampleextension:
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-service:
+-  extensions: [exampleextension, nosuchextension, and, another, three]
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

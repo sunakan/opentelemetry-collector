@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetrics.go b/pdata/internal/generated_wrapper_resourcemetrics.go
+index ee3a0d0c3..a5fceb8bf 100644
+--- a/pdata/internal/generated_wrapper_resourcemetrics.go
++++ b/pdata/internal/generated_wrapper_resourcemetrics.go
+@@ -28,10 +28,12 @@ func CopyOrigResourceMetrics(dest, src *otlpmetrics.ResourceMetrics) {
+ 	dest.SchemaUrl = src.SchemaUrl
+ }
+ 
+-func FillOrigTestResourceMetrics(orig *otlpmetrics.ResourceMetrics) {
+-	FillOrigTestResource(&orig.Resource)
++func GenTestOrigResourceMetrics() *otlpmetrics.ResourceMetrics {
++	orig := NewOrigPtrResourceMetrics()
++	orig.Resource = *GenTestOrigResource()
+ 	orig.ScopeMetrics = GenerateOrigTestScopeMetricsSlice()
+ 	orig.SchemaUrl = "test_schemaurl"
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

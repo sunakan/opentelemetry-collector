@@ -1,0 +1,12 @@
+diff --git a/service/internal/proctelemetry/config.go b/service/internal/proctelemetry/config.go
+index 411513f71..3698329b0 100644
+--- a/service/internal/proctelemetry/config.go
++++ b/service/internal/proctelemetry/config.go
+@@ -172,7 +172,6 @@ func initPrometheusExporter(prometheusConfig *config.Prometheus, asyncErrorChann
+ 		otelprom.WithoutScopeInfo(),
+ 		// This allows us to produce metrics that are backwards compatible w/ opencensus
+ 		otelprom.WithoutCounterSuffixes(),
+-		otelprom.WithNamespace("otelcol"),
+ 		otelprom.WithResourceAsConstantLabels(attribute.NewDenyKeysFilter()),
+ 	}
+ 	if !globalgates.DisableOpenCensusBridge.IsEnabled() {

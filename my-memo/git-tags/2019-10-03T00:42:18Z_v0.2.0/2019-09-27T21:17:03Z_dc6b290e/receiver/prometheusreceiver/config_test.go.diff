@@ -1,0 +1,15 @@
+diff --git a/receiver/prometheusreceiver/config_test.go b/receiver/prometheusreceiver/config_test.go
+index 4c7900bf1..25392c2c9 100644
+--- a/receiver/prometheusreceiver/config_test.go
++++ b/receiver/prometheusreceiver/config_test.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config"
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

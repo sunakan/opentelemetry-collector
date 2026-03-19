@@ -1,0 +1,19 @@
+diff --git a/processor/attributesprocessor/attributes.go b/processor/attributesprocessor/attributes.go
+index 035da7722..9006f2d1b 100644
+--- a/processor/attributesprocessor/attributes.go
++++ b/processor/attributesprocessor/attributes.go
+@@ -117,12 +117,12 @@ func (a *attributesProcessor) GetCapabilities() component.ProcessorCapabilities
+ }
+ 
+ // Start is invoked during service startup.
+-func (a *attributesProcessor) Start(host component.Host) error {
++func (a *attributesProcessor) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }
+ 
+ // Shutdown is invoked during service shutdown.
+-func (a *attributesProcessor) Shutdown() error {
++func (a *attributesProcessor) Shutdown(context.Context) error {
+ 	return nil
+ }
+ 

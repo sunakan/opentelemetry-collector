@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_metricslice.go b/pdata/internal/generated_wrapper_metricslice.go
+index 8f595db6e..b6b82452d 100644
+--- a/pdata/internal/generated_wrapper_metricslice.go
++++ b/pdata/internal/generated_wrapper_metricslice.go
+@@ -25,6 +25,7 @@ func CopyOrigMetricSlice(dest, src []*otlpmetrics.Metric) []*otlpmetrics.Metric
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
++			DeleteOrigMetric(dest[i], true)
+ 			dest[i] = nil
+ 		}
+ 		// Add new pointers for missing elements.

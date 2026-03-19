@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/generated_component_test.go b/connector/forwardconnector/generated_component_test.go
+index 9bbe4e5aa..9371aa5a2 100644
+--- a/connector/forwardconnector/generated_component_test.go
++++ b/connector/forwardconnector/generated_component_test.go
+@@ -63,7 +63,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	sub, err := cm.Sub("tests::config")
+ 	require.NoError(t, err)
+-	require.NoError(t, component.UnmarshalConfig(sub, cfg))
++	require.NoError(t, sub.Unmarshal(&cfg))
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name+"-shutdown", func(t *testing.T) {

@@ -1,0 +1,24 @@
+diff --git a/model/internal/pdata/metrics.go b/model/internal/pdata/metrics.go
+index 9a01cae78..8d2cdd62a 100644
+--- a/model/internal/pdata/metrics.go
++++ b/model/internal/pdata/metrics.go
+@@ -15,7 +15,6 @@
+ package pdata // import "go.opentelemetry.io/collector/model/internal/pdata"
+ 
+ import (
+-	"go.opentelemetry.io/collector/model/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/model/internal/data/protogen/metrics/v1"
+ )
+ 
+@@ -51,11 +50,6 @@ func NewMetrics() Metrics {
+ 	return Metrics{orig: &otlpmetrics.MetricsData{}}
+ }
+ 
+-// Deprecated: [v0.47.0] will be removed soon, only used internally.
+-func (md Metrics) InternalRep() internal.MetricsWrapper {
+-	return internal.MetricsWrapper{}
+-}
+-
+ // Clone returns a copy of MetricData.
+ func (md Metrics) Clone() Metrics {
+ 	cloneMd := NewMetrics()

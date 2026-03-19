@@ -1,0 +1,20 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index bb18046d8..b5a4446d4 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -16,6 +16,7 @@ package componenttest
+ 
+ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // NopHost mocks a receiver.ReceiverHost for test purposes.
+@@ -41,3 +42,7 @@ func (nh *NopHost) ReportFatalError(_ error) {
+ func (nh *NopHost) GetFactory(_ component.Kind, _ string) component.Factory {
+ 	return nil
+ }
++
++func (nh *NopHost) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++	return nil
++}

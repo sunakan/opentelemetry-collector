@@ -1,0 +1,56 @@
+diff --git a/exporter/exporterbatcher/sizer_type.go b/exporter/exporterbatcher/sizer_type.go
+index fb93398ee..d80473d86 100644
+--- a/exporter/exporterbatcher/sizer_type.go
++++ b/exporter/exporterbatcher/sizer_type.go
+@@ -4,21 +4,29 @@
+ package exporterbatcher // import "go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 
+ import (
++	"encoding"
+ 	"fmt"
+ )
+ 
++var (
++	_ encoding.TextMarshaler   = (*SizerType)(nil)
++	_ encoding.TextUnmarshaler = (*SizerType)(nil)
++)
++
+ type SizerType struct {
+ 	val string
+ }
+ 
+ const (
+-	sizerTypeItems = "items"
+-	sizerTypeBytes = "bytes"
++	sizerTypeBytes    = "bytes"
++	sizerTypeItems    = "items"
++	sizerTypeRequests = "requests"
+ )
+ 
+ var (
+-	SizerTypeItems = SizerType{val: sizerTypeItems}
+-	SizerTypeBytes = SizerType{val: sizerTypeBytes}
++	SizerTypeBytes    = SizerType{val: sizerTypeBytes}
++	SizerTypeItems    = SizerType{val: sizerTypeItems}
++	SizerTypeRequests = SizerType{val: sizerTypeRequests}
+ )
+ 
+ // UnmarshalText implements TextUnmarshaler interface.
+@@ -26,9 +34,16 @@ func (s *SizerType) UnmarshalText(text []byte) error {
+ 	switch str := string(text); str {
+ 	case sizerTypeItems:
+ 		*s = SizerTypeItems
+-	// TODO support setting sizer to SizerTypeBytes when all logs, traces, and metrics batching support it
++	case sizerTypeBytes:
++		*s = SizerTypeBytes
++	case sizerTypeRequests:
++		*s = SizerTypeRequests
+ 	default:
+ 		return fmt.Errorf("invalid sizer: %q", str)
+ 	}
+ 	return nil
+ }
++
++func (s *SizerType) MarshalText() ([]byte, error) {
++	return []byte(s.val), nil
++}

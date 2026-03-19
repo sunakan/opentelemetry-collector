@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetry.go.tmpl b/cmd/mdatagen/internal/templates/telemetry.go.tmpl
+index 97c9b8d72..da4dc2769 100644
+--- a/cmd/mdatagen/internal/templates/telemetry.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetry.go.tmpl
+@@ -136,7 +136,11 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...Teleme
+ 
+     {{- range $name, $metric := .Telemetry.Metrics }}
+     builder.{{ $name.Render }}, err = builder.meter.{{ $metric.Data.Instrument }}(
++        {{ if $metric.Prefix -}}
++        "{{ $metric.Prefix }}{{ $name }}",
++        {{ else -}}
+         "otelcol_{{ $name }}",
++        {{ end -}}
+         metric.WithDescription("{{ $metric.Description }}{{ $metric.Stability }}"),
+         metric.WithUnit("{{ $metric.Unit }}"),
+         {{ if eq $metric.Data.Type "Histogram" -}}

@@ -1,0 +1,11 @@
+diff --git a/service/internal/gen.go b/service/internal/gen.go
+index c350f872b..cfba1fb00 100644
+--- a/service/internal/gen.go
++++ b/service/internal/gen.go
+@@ -14,5 +14,5 @@
+ 
+ package internal
+ 
+-//go:generate esc -pkg internal -o resources.go templates/
++//go:generate esc -pkg internal -o resources.go -modtime "0" templates/
+ //go:generate addlicense -y "" -c "The OpenTelemetry Authors" resources.go

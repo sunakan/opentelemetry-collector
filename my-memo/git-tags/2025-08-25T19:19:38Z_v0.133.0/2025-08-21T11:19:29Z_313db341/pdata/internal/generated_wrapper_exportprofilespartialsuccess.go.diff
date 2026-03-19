@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go b/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
+index 3db020942..9f6a6cf93 100644
+--- a/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportprofilespartialsuccess.go
+@@ -45,6 +45,10 @@ func DeleteOrigExportProfilesPartialSuccess(orig *otlpcollectorprofiles.ExportPr
+ }
+ 
+ func CopyOrigExportProfilesPartialSuccess(dest, src *otlpcollectorprofiles.ExportProfilesPartialSuccess) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.RejectedProfiles = src.RejectedProfiles
+ 	dest.ErrorMessage = src.ErrorMessage
+ }

@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/mountpoint_test.go b/internal/cgroups/mountpoint_test.go
+index 8ce2810f8..07f0d0ce3 100644
+--- a/internal/cgroups/mountpoint_test.go
++++ b/internal/cgroups/mountpoint_test.go
+@@ -106,7 +106,7 @@ func TestNewMountPointFromLineErr(t *testing.T) {
+ 		errExpected := mountPointFormatInvalidError{line}
+ 
+ 		assert.Nil(t, mountPoint, "[%d] %q", i, line)
+-		assert.Equal(t, err, errExpected, "[%d] %q", i, line)
++		assert.Equal(t, errExpected, err, "[%d] %q", i, line)
+ 	}
+ }
+ 

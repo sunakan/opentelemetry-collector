@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/exporter.go b/exporter/jaeger/jaegergrpcexporter/exporter.go
+index d20e67a6a..125f117ac 100644
+--- a/exporter/jaeger/jaegergrpcexporter/exporter.go
++++ b/exporter/jaeger/jaegergrpcexporter/exporter.go
+@@ -50,7 +50,7 @@ func New(config *Config) (component.TraceExporterOld, error) {
+ 		metadata: metadata.New(config.GRPCSettings.Headers),
+ 	}
+ 
+-	exp, err := exporterhelper.NewTraceExporter(
++	exp, err := exporterhelper.NewTraceExporterOld(
+ 		config,
+ 		s.pushTraceData)
+ 

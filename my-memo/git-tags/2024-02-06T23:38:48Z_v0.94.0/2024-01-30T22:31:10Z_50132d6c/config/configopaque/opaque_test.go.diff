@@ -1,0 +1,27 @@
+diff --git a/config/configopaque/opaque_test.go b/config/configopaque/opaque_test.go
+index a3d034677..24af499b8 100644
+--- a/config/configopaque/opaque_test.go
++++ b/config/configopaque/opaque_test.go
+@@ -4,6 +4,7 @@
+ package configopaque // import "go.opentelemetry.io/collector/config/configopaque"
+ 
+ import (
++	"encoding"
+ 	"encoding/json"
+ 	"fmt"
+ 	"testing"
+@@ -13,6 +14,14 @@ import (
+ 	"gopkg.in/yaml.v3"
+ )
+ 
++var _ encoding.TextMarshaler = String("")
++
++var _ fmt.Stringer = String("")
++
++var _ fmt.GoStringer = String("")
++
++var _ encoding.BinaryMarshaler = String("")
++
+ func TestStringMarshalText(t *testing.T) {
+ 	examples := []String{"opaque", "s", "veryveryveryveryveryveryveryveryveryverylong"}
+ 	for _, example := range examples {

@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/logs.go b/pdata/plog/logs.go
+index 2ff14c832..dce60d56e 100644
+--- a/pdata/plog/logs.go
++++ b/pdata/plog/logs.go
+@@ -100,8 +100,5 @@ const (
+ 	SeverityNumberFatal4      = SeverityNumber(otlplogs.SeverityNumber_SEVERITY_NUMBER_FATAL4)
+ )
+ 
+-// Deprecated: [v0.62.0] Use SeverityNumberUnspecified instead.
+-const SeverityNumberUndefined = SeverityNumberUnspecified
+-
+ // String returns the string representation of the SeverityNumber.
+ func (sn SeverityNumber) String() string { return otlplogs.SeverityNumber(sn).String() }

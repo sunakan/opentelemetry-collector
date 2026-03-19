@@ -1,0 +1,23 @@
+diff --git a/exporter/jaegerexporter/factory.go b/exporter/jaegerexporter/factory.go
+index eba314072..145fda5d4 100644
+--- a/exporter/jaegerexporter/factory.go
++++ b/exporter/jaegerexporter/factory.go
+@@ -20,6 +20,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configerror"
++	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+@@ -44,6 +45,10 @@ func (f *Factory) CreateDefaultConfig() configmodels.Exporter {
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+ 		},
++		GRPCClientSettings: configgrpc.GRPCClientSettings{
++			// We almost read 0 bytes, so no need to tune ReadBufferSize.
++			WriteBufferSize: 512 * 1024,
++		},
+ 	}
+ }
+ 

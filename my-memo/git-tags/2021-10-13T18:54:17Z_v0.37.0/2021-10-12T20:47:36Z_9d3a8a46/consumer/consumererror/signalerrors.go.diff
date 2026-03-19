@@ -1,0 +1,13 @@
+diff --git a/consumer/consumererror/signalerrors.go b/consumer/consumererror/signalerrors.go
+index fc9ae5f0b..47456f0de 100644
+--- a/consumer/consumererror/signalerrors.go
++++ b/consumer/consumererror/signalerrors.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package consumererror
++package consumererror // import "go.opentelemetry.io/collector/consumer/consumererror"
+ 
+ import (
+ 	"errors"

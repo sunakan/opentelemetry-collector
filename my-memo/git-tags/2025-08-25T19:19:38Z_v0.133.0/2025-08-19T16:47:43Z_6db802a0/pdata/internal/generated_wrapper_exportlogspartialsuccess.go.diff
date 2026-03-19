@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+index 4aaa57b90..b4899e6db 100644
+--- a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+@@ -27,9 +27,11 @@ func CopyOrigExportLogsPartialSuccess(dest, src *otlpcollectorlogs.ExportLogsPar
+ 	dest.ErrorMessage = src.ErrorMessage
+ }
+ 
+-func FillOrigTestExportLogsPartialSuccess(orig *otlpcollectorlogs.ExportLogsPartialSuccess) {
++func GenTestOrigExportLogsPartialSuccess() *otlpcollectorlogs.ExportLogsPartialSuccess {
++	orig := NewOrigPtrExportLogsPartialSuccess()
+ 	orig.RejectedLogRecords = int64(13)
+ 	orig.ErrorMessage = "test_errormessage"
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

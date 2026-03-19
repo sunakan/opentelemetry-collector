@@ -1,0 +1,19 @@
+diff --git a/component/componenttest/otelprometheuschecker_test.go b/component/componenttest/otelprometheuschecker_test.go
+index 159122547..d7176134f 100644
+--- a/component/componenttest/otelprometheuschecker_test.go
++++ b/component/componenttest/otelprometheuschecker_test.go
+@@ -36,10 +36,10 @@ func TestPromChecker(t *testing.T) {
+ 	pc, err := newStubPromChecker()
+ 	require.NoError(t, err)
+ 
+-	scraper := component.NewID("fakeScraper")
+-	receiver := component.NewID("fakeReceiver")
+-	processor := component.NewID("fakeProcessor")
+-	exporter := component.NewID("fakeExporter")
++	scraper := component.MustNewID("fakeScraper")
++	receiver := component.MustNewID("fakeReceiver")
++	processor := component.MustNewID("fakeProcessor")
++	exporter := component.MustNewID("fakeExporter")
+ 	transport := "fakeTransport"
+ 
+ 	assert.NoError(t,

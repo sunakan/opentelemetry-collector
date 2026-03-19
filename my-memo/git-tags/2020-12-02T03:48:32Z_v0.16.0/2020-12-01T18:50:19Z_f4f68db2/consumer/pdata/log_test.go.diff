@@ -1,0 +1,28 @@
+diff --git a/consumer/pdata/log_test.go b/consumer/pdata/log_test.go
+index 78a8579d6..c0f35c34a 100644
+--- a/consumer/pdata/log_test.go
++++ b/consumer/pdata/log_test.go
+@@ -47,18 +47,18 @@ func TestLogRecordCount(t *testing.T) {
+ 	assert.EqualValues(t, 6, md.LogRecordCount())
+ }
+ 
+-func TestLogRecordCountWithNils(t *testing.T) {
+-	assert.EqualValues(t, 0, LogsFromInternalRep(internal.LogsFromOtlp([]*otlplogs.ResourceLogs{nil, {}})).LogRecordCount())
++func TestLogRecordCountWithEmpty(t *testing.T) {
++	assert.EqualValues(t, 0, LogsFromInternalRep(internal.LogsFromOtlp([]*otlplogs.ResourceLogs{{}})).LogRecordCount())
+ 	assert.EqualValues(t, 0, LogsFromInternalRep(internal.LogsFromOtlp([]*otlplogs.ResourceLogs{
+ 		{
+-			InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{nil, {}},
++			InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{{}},
+ 		},
+ 	})).LogRecordCount())
+-	assert.EqualValues(t, 2, LogsFromInternalRep(internal.LogsFromOtlp([]*otlplogs.ResourceLogs{
++	assert.EqualValues(t, 1, LogsFromInternalRep(internal.LogsFromOtlp([]*otlplogs.ResourceLogs{
+ 		{
+ 			InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{
+ 				{
+-					Logs: []*otlplogs.LogRecord{nil, {}},
++					Logs: []*otlplogs.LogRecord{{}},
+ 				},
+ 			},
+ 		},

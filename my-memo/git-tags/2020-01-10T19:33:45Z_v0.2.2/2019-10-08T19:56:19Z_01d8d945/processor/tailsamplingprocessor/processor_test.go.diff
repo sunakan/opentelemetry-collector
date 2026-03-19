@@ -1,0 +1,13 @@
+diff --git a/processor/tailsamplingprocessor/processor_test.go b/processor/tailsamplingprocessor/processor_test.go
+index d9f9139ed..4a1f122ba 100644
+--- a/processor/tailsamplingprocessor/processor_test.go
++++ b/processor/tailsamplingprocessor/processor_test.go
+@@ -331,3 +331,8 @@ func (p *mockSpanProcessor) ConsumeTraceData(ctx context.Context, td consumerdat
+ func (p *mockSpanProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
++
++// Shutdown is invoked during service shutdown.
++func (p *mockSpanProcessor) Shutdown() error {
++	return nil
++}

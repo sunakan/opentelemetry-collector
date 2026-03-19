@@ -1,0 +1,18 @@
+diff --git a/cmd/otelcorecol/main.go b/cmd/otelcorecol/main.go
+index ad081f185..27ebe7aaa 100644
+--- a/cmd/otelcorecol/main.go
++++ b/cmd/otelcorecol/main.go
+@@ -17,7 +17,12 @@ func main() {
+ 		Version:     "0.98.0-dev",
+ 	}
+ 
+-	if err := run(otelcol.CollectorSettings{BuildInfo: info, Factories: components}); err != nil {
++	set := otelcol.CollectorSettings{
++		BuildInfo: info,
++		Factories: components,
++	}
++
++	if err := run(set); err != nil {
+ 		log.Fatal(err)
+ 	}
+ }

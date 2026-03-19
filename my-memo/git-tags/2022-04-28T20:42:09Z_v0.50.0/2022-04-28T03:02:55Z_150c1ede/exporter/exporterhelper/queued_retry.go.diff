@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry.go b/exporter/exporterhelper/queued_retry.go
+index 85b64bb85..daadb552a 100644
+--- a/exporter/exporterhelper/queued_retry.go
++++ b/exporter/exporterhelper/queued_retry.go
+@@ -147,7 +147,7 @@ func (rs *retrySender) send(req request) error {
+ 		err := rs.nextSender.send(req)
+ 		if err != nil {
+ 			rs.logger.Error(
+-				"Exporting failed. Try enabling retry_on_failure config option.",
++				"Exporting failed. Try enabling retry_on_failure config option to retry on retryable errors",
+ 				zap.Error(err),
+ 			)
+ 		}

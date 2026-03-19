@@ -1,0 +1,12 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus.go b/receiver/opencensusreceiver/octrace/opencensus.go
+index c647ccf0a..420f9f740 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/octrace/opencensus.go
+@@ -154,7 +154,6 @@ func (ocr *Receiver) Stop() {
+ 
+ type receiverWorker struct {
+ 	receiver *Receiver
+-	tes      agenttracepb.TraceService_ExportServer
+ 	cancel   chan struct{}
+ }
+ 

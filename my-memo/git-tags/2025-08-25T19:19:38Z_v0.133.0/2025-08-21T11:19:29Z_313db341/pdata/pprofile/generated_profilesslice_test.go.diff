@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_profilesslice_test.go b/pdata/pprofile/generated_profilesslice_test.go
+index 9b1337080..f3af10257 100644
+--- a/pdata/pprofile/generated_profilesslice_test.go
++++ b/pdata/pprofile/generated_profilesslice_test.go
+@@ -52,6 +52,8 @@ func TestProfilesSlice_CopyTo(t *testing.T) {
+ 	src := generateTestProfilesSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestProfilesSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestProfilesSlice(), dest)
+ }
+ 
+ func TestProfilesSlice_EnsureCapacity(t *testing.T) {

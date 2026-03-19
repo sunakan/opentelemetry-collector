@@ -1,0 +1,13 @@
+diff --git a/cmd/issuegenerator/main.go b/cmd/issuegenerator/main.go
+index 199603ab0..fdf148dc4 100644
+--- a/cmd/issuegenerator/main.go
++++ b/cmd/issuegenerator/main.go
+@@ -34,7 +34,7 @@ const (
+ 	projectRepoNameKey = "CIRCLE_PROJECT_REPONAME"
+ 	circleBuildURLKey  = "CIRCLE_BUILD_URL"
+ 	jobNameKey         = "CIRCLE_JOB"
+-	githubAPITokenKey  = "GITHUB_TOKEN"
++	githubAPITokenKey  = "GITHUB_TOKEN" // #nosec G101
+ )
+ 
+ func main() {

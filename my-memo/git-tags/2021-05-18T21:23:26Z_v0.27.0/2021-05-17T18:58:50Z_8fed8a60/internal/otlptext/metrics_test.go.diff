@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/metrics_test.go b/internal/otlptext/metrics_test.go
+index ea2e8eb72..cb853c731 100644
+--- a/internal/otlptext/metrics_test.go
++++ b/internal/otlptext/metrics_test.go
+@@ -32,7 +32,7 @@ func TestMetrics(t *testing.T) {
+ 		args  args
+ 		empty bool
+ 	}{
+-		{"empty metrics", args{testdata.GenerateMetricsEmpty()}, true},
++		{"empty metrics", args{pdata.NewMetrics()}, true},
+ 		{"metrics with all types and datapoints", args{testdata.GeneratMetricsAllTypesWithSampleDatapoints()}, false},
+ 		{"metrics with all types without datapoints", args{testdata.GenerateMetricsAllTypesEmptyDataPoint()}, false},
+ 		{"metrics with invalid metric types", args{testdata.GenerateMetricsMetricTypeInvalid()}, false},

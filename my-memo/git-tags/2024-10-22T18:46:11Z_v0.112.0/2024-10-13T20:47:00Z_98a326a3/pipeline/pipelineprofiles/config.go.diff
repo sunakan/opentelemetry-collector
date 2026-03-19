@@ -1,0 +1,18 @@
+diff --git a/pipeline/pipelineprofiles/config.go b/pipeline/pipelineprofiles/config.go
+new file mode 100644
+index 000000000..8aa00dd61
+--- /dev/null
++++ b/pipeline/pipelineprofiles/config.go
+@@ -0,0 +1,12 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package pipelineprofiles // import "go.opentelemetry.io/collector/pipeline/pipelineprofiles"
++
++import (
++	"go.opentelemetry.io/collector/internal/globalsignal"
++)
++
++var (
++	SignalProfiles = globalsignal.MustNewSignal("profiles")
++)

@@ -1,0 +1,13 @@
+diff --git a/service/internal/testcomponents/example_exporter.go b/service/internal/testcomponents/example_exporter.go
+index 722dddc9b..bc680b79a 100644
+--- a/service/internal/testcomponents/example_exporter.go
++++ b/service/internal/testcomponents/example_exporter.go
+@@ -27,7 +27,7 @@ import (
+ 
+ const (
+ 	typeStr   = "exampleexporter"
+-	stability = component.StabilityLevelInDevelopment
++	stability = component.StabilityLevelDevelopment
+ )
+ 
+ // ExampleExporterConfig config for ExampleExporter.

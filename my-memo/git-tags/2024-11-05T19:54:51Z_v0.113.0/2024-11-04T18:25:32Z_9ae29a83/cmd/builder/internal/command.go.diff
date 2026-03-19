@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index 23e276fed..e903cbdc4 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -149,7 +149,6 @@ func applyCfgFromFile(flags *flag.FlagSet, cfgFromFile builder.Config) {
+ 	cfg.Distribution.Name = cfgFromFile.Distribution.Name
+ 	cfg.Distribution.Description = cfgFromFile.Distribution.Description
+ 	cfg.Distribution.Version = cfgFromFile.Distribution.Version
+-	cfg.Distribution.OtelColVersion = cfgFromFile.Distribution.OtelColVersion
+ 	cfg.Distribution.Go = cfgFromFile.Distribution.Go
+ 	cfg.Distribution.Module = cfgFromFile.Distribution.Module
+ 	cfg.Distribution.BuildTags = cfgFromFile.Distribution.BuildTags

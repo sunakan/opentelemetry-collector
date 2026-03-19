@@ -1,0 +1,21 @@
+diff --git a/internal/sharedcomponent/go.mod b/internal/sharedcomponent/go.mod
+index 360a5985a..b40154d40 100644
+--- a/internal/sharedcomponent/go.mod
++++ b/internal/sharedcomponent/go.mod
+@@ -6,6 +6,7 @@ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.113.0
+ 	go.opentelemetry.io/collector/component/componentstatus v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.uber.org/goleak v1.3.0
+ )
+ 
+@@ -39,6 +40,8 @@ replace go.opentelemetry.io/collector/component/componentstatus => ../../compone
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata

@@ -1,0 +1,16 @@
+diff --git a/pdata/pcommon/traceid.go b/pdata/pcommon/traceid.go
+index 688a63dbc..ed47d67a6 100644
+--- a/pdata/pcommon/traceid.go
++++ b/pdata/pcommon/traceid.go
+@@ -30,11 +30,6 @@ func NewTraceIDEmpty() TraceID {
+ 	return emptyTraceID
+ }
+ 
+-// Deprecated: [v0.60.0] use [16]byte(tid).
+-func (ms TraceID) Bytes() [16]byte {
+-	return ms
+-}
+-
+ // HexString returns hex representation of the TraceID.
+ func (ms TraceID) HexString() string {
+ 	if ms.IsEmpty() {

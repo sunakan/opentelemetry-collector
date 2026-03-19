@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_float64slice.go b/pdata/internal/generated_wrapper_float64slice.go
+index 7a164adf9..8461489cb 100644
+--- a/pdata/internal/generated_wrapper_float64slice.go
++++ b/pdata/internal/generated_wrapper_float64slice.go
+@@ -27,16 +27,10 @@ func NewFloat64Slice(orig *[]float64, state *State) Float64Slice {
+ 	return Float64Slice{orig: orig, state: state}
+ }
+ 
+-func FillTestFloat64Slice(ms Float64Slice) {
+-	*ms.orig = []float64{1.1, 2.2, 3.3}
+-}
+-
+ func GenerateTestFloat64Slice() Float64Slice {
+-	orig := []float64(nil)
++	orig := GenerateOrigTestFloat64Slice()
+ 	state := StateMutable
+-	ms := NewFloat64Slice(&orig, &state)
+-	FillTestFloat64Slice(ms)
+-	return ms
++	return NewFloat64Slice(&orig, &state)
+ }
+ 
+ // MarshalJSONStreamFloat64Slice marshals all properties from the current struct to the destination stream.
+@@ -63,3 +57,7 @@ func UnmarshalJSONIterFloat64Slice(ms Float64Slice, iter *json.Iterator) {
+ func CopyOrigFloat64Slice(dst, src []float64) []float64 {
+ 	return append(dst[:0], src...)
+ }
++
++func GenerateOrigTestFloat64Slice() []float64 {
++	return []float64{1.1, 2.2, 3.3}
++}

@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 058dd32f4..b21de12f6 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -127,7 +127,7 @@ func New(params Parameters) (*Application, error) {
+ 
+ 	app := &Application{
+ 		info:      params.ApplicationStartInfo,
+-		v:         viper.New(),
++		v:         config.NewViper(),
+ 		readyChan: make(chan struct{}),
+ 		factories: params.Factories,
+ 	}

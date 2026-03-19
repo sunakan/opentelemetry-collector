@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/templates/telemetry.go.tmpl b/cmd/mdatagen/templates/telemetry.go.tmpl
+index 554c3da62..124750e40 100644
+--- a/cmd/mdatagen/templates/telemetry.go.tmpl
++++ b/cmd/mdatagen/templates/telemetry.go.tmpl
+@@ -25,6 +25,10 @@ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("{{ .ScopeName }}")
+ }
+ 
++func LeveledMeter(settings component.TelemetrySettings, level configtelemetry.Level) metric.Meter {
++	return settings.LeveledMeterProvider(level).Meter("{{ .ScopeName }}")
++}
++
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ 	return settings.TracerProvider.Tracer("{{ .ScopeName }}")
+ }

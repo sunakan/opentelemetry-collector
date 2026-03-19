@@ -1,0 +1,26 @@
+diff --git a/processor/memorylimiter/testdata/config.yaml b/processor/memorylimiter/testdata/config.yaml
+index 5f6504ba9..a5c602671 100644
+--- a/processor/memorylimiter/testdata/config.yaml
++++ b/processor/memorylimiter/testdata/config.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ processors:
+   memory_limiter:
+@@ -26,11 +26,11 @@ processors:
+     ballast_size_mib: 2000
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       processors: [memory_limiter/with-settings]
+-      exporters: [exampleexporter]
++      exporters: [nop]

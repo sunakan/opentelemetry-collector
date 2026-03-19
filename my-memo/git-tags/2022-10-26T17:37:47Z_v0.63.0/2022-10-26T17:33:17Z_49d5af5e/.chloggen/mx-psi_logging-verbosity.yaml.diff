@@ -1,0 +1,17 @@
+diff --git a/.chloggen/mx-psi_logging-verbosity.yaml b/.chloggen/mx-psi_logging-verbosity.yaml
+deleted file mode 100755
+index 4231fd0a0..000000000
+--- a/.chloggen/mx-psi_logging-verbosity.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: deprecation
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: exporter/logging
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Deprecate 'loglevel' in favor of 'verbosity' option
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [5878]

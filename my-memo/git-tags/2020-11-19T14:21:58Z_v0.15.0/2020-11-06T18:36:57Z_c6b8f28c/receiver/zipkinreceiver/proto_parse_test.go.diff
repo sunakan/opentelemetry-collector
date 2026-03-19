@@ -1,0 +1,22 @@
+diff --git a/receiver/zipkinreceiver/proto_parse_test.go b/receiver/zipkinreceiver/proto_parse_test.go
+index 1e2918993..5dd0b89e7 100644
+--- a/receiver/zipkinreceiver/proto_parse_test.go
++++ b/receiver/zipkinreceiver/proto_parse_test.go
+@@ -112,7 +112,7 @@ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 
+ 	want := pdata.TracesFromOtlp([]*otlptrace.ResourceSpans{
+ 		{
+-			Resource: &otlpresource.Resource{
++			Resource: otlpresource.Resource{
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key: conventions.AttributeServiceName,
+@@ -190,7 +190,7 @@ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			Resource: &otlpresource.Resource{
++			Resource: otlpresource.Resource{
+ 				Attributes: []otlpcommon.KeyValue{
+ 					{
+ 						Key: conventions.AttributeServiceName,

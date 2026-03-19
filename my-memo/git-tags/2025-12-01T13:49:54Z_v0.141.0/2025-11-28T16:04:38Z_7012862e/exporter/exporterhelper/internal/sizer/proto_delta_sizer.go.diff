@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/sizer/proto_delta_sizer.go b/exporter/exporterhelper/internal/sizer/proto_delta_sizer.go
+index 1ed9c5a89..5e8aa9408 100644
+--- a/exporter/exporterhelper/internal/sizer/proto_delta_sizer.go
++++ b/exporter/exporterhelper/internal/sizer/proto_delta_sizer.go
+@@ -26,7 +26,7 @@ type protoDeltaSizer struct{}
+ // - opentelemetry-collector/pdata/internal/data/protogen/profiles/v1development/profiles.pb.go
+ // which is generated with gogo/protobuf.
+ func (s *protoDeltaSizer) DeltaSize(newItemSize int) int {
+-	return 1 + newItemSize + sov(uint64(newItemSize)) //nolint:gosec // disable G115
++	return 1 + newItemSize + sov(uint64(newItemSize))
+ }
+ 
+ func sov(x uint64) int {

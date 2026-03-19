@@ -1,0 +1,13 @@
+diff --git a/component/componenterror/errors.go b/component/componenterror/errors.go
+index e16520240..07d0c3bc3 100644
+--- a/component/componenterror/errors.go
++++ b/component/componenterror/errors.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package componenterror
++package componenterror // import "go.opentelemetry.io/collector/component/componenterror"
+ 
+ import (
+ 	"errors"

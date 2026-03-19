@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_keyvalue.go b/pdata/internal/generated_proto_keyvalue.go
+index 1641a0967..038cb114d 100644
+--- a/pdata/internal/generated_proto_keyvalue.go
++++ b/pdata/internal/generated_proto_keyvalue.go
+@@ -15,8 +15,8 @@ import (
+ )
+ 
+ type KeyValue struct {
+-	Key   string
+ 	Value AnyValue
++	Key   string
+ }
+ 
+ var (

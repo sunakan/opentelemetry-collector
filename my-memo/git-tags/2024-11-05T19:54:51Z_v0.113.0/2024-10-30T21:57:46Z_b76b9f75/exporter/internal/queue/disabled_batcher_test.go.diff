@@ -1,0 +1,23 @@
+diff --git a/exporter/internal/queue/disabled_batcher_test.go b/exporter/internal/queue/disabled_batcher_test.go
+index c9c69a61f..036fa9617 100644
+--- a/exporter/internal/queue/disabled_batcher_test.go
++++ b/exporter/internal/queue/disabled_batcher_test.go
+@@ -70,18 +70,3 @@ func TestDisabledBatcher_Basic(t *testing.T) {
+ 		})
+ 	}
+ }
+-
+-func TestDisabledBatcher_BatchingNotImplemented(t *testing.T) {
+-	cfg := exporterbatcher.NewDefaultConfig()
+-	cfg.Enabled = true
+-	maxWorkers := 0
+-
+-	q := NewBoundedMemoryQueue[internal.Request](
+-		MemoryQueueSettings[internal.Request]{
+-			Sizer:    &RequestSizer[internal.Request]{},
+-			Capacity: 10,
+-		})
+-
+-	_, err := NewBatcher(cfg, q, maxWorkers)
+-	require.Error(t, err)
+-}

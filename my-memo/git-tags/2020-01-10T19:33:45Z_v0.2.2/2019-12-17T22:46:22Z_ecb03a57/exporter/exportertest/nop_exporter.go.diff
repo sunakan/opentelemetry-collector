@@ -1,0 +1,15 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 72259e9c9..a51f2acfe 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -54,10 +54,6 @@ const (
+ 	nopMetricsExporterName = "nop_metrics"
+ )
+ 
+-func (ne *nopExporter) Name() string {
+-	return ne.name
+-}
+-
+ // NewNopTraceExporter creates an TraceExporter that just drops the received data.
+ func NewNopTraceExporter(options ...NopExporterOption) exporter.TraceExporter {
+ 	return newNopTraceExporter(options...)

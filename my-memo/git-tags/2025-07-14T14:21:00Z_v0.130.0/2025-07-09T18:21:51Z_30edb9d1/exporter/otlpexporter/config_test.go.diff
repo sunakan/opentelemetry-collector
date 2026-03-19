@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index eb828c431..01cdca941 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -58,6 +58,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				QueueSize:    100000,
+ 				Batch: configoptional.Some(exporterhelper.BatchConfig{
+ 					FlushTimeout: 200 * time.Millisecond,
++					Sizer:        exporterhelper.RequestSizerTypeItems,
+ 					MinSize:      1000,
+ 					MaxSize:      10000,
+ 				}),

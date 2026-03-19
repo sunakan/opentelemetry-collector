@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/data/protogen/logs/v1/logs.pb.go b/pdata/internal/data/protogen/logs/v1/logs.pb.go
+index 1fb0f2b68..da266d167 100644
+--- a/pdata/internal/data/protogen/logs/v1/logs.pb.go
++++ b/pdata/internal/data/protogen/logs/v1/logs.pb.go
+@@ -446,8 +446,6 @@ type LogRecord struct {
+ 	// as an event.
+ 	//
+ 	// [Optional].
+-	//
+-	// Status: [Development]
+ 	EventName string `protobuf:"bytes,12,opt,name=event_name,json=eventName,proto3" json:"event_name,omitempty"`
+ }
+ 

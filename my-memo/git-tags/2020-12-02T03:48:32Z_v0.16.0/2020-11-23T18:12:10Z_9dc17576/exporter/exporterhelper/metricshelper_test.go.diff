@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index ad1c1da6b..4cc0f3a2e 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -183,7 +183,7 @@ func TestMetricsExporter_WithShutdown_ReturnError(t *testing.T) {
+ 	assert.Equal(t, me.Shutdown(context.Background()), want)
+ }
+ 
+-func newPushMetricsData(droppedTimeSeries int, retError error) PushMetricsData {
++func newPushMetricsData(droppedTimeSeries int, retError error) PushMetrics {
+ 	return func(ctx context.Context, td pdata.Metrics) (int, error) {
+ 		return droppedTimeSeries, retError
+ 	}

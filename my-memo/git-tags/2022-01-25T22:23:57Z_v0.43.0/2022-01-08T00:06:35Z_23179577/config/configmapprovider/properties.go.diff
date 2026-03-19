@@ -1,0 +1,13 @@
+diff --git a/config/configmapprovider/properties.go b/config/configmapprovider/properties.go
+index 397569369..726ac7c06 100644
+--- a/config/configmapprovider/properties.go
++++ b/config/configmapprovider/properties.go
+@@ -40,7 +40,7 @@ func NewProperties(properties []string) Provider {
+ 	}
+ }
+ 
+-func (pmp *propertiesMapProvider) Retrieve(_ context.Context, onChange func(*ChangeEvent)) (Retrieved, error) {
++func (pmp *propertiesMapProvider) Retrieve(context.Context, WatcherFunc) (Retrieved, error) {
+ 	if len(pmp.properties) == 0 {
+ 		return NewRetrieved(func(ctx context.Context) (*config.Map, error) {
+ 			return config.NewMap(), nil

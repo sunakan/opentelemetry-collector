@@ -1,0 +1,20 @@
+diff --git a/connector/forwardconnector/package_test.go b/connector/forwardconnector/package_test.go
+new file mode 100644
+index 000000000..54cc0fd73
+--- /dev/null
++++ b/connector/forwardconnector/package_test.go
+@@ -0,0 +1,14 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package forwardconnector
++
++import (
++	"testing"
++
++	"go.uber.org/goleak"
++)
++
++func TestMain(m *testing.M) {
++	goleak.VerifyTestMain(m)
++}

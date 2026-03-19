@@ -1,0 +1,12 @@
+diff --git a/pdata/pprofile/generated_stack_test.go b/pdata/pprofile/generated_stack_test.go
+index 147e34a2f..986d9e978 100644
+--- a/pdata/pprofile/generated_stack_test.go
++++ b/pdata/pprofile/generated_stack_test.go
+@@ -50,6 +50,5 @@ func TestStack_LocationIndices(t *testing.T) {
+ }
+ 
+ func generateTestStack() Stack {
+-	ms := newStack(internal.GenTestStack(), internal.NewState())
+-	return ms
++	return newStack(internal.GenTestStack(), internal.NewState())
+ }

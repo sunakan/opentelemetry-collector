@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index 8d8ff7343..1ddd161be 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
++	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )

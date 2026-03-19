@@ -1,0 +1,14 @@
+diff --git a/exporter/debugexporter/internal/metadata/generated_status.go b/exporter/debugexporter/internal/metadata/generated_status.go
+index 608b23c15..b4588f752 100644
+--- a/exporter/debugexporter/internal/metadata/generated_status.go
++++ b/exporter/debugexporter/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("debug")
++	Type      = component.MustNewType("debug")
++	ScopeName = "go.opentelemetry.io/collector/exporter/debugexporter"
+ )
+ 
+ const (

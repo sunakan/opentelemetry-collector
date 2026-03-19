@@ -1,0 +1,12 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 8811b54e5..348ce2af6 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -33,6 +33,7 @@ GOIMPORTS   := $(TOOLS_BIN_DIR)/goimports
+ MULTIMOD    := $(TOOLS_BIN_DIR)/multimod
+ CROSSLINK   := $(TOOLS_BIN_DIR)/crosslink
+ CHLOG       := $(TOOLS_BIN_DIR)/chloggen
++APIDIFF     := $(TOOLS_BIN_DIR)/apidiff
+ 
+ GH := $(shell which gh)
+ 

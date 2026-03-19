@@ -1,0 +1,12 @@
+diff --git a/testbed/tests/metric_test.go b/testbed/tests/metric_test.go
+index b8aace071..be05470e5 100644
+--- a/testbed/tests/metric_test.go
++++ b/testbed/tests/metric_test.go
+@@ -79,6 +79,7 @@ func TestMetric10kDPS(t *testing.T) {
+ 				test.sender,
+ 				test.receiver,
+ 				test.resourceSpec,
++				performanceResultsSummary,
+ 				nil,
+ 			)
+ 		})

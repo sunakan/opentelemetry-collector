@@ -1,0 +1,12 @@
+diff --git a/service/builder/testdata/bad_receiver_factory.yaml b/service/builder/testdata/bad_receiver_factory.yaml
+index 0487078bd..3a6c5cecb 100644
+--- a/service/builder/testdata/bad_receiver_factory.yaml
++++ b/service/builder/testdata/bad_receiver_factory.yaml
+@@ -11,3 +11,6 @@ service:
+     metrics:
+       receivers: [bf]
+       exporters: [exampleexporter]
++    logs:
++      receivers: [bf]
++      exporters: [exampleexporter]
+\ No newline at end of file

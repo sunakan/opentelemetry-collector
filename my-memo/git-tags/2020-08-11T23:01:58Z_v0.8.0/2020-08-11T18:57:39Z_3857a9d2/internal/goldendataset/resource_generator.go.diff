@@ -1,0 +1,28 @@
+diff --git a/internal/goldendataset/resource_generator.go b/internal/goldendataset/resource_generator.go
+index 01c85b53e..24c201bfd 100644
+--- a/internal/goldendataset/resource_generator.go
++++ b/internal/goldendataset/resource_generator.go
+@@ -38,6 +38,8 @@ func GenerateResource(rscID PICTInputResource) *otlpresource.Resource {
+ 		attrs = generateCloudK8sAttributes()
+ 	case ResourceFaas:
+ 		attrs = generateFassAttributes()
++	case ResourceExec:
++		attrs = generateExecAttributes()
+ 	default:
+ 		attrs = generateEmptyAttributes()
+ 	}
+@@ -141,3 +143,14 @@ func generateFassAttributes() map[string]interface{} {
+ 	attrMap[conventions.AttributeCloudZone] = "us-central1-a"
+ 	return attrMap
+ }
++
++func generateExecAttributes() map[string]interface{} {
++	attrMap := make(map[string]interface{})
++	attrMap[conventions.AttributeProcessExecutableName] = "otelcol"
++	attrMap[conventions.AttributeProcessCommandLine] =
++		"--config=/etc/otel-collector-config.yaml --mem-ballast-size-mib=683"
++	attrMap[conventions.AttributeProcessExecutablePath] = "/usr/local/bin/otelcol"
++	attrMap[conventions.AttributeProcessID] = 2020
++	attrMap[conventions.AttributeProcessOwner] = "otel"
++	return attrMap
++}

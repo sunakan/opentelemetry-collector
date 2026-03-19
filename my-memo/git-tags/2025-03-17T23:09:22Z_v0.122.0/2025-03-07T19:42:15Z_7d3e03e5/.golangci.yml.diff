@@ -1,0 +1,13 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index da809d26e..438f6f152 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -211,7 +211,7 @@ linters:
+     - perfsprint
+     - revive
+     - staticcheck
+-    - tenv
++    - usetesting
+     - testifylint
+     - thelper
+     - unconvert

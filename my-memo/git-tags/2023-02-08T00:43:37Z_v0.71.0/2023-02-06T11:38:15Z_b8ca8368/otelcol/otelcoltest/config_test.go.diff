@@ -1,0 +1,13 @@
+diff --git a/otelcol/otelcoltest/config_test.go b/otelcol/otelcoltest/config_test.go
+index 2228ff953..3619d44de 100644
+--- a/otelcol/otelcoltest/config_test.go
++++ b/otelcol/otelcoltest/config_test.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/featuregate"
+-	"go.opentelemetry.io/collector/internal/sharedgate"
++	"go.opentelemetry.io/collector/otelcol/internal/sharedgate"
+ 	"go.opentelemetry.io/collector/service"
+ )
+ 

@@ -1,0 +1,13 @@
+diff --git a/internal/data/metric.go b/internal/data/metric.go
+index 4f20a5337..a8ae719cb 100644
+--- a/internal/data/metric.go
++++ b/internal/data/metric.go
+@@ -18,7 +18,7 @@ import (
+ 	"github.com/golang/protobuf/proto"
+ 	otlpmetrics "github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // This file defines in-memory data structures to represent metrics.

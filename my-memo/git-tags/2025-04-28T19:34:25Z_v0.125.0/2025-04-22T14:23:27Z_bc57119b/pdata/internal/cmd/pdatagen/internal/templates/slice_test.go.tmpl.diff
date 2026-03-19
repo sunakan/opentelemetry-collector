@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+index 1a837ea26..e191d4e35 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+@@ -107,6 +107,13 @@ func Test{{ .structName }}_MoveAndAppendTo(t *testing.T) {
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i))
+ 		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
+ 	}
++
++	dest.MoveAndAppendTo(dest)
++	assert.Equal(t, 2*expectedSlice.Len(), dest.Len())
++	for i := 0; i < expectedSlice.Len(); i++ {
++		assert.Equal(t, expectedSlice.At(i), dest.At(i))
++		assert.Equal(t, expectedSlice.At(i), dest.At(i+expectedSlice.Len()))
++	}
+ }
+ 
+ func Test{{ .structName }}_RemoveIf(t *testing.T) {

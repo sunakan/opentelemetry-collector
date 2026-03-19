@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/config_test.go b/exporter/otlpexporter/config_test.go
+index ff5c3903a..97d50efcd 100644
+--- a/exporter/otlpexporter/config_test.go
++++ b/exporter/otlpexporter/config_test.go
+@@ -62,7 +62,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				Endpoint:    "1.2.3.4:1234",
+ 				Compression: "gzip",
+ 				TLSSetting: configtls.ClientConfig{
+-					TLSSetting: configtls.Config{
++					Config: configtls.Config{
+ 						CAFile: "/var/lib/mycert.pem",
+ 					},
+ 					Insecure: false,

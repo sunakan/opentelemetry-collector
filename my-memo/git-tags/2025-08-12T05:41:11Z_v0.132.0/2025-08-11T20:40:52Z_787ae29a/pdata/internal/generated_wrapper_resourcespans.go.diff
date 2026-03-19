@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespans.go b/pdata/internal/generated_wrapper_resourcespans.go
+index 99f335026..8c0fafe09 100644
+--- a/pdata/internal/generated_wrapper_resourcespans.go
++++ b/pdata/internal/generated_wrapper_resourcespans.go
+@@ -31,7 +31,13 @@ func MarshalJSONOrigResourceSpans(orig *otlptrace.ResourceSpans, dest *json.Stre
+ 	MarshalJSONOrigResource(&orig.Resource, dest)
+ 	if len(orig.ScopeSpans) > 0 {
+ 		dest.WriteObjectField("scopeSpans")
+-		MarshalJSONOrigScopeSpansSlice(orig.ScopeSpans, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigScopeSpans(orig.ScopeSpans[0], dest)
++		for i := 1; i < len(orig.ScopeSpans); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigScopeSpans(orig.ScopeSpans[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	if orig.SchemaUrl != "" {
+ 		dest.WriteObjectField("schemaUrl")

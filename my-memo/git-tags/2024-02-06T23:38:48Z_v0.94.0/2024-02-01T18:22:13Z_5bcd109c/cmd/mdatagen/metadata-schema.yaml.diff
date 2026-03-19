@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index 60d165c61..879307fdd 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -24,6 +24,7 @@ status:
+   codeowners:
+     active: [string]
+     emeritus: [string]
++  unsupported_platforms: [<linux|windows>]
+ 
+ # Optional: OTel Semantic Conventions version that will be associated with the scraped metrics.
+ # This attribute should be set for metrics compliant with OTel Semantic Conventions.

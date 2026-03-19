@@ -1,0 +1,10 @@
+diff --git a/cmd/builder/.goreleaser.yml b/cmd/builder/.goreleaser.yml
+index 7cb52fa0f..a964ac6c6 100644
+--- a/cmd/builder/.goreleaser.yml
++++ b/cmd/builder/.goreleaser.yml
+@@ -36,4 +36,4 @@ checksum:
+ snapshot:
+   name_template: "{{ .Tag }}-next"
+ changelog:
+-  skip: true
++  disable: true

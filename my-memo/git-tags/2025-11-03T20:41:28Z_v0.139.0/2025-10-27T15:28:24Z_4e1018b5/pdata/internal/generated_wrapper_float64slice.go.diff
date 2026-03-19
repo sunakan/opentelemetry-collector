@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/generated_wrapper_float64slice.go b/pdata/internal/generated_wrapper_float64slice.go
+index 8d855c7bc..8d0d6ea6c 100644
+--- a/pdata/internal/generated_wrapper_float64slice.go
++++ b/pdata/internal/generated_wrapper_float64slice.go
+@@ -24,14 +24,10 @@ func NewFloat64SliceWrapper(orig *[]float64, state *State) Float64SliceWrapper {
+ }
+ 
+ func GenTestFloat64SliceWrapper() Float64SliceWrapper {
+-	orig := GenTestFloat64Slice()
++	orig := []float64{1.1, 2.2, 3.3}
+ 	return NewFloat64SliceWrapper(&orig, NewState())
+ }
+ 
+-func CopyFloat64Slice(dst, src []float64) []float64 {
+-	return append(dst[:0], src...)
+-}
+-
+ func GenTestFloat64Slice() []float64 {
+ 	return []float64{1.1, 2.2, 3.3}
+ }

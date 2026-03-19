@@ -1,0 +1,24 @@
+diff --git a/pdata/plog/generated_resourcelogs_test.go b/pdata/plog/generated_resourcelogs_test.go
+index 59021c7e5..33ed817a0 100644
+--- a/pdata/plog/generated_resourcelogs_test.go
++++ b/pdata/plog/generated_resourcelogs_test.go
+@@ -26,8 +26,8 @@ func TestResourceLogs_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestResourceLogs(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newResourceLogs(&otlplogs.ResourceLogs{}, sharedState)) })
+-	assert.Panics(t, func() { newResourceLogs(&otlplogs.ResourceLogs{}, sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newResourceLogs(internal.NewOrigPtrResourceLogs(), sharedState)) })
++	assert.Panics(t, func() { newResourceLogs(internal.NewOrigPtrResourceLogs(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestResourceLogs_CopyTo(t *testing.T) {
+@@ -40,7 +40,7 @@ func TestResourceLogs_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newResourceLogs(&otlplogs.ResourceLogs{}, sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newResourceLogs(internal.NewOrigPtrResourceLogs(), sharedState)) })
+ }
+ 
+ func TestResourceLogs_Resource(t *testing.T) {

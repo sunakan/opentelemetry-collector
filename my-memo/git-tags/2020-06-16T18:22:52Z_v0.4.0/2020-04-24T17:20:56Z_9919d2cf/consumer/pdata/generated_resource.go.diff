@@ -1,0 +1,20 @@
+diff --git a/consumer/pdata/generated_resource.go b/consumer/pdata/generated_resource.go
+index 4356fc88a..2b72d5b6c 100644
+--- a/consumer/pdata/generated_resource.go
++++ b/consumer/pdata/generated_resource.go
+@@ -65,3 +65,15 @@ func (ms Resource) IsNil() bool {
+ func (ms Resource) Attributes() AttributeMap {
+ 	return newAttributeMap(&(*ms.orig).Attributes)
+ }
++
++// CopyTo copies all properties from the current struct to the dest.
++func (ms Resource) CopyTo(dest Resource) {
++	if ms.IsNil() {
++		*dest.orig = nil
++		return
++	}
++	if dest.IsNil() {
++		dest.InitEmpty()
++	}
++	ms.Attributes().CopyTo(dest.Attributes())
++}

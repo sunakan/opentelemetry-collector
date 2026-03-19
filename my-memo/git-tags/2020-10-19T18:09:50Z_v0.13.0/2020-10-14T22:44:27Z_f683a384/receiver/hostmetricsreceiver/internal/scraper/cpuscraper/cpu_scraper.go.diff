@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+index 6177fbe33..174273828 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+@@ -73,7 +73,7 @@ func (s *scraper) ScrapeMetrics(_ context.Context) (pdata.MetricSlice, error) {
+ }
+ 
+ func initializeCPUTimeMetric(metric pdata.Metric, startTime, now pdata.TimestampUnixNano, cpuTimes []cpu.TimesStat) {
+-	metadata.Metrics.SystemCPUTime.CopyTo(metric)
++	metadata.Metrics.SystemCPUTime.New().CopyTo(metric)
+ 
+ 	ddps := metric.DoubleSum().DataPoints()
+ 	ddps.Resize(len(cpuTimes) * cpuStatesLen)

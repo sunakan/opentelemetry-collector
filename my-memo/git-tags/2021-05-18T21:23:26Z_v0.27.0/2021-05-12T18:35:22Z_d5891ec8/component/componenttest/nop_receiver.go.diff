@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index b50cf0176..828a5a6dc 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -32,7 +32,7 @@ type nopReceiverFactory struct{}
+ 
+ var nopReceiverFactoryInstance = &nopReceiverFactory{}
+ 
+-// NewNopReceiverFactory returns a component.ReceiverFactory that constructs nop exporters.
++// NewNopReceiverFactory returns a component.ReceiverFactory that constructs nop receivers.
+ func NewNopReceiverFactory() component.ReceiverFactory {
+ 	return nopReceiverFactoryInstance
+ }

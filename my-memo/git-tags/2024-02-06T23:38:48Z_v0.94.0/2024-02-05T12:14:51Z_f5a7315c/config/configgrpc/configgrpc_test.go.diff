@@ -1,0 +1,31 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 1455824b1..914f99d4f 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -89,7 +89,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 					"test": "test",
+ 				},
+ 				Endpoint:    "localhost:1234",
+-				Compression: configcompression.Gzip,
++				Compression: configcompression.TypeGzip,
+ 				TLSSetting: configtls.TLSClientSetting{
+ 					Insecure: false,
+ 				},
+@@ -118,7 +118,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 					"test": "test",
+ 				},
+ 				Endpoint:    "localhost:1234",
+-				Compression: configcompression.Snappy,
++				Compression: configcompression.TypeSnappy,
+ 				TLSSetting: configtls.TLSClientSetting{
+ 					Insecure: false,
+ 				},
+@@ -147,7 +147,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 					"test": "test",
+ 				},
+ 				Endpoint:    "localhost:1234",
+-				Compression: configcompression.Zstd,
++				Compression: configcompression.TypeZstd,
+ 				TLSSetting: configtls.TLSClientSetting{
+ 					Insecure: false,
+ 				},

@@ -1,0 +1,21 @@
+diff --git a/exporter/go.mod b/exporter/go.mod
+index 39b2751c6..48632e218 100644
+--- a/exporter/go.mod
++++ b/exporter/go.mod
+@@ -42,6 +42,7 @@ require (
+ 	go.opentelemetry.io/collector/exporter/exporterprofiles v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/receiver v0.112.0 // indirect
+ 	go.opentelemetry.io/collector/receiver/receiverprofiles v0.112.0 // indirect
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0 // indirect
+ 	golang.org/x/net v0.28.0 // indirect
+ 	golang.org/x/sys v0.26.0 // indirect
+ 	golang.org/x/text v0.17.0 // indirect
+@@ -81,6 +82,8 @@ replace go.opentelemetry.io/collector/consumer/consumertest => ../consumer/consu
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../receiver/receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../receiver/receivertest
++
+ replace go.opentelemetry.io/collector/exporter/exporterprofiles => ./exporterprofiles
+ 
+ replace go.opentelemetry.io/collector/exporter/exportertest => ./exportertest

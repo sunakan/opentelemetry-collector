@@ -1,0 +1,23 @@
+diff --git a/internal/memorylimiter/iruntime/mem_info_test.go b/internal/memorylimiter/iruntime/mem_info_test.go
+new file mode 100644
+index 000000000..05fc4bbcd
+--- /dev/null
++++ b/internal/memorylimiter/iruntime/mem_info_test.go
+@@ -0,0 +1,17 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package iruntime
++
++import (
++	"testing"
++
++	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
++)
++
++func TestReadMemInfo(t *testing.T) {
++	vmStat, err := readMemInfo()
++	require.NoError(t, err)
++	assert.Positive(t, vmStat)
++}

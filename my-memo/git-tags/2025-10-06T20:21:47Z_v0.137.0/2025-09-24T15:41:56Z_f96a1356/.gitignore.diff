@@ -1,0 +1,16 @@
+diff --git a/.gitignore b/.gitignore
+index e70fa857c..a2d22bb49 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,5 +1,6 @@
+ bin/
+ dist/
++.tools/
+ /local
+ 
+ # GoLand IDEA
+@@ -36,3 +37,4 @@ go.work*
+ # npm (used for markdown-link-check)
+ node_modules/*
+ package-lock.json
++

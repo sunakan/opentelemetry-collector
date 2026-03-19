@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index e8fbbe4cd..f85d52726 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -22,7 +22,7 @@ import (
+ 	ocresource "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
+ 	"github.com/golang/protobuf/ptypes/wrappers"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type labelKeys struct {

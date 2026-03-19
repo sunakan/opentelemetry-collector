@@ -1,0 +1,10 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 9788458da..2501ecc08 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -48,4 +48,5 @@ const (
+ 	OpenTracingSpanKindServer      OpenTracingSpanKind = "server"
+ 	OpenTracingSpanKindConsumer    OpenTracingSpanKind = "consumer"
+ 	OpenTracingSpanKindProducer    OpenTracingSpanKind = "producer"
++	OpenTracingSpanKindInternal    OpenTracingSpanKind = "internal"
+ )

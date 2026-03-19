@@ -1,0 +1,38 @@
+diff --git a/processor/resourceprocessor/testdata/config.yaml b/processor/resourceprocessor/testdata/config.yaml
+index 30cff1fdd..e9e8fcaf2 100644
+--- a/processor/resourceprocessor/testdata/config.yaml
++++ b/processor/resourceprocessor/testdata/config.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ processors:
+   # The following specifies a resource configuration doing the changes on resource attributes:
+@@ -23,19 +23,19 @@ processors:
+ 
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     logs:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       processors: [resource]
+-      exporters: [exampleexporter]
++      exporters: [nop]
+     metrics:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       processors: [resource]
+-      exporters: [exampleexporter]
++      exporters: [nop]
+     traces:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       processors: [resource]
+-      exporters: [exampleexporter]
++      exporters: [nop]

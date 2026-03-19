@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_resourcelogsslice_test.go b/pdata/plog/generated_resourcelogsslice_test.go
+index b3a55f0e0..76e9ba68d 100644
+--- a/pdata/plog/generated_resourcelogsslice_test.go
++++ b/pdata/plog/generated_resourcelogsslice_test.go
+@@ -52,6 +52,8 @@ func TestResourceLogsSlice_CopyTo(t *testing.T) {
+ 	src := generateTestResourceLogsSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestResourceLogsSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestResourceLogsSlice(), dest)
+ }
+ 
+ func TestResourceLogsSlice_EnsureCapacity(t *testing.T) {

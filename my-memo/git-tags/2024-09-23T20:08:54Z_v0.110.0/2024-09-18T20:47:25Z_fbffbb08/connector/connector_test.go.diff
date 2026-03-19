@@ -1,0 +1,14 @@
+diff --git a/connector/connector_test.go b/connector/connector_test.go
+index 08337f785..23f253db3 100644
+--- a/connector/connector_test.go
++++ b/connector/connector_test.go
+@@ -199,8 +199,7 @@ func TestMakeFactoryMap(t *testing.T) {
+ 		},
+ 	}
+ 
+-	for i := range testCases {
+-		tt := testCases[i]
++	for _, tt := range testCases {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			out, err := MakeFactoryMap(tt.in...)
+ 			if tt.out == nil {

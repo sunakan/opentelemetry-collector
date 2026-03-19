@@ -1,0 +1,12 @@
+diff --git a/cmd/pdatagen/internal/files.go b/cmd/pdatagen/internal/files.go
+index ed02ade9a..40a62ffd8 100644
+--- a/cmd/pdatagen/internal/files.go
++++ b/cmd/pdatagen/internal/files.go
+@@ -41,6 +41,7 @@ var AllFiles = []*File{
+ 	metricsFile,
+ 	resourceFile,
+ 	traceFile,
++	logFile,
+ }
+ 
+ // File represents the struct for one generated file.

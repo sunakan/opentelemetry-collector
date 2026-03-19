@@ -1,0 +1,21 @@
+diff --git a/scraper/metrics_test.go b/scraper/metrics_test.go
+index bc9f9c52d..daf97401a 100644
+--- a/scraper/metrics_test.go
++++ b/scraper/metrics_test.go
+@@ -66,14 +66,12 @@ func TestMetricsConcurrency(t *testing.T) {
+ 
+ 	var wg sync.WaitGroup
+ 	for range 10 {
+-		wg.Add(1)
+-		go func() {
+-			defer wg.Done()
++		wg.Go(func() {
+ 			for range 10000 {
+ 				_, errScrape := mp.ScrapeMetrics(context.Background())
+ 				assert.NoError(t, errScrape)
+ 			}
+-		}()
++		})
+ 	}
+ 	wg.Wait()
+ 	require.NoError(t, mp.Shutdown(context.Background()))

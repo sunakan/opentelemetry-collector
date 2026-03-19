@@ -1,0 +1,15 @@
+diff --git a/receiver/scraperhelper/obs_metrics.go b/receiver/scraperhelper/obs_metrics.go
+index 3f7fac385..7523ecd6c 100644
+--- a/receiver/scraperhelper/obs_metrics.go
++++ b/receiver/scraperhelper/obs_metrics.go
+@@ -16,9 +16,9 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/pipeline"
+ 	"go.opentelemetry.io/collector/receiver/internal"
+-	"go.opentelemetry.io/collector/receiver/scrapererror"
+ 	"go.opentelemetry.io/collector/receiver/scraperhelper/internal/metadata"
+ 	"go.opentelemetry.io/collector/scraper"
++	"go.opentelemetry.io/collector/scraper/scrapererror"
+ )
+ 
+ const (

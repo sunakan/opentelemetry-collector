@@ -1,0 +1,13 @@
+diff --git a/.travis.yml b/.travis.yml
+index 12c04e9e5..ce88af5b5 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -3,7 +3,7 @@ cache:
+   directories:
+     - /home/travis/gopath/pkg/mod
+ 
+-go_import_path: github.com/open-telemetry/opentelemetry-service
++go_import_path: github.com/open-telemetry/opentelemetry-collector
+ 
+ go:
+   - 1.12.x

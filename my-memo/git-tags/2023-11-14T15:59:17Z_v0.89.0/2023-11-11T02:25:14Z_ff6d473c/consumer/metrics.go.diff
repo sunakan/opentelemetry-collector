@@ -1,0 +1,20 @@
+diff --git a/consumer/metrics.go b/consumer/metrics.go
+index d0bd6559c..9a58934a6 100644
+--- a/consumer/metrics.go
++++ b/consumer/metrics.go
+@@ -18,11 +18,11 @@ type Metrics interface {
+ }
+ 
+ // ConsumeMetricsFunc is a helper function that is similar to ConsumeMetrics.
+-type ConsumeMetricsFunc func(ctx context.Context, ld pmetric.Metrics) error
++type ConsumeMetricsFunc func(ctx context.Context, md pmetric.Metrics) error
+ 
+-// ConsumeMetrics calls f(ctx, ld).
+-func (f ConsumeMetricsFunc) ConsumeMetrics(ctx context.Context, ld pmetric.Metrics) error {
+-	return f(ctx, ld)
++// ConsumeMetrics calls f(ctx, md).
++func (f ConsumeMetricsFunc) ConsumeMetrics(ctx context.Context, md pmetric.Metrics) error {
++	return f(ctx, md)
+ }
+ 
+ type baseMetrics struct {

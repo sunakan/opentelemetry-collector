@@ -1,0 +1,21 @@
+diff --git a/processor/probabilisticsampler/testdata/empty.yaml b/processor/probabilisticsampler/testdata/empty.yaml
+deleted file mode 100644
+index ad0169002..000000000
+--- a/processor/probabilisticsampler/testdata/empty.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  probabilistic-sampler:
+-    
+-
+-exporters:
+-  exampleexporter:
+-
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [probabilistic-sampler]
+-    exporters: [exampleexporter]

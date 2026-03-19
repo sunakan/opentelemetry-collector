@@ -1,0 +1,17 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index 8caa19791..820a8d3ba 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -22,11 +22,9 @@ import (
+ // nopHost mocks a receiver.ReceiverHost for test purposes.
+ type nopHost struct{}
+ 
+-var nopHostInstance component.Host = &nopHost{}
+-
+ // NewNopHost returns a new instance of nopHost with proper defaults for most tests.
+ func NewNopHost() component.Host {
+-	return nopHostInstance
++	return &nopHost{}
+ }
+ 
+ func (nh *nopHost) ReportFatalError(_ error) {}

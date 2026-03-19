@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/fuzz_test.go b/pdata/plog/fuzz_test.go
+index c08067ac8..3a53b1034 100644
+--- a/pdata/plog/fuzz_test.go
++++ b/pdata/plog/fuzz_test.go
+@@ -12,7 +12,7 @@ import (
+ 
+ var unexpectedBytes = "expected the same bytes from unmarshaling and marshaling."
+ 
+-func FuzzUnmarshalJsonLogs(f *testing.F) {
++func FuzzUnmarshalJSONLogs(f *testing.F) {
+ 	f.Fuzz(func(t *testing.T, data []byte) {
+ 		u1 := &JSONUnmarshaler{}
+ 		ld1, err := u1.UnmarshalLogs(data)

@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/templates/main_windows.go.tmpl b/cmd/builder/internal/builder/templates/main_windows.go.tmpl
+index 43e832c9f..7aa01d139 100644
+--- a/cmd/builder/internal/builder/templates/main_windows.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main_windows.go.tmpl
+@@ -9,8 +9,9 @@ import (
+ 	"fmt"
+ 	"os"
+ 
+-	"go.opentelemetry.io/collector/service"
+ 	"golang.org/x/sys/windows/svc"
++
++	"go.opentelemetry.io/collector/service"
+ )
+ 
+ func run(params service.CollectorSettings) error {

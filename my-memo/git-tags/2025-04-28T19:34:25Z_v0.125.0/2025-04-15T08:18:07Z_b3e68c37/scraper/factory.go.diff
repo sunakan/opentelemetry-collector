@@ -1,0 +1,14 @@
+diff --git a/scraper/factory.go b/scraper/factory.go
+index 9b456e473..2fe9a0170 100644
+--- a/scraper/factory.go
++++ b/scraper/factory.go
+@@ -19,6 +19,9 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes.
+ 	BuildInfo component.BuildInfo
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Factory is factory interface for scrapers.

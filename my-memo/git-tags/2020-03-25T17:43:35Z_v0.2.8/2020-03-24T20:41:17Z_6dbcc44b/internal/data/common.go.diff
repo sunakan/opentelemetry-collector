@@ -1,0 +1,13 @@
+diff --git a/internal/data/common.go b/internal/data/common.go
+index a73f2a939..d28899116 100644
+--- a/internal/data/common.go
++++ b/internal/data/common.go
+@@ -173,7 +173,7 @@ func (akv AttributeKeyValue) Key() string {
+ 
+ // Value returns the value associated with this AttributeKeyValue.
+ func (akv AttributeKeyValue) Value() AttributeValue {
+-	return AttributeValue{akv.orig}
++	return AttributeValue(akv)
+ }
+ 
+ // SetValue replaces the value associated with this AttributeKeyValue.

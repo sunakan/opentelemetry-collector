@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 5d57000bd..d959b3cb4 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -141,7 +141,7 @@ func WithLongLivedCtx() StartReceiveOption {
+ 	}
+ }
+ 
+-// StartTraceDataReceiveOp is called when a \request is received from a client.
++// StartTraceDataReceiveOp is called when a request is received from a client.
+ // The returned context should be used in other calls to the obsreport functions
+ // dealing with the same receive operation.
+ func StartTraceDataReceiveOp(

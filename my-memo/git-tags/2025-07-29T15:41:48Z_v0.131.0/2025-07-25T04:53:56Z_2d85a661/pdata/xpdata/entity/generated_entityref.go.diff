@@ -1,0 +1,31 @@
+diff --git a/pdata/xpdata/entity/generated_entityref.go b/pdata/xpdata/entity/generated_entityref.go
+index 12aa4f1bf..db8aae448 100644
+--- a/pdata/xpdata/entity/generated_entityref.go
++++ b/pdata/xpdata/entity/generated_entityref.go
+@@ -45,14 +45,6 @@ func (ms EntityRef) MoveTo(dest EntityRef) {
+ 	*ms.getOrig() = otlpcommon.EntityRef{}
+ }
+ 
+-func (ms EntityRef) getOrig() *otlpcommon.EntityRef {
+-	return internal.GetOrigEntityRef(internal.EntityRef(ms))
+-}
+-
+-func (ms EntityRef) getState() *internal.State {
+-	return internal.GetEntityRefState(internal.EntityRef(ms))
+-}
+-
+ // SchemaUrl returns the schemaurl associated with this EntityRef.
+ func (ms EntityRef) SchemaUrl() string {
+ 	return ms.getOrig().SchemaUrl
+@@ -90,3 +82,11 @@ func (ms EntityRef) CopyTo(dest EntityRef) {
+ 	dest.getState().AssertMutable()
+ 	internal.CopyOrigEntityRef(dest.getOrig(), ms.getOrig())
+ }
++
++func (ms EntityRef) getOrig() *otlpcommon.EntityRef {
++	return internal.GetOrigEntityRef(internal.EntityRef(ms))
++}
++
++func (ms EntityRef) getState() *internal.State {
++	return internal.GetEntityRefState(internal.EntityRef(ms))
++}

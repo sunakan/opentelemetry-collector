@@ -1,0 +1,14 @@
+diff --git a/confmap/converter.go b/confmap/converter.go
+index 0e3a5c03f..63434c833 100644
+--- a/confmap/converter.go
++++ b/confmap/converter.go
+@@ -16,6 +16,9 @@ type ConverterSettings struct {
+ 	// when instantiating a Converter with a ConverterFactory,
+ 	// nil Logger references should be replaced with a no-op Logger.
+ 	Logger *zap.Logger
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // ConverterFactory defines a factory that can be used to instantiate

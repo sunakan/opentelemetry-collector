@@ -1,0 +1,12 @@
+diff --git a/service/settings.go b/service/settings.go
+index 0301a4cb0..e77a14cb4 100644
+--- a/service/settings.go
++++ b/service/settings.go
+@@ -65,7 +65,4 @@ type CollectorSettings struct {
+ 
+ 	// SkipSettingGRPCLogger avoids setting the grpc logger
+ 	SkipSettingGRPCLogger bool
+-
+-	// For testing purpose only.
+-	telemetry *telemetryInitializer
+ }

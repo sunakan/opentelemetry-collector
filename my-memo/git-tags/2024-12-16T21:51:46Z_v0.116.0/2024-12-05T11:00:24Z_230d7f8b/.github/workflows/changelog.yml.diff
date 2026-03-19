@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/changelog.yml b/.github/workflows/changelog.yml
+index 4f3538f08..621146c11 100644
+--- a/.github/workflows/changelog.yml
++++ b/.github/workflows/changelog.yml
+@@ -9,8 +9,6 @@ on:
+     types: [opened, ready_for_review, synchronize, reopened, labeled, unlabeled]
+     branches:
+       - main
+-  merge_group:
+-    types: [checks_requested]
+ 
+ concurrency:
+   group: ${{ github.workflow }}-${{ github.head_ref }}

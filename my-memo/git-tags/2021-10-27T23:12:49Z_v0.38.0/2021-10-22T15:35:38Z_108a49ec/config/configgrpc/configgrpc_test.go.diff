@@ -1,0 +1,54 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 1b8378b3d..b4fab3806 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -66,7 +66,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 		WriteBufferSize: 1024,
+ 		WaitForReady:    true,
+ 		BalancerName:    "round_robin",
+-		Auth:            &configauth.Authentication{AuthenticatorName: "testauth"},
++		Auth:            &configauth.Authentication{AuthenticatorID: config.NewComponentID("testauth")},
+ 	}
+ 
+ 	host := &mockHost{
+@@ -133,7 +133,7 @@ func TestGrpcServerAuthSettings(t *testing.T) {
+ 
+ 	// test
+ 	gss.Auth = &configauth.Authentication{
+-		AuthenticatorName: "mock",
++		AuthenticatorID: config.NewComponentID("mock"),
+ 	}
+ 	host := &mockHost{
+ 		ext: map[config.ComponentID]component.Extension{
+@@ -208,21 +208,11 @@ func TestGRPCClientSettingsError(t *testing.T) {
+ 				BalancerName:    "test",
+ 			},
+ 		},
+-		{
+-			err: "id must not be empty",
+-			settings: GRPCClientSettings{
+-				Endpoint: "localhost:1234",
+-				Auth:     &configauth.Authentication{},
+-			},
+-			host: &mockHost{ext: map[config.ComponentID]component.Extension{
+-				config.NewComponentID("mock"): &configauth.MockClientAuthenticator{},
+-			}},
+-		},
+ 		{
+ 			err: "failed to resolve authenticator \"doesntexist\": authenticator not found",
+ 			settings: GRPCClientSettings{
+ 				Endpoint: "localhost:1234",
+-				Auth:     &configauth.Authentication{AuthenticatorName: "doesntexist"},
++				Auth:     &configauth.Authentication{AuthenticatorID: config.NewComponentID("doesntexist")},
+ 			},
+ 			host: &mockHost{ext: map[config.ComponentID]component.Extension{}},
+ 		},
+@@ -230,7 +220,7 @@ func TestGRPCClientSettingsError(t *testing.T) {
+ 			err: "no extensions configuration available",
+ 			settings: GRPCClientSettings{
+ 				Endpoint: "localhost:1234",
+-				Auth:     &configauth.Authentication{AuthenticatorName: "doesntexist"},
++				Auth:     &configauth.Authentication{AuthenticatorID: config.NewComponentID("doesntexist")},
+ 			},
+ 			host: &mockHost{},
+ 		},

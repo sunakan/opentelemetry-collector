@@ -1,0 +1,17 @@
+diff --git a/vendor/golang.org/x/text/secure/bidirule/bidirule10.0.0.go b/vendor/golang.org/x/text/secure/bidirule/bidirule10.0.0.go
+deleted file mode 100644
+index e4c62289f..000000000
+--- a/vendor/golang.org/x/text/secure/bidirule/bidirule10.0.0.go
++++ /dev/null
+@@ -1,11 +0,0 @@
+-// Copyright 2016 The Go Authors. All rights reserved.
+-// Use of this source code is governed by a BSD-style
+-// license that can be found in the LICENSE file.
+-
+-// +build go1.10
+-
+-package bidirule
+-
+-func (t *Transformer) isFinal() bool {
+-	return t.state == ruleLTRFinal || t.state == ruleRTLFinal || t.state == ruleInitial
+-}

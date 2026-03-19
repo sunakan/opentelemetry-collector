@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory_test.go b/receiver/prometheusreceiver/factory_test.go
+index 3089d2fbf..cc82b5d51 100644
+--- a/receiver/prometheusreceiver/factory_test.go
++++ b/receiver/prometheusreceiver/factory_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal/factories"
++	"github.com/open-telemetry/opentelemetry-service/pkg/factories"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

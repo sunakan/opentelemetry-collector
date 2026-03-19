@@ -1,0 +1,23 @@
+diff --git a/receiver/kafkareceiver/testdata/config.yaml b/receiver/kafkareceiver/testdata/config.yaml
+index c170cf713..d8865f54f 100644
+--- a/receiver/kafkareceiver/testdata/config.yaml
++++ b/receiver/kafkareceiver/testdata/config.yaml
+@@ -17,14 +17,14 @@ receivers:
+         backoff: 5s
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+       receivers: [kafka]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      processors: [nop]
++      exporters: [nop]

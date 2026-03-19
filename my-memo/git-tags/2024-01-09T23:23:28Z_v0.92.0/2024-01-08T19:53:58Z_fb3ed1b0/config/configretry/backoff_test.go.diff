@@ -1,0 +1,23 @@
+diff --git a/config/configretry/backoff_test.go b/config/configretry/backoff_test.go
+index 8c9bf7f41..417ebe861 100644
+--- a/config/configretry/backoff_test.go
++++ b/config/configretry/backoff_test.go
+@@ -43,10 +43,17 @@ func TestInvalidRandomizationFactor(t *testing.T) {
+ func TestInvalidMultiplier(t *testing.T) {
+ 	cfg := NewDefaultBackOffConfig()
+ 	assert.NoError(t, cfg.Validate())
+-	cfg.Multiplier = 0
++	cfg.Multiplier = -1
+ 	assert.Error(t, cfg.Validate())
+ }
+ 
++func TestZeroMultiplierIsValid(t *testing.T) {
++	cfg := NewDefaultBackOffConfig()
++	assert.NoError(t, cfg.Validate())
++	cfg.Multiplier = 0
++	assert.NoError(t, cfg.Validate())
++}
++
+ func TestInvalidMaxInterval(t *testing.T) {
+ 	cfg := NewDefaultBackOffConfig()
+ 	assert.NoError(t, cfg.Validate())

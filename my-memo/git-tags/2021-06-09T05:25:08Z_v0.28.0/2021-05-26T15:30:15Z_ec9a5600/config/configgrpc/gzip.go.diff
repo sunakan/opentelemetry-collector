@@ -1,0 +1,12 @@
+diff --git a/config/configgrpc/gzip.go b/config/configgrpc/gzip.go
+index 68f9d9861..a6f64286d 100644
+--- a/config/configgrpc/gzip.go
++++ b/config/configgrpc/gzip.go
+@@ -15,6 +15,6 @@
+ package configgrpc
+ 
+ import (
+-	// import the gzip package with auto-registers the gzip grpc compressor
++	// Import the gzip package which auto-registers the gzip gRPC compressor.
+ 	_ "google.golang.org/grpc/encoding/gzip"
+ )

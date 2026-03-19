@@ -1,0 +1,14 @@
+diff --git a/pdata/plog/plogotlp/grpc.go b/pdata/plog/plogotlp/grpc.go
+index a11a295ae..1721d0512 100644
+--- a/pdata/plog/plogotlp/grpc.go
++++ b/pdata/plog/plogotlp/grpc.go
+@@ -39,9 +39,6 @@ func NewGRPCClient(cc *grpc.ClientConn) GRPCClient {
+ 	return &grpcClient{rawClient: otlpcollectorlog.NewLogsServiceClient(cc)}
+ }
+ 
+-// Deprecated: [v0.63.0]: use NewGRPCClient.
+-var NewClient = NewGRPCClient
+-
+ type grpcClient struct {
+ 	rawClient otlpcollectorlog.LogsServiceClient
+ }

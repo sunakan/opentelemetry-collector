@@ -1,0 +1,35 @@
+diff --git a/pdata/ptrace/generated_spaneventslice_test.go b/pdata/ptrace/generated_spaneventslice_test.go
+index f6982b263..3f27cac4e 100644
+--- a/pdata/ptrace/generated_spaneventslice_test.go
++++ b/pdata/ptrace/generated_spaneventslice_test.go
+@@ -19,6 +19,7 @@ package ptrace
+ 
+ import (
+ 	"testing"
++	"unsafe"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+@@ -118,6 +119,22 @@ func TestSpanEventSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestSpanEventSlice_Sort(t *testing.T) {
++	es := generateTestSpanEventSlice()
++	es.Sort(func(a, b SpanEvent) bool {
++		return uintptr(unsafe.Pointer(a.orig)) < uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) < uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++	es.Sort(func(a, b SpanEvent) bool {
++		return uintptr(unsafe.Pointer(a.orig)) > uintptr(unsafe.Pointer(b.orig))
++	})
++	for i := 1; i < es.Len(); i++ {
++		assert.True(t, uintptr(unsafe.Pointer(es.At(i-1).orig)) > uintptr(unsafe.Pointer(es.At(i).orig)))
++	}
++}
++
+ func generateTestSpanEventSlice() SpanEventSlice {
+ 	es := NewSpanEventSlice()
+ 	fillTestSpanEventSlice(es)

@@ -1,0 +1,26 @@
+diff --git a/processor/attributesprocessor/attributes.go b/processor/attributesprocessor/attributes.go
+index f5ee61b62..390924f3e 100644
+--- a/processor/attributesprocessor/attributes.go
++++ b/processor/attributesprocessor/attributes.go
+@@ -104,6 +104,8 @@ func (a *attributesProcessor) ConsumeTraceData(ctx context.Context, td consumerd
+ 				// There is no need to check if the target key exists in the attribute map
+ 				// because the value is to be set regardless.
+ 				setAttribute(action, span.Attributes.AttributeMap)
++			case HASH:
++				hashAttribute(action, span.Attributes.AttributeMap)
+ 			}
+ 		}
+ 	}
+@@ -154,6 +156,12 @@ func setAttribute(action attributeAction, attributesMap map[string]*tracepb.Attr
+ 	}
+ }
+ 
++func hashAttribute(action attributeAction, attributesMap map[string]*tracepb.AttributeValue) {
++	if value, exists := attributesMap[action.Key]; exists {
++		attributesMap[action.Key] = SHA1AttributeHahser(value)
++	}
++}
++
+ // skipSpan determines if a span should be processed.
+ // True is returned when a span should be skipped.
+ // False is returned when a span should not be skipped.

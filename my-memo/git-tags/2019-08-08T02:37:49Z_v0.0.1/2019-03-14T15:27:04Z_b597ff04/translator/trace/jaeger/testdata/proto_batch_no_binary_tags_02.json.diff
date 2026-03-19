@@ -1,0 +1,69 @@
+diff --git a/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_02.json b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_02.json
+new file mode 100644
+index 000000000..225c45f31
+--- /dev/null
++++ b/translator/trace/jaeger/testdata/proto_batch_no_binary_tags_02.json
+@@ -0,0 +1,62 @@
++{
++    "process": {
++      "service_name": "api"
++    },
++    "spans": [
++      {
++        "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++        "span_id": "AAAAAABkfZg=",
++        "operation_name": "get",
++        "start_time": "2017-01-26T21:46:31.639875Z",
++        "duration": 22938000,
++        "tags": [
++          {
++            "key": "peer.service",
++            "v_str": "AAAAAAAAMDk="
++          },
++          {
++            "key": "span.kind",
++            "v_str": "server"
++          }
++        ]
++      },
++      {
++          "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++          "span_id": "AAAAAABkfZk=",
++          "operation_name": "get",
++          "references": [
++            {
++              "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++              "span_id": "AAAAAABkfZg="
++            },
++            {
++              "ref_type": 1,
++              "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++              "span_id": "AAAAAABoxOM="
++            }
++          ],
++          "start_time": "2017-01-26T21:46:31.639875Z",
++          "duration": 22938000,
++          "tags": [
++            {
++              "key": "span.kind",
++              "v_str": "server"
++            }
++          ]
++        },
++        {
++            "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++            "span_id": "AAAAAABkfZA=",
++            "operation_name": "get2",
++            "references": [
++              {
++                "trace_id": "AAAAAAAAAABSlpqJVVcaPw==",
++                "span_id": "AAAAAABkfZg="
++              }
++            ],
++              "start_time": "2017-01-26T21:46:32.639875Z",
++            "duration": 22938000
++          }
++        ]
++  }
++  
+\ No newline at end of file

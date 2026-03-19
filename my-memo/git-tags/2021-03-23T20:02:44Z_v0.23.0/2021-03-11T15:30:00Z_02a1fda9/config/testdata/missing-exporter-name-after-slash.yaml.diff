@@ -1,0 +1,16 @@
+diff --git a/config/testdata/missing-exporter-name-after-slash.yaml b/config/testdata/missing-exporter-name-after-slash.yaml
+deleted file mode 100644
+index 6166c9950..000000000
+--- a/config/testdata/missing-exporter-name-after-slash.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter/:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [somereceiver]

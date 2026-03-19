@@ -1,0 +1,16 @@
+diff --git a/processor/memorylimiter/factory.go b/processor/memorylimiter/factory.go
+index 0ba78ed62..b4bb6e6c8 100644
+--- a/processor/memorylimiter/factory.go
++++ b/processor/memorylimiter/factory.go
+@@ -44,10 +44,7 @@ func NewFactory() component.ProcessorFactory {
+ // that the default configuration is expected to fail for this processor.
+ func createDefaultConfig() config.Processor {
+ 	return &Config{
+-		ProcessorSettings: config.ProcessorSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 	}
+ }
+ 

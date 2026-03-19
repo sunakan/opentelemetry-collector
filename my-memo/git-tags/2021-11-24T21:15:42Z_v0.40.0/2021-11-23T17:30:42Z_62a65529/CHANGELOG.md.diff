@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 2481c4435..04a9a960c 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,7 @@
+ 
+ - Remove `pdata.AttributeMap.InitFromMap` (#4429)
+ - Updated configgrpc `ToDialOptions` to support passing providers to instrumentation library (#4451)
++- Make state information propagation non-blocking on the collector (#4460)
+ 
+ ## 💡 Enhancements 💡
+ 

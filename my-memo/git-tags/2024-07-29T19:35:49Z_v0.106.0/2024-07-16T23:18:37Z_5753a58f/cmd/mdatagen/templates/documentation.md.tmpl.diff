@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/templates/documentation.md.tmpl b/cmd/mdatagen/templates/documentation.md.tmpl
+index 9793bf0e4..e62d09646 100644
+--- a/cmd/mdatagen/templates/documentation.md.tmpl
++++ b/cmd/mdatagen/templates/documentation.md.tmpl
+@@ -38,7 +38,7 @@
+ {{- $metricName := . }}
+ {{- $metric := $metricName | telemetryInfo -}}
+ 
+-### {{ $metricName }}
++### otelcol_{{ $metricName }}
+ 
+ {{ $metric.Description }}
+ 

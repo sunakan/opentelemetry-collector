@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index 709001a17..a33a72de8 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -131,8 +131,8 @@ func TestInvalidModule(t *testing.T) {
+ 	}
+ }
+ 
+-func TestDefaultConfig(t *testing.T) {
+-	cfg := DefaultConfig()
++func TestNewDefaultConfig(t *testing.T) {
++	cfg := NewDefaultConfig()
+ 	require.NoError(t, cfg.ParseModules())
+ 	require.NoError(t, cfg.Validate())
+ }

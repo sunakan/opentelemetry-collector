@@ -1,0 +1,19 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/model/kind.go b/vendor/github.com/openzipkin/zipkin-go/model/kind.go
+new file mode 100644
+index 000000000..8da3c9bd3
+--- /dev/null
++++ b/vendor/github.com/openzipkin/zipkin-go/model/kind.go
+@@ -0,0 +1,13 @@
++package model
++
++// Kind clarifies context of timestamp, duration and remoteEndpoint in a span.
++type Kind string
++
++// Available Kind values
++const (
++	Undetermined Kind = ""
++	Client       Kind = "CLIENT"
++	Server       Kind = "SERVER"
++	Producer     Kind = "PRODUCER"
++	Consumer     Kind = "CONSUMER"
++)

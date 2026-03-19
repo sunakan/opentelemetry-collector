@@ -1,0 +1,12 @@
+diff --git a/exporter/debugexporter/internal/otlptext/traces_test.go b/exporter/debugexporter/internal/otlptext/traces_test.go
+index 454a2989f..c99b05970 100644
+--- a/exporter/debugexporter/internal/otlptext/traces_test.go
++++ b/exporter/debugexporter/internal/otlptext/traces_test.go
+@@ -17,7 +17,6 @@ import (
+ )
+ 
+ func TestTracesText(t *testing.T) {
+-
+ 	tests := []struct {
+ 		name string
+ 		in   ptrace.Traces

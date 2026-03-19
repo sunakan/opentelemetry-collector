@@ -1,0 +1,21 @@
+diff --git a/configv2/configv2.go b/configv2/configv2.go
+index bdca21d2c..a4ca08c69 100644
+--- a/configv2/configv2.go
++++ b/configv2/configv2.go
+@@ -26,6 +26,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/factories"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
++	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 
+ // These are errors that can be returned by Load(). Note that error codes are not part
+@@ -181,7 +182,7 @@ func loadReceivers(v *viper.Viper) (models.Receivers, error) {
+ 		}
+ 
+ 		// Find receiver factory based on "type" that we read from config source
+-		factory := factories.GetReceiverFactory(typeStr)
++		factory := receiver.GetReceiverFactory(typeStr)
+ 		if factory == nil {
+ 			return nil, &configError{
+ 				code: errUnknownReceiverType,

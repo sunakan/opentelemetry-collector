@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/lint_test.go b/cmd/mdatagen/lint_test.go
+index 5c470f302..f05d6615e 100644
+--- a/cmd/mdatagen/lint_test.go
++++ b/cmd/mdatagen/lint_test.go
+@@ -9,7 +9,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-func Test_formatIdentifier(t *testing.T) {
++func TestFormatIdentifier(t *testing.T) {
+ 	var tests = []struct {
+ 		input    string
+ 		want     string

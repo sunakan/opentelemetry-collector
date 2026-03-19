@@ -1,0 +1,20 @@
+diff --git a/consumer/logs_test.go b/consumer/logs_test.go
+index 9f3b4552a..a6ca2eb6f 100644
+--- a/consumer/logs_test.go
++++ b/consumer/logs_test.go
+@@ -9,6 +9,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ )
+@@ -45,6 +46,6 @@ func TestConsumeLogs(t *testing.T) {
+ func TestConsumeLogs_ReturnError(t *testing.T) {
+ 	want := errors.New("my_error")
+ 	cp, err := NewLogs(func(context.Context, plog.Logs) error { return want })
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 	assert.Equal(t, want, cp.ConsumeLogs(context.Background(), plog.NewLogs()))
+ }

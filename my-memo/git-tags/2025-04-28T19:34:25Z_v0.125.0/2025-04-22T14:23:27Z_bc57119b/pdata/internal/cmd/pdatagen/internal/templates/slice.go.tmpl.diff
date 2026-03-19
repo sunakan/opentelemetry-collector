@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/slice.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
+index 4a4e0b15c..568dc5793 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
+@@ -113,6 +113,10 @@ func (es {{ .structName }}) AppendEmpty() {{ .elementName }} {
+ func (es {{ .structName }}) MoveAndAppendTo(dest {{ .structName }}) {
+ 	es.{{ .stateAccessor }}.AssertMutable()
+ 	dest.{{ .stateAccessor }}.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.{{ .origAccessor }} == dest.{{ .origAccessor }} {
++		return
++	}
+ 	if *dest.{{ .origAccessor }} == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.{{ .origAccessor }} = *es.{{ .origAccessor }}

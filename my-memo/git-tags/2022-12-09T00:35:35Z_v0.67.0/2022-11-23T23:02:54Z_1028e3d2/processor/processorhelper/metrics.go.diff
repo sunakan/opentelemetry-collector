@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/metrics.go b/processor/processorhelper/metrics.go
+index 24ec2456f..8cf1ee79e 100644
+--- a/processor/processorhelper/metrics.go
++++ b/processor/processorhelper/metrics.go
+@@ -39,7 +39,7 @@ type metricsProcessor struct {
+ func NewMetricsProcessor(
+ 	_ context.Context,
+ 	_ component.ProcessorCreateSettings,
+-	cfg component.ProcessorConfig,
++	cfg component.Config,
+ 	nextConsumer consumer.Metrics,
+ 	metricsFunc ProcessMetricsFunc,
+ 	options ...Option,

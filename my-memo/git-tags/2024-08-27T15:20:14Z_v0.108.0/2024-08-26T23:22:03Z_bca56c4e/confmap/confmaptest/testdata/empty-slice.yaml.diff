@@ -1,0 +1,7 @@
+diff --git a/confmap/confmaptest/testdata/empty-slice.yaml b/confmap/confmaptest/testdata/empty-slice.yaml
+new file mode 100644
+index 000000000..ec9c7c062
+--- /dev/null
++++ b/confmap/confmaptest/testdata/empty-slice.yaml
+@@ -0,0 +1 @@
++slice: [] # empty slices are sanitized to nil in ToStringMap

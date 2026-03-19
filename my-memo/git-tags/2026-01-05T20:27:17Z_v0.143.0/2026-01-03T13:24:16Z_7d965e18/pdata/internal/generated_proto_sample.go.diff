@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/generated_proto_sample.go b/pdata/internal/generated_proto_sample.go
+index eb844f703..5d4169bcc 100644
+--- a/pdata/internal/generated_proto_sample.go
++++ b/pdata/internal/generated_proto_sample.go
+@@ -214,6 +214,7 @@ func (orig *Sample) SizeProto() int {
+ 	if orig.StackIndex != int32(0) {
+ 		n += 1 + proto.Sov(uint64(orig.StackIndex))
+ 	}
++
+ 	if len(orig.Values) > 0 {
+ 		l = 0
+ 		for _, e := range orig.Values {
+@@ -221,6 +222,7 @@ func (orig *Sample) SizeProto() int {
+ 		}
+ 		n += 1 + proto.Sov(uint64(l)) + l
+ 	}
++
+ 	if len(orig.AttributeIndices) > 0 {
+ 		l = 0
+ 		for _, e := range orig.AttributeIndices {

@@ -1,0 +1,19 @@
+diff --git a/service/internal/builder/testdata/unused_receiver.yaml b/service/internal/builder/testdata/unused_receiver.yaml
+new file mode 100644
+index 000000000..4465c1e39
+--- /dev/null
++++ b/service/internal/builder/testdata/unused_receiver.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  examplereceiver:
++  multireceiver:
++processors:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
+\ No newline at end of file

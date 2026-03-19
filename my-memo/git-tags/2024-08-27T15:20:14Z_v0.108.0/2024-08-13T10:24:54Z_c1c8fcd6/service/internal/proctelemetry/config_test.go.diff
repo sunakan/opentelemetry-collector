@@ -1,0 +1,21 @@
+diff --git a/service/internal/proctelemetry/config_test.go b/service/internal/proctelemetry/config_test.go
+index d0560ac9c..efb081be0 100644
+--- a/service/internal/proctelemetry/config_test.go
++++ b/service/internal/proctelemetry/config_test.go
+@@ -8,6 +8,7 @@ import (
+ 	"errors"
+ 	"net/url"
+ 	"reflect"
++	"sync"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -529,7 +530,7 @@ func TestMetricReader(t *testing.T) {
+ 	}
+ 	for _, tt := range testCases {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			gotReader, server, err := InitMetricReader(context.Background(), tt.reader, make(chan error))
++			gotReader, server, err := InitMetricReader(context.Background(), tt.reader, make(chan error), &sync.WaitGroup{})
+ 
+ 			defer func() {
+ 				if gotReader != nil {

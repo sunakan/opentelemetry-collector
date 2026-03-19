@@ -1,0 +1,32 @@
+diff --git a/internal/data/testdata/resource.go b/internal/data/testdata/resource.go
+index ab34daedf..f48702741 100644
+--- a/internal/data/testdata/resource.go
++++ b/internal/data/testdata/resource.go
+@@ -21,23 +21,21 @@ import (
+ )
+ 
+ func initResource1(r pdata.Resource) {
+-	r.InitEmpty()
+ 	initResourceAttributes1(r.Attributes())
+ }
+ 
+-func generateOtlpResource1() *otlpresource.Resource {
+-	return &otlpresource.Resource{
++func generateOtlpResource1() otlpresource.Resource {
++	return otlpresource.Resource{
+ 		Attributes: generateOtlpResourceAttributes1(),
+ 	}
+ }
+ 
+ func initResource2(r pdata.Resource) {
+-	r.InitEmpty()
+ 	initResourceAttributes2(r.Attributes())
+ }
+ 
+-func generateOtlpResource2() *otlpresource.Resource {
+-	return &otlpresource.Resource{
++func generateOtlpResource2() otlpresource.Resource {
++	return otlpresource.Resource{
+ 		Attributes: generateOtlpResourceAttributes2(),
+ 	}
+ }

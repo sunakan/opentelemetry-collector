@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_processor.go b/internal/testcomponents/example_processor.go
+index 788b14b6c..5128ff10a 100644
+--- a/internal/testcomponents/example_processor.go
++++ b/internal/testcomponents/example_processor.go
+@@ -45,7 +45,7 @@ var ExampleProcessorFactory = processorhelper.NewFactory(
+ // CreateDefaultConfig creates the default configuration for the Processor.
+ func createDefaultConfig() config.Processor {
+ 	return &ExampleProcessorCfg{
+-		ProcessorSettings: config.NewProcessorSettings(config.NewID(procType)),
++		ProcessorSettings: config.NewProcessorSettings(config.NewComponentID(procType)),
+ 		ExtraSetting:      "some export string",
+ 		ExtraMapSetting:   nil,
+ 		ExtraListSetting:  nil,

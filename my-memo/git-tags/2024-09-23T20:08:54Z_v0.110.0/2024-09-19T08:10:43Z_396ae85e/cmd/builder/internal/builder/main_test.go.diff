@@ -1,0 +1,23 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index aa90c99ca..fe7bb1c09 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -289,6 +289,18 @@ func TestGenerateAndCompile(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
++		{
++			name: "Build Tags Compilation",
++			cfgBuilder: func(t *testing.T) Config {
++				cfg := newTestConfig()
++				err := cfg.SetBackwardsCompatibility()
++				require.NoError(t, err)
++				cfg.Distribution.OutputPath = t.TempDir()
++				cfg.Replaces = append(cfg.Replaces, replaces...)
++				cfg.Distribution.BuildTags = "customTag"
++				return cfg
++			},
++		},
+ 		{
+ 			name: "Debug Compilation",
+ 			cfgBuilder: func(t *testing.T) Config {

@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index e793f65a3..3d11480ed 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -35,7 +35,7 @@ func (nh *nopHost) GetFactory(_ component.Kind, _ configmodels.Type) component.F
+ 	return nil
+ }
+ 
+-func (nh *nopHost) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++func (nh *nopHost) GetExtensions() map[configmodels.Extension]component.Extension {
+ 	return nil
+ }
+ 

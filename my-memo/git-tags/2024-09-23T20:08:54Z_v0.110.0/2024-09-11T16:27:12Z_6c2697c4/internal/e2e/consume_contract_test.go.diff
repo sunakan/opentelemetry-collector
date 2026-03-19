@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/consume_contract_test.go b/internal/e2e/consume_contract_test.go
+index efda43101..98beb5cd3 100644
+--- a/internal/e2e/consume_contract_test.go
++++ b/internal/e2e/consume_contract_test.go
+@@ -22,7 +22,7 @@ func testExporterConfig(endpoint string) component.Config {
+ 	retryConfig := configretry.NewDefaultBackOffConfig()
+ 	retryConfig.InitialInterval = time.Millisecond // interval is short for the test purposes
+ 	return &otlpexporter.Config{
+-		QueueConfig: exporterhelper.QueueSettings{Enabled: false},
++		QueueConfig: exporterhelper.QueueConfig{Enabled: false},
+ 		RetryConfig: retryConfig,
+ 		ClientConfig: configgrpc.ClientConfig{
+ 			Endpoint: endpoint,

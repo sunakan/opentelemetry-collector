@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index e0820813d..beb86c911 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -73,6 +73,7 @@ var (
+ 		"/exporter/otlphttpexporter",
+ 		"/extension",
+ 		"/extension/auth",
++		"/extension/experimental/storage",
+ 		"/extension/zpagesextension",
+ 		"/featuregate",
+ 		"/internal/globalgates",

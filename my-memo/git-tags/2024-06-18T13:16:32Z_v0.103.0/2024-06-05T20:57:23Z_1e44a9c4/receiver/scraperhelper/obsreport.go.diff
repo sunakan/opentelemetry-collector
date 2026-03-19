@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/obsreport.go b/receiver/scraperhelper/obsreport.go
+index 9c10f7002..c7cb1b1db 100644
+--- a/receiver/scraperhelper/obsreport.go
++++ b/receiver/scraperhelper/obsreport.go
+@@ -38,7 +38,7 @@ type ObsReport struct {
+ type ObsReportSettings struct {
+ 	ReceiverID             component.ID
+ 	Scraper                component.ID
+-	ReceiverCreateSettings receiver.CreateSettings
++	ReceiverCreateSettings receiver.Settings
+ }
+ 
+ // NewObsReport creates a new ObsReport.

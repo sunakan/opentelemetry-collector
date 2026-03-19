@@ -1,0 +1,13 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/probabilisticsamplerprocessor/probabilisticsampler.go
+index 0dc964796..995d56c9c 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 

@@ -1,0 +1,13 @@
+diff --git a/internal/otlp_wrapper.go b/internal/otlp_wrapper.go
+index 5b1fa36bd..f367322d7 100644
+--- a/internal/otlp_wrapper.go
++++ b/internal/otlp_wrapper.go
+@@ -14,7 +14,7 @@
+ 
+ package internal
+ 
+-import otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
++import otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
+ 
+ // OtlpLogsWrapper is an intermediary struct that is declared in an internal package
+ // as a way to prevent certain functions of pdata.Logs data type to be callable by

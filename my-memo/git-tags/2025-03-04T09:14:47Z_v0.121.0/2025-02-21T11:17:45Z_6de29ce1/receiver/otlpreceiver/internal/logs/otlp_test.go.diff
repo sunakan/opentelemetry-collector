@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp_test.go b/receiver/otlpreceiver/internal/logs/otlp_test.go
+index 1b730c6b9..2941d7d5c 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp_test.go
++++ b/receiver/otlpreceiver/internal/logs/otlp_test.go
+@@ -92,7 +92,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, lc consumer.Logs) net.Addr {
+ 		require.NoError(t, ln.Close())
+ 	})
+ 
+-	set := receivertest.NewNopSettingsWithType(metadata.Type)
++	set := receivertest.NewNopSettings(metadata.Type)
+ 	set.ID = component.MustNewIDWithName("otlp", "log")
+ 	obsreport, err := receiverhelper.NewObsReport(receiverhelper.ObsReportSettings{
+ 		ReceiverID:             set.ID,

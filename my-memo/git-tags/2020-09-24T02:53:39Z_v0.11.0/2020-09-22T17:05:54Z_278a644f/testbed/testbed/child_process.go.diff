@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index 03e611f2b..f7931f49c 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -411,8 +411,8 @@ func (cp *ChildProcess) checkAllowedResourceUsage() error {
+ 
+ 	// Check if current RAM usage exceeds expected.
+ 	if cp.resourceSpec.ExpectedMaxRAM != 0 && cp.ramMiBCur.Load() > cp.resourceSpec.ExpectedMaxRAM {
+-		errMsg = fmt.Sprintf("RAM consumption is %d MiB, max expected is %d MiB",
+-			cp.ramMiBCur, cp.resourceSpec.ExpectedMaxRAM)
++		errMsg = fmt.Sprintf("RAM consumption is %s MiB, max expected is %d MiB",
++			cp.ramMiBCur.String(), cp.resourceSpec.ExpectedMaxRAM)
+ 	}
+ 
+ 	if errMsg == "" {

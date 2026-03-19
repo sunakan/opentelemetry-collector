@@ -1,0 +1,37 @@
+diff --git a/service/internal/status/status_test.go b/service/internal/status/status_test.go
+index 74ffcc781..6ac498ab3 100644
+--- a/service/internal/status/status_test.go
++++ b/service/internal/status/status_test.go
+@@ -53,13 +53,14 @@ func TestStatusFSM(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			name: "repeated events are errors",
++			name: "repeated OK and RecoverableError events are valid",
+ 			reportedStatuses: []componentstatus.Status{
+ 				componentstatus.StatusStarting,
+ 				componentstatus.StatusOK,
++				componentstatus.StatusOK,
+ 				componentstatus.StatusRecoverableError,
+ 				componentstatus.StatusRecoverableError,
+-				componentstatus.StatusRecoverableError,
++				componentstatus.StatusOK,
+ 				componentstatus.StatusOK,
+ 				componentstatus.StatusStopping,
+ 				componentstatus.StatusStopped,
+@@ -67,12 +68,14 @@ func TestStatusFSM(t *testing.T) {
+ 			expectedStatuses: []componentstatus.Status{
+ 				componentstatus.StatusStarting,
+ 				componentstatus.StatusOK,
++				componentstatus.StatusOK,
++				componentstatus.StatusRecoverableError,
+ 				componentstatus.StatusRecoverableError,
+ 				componentstatus.StatusOK,
++				componentstatus.StatusOK,
+ 				componentstatus.StatusStopping,
+ 				componentstatus.StatusStopped,
+ 			},
+-			expectedErrorCount: 2,
+ 		},
+ 		{
+ 			name: "PermanentError is stoppable",

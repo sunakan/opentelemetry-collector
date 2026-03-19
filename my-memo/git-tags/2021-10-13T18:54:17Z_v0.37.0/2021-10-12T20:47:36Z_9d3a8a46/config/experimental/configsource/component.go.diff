@@ -1,0 +1,13 @@
+diff --git a/config/experimental/configsource/component.go b/config/experimental/configsource/component.go
+index 3f62c2ce7..9bb7945e5 100644
+--- a/config/experimental/configsource/component.go
++++ b/config/experimental/configsource/component.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configsource
++package configsource // import "go.opentelemetry.io/collector/config/experimental/configsource"
+ 
+ import (
+ 	"context"

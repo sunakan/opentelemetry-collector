@@ -1,0 +1,25 @@
+diff --git a/client/client.go b/client/client.go
+index fa944cad9..6db8ff8e3 100644
+--- a/client/client.go
++++ b/client/client.go
+@@ -79,6 +79,8 @@ package client // import "go.opentelemetry.io/collector/client"
+ 
+ import (
+ 	"context"
++	"iter"
++	"maps"
+ 	"net"
+ 	"strings"
+ )
+@@ -148,6 +150,11 @@ func NewMetadata(md map[string][]string) Metadata {
+ 	}
+ }
+ 
++// Keys returns an iterator for the metadata keys.
++func (m Metadata) Keys() iter.Seq[string] {
++	return maps.Keys(m.data)
++}
++
+ // Get gets the value of the key from metadata, returning a copy.
+ // The key lookup is case-insensitive.
+ func (m Metadata) Get(key string) []string {

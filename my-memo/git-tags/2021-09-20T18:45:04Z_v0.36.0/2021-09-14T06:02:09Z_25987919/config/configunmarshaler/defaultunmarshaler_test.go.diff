@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/defaultunmarshaler_test.go b/config/configunmarshaler/defaultunmarshaler_test.go
+index 71955b89f..b73c5b6c7 100644
+--- a/config/configunmarshaler/defaultunmarshaler_test.go
++++ b/config/configunmarshaler/defaultunmarshaler_test.go
+@@ -456,7 +456,7 @@ func TestLoadEmptyAllSections(t *testing.T) {
+ }
+ 
+ func loadConfigFile(t *testing.T, fileName string, factories component.Factories) (*config.Config, error) {
+-	v, err := configparser.NewParserFromFile(fileName)
++	v, err := configparser.NewConfigMapFromFile(fileName)
+ 	require.NoError(t, err)
+ 
+ 	// Unmarshal the config from the configparser.ConfigMap using the given factories.

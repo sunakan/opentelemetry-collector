@@ -1,0 +1,10 @@
+diff --git a/extension/auth/go.mod b/extension/auth/go.mod
+index c24e379db..fe44e0b7d 100644
+--- a/extension/auth/go.mod
++++ b/extension/auth/go.mod
+@@ -67,3 +67,5 @@ replace go.opentelemetry.io/collector/config/configcompression => ../../config/c
+ replace go.opentelemetry.io/collector/config/confignet => ../../config/confignet
+ 
+ replace go.opentelemetry.io/collector/config/configopaque => ../../config/configopaque
++
++replace go.opentelemetry.io/collector/config/configtls => ../../config/configtls

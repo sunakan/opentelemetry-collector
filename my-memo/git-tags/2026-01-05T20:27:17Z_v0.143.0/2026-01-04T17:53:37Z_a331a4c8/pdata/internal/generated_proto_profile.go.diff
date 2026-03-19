@@ -1,0 +1,28 @@
+diff --git a/pdata/internal/generated_proto_profile.go b/pdata/internal/generated_proto_profile.go
+index db4bd569a..02167667d 100644
+--- a/pdata/internal/generated_proto_profile.go
++++ b/pdata/internal/generated_proto_profile.go
+@@ -18,17 +18,17 @@ import (
+ // Profile are an implementation of the pprofextended data model.
+ 
+ type Profile struct {
+-	SampleType             ValueType
++	OriginalPayloadFormat  string
+ 	Samples                []*Sample
++	OriginalPayload        []byte
++	AttributeIndices       []int32
+ 	TimeUnixNano           uint64
+ 	DurationNano           uint64
+-	PeriodType             ValueType
+ 	Period                 int64
+-	ProfileId              ProfileID
++	SampleType             ValueType
++	PeriodType             ValueType
+ 	DroppedAttributesCount uint32
+-	OriginalPayloadFormat  string
+-	OriginalPayload        []byte
+-	AttributeIndices       []int32
++	ProfileId              ProfileID
+ }
+ 
+ var (

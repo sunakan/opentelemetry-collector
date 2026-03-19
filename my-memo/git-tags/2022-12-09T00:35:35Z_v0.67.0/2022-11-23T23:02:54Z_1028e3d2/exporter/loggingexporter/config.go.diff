@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config.go b/exporter/loggingexporter/config.go
+index 7dbff1bba..076f5cc0b 100644
+--- a/exporter/loggingexporter/config.go
++++ b/exporter/loggingexporter/config.go
+@@ -56,7 +56,7 @@ type Config struct {
+ 	warnLogLevel bool
+ }
+ 
+-var _ component.ExporterConfig = (*Config)(nil)
++var _ component.Config = (*Config)(nil)
+ var _ confmap.Unmarshaler = (*Config)(nil)
+ 
+ func mapLevel(level zapcore.Level) (configtelemetry.Level, error) {

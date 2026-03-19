@@ -1,0 +1,25 @@
+diff --git a/exporter/exporterhelper/internal/timeout_sender.go b/exporter/exporterhelper/internal/timeout_sender.go
+index de8fd0cf7..40f0b2a67 100644
+--- a/exporter/exporterhelper/internal/timeout_sender.go
++++ b/exporter/exporterhelper/internal/timeout_sender.go
+@@ -9,6 +9,7 @@ import (
+ 	"time"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+ )
+ 
+ // TimeoutConfig for timeout. The timeout applies to individual attempts to send data to the backend.
+@@ -38,10 +39,10 @@ type timeoutSender[K any] struct {
+ 	component.StartFunc
+ 	component.ShutdownFunc
+ 	cfg  TimeoutConfig
+-	next Sender[K]
++	next sender.Sender[K]
+ }
+ 
+-func newTimeoutSender[K any](cfg TimeoutConfig, next Sender[K]) Sender[K] {
++func newTimeoutSender[K any](cfg TimeoutConfig, next sender.Sender[K]) sender.Sender[K] {
+ 	return &timeoutSender[K]{cfg: cfg, next: next}
+ }
+ 

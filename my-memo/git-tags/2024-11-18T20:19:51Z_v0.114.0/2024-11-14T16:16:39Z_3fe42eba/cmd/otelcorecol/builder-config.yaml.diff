@@ -1,0 +1,12 @@
+diff --git a/cmd/otelcorecol/builder-config.yaml b/cmd/otelcorecol/builder-config.yaml
+index 3efa0c1d1..73bd6d50c 100644
+--- a/cmd/otelcorecol/builder-config.yaml
++++ b/cmd/otelcorecol/builder-config.yaml
+@@ -79,6 +79,7 @@ replaces:
+   - go.opentelemetry.io/collector/extension/auth => ../../extension/auth
+   - go.opentelemetry.io/collector/extension/experimental/storage => ../../extension/experimental/storage
+   - go.opentelemetry.io/collector/extension/extensioncapabilities => ../../extension/extensioncapabilities
++  - go.opentelemetry.io/collector/extension/extensiontest => ../../extension/extensiontest
+   - go.opentelemetry.io/collector/extension/memorylimiterextension => ../../extension/memorylimiterextension
+   - go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+   - go.opentelemetry.io/collector/featuregate => ../../featuregate

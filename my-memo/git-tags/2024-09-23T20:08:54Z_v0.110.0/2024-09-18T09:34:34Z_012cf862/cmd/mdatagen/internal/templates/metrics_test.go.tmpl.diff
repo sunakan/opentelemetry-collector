@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/templates/metrics_test.go.tmpl b/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
+index ce9931227..8afd0178b 100644
+--- a/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/metrics_test.go.tmpl
+@@ -173,7 +173,11 @@ func TestMetricsBuilder(t *testing.T) {
+ 					assert.Equal(t, start, dp.StartTimestamp())
+ 					assert.Equal(t, ts, dp.Timestamp())
+ 					assert.Equal(t, pmetric.NumberDataPointValueType{{ $metric.Data.MetricValueType }}, dp.ValueType())
++					{{- if eq $metric.Data.MetricValueType.BasicType "float64" }}
++					assert.InDelta(t, {{ $metric.Data.MetricValueType.BasicType }}(1), dp.{{ $metric.Data.MetricValueType }}Value(), 0.01)
++					{{- else }}
+ 					assert.Equal(t, {{ $metric.Data.MetricValueType.BasicType }}(1), dp.{{ $metric.Data.MetricValueType }}Value())
++					{{- end }}
+ 
+ 					{{- range $i, $attr := $metric.Attributes }}
+ 					attrVal, ok {{ if eq $i 0 }}:{{ end }}= dp.Attributes().Get("{{ (attributeInfo $attr).Name }}")

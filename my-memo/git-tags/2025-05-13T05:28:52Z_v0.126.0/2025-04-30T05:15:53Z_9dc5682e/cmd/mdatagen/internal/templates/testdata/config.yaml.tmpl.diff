@@ -1,0 +1,32 @@
+diff --git a/cmd/mdatagen/internal/templates/testdata/config.yaml.tmpl b/cmd/mdatagen/internal/templates/testdata/config.yaml.tmpl
+index 394646cc2..4e22df20b 100644
+--- a/cmd/mdatagen/internal/templates/testdata/config.yaml.tmpl
++++ b/cmd/mdatagen/internal/templates/testdata/config.yaml.tmpl
+@@ -7,6 +7,13 @@ all_set:
+       enabled: true
+     {{- end }}
+   {{- end }}
++  {{- if .Events }}
++  events:
++    {{- range $name, $_ := .Events }}
++    {{ $name }}:
++      enabled: true
++    {{- end }}
++  {{- end }}
+   {{- if .ResourceAttributes }}
+   resource_attributes:
+     {{- range $name, $_ := .ResourceAttributes }}
+@@ -22,6 +29,13 @@ none_set:
+       enabled: false
+     {{- end }}
+   {{- end }}
++  {{- if .Events }}
++  events:
++    {{- range $name, $_ := .Events }}
++    {{ $name }}:
++      enabled: false
++    {{- end }}
++  {{- end }}
+   {{- if .ResourceAttributes }}
+   resource_attributes:
+     {{- range $name, $_ := .ResourceAttributes }}

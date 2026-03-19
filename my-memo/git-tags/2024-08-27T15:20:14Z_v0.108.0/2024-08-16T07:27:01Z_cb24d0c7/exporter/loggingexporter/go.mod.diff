@@ -1,0 +1,10 @@
+diff --git a/exporter/loggingexporter/go.mod b/exporter/loggingexporter/go.mod
+index ed7f24f98..e1827a714 100644
+--- a/exporter/loggingexporter/go.mod
++++ b/exporter/loggingexporter/go.mod
+@@ -101,3 +101,5 @@ replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile
+ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../../consumer/consumerprofiles
+ 
+ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/consumertest
++
++replace go.opentelemetry.io/collector/component/componentstatus => ../../component/componentstatus

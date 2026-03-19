@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 8af6f3c56..a60ec7ea0 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -70,7 +70,7 @@ func (req *logsRequest) ItemsCount() int {
+ 	return req.ld.LogRecordCount()
+ }
+ 
+-func (req *logsRequest) Size(sizer sizer.LogsSizer) int {
++func (req *logsRequest) size(sizer sizer.LogsSizer) int {
+ 	if req.cachedSize == -1 {
+ 		req.cachedSize = sizer.LogsSize(req.ld)
+ 	}

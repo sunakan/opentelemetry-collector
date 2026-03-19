@@ -1,0 +1,12 @@
+diff --git a/exporter/xexporter/exporter.go b/exporter/xexporter/exporter.go
+index a30100080..dea6ed608 100644
+--- a/exporter/xexporter/exporter.go
++++ b/exporter/xexporter/exporter.go
+@@ -108,6 +108,6 @@ func NewFactory(cfgType component.Type, createDefaultConfig component.CreateDefa
+ 	for _, opt := range options {
+ 		opt.applyOption(&opts)
+ 	}
+-	opts.factory.Factory = exporter.NewFactory(cfgType, createDefaultConfig, opts.opts...)
++	opts.Factory = exporter.NewFactory(cfgType, createDefaultConfig, opts.opts...)
+ 	return opts.factory
+ }

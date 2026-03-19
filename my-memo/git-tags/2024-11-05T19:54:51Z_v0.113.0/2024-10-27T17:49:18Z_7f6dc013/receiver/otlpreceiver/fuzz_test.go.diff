@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/fuzz_test.go b/receiver/otlpreceiver/fuzz_test.go
+index d1211811f..4915364eb 100644
+--- a/receiver/otlpreceiver/fuzz_test.go
++++ b/receiver/otlpreceiver/fuzz_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ func FuzzReceiverHandlers(f *testing.F) {
+ 	f.Fuzz(func(_ *testing.T, data []byte, pb bool, handler int) {
+-		req, err := http.NewRequest("POST", "", bytes.NewReader(data))
++		req, err := http.NewRequest(http.MethodPost, "", bytes.NewReader(data))
+ 		if err != nil {
+ 			return
+ 		}

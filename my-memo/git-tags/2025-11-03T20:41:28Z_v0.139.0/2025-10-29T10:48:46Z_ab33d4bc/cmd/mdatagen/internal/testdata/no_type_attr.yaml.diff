@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_type_attr.yaml b/cmd/mdatagen/internal/testdata/no_type_attr.yaml
+index c267d218e..0cc5f8e56 100644
+--- a/cmd/mdatagen/internal/testdata/no_type_attr.yaml
++++ b/cmd/mdatagen/internal/testdata/no_type_attr.yaml
+@@ -17,6 +17,8 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
++    stability:
++      level: development
+     unit: "1"
+     gauge:
+       value_type: double

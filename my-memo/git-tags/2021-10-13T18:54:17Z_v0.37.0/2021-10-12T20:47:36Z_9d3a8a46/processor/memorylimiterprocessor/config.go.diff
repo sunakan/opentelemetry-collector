@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/config.go b/processor/memorylimiterprocessor/config.go
+index 72789bc32..bb3365248 100644
+--- a/processor/memorylimiterprocessor/config.go
++++ b/processor/memorylimiterprocessor/config.go
+@@ -15,7 +15,7 @@
+ // Package memorylimiterprocessor provides a processor for OpenTelemetry Service pipeline
+ // that drops data on the pipeline according to the current state of memory
+ // usage.
+-package memorylimiterprocessor
++package memorylimiterprocessor // import "go.opentelemetry.io/collector/processor/memorylimiterprocessor"
+ 
+ import (
+ 	"time"

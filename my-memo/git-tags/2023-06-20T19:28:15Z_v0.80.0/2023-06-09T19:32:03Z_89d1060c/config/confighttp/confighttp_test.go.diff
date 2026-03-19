@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index bb0aa7036..5f3051020 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -370,7 +370,7 @@ func TestHTTPClientSettingWithAuthConfig(t *testing.T) {
+ 				ct, ok := transport.(*compressRoundTripper)
+ 				assert.True(t, ok)
+ 				assert.Equal(t, test.settings.Compression, ct.compressionType)
+-				transport = ct.RoundTripper
++				transport = ct.rt
+ 			}
+ 
+ 			// Headers should wrap Auth, unwrap it

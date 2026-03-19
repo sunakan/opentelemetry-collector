@@ -1,0 +1,24 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 26798e4fc..f9977d5e8 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -23,9 +23,6 @@ import (
+ type TraceExporter interface {
+ 	consumer.TraceConsumer
+ 
+-	// Name gets the name of the trace exporter.
+-	Name() string
+-
+ 	// Shutdown is invoked during service shutdown.
+ 	Shutdown() error
+ }
+@@ -34,9 +31,6 @@ type TraceExporter interface {
+ type MetricsExporter interface {
+ 	consumer.MetricsConsumer
+ 
+-	// Name gets the name of the metrics exporter.
+-	Name() string
+-
+ 	// Shutdown is invoked during service shutdown.
+ 	Shutdown() error
+ }

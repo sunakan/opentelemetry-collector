@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_log.go b/consumer/pdata/generated_log.go
+index c48f949e9..074494283 100644
+--- a/consumer/pdata/generated_log.go
++++ b/consumer/pdata/generated_log.go
+@@ -605,7 +605,7 @@ func (ms LogRecord) SpanID() SpanID {
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+ func (ms LogRecord) SetSpanID(v SpanID) {
+-	(*ms.orig).SpanId = []byte(v)
++	(*ms.orig).SpanId = otlpcommon.SpanID(v)
+ }
+ 
+ // Flags returns the flags associated with this LogRecord.

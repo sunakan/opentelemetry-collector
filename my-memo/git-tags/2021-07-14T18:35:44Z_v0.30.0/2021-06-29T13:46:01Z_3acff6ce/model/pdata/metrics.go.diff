@@ -1,0 +1,15 @@
+diff --git a/model/pdata/metrics.go b/model/pdata/metrics.go
+index 971393a7d..5611a9c2b 100644
+--- a/model/pdata/metrics.go
++++ b/model/pdata/metrics.go
+@@ -15,9 +15,9 @@
+ package pdata
+ 
+ import (
+-	"go.opentelemetry.io/collector/internal"
+ 	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/protogen/collector/metrics/v1"
+ 	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
++	"go.opentelemetry.io/collector/model/internal"
+ )
+ 
+ // MetricsMarshaler marshals pdata.Metrics into bytes.

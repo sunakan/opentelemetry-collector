@@ -1,0 +1,36 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/documentation.md b/cmd/mdatagen/internal/samplereceiver/documentation.md
+index 392823cbc..ef72066bd 100644
+--- a/cmd/mdatagen/internal/samplereceiver/documentation.md
++++ b/cmd/mdatagen/internal/samplereceiver/documentation.md
+@@ -65,7 +65,7 @@ Monotonic cumulative sum int metric with string input_type enabled by default.
+ 
+ ### reaggregate.metric
+ 
+-Metric for testing spacial reaggregation
++Metric for testing spatial reaggregation
+ 
+ | Unit | Metric Type | Value Type | Stability |
+ | ---- | ----------- | ---------- | --------- |
+@@ -78,6 +78,22 @@ Metric for testing spacial reaggregation
+ | string_attr | Attribute with any string value. | Any Str | Recommended |
+ | boolean_attr | Attribute with a boolean value. | Any Bool | Recommended |
+ 
++### reaggregate.metric.with_required
++
++Metric for testing spatial reaggregation with required attributes
++
++| Unit | Metric Type | Value Type | Stability |
++| ---- | ----------- | ---------- | --------- |
++| 1 | Gauge | Double | Beta |
++
++#### Attributes
++
++| Name | Description | Values | Requirement Level |
++| ---- | ----------- | ------ | -------- |
++| required_string_attr | A required attribute with a string value | Any Str | Required |
++| string_attr | Attribute with any string value. | Any Str | Recommended |
++| boolean_attr | Attribute with a boolean value. | Any Bool | Recommended |
++
+ ### system.cpu.time
+ 
+ Monotonic cumulative sum int metric enabled by default.

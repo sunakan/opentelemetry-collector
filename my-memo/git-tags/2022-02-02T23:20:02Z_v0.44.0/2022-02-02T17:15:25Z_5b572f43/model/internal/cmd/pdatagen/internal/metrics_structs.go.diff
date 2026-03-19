@@ -1,0 +1,19 @@
+diff --git a/model/internal/cmd/pdatagen/internal/metrics_structs.go b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+index 2fe4369d9..8bcf5b883 100644
+--- a/model/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -132,12 +132,12 @@ var metric = &messageValueStruct{
+ 				&oneOfMessageValue{
+ 					fieldName:       "Gauge",
+ 					originFieldName: "Gauge",
+-					returnMessage:   doubleGauge,
++					returnMessage:   gauge,
+ 				},
+ 				&oneOfMessageValue{
+ 					fieldName:       "Sum",
+ 					originFieldName: "Sum",
+-					returnMessage:   doubleSum,
++					returnMessage:   sum,
+ 				},
+ 				&oneOfMessageValue{
+ 					fieldName:       "Histogram",

@@ -1,0 +1,20 @@
+diff --git a/model/pdata/metrics_test.go b/model/pdata/metrics_test.go
+index 3dde15ee7..00954a336 100644
+--- a/model/pdata/metrics_test.go
++++ b/model/pdata/metrics_test.go
+@@ -192,6 +192,15 @@ func TestDataPointCountWithNilDataPoints(t *testing.T) {
+ 	assert.EqualValues(t, 0, metrics.DataPointCount())
+ }
+ 
++func TestMetricsMoveTo(t *testing.T) {
++	metrics := NewMetrics()
++	fillTestResourceMetricsSlice(metrics.ResourceMetrics())
++	dest := NewMetrics()
++	metrics.MoveTo(dest)
++	assert.EqualValues(t, NewMetrics(), metrics)
++	assert.EqualValues(t, generateTestResourceMetricsSlice(), dest.ResourceMetrics())
++}
++
+ func TestOtlpToInternalReadOnly(t *testing.T) {
+ 	md := Metrics{orig: &otlpmetrics.MetricsData{
+ 		ResourceMetrics: []*otlpmetrics.ResourceMetrics{

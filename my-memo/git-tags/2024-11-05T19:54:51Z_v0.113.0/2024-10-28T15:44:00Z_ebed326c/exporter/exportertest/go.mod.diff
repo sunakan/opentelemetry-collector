@@ -1,0 +1,21 @@
+diff --git a/exporter/exportertest/go.mod b/exporter/exportertest/go.mod
+index 3bc9c5153..f02630804 100644
+--- a/exporter/exportertest/go.mod
++++ b/exporter/exportertest/go.mod
+@@ -16,6 +16,7 @@ require (
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.112.0
+ 	go.opentelemetry.io/collector/pipeline v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	google.golang.org/grpc v1.67.1
+ )
+ 
+@@ -61,6 +62,8 @@ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/co
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../../receiver/receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../../receiver/receivertest
++
+ replace go.opentelemetry.io/collector/extension => ../../extension
+ 
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index 374ed6d03..a321458a8 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -33,7 +33,7 @@ type Config struct {
+ 	Protocols `mapstructure:"protocols"`
+ }
+ 
+-var _ config.CustomConfigOptions = (*Config)(nil)
++var _ config.Receiver = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

@@ -1,0 +1,12 @@
+diff --git a/internal/internal.go b/internal/internal.go
+index 7eecf6dac..65e8e0c0e 100644
+--- a/internal/internal.go
++++ b/internal/internal.go
+@@ -85,6 +85,7 @@ func guessUnixHomeDir() string {
+ 	return ""
+ }
+ 
++// TimeToTimestamp converts a time.Time to a timestamp.Timestamp pointer.
+ func TimeToTimestamp(t time.Time) *timestamp.Timestamp {
+ 	nanoTime := t.UnixNano()
+ 	return &timestamp.Timestamp{

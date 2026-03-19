@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+index e01ecd36a..0f68b3d6a 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+@@ -190,7 +190,7 @@ func initializeInt64DataPoint(dataPoint pdata.IntDataPoint, startTime, now pdata
+ 	if directionLabel != "" {
+ 		labelsMap.Insert(metadata.Labels.DiskDirection, directionLabel)
+ 	}
+-	dataPoint.SetStartTime(startTime)
++	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetValue(value)
+ }
+@@ -201,7 +201,7 @@ func initializeDoubleDataPoint(dataPoint pdata.DoubleDataPoint, startTime, now p
+ 	if directionLabel != "" {
+ 		labelsMap.Insert(metadata.Labels.DiskDirection, directionLabel)
+ 	}
+-	dataPoint.SetStartTime(startTime)
++	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetValue(value)
+ }

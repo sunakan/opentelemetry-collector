@@ -1,0 +1,23 @@
+diff --git a/service/internal/builder/factories_test.go b/service/internal/builder/factories_test.go
+index f4aded13f..c8ed32696 100644
+--- a/service/internal/builder/factories_test.go
++++ b/service/internal/builder/factories_test.go
+@@ -18,6 +18,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/extension/extensionhelper"
+@@ -58,8 +59,8 @@ func createTestFactories() component.Factories {
+ 
+ func newBadReceiverFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory("bf", func() config.Receiver {
+-		return &config.ReceiverSettings{
+-			TypeVal: "bf",
++		return &componenttest.NopConfig{
++			ReceiverSettings: config.ReceiverSettings{TypeVal: "bf"},
+ 		}
+ 	})
+ }

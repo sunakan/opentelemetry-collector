@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 2567cd221..3bbac5f9a 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -169,7 +169,7 @@ func NewTraceExporter(config configmodels.Exporter, level string, logger *zap.Lo
+ func NewMetricsExporter(config configmodels.Exporter, logger *zap.Logger) (component.MetricsExporterOld, error) {
+ 	typeLog := zap.String("type", config.Type())
+ 	nameLog := zap.String("name", config.Name())
+-	return exporterhelper.NewMetricsExporter(
++	return exporterhelper.NewMetricsExporterOld(
+ 		config,
+ 		func(ctx context.Context, md consumerdata.MetricsData) (int, error) {
+ 			logger.Info("MetricsExporter", typeLog, nameLog, zap.Int("#metrics", len(md.Metrics)))

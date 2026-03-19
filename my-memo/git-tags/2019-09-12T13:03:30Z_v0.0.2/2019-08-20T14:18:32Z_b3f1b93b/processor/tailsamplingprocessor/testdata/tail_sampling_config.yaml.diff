@@ -1,0 +1,45 @@
+diff --git a/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml b/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+new file mode 100644
+index 000000000..f76ad4f96
+--- /dev/null
++++ b/processor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+@@ -0,0 +1,39 @@
++receivers:
++  examplereceiver:
++
++exporters:
++  exampleexporter:
++
++processors:
++  tail-sampling:
++    decision-wait: 10s
++    num-traces: 100
++    expected-new-traces-per-sec: 10
++    policies:
++      [
++          {
++            name: test-policy-1,
++            type: always-sample
++          },
++          {
++            name: test-policy-2,
++            type: numeric-attribute,
++            numeric-attribute: {key: key1, min-value: 50, max-value: 100}
++          },
++          {
++            name: test-policy-3,
++            type: string-attribute,
++            string-attribute: {key: key2, values: [value1, value2]}
++          },
++          {
++            name: test-policy-4,
++            type: rate-limiting,
++            rate-limiting: {spans-per-second: 35}
++         }
++      ]
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [tail-sampling]
++    exporters: [exampleexporter]

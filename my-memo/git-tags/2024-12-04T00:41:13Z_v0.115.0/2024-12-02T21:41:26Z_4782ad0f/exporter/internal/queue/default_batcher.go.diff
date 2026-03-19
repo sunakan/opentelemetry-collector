@@ -1,0 +1,16 @@
+diff --git a/exporter/internal/queue/default_batcher.go b/exporter/internal/queue/default_batcher.go
+index a815a83bb..288415934 100644
+--- a/exporter/internal/queue/default_batcher.go
++++ b/exporter/internal/queue/default_batcher.go
+@@ -132,6 +132,11 @@ func (qb *DefaultBatcher) startTimeBasedFlushingGoroutine() {
+ 
+ // Start starts the goroutine that reads from the queue and flushes asynchronously.
+ func (qb *DefaultBatcher) Start(_ context.Context, _ component.Host) error {
++	// maxWorker being -1 means batcher is disabled. This is for testing queue sender metrics.
++	if qb.maxWorkers == -1 {
++		return nil
++	}
++
+ 	qb.startWorkerPool()
+ 	qb.shutdownCh = make(chan bool, 1)
+ 

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_exportmetricspartialsuccess.go b/pdata/internal/generated_proto_exportmetricspartialsuccess.go
+index 7166c28c8..4915d3cb7 100644
+--- a/pdata/internal/generated_proto_exportmetricspartialsuccess.go
++++ b/pdata/internal/generated_proto_exportmetricspartialsuccess.go
+@@ -16,8 +16,8 @@ import (
+ 
+ // ExportPartialSuccess represents the details of a partially successful export request.
+ type ExportMetricsPartialSuccess struct {
+-	RejectedDataPoints int64
+ 	ErrorMessage       string
++	RejectedDataPoints int64
+ }
+ 
+ var (

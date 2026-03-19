@@ -1,0 +1,30 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
+index 0f7a99545..0fca3aa2c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/config.go
+@@ -14,9 +14,24 @@
+ 
+ package filesystemscraper
+ 
+-import "go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
++import (
++	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
++)
+ 
+ // Config relating to FileSystem Metric Scraper.
+ type Config struct {
+ 	internal.ConfigSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
++
++	// Include specifies a filter on the devices that should be included from the generated metrics.
++	// Exclude specifies a filter on the devices that should be excluded from the generated metrics.
++	// If neither `include` or `exclude` are set, metrics will be generated for all devices.
++	Include MatchConfig `mapstructure:"include"`
++	Exclude MatchConfig `mapstructure:"exclude"`
++}
++
++type MatchConfig struct {
++	filterset.Config `mapstructure:",squash"`
++
++	Devices []string `mapstructure:"devices"`
+ }

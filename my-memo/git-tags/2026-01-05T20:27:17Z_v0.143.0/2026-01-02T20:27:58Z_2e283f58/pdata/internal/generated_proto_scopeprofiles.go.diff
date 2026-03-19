@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopeprofiles.go b/pdata/internal/generated_proto_scopeprofiles.go
+index c17284b1b..b5ef9eb78 100644
+--- a/pdata/internal/generated_proto_scopeprofiles.go
++++ b/pdata/internal/generated_proto_scopeprofiles.go
+@@ -184,6 +184,7 @@ func (orig *ScopeProfiles) SizeProto() int {
+ 		l = orig.Profiles[i].SizeProto()
+ 		n += 1 + proto.Sov(uint64(l)) + l
+ 	}
++
+ 	l = len(orig.SchemaUrl)
+ 	if l > 0 {
+ 		n += 1 + proto.Sov(uint64(l)) + l

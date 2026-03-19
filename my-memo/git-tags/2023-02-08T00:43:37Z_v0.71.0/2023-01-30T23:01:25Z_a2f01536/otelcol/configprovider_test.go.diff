@@ -1,0 +1,13 @@
+diff --git a/otelcol/configprovider_test.go b/otelcol/configprovider_test.go
+index 573cdde59..e83ab5692 100644
+--- a/otelcol/configprovider_test.go
++++ b/otelcol/configprovider_test.go
+@@ -74,7 +74,7 @@ var configNop = &Config{
+ 				ErrorOutputPaths:  []string{"stderr"},
+ 				DisableCaller:     false,
+ 				DisableStacktrace: false,
+-				InitialFields:     map[string]interface{}(nil),
++				InitialFields:     map[string]any(nil),
+ 			},
+ 			Metrics: telemetry.MetricsConfig{
+ 				Level:   configtelemetry.LevelBasic,

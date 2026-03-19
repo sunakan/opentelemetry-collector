@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/metricutils.go b/receiver/hostmetricsreceiver/internal/metricutils.go
+index 9f2f39b8b..765c9cf4f 100644
+--- a/receiver/hostmetricsreceiver/internal/metricutils.go
++++ b/receiver/hostmetricsreceiver/internal/metricutils.go
+@@ -15,8 +15,8 @@
+ package internal
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ // Initializes a metric with a metric slice and returns it.

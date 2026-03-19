@@ -1,0 +1,19 @@
+diff --git a/model/internal/cmd/pdatagen/internal/base_structs.go b/model/internal/cmd/pdatagen/internal/base_structs.go
+index aed6e312d..20dfd4dc5 100644
+--- a/model/internal/cmd/pdatagen/internal/base_structs.go
++++ b/model/internal/cmd/pdatagen/internal/base_structs.go
+@@ -78,11 +78,11 @@ const messageValueGenerateTestTemplate = `func generateTest${structName}() ${str
+ const messageValueFillTestHeaderTemplate = `func fillTest${structName}(tv ${structName}) {`
+ const messageValueFillTestFooterTemplate = `}`
+ 
+-const messageValueAliasTemplate = `// ${structName} is an alias for pdata.${structName} struct.
+-type ${structName} = pdata.${structName} 
++const messageValueAliasTemplate = `// ${structName} is an alias for internal.${structName} struct.
++type ${structName} = internal.${structName} 
+ 
+ // New${structName} is an alias for a function to create a new empty ${structName}.
+-var New${structName} = pdata.New${structName}`
++var New${structName} = internal.New${structName}`
+ 
+ const newLine = "\n"
+ 

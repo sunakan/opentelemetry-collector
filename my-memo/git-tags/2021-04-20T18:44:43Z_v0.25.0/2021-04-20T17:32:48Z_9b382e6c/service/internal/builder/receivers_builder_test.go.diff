@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/receivers_builder_test.go b/service/internal/builder/receivers_builder_test.go
+index 8dd5224a3..2bd57a3f5 100644
+--- a/service/internal/builder/receivers_builder_test.go
++++ b/service/internal/builder/receivers_builder_test.go
+@@ -242,7 +242,7 @@ func TestBuildReceivers_BuildCustom(t *testing.T) {
+ 			// Send one data.
+ 			log := pdata.Logs{}
+ 			producer := receiver.receiver.(*testcomponents.ExampleReceiverProducer)
+-			producer.ConsumeLogs(context.Background(), log)
++			require.NoError(t, producer.ConsumeLogs(context.Background(), log))
+ 
+ 			// Now verify received data.
+ 			for _, name := range exporterNames {

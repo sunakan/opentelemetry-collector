@@ -1,0 +1,15 @@
+diff --git a/interceptor/opencensus/doc.go b/interceptor/opencensus/doc.go
+index b249a778b..72b407537 100644
+--- a/interceptor/opencensus/doc.go
++++ b/interceptor/opencensus/doc.go
+@@ -12,8 +12,6 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-/*
+-ocinterceptor is the logic for receiving OpenCensus trace protobuf defined spans from
+-already instrumented applications and then passing them onto a spanreceiver instance.
+-*/
++// Package ocinterceptor is the logic for receiving OpenCensus trace protobuf defined spans from
++// already instrumented applications and then passing them onto a spanreceiver instance.
+ package ocinterceptor

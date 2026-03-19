@@ -1,0 +1,18 @@
+diff --git a/cmd/occollector/app/builder/testdata/global_attributes_all.yaml b/cmd/occollector/app/builder/testdata/global_attributes_all.yaml
+deleted file mode 100644
+index 45609500d..000000000
+--- a/cmd/occollector/app/builder/testdata/global_attributes_all.yaml
++++ /dev/null
+@@ -1,12 +0,0 @@
+-global:
+-  attributes:
+-    overwrite: true
+-    values:
+-      some_string: "hello world"
+-    key-mapping:
+-      - key: servertracer.http.responsecode
+-        replacement: http.status_code
+-      - key:  servertracer.http.responsephrase
+-        replacement: http.message
+-        overwrite: true
+-        keep: true

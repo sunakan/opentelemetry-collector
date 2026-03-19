@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_others.go
+index 243090270..0cc0a63b9 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper_others.go
+@@ -26,7 +26,7 @@ const availableStateLabelValue = "available"
+ 
+ const memStatesLen = 2
+ 
+-func appendMemoryUsedStates(idps pdata.Int64DataPointSlice, memInfo *mem.VirtualMemoryStat) {
+-	initializeMemoryUsedDataPoint(idps.At(0), usedStateLabelValue, int64(memInfo.Used))
+-	initializeMemoryUsedDataPoint(idps.At(1), availableStateLabelValue, int64(memInfo.Available))
++func appendMemoryUsageStateDataPoints(idps pdata.Int64DataPointSlice, memInfo *mem.VirtualMemoryStat) {
++	initializeMemoryUsageDataPoint(idps.At(0), usedStateLabelValue, int64(memInfo.Used))
++	initializeMemoryUsageDataPoint(idps.At(1), availableStateLabelValue, int64(memInfo.Available))
+ }

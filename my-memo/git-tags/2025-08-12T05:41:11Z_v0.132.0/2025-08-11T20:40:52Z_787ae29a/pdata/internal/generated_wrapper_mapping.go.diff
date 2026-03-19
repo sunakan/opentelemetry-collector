@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_mapping.go b/pdata/internal/generated_wrapper_mapping.go
+index 311b7d4c1..eda1708b6 100644
+--- a/pdata/internal/generated_wrapper_mapping.go
++++ b/pdata/internal/generated_wrapper_mapping.go
+@@ -57,7 +57,13 @@ func MarshalJSONOrigMapping(orig *otlpprofiles.Mapping, dest *json.Stream) {
+ 	}
+ 	if len(orig.AttributeIndices) > 0 {
+ 		dest.WriteObjectField("attributeIndices")
+-		MarshalJSONOrigInt32Slice(orig.AttributeIndices, dest)
++		dest.WriteArrayStart()
++		dest.WriteInt32(orig.AttributeIndices[0])
++		for i := 1; i < len(orig.AttributeIndices); i++ {
++			dest.WriteMore()
++			dest.WriteInt32(orig.AttributeIndices[i])
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	if orig.HasFunctions != false {
+ 		dest.WriteObjectField("hasFunctions")

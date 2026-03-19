@@ -1,0 +1,16 @@
+diff --git a/.circleci/check-links/config.json b/.circleci/check-links/config.json
+new file mode 100644
+index 000000000..2ea064c4b
+--- /dev/null
++++ b/.circleci/check-links/config.json
+@@ -0,0 +1,10 @@
++{
++    "ignorePatterns": [
++        {
++            "pattern": "http(s)?://\\d+\\.\\d+\\.\\d+\\.\\d+"
++        },
++        {
++            "pattern": "http(s)?://localhost"
++        }
++    ]
++}

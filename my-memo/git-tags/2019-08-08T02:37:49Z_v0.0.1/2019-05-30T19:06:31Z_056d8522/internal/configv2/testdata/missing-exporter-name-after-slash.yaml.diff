@@ -1,0 +1,15 @@
+diff --git a/internal/configv2/testdata/missing-exporter-name-after-slash.yaml b/internal/configv2/testdata/missing-exporter-name-after-slash.yaml
+new file mode 100644
+index 000000000..6558da24f
+--- /dev/null
++++ b/internal/configv2/testdata/missing-exporter-name-after-slash.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter/:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers: [somereceiver]

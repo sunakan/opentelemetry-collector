@@ -1,0 +1,15 @@
+diff --git a/confmap/resolver_test.go b/confmap/resolver_test.go
+index 122009d0e..d0218d01f 100644
+--- a/confmap/resolver_test.go
++++ b/confmap/resolver_test.go
+@@ -425,6 +425,10 @@ func TestProvidesDefaultLogger(t *testing.T) {
+ 	_, err := NewResolver(ResolverSettings{
+ 		URIs:              []string{filepath.Join("testdata", "config.yaml")},
+ 		ProviderFactories: []ProviderFactory{factory},
++		ConverterFactories: []ConverterFactory{NewConverterFactory(func(set ConverterSettings) Converter {
++			assert.NotNil(t, set.Logger)
++			return &mockConverter{}
++		})},
+ 	})
+ 	require.NoError(t, err)
+ 	require.NotNil(t, provider.logger)

@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index ce9c72d15..4f201aced 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -242,7 +242,7 @@ func TestLogMemoryPressureResponse(t *testing.T) {
+ 			ms.Alloc = currentMemAlloc
+ 		},
+ 	}
+-	lp, err := processorhelper.NewLogProcessor(
++	lp, err := processorhelper.NewLogsProcessor(
+ 		&Config{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: typeStr,

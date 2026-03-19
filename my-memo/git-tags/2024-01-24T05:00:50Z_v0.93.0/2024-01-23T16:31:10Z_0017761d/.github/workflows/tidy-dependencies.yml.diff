@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index 525880293..ceb7ecd9d 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -20,7 +20,7 @@ jobs:
+           cache: false
+       - name: Cache Go
+         id: go-cache
+-        uses: actions/cache@v3
++        uses: actions/cache@v4
+         with:
+           path: |
+             ~/go/bin

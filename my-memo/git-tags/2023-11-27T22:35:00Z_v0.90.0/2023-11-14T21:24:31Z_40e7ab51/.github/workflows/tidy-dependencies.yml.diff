@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index c6fc4ab8e..a37bd4a2a 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -13,9 +13,7 @@ jobs:
+     steps:
+       - uses: actions/checkout@v4
+         with:
+-          repository: "renovate-bot/open-telemetry-_-opentelemetry-collector"
+           ref: ${{ github.head_ref }}
+-          token: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+       - uses: actions/setup-go@v4
+         with:
+           go-version: ~1.20.11

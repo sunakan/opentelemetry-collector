@@ -1,0 +1,41 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index d40aaa954..211edb3cc 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -20,7 +20,6 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+-	"go.opentelemetry.io/collector/exporter/exporterqueue"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/pipeline"
+ )
+@@ -37,7 +36,7 @@ func TestNewQueueSenderFailedRequestDropped(t *testing.T) {
+ 	logger, observed := observer.New(zap.ErrorLevel)
+ 	qSet.Telemetry.Logger = zap.New(logger)
+ 	be, err := NewQueueSender(
+-		qSet, exporterqueue.NewDefaultConfig(), exporterbatcher.Config{}, "", sender.NewSender(func(context.Context, request.Request) error { return errors.New("some error") }))
++		qSet, NewDefaultQueueConfig(), exporterbatcher.Config{}, "", sender.NewSender(func(context.Context, request.Request) error { return errors.New("some error") }))
+ 
+ 	require.NoError(t, err)
+ 	require.NoError(t, be.Start(context.Background(), componenttest.NewNopHost()))
+@@ -46,3 +45,19 @@ func TestNewQueueSenderFailedRequestDropped(t *testing.T) {
+ 	assert.Len(t, observed.All(), 1)
+ 	assert.Equal(t, "Exporting failed. Dropping data.", observed.All()[0].Message)
+ }
++
++func TestQueueConfig_Validate(t *testing.T) {
++	qCfg := NewDefaultQueueConfig()
++	require.NoError(t, qCfg.Validate())
++
++	qCfg.NumConsumers = 0
++	require.EqualError(t, qCfg.Validate(), "`num_consumers` must be positive")
++
++	qCfg = NewDefaultQueueConfig()
++	qCfg.QueueSize = 0
++	require.EqualError(t, qCfg.Validate(), "`queue_size` must be positive")
++
++	// Confirm Validate doesn't return error with invalid config when feature is disabled
++	qCfg.Enabled = false
++	assert.NoError(t, qCfg.Validate())
++}

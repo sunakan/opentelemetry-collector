@@ -1,0 +1,19 @@
+diff --git a/exporter/exportertest/sink_exporter_test.go b/exporter/exportertest/sink_exporter_test.go
+index 44aba2fd8..0e2163d6c 100644
+--- a/exporter/exportertest/sink_exporter_test.go
++++ b/exporter/exportertest/sink_exporter_test.go
+@@ -22,10 +22,10 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdatautil"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdatautil"
++	"go.opentelemetry.io/collector/internal/data/testdata"
+ )
+ 
+ func TestSinkTraceExporterOld(t *testing.T) {

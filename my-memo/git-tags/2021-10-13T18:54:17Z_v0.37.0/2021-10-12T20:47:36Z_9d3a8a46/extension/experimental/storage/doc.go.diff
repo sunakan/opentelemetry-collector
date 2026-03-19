@@ -1,0 +1,10 @@
+diff --git a/extension/experimental/storage/doc.go b/extension/experimental/storage/doc.go
+index 3590d5fcc..1b4f98392 100644
+--- a/extension/experimental/storage/doc.go
++++ b/extension/experimental/storage/doc.go
+@@ -14,4 +14,4 @@
+ 
+ // Package stanzareceiver implements a receiver that can be used by the
+ // Opentelemetry collector to receive logs using the stanza log agent
+-package storage
++package storage // import "go.opentelemetry.io/collector/extension/experimental/storage"

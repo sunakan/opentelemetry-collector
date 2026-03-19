@@ -1,0 +1,22 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess.go b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess.go
+index db003a20a..9b719ce92 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess.go
+@@ -75,7 +75,7 @@ func (ms ExportPartialSuccess) SetErrorMessage(v string) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ExportPartialSuccess) CopyTo(dest ExportPartialSuccess) {
+ 	dest.state.AssertMutable()
+-	copyOrigExportPartialSuccess(dest.orig, ms.orig)
++	internal.CopyOrigExportMetricsPartialSuccess(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -106,8 +106,3 @@ func (ms ExportPartialSuccess) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigExportPartialSuccess(dest, src *otlpcollectormetrics.ExportMetricsPartialSuccess) {
+-	dest.RejectedDataPoints = src.RejectedDataPoints
+-	dest.ErrorMessage = src.ErrorMessage
+-}

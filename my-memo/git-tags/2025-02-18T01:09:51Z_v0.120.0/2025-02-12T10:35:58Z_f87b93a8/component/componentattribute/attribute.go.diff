@@ -1,0 +1,18 @@
+diff --git a/component/componentattribute/attribute.go b/component/componentattribute/attribute.go
+deleted file mode 100644
+index 3fb20784b..000000000
+--- a/component/componentattribute/attribute.go
++++ /dev/null
+@@ -1,12 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package componentattribute // import "go.opentelemetry.io/collector/component/componentattribute"
+-
+-const (
+-	ComponentKindKey = "otelcol.component.kind"
+-	ComponentIDKey   = "otelcol.component.id"
+-	PipelineIDKey    = "otelcol.pipeline.id"
+-	SignalKey        = "otelcol.signal"
+-	SignalOutputKey  = "otelcol.signal.output"
+-)

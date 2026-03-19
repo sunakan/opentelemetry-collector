@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 0f8b65f6c..68b72f843 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -24,6 +24,7 @@
+ 
+ ### 🚩 Deprecations 🚩
+ 
++- Deprecate duplicate settings in service.ConfigProvider, embed ResolverSettings (#5843)
+ - Deprecate `featuregate.Registry.MustApply` in favor of `featuregate.Registry.Apply`. (#5801)
+ - Deprecate the `component.Factory.StabilityLevel(config.DataType)` in favor of Stability per component (#5762):
+   - `component.ExporterFactory.TracesExporterStability`

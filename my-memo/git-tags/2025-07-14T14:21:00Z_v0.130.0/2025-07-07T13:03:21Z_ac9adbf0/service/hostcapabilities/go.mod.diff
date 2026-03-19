@@ -1,0 +1,11 @@
+diff --git a/service/hostcapabilities/go.mod b/service/hostcapabilities/go.mod
+index d90ffcb00..80cee74f0 100644
+--- a/service/hostcapabilities/go.mod
++++ b/service/hostcapabilities/go.mod
+@@ -96,4 +96,6 @@ replace go.opentelemetry.io/collector/config/configmiddleware => ../../config/co
+ 
+ replace go.opentelemetry.io/collector/extension/extensionmiddleware => ../../extension/extensionmiddleware
+ 
++replace go.opentelemetry.io/collector/config/configoptional => ../../config/configoptional
++
+ replace go.opentelemetry.io/collector/pdata/xpdata => ../../pdata/xpdata

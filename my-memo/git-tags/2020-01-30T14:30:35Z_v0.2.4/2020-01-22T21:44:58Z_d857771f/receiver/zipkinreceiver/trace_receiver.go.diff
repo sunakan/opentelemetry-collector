@@ -1,0 +1,25 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index a672d901b..dcfbbd322 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -89,8 +89,6 @@ func (zr *ZipkinReceiver) address() string {
+ 	return addr
+ }
+ 
+-const traceSource string = "Zipkin"
+-
+ func (zr *ZipkinReceiver) WithHTTPServer(s *http.Server) *ZipkinReceiver {
+ 	if s.Handler == nil {
+ 		s.Handler = zr
+@@ -99,11 +97,6 @@ func (zr *ZipkinReceiver) WithHTTPServer(s *http.Server) *ZipkinReceiver {
+ 	return zr
+ }
+ 
+-// TraceSource returns the name of the trace data source.
+-func (zr *ZipkinReceiver) TraceSource() string {
+-	return traceSource
+-}
+-
+ // Start spins up the receiver's HTTP server and makes the receiver start its processing.
+ func (zr *ZipkinReceiver) Start(host component.Host) error {
+ 	if host == nil {

@@ -1,0 +1,13 @@
+diff --git a/config/configtls/configtls.go b/config/configtls/configtls.go
+index cc6167b73..cafe31006 100644
+--- a/config/configtls/configtls.go
++++ b/config/configtls/configtls.go
+@@ -178,7 +178,7 @@ func (c TLSServerSetting) LoadTLSConfig() (*tls.Config, error) {
+ 
+ func convertVersion(v string) (uint16, error) {
+ 	if v == "" {
+-		return 0, nil // default
++		return tls.VersionTLS12, nil // default
+ 	}
+ 	val, ok := tlsVersions[v]
+ 	if !ok {

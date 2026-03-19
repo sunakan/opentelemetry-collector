@@ -1,0 +1,22 @@
+diff --git a/pdata/pprofile/valuetype.go b/pdata/pprofile/valuetype.go
+index 2d2e735c0..1d6339f68 100644
+--- a/pdata/pprofile/valuetype.go
++++ b/pdata/pprofile/valuetype.go
+@@ -9,7 +9,7 @@ import "fmt"
+ // dictionary to another.
+ func (ms ValueType) switchDictionary(src, dst ProfilesDictionary) error {
+ 	if ms.TypeStrindex() > 0 {
+-		if src.StringTable().Len() < int(ms.TypeStrindex()) {
++		if src.StringTable().Len() <= int(ms.TypeStrindex()) {
+ 			return fmt.Errorf("invalid type index %d", ms.TypeStrindex())
+ 		}
+ 
+@@ -21,7 +21,7 @@ func (ms ValueType) switchDictionary(src, dst ProfilesDictionary) error {
+ 	}
+ 
+ 	if ms.UnitStrindex() > 0 {
+-		if src.StringTable().Len() < int(ms.UnitStrindex()) {
++		if src.StringTable().Len() <= int(ms.UnitStrindex()) {
+ 			return fmt.Errorf("invalid unit index %d", ms.UnitStrindex())
+ 		}
+ 

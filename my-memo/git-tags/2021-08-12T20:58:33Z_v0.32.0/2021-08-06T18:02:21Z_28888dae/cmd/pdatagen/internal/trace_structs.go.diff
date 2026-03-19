@@ -1,0 +1,20 @@
+diff --git a/cmd/pdatagen/internal/trace_structs.go b/cmd/pdatagen/internal/trace_structs.go
+index dd6af4ca2..0b234bea0 100644
+--- a/cmd/pdatagen/internal/trace_structs.go
++++ b/cmd/pdatagen/internal/trace_structs.go
+@@ -54,6 +54,7 @@ var resourceSpans = &messageValueStruct{
+ 	originFullName: "otlptrace.ResourceSpans",
+ 	fields: []baseField{
+ 		resourceField,
++		schemaURLField,
+ 		&sliceField{
+ 			fieldName:       "InstrumentationLibrarySpans",
+ 			originFieldName: "InstrumentationLibrarySpans",
+@@ -73,6 +74,7 @@ var instrumentationLibrarySpans = &messageValueStruct{
+ 	originFullName: "otlptrace.InstrumentationLibrarySpans",
+ 	fields: []baseField{
+ 		instrumentationLibraryField,
++		schemaURLField,
+ 		&sliceField{
+ 			fieldName:       "Spans",
+ 			originFieldName: "Spans",

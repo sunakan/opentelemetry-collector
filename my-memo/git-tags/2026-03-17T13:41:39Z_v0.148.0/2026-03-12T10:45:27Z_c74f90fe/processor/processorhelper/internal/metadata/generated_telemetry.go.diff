@@ -1,0 +1,22 @@
+diff --git a/processor/processorhelper/internal/metadata/generated_telemetry.go b/processor/processorhelper/internal/metadata/generated_telemetry.go
+index 44247cf12..aa5c1a522 100644
+--- a/processor/processorhelper/internal/metadata/generated_telemetry.go
++++ b/processor/processorhelper/internal/metadata/generated_telemetry.go
+@@ -63,7 +63,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...Teleme
+ 	builder.ProcessorIncomingItems, err = builder.meter.Int64Counter(
+ 		"otelcol_processor_incoming_items",
+ 		metric.WithDescription("Number of items passed to the processor. [Alpha]"),
+-		metric.WithUnit("{items}"),
++		metric.WithUnit("{item}"),
+ 	)
+ 	errs = errors.Join(errs, err)
+ 	builder.ProcessorInternalDuration, err = builder.meter.Float64Histogram(
+@@ -75,7 +75,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...Teleme
+ 	builder.ProcessorOutgoingItems, err = builder.meter.Int64Counter(
+ 		"otelcol_processor_outgoing_items",
+ 		metric.WithDescription("Number of items emitted from the processor. [Alpha]"),
+-		metric.WithUnit("{items}"),
++		metric.WithUnit("{item}"),
+ 	)
+ 	errs = errors.Join(errs, err)
+ 	return &builder, errs

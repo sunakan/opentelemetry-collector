@@ -1,0 +1,15 @@
+diff --git a/component/receiver.go b/component/receiver.go
+index 3d7ce4d8d..24a6f5932 100644
+--- a/component/receiver.go
++++ b/component/receiver.go
+@@ -65,8 +65,8 @@ type ReceiverCreateParams struct {
+ 	BuildInfo BuildInfo
+ }
+ 
+-// ReceiverFactory can create TracesReceiver and MetricsReceiver. This is the
+-// new preferred factory type to create receivers.
++// ReceiverFactory can create TracesReceiver, MetricsReceiver and
++// and LogsReceiver. This is the new preferred factory type to create receivers.
+ type ReceiverFactory interface {
+ 	Factory
+ 

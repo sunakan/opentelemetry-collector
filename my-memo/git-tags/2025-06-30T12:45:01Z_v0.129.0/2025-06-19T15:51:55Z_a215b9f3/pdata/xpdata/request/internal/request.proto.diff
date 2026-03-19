@@ -1,0 +1,20 @@
+diff --git a/pdata/xpdata/request/internal/request.proto b/pdata/xpdata/request/internal/request.proto
+index 863f8f425..ba4705167 100644
+--- a/pdata/xpdata/request/internal/request.proto
++++ b/pdata/xpdata/request/internal/request.proto
+@@ -28,13 +28,13 @@ message IPAddr {
+ 
+ message TCPAddr {
+   bytes ip = 1;
+-  int32 port = 2;
++  int64 port = 2;
+   string zone = 3;
+ }
+ 
+ message UDPAddr {
+   bytes ip = 1;
+-  int32 port = 2;
++  int64 port = 2;
+   string zone = 3;
+ }
+ 

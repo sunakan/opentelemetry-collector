@@ -1,0 +1,14 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index c54154fe9..93ed0b69f 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -39,6 +39,9 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo component.BuildInfo
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Factory is Factory interface for processors.

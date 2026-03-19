@@ -1,0 +1,13 @@
+diff --git a/extension/extensionmiddleware/go.mod b/extension/extensionmiddleware/go.mod
+index 805215d3e..eab4904b0 100644
+--- a/extension/extensionmiddleware/go.mod
++++ b/extension/extensionmiddleware/go.mod
+@@ -2,7 +2,7 @@ module go.opentelemetry.io/collector/extension/extensionmiddleware
+ 
+ go 1.23.0
+ 
+-require google.golang.org/grpc v1.71.0
++require google.golang.org/grpc v1.71.1
+ 
+ require (
+ 	golang.org/x/net v0.36.0 // indirect

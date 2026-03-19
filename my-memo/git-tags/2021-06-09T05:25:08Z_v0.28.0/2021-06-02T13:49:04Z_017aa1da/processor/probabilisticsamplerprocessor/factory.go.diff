@@ -1,0 +1,13 @@
+diff --git a/processor/probabilisticsamplerprocessor/factory.go b/processor/probabilisticsamplerprocessor/factory.go
+index 65d9e1a36..94353839b 100644
+--- a/processor/probabilisticsamplerprocessor/factory.go
++++ b/processor/probabilisticsamplerprocessor/factory.go
+@@ -45,7 +45,7 @@ func createDefaultConfig() config.Processor {
+ // createTracesProcessor creates a trace processor based on this config.
+ func createTracesProcessor(
+ 	_ context.Context,
+-	_ component.ProcessorCreateParams,
++	_ component.ProcessorCreateSettings,
+ 	cfg config.Processor,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesProcessor, error) {

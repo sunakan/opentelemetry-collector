@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/otelconftelemetry/testdata/config_invalid_metrics_views_level.yaml b/service/telemetry/otelconftelemetry/testdata/config_invalid_metrics_views_level.yaml
+new file mode 100644
+index 000000000..eaa9abd87
+--- /dev/null
++++ b/service/telemetry/otelconftelemetry/testdata/config_invalid_metrics_views_level.yaml
+@@ -0,0 +1,5 @@
++metrics:
++  level: basic
++  views:
++    - selector: {}
++      stream: {}

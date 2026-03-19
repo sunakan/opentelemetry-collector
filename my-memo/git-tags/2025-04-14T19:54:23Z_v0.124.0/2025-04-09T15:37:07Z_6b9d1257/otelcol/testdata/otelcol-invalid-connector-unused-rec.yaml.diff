@@ -1,0 +1,29 @@
+diff --git a/otelcol/testdata/otelcol-invalid-connector-unused-rec.yaml b/otelcol/testdata/otelcol-invalid-connector-unused-rec.yaml
+new file mode 100644
+index 000000000..8adb69e76
+--- /dev/null
++++ b/otelcol/testdata/otelcol-invalid-connector-unused-rec.yaml
+@@ -0,0 +1,23 @@
++receivers:
++  nop:
++
++exporters:
++  nop:
++
++connectors:
++  nop/connector1:
++
++service:
++  pipelines:
++    logs/in1:
++      receivers: [nop]
++      processors: [ ]
++      exporters: [nop]
++    logs/in2:
++      receivers: [nop]
++      processors: [ ]
++      exporters: [nop/connector1]
++    logs/out:
++      receivers: [nop]
++      processors: [ ]
++      exporters: [nop]

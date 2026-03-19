@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_factories.go b/component/componenttest/nop_factories.go
+index bdc40b5d8..c18770a03 100644
+--- a/component/componenttest/nop_factories.go
++++ b/component/componenttest/nop_factories.go
+@@ -22,7 +22,7 @@ import (
+ 	"go.opentelemetry.io/collector/receiver"
+ )
+ 
+-// Deprecated: [v0.68.0] use servicetest.NopFactories.
++// Deprecated: [v0.68.0] use otelcoltest.NopFactories.
+ func NopFactories() (component.Factories, error) {
+ 	var factories component.Factories
+ 	var err error

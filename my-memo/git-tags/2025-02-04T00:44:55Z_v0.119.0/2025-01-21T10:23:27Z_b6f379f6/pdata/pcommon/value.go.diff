@@ -1,0 +1,22 @@
+diff --git a/pdata/pcommon/value.go b/pdata/pcommon/value.go
+index ad2e1c7ae..73a95bcf2 100644
+--- a/pdata/pcommon/value.go
++++ b/pdata/pcommon/value.go
+@@ -148,7 +148,7 @@ func (v Value) FromRaw(iv any) error {
+ 	case int64:
+ 		v.SetInt(tv)
+ 	case uint:
+-		// nolint:gosec
++		//nolint:gosec
+ 		v.SetInt(int64(tv))
+ 	case uint8:
+ 		v.SetInt(int64(tv))
+@@ -157,7 +157,7 @@ func (v Value) FromRaw(iv any) error {
+ 	case uint32:
+ 		v.SetInt(int64(tv))
+ 	case uint64:
+-		// nolint:gosec
++		//nolint:gosec
+ 		v.SetInt(int64(tv))
+ 	case float32:
+ 		v.SetDouble(float64(tv))

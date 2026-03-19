@@ -1,0 +1,109 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 832eb1223..99f4c9ae7 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -17,6 +17,7 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	"github.com/klauspost/compress/zstd"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 	spb "google.golang.org/genproto/googleapis/rpc/status"
+@@ -153,6 +154,11 @@ func TestJsonHttp(t *testing.T) {
+ 			encoding:    "gzip",
+ 			contentType: "application/json",
+ 		},
++		{
++			name:        "JSONZstdCompressed",
++			encoding:    "zstd",
++			contentType: "application/json",
++		},
+ 		{
+ 			name:        "NotGRPCError",
+ 			encoding:    "",
+@@ -374,8 +380,13 @@ func testHTTPJSONRequest(t *testing.T, url string, sink *errOrSinkConsumer, enco
+ 	case "gzip":
+ 		buf, err = compressGzip(traceJSON)
+ 		require.NoError(t, err, "Error while gzip compressing trace: %v", err)
+-	default:
++	case "zstd":
++		buf, err = compressZstd(traceJSON)
++		require.NoError(t, err, "Error while zstd compressing trace: %v", err)
++	case "":
+ 		buf = bytes.NewBuffer(traceJSON)
++	default:
++		t.Fatalf("Unsupported compression type %v", encoding)
+ 	}
+ 	sink.SetConsumeError(expectedErr)
+ 	req, err := http.NewRequest(http.MethodPost, url, buf)
+@@ -427,6 +438,10 @@ func TestProtoHttp(t *testing.T) {
+ 			name:     "ProtoGzipCompressed",
+ 			encoding: "gzip",
+ 		},
++		{
++			name:     "ProtoZstdCompressed",
++			encoding: "zstd",
++		},
+ 		{
+ 			name:     "NotGRPCError",
+ 			encoding: "",
+@@ -477,8 +492,13 @@ func createHTTPProtobufRequest(
+ 	case "gzip":
+ 		buf, err = compressGzip(traceBytes)
+ 		require.NoError(t, err, "Error while gzip compressing trace: %v", err)
+-	default:
++	case "zstd":
++		buf, err = compressZstd(traceBytes)
++		require.NoError(t, err, "Error while zstd compressing trace: %v", err)
++	case "":
+ 		buf = bytes.NewBuffer(traceBytes)
++	default:
++		t.Fatalf("Unsupported compression type %v", encoding)
+ 	}
+ 	req, err := http.NewRequest(http.MethodPost, url, buf)
+ 	require.NoError(t, err, "Error creating trace POST request: %v", err)
+@@ -567,6 +587,18 @@ func TestOTLPReceiverInvalidContentEncoding(t *testing.T) {
+ 			},
+ 			status: 400,
+ 		},
++		{
++			name:     "ProtoZstdUncompressed",
++			content:  "application/x-protobuf",
++			encoding: "zstd",
++			reqBodyFunc: func() (*bytes.Buffer, error) {
++				return bytes.NewBuffer([]byte(`{"key": "value"}`)), nil
++			},
++			resBodyFunc: func() ([]byte, error) {
++				return proto.Marshal(status.New(codes.InvalidArgument, "invalid input: magic number mismatch").Proto())
++			},
++			status: 400,
++		},
+ 	}
+ 	addr := testutil.GetAvailableLocalAddress(t)
+ 
+@@ -969,6 +1001,24 @@ func compressGzip(body []byte) (*bytes.Buffer, error) {
+ 	return &buf, nil
+ }
+ 
++func compressZstd(body []byte) (*bytes.Buffer, error) {
++	var buf bytes.Buffer
++
++	zw, err := zstd.NewWriter(&buf)
++	if err != nil {
++		return nil, err
++	}
++
++	defer zw.Close()
++
++	_, err = zw.Write(body)
++	if err != nil {
++		return nil, err
++	}
++
++	return &buf, nil
++}
++
+ type senderFunc func(td ptrace.Traces)
+ 
+ func TestShutdown(t *testing.T) {

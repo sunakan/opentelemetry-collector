@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/generate-semantic-conventions-pr.yaml b/.github/workflows/generate-semantic-conventions-pr.yaml
+index 1ee2cc0ac..66ffa7133 100644
+--- a/.github/workflows/generate-semantic-conventions-pr.yaml
++++ b/.github/workflows/generate-semantic-conventions-pr.yaml
+@@ -6,8 +6,7 @@ on:
+     - cron: "30 1 * * *"
+   workflow_dispatch:
+ 
+-permissions:
+-  contents: read
++permissions: read-all
+ 
+ jobs:
+   check-versions:

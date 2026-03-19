@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index c517e359b..0919e4769 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -42,9 +42,6 @@ func TestDefaultReceivers(t *testing.T) {
+ 		skipLifecyle bool
+ 		getConfigFn  getReceiverConfigFn
+ 	}{
+-		{
+-			receiver: "fluentforward",
+-		},
+ 		{
+ 			receiver: "hostmetrics",
+ 		},

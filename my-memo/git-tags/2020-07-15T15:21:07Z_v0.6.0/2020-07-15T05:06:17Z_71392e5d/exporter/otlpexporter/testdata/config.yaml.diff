@@ -1,0 +1,14 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index 062fcfc9e..83ee90af5 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -10,6 +10,9 @@ exporters:
+     endpoint: "1.2.3.4:1234"
+     compression: "on"
+     ca_file: /var/lib/mycert.pem
++    per_rpc_auth:
++      type: bearer
++      bearer_token: some-token
+     headers:
+       "can you have a . here?": "F0000000-0000-0000-0000-000000000000"
+       header1: 234

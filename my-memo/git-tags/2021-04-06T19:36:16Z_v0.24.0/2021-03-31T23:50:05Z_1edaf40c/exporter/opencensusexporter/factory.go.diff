@@ -1,0 +1,16 @@
+diff --git a/exporter/opencensusexporter/factory.go b/exporter/opencensusexporter/factory.go
+index ba3cb16ec..1b4643583 100644
+--- a/exporter/opencensusexporter/factory.go
++++ b/exporter/opencensusexporter/factory.go
+@@ -39,10 +39,7 @@ func NewFactory() component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings: config.ExporterSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
++		ExporterSettings: config.NewExporterSettings(typeStr),
+ 		GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 			Headers: map[string]string{},
+ 			// We almost read 0 bytes, so no need to tune ReadBufferSize.

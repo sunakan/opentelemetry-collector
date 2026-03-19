@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/queued_processor_test.go b/processor/queuedprocessor/queued_processor_test.go
+index 2939a5996..7c6e0c704 100644
+--- a/processor/queuedprocessor/queued_processor_test.go
++++ b/processor/queuedprocessor/queued_processor_test.go
+@@ -373,7 +373,7 @@ type mockConcurrentSpanProcessor struct {
+ 	stopped           int32
+ }
+ 
+-var _ consumer.TraceConsumer = (*mockConcurrentSpanProcessor)(nil)
++var _ consumer.TracesConsumer = (*mockConcurrentSpanProcessor)(nil)
+ var _ consumer.MetricsConsumer = (*mockConcurrentSpanProcessor)(nil)
+ 
+ func newMockConcurrentSpanProcessor() *mockConcurrentSpanProcessor {

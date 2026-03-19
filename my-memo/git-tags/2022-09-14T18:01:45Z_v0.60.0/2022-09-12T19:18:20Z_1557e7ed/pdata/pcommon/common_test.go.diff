@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/common_test.go b/pdata/pcommon/common_test.go
+index 3ffc4d80d..dd6bf1402 100644
+--- a/pdata/pcommon/common_test.go
++++ b/pdata/pcommon/common_test.go
+@@ -1207,7 +1207,8 @@ func TestNewValueFromRaw(t *testing.T) {
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			actual := newValueFromRaw(tt.input)
++			actual := NewValueEmpty()
++			actual.fromRaw(tt.input)
+ 			assert.Equal(t, tt.expected, actual)
+ 		})
+ 	}

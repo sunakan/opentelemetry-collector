@@ -1,0 +1,17 @@
+diff --git a/pdata/pprofile/pprofileotlp/request_test.go b/pdata/pprofile/pprofileotlp/request_test.go
+index d45845c96..eedac7506 100644
+--- a/pdata/pprofile/pprofileotlp/request_test.go
++++ b/pdata/pprofile/pprofileotlp/request_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportRequest{}
+-var _ json.Marshaler = ExportRequest{}
++var (
++	_ json.Unmarshaler = ExportRequest{}
++	_ json.Marshaler   = ExportRequest{}
++)
+ 
+ var profilesRequestJSON = []byte(`
+ 	{

@@ -1,0 +1,10 @@
+diff --git a/receiver/go.mod b/receiver/go.mod
+index 115b2e190..eefad020d 100644
+--- a/receiver/go.mod
++++ b/receiver/go.mod
+@@ -85,3 +85,5 @@ replace go.opentelemetry.io/collector/processor => ../processor
+ replace go.opentelemetry.io/collector/semconv => ../semconv
+ 
+ retract v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module
++
++replace go.opentelemetry.io/collector/connector => ../connector

@@ -1,0 +1,14 @@
+diff --git a/translator/internaldata/oc_to_resource.go b/translator/internaldata/oc_to_resource.go
+index 87b9ed87c..2e15a428d 100644
+--- a/translator/internaldata/oc_to_resource.go
++++ b/translator/internaldata/oc_to_resource.go
+@@ -80,7 +80,8 @@ func ocNodeResourceToInternal(ocNode *occommon.Node, ocResource *ocresource.Reso
+ 	}
+ 
+ 	attrs := dest.Attributes()
+-	attrs.InitEmptyWithCapacity(maxTotalAttrCount)
++	attrs.Clear()
++	attrs.EnsureCapacity(maxTotalAttrCount)
+ 
+ 	if ocNode != nil {
+ 		// Copy all Attributes.

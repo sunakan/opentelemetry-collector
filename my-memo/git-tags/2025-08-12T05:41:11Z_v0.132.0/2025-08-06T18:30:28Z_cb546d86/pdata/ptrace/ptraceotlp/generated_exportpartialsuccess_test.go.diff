@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess_test.go b/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess_test.go
+index 655166531..38ed426ba 100644
+--- a/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/ptrace/ptraceotlp/generated_exportpartialsuccess_test.go
+@@ -91,12 +91,7 @@ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ }
+ 
+ func generateTestExportPartialSuccess() ExportPartialSuccess {
+-	tv := NewExportPartialSuccess()
+-	fillTestExportPartialSuccess(tv)
+-	return tv
+-}
+-
+-func fillTestExportPartialSuccess(tv ExportPartialSuccess) {
+-	tv.orig.RejectedSpans = int64(13)
+-	tv.orig.ErrorMessage = "test_errormessage"
++	ms := NewExportPartialSuccess()
++	internal.FillOrigTestExportTracePartialSuccess(ms.orig)
++	return ms
+ }

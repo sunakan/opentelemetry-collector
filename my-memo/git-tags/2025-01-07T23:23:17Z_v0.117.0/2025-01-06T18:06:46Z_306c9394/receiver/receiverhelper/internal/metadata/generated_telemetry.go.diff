@@ -1,0 +1,20 @@
+diff --git a/receiver/receiverhelper/internal/metadata/generated_telemetry.go b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+index 0600af147..17955ac81 100644
+--- a/receiver/receiverhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+@@ -6,7 +6,7 @@ import (
+ 	"errors"
+ 
+ 	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/metric/noop"
++	noopmetric "go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/trace"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -96,5 +96,5 @@ func getLeveledMeter(meter metric.Meter, cfgLevel, srvLevel configtelemetry.Leve
+ 	if cfgLevel <= srvLevel {
+ 		return meter
+ 	}
+-	return noop.Meter{}
++	return noopmetric.Meter{}
+ }

@@ -1,0 +1,16 @@
+diff --git a/receiver/hostmetricsreceiver/internal/metricutils.go b/receiver/hostmetricsreceiver/internal/metricutils.go
+index a16089e6c..9f2f39b8b 100644
+--- a/receiver/hostmetricsreceiver/internal/metricutils.go
++++ b/receiver/hostmetricsreceiver/internal/metricutils.go
+@@ -29,11 +29,3 @@ func InitializeMetricSlice(metricData data.MetricData) pdata.MetricSlice {
+ 	ilm := ilms.At(0)
+ 	return ilm.Metrics()
+ }
+-
+-// AddNewMetric appends an empty metric to the metric slice, resizing
+-// the slice by 1, and returns the new metric.
+-func AddNewMetric(metrics pdata.MetricSlice) pdata.Metric {
+-	len := metrics.Len()
+-	metrics.Resize(len + 1)
+-	return metrics.At(len)
+-}

@@ -1,0 +1,23 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+new file mode 100644
+index 000000000..58e3e10c9
+--- /dev/null
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -0,0 +1,17 @@
++receivers:
++  examplereceiver:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  zipkin:
++    url: "http://some.location.org:9411/api/v2/spans"
++  zipkin/2:
++    url: "https://somedest:1234/api/v2/spans"
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [exampleprocessor]
++    exporters: [zipkin, zipkin/2]

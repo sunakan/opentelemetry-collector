@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_scopespansslice.go b/pdata/ptrace/generated_scopespansslice.go
+index a5fc5e11e..ad121648f 100644
+--- a/pdata/ptrace/generated_scopespansslice.go
++++ b/pdata/ptrace/generated_scopespansslice.go
+@@ -99,7 +99,7 @@ func (es ScopeSpansSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ScopeSpans.
+ func (es ScopeSpansSlice) AppendEmpty() ScopeSpans {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrScopeSpans())
++	*es.orig = append(*es.orig, internal.NewOrigScopeSpans())
+ 	return es.At(es.Len() - 1)
+ }
+ 

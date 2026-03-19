@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/internal/configurablehttpprovider/provider.go b/confmap/provider/internal/configurablehttpprovider/provider.go
+index d4e3efcc6..c683d3d9a 100644
+--- a/confmap/provider/internal/configurablehttpprovider/provider.go
++++ b/confmap/provider/internal/configurablehttpprovider/provider.go
+@@ -38,7 +38,7 @@ type provider struct {
+ // One example for http-uri: http://localhost:3333/getConfig
+ // One example for https-uri: https://localhost:3333/getConfig
+ // This is used by the http and https external implementations.
+-func New(scheme SchemeType) confmap.Provider {
++func New(scheme SchemeType, _ confmap.ProviderSettings) confmap.Provider {
+ 	return &provider{scheme: scheme}
+ }
+ 

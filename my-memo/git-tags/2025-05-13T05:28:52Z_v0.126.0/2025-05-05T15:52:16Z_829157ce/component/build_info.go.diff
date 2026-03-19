@@ -1,0 +1,14 @@
+diff --git a/component/build_info.go b/component/build_info.go
+index bcfa7430c..73f9b5633 100644
+--- a/component/build_info.go
++++ b/component/build_info.go
+@@ -14,6 +14,9 @@ type BuildInfo struct {
+ 
+ 	// Version string.
+ 	Version string
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // NewDefaultBuildInfo returns a default BuildInfo.

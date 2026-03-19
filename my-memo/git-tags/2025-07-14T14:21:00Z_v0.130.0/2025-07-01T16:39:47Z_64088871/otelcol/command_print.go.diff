@@ -1,0 +1,13 @@
+diff --git a/otelcol/command_print.go b/otelcol/command_print.go
+index 52d882a18..b8c3f98c5 100644
+--- a/otelcol/command_print.go
++++ b/otelcol/command_print.go
+@@ -9,7 +9,7 @@ import (
+ 	"fmt"
+ 
+ 	"github.com/spf13/cobra"
+-	yaml "sigs.k8s.io/yaml/goyaml.v3"
++	yaml "go.yaml.in/yaml/v3"
+ 
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/featuregate"

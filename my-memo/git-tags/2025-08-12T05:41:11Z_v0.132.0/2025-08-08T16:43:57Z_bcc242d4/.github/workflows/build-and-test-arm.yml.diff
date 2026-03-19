@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-arm.yml b/.github/workflows/build-and-test-arm.yml
+index e8d079882..8f54679b9 100644
+--- a/.github/workflows/build-and-test-arm.yml
++++ b/.github/workflows/build-and-test-arm.yml
+@@ -41,7 +41,7 @@ jobs:
+           path: |
+             ~/go/bin
+             ~/go/pkg/mod
+-          key: go-build-cache-${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
++          key: go-cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/go.sum') }}
+       - name: Install dependencies
+         if: steps.go-cache.outputs.cache-hit != 'true'
+         run: make gomoddownload

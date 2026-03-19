@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index 21405a5a6..3d863cb49 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -47,7 +47,7 @@ type customRoundTripper struct {
+ 
+ var _ http.RoundTripper = (*customRoundTripper)(nil)
+ 
+-func (c *customRoundTripper) RoundTrip(request *http.Request) (*http.Response, error) {
++func (c *customRoundTripper) RoundTrip(_ *http.Request) (*http.Response, error) {
+ 	return nil, nil
+ }
+ 

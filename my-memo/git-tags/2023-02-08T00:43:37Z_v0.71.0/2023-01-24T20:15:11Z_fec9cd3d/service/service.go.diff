@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index b9f9f6c35..c239cc0b7 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -76,7 +76,7 @@ type Service struct {
+ }
+ 
+ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+-	useOtel := obsreportconfig.UseOtel()
++	useOtel := obsreportconfig.UseOtelForInternalMetricsfeatureGate.IsEnabled()
+ 	if set.useOtel != nil {
+ 		useOtel = *set.useOtel
+ 	}

@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/templates/resource_test.go.tmpl b/cmd/mdatagen/internal/templates/resource_test.go.tmpl
+index 3fc104551..079a57eaa 100644
+--- a/cmd/mdatagen/internal/templates/resource_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/resource_test.go.tmpl
+@@ -52,7 +52,11 @@ func TestResourceBuilder(t *testing.T) {
+ 			assert.Equal(t, tt == "all_set", ok)
+ 			{{- end }}
+ 			if ok {
++				{{- if eq $attr.Type.String "Int" -}}
+ 				assert.EqualValues(t, {{ $attr.TestValue }}, val.{{ $attr.Type }}()
++				{{- else -}}
++				assert.Equal(t, {{ $attr.TestValue }}, val.{{ $attr.Type }}()
++				{{- end -}}
+ 				{{- if or (eq $attr.Type.String "Bytes") (eq $attr.Type.String "Slice") (eq $attr.Type.String "Map") -}}
+ 				.AsRaw()
+ 				{{- end -}}

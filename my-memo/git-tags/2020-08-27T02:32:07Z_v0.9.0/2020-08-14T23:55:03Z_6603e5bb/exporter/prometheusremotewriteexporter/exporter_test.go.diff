@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 44ee70bc1..5334f0cc5 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -76,7 +76,7 @@ func Test_newPrwExporter(t *testing.T) {
+ 
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			prwe, err := newPrwExporter(tt.namespace, tt.endpoint, tt.client, testHeaders)
++			prwe, err := newPrwExporter(tt.namespace, tt.endpoint, tt.client)
+ 			if tt.returnError {
+ 				assert.Error(t, err)
+ 				return

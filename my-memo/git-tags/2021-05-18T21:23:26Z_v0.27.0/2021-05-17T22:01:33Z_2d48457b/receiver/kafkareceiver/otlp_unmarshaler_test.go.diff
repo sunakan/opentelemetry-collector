@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaler_test.go b/receiver/kafkareceiver/otlp_unmarshaler_test.go
+index 70c268503..e1ec4dc36 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaler_test.go
++++ b/receiver/kafkareceiver/otlp_unmarshaler_test.go
+@@ -46,7 +46,7 @@ func TestUnmarshalOTLPTraces_error(t *testing.T) {
+ }
+ 
+ func TestUnmarshalOTLPLogs(t *testing.T) {
+-	ld := testdata.GenerateLogDataOneLog()
++	ld := testdata.GenerateLogsOneLogRecord()
+ 
+ 	expected, err := ld.ToOtlpProtoBytes()
+ 	require.NoError(t, err)

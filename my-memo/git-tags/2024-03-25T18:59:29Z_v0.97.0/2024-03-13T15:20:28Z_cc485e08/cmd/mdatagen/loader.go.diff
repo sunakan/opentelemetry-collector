@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index aef532516..f28681cc7 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -124,11 +124,7 @@ func (m *metric) Unmarshal(parser *confmap.Conf) error {
+ 	if !parser.IsSet("enabled") {
+ 		return errors.New("missing required field: `enabled`")
+ 	}
+-	err := parser.Unmarshal(m)
+-	if err != nil {
+-		return err
+-	}
+-	return nil
++	return parser.Unmarshal(m)
+ }
+ func (m metric) Data() MetricData {
+ 	if m.Sum != nil {

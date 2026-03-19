@@ -1,0 +1,28 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter_test.go b/exporter/exporterhelper/internal/base_exporter_test.go
+index 27c15c082..7f1d24fec 100644
+--- a/exporter/exporterhelper/internal/base_exporter_test.go
++++ b/exporter/exporterhelper/internal/base_exporter_test.go
+@@ -36,21 +36,15 @@ var (
+ 	}()
+ )
+ 
+-type noopSender struct {
+-	component.StartFunc
+-	component.ShutdownFunc
+-	SendFunc[request.Request]
+-}
+-
+ func newNoopExportSender() Sender[request.Request] {
+-	return &noopSender{SendFunc: func(ctx context.Context, req request.Request) error {
++	return newSender(func(ctx context.Context, req request.Request) error {
+ 		select {
+ 		case <-ctx.Done():
+ 			return ctx.Err() // Returns the cancellation error
+ 		default:
+ 			return req.Export(ctx)
+ 		}
+-	}}
++	})
+ }
+ 
+ func TestBaseExporter(t *testing.T) {

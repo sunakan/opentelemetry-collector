@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index 633a4d99c..af5897b65 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -31,7 +31,7 @@ const (
+ 	// The value of "type" key in configuration.
+ 	typeStr = "zipkin"
+ 
+-	defaultBindEndpoint = "localhost:9411"
++	defaultBindEndpoint = "0.0.0.0:9411"
+ )
+ 
+ // Factory is the factory for Zipkin receiver.

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 3a213fe6c..330e197e1 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,7 @@
+ ### 💡 Enhancements 💡
+ 
+ - Add `linux-ppc64le` architecture to cross build tests in CI
++- `client`: perform case insensitive lookups in case the requested metadata value isn't found (#5646)
+ 
+ ### 🧰 Bug fixes 🧰
+ 

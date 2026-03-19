@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/factory.go b/receiver/kafkareceiver/factory.go
+index 7232c54c1..762c70e2e 100644
+--- a/receiver/kafkareceiver/factory.go
++++ b/receiver/kafkareceiver/factory.go
+@@ -96,7 +96,7 @@ func (f *kafkaReceiverFactory) createTraceReceiver(
+ 	_ context.Context,
+ 	params component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceReceiver, error) {
+ 	c := cfg.(*Config)
+ 	r, err := newReceiver(*c, params, f.unmarshalers, nextConsumer)

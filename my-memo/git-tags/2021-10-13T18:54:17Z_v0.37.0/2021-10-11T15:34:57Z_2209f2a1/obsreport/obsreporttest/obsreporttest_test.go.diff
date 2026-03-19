@@ -1,0 +1,43 @@
+diff --git a/obsreport/obsreporttest/obsreporttest_test.go b/obsreport/obsreporttest/obsreporttest_test.go
+index 422d690c8..1d74bb055 100644
+--- a/obsreport/obsreporttest/obsreporttest_test.go
++++ b/obsreport/obsreporttest/obsreporttest_test.go
+@@ -42,7 +42,11 @@ func TestCheckReceiverTracesViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	defer set.Shutdown(context.Background())
+ 
+-	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: receiver, Transport: transport})
++	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{
++		ReceiverID:             receiver,
++		Transport:              transport,
++		ReceiverCreateSettings: set.ToReceiverCreateSettings(),
++	})
+ 	ctx := rec.StartTracesOp(context.Background())
+ 	assert.NotNil(t, ctx)
+ 	rec.EndTracesOp(
+@@ -59,7 +63,11 @@ func TestCheckReceiverMetricsViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	defer set.Shutdown(context.Background())
+ 
+-	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: receiver, Transport: transport})
++	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{
++		ReceiverID:             receiver,
++		Transport:              transport,
++		ReceiverCreateSettings: set.ToReceiverCreateSettings(),
++	})
+ 	ctx := rec.StartMetricsOp(context.Background())
+ 	assert.NotNil(t, ctx)
+ 	rec.EndMetricsOp(ctx, format, 7, nil)
+@@ -72,7 +80,11 @@ func TestCheckReceiverLogsViews(t *testing.T) {
+ 	require.NoError(t, err)
+ 	defer set.Shutdown(context.Background())
+ 
+-	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: receiver, Transport: transport})
++	rec := obsreport.NewReceiver(obsreport.ReceiverSettings{
++		ReceiverID:             receiver,
++		Transport:              transport,
++		ReceiverCreateSettings: set.ToReceiverCreateSettings(),
++	})
+ 	ctx := rec.StartLogsOp(context.Background())
+ 	assert.NotNil(t, ctx)
+ 	rec.EndLogsOp(ctx, format, 7, nil)

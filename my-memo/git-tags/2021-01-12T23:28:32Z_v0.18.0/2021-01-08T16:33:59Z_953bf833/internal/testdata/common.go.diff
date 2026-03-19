@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/common.go b/internal/testdata/common.go
+index ae61c3d20..71a66ee74 100644
+--- a/internal/testdata/common.go
++++ b/internal/testdata/common.go
+@@ -15,7 +15,7 @@
+ package testdata
+ 
+ import (
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )

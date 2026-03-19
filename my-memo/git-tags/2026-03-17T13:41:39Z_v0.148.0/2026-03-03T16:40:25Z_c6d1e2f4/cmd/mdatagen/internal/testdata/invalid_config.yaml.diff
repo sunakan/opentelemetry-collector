@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/testdata/invalid_config.yaml b/cmd/mdatagen/internal/testdata/invalid_config.yaml
+new file mode 100644
+index 000000000..53e2030db
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/invalid_config.yaml
+@@ -0,0 +1,13 @@
++type: receiver
++
++status:
++  class: receiver
++  stability:
++    beta: [logs]
++  distributions: [contrib]
++
++config:
++  type: string
++  properties:
++    endpoint:
++      type: string

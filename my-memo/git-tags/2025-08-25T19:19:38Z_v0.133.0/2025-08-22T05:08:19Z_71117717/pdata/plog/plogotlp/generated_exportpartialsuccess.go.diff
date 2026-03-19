@@ -1,0 +1,15 @@
+diff --git a/pdata/plog/plogotlp/generated_exportpartialsuccess.go b/pdata/plog/plogotlp/generated_exportpartialsuccess.go
+index d859578b9..b92bd222b 100644
+--- a/pdata/plog/plogotlp/generated_exportpartialsuccess.go
++++ b/pdata/plog/plogotlp/generated_exportpartialsuccess.go
+@@ -44,8 +44,8 @@ func (ms ExportPartialSuccess) MoveTo(dest ExportPartialSuccess) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpcollectorlogs.ExportLogsPartialSuccess{}
++	internal.DeleteOrigExportLogsPartialSuccess(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // RejectedLogRecords returns the rejectedlogrecords associated with this ExportPartialSuccess.

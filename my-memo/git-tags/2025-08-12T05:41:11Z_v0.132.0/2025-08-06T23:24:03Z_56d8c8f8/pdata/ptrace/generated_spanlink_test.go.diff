@@ -1,0 +1,44 @@
+diff --git a/pdata/ptrace/generated_spanlink_test.go b/pdata/ptrace/generated_spanlink_test.go
+index d6bfb44b8..fca347db5 100644
+--- a/pdata/ptrace/generated_spanlink_test.go
++++ b/pdata/ptrace/generated_spanlink_test.go
+@@ -10,12 +10,10 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	"go.opentelemetry.io/collector/pdata/internal/data"
+ 	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -44,26 +42,6 @@ func TestSpanLink_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newSpanLink(&otlptrace.Span_Link{}, &sharedState)) })
+ }
+ 
+-func TestSpanLink_MarshalAndUnmarshalJSON(t *testing.T) {
+-	stream := json.BorrowStream(nil)
+-	defer json.ReturnStream(stream)
+-	src := generateTestSpanLink()
+-	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error())
+-
+-	// Append an unknown field at the start to ensure unknown fields are skipped
+-	// and the unmarshal logic continues.
+-	buf := stream.Buffer()
+-	assert.EqualValues(t, '{', buf[0])
+-	iter := json.BorrowIterator(append([]byte(`{"unknown": "string",`), buf[1:]...))
+-	defer json.ReturnIterator(iter)
+-	dest := NewSpanLink()
+-	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error())
+-
+-	assert.Equal(t, src, dest)
+-}
+-
+ func TestSpanLink_TraceID(t *testing.T) {
+ 	ms := NewSpanLink()
+ 	assert.Equal(t, pcommon.TraceID(data.TraceID([16]byte{})), ms.TraceID())

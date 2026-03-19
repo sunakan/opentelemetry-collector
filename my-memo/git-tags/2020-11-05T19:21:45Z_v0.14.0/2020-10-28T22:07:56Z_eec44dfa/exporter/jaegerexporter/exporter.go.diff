@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/exporter.go b/exporter/jaegerexporter/exporter.go
+index 7c4efa28b..b4e1cef06 100644
+--- a/exporter/jaegerexporter/exporter.go
++++ b/exporter/jaegerexporter/exporter.go
+@@ -54,7 +54,7 @@ func newTraceExporter(cfg *Config, logger *zap.Logger) (component.TraceExporter,
+ 	}
+ 
+ 	exp, err := exporterhelper.NewTraceExporter(
+-		cfg, s.pushTraceData,
++		cfg, logger, s.pushTraceData,
+ 		exporterhelper.WithTimeout(cfg.TimeoutSettings),
+ 		exporterhelper.WithRetry(cfg.RetrySettings),
+ 		exporterhelper.WithQueue(cfg.QueueSettings),

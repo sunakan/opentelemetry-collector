@@ -1,0 +1,13 @@
+diff --git a/service/internal/zpages/templates_test.go b/service/internal/zpages/templates_test.go
+index 1c0f8f43d..552091e9c 100644
+--- a/service/internal/zpages/templates_test.go
++++ b/service/internal/zpages/templates_test.go
+@@ -38,7 +38,7 @@ func TestTemplateFuncs(t *testing.T) {
+ 		Element: [2]string{"key", "value"},
+ 	}
+ 	require.NoError(t, tmpl.Execute(buf, input))
+-	assert.EqualValues(t, want, buf.String())
++	assert.Equal(t, want, buf.String())
+ }
+ 
+ func TestNoCrash(t *testing.T) {

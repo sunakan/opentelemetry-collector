@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index 3e1ec8df9..2bd2076f9 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -4,9 +4,11 @@
+ package queuebatch // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
+ 
+ import (
++	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 	"go.opentelemetry.io/collector/exporter/exporterqueue"
+ )
+ 
+ type Settings[K any] struct {
+ 	Encoding exporterqueue.Encoding[K]
++	Sizers   map[exporterbatcher.SizerType]Sizer[K]
+ }

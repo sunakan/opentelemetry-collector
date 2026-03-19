@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope_test.go b/pdata/pcommon/generated_instrumentationscope_test.go
+index cc46f38e7..6ea1c5c22 100644
+--- a/pdata/pcommon/generated_instrumentationscope_test.go
++++ b/pdata/pcommon/generated_instrumentationscope_test.go
+@@ -85,7 +85,7 @@ func TestInstrumentationScope_Version(t *testing.T) {
+ func TestInstrumentationScope_Attributes(t *testing.T) {
+ 	ms := NewInstrumentationScope()
+ 	assert.Equal(t, NewMap(), ms.Attributes())
+-	internal.FillTestMap(internal.Map(ms.Attributes()))
++	ms.getOrig().Attributes = internal.GenerateOrigTestKeyValueSlice()
+ 	assert.Equal(t, Map(internal.GenerateTestMap()), ms.Attributes())
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index be8d250c8..7fb4f85a3 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -41,7 +41,7 @@ func main() {
+ 		GitHash:  version.GitHash,
+ 	}
+ 
+-	svc, err := service.New(factories, info)
++	svc, err := service.New(service.Parameters{ApplicationStartInfo: info, Factories: factories})
+ 	handleErr("Failed to construct the application", err)
+ 
+ 	err = svc.Start()

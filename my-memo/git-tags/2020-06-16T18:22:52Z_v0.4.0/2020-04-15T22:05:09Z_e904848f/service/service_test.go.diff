@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 1926281cc..a6b927506 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -207,7 +207,7 @@ func TestApplication_setupExtensions(t *testing.T) {
+ 				config:    tt.config,
+ 			}
+ 
+-			err := app.setupExtensions()
++			err := app.setupExtensions(context.Background())
+ 
+ 			if tt.wantErrMsg == "" {
+ 				assert.NoError(t, err)

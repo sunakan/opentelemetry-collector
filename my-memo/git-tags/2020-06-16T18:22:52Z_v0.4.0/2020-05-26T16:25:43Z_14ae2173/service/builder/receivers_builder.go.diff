@@ -1,0 +1,13 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index 00d17cd0c..381e68f95 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -109,7 +109,7 @@ func (rb *ReceiversBuilder) Build() (Receivers, error) {
+ 		rcv, err := rb.buildReceiver(logger, cfg)
+ 		if err != nil {
+ 			if err == errUnusedReceiver {
+-				rb.logger.Info("Ignoring receiver as it is not used by any pipeline", zap.String("receiver", cfg.Name()))
++				logger.Info("Ignoring receiver as it is not used by any pipeline", zap.String("receiver", cfg.Name()))
+ 				continue
+ 			}
+ 			return nil, err

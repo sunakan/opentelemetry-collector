@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/status_code.go b/translator/trace/zipkin/status_code.go
+index c453749e9..bc2c5dc3f 100644
+--- a/translator/trace/zipkin/status_code.go
++++ b/translator/trace/zipkin/status_code.go
+@@ -108,7 +108,7 @@ func (m *statusMapper) fromAttribute(key string, attrib *tracepb.AttributeValue)
+ 	case tracetranslator.TagHTTPStatusCode:
+ 		httpCode, err := attribToStatusCode(attrib)
+ 		if err == nil {
+-			code := tracetranslator.OCStatusCodeFromHTTP(httpCode)
++			code := ocStatusCodeFromHTTP(httpCode)
+ 			m.fromHTTP.codePtr = &code
+ 		}
+ 

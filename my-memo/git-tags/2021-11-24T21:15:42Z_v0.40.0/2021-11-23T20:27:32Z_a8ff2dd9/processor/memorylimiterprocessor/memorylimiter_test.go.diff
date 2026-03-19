@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter_test.go b/processor/memorylimiterprocessor/memorylimiter_test.go
+index 95b55b32b..38f71dbc3 100644
+--- a/processor/memorylimiterprocessor/memorylimiter_test.go
++++ b/processor/memorylimiterprocessor/memorylimiter_test.go
+@@ -443,7 +443,7 @@ func TestBallastSizeMiB(t *testing.T) {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			ballastExtCfg.SizeMiB = tt.ballastExtBallastSizeSetting
+ 			ballastExt, _ := ballastExtFactory.CreateExtension(ctx, extCreateSet, ballastExtCfg)
+-			ballastExt.Start(ctx, nil)
++			require.NoError(t, ballastExt.Start(ctx, nil))
+ 			assert.Equal(t, tt.expectResult, tt.expectedMemLimiterBallastSize*mibBytes == ballastExt.(*ballastextension.MemoryBallast).GetBallastSize())
+ 		})
+ 	}

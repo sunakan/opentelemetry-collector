@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metadata.yaml b/exporter/exporterhelper/metadata.yaml
+index 7692b462e..fc6a372a1 100644
+--- a/exporter/exporterhelper/metadata.yaml
++++ b/exporter/exporterhelper/metadata.yaml
+@@ -2,8 +2,7 @@ type: exporterhelper
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
+-  class: exporter
+-  not_component: true
++  class: pkg
+   stability:
+     beta: [traces, metrics, logs]
+ 

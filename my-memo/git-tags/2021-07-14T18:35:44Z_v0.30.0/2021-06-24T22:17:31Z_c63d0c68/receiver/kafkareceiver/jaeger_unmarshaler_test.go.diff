@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/jaeger_unmarshaler_test.go b/receiver/kafkareceiver/jaeger_unmarshaler_test.go
+index 9b46d9acc..f64a627e2 100644
+--- a/receiver/kafkareceiver/jaeger_unmarshaler_test.go
++++ b/receiver/kafkareceiver/jaeger_unmarshaler_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	jaegertranslator "go.opentelemetry.io/collector/translator/trace/jaeger"
+ )
+ 

@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_entityref.go b/pdata/internal/generated_proto_entityref.go
+index d326cfe46..58c6b3249 100644
+--- a/pdata/internal/generated_proto_entityref.go
++++ b/pdata/internal/generated_proto_entityref.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -30,7 +31,7 @@ var (
+ )
+ 
+ func NewEntityRef() *EntityRef {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &EntityRef{}
+ 	}
+ 	return protoPoolEntityRef.Get().(*EntityRef)
+@@ -41,7 +42,7 @@ func DeleteEntityRef(orig *EntityRef, nullable bool) {
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

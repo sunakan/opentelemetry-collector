@@ -1,0 +1,12 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 0ff9cdc17..f083f47b4 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -101,6 +101,7 @@ func BuildReceivers(
+ 					zap.String(components.ZapNameKey, recvID.String())),
+ 				TracerProvider: settings.TracerProvider,
+ 				MeterProvider:  settings.MeterProvider,
++				MetricsLevel:   cfg.Telemetry.Metrics.Level,
+ 			},
+ 			BuildInfo: buildInfo,
+ 		}

@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+index 6039a5471..fb5bf5562 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+@@ -34,8 +34,7 @@ func NewProfiles(orig *otlpcollectorprofiles.ExportProfilesServiceRequest, state
+ func GenerateTestProfiles() Profiles {
+ 	orig := otlpcollectorprofiles.ExportProfilesServiceRequest{}
+ 	FillOrigTestExportProfilesServiceRequest(&orig)
+-	state := StateMutable
+-	return NewProfiles(&orig, &state)
++	return NewProfiles(&orig, NewState())
+ }
+ 
+ func NewOrigExportProfilesServiceRequest() otlpcollectorprofiles.ExportProfilesServiceRequest {

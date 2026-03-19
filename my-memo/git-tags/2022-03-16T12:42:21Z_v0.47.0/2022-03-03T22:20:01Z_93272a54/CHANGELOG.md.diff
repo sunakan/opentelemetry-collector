@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 30f32906f..6042065b4 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,10 @@
+ 
+ - Remove `Type` funcs in pdata (#4933)
+ 
++## 🧰 Bug fixes 🧰
++
++- Collector `Run` will now exit when a context cancels (#4954)
++
+ ## v0.46.0 Beta
+ 
+ ### 🛑 Breaking changes 🛑

@@ -1,0 +1,12 @@
+diff --git a/versions.yaml b/versions.yaml
+index 775991693..9216057e3 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -25,6 +25,7 @@ module-sets:
+       - go.opentelemetry.io/collector/exporter/loggingexporter
+       - go.opentelemetry.io/collector/exporter/otlpexporter
+       - go.opentelemetry.io/collector/exporter/otlphttpexporter
++      - go.opentelemetry.io/collector/receiver/otlpreceiver
+       - go.opentelemetry.io/collector/semconv
+ 
+ excluded-modules:

@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index 80fbb625c..e0a7b3dee 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -41,9 +41,6 @@ func TestDefaultReceivers(t *testing.T) {
+ 		receiver    config.Type
+ 		getConfigFn getReceiverConfigFn
+ 	}{
+-		{
+-			receiver: "hostmetrics",
+-		},
+ 		{
+ 			receiver: "otlp",
+ 			getConfigFn: func() config.Receiver {

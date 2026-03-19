@@ -1,0 +1,18 @@
+diff --git a/extension/authoidcextension/factory.go b/extension/authoidcextension/factory.go
+index fc2d35195..3e63296dd 100644
+--- a/extension/authoidcextension/factory.go
++++ b/extension/authoidcextension/factory.go
+@@ -39,11 +39,8 @@ func NewFactory() component.ExtensionFactory {
+ 
+ func createDefaultConfig() config.Extension {
+ 	return &Config{
+-		ExtensionSettings: config.ExtensionSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
+-		Attribute: defaultAttribute,
++		ExtensionSettings: config.NewExtensionSettings(config.NewID(typeStr)),
++		Attribute:         defaultAttribute,
+ 	}
+ }
+ 

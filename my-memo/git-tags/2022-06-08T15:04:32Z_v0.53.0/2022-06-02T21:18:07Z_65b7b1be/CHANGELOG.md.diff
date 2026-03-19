@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 68deae173..2ae3a24dc 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -29,6 +29,7 @@
+ ### 🧰 Bug fixes 🧰
+ 
+ - Fixes the "service.version" label value for internal metrics, always was "latest" in core/contrib distros. (#5449).
++- Send correct batch stats when SendBatchMaxSize is set (#5385)
+ 
+ ## v0.52.0 Beta
+ 

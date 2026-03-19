@@ -1,0 +1,15 @@
+diff --git a/config/mapprovider/filemapprovider/mapprovider.go b/config/mapprovider/filemapprovider/mapprovider.go
+index 62372d0d2..0c22e6eea 100644
+--- a/config/mapprovider/filemapprovider/mapprovider.go
++++ b/config/mapprovider/filemapprovider/mapprovider.go
+@@ -66,6 +66,10 @@ func (fmp *mapProvider) Retrieve(_ context.Context, uri string, _ config.Watcher
+ 	return config.Retrieved{Map: config.NewMapFromStringMap(data)}, nil
+ }
+ 
++func (*mapProvider) Scheme() string {
++	return schemeName
++}
++
+ func (*mapProvider) Shutdown(context.Context) error {
+ 	return nil
+ }

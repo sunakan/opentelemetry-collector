@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_tests_processor.yaml b/cmd/mdatagen/internal/testdata/with_tests_processor.yaml
+new file mode 100644
+index 000000000..d0df3f84f
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/with_tests_processor.yaml
+@@ -0,0 +1,6 @@
++type: metric
++
++status:
++  class: processor
++  stability:
++    beta: [traces, logs, metrics]

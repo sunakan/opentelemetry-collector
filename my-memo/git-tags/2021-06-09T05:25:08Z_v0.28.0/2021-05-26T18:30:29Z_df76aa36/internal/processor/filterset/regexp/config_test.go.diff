@@ -1,0 +1,19 @@
+diff --git a/internal/processor/filterset/regexp/config_test.go b/internal/processor/filterset/regexp/config_test.go
+index 23fd9a912..313d5c1cc 100644
+--- a/internal/processor/filterset/regexp/config_test.go
++++ b/internal/processor/filterset/regexp/config_test.go
+@@ -21,12 +21,12 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configparser"
+ )
+ 
+ func TestConfig(t *testing.T) {
+ 	testFile := path.Join(".", "testdata", "config.yaml")
+-	v, err := config.NewParserFromFile(testFile)
++	v, err := configparser.NewParserFromFile(testFile)
+ 	require.NoError(t, err)
+ 
+ 	actualConfigs := map[string]*Config{}

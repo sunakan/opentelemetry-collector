@@ -1,0 +1,10 @@
+diff --git a/config/internal/warning_test.go b/config/internal/warning_test.go
+index 427ba7922..3e8a2f013 100644
+--- a/config/internal/warning_test.go
++++ b/config/internal/warning_test.go
+@@ -54,5 +54,4 @@ func TestShouldWarn(t *testing.T) {
+ 			assert.Equal(t, shouldWarn(test.endpoint), test.warn)
+ 		})
+ 	}
+-
+ }

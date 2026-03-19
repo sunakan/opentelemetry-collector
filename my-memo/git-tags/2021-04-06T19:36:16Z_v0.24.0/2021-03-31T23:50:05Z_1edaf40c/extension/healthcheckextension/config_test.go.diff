@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/config_test.go b/extension/healthcheckextension/config_test.go
+index 6fab9e9d2..497f2c132 100644
+--- a/extension/healthcheckextension/config_test.go
++++ b/extension/healthcheckextension/config_test.go
+@@ -44,7 +44,7 @@ func TestLoadConfig(t *testing.T) {
+ 	ext1 := cfg.Extensions["health_check/1"]
+ 	assert.Equal(t,
+ 		&Config{
+-			ExtensionSettings: config.ExtensionSettings{
++			ExtensionSettings: &config.ExtensionSettings{
+ 				TypeVal: "health_check",
+ 				NameVal: "health_check/1",
+ 			},

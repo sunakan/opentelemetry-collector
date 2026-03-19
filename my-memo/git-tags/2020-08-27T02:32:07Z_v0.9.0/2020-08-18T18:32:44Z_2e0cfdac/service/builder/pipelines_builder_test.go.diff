@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index aee63a782..c3c641af8 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -63,7 +63,7 @@ func createExampleFactories() component.Factories {
+ 	exampleExporterFactory := &componenttest.ExampleExporterFactory{}
+ 
+ 	factories := component.Factories{
+-		Receivers: map[configmodels.Type]component.ReceiverFactoryBase{
++		Receivers: map[configmodels.Type]component.ReceiverFactory{
+ 			exampleReceiverFactory.Type(): exampleReceiverFactory,
+ 		},
+ 		Processors: map[configmodels.Type]component.ProcessorFactoryBase{

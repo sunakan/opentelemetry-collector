@@ -1,0 +1,38 @@
+diff --git a/cmd/mdatagen/main.go b/cmd/mdatagen/main.go
+index ee4b719ae..963ae695b 100644
+--- a/cmd/mdatagen/main.go
++++ b/cmd/mdatagen/main.go
+@@ -69,14 +69,7 @@ func run(ymlPath string) error {
+ 				return err
+ 			}
+ 		}
+-		if err = generateFile(filepath.Join(tmplDir, "telemetry.go.tmpl"),
+-			filepath.Join(codeDir, "generated_telemetry.go"), md, "metadata"); err != nil {
+-			return err
+-		}
+-		if err = generateFile(filepath.Join(tmplDir, "telemetry_test.go.tmpl"),
+-			filepath.Join(codeDir, "generated_telemetry_test.go"), md, "metadata"); err != nil {
+-			return err
+-		}
++
+ 		if err = generateFile(filepath.Join(tmplDir, "package_test.go.tmpl"),
+ 			filepath.Join(ymlDir, "generated_package_test.go"), md, packageName); err != nil {
+ 			return err
+@@ -92,6 +85,17 @@ func run(ymlPath string) error {
+ 		}
+ 	}
+ 
++	if len(md.Telemetry.Metrics) != 0 {
++		if err = generateFile(filepath.Join(tmplDir, "telemetry.go.tmpl"),
++			filepath.Join(codeDir, "generated_telemetry.go"), md, "metadata"); err != nil {
++			return err
++		}
++		if err = generateFile(filepath.Join(tmplDir, "telemetry_test.go.tmpl"),
++			filepath.Join(codeDir, "generated_telemetry_test.go"), md, "metadata"); err != nil {
++			return err
++		}
++	}
++
+ 	if len(md.Metrics) == 0 && len(md.ResourceAttributes) == 0 {
+ 		return nil
+ 	}

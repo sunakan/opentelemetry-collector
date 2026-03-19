@@ -1,0 +1,23 @@
+diff --git a/internal/testcomponents/example_exporter.go b/internal/testcomponents/example_exporter.go
+index 93daaaf55..3fcf225de 100644
+--- a/internal/testcomponents/example_exporter.go
++++ b/internal/testcomponents/example_exporter.go
+@@ -19,6 +19,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ )
+@@ -107,6 +108,10 @@ func (exp *ExampleExporterConsumer) ConsumeTraces(_ context.Context, td pdata.Tr
+ 	return nil
+ }
+ 
++func (exp *ExampleExporterConsumer) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ // ConsumeMetrics receives pdata.Metrics for processing by the Metrics.
+ func (exp *ExampleExporterConsumer) ConsumeMetrics(_ context.Context, md pdata.Metrics) error {
+ 	exp.Metrics = append(exp.Metrics, md)

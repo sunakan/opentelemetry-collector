@@ -1,0 +1,13 @@
+diff --git a/observability/observabilitytest/observabilitytest.go b/observability/observabilitytest/observabilitytest.go
+index 8e6de4688..f067083c6 100644
+--- a/observability/observabilitytest/observabilitytest.go
++++ b/observability/observabilitytest/observabilitytest.go
+@@ -22,7 +22,7 @@ import (
+ 	"go.opencensus.io/stats/view"
+ 	"go.opencensus.io/tag"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/observability"
++	"github.com/open-telemetry/opentelemetry-collector/observability"
+ )
+ 
+ // SetupRecordedMetricsTest does setup the testing environment to check the metrics recorded by receivers, producers or exporters.

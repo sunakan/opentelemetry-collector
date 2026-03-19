@@ -1,0 +1,17 @@
+diff --git a/internal/iruntime/mem_info_test.go b/internal/iruntime/mem_info_test.go
+index 57d0d857e..05fc4bbcd 100644
+--- a/internal/iruntime/mem_info_test.go
++++ b/internal/iruntime/mem_info_test.go
+@@ -7,10 +7,11 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ )
+ 
+ func TestReadMemInfo(t *testing.T) {
+ 	vmStat, err := readMemInfo()
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 	assert.Positive(t, vmStat)
+ }

@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splittraces_test.go b/processor/batchprocessor/splittraces_test.go
+index 62d8b1e0e..1b5569d29 100644
+--- a/processor/batchprocessor/splittraces_test.go
++++ b/processor/batchprocessor/splittraces_test.go
+@@ -23,7 +23,7 @@ func TestSplitTraces_noop(t *testing.T) {
+ 		i++
+ 		return i > 5
+ 	})
+-	assert.EqualValues(t, td, split)
++	assert.Equal(t, td, split)
+ }
+ 
+ func TestSplitTraces(t *testing.T) {

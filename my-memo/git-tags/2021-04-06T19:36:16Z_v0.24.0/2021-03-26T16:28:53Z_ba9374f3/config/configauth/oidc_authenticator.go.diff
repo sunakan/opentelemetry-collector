@@ -1,0 +1,21 @@
+diff --git a/config/configauth/oidc_authenticator.go b/config/configauth/oidc_authenticator.go
+index a0deadcd0..30b146404 100644
+--- a/config/configauth/oidc_authenticator.go
++++ b/config/configauth/oidc_authenticator.go
+@@ -24,6 +24,7 @@ import (
+ 	"io/ioutil"
+ 	"net"
+ 	"net/http"
++	"path/filepath"
+ 	"strings"
+ 	"time"
+ 
+@@ -227,7 +228,7 @@ func getIssuerCACertFromPath(path string) (*x509.Certificate, error) {
+ 		return nil, nil
+ 	}
+ 
+-	rawCA, err := ioutil.ReadFile(path)
++	rawCA, err := ioutil.ReadFile(filepath.Clean(path))
+ 	if err != nil {
+ 		return nil, fmt.Errorf("could not read the CA file %q: %w", path, err)
+ 	}

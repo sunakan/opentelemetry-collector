@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/internal/migration/testdata/v0.2.0_metrics.yaml b/service/telemetry/internal/migration/testdata/v0.2.0_metrics.yaml
+index e072601f0..9c4e2ae2d 100644
+--- a/service/telemetry/internal/migration/testdata/v0.2.0_metrics.yaml
++++ b/service/telemetry/internal/migration/testdata/v0.2.0_metrics.yaml
+@@ -6,6 +6,7 @@ readers:
+           endpoint: 127.0.0.1:4317
+           headers:
+             "key1": "value1"
++            "key2": "value2"
+   - pull:
+       exporter:
+         prometheus:

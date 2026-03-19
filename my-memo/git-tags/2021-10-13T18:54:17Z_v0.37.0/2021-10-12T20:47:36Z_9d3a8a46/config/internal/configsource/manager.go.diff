@@ -1,0 +1,13 @@
+diff --git a/config/internal/configsource/manager.go b/config/internal/configsource/manager.go
+index 4481cc992..e8579a7f8 100644
+--- a/config/internal/configsource/manager.go
++++ b/config/internal/configsource/manager.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configsource
++package configsource // import "go.opentelemetry.io/collector/config/internal/configsource"
+ 
+ import (
+ 	"bytes"

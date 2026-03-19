@@ -1,0 +1,76 @@
+diff --git a/consumer/pdata/generated_trace.go b/consumer/pdata/generated_trace.go
+index b904c6381..2158d3ebf 100644
+--- a/consumer/pdata/generated_trace.go
++++ b/consumer/pdata/generated_trace.go
+@@ -158,11 +158,6 @@ func NewResourceSpans() ResourceSpans {
+ 	return newResourceSpans(&otlptrace.ResourceSpans{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms ResourceSpans) InitEmpty() {
+-	*ms.orig = otlptrace.ResourceSpans{}
+-}
+-
+ // Resource returns the resource associated with this ResourceSpans.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -319,11 +314,6 @@ func NewInstrumentationLibrarySpans() InstrumentationLibrarySpans {
+ 	return newInstrumentationLibrarySpans(&otlptrace.InstrumentationLibrarySpans{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms InstrumentationLibrarySpans) InitEmpty() {
+-	*ms.orig = otlptrace.InstrumentationLibrarySpans{}
+-}
+-
+ // InstrumentationLibrary returns the instrumentationlibrary associated with this InstrumentationLibrarySpans.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -481,11 +471,6 @@ func NewSpan() Span {
+ 	return newSpan(&otlptrace.Span{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms Span) InitEmpty() {
+-	*ms.orig = otlptrace.Span{}
+-}
+-
+ // TraceID returns the traceid associated with this Span.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -824,11 +809,6 @@ func NewSpanEvent() SpanEvent {
+ 	return newSpanEvent(&otlptrace.Span_Event{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms SpanEvent) InitEmpty() {
+-	*ms.orig = otlptrace.Span_Event{}
+-}
+-
+ // Timestamp returns the timestamp associated with this SpanEvent.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -1023,11 +1003,6 @@ func NewSpanLink() SpanLink {
+ 	return newSpanLink(&otlptrace.Span_Link{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms SpanLink) InitEmpty() {
+-	*ms.orig = otlptrace.Span_Link{}
+-}
+-
+ // TraceID returns the traceid associated with this SpanLink.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -1123,11 +1098,6 @@ func NewSpanStatus() SpanStatus {
+ 	return newSpanStatus(&otlptrace.Status{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms SpanStatus) InitEmpty() {
+-	*ms.orig = otlptrace.Status{}
+-}
+-
+ // Code returns the code associated with this SpanStatus.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".

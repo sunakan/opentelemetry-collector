@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 429e4072e..59226299b 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -49,7 +49,7 @@ func createDefaultConfig() component.Config {
+ 	httpCfg := confighttp.NewDefaultServerConfig()
+ 	httpCfg.Endpoint = "localhost:4318"
+ 	// For backward compatibility:
+-	httpCfg.TLSSetting = nil
++	httpCfg.TLS = nil
+ 	httpCfg.WriteTimeout = 0
+ 	httpCfg.ReadHeaderTimeout = 0
+ 	httpCfg.IdleTimeout = 0

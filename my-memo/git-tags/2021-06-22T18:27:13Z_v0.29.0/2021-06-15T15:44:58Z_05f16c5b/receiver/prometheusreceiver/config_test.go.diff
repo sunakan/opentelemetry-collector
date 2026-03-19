@@ -1,0 +1,20 @@
+diff --git a/receiver/prometheusreceiver/config_test.go b/receiver/prometheusreceiver/config_test.go
+index 0e46de7ea..d4f170fd2 100644
+--- a/receiver/prometheusreceiver/config_test.go
++++ b/receiver/prometheusreceiver/config_test.go
+@@ -125,3 +125,15 @@ func TestLoadConfigFailsOnUnknownPrometheusSection(t *testing.T) {
+ 	assert.Error(t, err)
+ 	assert.Nil(t, cfg)
+ }
++
++// Renaming is not allowed
++func TestLoadConfigFailsOnRenameDisallowed(t *testing.T) {
++	factories, err := componenttest.NopFactories()
++	assert.NoError(t, err)
++
++	factory := NewFactory()
++	factories.Receivers[typeStr] = factory
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "invalid-config-prometheus-relabel.yaml"), factories)
++	assert.Error(t, err)
++	assert.NotNil(t, cfg)
++}

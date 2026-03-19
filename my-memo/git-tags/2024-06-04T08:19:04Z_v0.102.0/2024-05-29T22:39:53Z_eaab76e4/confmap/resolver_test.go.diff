@@ -1,0 +1,57 @@
+diff --git a/confmap/resolver_test.go b/confmap/resolver_test.go
+index 3a162c852..fecb973d0 100644
+--- a/confmap/resolver_test.go
++++ b/confmap/resolver_test.go
+@@ -124,6 +124,7 @@ func TestResolverErrors(t *testing.T) {
+ 		locations         []string
+ 		providers         []Provider
+ 		converters        []Converter
++		defaultScheme     string
+ 		expectBuildErr    bool
+ 		expectResolveErr  bool
+ 		expectWatchErr    bool
+@@ -136,6 +137,16 @@ func TestResolverErrors(t *testing.T) {
+ 			providers:      []Provider{&mockProvider{}},
+ 			expectBuildErr: true,
+ 		},
++		{
++			name:      "default scheme not found",
++			locations: []string{"mock:", "err:"},
++			providers: []Provider{
++				&mockProvider{},
++				&mockProvider{scheme: "err", errR: errors.New("retrieve_err")},
++			},
++			defaultScheme:  "missing",
++			expectBuildErr: true,
++		},
+ 		{
+ 			name:      "retrieve location config error",
+ 			locations: []string{"mock:", "err:"},
+@@ -201,7 +212,7 @@ func TestResolverErrors(t *testing.T) {
+ 				c := converter
+ 				converterFuncs[i] = NewConverterFactory(func(_ ConverterSettings) Converter { return c })
+ 			}
+-			resolver, err := NewResolver(ResolverSettings{URIs: tt.locations, ProviderFactories: mockProviderFuncs, ConverterFactories: converterFuncs})
++			resolver, err := NewResolver(ResolverSettings{URIs: tt.locations, ProviderFactories: mockProviderFuncs, DefaultScheme: tt.defaultScheme, ConverterFactories: converterFuncs})
+ 			if tt.expectBuildErr {
+ 				assert.Error(t, err)
+ 				return
+@@ -395,3 +406,18 @@ func TestProvidesDefaultLogger(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.NotNil(t, provider.logger)
+ }
++
++func TestResolverDefaultProviderSet(t *testing.T) {
++	envProvider := newEnvProvider()
++	fileProvider := newFileProvider(t)
++
++	r, err := NewResolver(ResolverSettings{
++		URIs:              []string{"env:"},
++		ProviderFactories: []ProviderFactory{fileProvider, envProvider},
++		DefaultScheme:     "env",
++	})
++	require.NoError(t, err)
++	assert.NotNil(t, r.defaultScheme)
++	_, ok := r.providers["env"]
++	assert.True(t, ok)
++}

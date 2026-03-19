@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index fc793b695..4c488c6bb 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -121,7 +121,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				HTTP: &HTTPConfig{
+ 					ServerConfig: confighttp.ServerConfig{
+ 						Auth: &confighttp.AuthConfig{
+-							Authentication: configauth.Authentication{
++							Config: configauth.Config{
+ 								AuthenticatorID: component.MustNewID("test"),
+ 							},
+ 						},

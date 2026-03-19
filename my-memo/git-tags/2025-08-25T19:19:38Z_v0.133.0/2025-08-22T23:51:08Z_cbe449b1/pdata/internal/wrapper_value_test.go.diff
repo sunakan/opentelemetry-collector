@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/wrapper_value_test.go b/pdata/internal/wrapper_value_test.go
+index 3330b8672..7aa5e50ac 100644
+--- a/pdata/internal/wrapper_value_test.go
++++ b/pdata/internal/wrapper_value_test.go
+@@ -68,7 +68,7 @@ func TestReadKvlistValueInvalidArrayValue(t *testing.T) {
+ func TestCopyOrigAnyValueAllTypes(t *testing.T) {
+ 	for name, src := range allAnyValues() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -87,7 +87,7 @@ func TestCopyOrigAnyValueAllTypes(t *testing.T) {
+ func TestMarshalAndUnmarshalJSONOrigAnyValue(t *testing.T) {
+ 	for name, src := range allAnyValues() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -131,7 +131,7 @@ func TestMarshalAndUnmarshalProtoOrigAnyValueFailing(t *testing.T) {
+ func TestMarshalAndUnmarshalProtoAnyValue(t *testing.T) {
+ 	for name, src := range allAnyValues() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {

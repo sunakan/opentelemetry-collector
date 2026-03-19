@@ -1,0 +1,21 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index ba8f48213..a7d72876b 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -37,11 +37,11 @@ func init() {
+ 
+ // RegisterInternalMetricFeatureGate registers the Internal Metric feature gate to the passed in registry
+ func RegisterInternalMetricFeatureGate(registry *featuregate.Registry) {
+-	registry.MustRegister(featuregate.Gate{
+-		ID:          UseOtelForInternalMetricsfeatureGateID,
+-		Description: "controls whether the collector uses OpenTelemetry for internal metrics",
+-		Enabled:     false,
+-	})
++	registry.MustRegisterID(
++		UseOtelForInternalMetricsfeatureGateID,
++		featuregate.Alpha,
++		featuregate.WithRegisterDescription("controls whether the collector uses OpenTelemetry for internal metrics"),
++	)
+ }
+ 
+ // ObsMetrics wraps OpenCensus View for Collector observability metrics

@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/timestamp.go b/translator/internaldata/timestamp.go
+index f2a221fe2..48dc8325f 100644
+--- a/translator/internaldata/timestamp.go
++++ b/translator/internaldata/timestamp.go
+@@ -17,7 +17,7 @@ package internaldata
+ import (
+ 	"google.golang.org/protobuf/types/known/timestamppb"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // timestampAsTimestampPb converts a pdata.Timestamp to a protobuf known type Timestamp.

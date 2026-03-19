@@ -1,0 +1,18 @@
+diff --git a/internal/iruntime/total_memory_other_test.go b/internal/iruntime/total_memory_other_test.go
+index 6ae3a9be7..8819eb371 100644
+--- a/internal/iruntime/total_memory_other_test.go
++++ b/internal/iruntime/total_memory_other_test.go
+@@ -20,11 +20,10 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+ )
+ 
+ func TestTotalMemory(t *testing.T) {
+ 	totalMemory, err := TotalMemory()
+-	require.Error(t, err)
+-	assert.Equal(t, int64(-1), totalMemory)
++	assert.NoError(t, err)
++	assert.True(t, totalMemory > 0)
+ }

@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index a211c69d6..8b172b158 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -327,7 +327,7 @@ func getExpectedShutdownErr(test metricsTestCase) error {
+ 		}
+ 	}
+ 
+-	return consumererror.CombineErrors(errs)
++	return consumererror.Combine(errs)
+ }
+ 
+ func assertChannelsCalled(t *testing.T, chs []chan bool, message string) {

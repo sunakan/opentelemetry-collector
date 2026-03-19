@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogram.go b/pdata/internal/generated_wrapper_exponentialhistogram.go
+index 761c4d940..529644247 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogram.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogram.go
+@@ -27,9 +27,11 @@ func CopyOrigExponentialHistogram(dest, src *otlpmetrics.ExponentialHistogram) {
+ 	dest.AggregationTemporality = src.AggregationTemporality
+ }
+ 
+-func FillOrigTestExponentialHistogram(orig *otlpmetrics.ExponentialHistogram) {
++func GenTestOrigExponentialHistogram() *otlpmetrics.ExponentialHistogram {
++	orig := NewOrigPtrExponentialHistogram()
+ 	orig.DataPoints = GenerateOrigTestExponentialHistogramDataPointSlice()
+ 	orig.AggregationTemporality = otlpmetrics.AggregationTemporality(1)
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

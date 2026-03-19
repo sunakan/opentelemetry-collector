@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 2abb433fa..68466a0e0 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -17,7 +17,7 @@ import (
+ 	"github.com/prometheus/common/expfmt"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 

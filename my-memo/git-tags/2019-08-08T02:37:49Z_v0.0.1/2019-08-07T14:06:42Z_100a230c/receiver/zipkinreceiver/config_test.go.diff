@@ -1,0 +1,18 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index d5dc7c094..be047bac0 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -47,10 +47,9 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Equal(t, r1,
+ 		&Config{
+ 			ReceiverSettings: configmodels.ReceiverSettings{
+-				TypeVal:             typeStr,
+-				NameVal:             "zipkin/customname",
+-				Endpoint:            "127.0.0.1:8765",
+-				DisableBackPressure: true,
++				TypeVal:  typeStr,
++				NameVal:  "zipkin/customname",
++				Endpoint: "127.0.0.1:8765",
+ 			},
+ 		})
+ }

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/plogotlp_package.go b/internal/cmd/pdatagen/internal/plogotlp_package.go
+index 512d583dd..555e2fd44 100644
+--- a/internal/cmd/pdatagen/internal/plogotlp_package.go
++++ b/internal/cmd/pdatagen/internal/plogotlp_package.go
+@@ -26,7 +26,7 @@ var plogotlp = &Package{
+ 	},
+ }
+ 
+-var exportLogsPartialSuccess = &messageValueStruct{
++var exportLogsPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",
+ 	originFullName: "otlpcollectorlog.ExportLogsPartialSuccess",

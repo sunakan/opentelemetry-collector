@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/builder-snapshot.yaml b/.github/workflows/builder-snapshot.yaml
+index f732f981b..a7ea0a567 100644
+--- a/.github/workflows/builder-snapshot.yaml
++++ b/.github/workflows/builder-snapshot.yaml
+@@ -48,6 +48,16 @@ jobs:
+         uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+         with:
+           go-version: stable
++          cache: false
++
++      - name: Cache Go
++        id: go-cache
++        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
++        with:
++          path: |
++            ~/go/bin
++            ~/go/pkg/mod
++          key: go-cache-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('**/go.sum') }}
+ 
+       - name: Check GoReleaser
+         uses: goreleaser/goreleaser-action@9c156ee8a17a598857849441385a2041ef570552 # v6.3.0

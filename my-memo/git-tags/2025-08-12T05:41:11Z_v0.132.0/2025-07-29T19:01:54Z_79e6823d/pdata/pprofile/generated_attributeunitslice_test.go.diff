@@ -1,0 +1,34 @@
+diff --git a/pdata/pprofile/generated_attributeunitslice_test.go b/pdata/pprofile/generated_attributeunitslice_test.go
+index dd0a12926..8ded5a189 100644
+--- a/pdata/pprofile/generated_attributeunitslice_test.go
++++ b/pdata/pprofile/generated_attributeunitslice_test.go
+@@ -51,16 +51,25 @@ func TestAttributeUnitSliceReadOnly(t *testing.T) {
+ 
+ func TestAttributeUnitSlice_CopyTo(t *testing.T) {
+ 	dest := NewAttributeUnitSlice()
+-	// Test CopyTo to empty
++	// Test CopyTo empty
+ 	NewAttributeUnitSlice().CopyTo(dest)
+ 	assert.Equal(t, NewAttributeUnitSlice(), dest)
+ 
+-	// Test CopyTo larger slice
+-	generateTestAttributeUnitSlice().CopyTo(dest)
++	// Test CopyTo larger slice and EnsureCapacity
++	src := generateTestAttributeUnitSlice()
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestAttributeUnitSlice(), dest)
+ 
+ 	// Test CopyTo same size slice
+-	generateTestAttributeUnitSlice().CopyTo(dest)
++	src.CopyTo(dest)
++	assert.Equal(t, generateTestAttributeUnitSlice(), dest)
++}
++
++func TestAttributeUnitSlice_CopyToAndEnsureCapacity(t *testing.T) {
++	dest := NewAttributeUnitSlice()
++	src := generateTestAttributeUnitSlice()
++	dest.EnsureCapacity(src.Len())
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestAttributeUnitSlice(), dest)
+ }
+ 

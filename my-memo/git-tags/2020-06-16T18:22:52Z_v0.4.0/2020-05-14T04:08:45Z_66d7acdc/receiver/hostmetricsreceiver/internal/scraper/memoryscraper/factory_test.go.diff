@@ -1,0 +1,23 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
+index 1f8c57b75..41a2de763 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory_test.go
+@@ -22,11 +22,17 @@ import (
+ 	"go.uber.org/zap"
+ )
+ 
++func TestCreateDefaultConfig(t *testing.T) {
++	factory := &Factory{}
++	cfg := factory.CreateDefaultConfig()
++	assert.IsType(t, &Config{}, cfg)
++}
++
+ func TestCreateMetricsScraper(t *testing.T) {
+ 	factory := &Factory{}
+ 	cfg := &Config{}
+ 
+-	scraper, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg, nil)
++	scraper, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg)
+ 
+ 	assert.NoError(t, err)
+ 	assert.NotNil(t, scraper)

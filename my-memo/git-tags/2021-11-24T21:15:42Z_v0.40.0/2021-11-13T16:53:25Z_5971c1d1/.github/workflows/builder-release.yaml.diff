@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/builder-release.yaml b/.github/workflows/builder-release.yaml
+index bbcf2c1c6..3f1faf0af 100644
+--- a/.github/workflows/builder-release.yaml
++++ b/.github/workflows/builder-release.yaml
+@@ -3,7 +3,7 @@ name: Builder - Release
+ on:
+   push:
+     tags:
+-      - 'v*'
++      - 'cmd/builder/v*'
+ 
+ jobs:
+   goreleaser:
+@@ -26,7 +26,6 @@ jobs:
+           distribution: goreleaser-pro
+           version: latest
+           args: release --rm-dist
+-          workdir: cmd/builder
+         env:
+           GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

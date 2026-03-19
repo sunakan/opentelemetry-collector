@@ -1,0 +1,13 @@
+diff --git a/model/pdata/logs.go b/model/pdata/logs.go
+index fe8476e7a..565d9eabc 100644
+--- a/model/pdata/logs.go
++++ b/model/pdata/logs.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package pdata
++package pdata // import "go.opentelemetry.io/collector/model/pdata"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/model/internal"

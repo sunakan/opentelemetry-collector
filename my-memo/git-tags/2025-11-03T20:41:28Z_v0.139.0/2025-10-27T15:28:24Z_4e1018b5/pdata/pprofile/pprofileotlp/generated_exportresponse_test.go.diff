@@ -1,0 +1,12 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+index bf068d020..31fcefb55 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+@@ -49,6 +49,5 @@ func TestExportResponse_PartialSuccess(t *testing.T) {
+ }
+ 
+ func generateTestExportResponse() ExportResponse {
+-	ms := newExportResponse(internal.GenTestExportProfilesServiceResponse(), internal.NewState())
+-	return ms
++	return newExportResponse(internal.GenTestExportProfilesServiceResponse(), internal.NewState())
+ }

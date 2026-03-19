@@ -1,0 +1,21 @@
+diff --git a/internal/testcomponents/example_extension.go b/internal/testcomponents/example_extension.go
+index 9471d2c4f..772fc531c 100644
+--- a/internal/testcomponents/example_extension.go
++++ b/internal/testcomponents/example_extension.go
+@@ -20,7 +20,6 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/extension/extensionhelper"
+ )
+ 
+ // ExampleExtensionCfg is for testing purposes. We are defining an example config and factory
+@@ -35,7 +34,7 @@ type ExampleExtensionCfg struct {
+ const extType = "exampleextension"
+ 
+ // ExampleExtensionFactory is factory for ExampleExtensionCfg.
+-var ExampleExtensionFactory = extensionhelper.NewFactory(extType, createExtensionDefaultConfig, createExtension)
++var ExampleExtensionFactory = component.NewExtensionFactory(extType, createExtensionDefaultConfig, createExtension)
+ 
+ // CreateDefaultConfig creates the default configuration for the Extension.
+ func createExtensionDefaultConfig() config.Extension {

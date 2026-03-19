@@ -1,0 +1,18 @@
+diff --git a/vendor/github.com/tinylib/msgp/msgp/defs_test.go b/vendor/github.com/tinylib/msgp/msgp/defs_test.go
+deleted file mode 100644
+index 667dfd601..000000000
+--- a/vendor/github.com/tinylib/msgp/msgp/defs_test.go
++++ /dev/null
+@@ -1,12 +0,0 @@
+-package msgp_test
+-
+-//go:generate msgp -o=defgen_test.go -tests=false
+-
+-type Blobs []Blob
+-
+-type Blob struct {
+-	Name   string  `msg:"name"`
+-	Float  float64 `msg:"float"`
+-	Bytes  []byte  `msg:"bytes"`
+-	Amount int64   `msg:"amount"`
+-}

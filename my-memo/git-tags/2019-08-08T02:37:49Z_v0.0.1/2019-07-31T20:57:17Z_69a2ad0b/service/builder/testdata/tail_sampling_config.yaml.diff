@@ -1,0 +1,23 @@
+diff --git a/service/builder/testdata/tail_sampling_config.yaml b/service/builder/testdata/tail_sampling_config.yaml
+new file mode 100644
+index 000000000..52d2fedc4
+--- /dev/null
++++ b/service/builder/testdata/tail_sampling_config.yaml
+@@ -0,0 +1,17 @@
++receivers:
++  examplereceiver:
++
++exporters:
++  exampleexporter:
++
++processors:
++  tail-sampling:
++    decision-wait: 31s
++    num-traces: 20001
++    expected-new-traces-per-sec: 100
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [tail-sampling]
++    exporters: [exampleexporter]

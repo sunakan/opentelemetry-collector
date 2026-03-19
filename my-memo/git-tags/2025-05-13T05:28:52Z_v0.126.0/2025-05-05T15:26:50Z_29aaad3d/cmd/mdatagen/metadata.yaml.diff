@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/metadata.yaml b/cmd/mdatagen/metadata.yaml
+index b2b4343d8..659ab4dcf 100644
+--- a/cmd/mdatagen/metadata.yaml
++++ b/cmd/mdatagen/metadata.yaml
+@@ -2,8 +2,9 @@ type: mdatagen
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: cmd
+   stability:
+     alpha: [metrics]
+   codeowners:
+-    active: [dmitryax]
+\ No newline at end of file
++    active: [dmitryax]

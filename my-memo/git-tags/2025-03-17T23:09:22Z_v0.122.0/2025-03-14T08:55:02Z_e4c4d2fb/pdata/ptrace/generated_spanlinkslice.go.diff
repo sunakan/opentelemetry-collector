@@ -1,0 +1,34 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice.go b/pdata/ptrace/generated_spanlinkslice.go
+index 164038b8b..79a8ad3bc 100644
+--- a/pdata/ptrace/generated_spanlinkslice.go
++++ b/pdata/ptrace/generated_spanlinkslice.go
+@@ -7,6 +7,7 @@
+ package ptrace
+ 
+ import (
++	"iter"
+ 	"sort"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -56,6 +57,21 @@ func (es SpanLinkSlice) At(i int) SpanLink {
+ 	return newSpanLink((*es.orig)[i], es.state)
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++//
++//	for i, v := range es.All() {
++//	    ... // Do something with index-value pair
++//	}
++func (es SpanLinkSlice) All() iter.Seq2[int, SpanLink] {
++	return func(yield func(int, SpanLink) bool) {
++		for i := 0; i < es.Len(); i++ {
++			if !yield(i, es.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // EnsureCapacity is an operation that ensures the slice has at least the specified capacity.
+ // 1. If the newCap <= cap then no change in capacity.
+ // 2. If the newCap > cap then the slice capacity will be expanded to equal newCap.

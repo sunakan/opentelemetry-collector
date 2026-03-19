@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender.go b/exporter/exporterhelper/retry_sender.go
+index 51828ba18..72c95f94d 100644
+--- a/exporter/exporterhelper/retry_sender.go
++++ b/exporter/exporterhelper/retry_sender.go
+@@ -100,7 +100,7 @@ func newRetrySender(id component.ID, rCfg RetrySettings, logger *zap.Logger, onT
+ 	}
+ }
+ 
+-func (rs *retrySender) shutdown(context.Context) error {
++func (rs *retrySender) Shutdown(context.Context) error {
+ 	close(rs.stopCh)
+ 	return nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index ba27a29a0..0796e4efe 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -73,7 +73,7 @@ func makeTraceServiceClient(t *testing.T, tc consumer.Traces) ptraceotlp.GRPCCli
+ 		require.NoError(t, cc.Close())
+ 	})
+ 
+-	return ptraceotlp.NewClient(cc)
++	return ptraceotlp.NewGRPCClient(cc)
+ }
+ 
+ func otlpReceiverOnGRPCServer(t *testing.T, tc consumer.Traces) net.Addr {

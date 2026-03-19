@@ -1,0 +1,13 @@
+diff --git a/config/config.go b/config/config.go
+index 50a6ae9a3..ccd5092a5 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -220,7 +220,7 @@ type Pipeline struct {
+ 	InputType  DataType
+ 	Receivers  []ComponentID
+ 	Processors []ComponentID
+-	Exporters  []string
++	Exporters  []ComponentID
+ }
+ 
+ // Pipelines is a map of names to Pipelines.

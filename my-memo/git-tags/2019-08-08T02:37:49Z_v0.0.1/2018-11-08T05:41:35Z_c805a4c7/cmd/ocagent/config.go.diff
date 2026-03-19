@@ -1,0 +1,12 @@
+diff --git a/cmd/ocagent/config.go b/cmd/ocagent/config.go
+index aa82ffcbf..719ecf375 100644
+--- a/cmd/ocagent/config.go
++++ b/cmd/ocagent/config.go
+@@ -203,6 +203,7 @@ func exportersFromYAMLConfig(config []byte) (traceExporters []exporter.TraceExpo
+ 		{name: "stackdriver", fn: exporterparser.StackdriverTraceExportersFromYAML},
+ 		{name: "zipkin", fn: exporterparser.ZipkinExportersFromYAML},
+ 		{name: "jaeger", fn: exporterparser.JaegerExportersFromYAML},
++		{name: "kafka", fn: exporterparser.KafkaExportersFromYAML},
+ 	}
+ 
+ 	for _, cfg := range parseFns {

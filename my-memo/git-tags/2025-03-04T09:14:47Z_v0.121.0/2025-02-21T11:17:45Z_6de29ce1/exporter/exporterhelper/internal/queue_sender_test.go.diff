@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 80edcc36d..927af0ad2 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -261,7 +261,7 @@ func TestQueueBatcherPersistentEnabled_NoDataLossOnShutdown(t *testing.T) {
+ }
+ 
+ func TestQueueBatcherNoStartShutdown(t *testing.T) {
+-	set := exportertest.NewNopSettingsWithType(exportertest.NopType)
++	set := exportertest.NewNopSettings(exportertest.NopType)
+ 	set.ID = exporterID
+ 	qSet := exporterqueue.Settings{
+ 		Signal:           pipeline.SignalTraces,

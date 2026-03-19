@@ -1,0 +1,20 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp.go b/receiver/otlpreceiver/internal/trace/otlp.go
+index f20e911df..f4e330720 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp.go
++++ b/receiver/otlpreceiver/internal/trace/otlp.go
+@@ -32,7 +32,6 @@ const (
+ 
+ // Receiver is the type used to handle spans from OpenTelemetry exporters.
+ type Receiver struct {
+-	id           config.ComponentID
+ 	nextConsumer consumer.Traces
+ 	obsrecv      *obsreport.Receiver
+ }
+@@ -40,7 +39,6 @@ type Receiver struct {
+ // New creates a new Receiver reference.
+ func New(id config.ComponentID, nextConsumer consumer.Traces) *Receiver {
+ 	return &Receiver{
+-		id:           id,
+ 		nextConsumer: nextConsumer,
+ 		obsrecv:      obsreport.NewReceiver(obsreport.ReceiverSettings{ReceiverID: id, Transport: receiverTransport}),
+ 	}

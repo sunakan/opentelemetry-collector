@@ -1,0 +1,13 @@
+diff --git a/receiver/nopreceiver/go.mod b/receiver/nopreceiver/go.mod
+index ab5a5d88d..99de794db 100644
+--- a/receiver/nopreceiver/go.mod
++++ b/receiver/nopreceiver/go.mod
+@@ -64,6 +64,8 @@ replace go.opentelemetry.io/collector/receiver => ../
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ 
++replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
++
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+ 
+ replace go.opentelemetry.io/collector => ../..

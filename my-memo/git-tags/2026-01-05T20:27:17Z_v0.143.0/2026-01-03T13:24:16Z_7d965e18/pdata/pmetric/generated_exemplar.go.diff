@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_exemplar.go b/pdata/pmetric/generated_exemplar.go
+index e0681f6d1..12c9984ab 100644
+--- a/pdata/pmetric/generated_exemplar.go
++++ b/pdata/pmetric/generated_exemplar.go
+@@ -95,9 +95,7 @@ func (ms Exemplar) SetDoubleValue(v float64) {
+ 	}
+ 	ov.AsDouble = v
+ 	ms.orig.Value = ov
+-}
+-
+-// IntValue returns the int associated with this Exemplar.
++} // IntValue returns the int associated with this Exemplar.
+ func (ms Exemplar) IntValue() int64 {
+ 	return ms.orig.GetAsInt()
+ }

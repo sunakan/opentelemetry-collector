@@ -1,0 +1,25 @@
+diff --git a/extension/ballastextension/config_test.go b/extension/ballastextension/config_test.go
+index 01b93ef4f..f61e15524 100644
+--- a/extension/ballastextension/config_test.go
++++ b/extension/ballastextension/config_test.go
+@@ -22,6 +22,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/confmap/confmaptest"
+ )
+@@ -41,9 +42,9 @@ func TestUnmarshalConfig(t *testing.T) {
+ 	assert.NoError(t, component.UnmarshalExtensionConfig(cm, cfg))
+ 	assert.Equal(t,
+ 		&Config{
+-			ExtensionConfigSettings: component.NewExtensionConfigSettings(component.NewID(typeStr)),
+-			SizeMiB:                 123,
+-			SizeInPercentage:        20,
++			ExtensionSettings: config.NewExtensionSettings(component.NewID(typeStr)),
++			SizeMiB:           123,
++			SizeInPercentage:  20,
+ 		}, cfg)
+ }
+ 

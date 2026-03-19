@@ -1,0 +1,36 @@
+diff --git a/internal/cmd/pdatagen/internal/typed_field.go b/internal/cmd/pdatagen/internal/typed_field.go
+index f4be66163..7f29c58b6 100644
+--- a/internal/cmd/pdatagen/internal/typed_field.go
++++ b/internal/cmd/pdatagen/internal/typed_field.go
+@@ -31,6 +31,19 @@ const typedSetTestTemplate = `tv.orig.{{ .originFieldName }} = {{ .testValue }}`
+ 
+ const typedCopyOrigTemplate = `dest.{{ .originFieldName }} = src.{{ .originFieldName }}`
+ 
++const typedMarshalJSONTemplate = `if ms.orig.{{ .originFieldName }} != {{ .defaultVal }} {
++		dest.WriteObjectField("{{ lowerFirst .originFieldName }}")
++		{{- if .isType }}
++		{{- if .isCommon }}
++		ms.orig.{{ .originFieldName }}.MarshalJSONStream(dest)
++		{{- else }}
++		ms.{{ .fieldName }}().marshalJSONStream(dest)
++		{{- end }}
++		{{- else }}
++		dest.Write{{ upperFirst .rawType }}(ms.orig.{{ .originFieldName }})
++		{{- end }}
++	}`
++
+ // TypedField is a field that has defined a custom type (e.g. "type Timestamp uint64")
+ type TypedField struct {
+ 	fieldName       string
+@@ -67,6 +80,11 @@ func (ptf *TypedField) GenerateCopyOrig(ms *messageStruct) string {
+ 	return executeTemplate(t, ptf.templateFields(ms))
+ }
+ 
++func (ptf *TypedField) GenerateMarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("typedMarshalJSONTemplate").Parse(typedMarshalJSONTemplate))
++	return executeTemplate(t, ptf.templateFields(ms))
++}
++
+ func (ptf *TypedField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName": ms.getName(),

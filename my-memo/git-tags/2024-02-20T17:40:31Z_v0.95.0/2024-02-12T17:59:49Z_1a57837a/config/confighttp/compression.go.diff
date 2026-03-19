@@ -1,0 +1,31 @@
+diff --git a/config/confighttp/compression.go b/config/confighttp/compression.go
+index c219a1bec..7330054f6 100644
+--- a/config/confighttp/compression.go
++++ b/config/confighttp/compression.go
+@@ -13,6 +13,7 @@ import (
+ 	"io"
+ 	"net/http"
+ 
++	"github.com/golang/snappy"
+ 	"github.com/klauspost/compress/zstd"
+ 
+ 	"go.opentelemetry.io/collector/config/configcompression"
+@@ -117,6 +118,18 @@ func httpContentDecompressor(h http.Handler, eh func(w http.ResponseWriter, r *h
+ 				}
+ 				return zr, nil
+ 			},
++			"snappy": func(body io.ReadCloser) (io.ReadCloser, error) {
++				sr := snappy.NewReader(body)
++				sb := new(bytes.Buffer)
++				_, err := io.Copy(sb, sr)
++				if err != nil {
++					return nil, err
++				}
++				if err = body.Close(); err != nil {
++					return nil, err
++				}
++				return io.NopCloser(sb), nil
++			},
+ 		},
+ 	}
+ 	d.decoders["deflate"] = d.decoders["zlib"]

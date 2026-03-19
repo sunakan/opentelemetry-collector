@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2_test.go b/translator/trace/zipkin/traces_to_zipkinv2_test.go
+index 5e1996c78..4f151335b 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2_test.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2_test.go
+@@ -35,7 +35,7 @@ func TestInternalTracesToZipkinSpans(t *testing.T) {
+ 	}{
+ 		{
+ 			name: "empty",
+-			td:   testdata.GenerateTraceDataEmpty(),
++			td:   pdata.NewTraces(),
+ 			err:  nil,
+ 		},
+ 		{

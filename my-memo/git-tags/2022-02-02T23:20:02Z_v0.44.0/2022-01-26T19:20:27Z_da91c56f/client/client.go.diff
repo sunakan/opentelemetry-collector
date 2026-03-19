@@ -1,0 +1,13 @@
+diff --git a/client/client.go b/client/client.go
+index ac1219f03..b5974e53a 100644
+--- a/client/client.go
++++ b/client/client.go
+@@ -131,6 +131,8 @@ type AuthData interface {
+ 	GetAttributeNames() []string
+ }
+ 
++const MetadataHostName = "Host"
++
+ // NewContext takes an existing context and derives a new context with the
+ // client.Info value stored on it.
+ func NewContext(ctx context.Context, c Info) context.Context {

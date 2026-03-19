@@ -1,0 +1,14 @@
+diff --git a/testbed/correctness/metrics/metric_diff_test.go b/testbed/correctness/metrics/metric_diff_test.go
+index a5a68585d..870ad9437 100644
+--- a/testbed/correctness/metrics/metric_diff_test.go
++++ b/testbed/correctness/metrics/metric_diff_test.go
+@@ -19,8 +19,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestSameMetrics(t *testing.T) {

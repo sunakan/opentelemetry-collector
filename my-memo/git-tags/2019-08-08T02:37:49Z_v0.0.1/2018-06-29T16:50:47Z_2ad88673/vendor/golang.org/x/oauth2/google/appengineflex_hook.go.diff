@@ -1,0 +1,17 @@
+diff --git a/vendor/golang.org/x/oauth2/google/appengineflex_hook.go b/vendor/golang.org/x/oauth2/google/appengineflex_hook.go
+new file mode 100644
+index 000000000..5d0231af2
+--- /dev/null
++++ b/vendor/golang.org/x/oauth2/google/appengineflex_hook.go
+@@ -0,0 +1,11 @@
++// Copyright 2015 The Go Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style
++// license that can be found in the LICENSE file.
++
++// +build appenginevm
++
++package google
++
++func init() {
++	appengineFlex = true // Flex doesn't support appengine.AccessToken; depend on metadata server.
++}

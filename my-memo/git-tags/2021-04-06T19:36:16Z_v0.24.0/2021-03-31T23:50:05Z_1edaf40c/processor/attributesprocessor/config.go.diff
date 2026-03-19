@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/config.go b/processor/attributesprocessor/config.go
+index 9ccda8f5e..73317b45a 100644
+--- a/processor/attributesprocessor/config.go
++++ b/processor/attributesprocessor/config.go
+@@ -28,7 +28,7 @@ import (
+ // This determines if a span is to be processed or not.
+ // The list of actions is applied in order specified in the configuration.
+ type Config struct {
+-	config.ProcessorSettings `mapstructure:",squash"`
++	*config.ProcessorSettings `mapstructure:"-"`
+ 
+ 	filterconfig.MatchConfig `mapstructure:",squash"`
+ 

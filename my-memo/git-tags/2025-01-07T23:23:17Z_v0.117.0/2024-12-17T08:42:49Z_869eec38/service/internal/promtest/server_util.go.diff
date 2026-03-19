@@ -1,0 +1,21 @@
+diff --git a/service/internal/promtest/server_util.go b/service/internal/promtest/server_util.go
+index b0122d9f7..0c7df35fd 100644
+--- a/service/internal/promtest/server_util.go
++++ b/service/internal/promtest/server_util.go
+@@ -13,12 +13,12 @@ import (
+ 	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+-func GetAvailableLocalIPv6AddressPrometheus(t testing.TB) *config.Prometheus {
+-	return addrToPrometheus(testutil.GetAvailableLocalIPv6Address(t))
++func GetAvailableLocalIPv6AddressPrometheus(tb testing.TB) *config.Prometheus {
++	return addrToPrometheus(testutil.GetAvailableLocalIPv6Address(tb))
+ }
+ 
+-func GetAvailableLocalAddressPrometheus(t testing.TB) *config.Prometheus {
+-	return addrToPrometheus(testutil.GetAvailableLocalAddress(t))
++func GetAvailableLocalAddressPrometheus(tb testing.TB) *config.Prometheus {
++	return addrToPrometheus(testutil.GetAvailableLocalAddress(tb))
+ }
+ 
+ func addrToPrometheus(address string) *config.Prometheus {

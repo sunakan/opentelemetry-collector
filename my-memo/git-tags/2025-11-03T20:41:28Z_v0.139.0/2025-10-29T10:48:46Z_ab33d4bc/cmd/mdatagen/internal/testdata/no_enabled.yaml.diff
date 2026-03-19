@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_enabled.yaml b/cmd/mdatagen/internal/testdata/no_enabled.yaml
+index ab1dfafed..c993152f3 100644
+--- a/cmd/mdatagen/internal/testdata/no_enabled.yaml
++++ b/cmd/mdatagen/internal/testdata/no_enabled.yaml
+@@ -10,6 +10,8 @@ status:
+ metrics:
+   system.cpu.time:
+     description: Total CPU seconds broken down by different states.
++    stability:
++      level: development
+     unit: s
+     sum:
+       value_type: double

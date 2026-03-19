@@ -1,0 +1,15 @@
+diff --git a/service/internal/proctelemetry/process_telemetry.go b/service/internal/proctelemetry/process_telemetry.go
+index 9f8f0874e..0b9787581 100644
+--- a/service/internal/proctelemetry/process_telemetry.go
++++ b/service/internal/proctelemetry/process_telemetry.go
+@@ -10,8 +10,8 @@ import (
+ 	"sync"
+ 	"time"
+ 
+-	"github.com/shirou/gopsutil/v3/common"
+-	"github.com/shirou/gopsutil/v3/process"
++	"github.com/shirou/gopsutil/v4/common"
++	"github.com/shirou/gopsutil/v4/process"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/service/internal/metadata"

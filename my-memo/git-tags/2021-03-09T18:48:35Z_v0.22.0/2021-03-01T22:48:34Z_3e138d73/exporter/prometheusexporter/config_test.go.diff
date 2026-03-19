@@ -1,0 +1,21 @@
+diff --git a/exporter/prometheusexporter/config_test.go b/exporter/prometheusexporter/config_test.go
+index db7ae836b..f10832d0e 100644
+--- a/exporter/prometheusexporter/config_test.go
++++ b/exporter/prometheusexporter/config_test.go
+@@ -17,6 +17,7 @@ package prometheusexporter
+ import (
+ 	"path"
+ 	"testing"
++	"time"
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+@@ -53,6 +54,7 @@ func TestLoadConfig(t *testing.T) {
+ 				"label1":        "value1",
+ 				"another label": "spaced value",
+ 			},
+-			SendTimestamps: true,
++			SendTimestamps:   true,
++			MetricExpiration: 60 * time.Minute,
+ 		})
+ }

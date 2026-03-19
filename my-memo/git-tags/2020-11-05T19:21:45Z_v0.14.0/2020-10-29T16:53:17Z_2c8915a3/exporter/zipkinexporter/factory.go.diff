@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/factory.go b/exporter/zipkinexporter/factory.go
+index d65a7d77c..0e91d2e27 100644
+--- a/exporter/zipkinexporter/factory.go
++++ b/exporter/zipkinexporter/factory.go
+@@ -66,7 +66,7 @@ func createTraceExporter(
+ 	_ context.Context,
+ 	params component.ExporterCreateParams,
+ 	cfg configmodels.Exporter,
+-) (component.TraceExporter, error) {
++) (component.TracesExporter, error) {
+ 	zc := cfg.(*Config)
+ 
+ 	if zc.Endpoint == "" {

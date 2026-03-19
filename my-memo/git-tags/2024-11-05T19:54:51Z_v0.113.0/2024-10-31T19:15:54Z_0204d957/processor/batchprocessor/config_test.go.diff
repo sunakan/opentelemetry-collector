@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/config_test.go b/processor/batchprocessor/config_test.go
+index 38bb1e0c3..40b87def7 100644
+--- a/processor/batchprocessor/config_test.go
++++ b/processor/batchprocessor/config_test.go
+@@ -51,7 +51,6 @@ func TestValidateConfig_ValidBatchSizes(t *testing.T) {
+ 		SendBatchMaxSize: 1000,
+ 	}
+ 	assert.NoError(t, cfg.Validate())
+-
+ }
+ 
+ func TestValidateConfig_InvalidBatchSize(t *testing.T) {

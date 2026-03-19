@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 62db332d2..25c482267 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -530,7 +530,7 @@ func TestOTLPReceiverTrace_HandleNextConsumerResponse(t *testing.T) {
+ 
+ 				require.Equal(t, test.expectedReceivedBatches, len(sink.AllTraces()))
+ 
+-				require.NoError(t, obsreporttest.CheckReceiverTraces(config.NewComponentIDWithName(typeStr, exporter.receiverTag), "grpc", int64(test.expectedReceivedBatches), int64(test.expectedIngestionBlockedRPCs)))
++				require.NoError(t, obsreporttest.CheckReceiverTraces(tt, config.NewComponentIDWithName(typeStr, exporter.receiverTag), "grpc", int64(test.expectedReceivedBatches), int64(test.expectedIngestionBlockedRPCs)))
+ 			})
+ 		}
+ 	}

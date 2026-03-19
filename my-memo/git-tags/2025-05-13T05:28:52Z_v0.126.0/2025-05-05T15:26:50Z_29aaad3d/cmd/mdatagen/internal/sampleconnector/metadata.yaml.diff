@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/metadata.yaml b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+index f5a215ede..1e24520e6 100644
+--- a/cmd/mdatagen/internal/sampleconnector/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+@@ -6,6 +6,7 @@ github_project: open-telemetry/opentelemetry-collector
+ sem_conv_version: 1.9.0
+ 
+ status:
++  disable_codecov_badge: true
+   class: connector
+   stability:
+     development: [metrics_to_metrics]

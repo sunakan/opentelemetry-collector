@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/retry_sender.go b/exporter/exporterhelper/internal/retry_sender.go
+index 2aaf3fd98..8a565bf05 100644
+--- a/exporter/exporterhelper/internal/retry_sender.go
++++ b/exporter/exporterhelper/internal/retry_sender.go
+@@ -133,7 +133,7 @@ func (rs *retrySender) Send(ctx context.Context, req internal.Request) error {
+ 		// back-off, but get interrupted when shutting down or request is cancelled or timed out.
+ 		select {
+ 		case <-ctx.Done():
+-			return fmt.Errorf("request is cancelled or timed out %w", err)
++			return fmt.Errorf("request is cancelled or timed out: %w", err)
+ 		case <-rs.stopCh:
+ 			return experr.NewShutdownErr(err)
+ 		case <-time.After(backoffDelay):

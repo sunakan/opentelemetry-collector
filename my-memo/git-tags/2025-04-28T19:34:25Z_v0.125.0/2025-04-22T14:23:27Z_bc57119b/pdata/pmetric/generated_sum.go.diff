@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_sum.go b/pdata/pmetric/generated_sum.go
+index 7def0749a..b3b7361d1 100644
+--- a/pdata/pmetric/generated_sum.go
++++ b/pdata/pmetric/generated_sum.go
+@@ -41,6 +41,10 @@ func NewSum() Sum {
+ func (ms Sum) MoveTo(dest Sum) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpmetrics.Sum{}
+ }

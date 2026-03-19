@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory_test.go
+index f80b3e1ba..7d2712f02 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory_test.go
+@@ -40,7 +40,7 @@ func TestCreateMetricsScraper(t *testing.T) {
+ 
+ func TestCreateMetricsScraper_Error(t *testing.T) {
+ 	factory := &Factory{}
+-	cfg := &Config{Include: MatchConfig{Devices: []string{""}}}
++	cfg := &Config{IncludeDevices: DeviceMatchConfig{Devices: []string{""}}}
+ 
+ 	_, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg)
+ 

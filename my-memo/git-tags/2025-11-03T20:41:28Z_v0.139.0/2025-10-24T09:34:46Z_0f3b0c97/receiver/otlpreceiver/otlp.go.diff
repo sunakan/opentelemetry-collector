@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/otlp.go b/receiver/otlpreceiver/otlp.go
+index 7f06b8977..907e6a0c5 100644
+--- a/receiver/otlpreceiver/otlp.go
++++ b/receiver/otlpreceiver/otlp.go
+@@ -19,7 +19,6 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/xconsumer"
+ 	"go.opentelemetry.io/collector/internal/telemetry"
+-	"go.opentelemetry.io/collector/internal/telemetry/componentattribute"
+ 	"go.opentelemetry.io/collector/pdata/plog/plogotlp"
+ 	"go.opentelemetry.io/collector/pdata/pmetric/pmetricotlp"
+ 	"go.opentelemetry.io/collector/pdata/pprofile/pprofileotlp"
+@@ -54,7 +53,7 @@ type otlpReceiver struct {
+ // responsibility to invoke the respective Start*Reception methods as well
+ // as the various Stop*Reception methods to end it.
+ func newOtlpReceiver(cfg *Config, set *receiver.Settings) (*otlpReceiver, error) {
+-	set.TelemetrySettings = telemetry.WithoutAttributes(set.TelemetrySettings, componentattribute.SignalKey)
++	set.TelemetrySettings = telemetry.DropInjectedAttributes(set.TelemetrySettings, telemetry.SignalKey)
+ 	set.Logger.Debug("created signal-agnostic logger")
+ 	r := &otlpReceiver{
+ 		cfg:          cfg,

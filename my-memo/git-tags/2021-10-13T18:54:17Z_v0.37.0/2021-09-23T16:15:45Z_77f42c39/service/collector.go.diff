@@ -1,0 +1,13 @@
+diff --git a/service/collector.go b/service/collector.go
+index 8a473964f..33b2a55f2 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -93,7 +93,7 @@ func New(set CollectorSettings) (*Collector, error) {
+ 
+ 	if set.ConfigMapProvider == nil {
+ 		// use default provider.
+-		set.ConfigMapProvider = parserprovider.Default()
++		set.ConfigMapProvider = parserprovider.NewDefaultMapProvider()
+ 	}
+ 
+ 	if set.ConfigUnmarshaler == nil {

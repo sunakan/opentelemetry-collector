@@ -1,0 +1,17 @@
+diff --git a/service/internal/builders/processor.go b/service/internal/builders/processor.go
+index c0df0f3b5..8e19bed3e 100644
+--- a/service/internal/builders/processor.go
++++ b/service/internal/builders/processor.go
+@@ -116,10 +116,10 @@ func (b *ProcessorBuilder) Factory(componentType component.Type) component.Facto
+ func NewNopProcessorConfigsAndFactories() (map[component.ID]component.Config, map[component.Type]processor.Factory) {
+ 	nopFactory := processortest.NewNopFactory()
+ 	configs := map[component.ID]component.Config{
+-		component.NewID(nopType): nopFactory.CreateDefaultConfig(),
++		component.NewID(NopType): nopFactory.CreateDefaultConfig(),
+ 	}
+ 	factories := map[component.Type]processor.Factory{
+-		nopType: nopFactory,
++		NopType: nopFactory,
+ 	}
+ 
+ 	return configs, factories

@@ -1,0 +1,16 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+index 0d518d97e..758991b84 100644
+--- a/examples/demo/otel-collector-config.yaml
++++ b/examples/demo/otel-collector-config.yaml
+@@ -1,6 +1,5 @@
+ receivers:
+   opencensus:
+-    endpoint: 0.0.0.0:55678
+ 
+ exporters:
+   prometheus:
+@@ -45,4 +44,3 @@ service:
+     metrics:
+       receivers: [opencensus]
+       exporters: [logging,prometheus]
+-

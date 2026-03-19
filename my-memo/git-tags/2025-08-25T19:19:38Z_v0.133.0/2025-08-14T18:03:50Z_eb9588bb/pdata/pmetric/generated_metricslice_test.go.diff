@@ -1,0 +1,16 @@
+diff --git a/pdata/pmetric/generated_metricslice_test.go b/pdata/pmetric/generated_metricslice_test.go
+index 0639a20d3..af8d09a7e 100644
+--- a/pdata/pmetric/generated_metricslice_test.go
++++ b/pdata/pmetric/generated_metricslice_test.go
+@@ -117,9 +117,9 @@ func TestMetricSlice_RemoveIf(t *testing.T) {
+ 	pos := 0
+ 	filtered.RemoveIf(func(el Metric) bool {
+ 		pos++
+-		return pos%3 == 0
++		return pos%2 == 1
+ 	})
+-	assert.Equal(t, 5, filtered.Len())
++	assert.Equal(t, 2, filtered.Len())
+ }
+ 
+ func TestMetricSlice_RemoveIfAll(t *testing.T) {

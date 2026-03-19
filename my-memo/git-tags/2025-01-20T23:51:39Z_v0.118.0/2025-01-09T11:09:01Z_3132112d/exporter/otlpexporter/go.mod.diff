@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 128e6d66b..89f3f0f14 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -153,10 +153,6 @@ replace go.opentelemetry.io/collector/extension/extensiontest => ../../extension
+ 
+ replace go.opentelemetry.io/collector/extension/auth/authtest => ../../extension/auth/authtest
+ 
+-replace go.opentelemetry.io/collector/scraper => ../../scraper
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+-replace go.opentelemetry.io/collector/scraper/scraperhelper => ../../scraper/scraperhelper
+-
+ replace go.opentelemetry.io/collector/extension/xextension => ../../extension/xextension

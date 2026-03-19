@@ -1,0 +1,21 @@
+diff --git a/service/service.go b/service/service.go
+index 4841b890c..cb9e3c279 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -35,6 +35,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/config"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/internal/collector/telemetry"
+ 	"github.com/open-telemetry/opentelemetry-collector/service/builder"
+ )
+ 
+@@ -146,7 +147,7 @@ func New(params Parameters) (*Application, error) {
+ 	// TODO: coalesce this code and expose this information to other components.
+ 	flagSet := new(flag.FlagSet)
+ 	addFlagsFns := []func(*flag.FlagSet){
+-		telemetryFlags,
++		telemetry.Flags,
+ 		builder.Flags,
+ 		loggerFlags,
+ 	}

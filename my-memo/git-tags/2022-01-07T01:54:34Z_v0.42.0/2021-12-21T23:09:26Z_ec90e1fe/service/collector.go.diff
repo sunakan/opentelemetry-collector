@@ -1,0 +1,15 @@
+diff --git a/service/collector.go b/service/collector.go
+index 6b9e4017a..a7e76ea57 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -85,10 +85,6 @@ type Collector struct {
+ 
+ // New creates and returns a new instance of Collector.
+ func New(set CollectorSettings) (*Collector, error) {
+-	if err := validateConfigFromFactories(set.Factories); err != nil {
+-		return nil, err
+-	}
+-
+ 	if set.ConfigProvider == nil {
+ 		return nil, errors.New("invalid nil config provider")
+ 	}

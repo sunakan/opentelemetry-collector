@@ -1,0 +1,12 @@
+diff --git a/service/builder/testdata/pipelines_builder.yaml b/service/builder/testdata/pipelines_builder.yaml
+index b303bb9bd..d7e0eeed2 100644
+--- a/service/builder/testdata/pipelines_builder.yaml
++++ b/service/builder/testdata/pipelines_builder.yaml
+@@ -38,3 +38,7 @@ service:
+     metrics/3:
+       receivers: [examplereceiver/3]
+       exporters: [exampleexporter/2]
++
++    logs:
++      receivers: [examplereceiver/3]
++      exporters: [exampleexporter/2]

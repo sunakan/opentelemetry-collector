@@ -1,0 +1,12 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index c979e389b..a8ca378c1 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -390,6 +390,7 @@ func zipkinSpanToTraceSpan(zs *zipkinmodel.SpanModel) (*tracepb.Span, *commonpb.
+ 	}
+ 
+ 	node := nodeFromZipkinEndpoints(zs, pbs)
++	zipkin.SetTimestampsIfUnset(pbs)
+ 
+ 	return pbs, node
+ }

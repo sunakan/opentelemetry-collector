@@ -1,0 +1,53 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index ac598618e..25d933e59 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -30,7 +30,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/configopaque"
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/extension/extensionauth"
+-	"go.opentelemetry.io/collector/extension/extensionauth/extensionauthtest"
+ 	"go.opentelemetry.io/collector/pdata/ptrace/ptraceotlp"
+ )
+ 
+@@ -41,6 +40,13 @@ func mustNewServerAuth(t *testing.T, opts ...extensionauth.ServerOption) extensi
+ 	return srv
+ }
+ 
++func mustNewClientAuth(t *testing.T, opts ...extensionauth.ClientOption) extensionauth.Client {
++	t.Helper()
++	client, err := extensionauth.NewClient(opts...)
++	require.NoError(t, err)
++	return client
++}
++
+ func TestNewDefaultKeepaliveClientConfig(t *testing.T) {
+ 	expectedKeepaliveClientConfig := &KeepaliveClientConfig{
+ 		Time:    time.Second * 10,
+@@ -171,7 +177,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 			},
+ 			host: &mockHost{
+ 				ext: map[component.ID]component.Component{
+-					testAuthID: &extensionauthtest.MockClient{},
++					testAuthID: mustNewClientAuth(t),
+ 				},
+ 			},
+ 		},
+@@ -200,7 +206,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 			},
+ 			host: &mockHost{
+ 				ext: map[component.ID]component.Component{
+-					testAuthID: &extensionauthtest.MockClient{},
++					testAuthID: mustNewClientAuth(t),
+ 				},
+ 			},
+ 		},
+@@ -229,7 +235,7 @@ func TestAllGrpcClientSettings(t *testing.T) {
+ 			},
+ 			host: &mockHost{
+ 				ext: map[component.ID]component.Component{
+-					testAuthID: &extensionauthtest.MockClient{},
++					testAuthID: mustNewClientAuth(t),
+ 				},
+ 			},
+ 		},

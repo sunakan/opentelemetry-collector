@@ -1,0 +1,17 @@
+diff --git a/pkg/configv2/testdata/unknown-processor-type.yaml b/pkg/configv2/testdata/unknown-processor-type.yaml
+new file mode 100644
+index 000000000..56dec81c1
+--- /dev/null
++++ b/pkg/configv2/testdata/unknown-processor-type.yaml
+@@ -0,0 +1,11 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  nosuchprocessor:
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

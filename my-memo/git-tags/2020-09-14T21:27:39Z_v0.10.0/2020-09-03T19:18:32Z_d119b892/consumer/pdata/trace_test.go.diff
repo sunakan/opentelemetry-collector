@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/trace_test.go b/consumer/pdata/trace_test.go
+index 514fc6801..f2e2f5438 100644
+--- a/consumer/pdata/trace_test.go
++++ b/consumer/pdata/trace_test.go
+@@ -70,7 +70,7 @@ func TestSize(t *testing.T) {
+ 	assert.Equal(t, sizeBytes, md.Size())
+ }
+ 
+-func TestSizeWithNils(t *testing.T) {
++func TestTracesSizeWithNils(t *testing.T) {
+ 	assert.Equal(t, 0, TracesFromOtlp([]*otlptrace.ResourceSpans{nil, {}}).Size())
+ }
+ 

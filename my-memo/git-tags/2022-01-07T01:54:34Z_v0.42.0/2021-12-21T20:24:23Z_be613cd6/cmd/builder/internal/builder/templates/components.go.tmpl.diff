@@ -1,0 +1,83 @@
+diff --git a/cmd/builder/internal/builder/templates/components.go.tmpl b/cmd/builder/internal/builder/templates/components.go.tmpl
+index 7ba2604bb..f98b1dd74 100644
+--- a/cmd/builder/internal/builder/templates/components.go.tmpl
++++ b/cmd/builder/internal/builder/templates/components.go.tmpl
+@@ -4,34 +4,24 @@ package main
+ 
+ import (
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/consumererror"
+-	{{- if .Distribution.IncludeCore}}
+-	"go.opentelemetry.io/collector/service/defaultcomponents"
++	{{- range .Exporters}}
++	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+-
+-	// extensions
+ 	{{- range .Extensions}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+-
+-	// receivers
+-	{{- range .Receivers}}
++	{{- range .Processors}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+-
+-	// exporters
+-	{{- range .Exporters}}
++	{{- range .Receivers}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+-
+-	// processors
+-	{{- range .Processors}}
+-	{{.Name}} "{{.Import}}"
++	{{- if .Distribution.IncludeCore}}
++	"go.opentelemetry.io/collector/service/defaultcomponents"
+ 	{{- end}}
+ )
+ 
+ func components() (component.Factories, error) {
+-	var errs []error
+ 	var err error
+ 	var factories component.Factories
+ 
+@@ -54,7 +44,7 @@ func components() (component.Factories, error) {
+ 	}
+ 	factories.Extensions, err = component.MakeExtensionFactoryMap(extensions...)
+ 	if err != nil {
+-		errs = append(errs, err)
++		return component.Factories{}, err
+ 	}
+ 
+ 	receivers := []component.ReceiverFactory{
+@@ -67,7 +57,7 @@ func components() (component.Factories, error) {
+ 	}
+ 	factories.Receivers, err = component.MakeReceiverFactoryMap(receivers...)
+ 	if err != nil {
+-		errs = append(errs, err)
++		return component.Factories{}, err
+ 	}
+ 
+ 	exporters := []component.ExporterFactory{
+@@ -80,7 +70,7 @@ func components() (component.Factories, error) {
+ 	}
+ 	factories.Exporters, err = component.MakeExporterFactoryMap(exporters...)
+ 	if err != nil {
+-		errs = append(errs, err)
++		return component.Factories{}, err
+ 	}
+ 
+ 	processors := []component.ProcessorFactory{
+@@ -93,8 +83,8 @@ func components() (component.Factories, error) {
+ 	}
+ 	factories.Processors, err = component.MakeProcessorFactoryMap(processors...)
+ 	if err != nil {
+-		errs = append(errs, err)
++		return component.Factories{}, err
+ 	}
+ 
+-	return factories, consumererror.Combine(errs)
++	return factories, nil
+ }

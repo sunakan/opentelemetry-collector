@@ -1,0 +1,13 @@
+diff --git a/service/zpages.go b/service/zpages.go
+index 669070f22..3c615b2b8 100644
+--- a/service/zpages.go
++++ b/service/zpages.go
+@@ -71,7 +71,7 @@ func handleFeaturezRequest(w http.ResponseWriter, r *http.Request) {
+ 
+ func getFeaturesTableData() zpages.FeatureGateTableData {
+ 	data := zpages.FeatureGateTableData{}
+-	featuregate.GlobalRegistry().Visit(func(gate *featuregate.Gate) {
++	featuregate.GlobalRegistry().VisitAll(func(gate *featuregate.Gate) {
+ 		data.Rows = append(data.Rows, zpages.FeatureGateTableRowData{
+ 			ID:             gate.ID(),
+ 			Enabled:        gate.IsEnabled(),

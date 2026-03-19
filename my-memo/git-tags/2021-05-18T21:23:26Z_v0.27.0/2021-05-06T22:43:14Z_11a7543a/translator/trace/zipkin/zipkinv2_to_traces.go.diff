@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 79bd78f40..dd257c626 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -347,7 +347,7 @@ func tagsToAttributeMap(tags map[string]string, dest pdata.AttributeMap, parseSt
+ 		}
+ 
+ 		if parseStringTags {
+-			switch tracetranslator.DetermineValueType(val) {
++			switch determineValueType(val) {
+ 			case pdata.AttributeValueINT:
+ 				iValue, _ := strconv.ParseInt(val, 10, 64)
+ 				dest.UpsertInt(key, iValue)

@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_valuetypeslice.go b/pdata/pprofile/generated_valuetypeslice.go
+index 226316b01..16bda9d57 100644
+--- a/pdata/pprofile/generated_valuetypeslice.go
++++ b/pdata/pprofile/generated_valuetypeslice.go
+@@ -149,6 +149,9 @@ func (es ValueTypeSlice) RemoveIf(f func(ValueType) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ValueTypeSlice) CopyTo(dest ValueTypeSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigValueTypeSlice(*dest.orig, *es.orig)
+ }
+ 

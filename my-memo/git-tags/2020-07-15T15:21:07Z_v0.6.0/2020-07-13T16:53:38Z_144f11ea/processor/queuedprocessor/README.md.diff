@@ -1,0 +1,12 @@
+diff --git a/processor/queuedprocessor/README.md b/processor/queuedprocessor/README.md
+index ad80fbf58..f300c8582 100644
+--- a/processor/queuedprocessor/README.md
++++ b/processor/queuedprocessor/README.md
+@@ -1,6 +1,6 @@
+ # Queued Retry Processor
+ 
+-Supported pipeline types: traces
++Supported pipeline types: metrics, traces
+ 
+ The queued retry processor uses a bounded queue to relay batches from the receiver
+ or previous processor to the next processor. Received data is enqueued immediately

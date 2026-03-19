@@ -1,0 +1,22 @@
+diff --git a/processor/fanoutconnector_test.go b/processor/fanoutconnector_test.go
+index fe1493e61..24d7f54c8 100644
+--- a/processor/fanoutconnector_test.go
++++ b/processor/fanoutconnector_test.go
+@@ -167,7 +167,7 @@ func TestCreateTraceFanOutConnectorWithConvertion(t *testing.T) {
+ 
+ 	td := data.NewTraceData()
+ 	td.SetResourceSpans(data.NewResourceSpansSlice(1))
+-	td.ResourceSpans().Get(0).InitResourceIfNil()
++	td.ResourceSpans().Get(0).Resource().InitEmpty()
+ 	td.ResourceSpans().Get(0).Resource().SetAttributes(data.NewAttributeMap(data.AttributesMap{
+ 		conventions.OCAttributeResourceType: data.NewAttributeValueString(resourceTypeName),
+ 	}))
+@@ -206,7 +206,7 @@ func TestCreateMetricsFanOutConnectorWithConvertion(t *testing.T) {
+ 	rms := data.NewResourceMetricsSlice(1)
+ 	md.SetResourceMetrics(rms)
+ 	rm := rms.Get(0)
+-	rm.InitResourceIfNil()
++	rm.Resource().InitEmpty()
+ 	rm.Resource().SetAttributes(data.NewAttributeMap(data.AttributesMap{
+ 		conventions.OCAttributeResourceType: data.NewAttributeValueString(resourceTypeName),
+ 	}))

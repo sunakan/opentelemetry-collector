@@ -1,0 +1,32 @@
+diff --git a/consumer/pdata/log_test.go b/consumer/pdata/log_test.go
+index e4eb098fb..7f6d40675 100644
+--- a/consumer/pdata/log_test.go
++++ b/consumer/pdata/log_test.go
+@@ -17,9 +17,11 @@ package pdata
+ import (
+ 	"testing"
+ 
++	gogoproto "github.com/gogo/protobuf/proto"
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/internal"
++	otlpcollectorlogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/logs/v1"
+ 	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
+ )
+ 
+@@ -70,3 +72,15 @@ func TestToFromLogProto(t *testing.T) {
+ 	assert.EqualValues(t, NewLogs(), td)
+ 	assert.EqualValues(t, otlp, *td.orig)
+ }
++
++func TestLogs_ToOtlpProtoBytes(t *testing.T) {
++	otlp := []*otlplogs.ResourceLogs(nil)
++	ld := LogsFromInternalRep(internal.LogsFromOtlp(otlp))
++	bytes, err := ld.ToOtlpProtoBytes()
++	assert.Nil(t, err)
++
++	elsr := otlpcollectorlogs.ExportLogsServiceRequest{}
++	err = gogoproto.Unmarshal(bytes, &elsr)
++	assert.Nil(t, err)
++	assert.EqualValues(t, elsr.ResourceLogs, *ld.orig)
++}

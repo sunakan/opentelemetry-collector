@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+index 3d10a69fe..9356d627b 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/shirou/gopsutil/mem"
+ 	"go.opencensus.io/trace"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // scraper for Memory Metrics

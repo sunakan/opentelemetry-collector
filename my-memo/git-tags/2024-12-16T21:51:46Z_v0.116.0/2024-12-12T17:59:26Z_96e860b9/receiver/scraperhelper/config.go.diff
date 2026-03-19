@@ -1,0 +1,15 @@
+diff --git a/receiver/scraperhelper/config.go b/receiver/scraperhelper/config.go
+index 84b7cd207..31f181aa9 100644
+--- a/receiver/scraperhelper/config.go
++++ b/receiver/scraperhelper/config.go
+@@ -11,9 +11,7 @@ import (
+ 	"go.uber.org/multierr"
+ )
+ 
+-var (
+-	errNonPositiveInterval = errors.New("requires positive value")
+-)
++var errNonPositiveInterval = errors.New("requires positive value")
+ 
+ // ControllerConfig defines common settings for a scraper controller
+ // configuration. Scraper controller receivers can embed this struct, instead

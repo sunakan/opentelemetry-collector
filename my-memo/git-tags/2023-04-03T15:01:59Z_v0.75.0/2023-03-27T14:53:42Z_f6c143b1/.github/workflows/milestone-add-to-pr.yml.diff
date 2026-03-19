@@ -1,0 +1,22 @@
+diff --git a/.github/workflows/milestone-add-to-pr.yml b/.github/workflows/milestone-add-to-pr.yml
+index d33e0c808..bebe064b5 100644
+--- a/.github/workflows/milestone-add-to-pr.yml
++++ b/.github/workflows/milestone-add-to-pr.yml
+@@ -3,7 +3,7 @@
+ 
+ name: 'Project: Add PR to Milestone'
+ on:
+-  pull_request:
++  pull_request_target:
+     types:
+       - closed
+ 
+@@ -13,8 +13,6 @@ jobs:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/github-script@v6
+-        env:
+-          GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}
+         with:
+           script: |
+             const milestones = await github.rest.issues.listMilestones({

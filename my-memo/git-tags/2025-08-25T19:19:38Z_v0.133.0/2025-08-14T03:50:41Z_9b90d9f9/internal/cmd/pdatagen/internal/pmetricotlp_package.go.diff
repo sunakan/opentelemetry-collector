@@ -1,0 +1,25 @@
+diff --git a/internal/cmd/pdatagen/internal/pmetricotlp_package.go b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+index 3589db109..79b561974 100644
+--- a/internal/cmd/pdatagen/internal/pmetricotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+@@ -13,6 +13,7 @@ var pmetricotlp = &Package{
+ 		path: filepath.Join("pmetric", "pmetricotlp"),
+ 		imports: []string{
+ 			`"encoding/binary"`,
++			`"fmt"`,
+ 			`"iter"`,
+ 			`"math"`,
+ 			`"sort"`,
+@@ -23,8 +24,12 @@ var pmetricotlp = &Package{
+ 			`"testing"`,
+ 			``,
+ 			`"github.com/stretchr/testify/assert"`,
++			`"github.com/stretchr/testify/require"`,
++			`"google.golang.org/protobuf/proto"`,
++			`gootlpcollectormetrics "go.opentelemetry.io/proto/slim/otlp/collector/metrics/v1"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,
++			`otlpcollectormetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/metrics/v1"`,
+ 		},
+ 	},
+ 	structs: []baseStruct{

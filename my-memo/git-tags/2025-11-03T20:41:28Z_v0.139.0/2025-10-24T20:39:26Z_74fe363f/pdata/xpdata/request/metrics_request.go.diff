@@ -1,0 +1,13 @@
+diff --git a/pdata/xpdata/request/metrics_request.go b/pdata/xpdata/request/metrics_request.go
+index b4796da52..7de12601d 100644
+--- a/pdata/xpdata/request/metrics_request.go
++++ b/pdata/xpdata/request/metrics_request.go
+@@ -14,7 +14,7 @@ import (
+ 
+ // MarshalMetrics marshals pmetric.Metrics along with the context into a byte slice.
+ func MarshalMetrics(ctx context.Context, ld pmetric.Metrics) ([]byte, error) {
+-	otlpMetrics := internal.MetricsToProto(internal.Metrics(ld))
++	otlpMetrics := internal.MetricsToProto(internal.MetricsWrapper(ld))
+ 	rc := encodeContext(ctx)
+ 	mr := reqint.MetricsRequest{
+ 		FormatVersion:  requestFormatVersion,

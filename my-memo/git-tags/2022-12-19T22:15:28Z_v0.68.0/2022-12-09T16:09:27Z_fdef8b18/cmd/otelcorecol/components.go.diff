@@ -1,0 +1,21 @@
+diff --git a/cmd/otelcorecol/components.go b/cmd/otelcorecol/components.go
+index 2f3ae51b4..f41d1f385 100644
+--- a/cmd/otelcorecol/components.go
++++ b/cmd/otelcorecol/components.go
+@@ -11,6 +11,7 @@ import (
+ 	"go.opentelemetry.io/collector/extension"
+ 	ballastextension "go.opentelemetry.io/collector/extension/ballastextension"
+ 	zpagesextension "go.opentelemetry.io/collector/extension/zpagesextension"
++	"go.opentelemetry.io/collector/processor"
+ 	batchprocessor "go.opentelemetry.io/collector/processor/batchprocessor"
+ 	memorylimiterprocessor "go.opentelemetry.io/collector/processor/memorylimiterprocessor"
+ 	"go.opentelemetry.io/collector/receiver"
+@@ -45,7 +46,7 @@ func components() (component.Factories, error) {
+ 		return component.Factories{}, err
+ 	}
+ 
+-	factories.Processors, err = component.MakeProcessorFactoryMap(
++	factories.Processors, err = processor.MakeFactoryMap(
+ 		batchprocessor.NewFactory(),
+ 		memorylimiterprocessor.NewFactory(),
+ 	)

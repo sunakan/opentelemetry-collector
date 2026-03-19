@@ -1,0 +1,31 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index 396038e5f..0f71b0e37 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -110,7 +110,7 @@ func TestMetricsMemoryPressureResponse(t *testing.T) {
+ 		readMemStatsFn: func(ms *runtime.MemStats) {
+ 			ms.Alloc = currentMemAlloc
+ 		},
+-		obsrep: obsreport.NewProcessorObsReport(configtelemetry.LevelNone, ""),
++		obsrep: obsreport.NewProcessor(configtelemetry.LevelNone, ""),
+ 		logger: zap.NewNop(),
+ 	}
+ 	mp, err := processorhelper.NewMetricsProcessor(
+@@ -181,7 +181,7 @@ func TestTraceMemoryPressureResponse(t *testing.T) {
+ 		readMemStatsFn: func(ms *runtime.MemStats) {
+ 			ms.Alloc = currentMemAlloc
+ 		},
+-		obsrep: obsreport.NewProcessorObsReport(configtelemetry.LevelNone, ""),
++		obsrep: obsreport.NewProcessor(configtelemetry.LevelNone, ""),
+ 		logger: zap.NewNop(),
+ 	}
+ 	tp, err := processorhelper.NewTraceProcessor(
+@@ -252,7 +252,7 @@ func TestLogMemoryPressureResponse(t *testing.T) {
+ 		readMemStatsFn: func(ms *runtime.MemStats) {
+ 			ms.Alloc = currentMemAlloc
+ 		},
+-		obsrep: obsreport.NewProcessorObsReport(configtelemetry.LevelNone, ""),
++		obsrep: obsreport.NewProcessor(configtelemetry.LevelNone, ""),
+ 		logger: zap.NewNop(),
+ 	}
+ 	lp, err := processorhelper.NewLogsProcessor(

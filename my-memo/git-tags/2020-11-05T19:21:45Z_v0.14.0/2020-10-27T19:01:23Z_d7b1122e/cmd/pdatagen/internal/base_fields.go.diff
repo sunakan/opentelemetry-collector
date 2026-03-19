@@ -1,0 +1,16 @@
+diff --git a/cmd/pdatagen/internal/base_fields.go b/cmd/pdatagen/internal/base_fields.go
+index c1f6868a3..43d17aaa2 100644
+--- a/cmd/pdatagen/internal/base_fields.go
++++ b/cmd/pdatagen/internal/base_fields.go
+@@ -48,9 +48,9 @@ func (ms ${structName}) ${fieldName}() ${returnType} {
+ const accessorsMessageTestTemplate = `func Test${structName}_${fieldName}(t *testing.T) {
+ 	ms := New${structName}()
+ 	ms.InitEmpty()
+-	assert.EqualValues(t, true, ms.${fieldName}().IsNil())
++	assert.True(t, ms.${fieldName}().IsNil())
+ 	ms.${fieldName}().InitEmpty()
+-	assert.EqualValues(t, false, ms.${fieldName}().IsNil())
++	assert.False(t, ms.${fieldName}().IsNil())
+ 	fillTest${returnType}(ms.${fieldName}())
+ 	assert.EqualValues(t, generateTest${returnType}(), ms.${fieldName}())
+ }`

@@ -1,0 +1,29 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index 302f6ab85..1160f7f28 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/oterr"
+-	"github.com/open-telemetry/opentelemetry-service/processor/multiconsumer"
++	"github.com/open-telemetry/opentelemetry-service/processor/fanoutprocessor"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 
+@@ -260,7 +260,7 @@ func buildFanoutTraceConsumer(pipelineFrontProcessors []*builtProcessor) consume
+ 	}
+ 
+ 	// Create a junction point that fans out to all pipelines.
+-	return multiconsumer.NewTraceProcessor(pipelineConsumers)
++	return fanoutprocessor.NewTraceProcessor(pipelineConsumers)
+ }
+ 
+ func buildFanoutMetricConsumer(pipelineFrontProcessors []*builtProcessor) consumer.MetricsConsumer {
+@@ -275,5 +275,5 @@ func buildFanoutMetricConsumer(pipelineFrontProcessors []*builtProcessor) consum
+ 	}
+ 
+ 	// Create a junction point that fans out to all pipelines.
+-	return multiconsumer.NewMetricsProcessor(pipelineConsumers)
++	return fanoutprocessor.NewMetricsProcessor(pipelineConsumers)
+ }

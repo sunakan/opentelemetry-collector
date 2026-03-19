@@ -1,0 +1,13 @@
+diff --git a/component/extension.go b/component/extension.go
+index 1b7673977..7904eae29 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -99,7 +99,7 @@ func (ef *extensionFactory) ExtensionStability() StabilityLevel {
+ 	return ef.extensionStability
+ }
+ 
+-// Deprecated: [v0.58.0] use NewExtensionFactory.
++// Deprecated: [v0.59.0] use NewExtensionFactory.
+ func NewExtensionFactoryWithStabilityLevel(
+ 	cfgType config.Type,
+ 	createDefaultConfig ExtensionCreateDefaultConfigFunc,

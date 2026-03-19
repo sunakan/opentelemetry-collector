@@ -1,0 +1,15 @@
+diff --git a/internal/buildscripts/builder-config.yaml b/internal/buildscripts/builder-config.yaml
+index abf1d9f1d..27073dda7 100644
+--- a/internal/buildscripts/builder-config.yaml
++++ b/internal/buildscripts/builder-config.yaml
+@@ -2,8 +2,8 @@ dist:
+   module: github.com/open-telemetry/opentelemetry-collector-releases/core
+   name: cmd-otelcol
+   description: OpenTelemetry Collector Replacing cmd/otelcol
+-  version: 0.38.0-dev
+-  otelcol_version: 0.38.0
++  version: 0.39.0-dev
++  otelcol_version: 0.39.0
+ 
+ replaces:
+   - go.opentelemetry.io/collector => ../

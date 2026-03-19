@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter_test.go b/processor/memorylimiterprocessor/memorylimiter_test.go
+index 9f24a4c55..55d78950e 100644
+--- a/processor/memorylimiterprocessor/memorylimiter_test.go
++++ b/processor/memorylimiterprocessor/memorylimiter_test.go
+@@ -225,7 +225,7 @@ func TestMetricsTelemetry(t *testing.T) {
+ 
+ 	md := pmetric.NewMetrics()
+ 	md.ResourceMetrics().AppendEmpty().ScopeMetrics().AppendEmpty().Metrics().AppendEmpty().SetEmptySum().DataPoints().AppendEmpty()
+-	for requestNum := 0; requestNum < 10; requestNum++ {
++	for range 10 {
+ 		require.NoError(t, metrics.ConsumeMetrics(context.Background(), md))
+ 	}
+ 	require.NoError(t, metrics.Shutdown(context.Background()))

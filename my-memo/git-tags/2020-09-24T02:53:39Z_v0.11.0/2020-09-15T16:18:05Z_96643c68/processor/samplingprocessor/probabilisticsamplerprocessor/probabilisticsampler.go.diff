@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+index 3026acee7..cd6cd89ee 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -115,7 +115,7 @@ func (tsp *tracesamplerprocessor) processTraces(ctx context.Context, resourceSpa
+ 				hash(span.TraceID(), tsp.hashSeed)&bitMaskHashBuckets < scaledSamplingRate
+ 
+ 			if sampled {
+-				spns.Append(&span)
++				spns.Append(span)
+ 			}
+ 		}
+ 	}

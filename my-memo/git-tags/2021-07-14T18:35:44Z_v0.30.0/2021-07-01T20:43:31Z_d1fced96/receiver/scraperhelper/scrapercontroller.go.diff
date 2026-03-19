@@ -1,0 +1,14 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index cff2ad29e..5680a043f 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -194,8 +194,7 @@ func (sc *controller) scrapeMetricsAndReport(ctx context.Context) {
+ 		md.ResourceMetrics().MoveAndAppendTo(metrics.ResourceMetrics())
+ 	}
+ 
+-	_, dataPointCount := metrics.MetricAndDataPointCount()
+-
++	dataPointCount := metrics.DataPointCount()
+ 	ctx = sc.obsrecv.StartMetricsOp(ctx)
+ 	err := sc.nextConsumer.ConsumeMetrics(ctx, metrics)
+ 	sc.obsrecv.EndMetricsOp(ctx, "", dataPointCount, err)

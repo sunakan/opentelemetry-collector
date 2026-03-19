@@ -1,0 +1,11 @@
+diff --git a/confmap/provider/yamlprovider/README.md b/confmap/provider/yamlprovider/README.md
+index abf74e585..16f96ee11 100644
+--- a/confmap/provider/yamlprovider/README.md
++++ b/confmap/provider/yamlprovider/README.md
+@@ -22,5 +22,5 @@ The YAML Provider takes a literal YAML string as Collector configuration.
+ The scheme for this provider is `yaml`. Usage looks like the following passed to the Collector's command line invocation:
+ 
+ ```text
+---config="yaml:exporters::otlphttp::sending_queue::batch::flush_timeout: 2s"
++--config="yaml:exporters::otlp_http::sending_queue::batch::flush_timeout: 2s"
+ ```

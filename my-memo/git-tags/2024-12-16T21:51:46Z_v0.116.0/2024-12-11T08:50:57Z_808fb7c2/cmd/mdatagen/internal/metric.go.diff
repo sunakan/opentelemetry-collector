@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/metric.go b/cmd/mdatagen/internal/metric.go
+index 0d36efa37..a24f7ded9 100644
+--- a/cmd/mdatagen/internal/metric.go
++++ b/cmd/mdatagen/internal/metric.go
+@@ -113,6 +113,7 @@ func (m *Metric) Unmarshal(parser *confmap.Conf) error {
+ 	}
+ 	return parser.Unmarshal(m)
+ }
++
+ func (m Metric) Data() MetricData {
+ 	if m.Sum != nil {
+ 		return m.Sum

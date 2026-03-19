@@ -1,0 +1,26 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index 8df7bee3f..4efa9658c 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -15,9 +15,9 @@
+ package jaegerreceiver
+ 
+ import (
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+-	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ const (
+@@ -68,7 +68,7 @@ func DefaultServerConfigUDP() ServerConfigUDP {
+ 
+ // Config defines configuration for Jaeger receiver.
+ type Config struct {
+-	configmodels.ReceiverSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+-	Protocols                     `mapstructure:"protocols"`
+-	RemoteSampling                *RemoteSamplingConfig `mapstructure:"remote_sampling"`
++	config.ReceiverSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
++	Protocols               `mapstructure:"protocols"`
++	RemoteSampling          *RemoteSamplingConfig `mapstructure:"remote_sampling"`
+ }

@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+index d7617d68a..17503e1ee 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_test.go.tmpl
+@@ -46,7 +46,7 @@ func Test{{ .structName }}_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	{{- else }}
+ 	src.marshalJSONStream(stream)
+ 	{{- end }}
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+@@ -56,7 +56,7 @@ func Test{{ .structName }}_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	{{- else }}
+ 	dest.unmarshalJSONIter(iter)
+ 	{{- end }}
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

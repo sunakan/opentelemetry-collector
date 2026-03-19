@@ -1,0 +1,13 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index ba6cc8991..2ab5a29c0 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -140,7 +140,7 @@ func testReceivers(
+ 		traceProducer.TraceConsumer.ConsumeTraces(context.Background(), testdata.GenerateTraceDataOneSpan())
+ 	}
+ 
+-	metrics := pdatautil.MetricsFromInternalMetrics(testdataold.GenerateMetricDataOneMetric())
++	metrics := pdatautil.MetricsFromOldInternalMetrics(testdataold.GenerateMetricDataOneMetric())
+ 	if test.hasMetrics {
+ 		metricsProducer := receiver.receiver.(*componenttest.ExampleReceiverProducer)
+ 		metricsProducer.MetricsConsumer.ConsumeMetrics(context.Background(), metrics)

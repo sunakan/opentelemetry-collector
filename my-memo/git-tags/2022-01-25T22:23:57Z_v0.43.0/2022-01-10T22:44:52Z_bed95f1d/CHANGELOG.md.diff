@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index b6375ce35..062bfec80 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,7 @@
+ ## 🛑 Breaking changes 🛑
+ 
+ - Define a type `WatcherFunc` for onChange func instead of func pointer (#4656)
++- Remove deprecated `configtest.LoadConfig` and `configtest.LoadConfigAndValidate` (#4659)
+ 
+ ## 💡 Enhancements 💡
+ 

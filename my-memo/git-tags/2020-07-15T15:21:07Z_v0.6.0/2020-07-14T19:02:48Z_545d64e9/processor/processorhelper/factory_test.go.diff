@@ -1,0 +1,17 @@
+diff --git a/processor/processorhelper/factory_test.go b/processor/processorhelper/factory_test.go
+index 603e14990..2eda652cc 100644
+--- a/processor/processorhelper/factory_test.go
++++ b/processor/processorhelper/factory_test.go
+@@ -52,9 +52,9 @@ func TestNewMetrics_WithConstructors(t *testing.T) {
+ 	factory := NewFactory(
+ 		typeStr,
+ 		defaultConfig,
+-		WithTraceProcessor(createTraceProcessor),
+-		WithMetricsProcessor(createMetricsProcessor),
+-		WithLogProcessor(createLogProcessor))
++		WithTraces(createTraceProcessor),
++		WithMetrics(createMetricsProcessor),
++		WithLogs(createLogProcessor))
+ 	assert.EqualValues(t, typeStr, factory.Type())
+ 	assert.EqualValues(t, defaultCfg, factory.CreateDefaultConfig())
+ 

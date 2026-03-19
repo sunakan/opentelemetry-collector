@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/receivers.go b/service/internal/configunmarshaler/receivers.go
+index 8f46573f1..546b30e08 100644
+--- a/service/internal/configunmarshaler/receivers.go
++++ b/service/internal/configunmarshaler/receivers.go
+@@ -53,7 +53,7 @@ func (r *Receivers) Unmarshal(conf *confmap.Conf) error {
+ 
+ 		// Create the default config for this receiver.
+ 		receiverCfg := factory.CreateDefaultConfig()
+-		receiverCfg.SetIDName(id.Name())
++		receiverCfg.SetIDName(id.Name()) //nolint:staticcheck
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it,
+ 		// and it will apply user-defined config on top of the default.

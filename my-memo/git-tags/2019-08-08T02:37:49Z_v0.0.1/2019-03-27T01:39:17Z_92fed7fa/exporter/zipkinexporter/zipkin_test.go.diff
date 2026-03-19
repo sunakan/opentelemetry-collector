@@ -1,0 +1,21 @@
+diff --git a/exporter/zipkinexporter/zipkin_test.go b/exporter/zipkinexporter/zipkin_test.go
+index 025e622db..07eb2ecb6 100644
+--- a/exporter/zipkinexporter/zipkin_test.go
++++ b/exporter/zipkinexporter/zipkin_test.go
+@@ -168,13 +168,13 @@ zipkin:
+ 	tes[0].(*zipkinExporter).reporter = mzr
+ 
+ 	// Run the Zipkin receiver to "receive spans upload from a client application"
+-	zi, err := zipkinreceiver.New(":0")
++	zexp := multiconsumer.NewTraceProcessor(tes)
++	zi, err := zipkinreceiver.New(":0", zexp)
+ 	if err != nil {
+ 		t.Fatalf("Failed to create a new Zipkin receiver: %v", err)
+ 	}
+ 
+-	zexp := multiconsumer.NewTraceProcessor(tes)
+-	if err := zi.StartTraceReception(context.Background(), zexp); err != nil {
++	if err := zi.StartTraceReception(context.Background(), nil); err != nil {
+ 		t.Fatalf("Failed to start trace reception: %v", err)
+ 	}
+ 	defer zi.StopTraceReception(context.Background())

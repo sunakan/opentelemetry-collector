@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/exporters_builder_test.go b/service/internal/builder/exporters_builder_test.go
+index 282d25c91..092317798 100644
+--- a/service/internal/builder/exporters_builder_test.go
++++ b/service/internal/builder/exporters_builder_test.go
+@@ -118,7 +118,7 @@ func TestBuildExporters_BuildLogs(t *testing.T) {
+ 			Pipelines: map[config.ComponentID]*config.Pipeline{
+ 				config.NewComponentID("logs"): {
+ 					Name:      "logs",
+-					InputType: "logs",
++					InputType: config.LogsDataType,
+ 					Exporters: []config.ComponentID{config.NewComponentID("exampleexporter")},
+ 				},
+ 			},

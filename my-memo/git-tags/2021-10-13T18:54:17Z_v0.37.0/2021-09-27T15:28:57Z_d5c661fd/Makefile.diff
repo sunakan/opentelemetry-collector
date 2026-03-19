@@ -1,0 +1,15 @@
+diff --git a/Makefile b/Makefile
+index 64428f0bc..3b1f56e38 100644
+--- a/Makefile
++++ b/Makefile
+@@ -60,10 +60,6 @@ all-modules:
+ gomoddownload:
+ 	@$(MAKE) for-all CMD="go mod download"
+ 
+-.PHONY: gotestinstall
+-gotestinstall:
+-	@$(MAKE) for-all CMD="make test GOTEST_OPT=\"-i\""
+-
+ .PHONY: gotest
+ gotest:
+ 	@$(MAKE) for-all CMD="make test test-unstable"

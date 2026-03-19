@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 79418d5c5..f6660b479 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -92,6 +92,7 @@ var replaceModules = []string{
+ 	"/internal/fanoutconsumer",
+ 	"/internal/sharedcomponent",
+ 	"/internal/telemetry",
++	"/internal/testutil",
+ 	"/otelcol",
+ 	"/pdata",
+ 	"/pdata/testdata",

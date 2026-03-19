@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index e225a2a29..708f79f39 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -32,7 +32,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()
+@@ -214,7 +214,7 @@ func TestLoadConfig(t *testing.T) {
+ }
+ 
+ func TestFailedLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

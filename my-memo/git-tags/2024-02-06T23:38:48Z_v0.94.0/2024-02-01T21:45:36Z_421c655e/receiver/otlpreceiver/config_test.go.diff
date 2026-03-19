@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 46ec9c369..f47e1af40 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -86,7 +86,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 	assert.Equal(t,
+ 		&Config{
+ 			Protocols: Protocols{
+-				GRPC: &configgrpc.GRPCServerSettings{
++				GRPC: &configgrpc.ServerConfig{
+ 					NetAddr: confignet.NetAddr{
+ 						Endpoint:  "0.0.0.0:4317",
+ 						Transport: "tcp",
+@@ -147,7 +147,7 @@ func TestUnmarshalConfigUnix(t *testing.T) {
+ 	assert.Equal(t,
+ 		&Config{
+ 			Protocols: Protocols{
+-				GRPC: &configgrpc.GRPCServerSettings{
++				GRPC: &configgrpc.ServerConfig{
+ 					NetAddr: confignet.NetAddr{
+ 						Endpoint:  "/tmp/grpc_otlp.sock",
+ 						Transport: "unix",

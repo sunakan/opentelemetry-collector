@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_profile.go b/pdata/pprofile/generated_profile.go
+index 2532179d0..7fb802606 100644
+--- a/pdata/pprofile/generated_profile.go
++++ b/pdata/pprofile/generated_profile.go
+@@ -46,8 +46,8 @@ func (ms Profile) MoveTo(dest Profile) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpprofiles.Profile{}
++	internal.DeleteOrigProfile(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // SampleType returns the SampleType associated with this Profile.

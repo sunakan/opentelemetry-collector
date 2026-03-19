@@ -1,0 +1,13 @@
+diff --git a/internal/internal.go b/internal/internal.go
+index d23fe5220..c60da3cc9 100644
+--- a/internal/internal.go
++++ b/internal/internal.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/golang/protobuf/ptypes/timestamp"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // TimeToTimestamp converts a time.Time to a timestamp.Timestamp pointer.

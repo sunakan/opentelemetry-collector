@@ -1,0 +1,13 @@
+diff --git a/exporter/factory_test.go b/exporter/factory_test.go
+index 2dd9df5cf..edafdc761 100644
+--- a/exporter/factory_test.go
++++ b/exporter/factory_test.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ type TestFactory struct {

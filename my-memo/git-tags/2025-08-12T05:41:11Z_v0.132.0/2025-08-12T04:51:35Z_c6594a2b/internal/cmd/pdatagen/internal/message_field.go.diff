@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/message_field.go b/internal/cmd/pdatagen/internal/message_field.go
+index 3ed623518..cff6c39c3 100644
+--- a/internal/cmd/pdatagen/internal/message_field.go
++++ b/internal/cmd/pdatagen/internal/message_field.go
+@@ -57,6 +57,8 @@ func (mf *MessageField) GenerateSetWithTestValue(ms *messageStruct) string {
+ 	return executeTemplate(t, mf.templateFields(ms))
+ }
+ 
++func (mf *MessageField) GenerateTestValue(*messageStruct) string { return "" }
++
+ func (mf *MessageField) GenerateCopyOrig(ms *messageStruct) string {
+ 	t := template.Must(templateNew("messageCopyOrigTemplate").Parse(messageCopyOrigTemplate))
+ 	return executeTemplate(t, mf.templateFields(ms))

@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index f2fda5fa8..7ef750f9e 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -607,7 +607,7 @@ func TestPartialResponse_missingHeaderAndBody(t *testing.T) {
+ 					},
+ 				}
+ 				err = handlePartialSuccessResponse(resp, tt.handler)
+-				assert.Nil(t, err)
++				assert.NoError(t, err)
+ 			})
+ 		}
+ 	}

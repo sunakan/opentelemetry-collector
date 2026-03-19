@@ -1,0 +1,22 @@
+diff --git a/exporter/otlpexporter/otlp_test.go b/exporter/otlpexporter/otlp_test.go
+index ad8bc5477..378d45d60 100644
+--- a/exporter/otlpexporter/otlp_test.go
++++ b/exporter/otlpexporter/otlp_test.go
+@@ -132,7 +132,7 @@ func TestSendTraceData(t *testing.T) {
+ 
+ 	// Send empty trace.
+ 	td := testdata.GenerateTraceDataEmpty()
+-	exp.ConsumeTrace(context.Background(), td)
++	exp.ConsumeTraces(context.Background(), td)
+ 
+ 	// Wait until it is received.
+ 	testutils.WaitFor(t, func() bool {
+@@ -149,7 +149,7 @@ func TestSendTraceData(t *testing.T) {
+ 		ResourceSpans: testdata.GenerateTraceOtlpSameResourceTwoSpans(),
+ 	}
+ 
+-	err = exp.ConsumeTrace(context.Background(), td)
++	err = exp.ConsumeTraces(context.Background(), td)
+ 	assert.NoError(t, err)
+ 
+ 	// Wait until it is received.

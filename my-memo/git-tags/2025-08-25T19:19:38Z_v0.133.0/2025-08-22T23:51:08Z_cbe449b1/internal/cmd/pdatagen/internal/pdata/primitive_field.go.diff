@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/primitive_field.go b/internal/cmd/pdatagen/internal/pdata/primitive_field.go
+index b3c01c160..a0ae3ca3d 100644
+--- a/internal/cmd/pdatagen/internal/pdata/primitive_field.go
++++ b/internal/cmd/pdatagen/internal/pdata/primitive_field.go
+@@ -80,6 +80,10 @@ func (pf *PrimitiveField) GenerateTestEncodingValues(*messageStruct) string {
+ 	return pf.toProtoField().GenTestEncodingValues()
+ }
+ 
++func (pf *PrimitiveField) GeneratePoolOrig(*messageStruct) string {
++	return ""
++}
++
+ func (pf *PrimitiveField) GenerateDeleteOrig(*messageStruct) string {
+ 	return pf.toProtoField().GenDeleteOrig()
+ }

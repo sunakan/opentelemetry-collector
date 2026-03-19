@@ -1,0 +1,12 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 2524ed4a4..d2e4d8b4f 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -400,7 +400,6 @@ func populateILFromZipkinSpan(tags map[string]string, instrLibName string, libra
+ 	if instrLibName == "" {
+ 		return
+ 	}
+-	library.InitEmpty()
+ 	if value, ok := tags[tracetranslator.TagInstrumentationName]; ok {
+ 		library.SetName(value)
+ 		delete(tags, tracetranslator.TagInstrumentationName)

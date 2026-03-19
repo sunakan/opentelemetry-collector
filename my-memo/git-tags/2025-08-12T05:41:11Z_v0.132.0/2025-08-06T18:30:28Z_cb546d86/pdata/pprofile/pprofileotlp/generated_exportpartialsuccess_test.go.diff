@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+index 467ea653c..5c28d9ce1 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportpartialsuccess_test.go
+@@ -91,12 +91,7 @@ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ }
+ 
+ func generateTestExportPartialSuccess() ExportPartialSuccess {
+-	tv := NewExportPartialSuccess()
+-	fillTestExportPartialSuccess(tv)
+-	return tv
+-}
+-
+-func fillTestExportPartialSuccess(tv ExportPartialSuccess) {
+-	tv.orig.RejectedProfiles = int64(13)
+-	tv.orig.ErrorMessage = "test_errormessage"
++	ms := NewExportPartialSuccess()
++	internal.FillOrigTestExportProfilesPartialSuccess(ms.orig)
++	return ms
+ }

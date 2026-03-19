@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/generated_wrapper_entityrefslice.go b/pdata/internal/generated_wrapper_entityrefslice.go
+index ac109f41f..a85e65654 100644
+--- a/pdata/internal/generated_wrapper_entityrefslice.go
++++ b/pdata/internal/generated_wrapper_entityrefslice.go
+@@ -59,7 +59,7 @@ func FillTestEntityRefSlice(es EntityRefSlice) {
+ 	}
+ }
+ 
+-// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++// MarshalJSONStreamEntityRefSlice marshals all properties from the current struct to the destination stream.
+ func MarshalJSONStreamEntityRefSlice(ms EntityRefSlice, dest *json.Stream) {
+ 	dest.WriteArrayStart()
+ 	if len(*ms.orig) > 0 {
+@@ -71,3 +71,12 @@ func MarshalJSONStreamEntityRefSlice(ms EntityRefSlice, dest *json.Stream) {
+ 	}
+ 	dest.WriteArrayEnd()
+ }
++
++// UnmarshalJSONStreamEntityRefSlice unmarshals all properties from the current struct from the source iterator.
++func UnmarshalJSONIterEntityRefSlice(ms EntityRefSlice, iter *json.Iterator) {
++	iter.ReadArrayCB(func(iter *json.Iterator) bool {
++		*ms.orig = append(*ms.orig, &otlpcommon.EntityRef{})
++		UnmarshalJSONIterEntityRef(NewEntityRef((*ms.orig)[len(*ms.orig)-1], ms.state), iter)
++		return true
++	})
++}

@@ -1,0 +1,20 @@
+diff --git a/examples/demotrace/oc-agent-config.yaml b/examples/demotrace/oc-agent-config.yaml
+new file mode 100644
+index 000000000..31de30834
+--- /dev/null
++++ b/examples/demotrace/oc-agent-config.yaml
+@@ -0,0 +1,14 @@
++receivers:
++  opencensus:
++    port: 55678
++    reconnection-delay: 2s
++  jaeger:
++    collector_http_port: 14268
++
++queued-exporters:
++  collector:
++    num-workers: 2
++    queue-size: 10
++    retry-on-failure: true
++  opencensus:
++    endpoint: "oc-collector:55678"

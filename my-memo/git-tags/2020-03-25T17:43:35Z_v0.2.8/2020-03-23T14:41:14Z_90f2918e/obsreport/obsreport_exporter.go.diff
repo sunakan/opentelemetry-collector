@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_exporter.go b/obsreport/obsreport_exporter.go
+index c1ed01edf..2bfd9db9d 100644
+--- a/obsreport/obsreport_exporter.go
++++ b/obsreport/obsreport_exporter.go
+@@ -65,7 +65,7 @@ var (
+ 		"Number of metric points successfully sent to destination.",
+ 		stats.UnitDimensionless)
+ 	mExporterFailedToSendMetricPoints = stats.Int64(
+-		exporterPrefix+RefusedMetricPointsKey,
++		exporterPrefix+FailedToSendMetricPointsKey,
+ 		"Number of metric points in failed attempts to send to destination.",
+ 		stats.UnitDimensionless)
+ )

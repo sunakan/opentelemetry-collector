@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice.go b/pdata/ptrace/generated_spanlinkslice.go
+index 79a8ad3bc..c34cc1283 100644
+--- a/pdata/ptrace/generated_spanlinkslice.go
++++ b/pdata/ptrace/generated_spanlinkslice.go
+@@ -109,6 +109,10 @@ func (es SpanLinkSlice) AppendEmpty() SpanLink {
+ func (es SpanLinkSlice) MoveAndAppendTo(dest SpanLinkSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

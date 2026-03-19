@@ -1,0 +1,17 @@
+diff --git a/processor/memorylimiter/config.go b/processor/memorylimiter/config.go
+index fbb4027fa..1d518c988 100644
+--- a/processor/memorylimiter/config.go
++++ b/processor/memorylimiter/config.go
+@@ -52,5 +52,12 @@ type Config struct {
+ 	MemorySpikePercentage uint32 `mapstructure:"spike_limit_percentage"`
+ }
+ 
++var _ config.Processor = (*Config)(nil)
++
++// Validate checks if the processor configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}
++
+ // Name of BallastSizeMiB config option.
+ const ballastSizeMibKey = "ballast_size_mib"

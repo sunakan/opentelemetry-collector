@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/queue_sender.go b/exporter/exporterhelper/queue_sender.go
+index 506ac3025..b77412552 100644
+--- a/exporter/exporterhelper/queue_sender.go
++++ b/exporter/exporterhelper/queue_sender.go
+@@ -59,6 +59,10 @@ func (qCfg *QueueSettings) Validate() error {
+ 		return errors.New("queue size must be positive")
+ 	}
+ 
++	if qCfg.NumConsumers <= 0 {
++		return errors.New("number of queue consumers must be positive")
++	}
++
+ 	return nil
+ }
+ 

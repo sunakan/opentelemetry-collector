@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
+index 3e8ddf886..3e7b32f7e 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper_others.go
+@@ -17,7 +17,7 @@
+ package filesystemscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ const fileSystemStatesLen = 2

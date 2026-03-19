@@ -1,0 +1,66 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index 5a23f8233..ad9b99f6c 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -116,10 +116,6 @@ workflows:
+   version: 2
+   build-and-test:
+     jobs:
+-      - windows-test:
+-          filters:
+-            tags:
+-              only: /^v[0-9]+\.[0-9]+\.[0-9]+.*/
+       - setup-environment:
+           filters:
+             tags:
+@@ -174,7 +170,6 @@ workflows:
+             - loadtest
+             - test
+             - coverage
+-            - windows-test
+             - windows-msi
+             - deb-package
+             - rpm-package
+@@ -186,7 +181,6 @@ workflows:
+             - loadtest
+             - test
+             - coverage
+-            - windows-test
+             - windows-msi
+             - deb-package
+             - rpm-package
+@@ -203,7 +197,6 @@ workflows:
+             - loadtest
+             - test
+             - coverage
+-            - windows-test
+             - windows-msi
+             - deb-package
+             - rpm-package
+@@ -382,26 +375,6 @@ jobs:
+           repo: opentelemetry-collector-dev
+           tag: ${CIRCLE_SHA1}
+ 
+-  windows-test:
+-    executor:
+-      name: win/default
+-      shell: powershell.exe
+-    environment:
+-      GOPATH=~/go
+-    steps:
+-      - checkout
+-      - restore_module_cache
+-      - run:
+-          name: Upgrade golang
+-          command: |
+-            choco upgrade golang --version=1.15
+-            refreshenv
+-      - run:
+-          name: Unit tests
+-          command: go test ./...
+-      - save_module_cache
+-      - github_issue_generator
+-
+   windows-msi:
+     executor:
+       name: win/default

@@ -1,0 +1,13 @@
+diff --git a/service/internal/pipelines/pipelines_test.go b/service/internal/pipelines/pipelines_test.go
+index c1e149f3b..12c7195e5 100644
+--- a/service/internal/pipelines/pipelines_test.go
++++ b/service/internal/pipelines/pipelines_test.go
+@@ -359,7 +359,7 @@ func TestLogStabilityLevle(t *testing.T) {
+ 		},
+ 		{
+ 			level:        zapcore.InfoLevel,
+-			expectedLogs: 4,
++			expectedLogs: 3,
+ 		},
+ 	}
+ 

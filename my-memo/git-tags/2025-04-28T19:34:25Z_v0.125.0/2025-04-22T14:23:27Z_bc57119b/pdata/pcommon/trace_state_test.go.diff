@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/trace_state_test.go b/pdata/pcommon/trace_state_test.go
+index 6c26fa4fc..aafe25948 100644
+--- a/pdata/pcommon/trace_state_test.go
++++ b/pdata/pcommon/trace_state_test.go
+@@ -17,6 +17,9 @@ func TestTraceState_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewTraceState(), ms)
+ 	assert.Equal(t, TraceState(internal.GenerateTestTraceState()), dest)
++
++	dest.MoveTo(dest)
++	assert.Equal(t, TraceState(internal.GenerateTestTraceState()), dest)
+ }
+ 
+ func TestTraceState_CopyTo(t *testing.T) {

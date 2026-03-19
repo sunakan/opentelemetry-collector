@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/metric_stability_test.go b/internal/e2e/metric_stability_test.go
+index 8cbf46e9a..caa58ac01 100644
+--- a/internal/e2e/metric_stability_test.go
++++ b/internal/e2e/metric_stability_test.go
+@@ -238,7 +238,7 @@ func testMetricStability(t *testing.T, configFile string, expectedMetrics map[st
+ 		return resp.StatusCode == http.StatusOK
+ 	}, 5*time.Second, 100*time.Millisecond, "collector failed to start")
+ 
+-	for i := 0; i < 5; i++ {
++	for range 5 {
+ 		sendTestData(t, otelPort)
+ 	}
+ 

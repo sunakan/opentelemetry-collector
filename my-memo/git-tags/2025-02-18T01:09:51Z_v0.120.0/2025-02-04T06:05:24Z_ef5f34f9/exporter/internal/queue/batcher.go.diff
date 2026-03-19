@@ -1,0 +1,13 @@
+diff --git a/exporter/internal/queue/batcher.go b/exporter/internal/queue/batcher.go
+index 7e71dd9f8..c04e475d7 100644
+--- a/exporter/internal/queue/batcher.go
++++ b/exporter/internal/queue/batcher.go
+@@ -15,7 +15,7 @@ import (
+ // Batcher is in charge of reading items from the queue and send them out asynchronously.
+ type Batcher interface {
+ 	component.Component
+-	Consume(context.Context, internal.Request, exporterqueue.DoneCallback)
++	Consume(context.Context, internal.Request, exporterqueue.Done)
+ }
+ 
+ func NewBatcher(batchCfg exporterbatcher.Config,

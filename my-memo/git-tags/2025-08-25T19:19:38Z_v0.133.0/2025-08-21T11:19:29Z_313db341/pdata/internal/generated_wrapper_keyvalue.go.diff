@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_keyvalue.go b/pdata/internal/generated_wrapper_keyvalue.go
+index 7220dddc5..c82f76f6f 100644
+--- a/pdata/internal/generated_wrapper_keyvalue.go
++++ b/pdata/internal/generated_wrapper_keyvalue.go
+@@ -47,6 +47,10 @@ func DeleteOrigKeyValue(orig *otlpcommon.KeyValue, nullable bool) {
+ }
+ 
+ func CopyOrigKeyValue(dest, src *otlpcommon.KeyValue) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Key = src.Key
+ 	CopyOrigAnyValue(&dest.Value, &src.Value)
+ }

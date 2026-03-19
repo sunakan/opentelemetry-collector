@@ -1,0 +1,14 @@
+diff --git a/processor/groupbytraceprocessor/processor_test.go b/processor/groupbytraceprocessor/processor_test.go
+index 3a4687910..55cfb92df 100644
+--- a/processor/groupbytraceprocessor/processor_test.go
++++ b/processor/groupbytraceprocessor/processor_test.go
+@@ -197,8 +197,7 @@ func TestProcessBatchDoesntFail(t *testing.T) {
+ 	span := ils.Spans().At(0)
+ 	span.SetTraceID(traceID)
+ 	span.SetSpanID(pdata.NewSpanID([]byte{1, 2, 3, 4}))
+-	emptyRs := pdata.NewResourceSpans()
+-	batch.ResourceSpans().Append(&emptyRs)
++	batch.ResourceSpans().Append(pdata.NewResourceSpans())
+ 
+ 	p, err := newGroupByTraceProcessor(logger, st, next, config)
+ 	require.NoError(t, err)

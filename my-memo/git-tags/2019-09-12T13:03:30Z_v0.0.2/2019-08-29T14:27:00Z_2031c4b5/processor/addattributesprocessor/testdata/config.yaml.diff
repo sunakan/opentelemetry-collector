@@ -1,0 +1,25 @@
+diff --git a/processor/addattributesprocessor/testdata/config.yaml b/processor/addattributesprocessor/testdata/config.yaml
+deleted file mode 100644
+index 16819b72b..000000000
+--- a/processor/addattributesprocessor/testdata/config.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  add-attributes:
+-  add-attributes/2:
+-    values:
+-      attribute1: 123
+-      "string attribute": "string value"
+-      "attribute.with.dot": "another value"
+-
+-exporters:
+-  exampleexporter:
+-
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [add-attributes]
+-    exporters: [exampleexporter]

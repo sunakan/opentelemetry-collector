@@ -1,0 +1,14 @@
+diff --git a/extension/zpagesextension/internal/metadata/generated_status.go b/extension/zpagesextension/internal/metadata/generated_status.go
+index ee7c714b7..cff3d7b0b 100644
+--- a/extension/zpagesextension/internal/metadata/generated_status.go
++++ b/extension/zpagesextension/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("zpages")
++	Type      = component.MustNewType("zpages")
++	ScopeName = "go.opentelemetry.io/collector/extension/zpagesextension"
+ )
+ 
+ const (

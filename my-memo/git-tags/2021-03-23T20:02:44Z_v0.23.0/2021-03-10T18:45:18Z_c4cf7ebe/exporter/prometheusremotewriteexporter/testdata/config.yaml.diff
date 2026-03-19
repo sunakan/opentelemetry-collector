@@ -1,0 +1,26 @@
+diff --git a/exporter/prometheusremotewriteexporter/testdata/config.yaml b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+index 88c065ddd..56e8302a6 100644
+--- a/exporter/prometheusremotewriteexporter/testdata/config.yaml
++++ b/exporter/prometheusremotewriteexporter/testdata/config.yaml
+@@ -1,8 +1,8 @@
+ receivers:
+-    examplereceiver:
++    nop:
+   
+ processors:
+-    exampleprocessor:
++    nop:
+  
+ exporters:
+     prometheusremotewrite:
+@@ -30,8 +30,8 @@ exporters:
+ service:
+     pipelines:
+         metrics:
+-            receivers: [examplereceiver]
+-            processors: [exampleprocessor]
++            receivers: [nop]
++            processors: [nop]
+             exporters: [prometheusremotewrite]
+     
+     

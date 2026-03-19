@@ -1,0 +1,34 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/config_test.go b/exporter/exporterhelper/internal/queuebatch/config_test.go
+index 318bc0ad7..62065cd7e 100644
+--- a/exporter/exporterhelper/internal/queuebatch/config_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/config_test.go
+@@ -35,10 +35,6 @@ func TestConfig_Validate(t *testing.T) {
+ 	cfg.StorageID = configoptional.Some(component.MustNewID("test"))
+ 	require.EqualError(t, cfg.Validate(), "`wait_for_result` is not supported with a persistent queue configured with `storage`")
+ 
+-	cfg = newTestConfig()
+-	cfg.Sizer = request.SizerTypeRequests
+-	require.EqualError(t, cfg.Validate(), "`batch` supports only `items` or `bytes` sizer")
+-
+ 	cfg = newTestConfig()
+ 	cfg.QueueSize = cfg.Batch.Get().MinSize - 1
+ 	require.EqualError(t, cfg.Validate(), "`min_size` must be less than or equal to `queue_size`")
+@@ -68,6 +64,10 @@ func TestBatchConfig_Validate(t *testing.T) {
+ 	cfg.MaxSize = -1
+ 	require.EqualError(t, cfg.Validate(), "`max_size` must be non-negative")
+ 
++	cfg = newTestBatchConfig()
++	cfg.Sizer = request.SizerTypeRequests
++	require.EqualError(t, cfg.Validate(), "`batch` supports only `items` or `bytes` sizer")
++
+ 	cfg = newTestBatchConfig()
+ 	cfg.MinSize = 2048
+ 	cfg.MaxSize = 1024
+@@ -77,6 +77,7 @@ func TestBatchConfig_Validate(t *testing.T) {
+ func newTestBatchConfig() BatchConfig {
+ 	return BatchConfig{
+ 		FlushTimeout: 200 * time.Millisecond,
++		Sizer:        request.SizerTypeItems,
+ 		MinSize:      2048,
+ 		MaxSize:      0,
+ 	}

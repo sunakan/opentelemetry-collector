@@ -1,0 +1,71 @@
+diff --git a/service/defaultcomponents/default_exporters_test.go b/service/defaultcomponents/default_exporters_test.go
+index 2d9ee67fa..68d9e4463 100644
+--- a/service/defaultcomponents/default_exporters_test.go
++++ b/service/defaultcomponents/default_exporters_test.go
+@@ -30,12 +30,8 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/exporter/fileexporter"
+-	"go.opentelemetry.io/collector/exporter/jaegerexporter"
+-	"go.opentelemetry.io/collector/exporter/kafkaexporter"
+-	"go.opentelemetry.io/collector/exporter/opencensusexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlpexporter"
+ 	"go.opentelemetry.io/collector/exporter/otlphttpexporter"
+-	"go.opentelemetry.io/collector/exporter/zipkinexporter"
+ 	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+@@ -62,38 +58,10 @@ func TestDefaultExporters(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
+-		{
+-			exporter: "jaeger",
+-			getConfigFn: func() config.Exporter {
+-				cfg := expFactories["jaeger"].CreateDefaultConfig().(*jaegerexporter.Config)
+-				cfg.Endpoint = endpoint
+-				return cfg
+-			},
+-		},
+-		{
+-			exporter: "kafka",
+-			getConfigFn: func() config.Exporter {
+-				cfg := expFactories["kafka"].CreateDefaultConfig().(*kafkaexporter.Config)
+-				cfg.Brokers = []string{"invalid:9092"}
+-				// this disables contacting the broker so we can successfully create the exporter
+-				cfg.Metadata.Full = false
+-				return cfg
+-			},
+-		},
+ 		{
+ 			exporter:      "logging",
+ 			skipLifecycle: runtime.GOOS == "darwin", // TODO: investigate why this fails on darwin.
+ 		},
+-		{
+-			exporter: "opencensus",
+-			getConfigFn: func() config.Exporter {
+-				cfg := expFactories["opencensus"].CreateDefaultConfig().(*opencensusexporter.Config)
+-				cfg.GRPCClientSettings = configgrpc.GRPCClientSettings{
+-					Endpoint: endpoint,
+-				}
+-				return cfg
+-			},
+-		},
+ 		{
+ 			exporter: "otlp",
+ 			getConfigFn: func() config.Exporter {
+@@ -112,14 +80,6 @@ func TestDefaultExporters(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
+-		{
+-			exporter: "zipkin",
+-			getConfigFn: func() config.Exporter {
+-				cfg := expFactories["zipkin"].CreateDefaultConfig().(*zipkinexporter.Config)
+-				cfg.Endpoint = endpoint
+-				return cfg
+-			},
+-		},
+ 	}
+ 
+ 	assert.Equal(t, len(tests), len(expFactories))

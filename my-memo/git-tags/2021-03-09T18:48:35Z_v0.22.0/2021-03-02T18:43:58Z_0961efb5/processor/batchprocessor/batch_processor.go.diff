@@ -1,0 +1,21 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 66fbdcf53..4374f4837 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -108,6 +108,8 @@ func (bp *batchProcessor) Start(context.Context, component.Host) error {
+ // Shutdown is invoked during service shutdown.
+ func (bp *batchProcessor) Shutdown(context.Context) error {
+ 	bp.cancel()
++
++	// Wait until current batch is drained.
+ 	<-bp.done
+ 	return nil
+ }
+@@ -132,6 +134,7 @@ func (bp *batchProcessor) startProcessingCycle() {
+ 				// make it cancellable using the context that Shutdown gets as a parameter
+ 				bp.sendItems(statTimeoutTriggerSend)
+ 			}
++			// Indicate that we finished draining.
+ 			close(bp.done)
+ 			return
+ 		case item := <-bp.newItem:

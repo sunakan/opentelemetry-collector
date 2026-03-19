@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/metadata.yaml b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+index 1e24520e6..ad46b6f83 100644
+--- a/cmd/mdatagen/internal/sampleconnector/metadata.yaml
++++ b/cmd/mdatagen/internal/sampleconnector/metadata.yaml
+@@ -135,7 +135,7 @@ metrics:
+   default.metric.to_be_removed:
+     enabled: true
+     description: "[DEPRECATED] Non-monotonic delta sum double metric enabled by default."
+-    extended_documentation: The metric will be will be removed soon.
++    extended_documentation: The metric will be removed soon.
+     unit: s
+     sum:
+       value_type: double

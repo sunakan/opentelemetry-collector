@@ -1,0 +1,25 @@
+diff --git a/processor/filterprocessor/filter_processor_test.go b/processor/filterprocessor/filter_processor_test.go
+index b01b17e75..a922a18b8 100644
+--- a/processor/filterprocessor/filter_processor_test.go
++++ b/processor/filterprocessor/filter_processor_test.go
+@@ -369,7 +369,6 @@ func TestNilILM(t *testing.T) {
+ 	metrics := pdata.NewMetrics()
+ 	rms := metrics.ResourceMetrics()
+ 	rm := pdata.NewResourceMetrics()
+-	rm.InitEmpty()
+ 	rms.Append(rm)
+ 	ilms := rm.InstrumentationLibraryMetrics()
+ 	ilms.Append(pdata.NewInstrumentationLibraryMetrics())
+@@ -380,12 +379,10 @@ func TestNilMetric(t *testing.T) {
+ 	metrics := pdata.NewMetrics()
+ 	rms := metrics.ResourceMetrics()
+ 	rm := pdata.NewResourceMetrics()
+-	rm.InitEmpty()
+ 	rms.Append(rm)
+ 	ilms := rm.InstrumentationLibraryMetrics()
+ 	ilm := pdata.NewInstrumentationLibraryMetrics()
+ 	ilms.Append(ilm)
+-	ilm.InitEmpty()
+ 	ms := ilm.Metrics()
+ 	ms.Append(pdata.NewMetric())
+ 	requireNotPanics(t, metrics)

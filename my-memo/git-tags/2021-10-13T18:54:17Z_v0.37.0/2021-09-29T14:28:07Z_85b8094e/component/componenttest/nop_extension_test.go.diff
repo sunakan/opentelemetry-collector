@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_extension_test.go b/component/componenttest/nop_extension_test.go
+index 1543a5193..bc43c2745 100644
+--- a/component/componenttest/nop_extension_test.go
++++ b/component/componenttest/nop_extension_test.go
+@@ -29,7 +29,7 @@ func TestNewNopExtensionFactory(t *testing.T) {
+ 	require.NotNil(t, factory)
+ 	assert.Equal(t, config.Type("nop"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.Equal(t, &nopExtensionConfig{ExtensionSettings: config.NewExtensionSettings(config.NewID("nop"))}, cfg)
++	assert.Equal(t, &nopExtensionConfig{ExtensionSettings: config.NewExtensionSettings(config.NewComponentID("nop"))}, cfg)
+ 
+ 	traces, err := factory.CreateExtension(context.Background(), NewNopExtensionCreateSettings(), cfg)
+ 	require.NoError(t, err)

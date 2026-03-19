@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/base_fields.go b/cmd/pdatagen/internal/base_fields.go
+index b9783c9e4..5dbb37b3d 100644
+--- a/cmd/pdatagen/internal/base_fields.go
++++ b/cmd/pdatagen/internal/base_fields.go
+@@ -463,7 +463,7 @@ func (opv *oneOfPrimitiveValue) generateSetWithTestValue(sb *strings.Builder) {
+ }
+ 
+ func (opv *oneOfPrimitiveValue) generateCopyToValue(sb *strings.Builder) {
+-	sb.WriteString("\tcase NumberDataPointType" + opv.fieldType + ":\n")
++	sb.WriteString("\tcase MetricValueType" + opv.fieldType + ":\n")
+ 	sb.WriteString("\t dest.Set" + opv.name + "(ms." + opv.name + "())\n")
+ }
+ 

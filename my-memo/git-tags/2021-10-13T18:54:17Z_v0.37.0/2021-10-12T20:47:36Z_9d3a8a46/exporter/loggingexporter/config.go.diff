@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/config.go b/exporter/loggingexporter/config.go
+index b89e54a31..e7e7c67fd 100644
+--- a/exporter/loggingexporter/config.go
++++ b/exporter/loggingexporter/config.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package loggingexporter
++package loggingexporter // import "go.opentelemetry.io/collector/exporter/loggingexporter"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/config"

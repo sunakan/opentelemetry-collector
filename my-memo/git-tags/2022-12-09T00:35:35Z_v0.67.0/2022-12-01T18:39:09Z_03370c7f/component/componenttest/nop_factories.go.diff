@@ -1,0 +1,12 @@
+diff --git a/component/componenttest/nop_factories.go b/component/componenttest/nop_factories.go
+index 03b026cc6..fc32472a0 100644
+--- a/component/componenttest/nop_factories.go
++++ b/component/componenttest/nop_factories.go
+@@ -23,6 +23,7 @@ func NopFactories() (component.Factories, error) {
+ 	var factories component.Factories
+ 	var err error
+ 
++	//nolint:staticcheck
+ 	if factories.Extensions, err = component.MakeExtensionFactoryMap(NewNopExtensionFactory()); err != nil {
+ 		return component.Factories{}, err
+ 	}

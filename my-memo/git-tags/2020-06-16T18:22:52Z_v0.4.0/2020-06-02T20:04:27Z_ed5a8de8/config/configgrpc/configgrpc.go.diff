@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index d2d599fe0..915883839 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -79,7 +79,7 @@ func GrpcSettingsToDialOptions(settings GRPCClientSettings) ([]grpc.DialOption,
+ 		}
+ 	}
+ 
+-	tlsDialOption, err := settings.TLSSetting.LoadGRPCTLSCredentials()
++	tlsDialOption, err := settings.TLSSetting.LoadgRPCTLSClientCredentials()
+ 	if err != nil {
+ 		return nil, err
+ 	}

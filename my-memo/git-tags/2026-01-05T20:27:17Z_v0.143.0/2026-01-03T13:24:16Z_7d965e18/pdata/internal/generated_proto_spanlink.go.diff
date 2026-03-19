@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_proto_spanlink.go b/pdata/internal/generated_proto_spanlink.go
+index 32d3adf4c..7e8298c6d 100644
+--- a/pdata/internal/generated_proto_spanlink.go
++++ b/pdata/internal/generated_proto_spanlink.go
+@@ -51,9 +51,9 @@ func DeleteSpanLink(orig *SpanLink, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteTraceID(&orig.TraceId, false)
+ 	DeleteSpanID(&orig.SpanId, false)
++
+ 	for i := range orig.Attributes {
+ 		DeleteKeyValue(&orig.Attributes[i], false)
+ 	}

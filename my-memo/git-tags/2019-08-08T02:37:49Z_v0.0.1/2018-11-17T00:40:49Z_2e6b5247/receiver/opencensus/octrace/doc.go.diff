@@ -1,0 +1,11 @@
+diff --git a/receiver/opencensus/octrace/doc.go b/receiver/opencensus/octrace/doc.go
+index 728653aba..64e572bb7 100644
+--- a/receiver/opencensus/octrace/doc.go
++++ b/receiver/opencensus/octrace/doc.go
+@@ -13,5 +13,5 @@
+ // limitations under the License.
+ 
+ // Package octrace is the logic for receiving OpenCensus trace protobuf defined spans from
+-// already instrumented applications and then passing them onto a spansink.Sink instance.
++// already instrumented applications and then passing them onto a TraceReceiverSink instance.
+ package octrace

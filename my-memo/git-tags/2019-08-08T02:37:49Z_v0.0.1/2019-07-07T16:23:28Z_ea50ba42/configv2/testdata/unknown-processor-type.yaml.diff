@@ -1,0 +1,17 @@
+diff --git a/configv2/testdata/unknown-processor-type.yaml b/configv2/testdata/unknown-processor-type.yaml
+deleted file mode 100644
+index 56dec81c1..000000000
+--- a/configv2/testdata/unknown-processor-type.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  nosuchprocessor:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]

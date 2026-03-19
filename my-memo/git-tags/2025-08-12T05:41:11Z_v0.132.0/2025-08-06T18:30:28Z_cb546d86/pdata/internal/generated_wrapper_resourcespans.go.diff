@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespans.go b/pdata/internal/generated_wrapper_resourcespans.go
+index 31e1d41f0..b966b34c4 100644
+--- a/pdata/internal/generated_wrapper_resourcespans.go
++++ b/pdata/internal/generated_wrapper_resourcespans.go
+@@ -15,3 +15,9 @@ func CopyOrigResourceSpans(dest, src *otlptrace.ResourceSpans) {
+ 	dest.SchemaUrl = src.SchemaUrl
+ 	dest.ScopeSpans = CopyOrigScopeSpansSlice(dest.ScopeSpans, src.ScopeSpans)
+ }
++
++func FillOrigTestResourceSpans(orig *otlptrace.ResourceSpans) {
++	FillOrigTestResource(&orig.Resource)
++	orig.SchemaUrl = "test_schemaurl"
++	orig.ScopeSpans = GenerateOrigTestScopeSpansSlice()
++}

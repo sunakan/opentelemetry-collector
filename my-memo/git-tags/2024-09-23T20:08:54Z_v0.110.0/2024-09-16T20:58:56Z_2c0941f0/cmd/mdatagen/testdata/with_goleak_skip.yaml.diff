@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/testdata/with_goleak_skip.yaml b/cmd/mdatagen/testdata/with_goleak_skip.yaml
+deleted file mode 100644
+index 583d8af18..000000000
+--- a/cmd/mdatagen/testdata/with_goleak_skip.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-type: foobar
+-
+-status:
+-  class: connector
+-  stability:
+-    beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
+-
+-tests:
+-  goleak:
+-    skip: true
+\ No newline at end of file

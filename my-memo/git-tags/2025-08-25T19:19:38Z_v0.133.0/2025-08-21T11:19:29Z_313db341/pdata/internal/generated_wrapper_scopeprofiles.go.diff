@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_scopeprofiles.go b/pdata/internal/generated_wrapper_scopeprofiles.go
+index 5e811cf45..460618997 100644
+--- a/pdata/internal/generated_wrapper_scopeprofiles.go
++++ b/pdata/internal/generated_wrapper_scopeprofiles.go
+@@ -50,6 +50,10 @@ func DeleteOrigScopeProfiles(orig *otlpprofiles.ScopeProfiles, nullable bool) {
+ }
+ 
+ func CopyOrigScopeProfiles(dest, src *otlpprofiles.ScopeProfiles) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigInstrumentationScope(&dest.Scope, &src.Scope)
+ 	dest.Profiles = CopyOrigProfileSlice(dest.Profiles, src.Profiles)
+ 	dest.SchemaUrl = src.SchemaUrl

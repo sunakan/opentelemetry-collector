@@ -1,0 +1,15 @@
+diff --git a/receiver/prometheusreceiver/factory_test.go b/receiver/prometheusreceiver/factory_test.go
+index 67dae9304..4ffab5811 100644
+--- a/receiver/prometheusreceiver/factory_test.go
++++ b/receiver/prometheusreceiver/factory_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
++	"go.opentelemetry.io/collector/config/configcheck"
++	"go.opentelemetry.io/collector/config/configerror"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

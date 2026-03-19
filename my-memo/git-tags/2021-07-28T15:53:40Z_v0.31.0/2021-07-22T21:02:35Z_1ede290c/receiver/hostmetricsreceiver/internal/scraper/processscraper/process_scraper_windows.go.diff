@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+index 91fd69199..95c3cb662 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_windows.go
+@@ -38,7 +38,7 @@ func initializeCPUTimeDataPoint(dataPoint pdata.NumberDataPoint, startTime, now
+ 	labelsMap.Insert(metadata.Labels.ProcessState, stateLabel)
+ 	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+-	dataPoint.SetValue(value)
++	dataPoint.SetDoubleVal(value)
+ }
+ 
+ func getProcessExecutable(proc processHandle) (*executableMetadata, error) {

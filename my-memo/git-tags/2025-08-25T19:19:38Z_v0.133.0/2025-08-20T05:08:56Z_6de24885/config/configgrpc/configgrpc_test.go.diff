@@ -1,0 +1,14 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index c5f8f6a0a..cbec31512 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -100,6 +100,9 @@ func TestNewDefaultKeepaliveServerConfig(t *testing.T) {
+ func TestNewDefaultServerConfig(t *testing.T) {
+ 	expected := ServerConfig{
+ 		Keepalive: configoptional.Some(NewDefaultKeepaliveServerConfig()),
++		NetAddr: confignet.AddrConfig{
++			Transport: confignet.TransportTypeTCP,
++		},
+ 	}
+ 
+ 	result := NewDefaultServerConfig()

@@ -1,0 +1,22 @@
+diff --git a/config/configunmarshaler/testdata/duplicate-pipeline.yaml b/config/configunmarshaler/testdata/duplicate-pipeline.yaml
+deleted file mode 100644
+index 45fc037b7..000000000
+--- a/config/configunmarshaler/testdata/duplicate-pipeline.yaml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces /pipe:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
+-    traces/ pipe :
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

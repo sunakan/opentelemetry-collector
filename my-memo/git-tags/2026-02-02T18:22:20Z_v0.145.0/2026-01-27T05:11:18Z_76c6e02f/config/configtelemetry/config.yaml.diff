@@ -1,0 +1,11 @@
+diff --git a/config/configtelemetry/config.yaml b/config/configtelemetry/config.yaml
+new file mode 100644
+index 000000000..674f38926
+--- /dev/null
++++ b/config/configtelemetry/config.yaml
+@@ -0,0 +1,5 @@
++$defs:
++  level:
++    description: Level is the level of internal telemetry (metrics, logs, traces about the component itself) that every component should generate.
++    type: integer
++    x-customType: int32

@@ -1,0 +1,23 @@
+diff --git a/receiver/otlpreceiver/testdata/bad_proto_config.yaml b/receiver/otlpreceiver/testdata/bad_proto_config.yaml
+index 3d79ae12a..2191f7bb7 100644
+--- a/receiver/otlpreceiver/testdata/bad_proto_config.yaml
++++ b/receiver/otlpreceiver/testdata/bad_proto_config.yaml
+@@ -5,14 +5,14 @@ receivers:
+         endpoint: "127.0.0.1:1234"
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+      receivers: [otlp]
+-     processors: [exampleprocessor]
+-     exporters: [exampleexporter]
++     processors: [nop]
++     exporters: [nop]

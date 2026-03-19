@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index d156e4354..3046cc2ce 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package scraperhelper
++package scraperhelper // import "go.opentelemetry.io/collector/receiver/scraperhelper"
+ 
+ import (
+ 	"context"

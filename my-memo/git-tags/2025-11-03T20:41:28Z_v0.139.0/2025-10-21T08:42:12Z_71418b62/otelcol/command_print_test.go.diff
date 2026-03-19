@@ -1,0 +1,22 @@
+diff --git a/otelcol/command_print_test.go b/otelcol/command_print_test.go
+index 8d5941b0d..6560742e7 100644
+--- a/otelcol/command_print_test.go
++++ b/otelcol/command_print_test.go
+@@ -24,6 +24,7 @@ import (
+ 	"go.opentelemetry.io/collector/featuregate"
+ 	"go.opentelemetry.io/collector/receiver"
+ 	"go.opentelemetry.io/collector/receiver/xreceiver"
++	"go.opentelemetry.io/collector/service/telemetry"
+ )
+ 
+ type printExporterConfig struct {
+@@ -202,6 +203,9 @@ func TestPrintCommand(t *testing.T) {
+ 							Exporters: map[component.Type]exporter.Factory{
+ 								testE: testExporter,
+ 							},
++							Telemetry: telemetry.NewFactory(func() component.Config {
++								return fakeTelemetryConfig{}
++							}),
+ 						}, nil
+ 					},
+ 					ConfigProviderSettings: ConfigProviderSettings{

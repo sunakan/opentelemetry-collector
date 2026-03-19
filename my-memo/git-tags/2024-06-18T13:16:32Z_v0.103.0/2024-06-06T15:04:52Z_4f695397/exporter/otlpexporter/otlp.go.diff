@@ -1,0 +1,22 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 7de8c430b..b8d6dee2a 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -151,8 +151,7 @@ func processError(err error) error {
+ 		return nil
+ 	}
+ 
+-	// Now, this is this a real error.
+-
++	// Now, this is a real error.
+ 	retryInfo := getRetryInfo(st)
+ 
+ 	if !shouldRetry(st.Code(), retryInfo) {
+@@ -168,7 +167,6 @@ func processError(err error) error {
+ 	}
+ 
+ 	// Need to retry.
+-
+ 	return err
+ }
+ 

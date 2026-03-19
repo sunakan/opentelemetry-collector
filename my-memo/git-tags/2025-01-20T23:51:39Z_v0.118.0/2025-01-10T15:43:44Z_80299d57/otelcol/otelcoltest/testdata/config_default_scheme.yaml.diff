@@ -1,0 +1,17 @@
+diff --git a/otelcol/otelcoltest/testdata/config_default_scheme.yaml b/otelcol/otelcoltest/testdata/config_default_scheme.yaml
+new file mode 100644
+index 000000000..70263bab4
+--- /dev/null
++++ b/otelcol/otelcoltest/testdata/config_default_scheme.yaml
+@@ -0,0 +1,11 @@
++receivers:
++    nop:
++
++exporters:
++    nop:
++
++service:
++    pipelines:
++        traces:
++            receivers: ${RECEIVERS}
++            exporters: [nop]

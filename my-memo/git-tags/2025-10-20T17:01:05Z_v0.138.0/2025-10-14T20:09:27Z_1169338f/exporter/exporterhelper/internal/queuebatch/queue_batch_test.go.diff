@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go b/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
+index 4fc013a98..0fcaf70ec 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch_test.go
+@@ -35,9 +35,7 @@ func newFakeRequestSettings() AllSettings[request.Request] {
+ 		ID:        component.NewID(exportertest.NopType),
+ 		Telemetry: componenttest.NewNopTelemetrySettings(),
+ 		Settings: Settings[request.Request]{
+-			Encoding:   newFakeEncoding(&requesttest.FakeRequest{}),
+-			ItemsSizer: request.NewItemsSizer(),
+-			BytesSizer: requesttest.NewBytesSizer(),
++			Encoding: newFakeEncoding(&requesttest.FakeRequest{}),
+ 		},
+ 	}
+ }

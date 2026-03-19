@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_processor_test.go b/component/componenttest/nop_processor_test.go
+index cc9ecfd5a..b82b1c344 100644
+--- a/component/componenttest/nop_processor_test.go
++++ b/component/componenttest/nop_processor_test.go
+@@ -32,7 +32,7 @@ func TestNewNopProcessorFactory(t *testing.T) {
+ 	require.NotNil(t, factory)
+ 	assert.Equal(t, config.Type("nop"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+-	assert.Equal(t, &nopProcessorConfig{ProcessorSettings: config.NewProcessorSettings(config.NewID("nop"))}, cfg)
++	assert.Equal(t, &nopProcessorConfig{ProcessorSettings: config.NewProcessorSettings(config.NewComponentID("nop"))}, cfg)
+ 
+ 	traces, err := factory.CreateTracesProcessor(context.Background(), NewNopProcessorCreateSettings(), cfg, consumertest.NewNop())
+ 	require.NoError(t, err)

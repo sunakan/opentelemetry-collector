@@ -1,0 +1,11 @@
+diff --git a/processor/memorylimiterprocessor/config.go b/processor/memorylimiterprocessor/config.go
+index c3f28eef4..6f597161a 100644
+--- a/processor/memorylimiterprocessor/config.go
++++ b/processor/memorylimiterprocessor/config.go
+@@ -55,6 +55,3 @@ var _ config.Processor = (*Config)(nil)
+ func (cfg *Config) Validate() error {
+ 	return nil
+ }
+-
+-// Name of BallastSizeMiB config option.
+-const ballastSizeMibKey = "ballast_size_mib"

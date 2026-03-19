@@ -1,0 +1,14 @@
+diff --git a/config/configgrpc/go.mod b/config/configgrpc/go.mod
+index 6a8f27a91..ffcd904c8 100644
+--- a/config/configgrpc/go.mod
++++ b/config/configgrpc/go.mod
+@@ -117,3 +117,9 @@ replace go.opentelemetry.io/collector/component => ../../component
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
++
++replace go.opentelemetry.io/collector/processor/memorylimiterprocessor => ../../processor/memorylimiterprocessor
++
++replace go.opentelemetry.io/collector/config/confighttp => ../confighttp
++
++replace go.opentelemetry.io/collector/receiver/otlpreceiver => ../../receiver/otlpreceiver

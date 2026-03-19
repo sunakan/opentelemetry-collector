@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 70147f27a..45a1208c3 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++//go:build tools
+ // +build tools
+ 
+ package tools

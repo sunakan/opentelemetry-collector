@@ -1,0 +1,15 @@
+diff --git a/component/component.go b/component/component.go
+index f5f68b572..bd1ff210d 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -189,10 +189,3 @@ type CreateDefaultConfigFunc func() Config
+ func (f CreateDefaultConfigFunc) CreateDefaultConfig() Config {
+ 	return f()
+ }
+-
+-// InstanceID uniquely identifies a component instance
+-type InstanceID struct {
+-	ID          ID
+-	Kind        Kind
+-	PipelineIDs map[ID]struct{}
+-}

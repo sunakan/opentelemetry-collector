@@ -1,0 +1,16 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 25586ff0d..0c0c588f8 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -102,9 +102,9 @@ func (e *exporterImp) pushMetricsData(ctx context.Context, md pdata.Metrics) (in
+ 	return 0, nil
+ }
+ 
+-func (e *exporterImp) pushLogData(ctx context.Context, logs data.Logs) (int, error) {
++func (e *exporterImp) pushLogData(ctx context.Context, logs pdata.Logs) (int, error) {
+ 	request := &otlplogs.ExportLogsServiceRequest{
+-		ResourceLogs: data.LogsToProto(logs),
++		ResourceLogs: pdata.LogsToOtlp(logs),
+ 	}
+ 	err := e.w.exportLogs(ctx, request)
+ 

@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index 2dc24c436..c8d6fce6b 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -355,7 +355,8 @@ func checkRecordedMetricsForTraceExporterV2(t *testing.T, te exporter.TraceExpor
+ 
+ 	spans := make([]*data.Span, 2)
+ 	rs := data.NewResourceSpans(nil, nil)
+-	rs.SetSpans(spans)
++	ils := data.NewInstrumentationLibrarySpans(data.NewInstrumentationLibrary(), spans)
++	rs.SetInstrumentationLibrarySpans([]*data.InstrumentationLibrarySpans{ils})
+ 	td := data.NewTraceData([]*data.ResourceSpans{rs})
+ 	ctx := observability.ContextWithReceiverName(context.Background(), fakeTraceReceiverName)
+ 	const numBatches = 7
+@@ -373,7 +374,8 @@ func checkRecordedMetricsForTraceExporterV2(t *testing.T, te exporter.TraceExpor
+ func generateTraceV2Traffic(t *testing.T, te exporter.TraceExporterV2, numRequests int, wantError error) {
+ 	spans := make([]*data.Span, 1)
+ 	rs := data.NewResourceSpans(nil, nil)
+-	rs.SetSpans(spans)
++	ils := data.NewInstrumentationLibrarySpans(data.NewInstrumentationLibrary(), spans)
++	rs.SetInstrumentationLibrarySpans([]*data.InstrumentationLibrarySpans{ils})
+ 	td := data.NewTraceData([]*data.ResourceSpans{rs})
+ 	ctx, span := trace.StartSpan(context.Background(), fakeTraceParentSpanName, trace.WithSampler(trace.AlwaysSample()))
+ 	defer span.End()

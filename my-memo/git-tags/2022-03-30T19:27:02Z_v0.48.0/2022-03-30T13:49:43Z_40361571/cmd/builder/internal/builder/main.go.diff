@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 63f4aaf20..3b28cc727 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -112,7 +112,7 @@ func GetModules(cfg Config) error {
+ 	failReason := "unknown"
+ 	for i := 1; i <= retries; i++ {
+ 		// #nosec G204
+-		cmd := exec.Command(cfg.Distribution.Go, "mod", "download", "all")
++		cmd := exec.Command(cfg.Distribution.Go, "mod", "download")
+ 		cmd.Dir = cfg.Distribution.OutputPath
+ 		if out, err := cmd.CombinedOutput(); err != nil {
+ 			failReason = fmt.Sprintf("%s. Output: %q", err, out)

@@ -1,0 +1,12 @@
+diff --git a/connector/forwardconnector/doc.go b/connector/forwardconnector/doc.go
+index 656e06d94..04c6ee06b 100644
+--- a/connector/forwardconnector/doc.go
++++ b/connector/forwardconnector/doc.go
+@@ -1,5 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ // Package forwardconnector passes signals from one pipeline to another.
+ package forwardconnector // import "go.opentelemetry.io/collector/connector/forwardconnector"

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pmetricotlp/response.go b/pdata/pmetric/pmetricotlp/response.go
+index e928400f3..5942568dd 100644
+--- a/pdata/pmetric/pmetricotlp/response.go
++++ b/pdata/pmetric/pmetricotlp/response.go
+@@ -73,7 +73,7 @@ func (ms ExportResponse) unmarshalJsoniter(iter *jsoniter.Iterator) {
+ }
+ 
+ func (ms ExportPartialSuccess) unmarshalJsoniter(iter *jsoniter.Iterator) {
+-	iter.ReadObjectCB(func(iterator *jsoniter.Iterator, f string) bool {
++	iter.ReadObjectCB(func(_ *jsoniter.Iterator, f string) bool {
+ 		switch f {
+ 		case "rejected_data_points", "rejectedDataPoints":
+ 			ms.orig.RejectedDataPoints = json.ReadInt64(iter)

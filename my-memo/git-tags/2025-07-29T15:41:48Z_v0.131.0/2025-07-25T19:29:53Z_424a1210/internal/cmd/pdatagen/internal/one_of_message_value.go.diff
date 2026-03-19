@@ -1,0 +1,27 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_message_value.go b/internal/cmd/pdatagen/internal/one_of_message_value.go
+index 622354c6e..331642c66 100644
+--- a/internal/cmd/pdatagen/internal/one_of_message_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_message_value.go
+@@ -68,6 +68,10 @@ const oneOfMessageCopyOrigTemplate = `	case *{{ .originStructType }}:
+ const oneOfMessageTypeTemplate = `case *{{ .originStructName }}_{{ .originFieldName }}:
+ 	return {{ .typeName }}`
+ 
++const oneOfMessageMarshalJSONTemplate = `case *{{ .originStructName }}_{{ .originFieldName }}:
++	dest.WriteObjectField("{{ lowerFirst .originFieldName }}")
++	new{{ .returnType }}(ov.{{ .fieldName }}, ms.state).marshalJSONStream(dest)`
++
+ type OneOfMessageValue struct {
+ 	fieldName              string
+ 	originFieldPackageName string
+@@ -99,6 +103,11 @@ func (omv *OneOfMessageValue) GenerateType(ms *messageStruct, of *OneOfField) st
+ 	return executeTemplate(t, omv.templateFields(ms, of))
+ }
+ 
++func (omv *OneOfMessageValue) GenerateMarshalJSON(ms *messageStruct, of *OneOfField) string {
++	t := template.Must(templateNew("oneOfMessageMarshalJSONTemplate").Parse(oneOfMessageMarshalJSONTemplate))
++	return executeTemplate(t, omv.templateFields(ms, of))
++}
++
+ func (omv *OneOfMessageValue) templateFields(ms *messageStruct, of *OneOfField) map[string]any {
+ 	return map[string]any{
+ 		"fieldName":               omv.fieldName,

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/stale-pr.yaml b/.github/workflows/stale-pr.yaml
+index 9f5d1083b..1e4619c37 100644
+--- a/.github/workflows/stale-pr.yaml
++++ b/.github/workflows/stale-pr.yaml
+@@ -12,7 +12,7 @@ jobs:
+       pull-requests: write # for actions/stale to close stale PRs
+     runs-on: ubuntu-latest
+     steps:
+-      - uses: actions/stale@5f858e3efba33a5ca4407a664cc011ad407f2008 # v10.1.0
++      - uses: actions/stale@997185467fa4f803885201cee163a9f38240193d # v10.1.1
+         with:
+           repo-token: ${{ secrets.GITHUB_TOKEN }}
+           stale-pr-message: "This PR was marked stale due to lack of activity. It will be closed in 14 days."

@@ -1,0 +1,7 @@
+diff --git a/testbed/tests/local.yaml b/testbed/tests/local.yaml
+index 97a1abcb1..92971f876 100644
+--- a/testbed/tests/local.yaml
++++ b/testbed/tests/local.yaml
+@@ -1 +1 @@
+-agent: ../../bin/{{.GOOS}}_{{.GOARCH}}/otelcol
++agent: ../../bin/otelcol_{{.GOOS}}_{{.GOARCH}}

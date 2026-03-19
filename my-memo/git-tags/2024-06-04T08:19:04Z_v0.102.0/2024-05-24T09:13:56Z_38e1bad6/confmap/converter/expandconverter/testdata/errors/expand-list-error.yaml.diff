@@ -1,0 +1,10 @@
+diff --git a/confmap/converter/expandconverter/testdata/errors/expand-list-error.yaml b/confmap/converter/expandconverter/testdata/errors/expand-list-error.yaml
+new file mode 100644
+index 000000000..a5cc8ee4b
+--- /dev/null
++++ b/confmap/converter/expandconverter/testdata/errors/expand-list-error.yaml
+@@ -0,0 +1,4 @@
++test_map:
++  extra_list:
++    - "some list value_1"
++    - "${EXTRA_LIST_^VALUE_2}"

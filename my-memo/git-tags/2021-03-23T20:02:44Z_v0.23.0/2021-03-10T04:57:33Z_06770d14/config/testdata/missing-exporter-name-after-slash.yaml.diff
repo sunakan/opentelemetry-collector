@@ -1,0 +1,11 @@
+diff --git a/config/testdata/missing-exporter-name-after-slash.yaml b/config/testdata/missing-exporter-name-after-slash.yaml
+index ecb9517bc..6166c9950 100644
+--- a/config/testdata/missing-exporter-name-after-slash.yaml
++++ b/config/testdata/missing-exporter-name-after-slash.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  multireceiver:
++  examplereceiver:
+ exporters:
+   exampleexporter/:
+ processors:

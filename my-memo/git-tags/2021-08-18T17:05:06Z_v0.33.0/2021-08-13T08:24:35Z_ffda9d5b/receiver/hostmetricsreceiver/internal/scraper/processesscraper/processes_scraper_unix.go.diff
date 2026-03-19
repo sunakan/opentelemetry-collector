@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+index 43daf1769..563e30a2a 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+@@ -53,8 +53,7 @@ func initializeProcessesCountMetric(metric pdata.Metric, startTime pdata.Timesta
+ }
+ 
+ func initializeProcessesCountDataPoint(dataPoint pdata.NumberDataPoint, startTime pdata.Timestamp, now pdata.Timestamp, statusLabel string, value int64) {
+-	labelsMap := dataPoint.LabelsMap()
+-	labelsMap.Insert(metadata.Labels.ProcessesStatus, statusLabel)
++	dataPoint.Attributes().InsertString(metadata.Labels.ProcessesStatus, statusLabel)
+ 	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetIntVal(value)

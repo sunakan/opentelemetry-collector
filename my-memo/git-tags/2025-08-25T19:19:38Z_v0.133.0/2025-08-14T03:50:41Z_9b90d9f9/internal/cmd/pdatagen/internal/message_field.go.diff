@@ -1,0 +1,29 @@
+diff --git a/internal/cmd/pdatagen/internal/message_field.go b/internal/cmd/pdatagen/internal/message_field.go
+index cff6c39c3..586f13785 100644
+--- a/internal/cmd/pdatagen/internal/message_field.go
++++ b/internal/cmd/pdatagen/internal/message_field.go
+@@ -81,16 +81,20 @@ func (mf *MessageField) GenerateMarshalProto(*messageStruct) string {
+ 	return mf.toProtoField().genMarshalProto()
+ }
+ 
++func (mf *MessageField) GenerateUnmarshalProto(*messageStruct) string {
++	return mf.toProtoField().genUnmarshalProto()
++}
++
+ func (mf *MessageField) toProtoField() *ProtoField {
+ 	pt := ProtoTypeMessage
+ 	if mf.returnMessage.getName() == "TraceState" {
+ 		pt = ProtoTypeString
+ 	}
+ 	return &ProtoField{
+-		Type:        pt,
+-		ID:          mf.protoID,
+-		Name:        mf.getFieldOriginFullName(),
+-		MessageName: mf.returnMessage.getOriginName(),
++		Type:            pt,
++		ID:              mf.protoID,
++		Name:            mf.getFieldOriginFullName(),
++		MessageFullName: mf.returnMessage.getOriginFullName(),
+ 	}
+ }
+ 

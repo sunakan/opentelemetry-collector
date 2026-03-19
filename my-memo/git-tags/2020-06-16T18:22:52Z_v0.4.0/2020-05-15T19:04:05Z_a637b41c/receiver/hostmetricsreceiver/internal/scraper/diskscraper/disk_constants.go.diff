@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
+index c74045885..8db8bc6da 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_constants.go
+@@ -15,7 +15,7 @@
+ package diskscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // disk metric constants

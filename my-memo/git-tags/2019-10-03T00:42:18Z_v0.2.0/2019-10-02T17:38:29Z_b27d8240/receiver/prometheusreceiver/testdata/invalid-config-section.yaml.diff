@@ -1,0 +1,25 @@
+diff --git a/receiver/prometheusreceiver/testdata/invalid-config-section.yaml b/receiver/prometheusreceiver/testdata/invalid-config-section.yaml
+new file mode 100644
+index 000000000..66d4757a0
+--- /dev/null
++++ b/receiver/prometheusreceiver/testdata/invalid-config-section.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  prometheus:
++    unknow_section: 1
++    config:
++      scrape_configs:
++        - job_name: 'demo'
++          scrape_interval: 5s
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [prometheus]
++    processors: [exampleprocessor]
++    exporters: [exampleexporter]

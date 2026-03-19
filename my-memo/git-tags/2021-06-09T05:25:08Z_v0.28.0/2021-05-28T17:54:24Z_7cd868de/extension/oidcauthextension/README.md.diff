@@ -1,0 +1,12 @@
+diff --git a/extension/oidcauthextension/README.md b/extension/oidcauthextension/README.md
+index 835111724..9561b7db4 100644
+--- a/extension/oidcauthextension/README.md
++++ b/extension/oidcauthextension/README.md
+@@ -1,6 +1,6 @@
+ # Authenticator - OIDC
+ 
+-This extension implements a `configauth.Authenticator`, to be used in receivers inside the `auth` settings. The authenticator type has to be set to `oidc`.
++This extension implements a `configauth.ServerAuthenticator`, to be used in receivers inside the `auth` settings. The authenticator type has to be set to `oidc`.
+ 
+ ## Configuration
+ 

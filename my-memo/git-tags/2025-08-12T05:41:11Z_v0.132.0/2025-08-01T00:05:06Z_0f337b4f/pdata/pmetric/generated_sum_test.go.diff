@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/generated_sum_test.go b/pdata/pmetric/generated_sum_test.go
+index 5dfa5e6c3..9544e8bf4 100644
+--- a/pdata/pmetric/generated_sum_test.go
++++ b/pdata/pmetric/generated_sum_test.go
+@@ -95,5 +95,5 @@ func generateTestSum() Sum {
+ func fillTestSum(tv Sum) {
+ 	tv.orig.AggregationTemporality = otlpmetrics.AggregationTemporality(1)
+ 	tv.orig.IsMonotonic = true
+-	fillTestNumberDataPointSlice(newNumberDataPointSlice(&tv.orig.DataPoints, tv.state))
++	fillTestNumberDataPointSlice(tv.DataPoints())
+ }

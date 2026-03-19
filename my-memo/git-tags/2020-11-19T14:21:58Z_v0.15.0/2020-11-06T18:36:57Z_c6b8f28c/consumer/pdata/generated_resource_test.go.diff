@@ -1,0 +1,30 @@
+diff --git a/consumer/pdata/generated_resource_test.go b/consumer/pdata/generated_resource_test.go
+index b9633e3b4..a74781ca2 100644
+--- a/consumer/pdata/generated_resource_test.go
++++ b/consumer/pdata/generated_resource_test.go
+@@ -23,17 +23,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+-func TestResource_InitEmpty(t *testing.T) {
+-	ms := NewResource()
+-	assert.True(t, ms.IsNil())
+-	ms.InitEmpty()
+-	assert.False(t, ms.IsNil())
+-}
+-
+ func TestResource_CopyTo(t *testing.T) {
+ 	ms := NewResource()
+-	NewResource().CopyTo(ms)
+-	assert.True(t, ms.IsNil())
+ 	generateTestResource().CopyTo(ms)
+ 	assert.EqualValues(t, generateTestResource(), ms)
+ }
+@@ -49,7 +40,6 @@ func TestResource_Attributes(t *testing.T) {
+ 
+ func generateTestResource() Resource {
+ 	tv := NewResource()
+-	tv.InitEmpty()
+ 	fillTestResource(tv)
+ 	return tv
+ }

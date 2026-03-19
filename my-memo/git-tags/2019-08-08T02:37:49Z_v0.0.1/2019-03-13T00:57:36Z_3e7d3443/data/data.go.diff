@@ -1,0 +1,16 @@
+diff --git a/data/data.go b/data/data.go
+index 3df574849..d1d830fe3 100644
+--- a/data/data.go
++++ b/data/data.go
+@@ -30,7 +30,8 @@ type MetricsData struct {
+ 
+ // TraceData is a struct that groups proto spans with a unique node and a resource.
+ type TraceData struct {
+-	Node     *commonpb.Node
+-	Resource *resourcepb.Resource
+-	Spans    []*tracepb.Span
++	Node         *commonpb.Node
++	Resource     *resourcepb.Resource
++	Spans        []*tracepb.Span
++	SourceFormat string
+ }

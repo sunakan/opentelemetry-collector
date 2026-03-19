@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_status.go b/pdata/internal/generated_wrapper_status.go
+index 62dcd121e..8c110a0dc 100644
+--- a/pdata/internal/generated_wrapper_status.go
++++ b/pdata/internal/generated_wrapper_status.go
+@@ -27,9 +27,11 @@ func CopyOrigStatus(dest, src *otlptrace.Status) {
+ 	dest.Code = src.Code
+ }
+ 
+-func FillOrigTestStatus(orig *otlptrace.Status) {
++func GenTestOrigStatus() *otlptrace.Status {
++	orig := NewOrigPtrStatus()
+ 	orig.Message = "test_message"
+ 	orig.Code = otlptrace.Status_StatusCode(1)
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

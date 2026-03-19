@@ -1,0 +1,29 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/internal/metadata/testdata/config.yaml b/cmd/mdatagen/internal/sampleprocessor/internal/metadata/testdata/config.yaml
+index bcc1a519f..8ae9f4dcd 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/internal/metadata/testdata/config.yaml
++++ b/cmd/mdatagen/internal/sampleprocessor/internal/metadata/testdata/config.yaml
+@@ -17,6 +17,24 @@ all_set:
+       enabled: true
+     string.resource.attr_to_be_removed:
+       enabled: true
++reaggregate_set:
++  resource_attributes:
++    map.resource.attr:
++      enabled: true
++    optional.resource.attr:
++      enabled: true
++    slice.resource.attr:
++      enabled: true
++    string.enum.resource.attr:
++      enabled: true
++    string.resource.attr:
++      enabled: true
++    string.resource.attr_disable_warning:
++      enabled: true
++    string.resource.attr_remove_warning:
++      enabled: true
++    string.resource.attr_to_be_removed:
++      enabled: true
+ none_set:
+   resource_attributes:
+     map.resource.attr:

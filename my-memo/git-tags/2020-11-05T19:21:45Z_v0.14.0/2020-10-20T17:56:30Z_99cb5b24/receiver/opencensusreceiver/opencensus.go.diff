@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index f3f5a34ab..6535d91e5 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -52,7 +52,7 @@ type ocReceiver struct {
+ 	traceReceiver   *octrace.Receiver
+ 	metricsReceiver *ocmetrics.Receiver
+ 
+-	traceConsumer   consumer.TraceConsumer
++	traceConsumer   consumer.TracesConsumer
+ 	metricsConsumer consumer.MetricsConsumer
+ 
+ 	stopOnce                 sync.Once
+@@ -70,7 +70,7 @@ func newOpenCensusReceiver(
+ 	instanceName string,
+ 	transport string,
+ 	addr string,
+-	tc consumer.TraceConsumer,
++	tc consumer.TracesConsumer,
+ 	mc consumer.MetricsConsumer,
+ 	opts ...ocOption,
+ ) (*ocReceiver, error) {

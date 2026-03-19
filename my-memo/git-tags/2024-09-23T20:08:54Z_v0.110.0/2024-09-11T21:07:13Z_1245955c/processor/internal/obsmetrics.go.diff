@@ -1,0 +1,19 @@
+diff --git a/processor/internal/obsmetrics.go b/processor/internal/obsmetrics.go
+new file mode 100644
+index 000000000..c96fbe5e9
+--- /dev/null
++++ b/processor/internal/obsmetrics.go
+@@ -0,0 +1,13 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/processor/internal"
++
++const (
++	MetricNameSep = "_"
++
++	// ProcessorKey is the key used to identify processors in metrics and traces.
++	ProcessorKey = "processor"
++
++	ProcessorMetricPrefix = ProcessorKey + MetricNameSep
++)

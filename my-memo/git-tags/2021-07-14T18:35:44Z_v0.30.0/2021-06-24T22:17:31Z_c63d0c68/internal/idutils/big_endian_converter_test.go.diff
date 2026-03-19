@@ -1,0 +1,13 @@
+diff --git a/internal/idutils/big_endian_converter_test.go b/internal/idutils/big_endian_converter_test.go
+index 861110298..99f713dff 100644
+--- a/internal/idutils/big_endian_converter_test.go
++++ b/internal/idutils/big_endian_converter_test.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestUInt64ToTraceIDConversion(t *testing.T) {

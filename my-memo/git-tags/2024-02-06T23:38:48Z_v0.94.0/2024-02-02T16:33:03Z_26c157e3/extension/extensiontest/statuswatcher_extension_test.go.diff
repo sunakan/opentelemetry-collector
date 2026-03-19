@@ -1,0 +1,13 @@
+diff --git a/extension/extensiontest/statuswatcher_extension_test.go b/extension/extensiontest/statuswatcher_extension_test.go
+index 0bfdf4f5e..14f9859e3 100644
+--- a/extension/extensiontest/statuswatcher_extension_test.go
++++ b/extension/extensiontest/statuswatcher_extension_test.go
+@@ -23,7 +23,7 @@ func TestStatusWatcherExtension(t *testing.T) {
+ 		},
+ 	)
+ 	require.NotNil(t, factory)
+-	assert.Equal(t, component.Type("statuswatcher"), factory.Type())
++	assert.Equal(t, component.MustNewType("statuswatcher"), factory.Type())
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.Equal(t, &struct{}{}, cfg)
+ 

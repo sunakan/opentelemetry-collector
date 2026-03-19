@@ -1,0 +1,13 @@
+diff --git a/otelcol/unmarshaler.go b/otelcol/unmarshaler.go
+index 1dc4abea8..43a833e95 100644
+--- a/otelcol/unmarshaler.go
++++ b/otelcol/unmarshaler.go
+@@ -34,7 +34,7 @@ type configSettings struct {
+ 
+ // unmarshal the configSettings from a confmap.Conf.
+ // After the config is unmarshalled, `Validate()` must be called to validate.
+-func unmarshal(v *confmap.Conf, factories service.Factories) (*configSettings, error) {
++func unmarshal(v *confmap.Conf, factories Factories) (*configSettings, error) {
+ 	// Unmarshal top level sections and validate.
+ 	cfg := &configSettings{
+ 		Receivers:  configunmarshaler.NewReceivers(factories.Receivers),

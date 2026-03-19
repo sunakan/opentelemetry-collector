@@ -1,0 +1,20 @@
+diff --git a/test/replaces.otel.yaml b/test/replaces.otel.yaml
+index 04e3d5053..ebf08a2d9 100755
+--- a/test/replaces.otel.yaml
++++ b/test/replaces.otel.yaml
+@@ -1,5 +1,5 @@
+ extensions:
+-  health_check:
++  zpages:
+ 
+ receivers:
+   otlp:
+@@ -24,7 +24,7 @@ exporters:
+   logging:
+ 
+ service:
+-  extensions: [health_check]
++  extensions: [zpages]
+   pipelines:
+     traces:
+       receivers:

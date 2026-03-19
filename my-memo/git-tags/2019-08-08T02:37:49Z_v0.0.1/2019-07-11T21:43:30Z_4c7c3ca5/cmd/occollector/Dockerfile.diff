@@ -1,0 +1,14 @@
+diff --git a/cmd/occollector/Dockerfile b/cmd/occollector/Dockerfile
+deleted file mode 100644
+index cbba7f949..000000000
+--- a/cmd/occollector/Dockerfile
++++ /dev/null
+@@ -1,8 +0,0 @@
+-FROM alpine:latest as certs
+-RUN apk --update add ca-certificates
+-
+-FROM scratch
+-COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+-COPY occollector_linux /
+-ENTRYPOINT ["/occollector_linux"]
+-EXPOSE 55678

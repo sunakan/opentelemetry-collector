@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanevent_test.go b/pdata/ptrace/generated_spanevent_test.go
+index 24ad7de4d..4c1901ffd 100644
+--- a/pdata/ptrace/generated_spanevent_test.go
++++ b/pdata/ptrace/generated_spanevent_test.go
+@@ -49,7 +49,7 @@ func TestSpanEvent_Timestamp(t *testing.T) {
+ 
+ func TestSpanEvent_Name(t *testing.T) {
+ 	ms := NewSpanEvent()
+-	assert.Equal(t, "", ms.Name())
++	assert.Empty(t, ms.Name())
+ 	ms.SetName("test_name")
+ 	assert.Equal(t, "test_name", ms.Name())
+ 	sharedState := internal.StateReadOnly

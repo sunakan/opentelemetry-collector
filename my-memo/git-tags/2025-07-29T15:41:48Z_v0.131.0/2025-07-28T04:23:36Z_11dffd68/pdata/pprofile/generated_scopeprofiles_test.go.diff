@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/generated_scopeprofiles_test.go b/pdata/pprofile/generated_scopeprofiles_test.go
+index cf0ce50a2..b8c0a4885 100644
+--- a/pdata/pprofile/generated_scopeprofiles_test.go
++++ b/pdata/pprofile/generated_scopeprofiles_test.go
+@@ -48,13 +48,13 @@ func TestScopeProfiles_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestScopeProfiles()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewScopeProfiles()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

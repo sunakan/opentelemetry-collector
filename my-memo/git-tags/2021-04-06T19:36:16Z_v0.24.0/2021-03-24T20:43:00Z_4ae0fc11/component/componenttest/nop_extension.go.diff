@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_extension.go b/component/componenttest/nop_extension.go
+index 810d570d8..9f5622044 100644
+--- a/component/componenttest/nop_extension.go
++++ b/component/componenttest/nop_extension.go
+@@ -54,7 +54,7 @@ func (f *nopExtensionFactory) CreateExtension(
+ }
+ 
+ var nopExtensionInstance = &nopExtension{
+-	Component: componenthelper.NewComponent(componenthelper.DefaultComponentSettings()),
++	Component: componenthelper.New(),
+ }
+ 
+ // nopExtension stores consumed traces and metrics for testing purposes.

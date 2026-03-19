@@ -1,0 +1,15 @@
+diff --git a/internal/data_generator/internal/base_structs.go b/internal/data_generator/internal/base_structs.go
+index 0675d389a..3e4ef7907 100644
+--- a/internal/data_generator/internal/base_structs.go
++++ b/internal/data_generator/internal/base_structs.go
+@@ -38,6 +38,10 @@ type ${structName} struct {
+ //     // Here should set all the values for e.
+ // }
+ func New${structName}(len int) ${structName} {
++	if len == 0 {
++		orig := []*${originName}(nil)
++		return ${structName}{&orig}
++	}
+ 	// Slice for underlying orig.
+ 	origs := make([]${originName}, len)
+ 	// Slice for wrappers.

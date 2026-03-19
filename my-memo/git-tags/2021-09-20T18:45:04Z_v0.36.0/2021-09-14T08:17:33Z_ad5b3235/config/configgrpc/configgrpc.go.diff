@@ -1,0 +1,19 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 1819f5158..c0a0e0444 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -347,10 +347,14 @@ func (gss *GRPCServerSettings) ToServerOption(ext map[config.ComponentID]compone
+ 	// TODO: Pass construct settings to have access to Tracer.
+ 	uInterceptors = append(uInterceptors, otelgrpc.UnaryServerInterceptor(
+ 		otelgrpc.WithTracerProvider(settings.TracerProvider),
++		// TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/4030
++		// otelgrpc.WithMeterProvider(settings.MeterProvider),
+ 		otelgrpc.WithPropagators(otel.GetTextMapPropagator()),
+ 	))
+ 	sInterceptors = append(sInterceptors, otelgrpc.StreamServerInterceptor(
+ 		otelgrpc.WithTracerProvider(settings.TracerProvider),
++		// TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/4030
++		// otelgrpc.WithMeterProvider(settings.MeterProvider),
+ 		otelgrpc.WithPropagators(otel.GetTextMapPropagator()),
+ 	))
+ 

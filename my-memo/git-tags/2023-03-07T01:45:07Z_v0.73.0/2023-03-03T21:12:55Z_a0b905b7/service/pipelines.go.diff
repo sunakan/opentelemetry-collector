@@ -1,0 +1,17 @@
+diff --git a/service/pipelines.go b/service/pipelines.go
+index 149ca309d..ae9f5cef0 100644
+--- a/service/pipelines.go
++++ b/service/pipelines.go
+@@ -28,12 +28,6 @@ import (
+ 	"go.opentelemetry.io/collector/service/internal/fanoutconsumer"
+ )
+ 
+-const (
+-	zPipelineName  = "zpipelinename"
+-	zComponentName = "zcomponentname"
+-	zComponentKind = "zcomponentkind"
+-)
+-
+ // baseConsumer redeclared here since not public in consumer package. May consider to make that public.
+ type baseConsumer interface {
+ 	Capabilities() consumer.Capabilities

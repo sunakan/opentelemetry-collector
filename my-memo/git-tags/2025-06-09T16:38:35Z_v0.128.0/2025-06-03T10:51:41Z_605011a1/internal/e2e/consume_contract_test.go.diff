@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/consume_contract_test.go b/internal/e2e/consume_contract_test.go
+index 9f8df01ec..098dab943 100644
+--- a/internal/e2e/consume_contract_test.go
++++ b/internal/e2e/consume_contract_test.go
+@@ -27,7 +27,7 @@ func testExporterConfig(endpoint string) component.Config {
+ 		RetryConfig: retryConfig,
+ 		ClientConfig: configgrpc.ClientConfig{
+ 			Endpoint: endpoint,
+-			TLSSetting: configtls.ClientConfig{
++			TLS: configtls.ClientConfig{
+ 				Insecure: true,
+ 			},
+ 		},

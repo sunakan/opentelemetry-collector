@@ -1,0 +1,13 @@
+diff --git a/service/parserprovider/setflag.go b/service/parserprovider/setflag.go
+index f29285598..3828ae379 100644
+--- a/service/parserprovider/setflag.go
++++ b/service/parserprovider/setflag.go
+@@ -74,7 +74,7 @@ func (sfl *setFlagProvider) Get(ctx context.Context) (*configparser.ConfigMap, e
+ 	if cp, err = sfl.base.Get(ctx); err != nil {
+ 		return nil, err
+ 	}
+-	return cp, cp.MergeStringMap(prop)
++	return cp, cp.Merge(configparser.NewConfigMapFromStringMap(prop))
+ }
+ 
+ func (sfl *setFlagProvider) Close(context.Context) error {

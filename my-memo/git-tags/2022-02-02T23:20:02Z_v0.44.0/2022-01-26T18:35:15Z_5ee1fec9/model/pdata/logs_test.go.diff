@@ -1,0 +1,29 @@
+diff --git a/model/pdata/logs_test.go b/model/pdata/logs_test.go
+index 14d999cc3..825d385d5 100644
+--- a/model/pdata/logs_test.go
++++ b/model/pdata/logs_test.go
+@@ -33,13 +33,13 @@ func TestLogRecordCount(t *testing.T) {
+ 	ill := rl.InstrumentationLibraryLogs().AppendEmpty()
+ 	assert.EqualValues(t, 0, md.LogRecordCount())
+ 
+-	ill.Logs().AppendEmpty()
++	ill.LogRecords().AppendEmpty()
+ 	assert.EqualValues(t, 1, md.LogRecordCount())
+ 
+ 	rms := md.ResourceLogs()
+ 	rms.EnsureCapacity(3)
+ 	rms.AppendEmpty().InstrumentationLibraryLogs().AppendEmpty()
+-	illl := rms.AppendEmpty().InstrumentationLibraryLogs().AppendEmpty().Logs()
++	illl := rms.AppendEmpty().InstrumentationLibraryLogs().AppendEmpty().LogRecords()
+ 	for i := 0; i < 5; i++ {
+ 		illl.AppendEmpty()
+ 	}
+@@ -64,7 +64,7 @@ func TestLogRecordCountWithEmpty(t *testing.T) {
+ 			{
+ 				InstrumentationLibraryLogs: []*otlplogs.InstrumentationLibraryLogs{
+ 					{
+-						Logs: []*otlplogs.LogRecord{{}},
++						LogRecords: []*otlplogs.LogRecord{{}},
+ 					},
+ 				},
+ 			},

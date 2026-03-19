@@ -1,0 +1,24 @@
+diff --git a/processor/queuedprocessor/metrics.go b/processor/queuedprocessor/metrics.go
+index 1f6f1a517..4f0cf0405 100644
+--- a/processor/queuedprocessor/metrics.go
++++ b/processor/queuedprocessor/metrics.go
+@@ -19,7 +19,7 @@ import (
+ 	"go.opencensus.io/stats/view"
+ 	"go.opencensus.io/tag"
+ 
+-	"go.opentelemetry.io/collector/internal/collector/telemetry"
++	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/processor"
+ )
+@@ -58,8 +58,8 @@ var (
+ )
+ 
+ // MetricViews return the metrics views according to given telemetry level.
+-func MetricViews(level telemetry.Level) []*view.View {
+-	if level == telemetry.None {
++func MetricViews(level configtelemetry.Level) []*view.View {
++	if level == configtelemetry.LevelNone {
+ 		return nil
+ 	}
+ 

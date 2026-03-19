@@ -1,0 +1,28 @@
+diff --git a/pdata/pmetric/generated_histogram.go b/pdata/pmetric/generated_histogram.go
+index fb2cfe465..625e56654 100644
+--- a/pdata/pmetric/generated_histogram.go
++++ b/pdata/pmetric/generated_histogram.go
+@@ -49,6 +49,11 @@ func (ms Histogram) MoveTo(dest Histogram) {
+ 	*ms.orig = otlpmetrics.Histogram{}
+ }
+ 
++// DataPoints returns the DataPoints associated with this Histogram.
++func (ms Histogram) DataPoints() HistogramDataPointSlice {
++	return newHistogramDataPointSlice(&ms.orig.DataPoints, ms.state)
++}
++
+ // AggregationTemporality returns the aggregationtemporality associated with this Histogram.
+ func (ms Histogram) AggregationTemporality() AggregationTemporality {
+ 	return AggregationTemporality(ms.orig.AggregationTemporality)
+@@ -60,11 +65,6 @@ func (ms Histogram) SetAggregationTemporality(v AggregationTemporality) {
+ 	ms.orig.AggregationTemporality = otlpmetrics.AggregationTemporality(v)
+ }
+ 
+-// DataPoints returns the DataPoints associated with this Histogram.
+-func (ms Histogram) DataPoints() HistogramDataPointSlice {
+-	return newHistogramDataPointSlice(&ms.orig.DataPoints, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms Histogram) CopyTo(dest Histogram) {
+ 	dest.state.AssertMutable()

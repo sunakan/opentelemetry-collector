@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/dependabot.yml b/.github/workflows/dependabot.yml
+index 5df9ac56e..8460dc731 100644
+--- a/.github/workflows/dependabot.yml
++++ b/.github/workflows/dependabot.yml
+@@ -3,8 +3,6 @@ name: Dependabot-Tidier
+ on:
+   pull_request:
+     types: [ labeled ]
+-    paths-ignore:
+-      - 'builder/**'
+ 
+ jobs:
+   mod_tidier:

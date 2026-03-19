@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index 5b21784fc..d64abadca 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,6 @@
+ ALL_SRC := $(shell find . -name '*.go' \
+                                 -not -path './vendor/*' \
+                                 -not -path './testbed/*' \
+-                                -not -path './tools/*' \
+                                 -type f | sort)
+ 
+ # ALL_PKGS is used with 'go cover'

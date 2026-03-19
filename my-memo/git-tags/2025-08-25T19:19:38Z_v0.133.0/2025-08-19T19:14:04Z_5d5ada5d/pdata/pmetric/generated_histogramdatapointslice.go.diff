@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice.go b/pdata/pmetric/generated_histogramdatapointslice.go
+index 17cd0c004..0cba6bf83 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice.go
++++ b/pdata/pmetric/generated_histogramdatapointslice.go
+@@ -99,7 +99,7 @@ func (es HistogramDataPointSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added HistogramDataPoint.
+ func (es HistogramDataPointSlice) AppendEmpty() HistogramDataPoint {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrHistogramDataPoint())
++	*es.orig = append(*es.orig, internal.NewOrigHistogramDataPoint())
+ 	return es.At(es.Len() - 1)
+ }
+ 

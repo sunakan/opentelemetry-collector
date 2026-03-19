@@ -1,0 +1,30 @@
+diff --git a/extension/ballastextension/memory_ballast.go b/extension/ballastextension/memory_ballast.go
+index 4de90a6c0..67f8777ae 100644
+--- a/extension/ballastextension/memory_ballast.go
++++ b/extension/ballastextension/memory_ballast.go
+@@ -24,6 +24,8 @@ import (
+ 
+ const megaBytes = 1024 * 1024
+ 
++var ballastSizeBytes uint64
++
+ type memoryBallast struct {
+ 	cfg         *Config
+ 	logger      *zap.Logger
+@@ -32,7 +34,6 @@ type memoryBallast struct {
+ }
+ 
+ func (m *memoryBallast) Start(_ context.Context, _ component.Host) error {
+-	var ballastSizeBytes uint64
+ 	// absolute value supersedes percentage setting
+ 	if m.cfg.SizeMiB > 0 {
+ 		ballastSizeBytes = m.cfg.SizeMiB * megaBytes
+@@ -66,3 +67,8 @@ func newMemoryBallast(cfg *Config, logger *zap.Logger, getTotalMem func() (uint6
+ 		getTotalMem: getTotalMem,
+ 	}
+ }
++
++// GetBallastSize returns the current ballast memory setting in bytes
++func GetBallastSize() uint64 {
++	return ballastSizeBytes
++}

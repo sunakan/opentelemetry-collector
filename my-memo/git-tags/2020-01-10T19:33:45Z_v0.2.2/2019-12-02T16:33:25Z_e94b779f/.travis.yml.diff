@@ -1,0 +1,17 @@
+diff --git a/.travis.yml b/.travis.yml
+index ce88af5b5..0fbd083cf 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -7,10 +7,10 @@ go_import_path: github.com/open-telemetry/opentelemetry-collector
+ 
+ go:
+   - 1.12.x
+- 
++
+ env:
+   global:
+-    GO111MODULE=on
++    - GO111MODULE=on
+ 
+ install:
+   - go mod download

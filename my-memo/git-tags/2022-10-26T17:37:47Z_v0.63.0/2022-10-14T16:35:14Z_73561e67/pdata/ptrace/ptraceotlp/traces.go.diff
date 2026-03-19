@@ -1,0 +1,14 @@
+diff --git a/pdata/ptrace/ptraceotlp/traces.go b/pdata/ptrace/ptraceotlp/traces.go
+index be55eb3d0..86acfe0f0 100644
+--- a/pdata/ptrace/ptraceotlp/traces.go
++++ b/pdata/ptrace/ptraceotlp/traces.go
+@@ -155,9 +155,6 @@ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectortrace.RegisterTraceServiceServer(s, &rawTracesServer{srv: srv})
+ }
+ 
+-// Deprecated: [v0.62.0] Use RegisterGRPCServer instead
+-var RegisterServer = RegisterGRPCServer
+-
+ type rawTracesServer struct {
+ 	srv GRPCServer
+ }

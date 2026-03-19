@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricsserviceresponse.go b/pdata/internal/generated_wrapper_exportmetricsserviceresponse.go
+index fd79562e5..eb1619106 100644
+--- a/pdata/internal/generated_wrapper_exportmetricsserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportmetricsserviceresponse.go
+@@ -26,8 +26,10 @@ func CopyOrigExportMetricsServiceResponse(dest, src *otlpcollectormetrics.Export
+ 	CopyOrigExportMetricsPartialSuccess(&dest.PartialSuccess, &src.PartialSuccess)
+ }
+ 
+-func FillOrigTestExportMetricsServiceResponse(orig *otlpcollectormetrics.ExportMetricsServiceResponse) {
+-	FillOrigTestExportMetricsPartialSuccess(&orig.PartialSuccess)
++func GenTestOrigExportMetricsServiceResponse() *otlpcollectormetrics.ExportMetricsServiceResponse {
++	orig := NewOrigPtrExportMetricsServiceResponse()
++	orig.PartialSuccess = *GenTestOrigExportMetricsPartialSuccess()
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

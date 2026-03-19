@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 5d294172b..f7177e575 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -19,6 +19,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.112.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.112.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.112.0
++	go.opentelemetry.io/collector/internal/sharedcomponent v0.112.0
+ 	go.opentelemetry.io/collector/pdata v1.18.0
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.112.0
+ 	go.opentelemetry.io/collector/pdata/testdata v0.112.0
+@@ -129,6 +130,8 @@ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror
+ 
++replace go.opentelemetry.io/collector/internal/sharedcomponent => ../../internal/sharedcomponent
++
+ retract (
+ 	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1

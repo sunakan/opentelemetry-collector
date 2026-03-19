@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 63f138d23..e89870060 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -341,7 +341,7 @@ func (jr *jReceiver) startAgent(host component.Host) error {
+ 	}
+ 
+ 	if jr.agentHTTPEnabled() {
+-		jr.agentServer = httpserver.NewHTTPServer(jr.agentHTTPAddr(), jr, metrics.NullFactory)
++		jr.agentServer = httpserver.NewHTTPServer(jr.agentHTTPAddr(), jr, metrics.NullFactory, jr.logger)
+ 
+ 		jr.goroutines.Add(1)
+ 		go func() {

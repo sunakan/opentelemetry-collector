@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index 6d15988c4..3d5f96053 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -70,8 +70,7 @@ func TestMetrics_NilLogger(t *testing.T) {
+ }
+ 
+ func TestMetricsRequest_NilLogger(t *testing.T) {
+-	me, err := NewMetricsRequest(context.Background(), exporter.Settings{},
+-		requesttest.RequestFromMetricsFunc(nil))
++	me, err := NewMetricsRequest(context.Background(), exporter.Settings{}, requesttest.RequestFromMetricsFunc(nil))
+ 	require.Nil(t, me)
+ 	require.Equal(t, errNilLogger, err)
+ }

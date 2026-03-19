@@ -1,0 +1,12 @@
+diff --git a/consumer/consumerdata/consumerdata.go b/consumer/consumerdata/consumerdata.go
+index 0e28b3fd0..0e7dc649b 100644
+--- a/consumer/consumerdata/consumerdata.go
++++ b/consumer/consumerdata/consumerdata.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package consumerdata contains data structures that holds proto metrics/spans, node and resource.
+ package consumerdata
+ 
+ import (

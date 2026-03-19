@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index fc0987fc1..60acce14f 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -7,6 +7,7 @@ github_project: open-telemetry/opentelemetry-collector
+ sem_conv_version: 1.9.0
+ 
+ status:
++  disable_codecov_badge: true
+   class: receiver
+   stability:
+     development: [logs]

@@ -1,0 +1,11 @@
+diff --git a/internal/buildscripts/packaging/fpm/otel-collector.conf b/internal/buildscripts/packaging/fpm/otel-collector.conf
+deleted file mode 100644
+index 434a65e2c..000000000
+--- a/internal/buildscripts/packaging/fpm/otel-collector.conf
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# Systemd environment file for the otel-collector service
+-
+-# Command-line options for the otel-collector service.
+-# Run `/usr/bin/otelcol --help` to see all available options.
+-OTELCOL_OPTIONS="--config=/etc/otel-collector/config.yaml"

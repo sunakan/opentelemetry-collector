@@ -1,0 +1,21 @@
+diff --git a/internal/scaffold/components.go b/internal/scaffold/components.go
+index 0354eae1c..74b105c86 100644
+--- a/internal/scaffold/components.go
++++ b/internal/scaffold/components.go
+@@ -33,7 +33,7 @@ package main
+ 
+ import (
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenterror"
++	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	{{- if .Distribution.IncludeCore}}
+ 	"go.opentelemetry.io/collector/service/defaultcomponents"
+ 	{{- end}}
+@@ -125,6 +125,6 @@ func components() (component.Factories, error) {
+ 		errs = append(errs, err)
+ 	}
+ 
+-	return factories, componenterror.CombineErrors(errs)
++	return factories, consumererror.CombineErrors(errs)
+ }
+ `

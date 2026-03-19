@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index 6375febbe..f0ae4caeb 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -43,9 +43,8 @@ const (
+ 
+ var (
+ 	fakeMetricsExporterConfig = &configmodels.ExporterSettings{
+-		TypeVal:  fakeMetricsExporterType,
+-		NameVal:  fakeMetricsExporterName,
+-		Disabled: false,
++		TypeVal: fakeMetricsExporterType,
++		NameVal: fakeMetricsExporterName,
+ 	}
+ )
+ 

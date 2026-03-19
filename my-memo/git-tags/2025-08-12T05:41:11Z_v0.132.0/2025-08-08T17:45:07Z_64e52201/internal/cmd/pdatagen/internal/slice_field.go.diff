@@ -1,0 +1,33 @@
+diff --git a/internal/cmd/pdatagen/internal/slice_field.go b/internal/cmd/pdatagen/internal/slice_field.go
+index 7a14a24f3..960639691 100644
+--- a/internal/cmd/pdatagen/internal/slice_field.go
++++ b/internal/cmd/pdatagen/internal/slice_field.go
+@@ -41,6 +41,8 @@ const sliceUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ i
+ 
+ type SliceField struct {
+ 	fieldName     string
++	protoType     ProtoType
++	protoID       uint32
+ 	returnSlice   baseSlice
+ 	hideAccessors bool
+ }
+@@ -81,6 +83,19 @@ func (sf *SliceField) GenerateUnmarshalJSON(ms *messageStruct) string {
+ 	return executeTemplate(t, sf.templateFields(ms))
+ }
+ 
++func (sf *SliceField) GenerateSizeProto(*messageStruct) string {
++	_, nullable := sf.returnSlice.(*sliceOfPtrs)
++	pf := &ProtoField{
++		Type:        sf.protoType,
++		ID:          sf.protoID,
++		Name:        sf.fieldName,
++		MessageName: sf.returnSlice.getElementOriginName(),
++		Repeated:    sf.protoType != ProtoTypeBytes,
++		Nullable:    nullable,
++	}
++	return pf.genSizeProto()
++}
++
+ func (sf *SliceField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName":        ms.getName(),

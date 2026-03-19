@@ -1,0 +1,15 @@
+diff --git a/pkg/configv2/testdata/invalid-receiver-reference.yaml b/pkg/configv2/testdata/invalid-receiver-reference.yaml
+deleted file mode 100644
+index 09a7fc4e0..000000000
+--- a/pkg/configv2/testdata/invalid-receiver-reference.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [invalidreceivername]

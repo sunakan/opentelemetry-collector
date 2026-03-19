@@ -1,0 +1,12 @@
+diff --git a/otelcol/collector_windows.go b/otelcol/collector_windows.go
+index 7e9099e02..ce52a4647 100644
+--- a/otelcol/collector_windows.go
++++ b/otelcol/collector_windows.go
+@@ -225,6 +225,7 @@ func withWindowsCore(elog *eventlog.Log, serviceConfig **service.Config) func(za
+ 		// Use the Windows Event Log
+ 		encoderConfig := zap.NewProductionEncoderConfig()
+ 		encoderConfig.LineEnding = "\r\n"
++		encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
+ 		return windowsEventLogCore{core, elog, zapcore.NewConsoleEncoder(encoderConfig)}
+ 	}
+ }

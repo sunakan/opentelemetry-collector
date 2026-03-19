@@ -1,0 +1,12 @@
+diff --git a/internal/goldendataset/metric_gen.go b/internal/goldendataset/metric_gen.go
+index bfcb4466d..76e376647 100644
+--- a/internal/goldendataset/metric_gen.go
++++ b/internal/goldendataset/metric_gen.go
+@@ -154,7 +154,6 @@ func (g *metricGenerator) populateMetrics(cfg MetricCfg, ilm pdata.Instrumentati
+ }
+ 
+ func (g *metricGenerator) populateMetricDesc(cfg MetricCfg, metric pdata.Metric) {
+-	metric.InitEmpty()
+ 	metric.SetName(fmt.Sprintf("%smetric_%d", cfg.MetricNamePrefix, g.metricID))
+ 	g.metricID++
+ 	metric.SetDescription("my-md-description")

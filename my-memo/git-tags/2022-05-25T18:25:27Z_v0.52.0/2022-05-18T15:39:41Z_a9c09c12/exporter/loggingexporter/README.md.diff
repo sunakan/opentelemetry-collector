@@ -1,0 +1,24 @@
+diff --git a/exporter/loggingexporter/README.md b/exporter/loggingexporter/README.md
+index 1ad42f63d..78db21980 100644
+--- a/exporter/loggingexporter/README.md
++++ b/exporter/loggingexporter/README.md
+@@ -1,5 +1,11 @@
+ # Logging Exporter
+ 
++| Status                   |                         |
++| ------------------------ | ----------------------- |
++| Stability                | [In development]        |
++| Supported pipeline types | traces, metrics, logs   |
++| Distributions            | [core], [contrib]       |
++
+ Exports data to the console via zap.Logger.
+ 
+ Supported pipeline types: traces, metrics, logs
+@@ -27,3 +33,7 @@ exporters:
+     sampling_initial: 5
+     sampling_thereafter: 200
+ ```
++
++[contrib]: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib
++[core]: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol
++[In development]: https://github.com/open-telemetry/opentelemetry-collector#in-development

@@ -1,0 +1,26 @@
+diff --git a/service/parserprovider/testdata/otelcol-config.yaml b/service/parserprovider/testdata/otelcol-config.yaml
+index 3a616757a..e9d6209be 100644
+--- a/service/parserprovider/testdata/otelcol-config.yaml
++++ b/service/parserprovider/testdata/otelcol-config.yaml
+@@ -1,10 +1,10 @@
+ receivers:
+-  jaeger:
++  otlp:
+     protocols:
+       grpc:
+ 
+ exporters:
+-  opencensus:
++  otlp:
+     endpoint: "locahost:55678"
+ 
+ processors:
+@@ -24,6 +24,6 @@ service:
+   extensions: [pprof, zpages, health_check]
+   pipelines:
+     traces:
+-      receivers: [jaeger]
++      receivers: [otlp]
+       processors: [attributes, batch]
+-      exporters: [opencensus]
++      exporters: [otlp]

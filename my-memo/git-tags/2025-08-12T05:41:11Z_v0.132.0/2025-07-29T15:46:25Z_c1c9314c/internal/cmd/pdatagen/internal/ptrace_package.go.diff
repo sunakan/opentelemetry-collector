@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/ptrace_package.go b/internal/cmd/pdatagen/internal/ptrace_package.go
+index 0ad7c4b2e..37fb95799 100644
+--- a/internal/cmd/pdatagen/internal/ptrace_package.go
++++ b/internal/cmd/pdatagen/internal/ptrace_package.go
+@@ -112,7 +112,7 @@ var span = &messageStruct{
+ 			returnType: &TypedType{
+ 				structName: "SpanKind",
+ 				rawType:    "otlptrace.Span_SpanKind",
+-				isType:     true,
++				isEnum:     true,
+ 				defaultVal: "otlptrace.Span_SpanKind(0)",
+ 				testVal:    "otlptrace.Span_SpanKind(3)",
+ 			},
+@@ -198,7 +198,7 @@ var spanStatus = &messageStruct{
+ 			returnType: &TypedType{
+ 				structName: "StatusCode",
+ 				rawType:    "otlptrace.Status_StatusCode",
+-				isType:     true,
++				isEnum:     true,
+ 				defaultVal: "0",
+ 				testVal:    "1",
+ 			},

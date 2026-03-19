@@ -1,0 +1,32 @@
+diff --git a/pdata/internal/wrapper_slice.go b/pdata/internal/wrapper_slice.go
+index 3d584dc5e..94317dc01 100644
+--- a/pdata/internal/wrapper_slice.go
++++ b/pdata/internal/wrapper_slice.go
+@@ -7,6 +7,7 @@ import (
+ 	jsoniter "github.com/json-iterator/go"
+ 
+ 	otlpcommon "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ type Slice struct {
+@@ -53,6 +54,19 @@ func FillTestSlice(tv Slice) {
+ 	}
+ }
+ 
++// MarshalJSONStreamSlice marshals all properties from the current struct to the destination stream.
++func MarshalJSONStreamSlice(ms Slice, dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(*ms.orig) > 0 {
++		MarshalJSONStreamValue(NewValue(&(*ms.orig)[0], ms.state), dest)
++	}
++	for i := 1; i < len(*ms.orig); i++ {
++		dest.WriteMore()
++		MarshalJSONStreamValue(NewValue(&(*ms.orig)[i], ms.state), dest)
++	}
++	dest.WriteArrayEnd()
++}
++
+ func UnmarshalJSONIterSlice(ms Slice, iter *jsoniter.Iterator) {
+ 	iter.ReadArrayCB(func(iter *jsoniter.Iterator) bool {
+ 		*ms.orig = append(*ms.orig, otlpcommon.AnyValue{})

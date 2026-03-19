@@ -1,0 +1,14 @@
+diff --git a/exporter/internal/queue/batcher.go b/exporter/internal/queue/batcher.go
+index dce35d7b1..08d51aa83 100644
+--- a/exporter/internal/queue/batcher.go
++++ b/exporter/internal/queue/batcher.go
+@@ -94,9 +94,3 @@ func (qb *BaseBatcher) flushAsync(batchToFlush batch) {
+ 		qb.workerPool <- true
+ 	}()
+ }
+-
+-// Shutdown ensures that queue and all Batcher are stopped.
+-func (qb *BaseBatcher) Shutdown(_ context.Context) error {
+-	qb.stopWG.Wait()
+-	return nil
+-}

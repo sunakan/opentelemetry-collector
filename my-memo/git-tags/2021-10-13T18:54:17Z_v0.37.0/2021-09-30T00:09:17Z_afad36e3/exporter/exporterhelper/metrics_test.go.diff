@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index 98377a4ee..c853c6301 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -43,7 +43,7 @@ const (
+ )
+ 
+ var (
+-	fakeMetricsExporterName   = config.NewIDWithName("fake_metrics_exporter", "with_name")
++	fakeMetricsExporterName   = config.NewComponentIDWithName("fake_metrics_exporter", "with_name")
+ 	fakeMetricsExporterConfig = config.NewExporterSettings(fakeMetricsExporterName)
+ )
+ 

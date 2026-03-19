@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index a81c674d4..4c1154ce5 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -99,7 +99,7 @@ func NewMetricsExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be, err := newBaseExporter(cfg, set, bs, component.DataTypeMetrics, newMetricsRequestUnmarshalerFunc(pusher))
++	be, err := newBaseExporter(set, bs, component.DataTypeMetrics, newMetricsRequestUnmarshalerFunc(pusher))
+ 	if err != nil {
+ 		return nil, err
+ 	}

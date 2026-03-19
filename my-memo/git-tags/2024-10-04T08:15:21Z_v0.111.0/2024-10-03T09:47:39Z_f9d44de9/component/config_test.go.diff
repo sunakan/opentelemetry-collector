@@ -1,0 +1,12 @@
+diff --git a/component/config_test.go b/component/config_test.go
+index afdbc61b0..9e6daa0f6 100644
+--- a/component/config_test.go
++++ b/component/config_test.go
+@@ -306,7 +306,6 @@ func TestNewType(t *testing.T) {
+ 		{name: "kinetica"},
+ 		{name: "kubeletstats"},
+ 		{name: "loadbalancing"},
+-		{name: "logging"},
+ 		{name: "logicmonitor"},
+ 		{name: "logstransform"},
+ 		{name: "logzio"},

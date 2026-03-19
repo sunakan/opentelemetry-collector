@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/scripts/ping-codeowners-on-new-issue.sh b/.github/workflows/scripts/ping-codeowners-on-new-issue.sh
+index 0fc10b734..0a4cfc59d 100755
+--- a/.github/workflows/scripts/ping-codeowners-on-new-issue.sh
++++ b/.github/workflows/scripts/ping-codeowners-on-new-issue.sh
+@@ -48,7 +48,7 @@ for COMPONENT in ${BODY_COMPONENTS}; do
+ 
+   CODEOWNERS=$(COMPONENT="${COMPONENT}" "${CUR_DIRECTORY}/get-codeowners.sh" || true)
+ 
+-  if [[ -n "${CODEOWNERS}" && ! ("${CODEOWNERS}" =~ ${OPENER}) ]]; then
++  if [[ -n "${CODEOWNERS}" ]]; then
+     if [[ -v PINGED_COMPONENTS["${COMPONENT}"] ]]; then
+       continue
+     fi

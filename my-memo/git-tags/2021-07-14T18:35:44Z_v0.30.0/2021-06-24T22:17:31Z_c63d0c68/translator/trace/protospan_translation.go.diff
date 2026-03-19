@@ -1,0 +1,13 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 3dcb6cdac..9d88fe750 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -19,7 +19,7 @@ import (
+ 	"fmt"
+ 	"strconv"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Some of the keys used to represent OTLP constructs as tags or annotations in other formats.

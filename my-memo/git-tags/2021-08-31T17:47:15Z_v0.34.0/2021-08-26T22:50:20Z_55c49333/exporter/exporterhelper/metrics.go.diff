@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index bbe8174fb..a48af7ba3 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -90,9 +90,6 @@ func NewMetricsExporter(
+ 	})
+ 
+ 	mc, err := consumerhelper.NewMetrics(func(ctx context.Context, md pdata.Metrics) error {
+-		if bs.ResourceToTelemetrySettings.Enabled {
+-			md = convertResourceToAttributes(md)
+-		}
+ 		req := newMetricsRequest(ctx, md, pusher)
+ 		err := be.sender.send(req)
+ 		if errors.Is(err, errSendingQueueIsFull) {

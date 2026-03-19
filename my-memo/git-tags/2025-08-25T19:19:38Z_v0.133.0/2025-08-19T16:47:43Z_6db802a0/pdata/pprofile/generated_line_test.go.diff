@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_line_test.go b/pdata/pprofile/generated_line_test.go
+index d8a17a08c..fd9831d27 100644
+--- a/pdata/pprofile/generated_line_test.go
++++ b/pdata/pprofile/generated_line_test.go
+@@ -73,7 +73,6 @@ func TestLine_Column(t *testing.T) {
+ }
+ 
+ func generateTestLine() Line {
+-	ms := NewLine()
+-	internal.FillOrigTestLine(ms.orig)
++	ms := newLine(internal.GenTestOrigLine(), internal.NewState())
+ 	return ms
+ }

@@ -1,0 +1,11 @@
+diff --git a/exporter/zipkinexporter/config.go b/exporter/zipkinexporter/config.go
+index e38a75ade..6420137aa 100644
+--- a/exporter/zipkinexporter/config.go
++++ b/exporter/zipkinexporter/config.go
+@@ -26,4 +26,6 @@ type Config struct {
+ 	// http://some.url:9411/api/v2/spans).
+ 	URL    string `mapstructure:"url"`
+ 	Format string `mapstructure:"format"`
++
++	DefaultServiceName string `mapstructure:"default_service_name"`
+ }

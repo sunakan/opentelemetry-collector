@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/config.go b/extension/zpagesextension/config.go
+index a4b8e019d..6449b22da 100644
+--- a/extension/zpagesextension/config.go
++++ b/extension/zpagesextension/config.go
+@@ -28,7 +28,7 @@ var _ component.Config = (*Config)(nil)
+ 
+ // Validate checks if the extension configuration is valid
+ func (cfg *Config) Validate() error {
+-	if cfg.ServerConfig.Endpoint == "" {
++	if cfg.Endpoint == "" {
+ 		return errors.New("\"endpoint\" is required when using the \"zpages\" extension")
+ 	}
+ 	return nil

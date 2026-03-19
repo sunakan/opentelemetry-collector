@@ -1,0 +1,21 @@
+diff --git a/pdata/pmetric/json_test.go b/pdata/pmetric/json_test.go
+index b0e7021a3..6357f4c09 100644
+--- a/pdata/pmetric/json_test.go
++++ b/pdata/pmetric/json_test.go
+@@ -402,16 +402,6 @@ func TestExemplarUnknownField(t *testing.T) {
+ 	assert.EqualValues(t, otlpmetrics.Exemplar{}, value)
+ }
+ 
+-func TestReadResourceMetricsResourceUnknown(t *testing.T) {
+-	jsonStr := `{"resource":{"exists":"true"}}`
+-	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))
+-	defer jsoniter.ConfigFastest.ReturnIterator(iter)
+-	unmarshaler := &jsonUnmarshaler{}
+-	value := unmarshaler.readResourceMetrics(iter)
+-	assert.NoError(t, iter.Error)
+-	assert.EqualValues(t, &otlpmetrics.ResourceMetrics{}, value)
+-}
+-
+ func TestReadResourceMetricsUnknownField(t *testing.T) {
+ 	jsonStr := `{"exists":"true"}`
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))

@@ -1,0 +1,13 @@
+diff --git a/otelcol/unmarshaler.go b/otelcol/unmarshaler.go
+index 643e396db..a522d9fa6 100644
+--- a/otelcol/unmarshaler.go
++++ b/otelcol/unmarshaler.go
+@@ -59,7 +59,7 @@ func unmarshal(v *confmap.Conf, factories Factories) (*configSettings, error) {
+ 					InitialFields:     map[string]any(nil),
+ 				},
+ 				Metrics: telemetry.MetricsConfig{
+-					Level:   configtelemetry.LevelBasic,
++					Level:   configtelemetry.LevelNormal,
+ 					Address: ":8888",
+ 				},
+ 			},

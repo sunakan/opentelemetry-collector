@@ -1,0 +1,16 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index e835adb55..81e021b33 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -118,10 +118,7 @@ func (or *OCDataReceiver) Stop() error {
+ 	if err := or.traceReceiver.Shutdown(context.Background()); err != nil {
+ 		return err
+ 	}
+-	if err := or.metricsReceiver.Shutdown(context.Background()); err != nil {
+-		return err
+-	}
+-	return nil
++	return or.metricsReceiver.Shutdown(context.Background())
+ }
+ 
+ func (or *OCDataReceiver) GenConfigYAMLStr() string {

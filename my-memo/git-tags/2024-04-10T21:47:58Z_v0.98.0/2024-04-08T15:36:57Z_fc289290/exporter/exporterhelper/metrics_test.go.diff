@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index ddbefeb71..6ae88c4fe 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -28,8 +28,8 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/exporter/internal/queue"
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ const (

@@ -1,0 +1,15 @@
+diff --git a/exporter/jaegerexporter/config.go b/exporter/jaegerexporter/config.go
+index 22bb4eb63..f5ebd3e10 100644
+--- a/exporter/jaegerexporter/config.go
++++ b/exporter/jaegerexporter/config.go
+@@ -29,3 +29,10 @@ type Config struct {
+ 
+ 	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

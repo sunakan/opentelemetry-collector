@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
+index 545149a15..c65bc518c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/shirou/gopsutil/host"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/perfcounters"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"

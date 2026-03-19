@@ -1,0 +1,21 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice_internal.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice_internal.go.tmpl
+index 028275370..e632743ab 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/primitive_slice_internal.go.tmpl
+@@ -30,14 +30,10 @@ func New{{ .structName }}Wrapper(orig *[]{{ .itemType }}, state *State) {{ .stru
+ }
+ 
+ func GenTest{{ .structName }}Wrapper() {{ .structName }}Wrapper {
+-	orig := GenTest{{ .elementOriginName }}Slice()
++	orig := []{{ .itemType }}{ {{ .testOrigVal }} }
+ 	return New{{ .structName }}Wrapper(&orig, NewState())
+ }
+ 
+-func Copy{{ .elementOriginName }}Slice(dst, src []{{ .itemType }}) []{{ .itemType }} {
+-	return append(dst[:0], src...)
+-}
+-
+ func GenTest{{ .elementOriginName }}Slice() []{{ .itemType }} {
+-	return []{{ .itemType }}{ {{ .testOrigVal }} }
++    return []{{ .itemType }}{ {{ .testOrigVal }} }
+ }

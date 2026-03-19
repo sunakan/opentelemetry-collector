@@ -1,0 +1,13 @@
+diff --git a/extension/auth/client.go b/extension/auth/client.go
+index cf1bdb55f..d1855d8ae 100644
+--- a/extension/auth/client.go
++++ b/extension/auth/client.go
+@@ -25,7 +25,7 @@ type Client interface {
+ 	PerRPCCredentials() (credentials.PerRPCCredentials, error)
+ }
+ 
+-// ClientOption represents the possible options for NewServerAuthenticator.
++// ClientOption represents the possible options for NewClient.
+ type ClientOption func(*defaultClient)
+ 
+ // ClientRoundTripperFunc specifies the function that returns a RoundTripper that can be used to authenticate HTTP requests.

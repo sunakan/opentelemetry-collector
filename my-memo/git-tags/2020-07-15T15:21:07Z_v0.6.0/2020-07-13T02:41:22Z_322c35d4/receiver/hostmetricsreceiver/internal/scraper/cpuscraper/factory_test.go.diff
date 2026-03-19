@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory_test.go
+index aa5a56dc5..c2be86d7d 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory_test.go
+@@ -26,7 +26,6 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	factory := &Factory{}
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.IsType(t, &Config{}, cfg)
+-	assert.Equal(t, false, cfg.(*Config).ReportPerCPU)
+ }
+ 
+ func TestCreateMetricsScraper(t *testing.T) {

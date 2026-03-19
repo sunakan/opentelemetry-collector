@@ -1,0 +1,18 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 3c969b974..56ec119b0 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -386,10 +386,10 @@ var isMonotonicField = &primitiveField{
+ var aggregationTemporalityField = &primitiveTypedField{
+ 	fieldName:       "AggregationTemporality",
+ 	originFieldName: "AggregationTemporality",
+-	returnType:      "AggregationTemporality",
++	returnType:      "MetricAggregationTemporality",
+ 	rawType:         "otlpmetrics.AggregationTemporality",
+-	defaultVal:      "AggregationTemporalityUnspecified",
+-	testVal:         "AggregationTemporalityCumulative",
++	defaultVal:      "MetricAggregationTemporalityUnspecified",
++	testVal:         "MetricAggregationTemporalityCumulative",
+ }
+ 
+ var oneofDataField = &oneofField{

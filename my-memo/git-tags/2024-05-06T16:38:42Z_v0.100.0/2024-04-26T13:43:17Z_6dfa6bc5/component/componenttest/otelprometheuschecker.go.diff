@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/otelprometheuschecker.go b/component/componenttest/otelprometheuschecker.go
+index 878bfd0a3..5beef5237 100644
+--- a/component/componenttest/otelprometheuschecker.go
++++ b/component/componenttest/otelprometheuschecker.go
+@@ -196,7 +196,7 @@ func attributesForProcessorMetrics(processor component.ID) []attribute.KeyValue
+ 	return []attribute.KeyValue{attribute.String(processorTag, processor.String())}
+ }
+ 
+-// attributesForReceiverMetrics returns the attributes that are needed for the receiver metrics.
++// attributesForExporterMetrics returns the attributes that are needed for the receiver metrics.
+ func attributesForExporterMetrics(exporter component.ID) []attribute.KeyValue {
+ 	return []attribute.KeyValue{attribute.String(exporterTag, exporter.String())}
+ }

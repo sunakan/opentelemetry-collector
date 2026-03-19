@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index cd863714e..8a089ee1b 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -154,7 +154,7 @@ func (b *batch) add(td pdata.Traces) {
+ 
+ 	b.resourceSpansCount = b.resourceSpansCount + uint32(newResourceSpansCount)
+ 	b.spanCount = b.spanCount + uint32(td.SpanCount())
+-	td.ResourceSpans().MoveTo(b.traceData.ResourceSpans())
++	td.ResourceSpans().MoveAndAppendTo(b.traceData.ResourceSpans())
+ }
+ 
+ func (b *batch) getTraceData() pdata.Traces {

@@ -1,0 +1,18 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index a79b8da35..4599a6b54 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -297,7 +297,12 @@ func (gss *GRPCServerSettings) ToServerOption(ext map[config.ComponentID]compone
+ 	}
+ 
+ 	if gss.Auth != nil {
+-		authenticator, err := configauth.GetAuthenticator(ext, gss.Auth.AuthenticatorName)
++		componentID, cperr := config.NewIDFromString(gss.Auth.AuthenticatorName)
++		if cperr != nil {
++			return nil, cperr
++		}
++
++		authenticator, err := configauth.GetServerAuthenticator(ext, componentID)
+ 		if err != nil {
+ 			return nil, err
+ 		}

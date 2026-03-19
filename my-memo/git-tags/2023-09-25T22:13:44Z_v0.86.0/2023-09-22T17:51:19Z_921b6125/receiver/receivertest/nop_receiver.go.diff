@@ -1,0 +1,16 @@
+diff --git a/receiver/receivertest/nop_receiver.go b/receiver/receivertest/nop_receiver.go
+index 6113bd03c..e2216f5c4 100644
+--- a/receiver/receivertest/nop_receiver.go
++++ b/receiver/receivertest/nop_receiver.go
+@@ -61,3 +61,11 @@ func NewNopBuilder() *receiver.Builder {
+ 		map[component.ID]component.Config{component.NewID(typeStr): nopFactory.CreateDefaultConfig()},
+ 		map[component.Type]receiver.Factory{typeStr: nopFactory})
+ }
++
++func NewCreateSettings(id component.ID, set component.TelemetrySettings) receiver.CreateSettings {
++	return receiver.CreateSettings{
++		ID:                id,
++		TelemetrySettings: set,
++		BuildInfo:         component.NewDefaultBuildInfo(),
++	}
++}

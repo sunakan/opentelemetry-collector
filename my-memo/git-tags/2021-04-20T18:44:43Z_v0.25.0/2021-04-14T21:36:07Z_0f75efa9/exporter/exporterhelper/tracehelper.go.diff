@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 4f530de5d..2a44e243b 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -70,8 +70,8 @@ func (texp *traceExporter) ConsumeTraces(ctx context.Context, td pdata.Traces) e
+ 	return texp.sender.send(newTracesRequest(ctx, td, texp.pusher))
+ }
+ 
+-// NewTraceExporter creates a TracesExporter that records observability metrics and wraps every request with a Span.
+-func NewTraceExporter(
++// NewTracesExporter creates a TracesExporter that records observability metrics and wraps every request with a Span.
++func NewTracesExporter(
+ 	cfg config.Exporter,
+ 	logger *zap.Logger,
+ 	pusher PushTraces,

@@ -1,0 +1,14 @@
+diff --git a/otelcol/collector.go b/otelcol/collector.go
+index 8e50749f4..f90956f81 100644
+--- a/otelcol/collector.go
++++ b/otelcol/collector.go
+@@ -116,6 +116,9 @@ func NewCollector(set CollectorSettings) (*Collector, error) {
+ 	var err error
+ 	configProvider := set.ConfigProvider
+ 
++	set.ConfigProviderSettings.ResolverSettings.ProviderSettings = confmap.ProviderSettings{Logger: zap.NewNop()}
++	set.ConfigProviderSettings.ResolverSettings.ConverterSettings = confmap.ConverterSettings{}
++
+ 	if configProvider == nil {
+ 		configProvider, err = NewConfigProvider(set.ConfigProviderSettings)
+ 		if err != nil {

@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index 07d80ba31..bceea62e6 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -27,7 +27,7 @@ import (
+ 
+ var (
+ 	cfgFile string
+-	cfg     = builder.DefaultConfig()
++	cfg     = builder.NewDefaultConfig()
+ )
+ 
+ // Command is the main entrypoint for this application

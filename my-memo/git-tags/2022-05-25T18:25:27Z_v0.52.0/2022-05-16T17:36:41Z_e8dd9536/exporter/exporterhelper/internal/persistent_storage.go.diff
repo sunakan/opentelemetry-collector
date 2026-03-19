@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage.go b/exporter/exporterhelper/internal/persistent_storage.go
+index 8fa9f471c..a8e9e715a 100644
+--- a/exporter/exporterhelper/internal/persistent_storage.go
++++ b/exporter/exporterhelper/internal/persistent_storage.go
+@@ -153,7 +153,7 @@ func initPersistentContiguousStorage(ctx context.Context, pcs *persistentContigu
+ 	}
+ 
+ 	if err != nil {
+-		if err == errValueNotSet {
++		if errors.Is(err, errValueNotSet) {
+ 			pcs.logger.Info("Initializing new persistent queue", zap.String(zapQueueNameKey, pcs.queueName))
+ 		} else {
+ 			pcs.logger.Error("Failed getting read/write index, starting with new ones",

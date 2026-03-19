@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/mock_backend_test.go b/testbed/testbed/mock_backend_test.go
+index b96e0a4ce..4dd739a25 100644
+--- a/testbed/testbed/mock_backend_test.go
++++ b/testbed/testbed/mock_backend_test.go
+@@ -86,7 +86,7 @@ func WaitFor(t *testing.T, cond func() bool, errMsg ...interface{}) bool {
+ 
+ 		// Increase waiting interval exponentially up to 500 ms.
+ 		if waitInterval < time.Millisecond*500 {
+-			waitInterval = waitInterval * 2
++			waitInterval *= 2
+ 		}
+ 
+ 		if cond() {

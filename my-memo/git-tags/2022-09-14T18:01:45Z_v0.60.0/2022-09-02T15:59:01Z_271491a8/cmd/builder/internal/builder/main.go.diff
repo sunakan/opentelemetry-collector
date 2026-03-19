@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index d8d6f856a..6bd5a5312 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -103,6 +103,11 @@ func Compile(cfg Config) error {
+ 
+ // GetModules retrieves the go modules, updating go.mod and go.sum in the process
+ func GetModules(cfg Config) error {
++	if cfg.SkipGetModules {
++		cfg.Logger.Info("Generating source codes only, will not update go.mod and retrieve Go modules.")
++		return nil
++	}
++
+ 	// #nosec G204
+ 	cmd := exec.Command(cfg.Distribution.Go, "mod", "tidy", "-compat=1.18")
+ 	cmd.Dir = cfg.Distribution.OutputPath

@@ -1,0 +1,16 @@
+diff --git a/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json b/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
+index 4faf08d6a..6bbd0c877 100644
+--- a/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
++++ b/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
+@@ -128,6 +128,11 @@
+                 "key": "success",
+                 "annotation_type": "BOOL",
+                 "value": "AQ=="
++            },
++            {
++              "key": "processed",
++              "annotation_type": "DOUBLE",
++              "value": "P/gAAAAAAAA="
+             }
+         ]
+     },

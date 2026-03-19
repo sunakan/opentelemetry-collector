@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+index 5fbb7b453..00c0bbafd 100644
+--- a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+@@ -22,7 +22,7 @@ import (
+ 
+ {{ if or isConnector isExporter isExtension isProcessor isReceiver isScraper }}
+ func NewSettings(tt *componenttest.Telemetry) {{ .Status.Class }}.Settings {
+-set := {{ .Status.Class }}test.NewNopSettingsWithType({{ .Status.Class }}test.NopType)
++set := {{ .Status.Class }}test.NewNopSettings({{ .Status.Class }}test.NopType)
+ set.ID = component.NewID(component.MustNewType("{{ .Type }}"))
+ set.TelemetrySettings = tt.NewTelemetrySettings()
+ return set

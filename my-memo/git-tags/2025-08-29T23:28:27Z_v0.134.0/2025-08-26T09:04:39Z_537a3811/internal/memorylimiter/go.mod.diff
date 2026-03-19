@@ -1,0 +1,13 @@
+diff --git a/internal/memorylimiter/go.mod b/internal/memorylimiter/go.mod
+index 94c4cbef6..4ff7cf1b5 100644
+--- a/internal/memorylimiter/go.mod
++++ b/internal/memorylimiter/go.mod
+@@ -4,7 +4,7 @@ go 1.24
+ 
+ require (
+ 	github.com/shirou/gopsutil/v4 v4.25.7
+-	github.com/stretchr/testify v1.10.0
++	github.com/stretchr/testify v1.11.0
+ 	go.opentelemetry.io/collector/component v1.39.0
+ 	go.opentelemetry.io/collector/confmap v1.39.0
+ 	go.uber.org/goleak v1.3.0

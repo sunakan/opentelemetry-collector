@@ -1,0 +1,11 @@
+diff --git a/exporter/jaegerexporter/config.go b/exporter/jaegerexporter/config.go
+index 36792befa..120d43ac2 100644
+--- a/exporter/jaegerexporter/config.go
++++ b/exporter/jaegerexporter/config.go
+@@ -23,5 +23,5 @@ import (
+ type Config struct {
+ 	configmodels.ExporterSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 
+-	configgrpc.GRPCSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
++	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ }

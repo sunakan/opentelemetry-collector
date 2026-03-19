@@ -1,0 +1,11 @@
+diff --git a/cmd/ocagent/main.go b/cmd/ocagent/main.go
+index bb5228ac7..f770e363f 100644
+--- a/cmd/ocagent/main.go
++++ b/cmd/ocagent/main.go
+@@ -230,5 +230,6 @@ func runZipkinReceiver(addr string, sr receiver.TraceReceiverSink) (doneFn func(
+ 	doneFn = func() error {
+ 		return zi.StopTraceReception(context.Background())
+ 	}
++	log.Printf("Running Zipkin receiver with address %q", addr)
+ 	return doneFn, nil
+ }

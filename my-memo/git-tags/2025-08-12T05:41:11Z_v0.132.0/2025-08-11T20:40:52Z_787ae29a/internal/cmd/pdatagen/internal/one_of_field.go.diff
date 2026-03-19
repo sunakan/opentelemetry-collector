@@ -1,0 +1,21 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_field.go b/internal/cmd/pdatagen/internal/one_of_field.go
+index 989992fbe..90ee435c1 100644
+--- a/internal/cmd/pdatagen/internal/one_of_field.go
++++ b/internal/cmd/pdatagen/internal/one_of_field.go
+@@ -39,11 +39,12 @@ const oneOfCopyOrigTemplate = `switch t := src.{{ .originFieldName }}.(type) {
+ {{- end }}
+ }`
+ 
+-const oneOfMarshalJSONTemplate = `switch ov := orig.{{ .originFieldName }}.(type) {
+-		{{- range .values }}
++const oneOfMarshalJSONTemplate = `switch orig.{{ .originFieldName }}.(type) {
++	{{- range .values }}
++	case *{{ $.originTypePrefix }}{{ .GetOriginFieldName }}:
+ 		{{ .GenerateMarshalJSON $.baseStruct $.OneOfField }}
+-		{{- end }}
+-	}`
++	{{- end }}
++}`
+ 
+ const oneOfUnmarshalJSONTemplate = `
+ 	{{- range .values }}

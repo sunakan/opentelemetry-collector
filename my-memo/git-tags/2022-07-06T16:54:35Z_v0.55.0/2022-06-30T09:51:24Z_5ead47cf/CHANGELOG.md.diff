@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 0f2b77a07..4b94cc4a2 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -12,6 +12,10 @@
+ 
+ - Deprecate `service.ConfigServiceTelemetry`, `service.ConfigServiceTelemetryLogs`, and `service.ConfigServiceTelemetryMetrics` (#5565)
+ 
++### 💡 Enhancements 💡
++
++- `exporter/logging`: Skip "bad file descriptor" sync errors (#5585)
++
+ ### 🧰 Bug fixes 🧰
+ 
+ - Fix initialization of the OpenTelemetry MetricProvider. (#5571)

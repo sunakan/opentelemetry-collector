@@ -1,0 +1,13 @@
+diff --git a/model/pdata/traceid_alias.go b/model/pdata/traceid_alias.go
+index 1232ccdd6..4c655b3cf 100644
+--- a/model/pdata/traceid_alias.go
++++ b/model/pdata/traceid_alias.go
+@@ -19,7 +19,7 @@ import "go.opentelemetry.io/collector/model/internal/pdata"
+ // TraceID is an alias for pdata.TraceID struct.
+ type TraceID = pdata.TraceID
+ 
+-// TraceID is an alias for pdata.InvalidTraceID function.
++// InvalidTraceID is an alias for pdata.InvalidTraceID function.
+ var InvalidTraceID = pdata.InvalidTraceID
+ 
+ // NewTraceID is an alias for a function to create new TraceID.

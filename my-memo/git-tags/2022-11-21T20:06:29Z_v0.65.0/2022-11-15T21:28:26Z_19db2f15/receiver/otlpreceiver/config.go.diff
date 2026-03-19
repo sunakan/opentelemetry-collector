@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index 78bdde3c2..06d94aa1e 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -26,9 +26,8 @@ import (
+ 
+ const (
+ 	// Protocol values.
+-	protoGRPC          = "protocols::grpc"
+-	protoHTTP          = "protocols::http"
+-	protocolsFieldName = "protocols"
++	protoGRPC = "protocols::grpc"
++	protoHTTP = "protocols::http"
+ )
+ 
+ // Protocols is the configuration for the supported protocols.

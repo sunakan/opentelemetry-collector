@@ -1,0 +1,30 @@
+diff --git a/examples/local/otel-config.yaml b/examples/local/otel-config.yaml
+index c6a64d703..692949085 100644
+--- a/examples/local/otel-config.yaml
++++ b/examples/local/otel-config.yaml
+@@ -2,13 +2,15 @@ extensions:
+   memory_ballast:
+     size_mib: 512
+   zpages:
+-    endpoint: 0.0.0.0:55679
++    endpoint: localhost:55679
+ 
+ receivers:
+   otlp:
+     protocols:
+       grpc:
++        endpoint: localhost:4317
+       http:
++        endpoint: localhost:4318
+ 
+ processors:
+   batch:
+@@ -21,7 +23,7 @@ processors:
+ 
+ exporters:
+   logging:
+-    loglevel: debug
++    verbosity: detailed
+ 
+ service:
+   pipelines:

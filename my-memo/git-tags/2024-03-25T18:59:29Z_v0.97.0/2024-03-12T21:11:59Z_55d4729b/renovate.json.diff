@@ -1,0 +1,15 @@
+diff --git a/renovate.json b/renovate.json
+index 1bffb22f0..b6e956574 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -50,8 +50,8 @@
+       },
+       {
+         "matchManagers": ["gomod"],
+-        "matchSourceUrlPrefixes": ["https://golang.org"],
+-        "groupName": "All golang.org packages"
++        "matchSourceUrlPrefixes": ["https://golang.org/x"],
++        "groupName": "All golang.org/x packages"
+       },
+       {
+         "matchManagers": ["gomod"],

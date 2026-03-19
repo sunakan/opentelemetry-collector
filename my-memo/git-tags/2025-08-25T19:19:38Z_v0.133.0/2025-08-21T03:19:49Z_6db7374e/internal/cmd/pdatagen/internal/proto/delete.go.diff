@@ -1,0 +1,39 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/delete.go b/internal/cmd/pdatagen/internal/proto/delete.go
+new file mode 100644
+index 000000000..10a29ea54
+--- /dev/null
++++ b/internal/cmd/pdatagen/internal/proto/delete.go
+@@ -0,0 +1,33 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package proto // import "go.opentelemetry.io/collector/internal/cmd/pdatagen/internal/proto"
++
++import (
++	"go.opentelemetry.io/collector/internal/cmd/pdatagen/internal/template"
++)
++
++const deleteOrigMessage = `{{ if .repeated -}}
++	for i := range orig.{{ .fieldName }} {
++	{{ if .nullable -}}
++		DeleteOrig{{ .origName }}(orig.{{ .fieldName }}[i], true)
++	{{- else -}}
++		DeleteOrig{{ .origName }}(&orig.{{ .fieldName }}[i], false)
++	{{- end }}
++	}
++{{- else if ne .oneOfGroup "" -}}
++	DeleteOrig{{ .origName }}(ov.{{ .fieldName }}, true)
++{{- else if .nullable -}}
++	DeleteOrig{{ .origName }}(orig.{{ .fieldName }}, true)
++{{- else -}}
++	DeleteOrig{{ .origName }}(&orig.{{ .fieldName }}, false)
++{{- end }}
++`
++
++func (pf *Field) GenDeleteOrig() string {
++	tf := pf.getTemplateFields()
++	if pf.Type == TypeMessage {
++		return template.Execute(template.Parse("deleteOrigMessage", []byte(deleteOrigMessage)), tf)
++	}
++	return ""
++}

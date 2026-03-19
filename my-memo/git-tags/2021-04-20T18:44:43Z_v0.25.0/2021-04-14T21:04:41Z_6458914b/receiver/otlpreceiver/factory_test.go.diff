@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 5b2909e7a..3d5745a32 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -57,7 +57,7 @@ func TestCreateReceiver(t *testing.T) {
+ 	assert.NoError(t, err)
+ }
+ 
+-func TestCreateTraceReceiver(t *testing.T) {
++func TestCreateTracesReceiver(t *testing.T) {
+ 	factory := NewFactory()
+ 	defaultReceiverSettings := config.ReceiverSettings{
+ 		TypeVal: typeStr,

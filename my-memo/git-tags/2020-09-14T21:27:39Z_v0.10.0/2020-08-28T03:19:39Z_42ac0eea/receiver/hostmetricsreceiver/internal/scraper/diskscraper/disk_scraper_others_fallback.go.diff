@@ -1,0 +1,16 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
+index 5c169a874..5d6571874 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
+@@ -20,9 +20,10 @@ import (
+ 	"github.com/shirou/gopsutil/disk"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/dataold"
+ )
+ 
+ const systemSpecificMetricsLen = 0
+ 
+-func appendSystemSpecificMetrics(metrics pdata.MetricSlice, startIdx int, startTime, now pdata.TimestampUnixNano, ioCounters map[string]disk.IOCountersStat) {
++func appendSystemSpecificMetrics(metrics dataold.MetricSlice, startIdx int, startTime, now pdata.TimestampUnixNano, ioCounters map[string]disk.IOCountersStat) {
+ }

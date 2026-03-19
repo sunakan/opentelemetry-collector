@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterhelper/filterhelper.go b/internal/processor/filterhelper/filterhelper.go
+index 698ca279e..bc6adf1e7 100644
+--- a/internal/processor/filterhelper/filterhelper.go
++++ b/internal/processor/filterhelper/filterhelper.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/spf13/cast"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // NewAttributeValueRaw is used to convert the raw `value` from ActionKeyValue to the supported trace attribute values.

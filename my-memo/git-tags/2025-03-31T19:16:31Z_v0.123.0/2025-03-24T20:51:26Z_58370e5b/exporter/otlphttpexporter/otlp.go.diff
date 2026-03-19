@@ -1,0 +1,15 @@
+diff --git a/exporter/otlphttpexporter/otlp.go b/exporter/otlphttpexporter/otlp.go
+index 2ed5a8603..a60ff1f28 100644
+--- a/exporter/otlphttpexporter/otlp.go
++++ b/exporter/otlphttpexporter/otlp.go
+@@ -60,8 +60,8 @@ const (
+ func newExporter(cfg component.Config, set exporter.Settings) (*baseExporter, error) {
+ 	oCfg := cfg.(*Config)
+ 
+-	if oCfg.Endpoint != "" {
+-		_, err := url.Parse(oCfg.Endpoint)
++	if oCfg.ClientConfig.Endpoint != "" {
++		_, err := url.Parse(oCfg.ClientConfig.Endpoint)
+ 		if err != nil {
+ 			return nil, errors.New("endpoint must be a valid URL")
+ 		}

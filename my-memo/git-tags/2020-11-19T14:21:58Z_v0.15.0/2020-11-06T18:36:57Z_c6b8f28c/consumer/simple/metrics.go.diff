@@ -1,0 +1,12 @@
+diff --git a/consumer/simple/metrics.go b/consumer/simple/metrics.go
+index 7e15f1fe1..1e195e0df 100644
+--- a/consumer/simple/metrics.go
++++ b/consumer/simple/metrics.go
+@@ -179,7 +179,6 @@ func (mb *Metrics) getMetricsSlice() pdata.MetricSlice {
+ 	rm.InitEmpty()
+ 
+ 	res := rm.Resource()
+-	res.InitEmpty()
+ 	for k, v := range mb.ResourceAttributes {
+ 		res.Attributes().Insert(k, pdata.NewAttributeValueString(v))
+ 	}

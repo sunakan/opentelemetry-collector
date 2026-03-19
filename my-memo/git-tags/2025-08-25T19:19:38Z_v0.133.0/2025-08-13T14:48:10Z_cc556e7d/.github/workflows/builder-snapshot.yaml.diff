@@ -1,0 +1,22 @@
+diff --git a/.github/workflows/builder-snapshot.yaml b/.github/workflows/builder-snapshot.yaml
+index 6de890349..6387dcd38 100644
+--- a/.github/workflows/builder-snapshot.yaml
++++ b/.github/workflows/builder-snapshot.yaml
+@@ -64,7 +64,7 @@ jobs:
+         with:
+           distribution: goreleaser-pro
+           version: ${{ env.GORELEASER_PRO_VERSION }}
+-          args: check --verbose -f .core/cmd/builder/.goreleaser.yml
++          args: check --verbose -f .core/cmd/builder/.goreleaser.yaml
+         env:
+           GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+@@ -74,7 +74,7 @@ jobs:
+         with:
+           distribution: goreleaser-pro
+           version: ${{ env.GORELEASER_PRO_VERSION }}
+-          args: --snapshot --clean -f .core/cmd/builder/.goreleaser.yml
++          args: --snapshot --clean -f .core/cmd/builder/.goreleaser.yaml
+         env:
+           GORELEASER_KEY: ${{ secrets.GORELEASER_KEY }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

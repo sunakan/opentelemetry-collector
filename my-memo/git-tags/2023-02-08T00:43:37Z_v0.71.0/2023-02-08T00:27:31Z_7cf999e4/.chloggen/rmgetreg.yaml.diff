@@ -1,0 +1,17 @@
+diff --git a/.chloggen/rmgetreg.yaml b/.chloggen/rmgetreg.yaml
+deleted file mode 100755
+index 94cb05d77..000000000
+--- a/.chloggen/rmgetreg.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: breaking
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: featuregate
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Remove deprecated GetRegistry
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7011]

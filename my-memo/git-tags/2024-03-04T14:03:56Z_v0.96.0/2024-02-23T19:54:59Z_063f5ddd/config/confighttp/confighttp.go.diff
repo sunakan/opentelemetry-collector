@@ -1,0 +1,54 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index bc957ee02..543abdd96 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -29,10 +29,6 @@ import (
+ 
+ const headerContentEncoding = "Content-Encoding"
+ 
+-// HTTPClientSettings defines settings for creating an HTTP client.
+-// Deprecated: [v0.94.0] Use ClientConfig instead
+-type HTTPClientSettings = ClientConfig
+-
+ // ClientConfig defines settings for creating an HTTP client.
+ type ClientConfig struct {
+ 	// The target URL to send data to (e.g.: http://some.url:9411/v1/traces).
+@@ -103,15 +99,6 @@ type ClientConfig struct {
+ 	HTTP2PingTimeout time.Duration `mapstructure:"http2_ping_timeout"`
+ }
+ 
+-// NewDefaultHTTPClientSettings returns HTTPClientSettings type object with
+-// the default values of 'MaxIdleConns' and 'IdleConnTimeout'.
+-// Other config options are not added as they are initialized with 'zero value' by GoLang as default.
+-// We encourage to use this function to create an object of HTTPClientSettings.
+-// Deprecated: [v0.94.0] Use NewDefaultClientConfig instead
+-func NewDefaultHTTPClientSettings() ClientConfig {
+-	return NewDefaultClientConfig()
+-}
+-
+ // NewDefaultClientConfig returns ClientConfig type object with
+ // the default values of 'MaxIdleConns' and 'IdleConnTimeout'.
+ // Other config options are not added as they are initialized with 'zero value' by GoLang as default.
+@@ -263,10 +250,6 @@ func (interceptor *headerRoundTripper) RoundTrip(req *http.Request) (*http.Respo
+ 	return interceptor.transport.RoundTrip(req)
+ }
+ 
+-// HTTPServerSettings defines settings for creating an HTTP server.
+-// Deprecated: [v0.94.0] Use ServerConfig instead
+-type HTTPServerSettings = ServerConfig
+-
+ // ServerConfig defines settings for creating an HTTP server.
+ type ServerConfig struct {
+ 	// Endpoint configures the listening address for the server.
+@@ -419,11 +402,6 @@ func responseHeadersHandler(handler http.Handler, headers map[string]configopaqu
+ 	})
+ }
+ 
+-// CORSSettings configures a receiver for HTTP cross-origin resource sharing (CORS).
+-// See the underlying https://github.com/rs/cors package for details.
+-// Deprecated: [v0.94.0] Use CORSConfig instead
+-type CORSSettings = CORSConfig
+-
+ // CORSConfig configures a receiver for HTTP cross-origin resource sharing (CORS).
+ // See the underlying https://github.com/rs/cors package for details.
+ type CORSConfig struct {

@@ -1,0 +1,13 @@
+diff --git a/confmap/confmap.go b/confmap/confmap.go
+index b60634ade..3fac0c146 100644
+--- a/confmap/confmap.go
++++ b/confmap/confmap.go
+@@ -1,6 +1,8 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ package confmap // import "go.opentelemetry.io/collector/confmap"
+ 
+ import (

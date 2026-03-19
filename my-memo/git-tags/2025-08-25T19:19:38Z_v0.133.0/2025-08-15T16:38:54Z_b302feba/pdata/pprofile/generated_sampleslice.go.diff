@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_sampleslice.go b/pdata/pprofile/generated_sampleslice.go
+index 119fca8e3..6952c22c8 100644
+--- a/pdata/pprofile/generated_sampleslice.go
++++ b/pdata/pprofile/generated_sampleslice.go
+@@ -34,8 +34,7 @@ func newSampleSlice(orig *[]*otlpprofiles.Sample, state *internal.State) SampleS
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewSampleSlice() SampleSlice {
+ 	orig := []*otlpprofiles.Sample(nil)
+-	state := internal.StateMutable
+-	return newSampleSlice(&orig, &state)
++	return newSampleSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

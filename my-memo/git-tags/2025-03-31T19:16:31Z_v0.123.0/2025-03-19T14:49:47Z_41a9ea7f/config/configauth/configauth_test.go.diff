@@ -1,0 +1,22 @@
+diff --git a/config/configauth/configauth_test.go b/config/configauth/configauth_test.go
+index 8a7bf23fd..f1163828a 100644
+--- a/config/configauth/configauth_test.go
++++ b/config/configauth/configauth_test.go
+@@ -68,7 +68,7 @@ func TestGetServerFails(t *testing.T) {
+ 	assert.Nil(t, authenticator)
+ }
+ 
+-func TestGetClient(t *testing.T) {
++func TestGetHTTPClient(t *testing.T) {
+ 	testCases := []struct {
+ 		name          string
+ 		authenticator extension.Extension
+@@ -109,7 +109,7 @@ func TestGetClient(t *testing.T) {
+ 	}
+ }
+ 
+-func TestGetClientFails(t *testing.T) {
++func TestGetGRPCClientFails(t *testing.T) {
+ 	cfg := &Authentication{
+ 		AuthenticatorID: component.MustNewID("does_not_exist"),
+ 	}

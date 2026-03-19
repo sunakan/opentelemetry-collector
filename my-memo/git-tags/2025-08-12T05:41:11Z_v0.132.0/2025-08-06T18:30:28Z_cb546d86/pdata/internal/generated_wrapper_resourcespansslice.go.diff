@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_resourcespansslice.go b/pdata/internal/generated_wrapper_resourcespansslice.go
+index c9bbc7c8e..23bda9e05 100644
+--- a/pdata/internal/generated_wrapper_resourcespansslice.go
++++ b/pdata/internal/generated_wrapper_resourcespansslice.go
+@@ -38,3 +38,12 @@ func CopyOrigResourceSpansSlice(dest, src []*otlptrace.ResourceSpans) []*otlptra
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestResourceSpansSlice() []*otlptrace.ResourceSpans {
++	orig := make([]*otlptrace.ResourceSpans, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlptrace.ResourceSpans{}
++		FillOrigTestResourceSpans(orig[i])
++	}
++	return orig
++}

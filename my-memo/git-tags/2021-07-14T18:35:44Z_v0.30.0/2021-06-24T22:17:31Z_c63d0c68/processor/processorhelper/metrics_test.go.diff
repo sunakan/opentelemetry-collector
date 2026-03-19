@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/metrics_test.go b/processor/processorhelper/metrics_test.go
+index 1775f6f7d..6d2a0fbb8 100644
+--- a/processor/processorhelper/metrics_test.go
++++ b/processor/processorhelper/metrics_test.go
+@@ -28,7 +28,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var testMetricsCfg = config.NewProcessorSettings(config.NewID(typeStr))

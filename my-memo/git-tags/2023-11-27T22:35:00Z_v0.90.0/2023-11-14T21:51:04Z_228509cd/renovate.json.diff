@@ -1,0 +1,14 @@
+diff --git a/renovate.json b/renovate.json
+index df04fb366..5202cffab 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -3,6 +3,9 @@
+     "labels": [
+       "dependencies"
+     ],
++    "constraints": {
++      "go": "1.20"
++    },
+     "extends": [
+       "config:base"
+     ],

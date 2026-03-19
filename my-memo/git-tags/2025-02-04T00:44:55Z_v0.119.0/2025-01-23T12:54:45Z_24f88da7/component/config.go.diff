@@ -1,0 +1,13 @@
+diff --git a/component/config.go b/component/config.go
+index 599b9be32..11cbf7dab 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -39,7 +39,7 @@ func validate(v reflect.Value) error {
+ 	switch v.Kind() {
+ 	case reflect.Invalid:
+ 		return nil
+-	case reflect.Ptr:
++	case reflect.Ptr, reflect.Interface:
+ 		return validate(v.Elem())
+ 	case reflect.Struct:
+ 		var errs error

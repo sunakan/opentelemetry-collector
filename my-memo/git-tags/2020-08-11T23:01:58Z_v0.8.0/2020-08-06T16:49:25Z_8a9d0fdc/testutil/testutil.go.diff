@@ -1,0 +1,13 @@
+diff --git a/testutil/testutil.go b/testutil/testutil.go
+index bc94e3b6c..8e161d25b 100644
+--- a/testutil/testutil.go
++++ b/testutil/testutil.go
+@@ -139,7 +139,7 @@ func WaitFor(t *testing.T, cond func() bool, errMsg ...interface{}) bool {
+ 
+ 		// Increase waiting interval exponentially up to 500 ms.
+ 		if waitInterval < time.Millisecond*500 {
+-			waitInterval = waitInterval * 2
++			waitInterval *= 2
+ 		}
+ 
+ 		if cond() {

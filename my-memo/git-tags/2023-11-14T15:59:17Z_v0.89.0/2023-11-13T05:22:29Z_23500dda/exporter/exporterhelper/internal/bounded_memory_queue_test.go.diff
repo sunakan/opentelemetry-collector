@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/bounded_memory_queue_test.go b/exporter/exporterhelper/internal/bounded_memory_queue_test.go
+index 39c433658..881aa7a9f 100644
+--- a/exporter/exporterhelper/internal/bounded_memory_queue_test.go
++++ b/exporter/exporterhelper/internal/bounded_memory_queue_test.go
+@@ -19,14 +19,12 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/exporter/exportertest"
+ )
+ 
+ func newNopQueueSettings(callback func(item Request)) QueueSettings {
+ 	return QueueSettings{
+-		CreateSettings: exportertest.NewNopCreateSettings(),
+-		DataType:       component.DataTypeMetrics,
+-		Callback:       callback,
++		DataType: component.DataTypeMetrics,
++		Callback: callback,
+ 	}
+ }
+ 

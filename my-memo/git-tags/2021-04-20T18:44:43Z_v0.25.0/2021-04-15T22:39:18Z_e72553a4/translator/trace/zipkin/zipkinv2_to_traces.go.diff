@@ -1,0 +1,22 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 662776751..e284f0d3d 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -217,7 +217,7 @@ func zTagsToSpanLinks(tags map[string]string, dest pdata.SpanLinkSlice) error {
+ 		if errTrace != nil {
+ 			return errTrace
+ 		}
+-		link.SetTraceID(pdata.TraceID(rawTrace))
++		link.SetTraceID(pdata.NewTraceID(rawTrace.Bytes()))
+ 
+ 		// Convert span id.
+ 		rawSpan := data.SpanID{}
+@@ -225,7 +225,7 @@ func zTagsToSpanLinks(tags map[string]string, dest pdata.SpanLinkSlice) error {
+ 		if errSpan != nil {
+ 			return errSpan
+ 		}
+-		link.SetSpanID(pdata.SpanID(rawSpan))
++		link.SetSpanID(pdata.NewSpanID(rawSpan.Bytes()))
+ 
+ 		link.SetTraceState(pdata.TraceState(parts[2]))
+ 

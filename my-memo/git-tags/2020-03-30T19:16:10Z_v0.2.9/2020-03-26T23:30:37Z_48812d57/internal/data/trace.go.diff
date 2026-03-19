@@ -1,0 +1,21 @@
+diff --git a/internal/data/trace.go b/internal/data/trace.go
+index afd9d160c..a7c2f6df6 100644
+--- a/internal/data/trace.go
++++ b/internal/data/trace.go
+@@ -27,6 +27,16 @@ type TraceData struct {
+ 	orig *[]*otlptrace.ResourceSpans
+ }
+ 
++// TraceDataFromOtlp creates the internal TraceData representation from the OTLP.
++func TraceDataFromOtlp(orig []*otlptrace.ResourceSpans) TraceData {
++	return TraceData{&orig}
++}
++
++// TraceDataToOtlp converts the internal TraceData to the OTLP.
++func TraceDataToOtlp(md TraceData) []*otlptrace.ResourceSpans {
++	return *md.orig
++}
++
+ // NewTraceData creates a new TraceData.
+ func NewTraceData() TraceData {
+ 	orig := []*otlptrace.ResourceSpans(nil)

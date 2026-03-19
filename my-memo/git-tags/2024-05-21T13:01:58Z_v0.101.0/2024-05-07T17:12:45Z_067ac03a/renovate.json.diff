@@ -1,0 +1,20 @@
+diff --git a/renovate.json b/renovate.json
+index bcbc26dd1..6f4fd1b06 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -52,9 +52,14 @@
+       },
+       {
+         "matchManagers": ["gomod"],
+-        "matchSourceUrlPrefixes": ["https://golang.org/x"],
++        "matchPackagePrefixes": ["https://golang.org/x"],
+         "groupName": "All golang.org/x packages"
+       },
++      {
++        "matchManagers": ["gomod"],
++        "matchPackagePrefixes": ["go.opentelemetry.io/collector"],
++        "groupName": "All go.opentelemetry.io/collector packages"
++      },
+       {
+         "matchManagers": ["gomod"],
+         "matchSourceUrlPrefixes": ["https://go.opentelemetry.io/build-tools"],

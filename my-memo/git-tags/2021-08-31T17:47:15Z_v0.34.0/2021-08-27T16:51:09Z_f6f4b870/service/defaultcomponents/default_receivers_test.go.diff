@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index e0a7b3dee..28e3819df 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -27,8 +27,8 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
++	"go.opentelemetry.io/collector/internal/testutil"
+ 	"go.opentelemetry.io/collector/receiver/otlpreceiver"
+-	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+ func TestDefaultReceivers(t *testing.T) {

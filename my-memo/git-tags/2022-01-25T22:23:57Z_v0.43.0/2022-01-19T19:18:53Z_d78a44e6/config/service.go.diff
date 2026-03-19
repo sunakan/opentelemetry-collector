@@ -1,0 +1,26 @@
+diff --git a/config/service.go b/config/service.go
+index ced3b9f1e..d53fcf7b1 100644
+--- a/config/service.go
++++ b/config/service.go
+@@ -38,10 +38,6 @@ type ServiceTelemetry struct {
+ 	Metrics ServiceTelemetryMetrics `mapstructure:"metrics"`
+ }
+ 
+-func (srvT *ServiceTelemetry) validate() error {
+-	return srvT.Metrics.validate()
+-}
+-
+ // ServiceTelemetryLogs defines the configurable settings for service telemetry logs.
+ // This MUST be compatible with zap.Config. Cannot use directly zap.Config because
+ // the collector uses mapstructure and not yaml tags.
+@@ -114,10 +110,6 @@ type ServiceTelemetryMetrics struct {
+ 	Address string `mapstructure:"address"`
+ }
+ 
+-func (s ServiceTelemetryMetrics) validate() error {
+-	return nil
+-}
+-
+ // DataType is a special Type that represents the data types supported by the collector. We currently support
+ // collecting metrics, traces and logs, this can expand in the future.
+ type DataType = Type

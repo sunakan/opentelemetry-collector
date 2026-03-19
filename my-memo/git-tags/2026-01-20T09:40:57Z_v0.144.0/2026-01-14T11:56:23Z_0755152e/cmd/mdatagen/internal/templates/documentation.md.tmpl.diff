@@ -1,0 +1,24 @@
+diff --git a/cmd/mdatagen/internal/templates/documentation.md.tmpl b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+index 461ab21da..ff98da745 100644
+--- a/cmd/mdatagen/internal/templates/documentation.md.tmpl
++++ b/cmd/mdatagen/internal/templates/documentation.md.tmpl
+@@ -266,3 +266,19 @@ The following telemetry is emitted by this component.
+ {{- end }}
+ 
+ {{- end }}
++
++{{- if .FeatureGates }}
++
++## Feature Gates
++
++This component has the following feature gates:
++
++| Feature Gate | Stage | Description | From Version | To Version | Reference |
++| ------------ | ----- | ----------- | ------------ | ---------- | --------- |
++{{- range .FeatureGates }}
++| `{{ .ID }}` | {{ .Stage }} | {{ .Description }} | {{ if .FromVersion }}{{ .FromVersion }}{{ else }}N/A{{ end }} | {{ if .ToVersion }}{{ .ToVersion }}{{ else }}N/A{{ end }} | {{ if .ReferenceURL }}[Link]({{ .ReferenceURL }}){{ else }}N/A{{ end }} |
++{{- end }}
++
++For more information about feature gates, see the [Feature Gates](https://github.com/open-telemetry/opentelemetry-collector/blob/main/featuregate/README.md) documentation.
++
++{{- end }}

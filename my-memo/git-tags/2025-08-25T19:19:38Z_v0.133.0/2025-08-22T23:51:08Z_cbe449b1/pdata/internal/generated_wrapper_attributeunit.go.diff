@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunit.go b/pdata/internal/generated_wrapper_attributeunit.go
+index e07b36d17..a3d003443 100644
+--- a/pdata/internal/generated_wrapper_attributeunit.go
++++ b/pdata/internal/generated_wrapper_attributeunit.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolAttributeUnit = sync.Pool{
+-	New: func() any {
+-		return &otlpprofiles.AttributeUnit{}
+-	},
+-}
++var (
++	protoPoolAttributeUnit = sync.Pool{
++		New: func() any {
++			return &otlpprofiles.AttributeUnit{}
++		},
++	}
++)
+ 
+ func NewOrigAttributeUnit() *otlpprofiles.AttributeUnit {
+ 	if !UseProtoPooling.IsEnabled() {

@@ -1,0 +1,18 @@
+diff --git a/service/builder/testdata/new_style_receiver_factory.yaml b/service/builder/testdata/new_style_receiver_factory.yaml
+index e33dbb0f8..3a046862c 100644
+--- a/service/builder/testdata/new_style_receiver_factory.yaml
++++ b/service/builder/testdata/new_style_receiver_factory.yaml
+@@ -1,7 +1,5 @@
+ receivers:
+   newstylereceiver:
+-processors:
+-  nop:
+ exporters:
+   exampleexporter:
+ 
+@@ -9,5 +7,4 @@ service:
+   pipelines:
+     traces:
+       receivers: [newstylereceiver]
+-      processors: [nop] # trace pipeline requires a processor
+       exporters: [exampleexporter]

@@ -1,0 +1,17 @@
+diff --git a/service/telemetry/testdata/config_deprecated_address_and_readers.yaml b/service/telemetry/testdata/config_deprecated_address_and_readers.yaml
+deleted file mode 100644
+index 987b9f5a7..000000000
+--- a/service/telemetry/testdata/config_deprecated_address_and_readers.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-logs:
+-  level: "info"
+-metrics:
+-  level: "basic"
+-  address: "192.168.0.1:6666"
+-  readers:
+-    - pull:
+-        exporter:
+-          prometheus:
+-            host: "localhost"
+-            port: 9999

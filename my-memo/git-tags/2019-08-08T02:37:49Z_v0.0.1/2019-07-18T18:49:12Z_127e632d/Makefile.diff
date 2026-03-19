@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 955564e03..e818b32e1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -94,7 +94,7 @@ otelsvc:
+ .PHONY: docker-component # Not intended to be used directly
+ docker-component: check-component
+ 	GOOS=linux $(MAKE) $(COMPONENT)
+-	cp ./bin/$(GOOS)/$(COMPONENT) ./cmd/$(COMPONENT)/
++	cp ./bin/linux/$(COMPONENT) ./cmd/$(COMPONENT)/
+ 	docker build -t $(COMPONENT) ./cmd/$(COMPONENT)/
+ 	rm ./cmd/$(COMPONENT)/$(COMPONENT)
+ 

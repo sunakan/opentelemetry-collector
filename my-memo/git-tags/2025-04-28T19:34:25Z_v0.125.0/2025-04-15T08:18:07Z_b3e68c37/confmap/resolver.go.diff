@@ -1,0 +1,14 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 039d4aea1..f2a6f595e 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -65,6 +65,9 @@ type ResolverSettings struct {
+ 	// ConverterSettings contains settings that will be passed to Converter
+ 	// factories when instantiating Converters.
+ 	ConverterSettings ConverterSettings
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // NewResolver returns a new Resolver that resolves configuration from multiple URIs.

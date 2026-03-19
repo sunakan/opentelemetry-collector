@@ -1,0 +1,18 @@
+diff --git a/receiver/opencensusreceiver/ocmetrics/opencensus.go b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+index d20504058..50f3ce5f9 100644
+--- a/receiver/opencensusreceiver/ocmetrics/opencensus.go
++++ b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+@@ -32,11 +32,11 @@ import (
+ // Receiver is the type used to handle metrics from OpenCensus exporters.
+ type Receiver struct {
+ 	instanceName string
+-	nextConsumer consumer.MetricsConsumer
++	nextConsumer consumer.MetricsConsumerOld
+ }
+ 
+ // New creates a new ocmetrics.Receiver reference.
+-func New(instanceName string, nextConsumer consumer.MetricsConsumer) (*Receiver, error) {
++func New(instanceName string, nextConsumer consumer.MetricsConsumerOld) (*Receiver, error) {
+ 	if nextConsumer == nil {
+ 		return nil, oterr.ErrNilNextConsumer
+ 	}

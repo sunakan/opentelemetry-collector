@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/profiles.go b/pdata/pprofile/profiles.go
+index bda6738d4..f6d50148b 100644
+--- a/pdata/pprofile/profiles.go
++++ b/pdata/pprofile/profiles.go
+@@ -23,7 +23,7 @@ func (ms Profiles) SampleCount() int {
+ 		for j := 0; j < sps.Len(); j++ {
+ 			pcs := sps.At(j).Profiles()
+ 			for k := 0; k < pcs.Len(); k++ {
+-				sampleCount += pcs.At(k).Sample().Len()
++				sampleCount += pcs.At(k).Samples().Len()
+ 			}
+ 		}
+ 	}

@@ -1,0 +1,22 @@
+diff --git a/processor/tracesamplerprocessor/testdata/config.yaml b/processor/tracesamplerprocessor/testdata/config.yaml
+new file mode 100644
+index 000000000..ba76d6f0a
+--- /dev/null
++++ b/processor/tracesamplerprocessor/testdata/config.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  examplereceiver:
++
++processors:
++  trace-sampler:
++    sampling-percentage: 15.3
++    hash-seed: 22
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [trace-sampler]
++    exporters: [exampleexporter]

@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metrics_gen_test.go b/internal/goldendataset/pict_metrics_gen_test.go
+index 51072765a..5edc71935 100644
+--- a/internal/goldendataset/pict_metrics_gen_test.go
++++ b/internal/goldendataset/pict_metrics_gen_test.go
+@@ -60,7 +60,7 @@ func TestPICTtoCfg(t *testing.T) {
+ 			cfg: MetricsCfg{
+ 				NumResourceAttrs:     1,
+ 				NumPtsPerMetric:      1,
+-				MetricDescriptorType: pdata.MetricDataTypeDoubleGauge,
++				MetricDescriptorType: pdata.MetricDataTypeGauge,
+ 				NumPtLabels:          1,
+ 			},
+ 		},

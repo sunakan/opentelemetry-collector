@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+index 65b9e611c..2188410d0 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+@@ -32,7 +32,7 @@ const (
+ )
+ 
+ func appendSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startTime pdata.Timestamp, miscFunc getMiscStats) error {
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 	misc, err := miscFunc()
+ 	if err != nil {
+ 		return scrapererror.NewPartialScrapeError(err, unixMetricsLen)

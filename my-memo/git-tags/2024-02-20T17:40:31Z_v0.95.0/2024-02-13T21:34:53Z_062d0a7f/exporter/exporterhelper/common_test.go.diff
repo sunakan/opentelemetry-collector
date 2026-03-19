@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index ba7a8c549..8bd7f9fc4 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -31,7 +31,7 @@ var (
+ 	}()
+ )
+ 
+-func newNoopObsrepSender(_ *ObsReport) requestSender {
++func newNoopObsrepSender(*ObsReport) requestSender {
+ 	return &baseRequestSender{}
+ }
+ 
+@@ -50,8 +50,8 @@ func TestBaseExporterWithOptions(t *testing.T) {
+ 	want := errors.New("my error")
+ 	be, err := newBaseExporter(
+ 		defaultSettings, defaultType, false, nil, nil, newNoopObsrepSender,
+-		WithStart(func(_ context.Context, _ component.Host) error { return want }),
+-		WithShutdown(func(_ context.Context) error { return want }),
++		WithStart(func(context.Context, component.Host) error { return want }),
++		WithShutdown(func(context.Context) error { return want }),
+ 		WithTimeout(NewDefaultTimeoutSettings()),
+ 	)
+ 	require.NoError(t, err)

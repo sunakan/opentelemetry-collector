@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/command_test.go b/cmd/mdatagen/internal/command_test.go
+index 9a079c625..2a70c4ef6 100644
+--- a/cmd/mdatagen/internal/command_test.go
++++ b/cmd/mdatagen/internal/command_test.go
+@@ -193,7 +193,7 @@ func TestRunContents(t *testing.T) {
+ 			wantLogsGenerated:          true,
+ 		},
+ 		{
+-			yml:                        "with_optional_attribute.yaml",
++			yml:                        "with_conditional_attribute.yaml",
+ 			wantStatusGenerated:        true,
+ 			wantReadmeGenerated:        true,
+ 			wantMetricsGenerated:       true,

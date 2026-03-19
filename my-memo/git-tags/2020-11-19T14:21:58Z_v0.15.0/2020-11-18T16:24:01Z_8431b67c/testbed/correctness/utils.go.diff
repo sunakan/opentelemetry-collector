@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/utils.go b/testbed/correctness/utils.go
+index 742edf898..7f3278370 100644
+--- a/testbed/correctness/utils.go
++++ b/testbed/correctness/utils.go
+@@ -108,7 +108,7 @@ func LoadPictOutputPipelineDefs(fileName string) ([]PipelineDef, error) {
+ 	scanner := bufio.NewScanner(file)
+ 	for scanner.Scan() {
+ 		s := strings.Split(scanner.Text(), "\t")
+-		if "Receiver" == s[0] {
++		if s[0] == "Receiver" {
+ 			continue
+ 		}
+ 

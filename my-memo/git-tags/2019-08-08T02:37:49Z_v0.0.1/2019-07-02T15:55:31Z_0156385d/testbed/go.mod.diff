@@ -1,0 +1,10 @@
+diff --git a/testbed/go.mod b/testbed/go.mod
+index 9fcf5c838..0b145fe7c 100644
+--- a/testbed/go.mod
++++ b/testbed/go.mod
+@@ -11,3 +11,5 @@ require (
+ 	github.com/stretchr/testify v1.3.0
+ 	go.opencensus.io v0.22.0
+ )
++
++replace github.com/open-telemetry/opentelemetry-service => ../

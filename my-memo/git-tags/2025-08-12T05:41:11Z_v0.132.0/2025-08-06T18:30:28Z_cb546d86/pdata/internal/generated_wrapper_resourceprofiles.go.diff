@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_resourceprofiles.go b/pdata/internal/generated_wrapper_resourceprofiles.go
+index 8736882be..89419ad94 100644
+--- a/pdata/internal/generated_wrapper_resourceprofiles.go
++++ b/pdata/internal/generated_wrapper_resourceprofiles.go
+@@ -15,3 +15,9 @@ func CopyOrigResourceProfiles(dest, src *otlpprofiles.ResourceProfiles) {
+ 	dest.SchemaUrl = src.SchemaUrl
+ 	dest.ScopeProfiles = CopyOrigScopeProfilesSlice(dest.ScopeProfiles, src.ScopeProfiles)
+ }
++
++func FillOrigTestResourceProfiles(orig *otlpprofiles.ResourceProfiles) {
++	FillOrigTestResource(&orig.Resource)
++	orig.SchemaUrl = "test_schemaurl"
++	orig.ScopeProfiles = GenerateOrigTestScopeProfilesSlice()
++}

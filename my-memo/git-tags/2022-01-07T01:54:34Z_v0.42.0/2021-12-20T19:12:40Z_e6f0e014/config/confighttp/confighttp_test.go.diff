@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index a43a0fd0b..2a2f3063e 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -782,7 +782,6 @@ func TestServerAuth(t *testing.T) {
+ 					authCalled = true
+ 					return ctx, nil
+ 				},
+-				HTTPInterceptorFunc: configauth.DefaultHTTPInterceptor,
+ 			},
+ 		},
+ 	}

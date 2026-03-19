@@ -1,0 +1,12 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index c310ed30b..cc03fb1df 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -236,6 +236,7 @@ func (cp *ChildProcess) Start(params StartParams) error {
+ 		args = append(args, "--config")
+ 		args = append(args, cp.configFileName)
+ 	}
++	// #nosec
+ 	cp.cmd = exec.Command(exePath, args...)
+ 
+ 	// Capture standard output and standard error.

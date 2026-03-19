@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/err.go b/consumer/consumertest/err.go
+index 58d049071..12abb5bb0 100644
+--- a/consumer/consumertest/err.go
++++ b/consumer/consumertest/err.go
+@@ -39,7 +39,7 @@ func (er *errConsumer) ConsumeLogs(context.Context, pdata.Logs) error {
+ 	return er.err
+ }
+ 
+-// NewErr returns a Consumer that just drops all received data and returns no error.
++// NewErr returns a Consumer that just drops all received data and returns the specified error to Consume* callers.
+ func NewErr(err error) Consumer {
+ 	return &errConsumer{err: err}
+ }

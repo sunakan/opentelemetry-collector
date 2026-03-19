@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusremotewriteexporter/factory.go b/exporter/prometheusremotewriteexporter/factory.go
+index 878790992..6b9b2c155 100644
+--- a/exporter/prometheusremotewriteexporter/factory.go
++++ b/exporter/prometheusremotewriteexporter/factory.go
+@@ -68,6 +68,7 @@ func createMetricsExporter(_ context.Context, params component.ExporterCreatePar
+ 		}),
+ 		exporterhelper.WithRetry(prwCfg.RetrySettings),
+ 		exporterhelper.WithResourceToTelemetryConversion(prwCfg.ResourceToTelemetrySettings),
++		exporterhelper.WithStart(prwe.Start),
+ 		exporterhelper.WithShutdown(prwe.Shutdown),
+ 	)
+ }

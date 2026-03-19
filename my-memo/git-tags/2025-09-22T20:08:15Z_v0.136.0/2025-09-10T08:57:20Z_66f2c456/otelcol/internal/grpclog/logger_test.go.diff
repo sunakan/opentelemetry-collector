@@ -1,0 +1,13 @@
+diff --git a/otelcol/internal/grpclog/logger_test.go b/otelcol/internal/grpclog/logger_test.go
+index bc9690a9b..f9837824d 100644
+--- a/otelcol/internal/grpclog/logger_test.go
++++ b/otelcol/internal/grpclog/logger_test.go
+@@ -69,7 +69,7 @@ func TestGRPCLogger(t *testing.T) {
+ 			require.NoError(t, err)
+ 
+ 			// create GRPCLogger
+-			glogger := SetLogger(logger, test.cfg.Level.Level())
++			glogger := SetLogger(logger)
+ 			assert.NotNil(t, glogger)
+ 			// grpc does not usually call the logger directly, but through various wrappers that add extra depth
+ 			component := &mockComponent{logger: grpclog.Component("channelz")}

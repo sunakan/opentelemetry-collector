@@ -1,0 +1,26 @@
+diff --git a/pdata/ptrace/pb.go b/pdata/ptrace/pb.go
+index e16414590..5af934e1f 100644
+--- a/pdata/ptrace/pb.go
++++ b/pdata/ptrace/pb.go
+@@ -34,12 +34,12 @@ func newPbMarshaler() *pbMarshaler {
+ var _ Sizer = (*pbMarshaler)(nil)
+ 
+ func (e *pbMarshaler) MarshalTraces(td Traces) ([]byte, error) {
+-	pb := internal.TracesToProto(td)
++	pb := internal.TracesToProto(internal.Traces(td))
+ 	return pb.Marshal()
+ }
+ 
+ func (e *pbMarshaler) TracesSize(td Traces) int {
+-	pb := internal.TracesToProto(td)
++	pb := internal.TracesToProto(internal.Traces(td))
+ 	return pb.Size()
+ }
+ 
+@@ -57,5 +57,5 @@ func newPbUnmarshaler() *pbUnmarshaler {
+ func (d *pbUnmarshaler) UnmarshalTraces(buf []byte) (Traces, error) {
+ 	pb := otlptrace.TracesData{}
+ 	err := pb.Unmarshal(buf)
+-	return internal.TracesFromProto(pb), err
++	return Traces(internal.TracesFromProto(pb)), err
+ }

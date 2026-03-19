@@ -1,0 +1,31 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter_test.go b/processor/memorylimiterprocessor/memorylimiter_test.go
+index b23d1e9b9..181193c02 100644
+--- a/processor/memorylimiterprocessor/memorylimiter_test.go
++++ b/processor/memorylimiterprocessor/memorylimiter_test.go
+@@ -119,7 +119,7 @@ func TestMetricsMemoryPressureResponse(t *testing.T) {
+ 		obsrep: newObsReport(),
+ 		logger: zap.NewNop(),
+ 	}
+-	mp, err := processorhelper.NewMetricsProcessorWithCreateSettings(
++	mp, err := processorhelper.NewMetricsProcessor(
+ 		context.Background(),
+ 		componenttest.NewNopProcessorCreateSettings(),
+ 		&Config{
+@@ -190,7 +190,7 @@ func TestTraceMemoryPressureResponse(t *testing.T) {
+ 		obsrep: newObsReport(),
+ 		logger: zap.NewNop(),
+ 	}
+-	tp, err := processorhelper.NewTracesProcessorWithCreateSettings(
++	tp, err := processorhelper.NewTracesProcessor(
+ 		context.Background(),
+ 		componenttest.NewNopProcessorCreateSettings(),
+ 		&Config{
+@@ -261,7 +261,7 @@ func TestLogMemoryPressureResponse(t *testing.T) {
+ 		obsrep: newObsReport(),
+ 		logger: zap.NewNop(),
+ 	}
+-	lp, err := processorhelper.NewLogsProcessorWithCreateSettings(
++	lp, err := processorhelper.NewLogsProcessor(
+ 		context.Background(),
+ 		componenttest.NewNopProcessorCreateSettings(),
+ 		&Config{

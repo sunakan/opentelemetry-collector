@@ -1,0 +1,18 @@
+diff --git a/config/testdata/invalid-disabled-bool-value2.yaml b/config/testdata/invalid-disabled-bool-value2.yaml
+new file mode 100644
+index 000000000..4ed972a0d
+--- /dev/null
++++ b/config/testdata/invalid-disabled-bool-value2.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  examplereceiver:
++    disabled: "string for bool"
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

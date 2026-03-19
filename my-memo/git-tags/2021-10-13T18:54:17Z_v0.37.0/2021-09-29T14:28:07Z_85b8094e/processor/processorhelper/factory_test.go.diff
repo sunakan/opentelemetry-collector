@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/factory_test.go b/processor/processorhelper/factory_test.go
+index eb7d96e44..a12609630 100644
+--- a/processor/processorhelper/factory_test.go
++++ b/processor/processorhelper/factory_test.go
+@@ -28,7 +28,7 @@ import (
+ 
+ const typeStr = "test"
+ 
+-var defaultCfg = config.NewProcessorSettings(config.NewID(typeStr))
++var defaultCfg = config.NewProcessorSettings(config.NewComponentID(typeStr))
+ 
+ func TestNewTrace(t *testing.T) {
+ 	factory := NewFactory(

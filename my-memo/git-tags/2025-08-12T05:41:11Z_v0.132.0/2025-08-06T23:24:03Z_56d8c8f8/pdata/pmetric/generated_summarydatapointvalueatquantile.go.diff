@@ -1,0 +1,45 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantile.go b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+index 0f01cb74f..5259f4c5c 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantile.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+@@ -9,7 +9,6 @@ package pmetric
+ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ // SummaryDataPointValueAtQuantile is a quantile value within a Summary data point.
+@@ -77,32 +76,3 @@ func (ms SummaryDataPointValueAtQuantile) CopyTo(dest SummaryDataPointValueAtQua
+ 	dest.state.AssertMutable()
+ 	internal.CopyOrigSummaryDataPoint_ValueAtQuantile(dest.orig, ms.orig)
+ }
+-
+-// marshalJSONStream marshals all properties from the current struct to the destination stream.
+-func (ms SummaryDataPointValueAtQuantile) marshalJSONStream(dest *json.Stream) {
+-	dest.WriteObjectStart()
+-	if ms.orig.Quantile != float64(0) {
+-		dest.WriteObjectField("quantile")
+-		dest.WriteFloat64(ms.orig.Quantile)
+-	}
+-	if ms.orig.Value != float64(0) {
+-		dest.WriteObjectField("value")
+-		dest.WriteFloat64(ms.orig.Value)
+-	}
+-	dest.WriteObjectEnd()
+-}
+-
+-// unmarshalJSONIter unmarshals all properties from the current struct from the source iterator.
+-func (ms SummaryDataPointValueAtQuantile) unmarshalJSONIter(iter *json.Iterator) {
+-	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
+-		switch f {
+-		case "quantile":
+-			ms.orig.Quantile = iter.ReadFloat64()
+-		case "value":
+-			ms.orig.Value = iter.ReadFloat64()
+-		default:
+-			iter.Skip()
+-		}
+-		return true
+-	})
+-}

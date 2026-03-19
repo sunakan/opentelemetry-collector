@@ -1,0 +1,14 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 0cbfe5b66..6a387b88a 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -67,6 +67,9 @@ linters-settings:
+           - (github.com/golangci/golangci-lint/pkg/logutils.Log).Fatalf
+ 
+     enable-all: true
++    # TODO: Enable this and fix the alignment issues.
++    disable:
++      - fieldalignment
+ 
+   golint:
+     # minimal confidence for issues, default is 0.8

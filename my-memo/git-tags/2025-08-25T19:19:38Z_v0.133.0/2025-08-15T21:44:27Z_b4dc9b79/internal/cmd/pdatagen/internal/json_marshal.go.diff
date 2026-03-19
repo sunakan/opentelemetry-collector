@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/json_marshal.go b/internal/cmd/pdatagen/internal/json_marshal.go
+index 5cff4cc21..19e1562f9 100644
+--- a/internal/cmd/pdatagen/internal/json_marshal.go
++++ b/internal/cmd/pdatagen/internal/json_marshal.go
+@@ -87,7 +87,7 @@ const marshalJSONBytes = `{{ if .repeated -}}
+ {{- end }}`
+ 
+ func (pf *ProtoField) genMarshalJSON() string {
+-	tf := pf.marshalJSONTemplateFields()
++	tf := pf.getTemplateFields()
+ 	switch pf.Type {
+ 	case ProtoTypeBytes:
+ 		return executeTemplate(template.Must(templateNew("marshalJSONBytes").Parse(marshalJSONBytes)), tf)
+@@ -104,20 +104,3 @@ func (pf *ProtoField) genMarshalJSON() string {
+ 	}
+ 	panic(fmt.Sprintf("unhandled case %T", pf.Type))
+ }
+-
+-func (pf *ProtoField) marshalJSONTemplateFields() map[string]any {
+-	return map[string]any{
+-		"goType":       pf.Type.goType(pf.MessageFullName),
+-		"defaultValue": pf.Type.defaultValue(pf.MessageFullName),
+-		"fieldName":    pf.Name,
+-		"origName":     extractNameFromFullQualified(pf.MessageFullName),
+-		"repeated":     pf.Repeated,
+-		"nullable":     pf.Nullable,
+-		"jsonTag":      pf.jsonTag(),
+-	}
+-}
+-
+-func (pf *ProtoField) jsonTag() string {
+-	// Extract last word because for Enums we use the full name.
+-	return lowerFirst(extractNameFromFullQualified(pf.Name))
+-}

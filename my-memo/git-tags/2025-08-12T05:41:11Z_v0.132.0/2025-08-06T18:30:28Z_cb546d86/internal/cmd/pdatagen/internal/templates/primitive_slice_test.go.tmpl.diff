@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/primitive_slice_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/primitive_slice_test.go.tmpl
+index 2e65d6dfb..34369bab1 100644
+--- a/internal/cmd/pdatagen/internal/templates/primitive_slice_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/primitive_slice_test.go.tmpl
+@@ -168,7 +168,7 @@ func Test{{ .structName }}_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	stream := json.BorrowStream(nil)
+ 	defer json.ReturnStream(stream)
+ 	src := New{{ .structName }}()
+-	internal.FillTest{{ .structName }}(internal.{{ .structName }}(src))
++	*src.getOrig() = internal.GenerateOrigTest{{ .elementOriginName }}Slice()
+ 	internal.MarshalJSONStream{{ .structName }}(internal.{{ .structName }}(src), stream)
+ 	require.NoError(t, stream.Error())
+ 

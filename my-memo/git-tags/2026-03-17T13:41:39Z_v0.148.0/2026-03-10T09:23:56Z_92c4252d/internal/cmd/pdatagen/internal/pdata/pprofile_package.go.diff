@@ -1,0 +1,36 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pprofile_package.go b/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
+index 68fb8189f..b80e7f205 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
+@@ -408,23 +408,23 @@ var sample = &messageStruct{
+ 			protoID:   1,
+ 			protoType: proto.TypeInt32,
+ 		},
+-		&SliceField{
+-			fieldName:   "Values",
+-			protoID:     2,
+-			protoType:   proto.TypeInt64,
+-			returnSlice: int64Slice,
+-		},
+ 		&SliceField{
+ 			fieldName:   "AttributeIndices",
+-			protoID:     3,
++			protoID:     2,
+ 			protoType:   proto.TypeInt32,
+ 			returnSlice: int32Slice,
+ 		},
+ 		&PrimitiveField{
+ 			fieldName: "LinkIndex",
+-			protoID:   4,
++			protoID:   3,
+ 			protoType: proto.TypeInt32,
+ 		},
++		&SliceField{
++			fieldName:   "Values",
++			protoID:     4,
++			protoType:   proto.TypeInt64,
++			returnSlice: int64Slice,
++		},
+ 		&SliceField{
+ 			fieldName:   "TimestampsUnixNano",
+ 			protoID:     5,

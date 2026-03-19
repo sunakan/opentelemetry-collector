@@ -1,0 +1,11 @@
+diff --git a/config/common.go b/config/common.go
+index 42661b6dd..23b4e41ea 100644
+--- a/config/common.go
++++ b/config/common.go
+@@ -48,5 +48,5 @@ func unmarshal(componentSection *confmap.Conf, intoCfg interface{}) error {
+ 		return cu.Unmarshal(componentSection)
+ 	}
+ 
+-	return componentSection.UnmarshalExact(intoCfg)
++	return componentSection.Unmarshal(intoCfg, confmap.WithErrorUnused())
+ }

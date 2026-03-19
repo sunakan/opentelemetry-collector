@@ -1,0 +1,13 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index 4ab012431..0bf47d96a 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -289,6 +289,8 @@ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../../receive
+ 
+ replace go.opentelemetry.io/collector/receiver/receivertest => ../../receiver/receivertest
+ 
++replace go.opentelemetry.io/collector/scraper => ../../scraper
++
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/service => ../../service

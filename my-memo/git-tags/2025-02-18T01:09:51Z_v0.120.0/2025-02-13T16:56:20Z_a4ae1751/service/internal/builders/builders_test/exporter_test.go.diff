@@ -1,0 +1,13 @@
+diff --git a/service/internal/builders/builders_test/exporter_test.go b/service/internal/builders/builders_test/exporter_test.go
+index 4a632030b..e930b71b0 100644
+--- a/service/internal/builders/builders_test/exporter_test.go
++++ b/service/internal/builders/builders_test/exporter_test.go
+@@ -157,7 +157,7 @@ func TestNewNopExporterConfigsAndFactories(t *testing.T) {
+ 
+ 	factory := exportertest.NewNopFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	set := exportertest.NewNopSettings()
++	set := exportertest.NewNopSettingsWithType(factory.Type())
+ 	set.ID = component.NewID(builders.NopType)
+ 
+ 	traces, err := factory.CreateTraces(context.Background(), set, cfg)

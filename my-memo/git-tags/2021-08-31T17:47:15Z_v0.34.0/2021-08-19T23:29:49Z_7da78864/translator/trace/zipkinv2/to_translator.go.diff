@@ -1,0 +1,21 @@
+diff --git a/translator/trace/zipkinv2/to_translator.go b/translator/trace/zipkinv2/to_translator.go
+index bab8fb7fd..7caa4ebf0 100644
+--- a/translator/trace/zipkinv2/to_translator.go
++++ b/translator/trace/zipkinv2/to_translator.go
+@@ -156,12 +156,12 @@ func zSpanToInternal(zspan *zipkinmodel.SpanModel, tags map[string]string, dest
+ }
+ 
+ func populateSpanStatus(tags map[string]string, status pdata.SpanStatus) {
+-	if value, ok := tags[tracetranslator.TagStatusCode]; ok {
++	if value, ok := tags[conventions.OtelStatusCode]; ok {
+ 		status.SetCode(pdata.StatusCode(statusCodeValue[value]))
+-		delete(tags, tracetranslator.TagStatusCode)
+-		if value, ok := tags[tracetranslator.TagStatusMsg]; ok {
++		delete(tags, conventions.OtelStatusCode)
++		if value, ok := tags[conventions.OtelStatusDescription]; ok {
+ 			status.SetMessage(value)
+-			delete(tags, tracetranslator.TagStatusMsg)
++			delete(tags, conventions.OtelStatusDescription)
+ 		}
+ 	}
+ 

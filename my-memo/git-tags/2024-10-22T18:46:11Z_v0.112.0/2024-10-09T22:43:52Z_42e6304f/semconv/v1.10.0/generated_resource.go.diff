@@ -1,0 +1,13 @@
+diff --git a/semconv/v1.10.0/generated_resource.go b/semconv/v1.10.0/generated_resource.go
+index d740be56d..896db946a 100644
+--- a/semconv/v1.10.0/generated_resource.go
++++ b/semconv/v1.10.0/generated_resource.go
+@@ -336,7 +336,7 @@ const (
+ 	// </ul>
+ 	// Take care not to use the &quot;invoked ARN&quot; directly but replace any
+ 	// alias suffix with the resolved function version, as the same runtime instance
+-	// may be invokable with multiple
++	// may be invocable with multiple
+ 	// different aliases.<ul>
+ 	// <li>GCP: The URI of the resource</li>
+ 	// <li>Azure: The Fully Qualified Resource ID.</li>

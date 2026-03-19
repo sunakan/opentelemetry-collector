@@ -1,0 +1,13 @@
+diff --git a/config/configauth/README.md b/config/configauth/README.md
+index 25ed0be9c..b50ebcbaa 100644
+--- a/config/configauth/README.md
++++ b/config/configauth/README.md
+@@ -59,7 +59,7 @@ receivers:
+           ## oidc is the extension name to use as the authenticator for this receiver
+           authenticator: oidc
+ 
+-  otlphttp/withauth:
++  otlp_http/withauth:
+     endpoint: http://localhost:9000
+     auth:
+       authenticator: oauth2client

@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/common_structs.go b/cmd/pdatagen/internal/common_structs.go
+index 88b5dc61a..1f16f9d10 100644
+--- a/cmd/pdatagen/internal/common_structs.go
++++ b/cmd/pdatagen/internal/common_structs.go
+@@ -109,3 +109,8 @@ var nameField = &primitiveField{
+ 	defaultVal:      `""`,
+ 	testVal:         `"test_name"`,
+ }
++
++var anyValue = &messageStruct{
++	structName:     "AttributeValue",
++	originFullName: "otlpcommon.AnyValue",
++}

@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
+index 71a924934..1c6c71302 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_metadata.go
+@@ -43,6 +43,6 @@ func createMetricMemoryUsedDescriptor() pdata.MetricDescriptor {
+ 	descriptor.SetName("host/memory/used")
+ 	descriptor.SetDescription("Bytes of memory in use.")
+ 	descriptor.SetUnit("bytes")
+-	descriptor.SetType(pdata.MetricTypeGaugeInt64)
++	descriptor.SetType(pdata.MetricTypeInt64)
+ 	return descriptor
+ }

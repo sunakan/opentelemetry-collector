@@ -1,0 +1,41 @@
+diff --git a/extension/extensionmiddleware/client_test.go b/extension/extensionmiddleware/client_test.go
+index c525ffa3b..8d4eadcad 100644
+--- a/extension/extensionmiddleware/client_test.go
++++ b/extension/extensionmiddleware/client_test.go
+@@ -32,19 +32,6 @@ func TestGetHTTPRoundTripperFunc(t *testing.T) {
+ 		require.Equal(t, baseRT, rt)
+ 	})
+ 
+-	t.Run("wrapping function", func(t *testing.T) {
+-		// Create a custom round tripper wrapper for testing
+-		customRT := &testRoundTripper{base: baseRT}
+-
+-		wrapperFunc := GetHTTPRoundTripperFunc(func(base http.RoundTripper) (http.RoundTripper, error) {
+-			return &testRoundTripper{base: base}, nil
+-		})
+-
+-		rt, err := wrapperFunc.GetHTTPRoundTripper(baseRT)
+-		require.NoError(t, err)
+-		require.IsType(t, customRT, rt, "wrapper function should return the custom round tripper")
+-	})
+-
+ 	t.Run("error function", func(t *testing.T) {
+ 		expectedErr := errors.New("round tripper error")
+ 		errorFunc := GetHTTPRoundTripperFunc(func(_ http.RoundTripper) (http.RoundTripper, error) {
+@@ -58,16 +45,6 @@ func TestGetHTTPRoundTripperFunc(t *testing.T) {
+ 	})
+ }
+ 
+-// testRoundTripper is a simple round tripper implementation for testing
+-type testRoundTripper struct {
+-	base http.RoundTripper
+-}
+-
+-func (t *testRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+-	// Just delegate to the base round tripper
+-	return t.base.RoundTrip(req)
+-}
+-
+ func TestGetGRPCClientOptionsFunc(t *testing.T) {
+ 	t.Run("nil function", func(t *testing.T) {
+ 		var nilFunc GetGRPCClientOptionsFunc

@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/status_code.go b/translator/trace/jaeger/status_code.go
+index 59e8e5b61..d05f33dc6 100644
+--- a/translator/trace/jaeger/status_code.go
++++ b/translator/trace/jaeger/status_code.go
+@@ -20,7 +20,7 @@ import (
+ 
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func statusCodeFromHTTPTag(tag *jaeger.Tag) *int32 {

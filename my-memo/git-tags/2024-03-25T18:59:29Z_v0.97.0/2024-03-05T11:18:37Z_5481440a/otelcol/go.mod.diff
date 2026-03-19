@@ -1,0 +1,13 @@
+diff --git a/otelcol/go.mod b/otelcol/go.mod
+index 78caf027f..d23e3f17d 100644
+--- a/otelcol/go.mod
++++ b/otelcol/go.mod
+@@ -4,7 +4,7 @@ go 1.21
+ 
+ require (
+ 	github.com/spf13/cobra v1.8.0
+-	github.com/stretchr/testify v1.8.4
++	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.96.0
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.96.0
+ 	go.opentelemetry.io/collector/confmap v0.96.0

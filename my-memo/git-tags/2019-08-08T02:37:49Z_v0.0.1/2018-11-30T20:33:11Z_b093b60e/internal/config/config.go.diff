@@ -1,0 +1,17 @@
+diff --git a/internal/config/config.go b/internal/config/config.go
+index 5b1575f7b..54a75657b 100644
+--- a/internal/config/config.go
++++ b/internal/config/config.go
+@@ -113,12 +113,6 @@ func (c *Config) OpenCensusReceiverAddress() string {
+ 	return inCfg.OpenCensus.Address
+ }
+ 
+-// CanRunAllOpenCensusReceivers returns true if the configuration
+-// permits running both the OpenCensus Metrics and Trace receivers.
+-func (c *Config) CanRunAllOpenCensusReceivers() bool {
+-	return c.CanRunOpenCensusTraceReceiver() && c.CanRunOpenCensusMetricsReceiver()
+-}
+-
+ // CanRunOpenCensusTraceReceiver returns true if the configuration
+ // permits running the OpenCensus Trace receiver.
+ func (c *Config) CanRunOpenCensusTraceReceiver() bool {

@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index 75c3115c5..857c2918f 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -43,7 +43,7 @@ type ScraperControllerSettings struct {
+ // settings with a collection interval of one minute.
+ func DefaultScraperControllerSettings(cfgType config.Type) ScraperControllerSettings {
+ 	return ScraperControllerSettings{
+-		ReceiverSettings:   config.NewReceiverSettings(config.NewID(cfgType)),
++		ReceiverSettings:   config.NewReceiverSettings(config.NewComponentID(cfgType)),
+ 		CollectionInterval: time.Minute,
+ 	}
+ }

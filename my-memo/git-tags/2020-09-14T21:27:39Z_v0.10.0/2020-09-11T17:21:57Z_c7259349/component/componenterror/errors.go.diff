@@ -1,0 +1,29 @@
+diff --git a/component/componenterror/errors.go b/component/componenterror/errors.go
+index ce9efe05f..810b874de 100644
+--- a/component/componenterror/errors.go
++++ b/component/componenterror/errors.go
+@@ -20,6 +20,8 @@ import (
+ 	"errors"
+ 	"fmt"
+ 	"strings"
++
++	"go.opentelemetry.io/collector/consumer/consumererror"
+ )
+ 
+ var (
+@@ -46,8 +48,15 @@ func CombineErrors(errs []error) error {
+ 	}
+ 
+ 	errMsgs := make([]string, 0, numErrors)
++	permanent := false
+ 	for _, err := range errs {
++		if !permanent && consumererror.IsPermanent(err) {
++			permanent = true
++		}
+ 		errMsgs = append(errMsgs, err.Error())
+ 	}
++	if permanent {
++		return consumererror.Permanent(fmt.Errorf("[%s]", strings.Join(errMsgs, "; ")))
++	}
+ 	return fmt.Errorf("[%s]", strings.Join(errMsgs, "; "))
+ }

@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapointslice.go b/pdata/internal/generated_wrapper_summarydatapointslice.go
+index 2bb01fb0e..fd62b0609 100644
+--- a/pdata/internal/generated_wrapper_summarydatapointslice.go
++++ b/pdata/internal/generated_wrapper_summarydatapointslice.go
+@@ -8,7 +8,6 @@ package internal
+ 
+ import (
+ 	otlpmetrics "go.opentelemetry.io/collector/pdata/internal/data/protogen/metrics/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func CopyOrigSummaryDataPointSlice(dest, src []*otlpmetrics.SummaryDataPoint) []*otlpmetrics.SummaryDataPoint {
+@@ -49,14 +48,3 @@ func GenerateOrigTestSummaryDataPointSlice() []*otlpmetrics.SummaryDataPoint {
+ 	orig[4] = NewOrigSummaryDataPoint()
+ 	return orig
+ }
+-
+-// UnmarshalJSONOrigSummaryDataPointSlice unmarshals all properties from the current struct from the source iterator.
+-func UnmarshalJSONOrigSummaryDataPointSlice(iter *json.Iterator) []*otlpmetrics.SummaryDataPoint {
+-	var orig []*otlpmetrics.SummaryDataPoint
+-	iter.ReadArrayCB(func(iter *json.Iterator) bool {
+-		orig = append(orig, NewOrigSummaryDataPoint())
+-		UnmarshalJSONOrigSummaryDataPoint(orig[len(orig)-1], iter)
+-		return true
+-	})
+-	return orig
+-}

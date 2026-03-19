@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index 06d94aa1e..c86701641 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -43,7 +43,7 @@ type Config struct {
+ 	Protocols `mapstructure:"protocols"`
+ }
+ 
+-var _ component.ReceiverConfig = (*Config)(nil)
++var _ component.Config = (*Config)(nil)
+ var _ confmap.Unmarshaler = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid

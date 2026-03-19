@@ -1,0 +1,17 @@
+diff --git a/pdata/ptrace/status_code_test.go b/pdata/ptrace/status_code_test.go
+index 16fdb04c5..869ead0f8 100644
+--- a/pdata/ptrace/status_code_test.go
++++ b/pdata/ptrace/status_code_test.go
+@@ -10,8 +10,8 @@ import (
+ )
+ 
+ func TestStatusCodeString(t *testing.T) {
+-	assert.EqualValues(t, "Unset", StatusCodeUnset.String())
+-	assert.EqualValues(t, "Ok", StatusCodeOk.String())
+-	assert.EqualValues(t, "Error", StatusCodeError.String())
+-	assert.EqualValues(t, "", StatusCode(100).String())
++	assert.Equal(t, "Unset", StatusCodeUnset.String())
++	assert.Equal(t, "Ok", StatusCodeOk.String())
++	assert.Equal(t, "Error", StatusCodeError.String())
++	assert.Empty(t, StatusCode(100).String())
+ }

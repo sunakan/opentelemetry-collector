@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-release.yaml b/.github/workflows/builder-release.yaml
+index c674b08dc..ae35e797f 100644
+--- a/.github/workflows/builder-release.yaml
++++ b/.github/workflows/builder-release.yaml
+@@ -16,7 +16,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.20.8
++          go-version: ~1.20.10
+       - name: Run GoReleaser
+         uses: goreleaser/goreleaser-action@v5
+         with:

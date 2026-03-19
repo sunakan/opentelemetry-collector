@@ -1,0 +1,29 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml
+index 0859a71cf..a3d0c2108 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml
+@@ -1,16 +1,16 @@
+ extensions:
+-  exampleextension:
++  nop:
+     tests
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ service:
+-  extensions: [exampleextension]
++  extensions: [nop]
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

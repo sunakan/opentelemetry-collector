@@ -1,0 +1,20 @@
+diff --git a/pdata/pcommon/traceid.go b/pdata/pcommon/traceid.go
+index 22ad5a5af..fd1df45d2 100644
+--- a/pdata/pcommon/traceid.go
++++ b/pdata/pcommon/traceid.go
+@@ -6,7 +6,7 @@ package pcommon // import "go.opentelemetry.io/collector/pdata/pcommon"
+ import (
+ 	"encoding/hex"
+ 
+-	"go.opentelemetry.io/collector/pdata/internal/data"
++	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+ var emptyTraceID = TraceID([16]byte{})
+@@ -33,5 +33,5 @@ func (ms TraceID) String() string {
+ 
+ // IsEmpty returns true if id doesn't contain at least one non-zero byte.
+ func (ms TraceID) IsEmpty() bool {
+-	return data.TraceID(ms).IsEmpty()
++	return internal.TraceID(ms).IsEmpty()
+ }

@@ -1,0 +1,12 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 1c9d17a65..42f86d044 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -106,6 +106,7 @@ func MustNewDefaultConfigProvider(configLocations []string, properties []string)
+ 		map[string]configmapprovider.Provider{
+ 			"file": configmapprovider.NewFile(),
+ 			"env":  configmapprovider.NewEnv(),
++			"yaml": configmapprovider.NewYAML(),
+ 		},
+ 		[]config.MapConverterFunc{
+ 			configmapprovider.NewOverwritePropertiesConverter(properties),

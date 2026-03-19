@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/base_fields.go b/cmd/pdatagen/internal/base_fields.go
+index 3a487491d..0e867a767 100644
+--- a/cmd/pdatagen/internal/base_fields.go
++++ b/cmd/pdatagen/internal/base_fields.go
+@@ -414,7 +414,7 @@ func (one oneofField) generateSetWithTestValue(sb *strings.Builder) {
+ }
+ 
+ func (one oneofField) generateCopyToValue(sb *strings.Builder) {
+-	sb.WriteString("\t" + one.copyFuncName + "((*ms.orig), (*dest.orig))")
++	sb.WriteString("\t" + one.copyFuncName + "(ms.orig, dest.orig)")
+ }
+ 
+ var _ baseField = (*oneofField)(nil)

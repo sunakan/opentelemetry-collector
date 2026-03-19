@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/config.schema.yaml.tmpl b/cmd/mdatagen/internal/templates/config.schema.yaml.tmpl
+index 97d0380e2..a9bf14ad6 100644
+--- a/cmd/mdatagen/internal/templates/config.schema.yaml.tmpl
++++ b/cmd/mdatagen/internal/templates/config.schema.yaml.tmpl
+@@ -9,7 +9,7 @@ $defs:
+       {{- range $name, $metric := .Metrics }}
+       {{- $metricReag := and $reag (hasAggregatableAttributes $metric.Attributes) }}
+       {{ $name }}:
+-        description: "{{ $name.Render }}Config provides config for the {{ $name }} metric."
++        description: "{{ $name.Render }}MetricConfig provides config for the {{ $name }} metric."
+         type: object
+         properties:
+           enabled:

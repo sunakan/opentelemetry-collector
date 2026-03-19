@@ -1,0 +1,22 @@
+diff --git a/model/otlp/json_test.go b/model/otlp/json_test.go
+index 0c281e4b1..655e7472a 100644
+--- a/model/otlp/json_test.go
++++ b/model/otlp/json_test.go
+@@ -88,7 +88,7 @@ func TestMetricsJSON(t *testing.T) {
+ }
+ 
+ func TestLogsJSON(t *testing.T) {
+-	encoder := newJSONMarshaler()
++	encoder := NewJSONLogsMarshaler()
+ 	jsonBuf, err := encoder.MarshalLogs(logsOTLP)
+ 	assert.NoError(t, err)
+ 
+@@ -115,7 +115,7 @@ func TestMetricsJSON_Marshal(t *testing.T) {
+ }
+ 
+ func TestLogsJSON_Marshal(t *testing.T) {
+-	encoder := newJSONMarshaler()
++	encoder := NewJSONLogsMarshaler()
+ 	jsonBuf, err := encoder.MarshalLogs(logsOTLP)
+ 	assert.NoError(t, err)
+ 	assert.Equal(t, logsJSON, string(jsonBuf))

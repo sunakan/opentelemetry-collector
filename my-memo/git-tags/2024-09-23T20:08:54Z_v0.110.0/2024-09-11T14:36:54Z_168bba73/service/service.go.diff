@@ -1,0 +1,17 @@
+diff --git a/service/service.go b/service/service.go
+index d5efc90c6..de42a0b1c 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -173,10 +173,8 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 		return nil, err
+ 	}
+ 
+-	if cfg.Telemetry.Metrics.Level != configtelemetry.LevelNone && cfg.Telemetry.Metrics.Address != "" {
+-		if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
+-			return nil, fmt.Errorf("failed to register process metrics: %w", err)
+-		}
++	if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
++		return nil, fmt.Errorf("failed to register process metrics: %w", err)
+ 	}
+ 
+ 	return srv, nil

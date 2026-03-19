@@ -1,0 +1,28 @@
+diff --git a/processor/fanoutconnector_test.go b/processor/fanoutconnector_test.go
+index ba70a169b..0da2f7a39 100644
+--- a/processor/fanoutconnector_test.go
++++ b/processor/fanoutconnector_test.go
+@@ -28,12 +28,12 @@ import (
+ 
+ func TestTracesProcessorNotMultiplexing(t *testing.T) {
+ 	nop := consumertest.NewTracesNop()
+-	tfc := NewTracesFanOutConnector([]consumer.TraceConsumer{nop})
++	tfc := NewTracesFanOutConnector([]consumer.TracesConsumer{nop})
+ 	assert.Same(t, nop, tfc)
+ }
+ 
+ func TestTracesProcessorMultiplexing(t *testing.T) {
+-	processors := make([]consumer.TraceConsumer, 3)
++	processors := make([]consumer.TracesConsumer, 3)
+ 	for i := range processors {
+ 		processors[i] = new(consumertest.TracesSink)
+ 	}
+@@ -59,7 +59,7 @@ func TestTracesProcessorMultiplexing(t *testing.T) {
+ }
+ 
+ func TestTraceProcessorWhenOneErrors(t *testing.T) {
+-	processors := make([]consumer.TraceConsumer, 3)
++	processors := make([]consumer.TracesConsumer, 3)
+ 	for i := range processors {
+ 		processors[i] = new(consumertest.TracesSink)
+ 	}

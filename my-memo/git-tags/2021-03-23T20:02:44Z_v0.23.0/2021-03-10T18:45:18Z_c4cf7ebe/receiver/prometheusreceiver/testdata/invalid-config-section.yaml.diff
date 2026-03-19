@@ -1,0 +1,23 @@
+diff --git a/receiver/prometheusreceiver/testdata/invalid-config-section.yaml b/receiver/prometheusreceiver/testdata/invalid-config-section.yaml
+index 9dfe6ceba..b5ef9018a 100644
+--- a/receiver/prometheusreceiver/testdata/invalid-config-section.yaml
++++ b/receiver/prometheusreceiver/testdata/invalid-config-section.yaml
+@@ -7,14 +7,14 @@ receivers:
+           scrape_interval: 5s
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+       receivers: [prometheus]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      processors: [nop]
++      exporters: [nop]

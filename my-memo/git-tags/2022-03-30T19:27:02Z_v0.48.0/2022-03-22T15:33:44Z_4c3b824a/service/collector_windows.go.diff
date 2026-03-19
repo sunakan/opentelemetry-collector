@@ -1,0 +1,27 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 0f6490ae7..9e0f45b07 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -30,15 +30,22 @@ import (
+ 	"golang.org/x/sys/windows/svc/eventlog"
+ )
+ 
++// Deprecated: [v0.48.0] will be made private soon.
+ type WindowsService struct {
+ 	settings CollectorSettings
+ 	col      *Collector
+ }
+ 
++// Deprecated: [v0.48.0] use NewSvcHandler.
+ func NewWindowsService(set CollectorSettings) *WindowsService {
+ 	return &WindowsService{settings: set}
+ }
+ 
++// NewSvcHandler constructs a new svc.Handler using the given CollectorSettings.
++func NewSvcHandler(set CollectorSettings) svc.Handler {
++	return &WindowsService{settings: set}
++}
++
+ // Execute implements https://godoc.org/golang.org/x/sys/windows/svc#Handler
+ func (s *WindowsService) Execute(args []string, requests <-chan svc.ChangeRequest, changes chan<- svc.Status) (ssec bool, errno uint32) {
+ 	// The first argument supplied to service.Execute is the service name. If this is

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index 9812c6013..eb4e72e93 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -302,7 +302,7 @@ func TestQueuedRetry_DropOnFull(t *testing.T) {
+ func TestQueuedRetryHappyPath(t *testing.T) {
+ 	tt, err := obsreporttest.SetupTelemetry()
+ 	require.NoError(t, err)
+-	defer tt.Shutdown(context.Background())
++	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+ 	qCfg := DefaultQueueSettings()
+ 	rCfg := DefaultRetrySettings()

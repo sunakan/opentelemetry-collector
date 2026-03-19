@@ -1,0 +1,18 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index ecb1b0845..522968f70 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -75,11 +75,12 @@ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
+ 		ExtensionsFactories: map[component.Type]extension.Factory{
+ 			component.MustNewType("watcher"): newExtensionFactory(),
+ 		},
++		TelemetryFactory: otelconftelemetry.NewFactory(),
+ 	}
+ 	set.BuildInfo = component.BuildInfo{Version: "test version", Command: "otelcoltest"}
+ 
+ 	cfg := service.Config{
+-		Telemetry: otelconftelemetry.Config{
++		Telemetry: &otelconftelemetry.Config{
+ 			Logs: otelconftelemetry.LogsConfig{
+ 				Level:       zapcore.InfoLevel,
+ 				Development: false,

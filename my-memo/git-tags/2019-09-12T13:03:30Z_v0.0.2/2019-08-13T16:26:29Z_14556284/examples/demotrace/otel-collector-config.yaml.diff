@@ -1,0 +1,37 @@
+diff --git a/examples/demotrace/otel-collector-config.yaml b/examples/demotrace/otel-collector-config.yaml
+deleted file mode 100644
+index 3368021a0..000000000
+--- a/examples/demotrace/otel-collector-config.yaml
++++ /dev/null
+@@ -1,31 +0,0 @@
+-# Enable debug level to see output of "logging" exporter
+-log-level: DEBUG
+-
+-receivers:
+-  opencensus:
+-    endpoint: 0.0.0.0:55678
+-
+-exporters:
+-  logging:
+-
+-  zipkin:
+-    url: "http://zipkin-all-in-one:9411/api/v2/spans"
+-
+-  jaeger-grpc:
+-    endpoint: jaeger-all-in-one:14250
+-
+-# Alternatively, use jaeger-thrift-http with the settings below. In this case
+-# update the list of exporters on the traces pipeline.
+-#
+-#  jaeger-thrift-http:
+-#    url: http://jaeger-all-in-one:14268/api/traces
+-
+-processors:
+-  batch:
+-  queued-retry:
+-
+-pipelines:
+-  traces:
+-    receivers: [opencensus]
+-    exporters: [logging, zipkin, jaeger-grpc]
+-    processors: [batch, queued-retry]

@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope.go b/pdata/pcommon/generated_instrumentationscope.go
+index 8a5d23b54..d0913d9f0 100644
+--- a/pdata/pcommon/generated_instrumentationscope.go
++++ b/pdata/pcommon/generated_instrumentationscope.go
+@@ -38,6 +38,10 @@ func NewInstrumentationScope() InstrumentationScope {
+ func (ms InstrumentationScope) MoveTo(dest InstrumentationScope) {
+ 	ms.getState().AssertMutable()
+ 	dest.getState().AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.getOrig() == dest.getOrig() {
++		return
++	}
+ 	*dest.getOrig() = *ms.getOrig()
+ 	*ms.getOrig() = otlpcommon.InstrumentationScope{}
+ }

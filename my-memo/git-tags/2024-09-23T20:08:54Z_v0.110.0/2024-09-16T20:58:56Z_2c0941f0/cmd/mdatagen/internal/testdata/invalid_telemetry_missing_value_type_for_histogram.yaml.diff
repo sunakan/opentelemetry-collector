@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/testdata/invalid_telemetry_missing_value_type_for_histogram.yaml b/cmd/mdatagen/internal/testdata/invalid_telemetry_missing_value_type_for_histogram.yaml
+new file mode 100644
+index 000000000..c121802be
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/invalid_telemetry_missing_value_type_for_histogram.yaml
+@@ -0,0 +1,13 @@
++type: metric
++
++status:
++  class: receiver
++  stability:
++    beta: [traces, logs, metrics]
++telemetry:
++  metrics:
++    sampling_decision_latency:
++      description: Latency (in microseconds) of a given sampling policy
++      unit: µs
++      enabled: true
++      histogram:

@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/message.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+index 3323ba866..6cd605f6f 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/message.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+@@ -75,7 +75,17 @@ func (ms {{ .structName }}) getState() *internal.State {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms {{ .structName }}) CopyTo(dest {{ .structName }}) {
+ 	dest.{{ .stateAccessor }}.AssertMutable()
++    {{- if .isCommon }}
++    internal.CopyOrig{{ .structName }}(dest.{{ .origAccessor }}, ms.{{ .origAccessor }})
++    {{- else }}
++    copyOrig{{ .structName }}(dest.{{ .origAccessor }}, ms.{{ .origAccessor }})
++	{{- end }}
++}
++
++{{ if not .isCommon -}}
++func copyOrig{{ .structName }}(dest, src *{{ .originName }}) {
+ 	{{- range .fields }}
+-	{{ .GenerateCopyToValue $.messageStruct }}
++	{{ .GenerateCopyOrig $.messageStruct }}
+ 	{{- end }}
+ }
++{{- end }}

@@ -1,0 +1,22 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index 73e65abd2..6e585892b 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -253,7 +253,7 @@ func TestConnectionStateChange(t *testing.T) {
+ 	}
+ 	sender := &protoGRPCSender{
+ 		logger:                    zap.NewNop(),
+-		stopCh:                    make(chan (struct{})),
++		stopCh:                    make(chan struct{}),
+ 		conn:                      sr,
+ 		connStateReporterInterval: 10 * time.Millisecond,
+ 	}
+@@ -284,7 +284,7 @@ func TestConnectionReporterEndsOnStopped(t *testing.T) {
+ 
+ 	sender := &protoGRPCSender{
+ 		logger:                    zap.NewNop(),
+-		stopCh:                    make(chan (struct{})),
++		stopCh:                    make(chan struct{}),
+ 		conn:                      sr,
+ 		connStateReporterInterval: 10 * time.Millisecond,
+ 	}

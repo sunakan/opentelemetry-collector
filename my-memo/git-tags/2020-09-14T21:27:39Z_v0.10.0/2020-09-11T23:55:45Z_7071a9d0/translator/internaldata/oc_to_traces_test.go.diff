@@ -1,0 +1,31 @@
+diff --git a/translator/internaldata/oc_to_traces_test.go b/translator/internaldata/oc_to_traces_test.go
+index 18a46e18e..34aa46b95 100644
+--- a/translator/internaldata/oc_to_traces_test.go
++++ b/translator/internaldata/oc_to_traces_test.go
+@@ -161,6 +161,26 @@ func TestOcSpanKindToInternal(t *testing.T) {
+ 			},
+ 			otlpKind: otlptrace.Span_SPAN_KIND_PRODUCER,
+ 		},
++		{
++			ocKind: octrace.Span_SPAN_KIND_UNSPECIFIED,
++			ocAttrs: &octrace.Span_Attributes{
++				AttributeMap: map[string]*octrace.AttributeValue{
++					"span.kind": {Value: &octrace.AttributeValue_StringValue{
++						StringValue: &octrace.TruncatableString{Value: "client"}}},
++				},
++			},
++			otlpKind: otlptrace.Span_CLIENT,
++		},
++		{
++			ocKind: octrace.Span_SPAN_KIND_UNSPECIFIED,
++			ocAttrs: &octrace.Span_Attributes{
++				AttributeMap: map[string]*octrace.AttributeValue{
++					"span.kind": {Value: &octrace.AttributeValue_StringValue{
++						StringValue: &octrace.TruncatableString{Value: "server"}}},
++				},
++			},
++			otlpKind: otlptrace.Span_SERVER,
++		},
+ 		{
+ 			ocKind: octrace.Span_SPAN_KIND_UNSPECIFIED,
+ 			ocAttrs: &octrace.Span_Attributes{

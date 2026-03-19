@@ -1,0 +1,13 @@
+diff --git a/receiver/scrapererror/partialscrapeerror_test.go b/receiver/scrapererror/partialscrapeerror_test.go
+index 85ee7d7ca..876567ecb 100644
+--- a/receiver/scrapererror/partialscrapeerror_test.go
++++ b/receiver/scrapererror/partialscrapeerror_test.go
+@@ -28,7 +28,7 @@ func TestPartialScrapeError(t *testing.T) {
+ 	err := fmt.Errorf("some error")
+ 	partialErr := NewPartialScrapeError(err, failed)
+ 	assert.Equal(t, err.Error(), partialErr.Error())
+-	assert.Equal(t, failed, partialErr.(PartialScrapeError).Failed)
++	assert.Equal(t, failed, partialErr.Failed)
+ }
+ 
+ func TestIsPartialScrapeError(t *testing.T) {

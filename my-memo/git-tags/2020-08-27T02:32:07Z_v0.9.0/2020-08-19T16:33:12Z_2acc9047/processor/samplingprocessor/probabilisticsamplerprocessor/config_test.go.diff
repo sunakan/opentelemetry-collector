@@ -1,0 +1,30 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/config_test.go b/processor/samplingprocessor/probabilisticsamplerprocessor/config_test.go
+index 74fd9df88..2d70b3b3c 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/config_test.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/config_test.go
+@@ -31,7 +31,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	factories.Processors[typeStr] = factory
+ 	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 
+@@ -54,7 +54,7 @@ func TestLoadConfig(t *testing.T) {
+ func TestLoadConfigEmpty(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	require.NoError(t, err)
+-	factories.Processors, err = component.MakeProcessorFactoryMap(&Factory{})
++	factories.Processors, err = component.MakeProcessorFactoryMap(NewFactory())
+ 	require.NotNil(t, factories.Processors)
+ 	require.NoError(t, err)
+ 
+@@ -63,6 +63,5 @@ func TestLoadConfigEmpty(t *testing.T) {
+ 	require.Nil(t, err)
+ 	require.NotNil(t, config)
+ 	p0 := config.Processors["probabilistic_sampler"]
+-	factory := &Factory{}
+-	assert.Equal(t, p0, factory.CreateDefaultConfig())
++	assert.Equal(t, p0, createDefaultConfig())
+ }

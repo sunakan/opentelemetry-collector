@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go b/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
+index d54182a62..cbbc9f407 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ func NewSettings(tt *componenttest.Telemetry) receiver.Settings {
+-	set := receivertest.NewNopSettings()
++	set := receivertest.NewNopSettingsWithType(receivertest.NopType)
+ 	set.ID = component.NewID(component.MustNewType("sample"))
+ 	set.TelemetrySettings = tt.NewTelemetrySettings()
+ 	return set

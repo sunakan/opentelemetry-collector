@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_benchmark_test.go b/config/configgrpc/configgrpc_benchmark_test.go
+index 1ad755f2b..21125bcba 100644
+--- a/config/configgrpc/configgrpc_benchmark_test.go
++++ b/config/configgrpc/configgrpc_benchmark_test.go
+@@ -32,7 +32,7 @@ func BenchmarkCompressors(b *testing.B) {
+ 
+ 	for _, payload := range payloads {
+ 		for _, compressor := range compressors {
+-			fmt.Printf(payload.name)
++			fmt.Println(payload.name)
+ 			messageBytes, err := payload.marshaler.marshal(payload.message)
+ 			if err != nil {
+ 				b.Errorf("marshal(_) returned an error")

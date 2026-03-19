@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector_test.go b/otelcol/collector_test.go
+index 9d1a08ec9..20391978e 100644
+--- a/otelcol/collector_test.go
++++ b/otelcol/collector_test.go
+@@ -227,7 +227,7 @@ func TestComponentStatusWatcher(t *testing.T) {
+ 
+ 		for k, v := range changedComponents {
+ 			// All processors must report a status change with the same ID
+-			assert.EqualValues(t, component.NewID(unhealthyProcessorFactory.Type()), k.ComponentID())
++			assert.Equal(t, component.NewID(unhealthyProcessorFactory.Type()), k.ComponentID())
+ 			// And all must have a valid startup sequence
+ 			assert.Equal(t, startupStatuses(v), v)
+ 		}

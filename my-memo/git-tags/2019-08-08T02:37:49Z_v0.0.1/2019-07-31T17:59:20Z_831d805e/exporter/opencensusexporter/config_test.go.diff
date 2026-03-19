@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index ac22069ae..ab889771a 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -59,7 +59,7 @@ func TestLoadConfig(t *testing.T) {
+ 			CertPemFile:       "/var/lib/mycert.pem",
+ 			UseSecure:         true,
+ 			ReconnectionDelay: 15,
+-			KeepaliveParameters: &keepaliveConfig{
++			KeepaliveParameters: &KeepaliveConfig{
+ 				Time:                20,
+ 				PermitWithoutStream: true,
+ 				Timeout:             30,

@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetricsslice.go b/pdata/internal/generated_wrapper_resourcemetricsslice.go
+index 5145064e5..b813b3595 100644
+--- a/pdata/internal/generated_wrapper_resourcemetricsslice.go
++++ b/pdata/internal/generated_wrapper_resourcemetricsslice.go
+@@ -38,3 +38,12 @@ func CopyOrigResourceMetricsSlice(dest, src []*otlpmetrics.ResourceMetrics) []*o
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestResourceMetricsSlice() []*otlpmetrics.ResourceMetrics {
++	orig := make([]*otlpmetrics.ResourceMetrics, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpmetrics.ResourceMetrics{}
++		FillOrigTestResourceMetrics(orig[i])
++	}
++	return orig
++}

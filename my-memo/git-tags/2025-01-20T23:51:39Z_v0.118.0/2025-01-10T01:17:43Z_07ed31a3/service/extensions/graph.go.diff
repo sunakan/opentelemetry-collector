@@ -1,0 +1,19 @@
+diff --git a/service/extensions/graph.go b/service/extensions/graph.go
+index 3d3fa4d2b..b5570b531 100644
+--- a/service/extensions/graph.go
++++ b/service/extensions/graph.go
+@@ -40,11 +40,11 @@ func computeOrder(exts *Extensions) ([]component.ID, error) {
+ 		n := nodes[extID]
+ 		if dep, ok := ext.(extensioncapabilities.Dependent); ok {
+ 			for _, depID := range dep.Dependencies() {
+-				if d, ok := nodes[depID]; ok {
+-					graph.SetEdge(graph.NewEdge(d, n))
+-				} else {
++				d, ok := nodes[depID]
++				if !ok {
+ 					return nil, fmt.Errorf("unable to find extension %s on which extension %s depends", depID, extID)
+ 				}
++				graph.SetEdge(graph.NewEdge(d, n))
+ 			}
+ 		}
+ 	}

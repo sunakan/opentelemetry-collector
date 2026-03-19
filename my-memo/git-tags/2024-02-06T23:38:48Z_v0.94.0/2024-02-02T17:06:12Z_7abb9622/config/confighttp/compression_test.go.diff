@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index d6df35efc..d7fc44cd4 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -95,7 +95,7 @@ func TestHTTPClientCompression(t *testing.T) {
+ 			req, err := http.NewRequest(http.MethodGet, srv.URL, reqBody)
+ 			require.NoError(t, err, "failed to create request to test handler")
+ 
+-			clientSettings := HTTPClientConfig{
++			clientSettings := ClientConfig{
+ 				Endpoint:    srv.URL,
+ 				Compression: tt.encoding,
+ 			}

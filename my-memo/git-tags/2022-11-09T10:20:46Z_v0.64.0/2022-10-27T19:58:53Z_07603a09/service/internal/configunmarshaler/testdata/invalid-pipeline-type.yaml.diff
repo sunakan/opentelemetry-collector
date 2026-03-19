@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-pipeline-type.yaml b/service/internal/configunmarshaler/testdata/invalid-pipeline-type.yaml
+deleted file mode 100644
+index 937202168..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-pipeline-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    /metrics:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/testdata/config.yaml b/extension/healthcheckextension/testdata/config.yaml
+index e415cac68..f8c9c631c 100644
+--- a/extension/healthcheckextension/testdata/config.yaml
++++ b/extension/healthcheckextension/testdata/config.yaml
+@@ -1,7 +1,7 @@
+ extensions:
+   health_check:
+   health_check/1:
+-    port: 13
++    endpoint: "localhost:13"
+ 
+ service:
+   extensions: [health_check/1]

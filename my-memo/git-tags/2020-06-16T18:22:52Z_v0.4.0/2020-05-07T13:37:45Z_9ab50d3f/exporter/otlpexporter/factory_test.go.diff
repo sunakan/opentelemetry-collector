@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 6c52b684e..04f8dc41b 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -157,7 +157,7 @@ func TestCreateTraceExporter(t *testing.T) {
+ 			if tt.mustFail {
+ 				assert.NotNil(t, err)
+ 			} else {
+-				assert.Nil(t, err)
++				assert.NoError(t, err)
+ 				assert.NotNil(t, consumer)
+ 
+ 				err = consumer.Shutdown(context.Background())

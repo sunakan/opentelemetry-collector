@@ -1,0 +1,13 @@
+diff --git a/configv2/configv2.go b/configv2/configv2.go
+index f78dc13c7..41273b3f6 100644
+--- a/configv2/configv2.go
++++ b/configv2/configv2.go
+@@ -306,7 +306,7 @@ func loadProcessors(v *viper.Viper) (models.Processors, error) {
+ 		}
+ 
+ 		// Find processor factory based on "type" that we read from config source.
+-		factory := processor.GetProcessorFactory(typeStr)
++		factory := processor.GetFactory(typeStr)
+ 		if factory == nil {
+ 			return nil, &configError{
+ 				code: errUnknownProcessorType,

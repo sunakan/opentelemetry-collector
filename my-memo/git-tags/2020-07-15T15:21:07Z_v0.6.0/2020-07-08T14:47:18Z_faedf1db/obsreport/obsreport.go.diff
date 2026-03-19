@@ -1,0 +1,14 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index f705a2581..9ee845f33 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -137,6 +137,9 @@ func AllViews() (views []*view.View) {
+ 		mProcessorAcceptedMetricPoints,
+ 		mProcessorRefusedMetricPoints,
+ 		mProcessorDroppedMetricPoints,
++		mProcessorAcceptedLogRecords,
++		mProcessorRefusedLogRecords,
++		mProcessorDroppedLogRecords,
+ 	}
+ 	tagKeys = []tag.Key{tagKeyProcessor}
+ 	views = append(views, genViews(measures, tagKeys, view.Sum())...)

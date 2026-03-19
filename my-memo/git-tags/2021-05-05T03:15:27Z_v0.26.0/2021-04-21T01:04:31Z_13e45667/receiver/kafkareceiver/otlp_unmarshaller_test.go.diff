@@ -1,0 +1,14 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaller_test.go b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+index 350fa3f7c..22a8dca02 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaller_test.go
++++ b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+@@ -26,8 +26,7 @@ import (
+ 
+ func TestUnmarshallOTLPTraces(t *testing.T) {
+ 	td := pdata.NewTraces()
+-	td.ResourceSpans().Resize(1)
+-	td.ResourceSpans().At(0).Resource().Attributes().InsertString("foo", "bar")
++	td.ResourceSpans().AppendEmpty().Resource().Attributes().InsertString("foo", "bar")
+ 
+ 	expected, err := td.ToOtlpProtoBytes()
+ 	require.NoError(t, err)

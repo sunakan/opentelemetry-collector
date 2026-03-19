@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/error_waiting_host.go b/component/componenttest/error_waiting_host.go
+index ee3c16fbe..7fea4bc65 100644
+--- a/component/componenttest/error_waiting_host.go
++++ b/component/componenttest/error_waiting_host.go
+@@ -61,7 +61,7 @@ func (ews *ErrorWaitingHost) GetFactory(_ component.Kind, _ configmodels.Type) c
+ 	return nil
+ }
+ 
+-func (ews *ErrorWaitingHost) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++func (ews *ErrorWaitingHost) GetExtensions() map[configmodels.Extension]component.Extension {
+ 	return nil
+ }
+ 

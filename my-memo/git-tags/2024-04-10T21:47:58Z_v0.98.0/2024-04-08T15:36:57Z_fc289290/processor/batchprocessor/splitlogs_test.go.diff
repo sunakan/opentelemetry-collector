@@ -1,0 +1,14 @@
+diff --git a/processor/batchprocessor/splitlogs_test.go b/processor/batchprocessor/splitlogs_test.go
+index d112cd106..74ac51c85 100644
+--- a/processor/batchprocessor/splitlogs_test.go
++++ b/processor/batchprocessor/splitlogs_test.go
+@@ -8,8 +8,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/plog"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestSplitLogs_noop(t *testing.T) {

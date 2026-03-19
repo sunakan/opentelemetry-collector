@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 10679cc1d..074dc7a71 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -78,6 +78,10 @@ jobs:
+         run: |
+           make gendependabot
+           git diff -s --exit-code || (echo 'ALL_MODULES have been changed, please run "make gendependabot" and commit the changes in this PR.' && exit 1)
++      - name: Gen otelcorecol
++        run: |
++          make genotelcorecol
++          git diff -s --exit-code || (echo 'ALL_MODULES have been changed, please run "make genotelcorecol" and commit the changes in this PR.' && exit 1)
+       - name: Multimod verify
+         run: make multimod-verify
+   unittest:

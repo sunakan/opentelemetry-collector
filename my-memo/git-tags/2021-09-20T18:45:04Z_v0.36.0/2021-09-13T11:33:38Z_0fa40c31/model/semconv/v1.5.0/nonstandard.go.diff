@@ -1,0 +1,12 @@
+diff --git a/model/semconv/v1.5.0/nonstandard.go b/model/semconv/v1.5.0/nonstandard.go
+index d1117565c..a55563dae 100644
+--- a/model/semconv/v1.5.0/nonstandard.go
++++ b/model/semconv/v1.5.0/nonstandard.go
+@@ -25,6 +25,5 @@ const (
+ )
+ 
+ const (
+-	AttributeMessageType    = "message.type"
+-	AttributeHTTPStatusText = "http.status_text"
++	AttributeMessageType = "message.type"
+ )

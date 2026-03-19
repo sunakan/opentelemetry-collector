@@ -1,0 +1,21 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaller.go b/receiver/kafkareceiver/otlp_unmarshaller.go
+index c4ba90d39..a6dd53f53 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaller.go
++++ b/receiver/kafkareceiver/otlp_unmarshaller.go
+@@ -30,3 +30,16 @@ func (p *otlpTracesPbUnmarshaller) Unmarshal(bytes []byte) (pdata.Traces, error)
+ func (*otlpTracesPbUnmarshaller) Encoding() string {
+ 	return defaultEncoding
+ }
++
++type otlpLogsPbUnmarshaller struct {
++}
++
++var _ LogsUnmarshaller = (*otlpLogsPbUnmarshaller)(nil)
++
++func (p *otlpLogsPbUnmarshaller) Unmarshal(bytes []byte) (pdata.Logs, error) {
++	return pdata.LogsFromOtlpProtoBytes(bytes)
++}
++
++func (*otlpLogsPbUnmarshaller) Encoding() string {
++	return defaultEncoding
++}

@@ -1,0 +1,22 @@
+diff --git a/exporter/exportertest/sink_exporter.go b/exporter/exportertest/sink_exporter.go
+index 4217c0753..c25250f69 100644
+--- a/exporter/exportertest/sink_exporter.go
++++ b/exporter/exportertest/sink_exporter.go
+@@ -16,7 +16,6 @@ package exportertest
+ 
+ import (
+ 	"context"
+-	"encoding/json"
+ 	"sync"
+ 
+ 	"github.com/census-instrumentation/opencensus-service/data"
+@@ -86,9 +85,3 @@ func (sme *SinkMetricsExporter) AllMetrics() []data.MetricsData {
+ 
+ 	return sme.metrics[:]
+ }
+-
+-// ToJSON marshals a generic interface to JSON to enable easy comparisons.
+-func ToJSON(v interface{}) []byte {
+-	b, _ := json.MarshalIndent(v, "", "  ")
+-	return b
+-}

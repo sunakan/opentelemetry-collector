@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/factory.go b/receiver/receiverhelper/factory.go
+index 604a804de..357e7a3ee 100644
+--- a/receiver/receiverhelper/factory.go
++++ b/receiver/receiverhelper/factory.go
+@@ -118,7 +118,7 @@ func (f *factory) CreateMetricsReceiver(
+ 	return nil, componenterror.ErrDataTypeIsNotSupported
+ }
+ 
+-// CreateLogsReceiver creates a metrics processor based on this config.
++// CreateLogsReceiver creates a component.LogsReceiver based on this config.
+ func (f *factory) CreateLogsReceiver(
+ 	ctx context.Context,
+ 	set component.ReceiverCreateSettings,

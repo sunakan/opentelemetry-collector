@@ -1,0 +1,15 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index ea0d94547..25fbd1b4a 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -18,8 +18,8 @@ import (
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/exporter"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ const (

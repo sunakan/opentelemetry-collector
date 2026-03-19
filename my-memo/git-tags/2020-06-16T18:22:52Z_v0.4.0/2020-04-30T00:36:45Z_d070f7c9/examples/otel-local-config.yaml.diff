@@ -1,0 +1,11 @@
+diff --git a/examples/otel-local-config.yaml b/examples/otel-local-config.yaml
+index 43ffaab7b..921d4ff7d 100644
+--- a/examples/otel-local-config.yaml
++++ b/examples/otel-local-config.yaml
+@@ -1,6 +1,5 @@
+    extensions:
+      health_check:
+-       endpoint: 0.0.0.0:13133
+      pprof:
+        endpoint: 0.0.0.0:1777
+      zpages:

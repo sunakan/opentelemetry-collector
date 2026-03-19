@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_summary.go b/pdata/internal/generated_proto_summary.go
+index 5523e5af8..0b62ef765 100644
+--- a/pdata/internal/generated_proto_summary.go
++++ b/pdata/internal/generated_proto_summary.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -28,7 +29,7 @@ var (
+ )
+ 
+ func NewSummary() *Summary {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &Summary{}
+ 	}
+ 	return protoPoolSummary.Get().(*Summary)
+@@ -39,7 +40,7 @@ func DeleteSummary(orig *Summary, nullable bool) {
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

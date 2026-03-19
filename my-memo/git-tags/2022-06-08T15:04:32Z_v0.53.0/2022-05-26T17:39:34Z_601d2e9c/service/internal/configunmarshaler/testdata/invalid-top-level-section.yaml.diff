@@ -1,0 +1,33 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-top-level-section.yaml b/service/internal/configunmarshaler/testdata/invalid-top-level-section.yaml
+index 0b9819d17..a40aa2efd 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-top-level-section.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-top-level-section.yaml
+@@ -1,21 +1,21 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ extensions:
+-  exampleextension:
++  nop:
+ service:
+   extenstions:
+     - examapleextension
+   pipelines:
+     traces:
+       receivers:
+-        - examplereceiver
++        - nop
+       processors:
+-        - exampleprocessor
++        - nop
+       exporters:
+-        - exampleexporter
++        - nop
+ unknown_section:
+   a_num: 2

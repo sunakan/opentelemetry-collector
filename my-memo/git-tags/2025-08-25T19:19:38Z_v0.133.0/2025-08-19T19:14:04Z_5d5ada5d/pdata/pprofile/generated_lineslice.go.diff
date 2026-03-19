@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_lineslice.go b/pdata/pprofile/generated_lineslice.go
+index 6f423ec74..aead56e2d 100644
+--- a/pdata/pprofile/generated_lineslice.go
++++ b/pdata/pprofile/generated_lineslice.go
+@@ -99,7 +99,7 @@ func (es LineSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added Line.
+ func (es LineSlice) AppendEmpty() Line {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrLine())
++	*es.orig = append(*es.orig, internal.NewOrigLine())
+ 	return es.At(es.Len() - 1)
+ }
+ 

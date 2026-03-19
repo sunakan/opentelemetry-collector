@@ -1,0 +1,12 @@
+diff --git a/service/internal/extensions/extensions.go b/service/internal/extensions/extensions.go
+index 15e67bb48..060a24b64 100644
+--- a/service/internal/extensions/extensions.go
++++ b/service/internal/extensions/extensions.go
+@@ -135,6 +135,7 @@ func Build(
+ 					zap.String(components.ZapNameKey, extID.String())),
+ 				TracerProvider: settings.TracerProvider,
+ 				MeterProvider:  settings.MeterProvider,
++				MetricsLevel:   config.Telemetry.Metrics.Level,
+ 			},
+ 			BuildInfo: buildInfo,
+ 		}

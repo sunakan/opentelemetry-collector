@@ -1,0 +1,26 @@
+diff --git a/processor/memorylimiterprocessor/generated_component_test.go b/processor/memorylimiterprocessor/generated_component_test.go
+index 908970c78..00acfb215 100644
+--- a/processor/memorylimiterprocessor/generated_component_test.go
++++ b/processor/memorylimiterprocessor/generated_component_test.go
+@@ -19,6 +19,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ 	"go.opentelemetry.io/collector/processor"
+ 	"go.opentelemetry.io/collector/processor/processortest"
++	"go.opentelemetry.io/collector/processor/xprocessor"
+ )
+ 
+ var typ = component.MustNewType("memory_limiter")
+@@ -59,6 +60,13 @@ func TestComponentLifecycle(t *testing.T) {
+ 				return factory.CreateTraces(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
++
++		{
++			name: "profiles",
++			createFn: func(ctx context.Context, set processor.Settings, cfg component.Config) (component.Component, error) {
++				return factory.(xprocessor.Factory).CreateProfiles(ctx, set, cfg, consumertest.NewNop())
++			},
++		},
+ 	}
+ 
+ 	cm, err := confmaptest.LoadConf("metadata.yaml")

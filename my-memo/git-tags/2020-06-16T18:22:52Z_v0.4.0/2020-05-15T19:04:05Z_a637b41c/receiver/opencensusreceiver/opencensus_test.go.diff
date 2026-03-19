@@ -1,0 +1,25 @@
+diff --git a/receiver/opencensusreceiver/opencensus_test.go b/receiver/opencensusreceiver/opencensus_test.go
+index be1680d00..d486f515f 100644
+--- a/receiver/opencensusreceiver/opencensus_test.go
++++ b/receiver/opencensusreceiver/opencensus_test.go
+@@ -41,13 +41,13 @@ import (
+ 	"google.golang.org/grpc/metadata"
+ 	"google.golang.org/grpc/status"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component/componenttest"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
+-	"github.com/open-telemetry/opentelemetry-collector/internal"
+-	"github.com/open-telemetry/opentelemetry-collector/observability/observabilitytest"
+-	"github.com/open-telemetry/opentelemetry-collector/testutils"
++	"go.opentelemetry.io/collector/component/componenttest"
++	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/internal"
++	"go.opentelemetry.io/collector/observability/observabilitytest"
++	"go.opentelemetry.io/collector/testutils"
+ )
+ 
+ const ocReceiver = "oc_receiver_test"

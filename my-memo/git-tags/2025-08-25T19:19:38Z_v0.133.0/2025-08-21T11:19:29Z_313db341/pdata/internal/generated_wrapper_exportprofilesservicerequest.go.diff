@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+index 9ee310509..2ce0aac53 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+@@ -67,6 +67,10 @@ func DeleteOrigExportProfilesServiceRequest(orig *otlpcollectorprofiles.ExportPr
+ }
+ 
+ func CopyOrigExportProfilesServiceRequest(dest, src *otlpcollectorprofiles.ExportProfilesServiceRequest) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.ResourceProfiles = CopyOrigResourceProfilesSlice(dest.ResourceProfiles, src.ResourceProfiles)
+ 	CopyOrigProfilesDictionary(&dest.Dictionary, &src.Dictionary)
+ }

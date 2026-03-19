@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 80bf9286e..59501daa4 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -389,7 +389,7 @@ func (jr *jReceiver) startCollector(host receiver.Host) error {
+ 	taddr := jr.tchannelAddr()
+ 	tln, terr := net.Listen("tcp", taddr)
+ 	if terr != nil {
+-		return fmt.Errorf("failed to bind to TChannnel address %q: %v", taddr, terr)
++		return fmt.Errorf("failed to bind to TChannel address %q: %v", taddr, terr)
+ 	}
+ 	tch.Serve(tln)
+ 	jr.tchannel = tch

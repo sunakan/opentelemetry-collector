@@ -1,0 +1,14 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index ca268d18f..021f6e2c9 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -30,8 +30,8 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestBatchProcessorSpansDelivered(t *testing.T) {

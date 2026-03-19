@@ -1,0 +1,21 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index c0c30e16a..55176a6c9 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -54,6 +54,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 				// Disable: false - This receiver is enabled by default.
+ 			},
+ 		},
++		Transport: "tcp",
+ 	}
+ }
+ 
+@@ -107,7 +108,7 @@ func (f *Factory) createReceiver(cfg configmodels.Receiver) (*Receiver, error) {
+ 		}
+ 
+ 		// We don't have a receiver, so create one.
+-		receiver, err = New(rCfg.Endpoint, nil, nil, opts...)
++		receiver, err = New(rCfg.Transport, rCfg.Endpoint, nil, nil, opts...)
+ 		if err != nil {
+ 			return nil, err
+ 		}

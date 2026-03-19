@@ -1,0 +1,16 @@
+diff --git a/exporter/prometheusexporter/end_to_end_test.go b/exporter/prometheusexporter/end_to_end_test.go
+index c0f0ed73f..950ba57b5 100644
+--- a/exporter/prometheusexporter/end_to_end_test.go
++++ b/exporter/prometheusexporter/end_to_end_test.go
+@@ -107,10 +107,7 @@ func TestEndToEndSummarySupport(t *testing.T) {
+ 	}
+ 	rcvCfg := &prometheusreceiver.Config{
+ 		PrometheusConfig: receiverConfig,
+-		ReceiverSettings: config.ReceiverSettings{
+-			TypeVal: "prometheus",
+-			NameVal: "prometheus",
+-		},
++		ReceiverSettings: config.NewReceiverSettings(config.NewID("prometheus")),
+ 	}
+ 	// 3.5 Create the Prometheus receiver and pass in the preivously created Prometheus exporter.
+ 	prometheusReceiver, err := receiverFactory.CreateMetricsReceiver(ctx, receiverCreateParams, rcvCfg, exporter)

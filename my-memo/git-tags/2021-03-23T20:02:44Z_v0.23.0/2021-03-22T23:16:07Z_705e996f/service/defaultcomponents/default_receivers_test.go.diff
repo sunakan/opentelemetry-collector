@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index deb9de7e5..b1001c7b7 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -60,8 +60,7 @@ func TestDefaultReceivers(t *testing.T) {
+ 			skipLifecyle: true, // TODO: Usage of CMux doesn't allow proper shutdown.
+ 		},
+ 		{
+-			receiver:     "otlp",
+-			skipLifecyle: true, // TODO: Upcoming PR to fix zipkin lifecycle.
++			receiver: "otlp",
+ 		},
+ 		{
+ 			receiver: "prometheus",

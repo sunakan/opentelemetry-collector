@@ -1,0 +1,18 @@
+diff --git a/component/componentprofiles/config.go b/component/componentprofiles/config.go
+deleted file mode 100644
+index 39106b988..000000000
+--- a/component/componentprofiles/config.go
++++ /dev/null
+@@ -1,12 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package componentprofiles // import "go.opentelemetry.io/collector/component/componentprofiles"
+-
+-import (
+-	"go.opentelemetry.io/collector/internal/globalsignal"
+-)
+-
+-var (
+-	SignalProfiles = globalsignal.MustNewSignal("profiles")
+-)

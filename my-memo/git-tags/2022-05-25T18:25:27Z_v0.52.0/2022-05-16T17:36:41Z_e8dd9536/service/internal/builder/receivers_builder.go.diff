@@ -1,0 +1,22 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 777aafe8b..f987a11e7 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -108,7 +108,7 @@ func BuildReceivers(
+ 
+ 		rcv, err := rb.buildReceiver(context.Background(), set, recvID, recvCfg)
+ 		if err != nil {
+-			if err == errUnusedReceiver {
++			if errors.Is(err, errUnusedReceiver) {
+ 				set.Logger.Info("Ignoring receiver as it is not used by any pipeline")
+ 				continue
+ 			}
+@@ -195,7 +195,7 @@ func attachReceiverToPipelines(
+ 	}
+ 
+ 	if err != nil {
+-		if err == componenterror.ErrDataTypeIsNotSupported {
++		if errors.Is(err, componenterror.ErrDataTypeIsNotSupported) {
+ 			return fmt.Errorf(
+ 				"receiver %v does not support %s but it was used in a %s pipeline",
+ 				id, dataType, dataType)

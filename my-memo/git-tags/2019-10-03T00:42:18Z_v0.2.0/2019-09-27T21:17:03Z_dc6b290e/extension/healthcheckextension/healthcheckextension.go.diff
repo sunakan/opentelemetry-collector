@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/healthcheckextension.go b/extension/healthcheckextension/healthcheckextension.go
+index 903275399..78dbbdc1b 100644
+--- a/extension/healthcheckextension/healthcheckextension.go
++++ b/extension/healthcheckextension/healthcheckextension.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/jaegertracing/jaeger/pkg/healthcheck"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/extension"
++	"github.com/open-telemetry/opentelemetry-collector/extension"
+ )
+ 
+ type healthCheckExtension struct {

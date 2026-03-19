@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/loader_test.go b/cmd/mdatagen/internal/loader_test.go
+index 75c877163..dccfecc06 100644
+--- a/cmd/mdatagen/internal/loader_test.go
++++ b/cmd/mdatagen/internal/loader_test.go
+@@ -27,7 +27,8 @@ func TestLoadMetadata(t *testing.T) {
+ 				Type:                 "sample",
+ 				SemConvVersion:       "1.9.0",
+ 				Status: &Status{
+-					Class: "receiver",
++					DisableCodeCov: true,
++					Class:          "receiver",
+ 					Stability: map[component.StabilityLevel][]string{
+ 						component.StabilityLevelDevelopment: {"logs"},
+ 						component.StabilityLevelBeta:        {"traces"},

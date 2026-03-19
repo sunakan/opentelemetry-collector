@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/collector_test.go b/exporter/prometheusexporter/collector_test.go
+index 44dadd894..22ba5184f 100644
+--- a/exporter/prometheusexporter/collector_test.go
++++ b/exporter/prometheusexporter/collector_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type mockAccumulator struct {

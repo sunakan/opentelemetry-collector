@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go b/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
+index d3e09af78..69f16ea0a 100644
+--- a/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/disabled_batcher_test.go
+@@ -43,6 +43,7 @@ func TestDisabledBatcher(t *testing.T) {
+ 				Capacity:        1000,
+ 				BlockOnOverflow: true,
+ 				NumConsumers:    tt.maxWorkers,
++				Telemetry:       componenttest.NewNopTelemetrySettings(),
+ 			}, ba.Consume)
+ 			require.NoError(t, err)
+ 

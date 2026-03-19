@@ -1,0 +1,15 @@
+diff --git a/cmd/ocagent/Dockerfile b/cmd/ocagent/Dockerfile
+new file mode 100644
+index 000000000..0a8efab72
+--- /dev/null
++++ b/cmd/ocagent/Dockerfile
+@@ -0,0 +1,9 @@
++# Use a helper to create an emtpy configuration since the agent requires such file
++FROM alpine:3.7 as helper
++RUN touch ./config.yaml
++
++FROM scratch
++COPY ocagent_linux /
++COPY --from=helper ./config.yaml config.yaml
++ENTRYPOINT ["/ocagent_linux"]
++EXPOSE 55678 55679

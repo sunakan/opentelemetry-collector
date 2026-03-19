@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/opencensus_test.go b/receiver/opencensusreceiver/opencensus_test.go
+index 3c119ba79..ffb4f146a 100644
+--- a/receiver/opencensusreceiver/opencensus_test.go
++++ b/receiver/opencensusreceiver/opencensus_test.go
+@@ -36,8 +36,6 @@ import (
+ )
+ 
+ func TestGrpcGateway_endToEnd(t *testing.T) {
+-	t.Skip("gRPC Gateway version changed, fix this test.")
+-
+ 	addr := ":35993"
+ 
+ 	// Set the buffer count to 1 to make it flush the test span immediately.
+@@ -137,6 +135,8 @@ func TestGrpcGateway_endToEnd(t *testing.T) {
+ 					},
+ 				},
+ 			},
++
++			SourceFormat: "oc_trace",
+ 		},
+ 	}
+ 

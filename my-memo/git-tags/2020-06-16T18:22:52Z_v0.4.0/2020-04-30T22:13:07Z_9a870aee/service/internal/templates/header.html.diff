@@ -1,0 +1,18 @@
+diff --git a/service/internal/templates/header.html b/service/internal/templates/header.html
+new file mode 100644
+index 000000000..c381c0ff6
+--- /dev/null
++++ b/service/internal/templates/header.html
+@@ -0,0 +1,11 @@
++<!DOCTYPE html>
++<html lang="en"><head>
++    <meta charset="utf-8">
++    <title>{{.Title}}</title>
++    <link rel="shortcut icon" href="//www.opentelemetry.io/favicon.ico"/>
++    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
++    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
++    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
++</head>
++<body>
++<h2>{{.Title}}</h2>
+\ No newline at end of file

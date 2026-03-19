@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+index 1750802fd..aa09bc089 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+@@ -24,7 +24,7 @@ func Test{{ .structName }}(t *testing.T) {
+ 	{{- else }}
+ 	emptyVal := New{{ .elementName }}()
+ 	{{- end }}
+-	{{- if .isCommon }}
++	{{- if .hasWrapper }}
+ 	testVal := {{ .elementName }}(internal.GenerateTest{{ .elementName }}())
+ 	{{- else }}
+ 	testVal := generateTest{{ .elementName }}()

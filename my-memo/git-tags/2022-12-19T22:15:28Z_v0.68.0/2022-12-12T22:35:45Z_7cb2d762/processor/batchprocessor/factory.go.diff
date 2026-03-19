@@ -1,0 +1,24 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index bb4363893..a8a4d21c7 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -19,7 +19,6 @@ import (
+ 	"time"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/featuregate"
+ 	"go.opentelemetry.io/collector/processor"
+@@ -45,9 +44,8 @@ func NewFactory() processor.Factory {
+ 
+ func createDefaultConfig() component.Config {
+ 	return &Config{
+-		ProcessorSettings: config.NewProcessorSettings(component.NewID(typeStr)),
+-		SendBatchSize:     defaultSendBatchSize,
+-		Timeout:           defaultTimeout,
++		SendBatchSize: defaultSendBatchSize,
++		Timeout:       defaultTimeout,
+ 	}
+ }
+ 

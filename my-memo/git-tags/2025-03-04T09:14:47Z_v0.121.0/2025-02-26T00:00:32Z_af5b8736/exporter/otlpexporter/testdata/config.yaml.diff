@@ -1,0 +1,16 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index d26631053..ed9a520ea 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -17,8 +17,9 @@ retry_on_failure:
+ batcher:
+   enabled: true
+   flush_timeout: 200ms
+-  min_size_items: 1000
+-  max_size_items: 10000
++  sizer: "items"
++  min_size: 1000
++  max_size: 10000
+ auth:
+   authenticator: nop
+ headers:

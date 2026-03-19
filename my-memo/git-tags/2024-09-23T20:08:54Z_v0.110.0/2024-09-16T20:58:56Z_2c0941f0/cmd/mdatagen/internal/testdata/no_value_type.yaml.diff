@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/internal/testdata/no_value_type.yaml b/cmd/mdatagen/internal/testdata/no_value_type.yaml
+new file mode 100644
+index 000000000..046f457b5
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/no_value_type.yaml
+@@ -0,0 +1,22 @@
++type: metricreceiver
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++  distributions: [contrib]
++  warnings:
++    - Any additional information that should be brought to the consumer's attention
++
++
++metrics:
++  system.cpu.time:
++    enabled: true
++    description: Total CPU seconds broken down by different states.
++    unit: s
++    sum:
++      monotonic: true
++      aggregation_temporality: cumulative
++    attributes:

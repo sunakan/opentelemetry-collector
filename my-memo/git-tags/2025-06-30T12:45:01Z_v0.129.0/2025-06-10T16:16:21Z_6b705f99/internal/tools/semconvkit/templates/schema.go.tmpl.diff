@@ -1,0 +1,15 @@
+diff --git a/internal/tools/semconvkit/templates/schema.go.tmpl b/internal/tools/semconvkit/templates/schema.go.tmpl
+deleted file mode 100644
+index 41006fa20..000000000
+--- a/internal/tools/semconvkit/templates/schema.go.tmpl
++++ /dev/null
+@@ -1,9 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package semconv // import "go.opentelemetry.io/collector/semconv/{{.TagVer}}"
+-
+-// SchemaURL is the schema URL that matches the version of the semantic conventions
+-// that this package defines. Semconv packages starting from v1.4.0 must declare
+-// non-empty schema URL in the form https://opentelemetry.io/schemas/<version>
+-const SchemaURL = "https://opentelemetry.io/schemas/{{.SemVer}}"

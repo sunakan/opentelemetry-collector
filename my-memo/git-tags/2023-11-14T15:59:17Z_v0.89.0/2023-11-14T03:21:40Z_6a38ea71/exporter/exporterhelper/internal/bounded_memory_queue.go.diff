@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/bounded_memory_queue.go b/exporter/exporterhelper/internal/bounded_memory_queue.go
+index 1f3358016..18c64a9d4 100644
+--- a/exporter/exporterhelper/internal/bounded_memory_queue.go
++++ b/exporter/exporterhelper/internal/bounded_memory_queue.go
+@@ -81,7 +81,3 @@ func (q *boundedMemoryQueue) Size() int {
+ func (q *boundedMemoryQueue) Capacity() int {
+ 	return cap(q.items)
+ }
+-
+-func (q *boundedMemoryQueue) IsPersistent() bool {
+-	return false
+-}

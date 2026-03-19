@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/internal/templates/logs_test.go.tmpl b/cmd/mdatagen/internal/templates/logs_test.go.tmpl
+index f8d2f7499..b1d799aa4 100644
+--- a/cmd/mdatagen/internal/templates/logs_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/logs_test.go.tmpl
+@@ -23,7 +23,7 @@ func TestLogsBuilderAppendLogRecord(t *testing.T) {
+     settings := {{ .Status.Class }}test.NewNopSettings({{ .Status.Class }}test.NopType)
+     {{- end }}
+     settings.Logger = zap.New(observedZapCore)
+-    lb := NewLogsBuilder(settings)
++    lb := NewLogsBuilder({{ if .Events }}loadLogsBuilderConfig(t, "all_set"), {{ end }}settings)
+ 
+     {{ if .ResourceAttributes }}
+     rb := lb.NewResourceBuilder()
+@@ -80,3 +80,4 @@ func TestLogsBuilderAppendLogRecord(t *testing.T) {
+ 	assert.Equal(t, pcommon.ValueTypeStr, sl.LogRecords().At(1).Body().Type())
+ 	assert.Equal(t, "the second log record", sl.LogRecords().At(1).Body().Str())
+ }
++

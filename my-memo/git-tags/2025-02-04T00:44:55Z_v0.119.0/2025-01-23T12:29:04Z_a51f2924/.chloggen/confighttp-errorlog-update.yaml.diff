@@ -1,0 +1,19 @@
+diff --git a/.chloggen/confighttp-errorlog-update.yaml b/.chloggen/confighttp-errorlog-update.yaml
+new file mode 100644
+index 000000000..69cad52b3
+--- /dev/null
++++ b/.chloggen/confighttp-errorlog-update.yaml
+@@ -0,0 +1,13 @@
++change_type: bug_fix
++
++component: confighttp
++
++note: "confighttp.ToServer now sets ErrorLog with a default logger backed by Zap"
++
++issues: [11820]
++
++subtext: |
++
++  This change ensures that the http.Server's ErrorLog is correctly set using Zap's logger at the error level, addressing the issue of error logs being printed using a different logger.
++
++change_logs: []

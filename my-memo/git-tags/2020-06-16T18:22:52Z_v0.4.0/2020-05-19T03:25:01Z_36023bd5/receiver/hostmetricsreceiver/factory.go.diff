@@ -1,0 +1,20 @@
+diff --git a/receiver/hostmetricsreceiver/factory.go b/receiver/hostmetricsreceiver/factory.go
+index f80707150..a612bde72 100644
+--- a/receiver/hostmetricsreceiver/factory.go
++++ b/receiver/hostmetricsreceiver/factory.go
+@@ -30,6 +30,7 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/cpuscraper"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/diskscraper"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/loadscraper"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/memoryscraper"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/networkscraper"
+ )
+@@ -53,6 +54,7 @@ func NewFactory() *Factory {
+ 		scraperFactories: map[string]internal.Factory{
+ 			cpuscraper.TypeStr:        &cpuscraper.Factory{},
+ 			diskscraper.TypeStr:       &diskscraper.Factory{},
++			loadscraper.TypeStr:       &loadscraper.Factory{},
+ 			filesystemscraper.TypeStr: &filesystemscraper.Factory{},
+ 			memoryscraper.TypeStr:     &memoryscraper.Factory{},
+ 			networkscraper.TypeStr:    &networkscraper.Factory{},

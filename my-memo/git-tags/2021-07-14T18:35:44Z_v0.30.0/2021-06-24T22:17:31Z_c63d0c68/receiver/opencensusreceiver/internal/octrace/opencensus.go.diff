@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/internal/octrace/opencensus.go b/receiver/opencensusreceiver/internal/octrace/opencensus.go
+index 214235aff..040774e0c 100644
+--- a/receiver/opencensusreceiver/internal/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/internal/octrace/opencensus.go
+@@ -27,7 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/translator/internaldata"
+ )

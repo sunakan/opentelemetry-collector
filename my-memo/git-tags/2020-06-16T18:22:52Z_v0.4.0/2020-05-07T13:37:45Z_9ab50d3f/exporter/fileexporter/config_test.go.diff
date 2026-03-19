@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/config_test.go b/exporter/fileexporter/config_test.go
+index af92fd9ff..25d4120d1 100644
+--- a/exporter/fileexporter/config_test.go
++++ b/exporter/fileexporter/config_test.go
+@@ -27,7 +27,7 @@ import (
+ 
+ func TestLoadConfig(t *testing.T) {
+ 	factories, err := config.ExampleComponents()
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	factory := &Factory{}
+ 	factories.Exporters[typeStr] = factory

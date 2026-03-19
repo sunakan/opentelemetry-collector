@@ -1,0 +1,22 @@
+diff --git a/receiver/README.md b/receiver/README.md
+index 4a3d30674..fc2329415 100644
+--- a/receiver/README.md
++++ b/receiver/README.md
+@@ -14,7 +14,7 @@ For example:
+ ```yaml
+ receivers:
+   opencensus:
+-    address: "localhost:55678"
++    address: "127.0.0.1:55678"
+ ```
+ 
+ ### Collector Differences
+@@ -67,7 +67,7 @@ For example:
+ ```yaml
+ receivers:
+   zipkin:
+-    address: "localhost:9411"
++    address: "127.0.0.1:9411"
+ ```
+ 
+ ### Collector Differences

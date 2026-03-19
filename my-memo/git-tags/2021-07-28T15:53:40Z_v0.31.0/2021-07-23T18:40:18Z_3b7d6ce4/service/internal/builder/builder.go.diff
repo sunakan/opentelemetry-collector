@@ -1,0 +1,12 @@
+diff --git a/service/internal/builder/builder.go b/service/internal/builder/builder.go
+index 7438445f2..a7817851b 100644
+--- a/service/internal/builder/builder.go
++++ b/service/internal/builder/builder.go
+@@ -36,6 +36,7 @@ var (
+ )
+ 
+ // Flags adds flags related to basic building of the collector server to the given flagset.
++// Deprecated: keep this flag for preventing the breaking change. Use `ballast extension` instead.
+ func Flags(flags *flag.FlagSet) {
+ 	memBallastSize = flags.Uint(memBallastFlag, 0,
+ 		fmt.Sprintf("Flag to specify size of memory (MiB) ballast to set. Ballast is not used when this is not specified. "+

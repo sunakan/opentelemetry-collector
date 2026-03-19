@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_uint64slice_test.go b/pdata/pcommon/generated_uint64slice_test.go
+index 68c4c087a..b196b4352 100644
+--- a/pdata/pcommon/generated_uint64slice_test.go
++++ b/pdata/pcommon/generated_uint64slice_test.go
+@@ -43,6 +43,9 @@ func TestNewUInt64Slice(t *testing.T) {
+ 	ms.MoveTo(mv)
+ 	assert.Equal(t, 3, mv.Len())
+ 	assert.Equal(t, uint64(1), mv.At(0))
++	mv.MoveTo(mv)
++	assert.Equal(t, 3, mv.Len())
++	assert.Equal(t, uint64(1), mv.At(0))
+ }
+ 
+ func TestUInt64SliceReadOnly(t *testing.T) {

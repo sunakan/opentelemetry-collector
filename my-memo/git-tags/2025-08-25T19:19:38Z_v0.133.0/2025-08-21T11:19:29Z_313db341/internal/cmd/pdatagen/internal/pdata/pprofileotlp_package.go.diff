@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pprofileotlp_package.go b/internal/cmd/pdatagen/internal/pdata/pprofileotlp_package.go
+index 39874b746..fe1a7b149 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pprofileotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pprofileotlp_package.go
+@@ -23,6 +23,7 @@ var pprofileotlp = &Package{
+ 			`otlpcollectorprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1development"`,
+ 		},
+ 		testImports: []string{
++			`"strconv"`,
+ 			`"testing"`,
+ 			``,
+ 			`"github.com/stretchr/testify/assert"`,

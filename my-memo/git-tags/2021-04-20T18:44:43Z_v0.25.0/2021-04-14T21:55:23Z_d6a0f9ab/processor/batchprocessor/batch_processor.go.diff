@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 6f146e66e..4779453c7 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -217,7 +217,7 @@ func (bp *batchProcessor) ConsumeTraces(_ context.Context, td pdata.Traces) erro
+ 	return nil
+ }
+ 
+-// ConsumeTraces implements MetricsProcessor
++// ConsumeMetrics implements MetricsProcessor
+ func (bp *batchProcessor) ConsumeMetrics(_ context.Context, md pdata.Metrics) error {
+ 	// First thing is convert into a different internal format
+ 	bp.newItem <- md

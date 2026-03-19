@@ -1,0 +1,18 @@
+diff --git a/service/parserprovider/testdata/otelcol-config.yaml b/service/parserprovider/testdata/otelcol-config.yaml
+index 5bb536337..b29cbd0f6 100644
+--- a/service/parserprovider/testdata/otelcol-config.yaml
++++ b/service/parserprovider/testdata/otelcol-config.yaml
+@@ -11,12 +11,11 @@ processors:
+   batch:
+ 
+ extensions:
+-  health_check: {}
+   pprof:
+   zpages:
+ 
+ service:
+-  extensions: [pprof, zpages, health_check]
++  extensions: [pprof, zpages]
+   pipelines:
+     traces:
+       receivers: [otlp]

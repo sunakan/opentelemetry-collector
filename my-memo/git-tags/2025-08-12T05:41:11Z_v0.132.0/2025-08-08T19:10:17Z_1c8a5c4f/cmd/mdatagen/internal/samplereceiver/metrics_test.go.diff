@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metrics_test.go b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+index f010ec208..39dba32b2 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metrics_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+@@ -28,7 +28,7 @@ func TestGeneratedMetrics(t *testing.T) {
+ func TestComponentTelemetry(t *testing.T) {
+ 	tt := componenttest.NewTelemetry()
+ 	factory := NewFactory()
+-	receiver, err := factory.CreateMetrics(context.Background(), metadatatest.NewSettings(tt), componenttest.NewNopHost(), new(consumertest.MetricsSink))
++	receiver, err := factory.CreateMetrics(context.Background(), metadatatest.NewSettings(tt), newMdatagenNopHost(), new(consumertest.MetricsSink))
+ 	require.NoError(t, err)
+ 	metadatatest.AssertEqualBatchSizeTriggerSend(t, tt,
+ 		[]metricdata.DataPoint[int64]{

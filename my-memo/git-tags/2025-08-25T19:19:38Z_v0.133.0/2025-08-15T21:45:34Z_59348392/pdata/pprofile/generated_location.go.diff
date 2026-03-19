@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_location.go b/pdata/pprofile/generated_location.go
+index fdc9d933a..6d93993af 100644
+--- a/pdata/pprofile/generated_location.go
++++ b/pdata/pprofile/generated_location.go
+@@ -33,7 +33,7 @@ func newLocation(orig *otlpprofiles.Location, state *internal.State) Location {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewLocation() Location {
+-	return newLocation(&otlpprofiles.Location{}, internal.NewState())
++	return newLocation(internal.NewOrigPtrLocation(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

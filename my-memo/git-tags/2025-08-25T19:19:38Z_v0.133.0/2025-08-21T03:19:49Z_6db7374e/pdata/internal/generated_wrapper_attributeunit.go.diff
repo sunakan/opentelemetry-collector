@@ -1,0 +1,46 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunit.go b/pdata/internal/generated_wrapper_attributeunit.go
+index e35e3f621..ed64033c2 100644
+--- a/pdata/internal/generated_wrapper_attributeunit.go
++++ b/pdata/internal/generated_wrapper_attributeunit.go
+@@ -8,14 +8,40 @@ package internal
+ 
+ import (
+ 	"fmt"
++	"sync"
+ 
+ 	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
++var protoPoolAttributeUnit = sync.Pool{
++	New: func() any {
++		return &otlpprofiles.AttributeUnit{}
++	},
++}
++
+ func NewOrigAttributeUnit() *otlpprofiles.AttributeUnit {
+-	return &otlpprofiles.AttributeUnit{}
++	if !UseProtoPooling.IsEnabled() {
++		return &otlpprofiles.AttributeUnit{}
++	}
++	return protoPoolAttributeUnit.Get().(*otlpprofiles.AttributeUnit)
++}
++
++func DeleteOrigAttributeUnit(orig *otlpprofiles.AttributeUnit, nullable bool) {
++	if orig == nil {
++		return
++	}
++
++	if !UseProtoPooling.IsEnabled() {
++		orig.Reset()
++		return
++	}
++
++	orig.Reset()
++	if nullable {
++		protoPoolAttributeUnit.Put(orig)
++	}
+ }
+ 
+ func CopyOrigAttributeUnit(dest, src *otlpprofiles.AttributeUnit) {

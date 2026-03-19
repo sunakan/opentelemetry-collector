@@ -1,0 +1,13 @@
+diff --git a/component/identifiable_test.go b/component/identifiable_test.go
+index 883e3c891..9f0d20360 100644
+--- a/component/identifiable_test.go
++++ b/component/identifiable_test.go
+@@ -20,7 +20,7 @@ func TestMarshalText(t *testing.T) {
+ 
+ func TestUnmarshalText(t *testing.T) {
+ 	validType := MustNewType("valid_type")
+-	var testCases = []struct {
++	testCases := []struct {
+ 		name        string
+ 		expectedErr bool
+ 		expectedID  ID

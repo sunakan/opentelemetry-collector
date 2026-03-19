@@ -1,0 +1,33 @@
+diff --git a/processor/filterprocessor/expr_test.go b/processor/filterprocessor/expr_test.go
+index c9e4c64c0..70f127506 100644
+--- a/processor/filterprocessor/expr_test.go
++++ b/processor/filterprocessor/expr_test.go
+@@ -38,7 +38,7 @@ const filteredLblKey = "pt-label-key-1"
+ const filteredLblVal = "pt-label-val-1"
+ 
+ func TestExprError(t *testing.T) {
+-	for mdType := pdata.MetricDataTypeIntGauge; mdType <= pdata.MetricDataTypeDoubleHistogram; mdType++ {
++	for mdType := pdata.MetricDataTypeIntGauge; mdType <= pdata.MetricDataTypeHistogram; mdType++ {
+ 		testMatchError(t, mdType)
+ 	}
+ }
+@@ -61,7 +61,7 @@ func TestExprProcessor(t *testing.T) {
+ 	testFilter(t, pdata.MetricDataTypeIntSum)
+ 	testFilter(t, pdata.MetricDataTypeDoubleSum)
+ 	testFilter(t, pdata.MetricDataTypeIntHistogram)
+-	testFilter(t, pdata.MetricDataTypeDoubleHistogram)
++	testFilter(t, pdata.MetricDataTypeHistogram)
+ }
+ 
+ func testFilter(t *testing.T, mdType pdata.MetricDataType) {
+@@ -115,8 +115,8 @@ func testFilter(t *testing.T, mdType pdata.MetricDataType) {
+ 							for l := 0; l < pts.Len(); l++ {
+ 								assertFiltered(t, pts.At(l).LabelsMap())
+ 							}
+-						case pdata.MetricDataTypeDoubleHistogram:
+-							pts := metric.DoubleHistogram().DataPoints()
++						case pdata.MetricDataTypeHistogram:
++							pts := metric.Histogram().DataPoints()
+ 							for l := 0; l < pts.Len(); l++ {
+ 								assertFiltered(t, pts.At(l).LabelsMap())
+ 							}

@@ -1,0 +1,13 @@
+diff --git a/internal/data/traceid.go b/internal/data/traceid.go
+index da063f393..b608621b7 100644
+--- a/internal/data/traceid.go
++++ b/internal/data/traceid.go
+@@ -57,7 +57,7 @@ func (tid TraceID) Equal(that TraceID) bool {
+ 	return tid.id == that.id
+ }
+ 
+-// IsValid returns true if id contains at leas one non-zero byte.
++// IsEmpty returns true if id contains at leas one non-zero byte.
+ func (tid TraceID) IsEmpty() bool {
+ 	return tid.id == [16]byte{}
+ }

@@ -1,0 +1,11 @@
+diff --git a/exporter/prometheusexporter/config_test.go b/exporter/prometheusexporter/config_test.go
+index 52aeb46e0..db7ae836b 100644
+--- a/exporter/prometheusexporter/config_test.go
++++ b/exporter/prometheusexporter/config_test.go
+@@ -53,5 +53,6 @@ func TestLoadConfig(t *testing.T) {
+ 				"label1":        "value1",
+ 				"another label": "spaced value",
+ 			},
++			SendTimestamps: true,
+ 		})
+ }

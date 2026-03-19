@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+index 00c0bbafd..8d30a07d6 100644
+--- a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+@@ -3,7 +3,6 @@
+ package {{ .Package }}test
+ 
+ import (
+-	"context"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"

@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/internal/cgroups/mountpoint.go b/processor/memorylimiter/internal/cgroups/mountpoint.go
+index 1fe78f433..82c3ee055 100644
+--- a/processor/memorylimiter/internal/cgroups/mountpoint.go
++++ b/processor/memorylimiter/internal/cgroups/mountpoint.go
+@@ -160,7 +160,7 @@ func (mp *MountPoint) Translate(absPath string) (string, error) {
+ // parseMountInfo parses procPathMountInfo (usually at `/proc/$PID/mountinfo`)
+ // and yields parsed *MountPoint into newMountPoint.
+ func parseMountInfo(procPathMountInfo string, newMountPoint func(*MountPoint) error) error {
+-	mountInfoFile, err := os.Open(procPathMountInfo)
++	mountInfoFile, err := os.Open(filepath.Clean(procPathMountInfo))
+ 	if err != nil {
+ 		return err
+ 	}

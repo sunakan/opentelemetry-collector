@@ -1,0 +1,24 @@
+diff --git a/exporter/fileexporter/file_exporter.go b/exporter/fileexporter/file_exporter.go
+index 580cb4f73..b9053cfa8 100644
+--- a/exporter/fileexporter/file_exporter.go
++++ b/exporter/fileexporter/file_exporter.go
+@@ -25,7 +25,6 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
+ )
+ 
+ // Marshaler configuration used for marhsaling Protobuf to JSON. Use default config.
+@@ -39,10 +38,7 @@ type fileExporter struct {
+ }
+ 
+ func (e *fileExporter) ConsumeTraces(_ context.Context, td pdata.Traces) error {
+-	request := otlptrace.ExportTraceServiceRequest{
+-		ResourceSpans: pdata.TracesToOtlp(td),
+-	}
+-	return exportMessageAsLine(e, &request)
++	return exportMessageAsLine(e, internal.TracesToOtlp(td.InternalRep()))
+ }
+ 
+ func (e *fileExporter) ConsumeMetrics(_ context.Context, md pdata.Metrics) error {

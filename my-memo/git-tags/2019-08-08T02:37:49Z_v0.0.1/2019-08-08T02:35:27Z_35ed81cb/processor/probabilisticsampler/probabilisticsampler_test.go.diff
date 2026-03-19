@@ -1,0 +1,14 @@
+diff --git a/processor/probabilisticsampler/probabilisticsampler_test.go b/processor/probabilisticsampler/probabilisticsampler_test.go
+index f34fe27c5..03b6588e4 100644
+--- a/processor/probabilisticsampler/probabilisticsampler_test.go
++++ b/processor/probabilisticsampler/probabilisticsampler_test.go
+@@ -28,8 +28,8 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/exportertest"
+-	processormetrics "github.com/open-telemetry/opentelemetry-service/internal/collector/processor"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
++	processormetrics "github.com/open-telemetry/opentelemetry-service/processor"
+ 	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
+ )
+ 

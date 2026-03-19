@@ -1,0 +1,20 @@
+diff --git a/consumer/consumerdata/consumerdata.go b/consumer/consumerdata/consumerdata.go
+index 5aa5157b5..985f8909e 100644
+--- a/consumer/consumerdata/consumerdata.go
++++ b/consumer/consumerdata/consumerdata.go
+@@ -23,6 +23,7 @@ import (
+ )
+ 
+ // MetricsData is a struct that groups proto metrics with a unique node and a resource.
++// Deprecated: use pdata.Metrics instead.
+ type MetricsData struct {
+ 	Node     *commonpb.Node
+ 	Resource *resourcepb.Resource
+@@ -30,6 +31,7 @@ type MetricsData struct {
+ }
+ 
+ // TraceData is a struct that groups proto spans with a unique node and a resource.
++// Deprecated: use pdata.Traces instead.
+ type TraceData struct {
+ 	Node         *commonpb.Node
+ 	Resource     *resourcepb.Resource

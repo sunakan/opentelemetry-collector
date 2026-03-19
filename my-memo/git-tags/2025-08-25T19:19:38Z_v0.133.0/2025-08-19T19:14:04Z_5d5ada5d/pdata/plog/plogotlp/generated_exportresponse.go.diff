@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/plogotlp/generated_exportresponse.go b/pdata/plog/plogotlp/generated_exportresponse.go
+index f05f75a3a..9308a8c8e 100644
+--- a/pdata/plog/plogotlp/generated_exportresponse.go
++++ b/pdata/plog/plogotlp/generated_exportresponse.go
+@@ -32,7 +32,7 @@ func newExportResponse(orig *otlpcollectorlogs.ExportLogsServiceResponse, state
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewExportResponse() ExportResponse {
+-	return newExportResponse(internal.NewOrigPtrExportLogsServiceResponse(), internal.NewState())
++	return newExportResponse(internal.NewOrigExportLogsServiceResponse(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

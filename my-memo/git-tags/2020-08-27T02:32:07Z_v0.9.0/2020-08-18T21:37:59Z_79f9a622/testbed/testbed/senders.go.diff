@@ -1,0 +1,33 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index e68a4d6f0..2a3af4089 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -22,7 +22,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	"go.opentelemetry.io/collector/consumer/consumerdata"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/jaegerexporter"
+ 	"go.opentelemetry.io/collector/exporter/opencensusexporter"
+@@ -54,20 +53,6 @@ type DataSender interface {
+ 	ProtocolName() string
+ }
+ 
+-// TraceDataSender defines the interface that allows sending trace data. It adds ability
+-// to send a batch of Spans to the DataSender interface.
+-type TraceDataSenderOld interface {
+-	DataSender
+-	SendSpans(traces consumerdata.TraceData) error
+-}
+-
+-// MetricDataSender defines the interface that allows sending metric data. It adds ability
+-// to send a batch of Metrics to the DataSender interface.
+-type MetricDataSenderOld interface {
+-	DataSender
+-	SendMetrics(metrics consumerdata.MetricsData) error
+-}
+-
+ // TraceDataSender defines the interface that allows sending trace data. It adds ability
+ // to send a batch of Spans to the DataSender interface.
+ type TraceDataSender interface {

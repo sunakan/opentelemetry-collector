@@ -1,0 +1,13 @@
+diff --git a/config/configtls/tpm.go b/config/configtls/tpm.go
+index 4c2a5333d..16e061198 100644
+--- a/config/configtls/tpm.go
++++ b/config/configtls/tpm.go
+@@ -21,6 +21,8 @@ type TPMConfig struct {
+ 	Path      string `mapstructure:"path"`
+ 	OwnerAuth string `mapstructure:"owner_auth"`
+ 	Auth      string `mapstructure:"auth"`
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ func (c TPMConfig) tpmCertificate(keyPem []byte, certPem []byte, openTPM func() (transport.TPMCloser, error)) (tls.Certificate, error) {

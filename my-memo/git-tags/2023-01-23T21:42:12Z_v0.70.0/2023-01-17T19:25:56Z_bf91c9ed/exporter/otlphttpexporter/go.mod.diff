@@ -1,0 +1,10 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index 0f701a2ec..d334b6d4a 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -68,3 +68,5 @@ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
++
++retract v0.69.0 // Release failed, use v0.69.1

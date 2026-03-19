@@ -1,0 +1,10 @@
+diff --git a/component/go.mod b/component/go.mod
+index cb979b2f2..cdc1e3e27 100644
+--- a/component/go.mod
++++ b/component/go.mod
+@@ -33,3 +33,5 @@ retract (
+ )
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../internal/testutil

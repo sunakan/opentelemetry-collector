@@ -1,0 +1,33 @@
+diff --git a/examples/demotrace/otel-agent-config.yaml b/examples/demotrace/otel-agent-config.yaml
+deleted file mode 100644
+index 39516d0a2..000000000
+--- a/examples/demotrace/otel-agent-config.yaml
++++ /dev/null
+@@ -1,27 +0,0 @@
+-# Enable debug level to see output of "logging" exporter
+-log-level: DEBUG
+-
+-receivers:
+-  opencensus:
+-    endpoint: 0.0.0.0:55678
+-    reconnection-delay: 2s
+-  jaeger:
+-    protocols:
+-      thrift-http:
+-        endpoint: "0.0.0.0:14268"
+-
+-
+-exporters:
+-  opencensus:
+-    endpoint: "otel-collector:55678"
+-  logging:
+-
+-processors:
+-  batch:
+-  queued-retry:
+-
+-pipelines:
+-  traces:
+-    receivers: [opencensus, jaeger]
+-    exporters: [opencensus, logging]
+-    processors: [batch, queued-retry]

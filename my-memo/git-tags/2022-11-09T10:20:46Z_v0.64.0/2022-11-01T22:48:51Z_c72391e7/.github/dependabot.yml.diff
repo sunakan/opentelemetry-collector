@@ -1,0 +1,19 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 5f58604f1..58b159732 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -30,6 +30,14 @@ updates:
+     directory: "/exporter/otlphttpexporter"
+     schedule:
+       interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/extension/ballastextension"
++    schedule:
++      interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/extension/zpagesextension"
++    schedule:
++      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/internal/tools"
+     schedule:

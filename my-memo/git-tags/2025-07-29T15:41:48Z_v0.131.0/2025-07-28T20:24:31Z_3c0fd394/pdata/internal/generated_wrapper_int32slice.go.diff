@@ -1,0 +1,25 @@
+diff --git a/pdata/internal/generated_wrapper_int32slice.go b/pdata/internal/generated_wrapper_int32slice.go
+index 17ef3b234..77d4c4e9c 100644
+--- a/pdata/internal/generated_wrapper_int32slice.go
++++ b/pdata/internal/generated_wrapper_int32slice.go
+@@ -44,7 +44,7 @@ func GenerateTestInt32Slice() Int32Slice {
+ 	return ms
+ }
+ 
+-// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++// MarshalJSONStreamInt32Slice marshals all properties from the current struct to the destination stream.
+ func MarshalJSONStreamInt32Slice(ms Int32Slice, dest *json.Stream) {
+ 	dest.WriteArrayStart()
+ 	if len(*ms.orig) > 0 {
+@@ -56,3 +56,11 @@ func MarshalJSONStreamInt32Slice(ms Int32Slice, dest *json.Stream) {
+ 	}
+ 	dest.WriteArrayEnd()
+ }
++
++// UnmarshalJSONIterInt32Slice unmarshals all properties from the current struct from the source iterator.
++func UnmarshalJSONIterInt32Slice(ms Int32Slice, iter *json.Iterator) {
++	iter.ReadArrayCB(func(iter *json.Iterator) bool {
++		*ms.orig = append(*ms.orig, iter.ReadInt32())
++		return true
++	})
++}

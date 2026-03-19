@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 09fd2a073..7cb468203 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -38,7 +38,7 @@ const (
+ 	receiverScope = scopeName + nameSep + receiverName
+ )
+ 
+-// Receiver is a helper to add observability to a receiver.Receiver.
++// Receiver is a helper to add observability to a receiver.
+ type Receiver struct {
+ 	level          configtelemetry.Level
+ 	spanNamePrefix string

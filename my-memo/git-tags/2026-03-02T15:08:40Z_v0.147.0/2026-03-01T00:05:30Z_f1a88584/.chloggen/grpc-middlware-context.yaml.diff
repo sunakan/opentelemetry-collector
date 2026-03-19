@@ -1,0 +1,15 @@
+diff --git a/.chloggen/grpc-middlware-context.yaml b/.chloggen/grpc-middlware-context.yaml
+new file mode 100644
+index 000000000..e0972c889
+--- /dev/null
++++ b/.chloggen/grpc-middlware-context.yaml
+@@ -0,0 +1,9 @@
++change_type: bug_fix
++
++component: pkg/config/configmiddleware
++
++note: Add context.Context to gRPC middleware interface constructors. 
++
++issues: [14523]
++
++change_logs: [api]

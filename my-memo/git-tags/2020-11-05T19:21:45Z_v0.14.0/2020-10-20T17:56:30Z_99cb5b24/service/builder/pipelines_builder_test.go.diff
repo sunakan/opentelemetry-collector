@@ -1,0 +1,13 @@
+diff --git a/service/builder/pipelines_builder_test.go b/service/builder/pipelines_builder_test.go
+index 69161506d..7730e87b4 100644
+--- a/service/builder/pipelines_builder_test.go
++++ b/service/builder/pipelines_builder_test.go
+@@ -241,7 +241,7 @@ func testPipeline(t *testing.T, pipelineName string, exporterNames []string) {
+ 	}
+ 
+ 	td := testdata.GenerateTraceDataOneSpan()
+-	processor.firstTC.(consumer.TraceConsumer).ConsumeTraces(context.Background(), td)
++	processor.firstTC.(consumer.TracesConsumer).ConsumeTraces(context.Background(), td)
+ 
+ 	// Now verify received data.
+ 	for _, consumer := range exporterConsumers {

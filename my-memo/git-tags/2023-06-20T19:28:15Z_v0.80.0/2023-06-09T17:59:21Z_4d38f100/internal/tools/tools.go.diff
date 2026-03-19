@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 1226d25ef..7e3f1210d 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -12,6 +12,7 @@ package tools // import "go.opentelemetry.io/collector/internal/tools"
+ // This ensures that all systems use the same version of tools in addition to regular dependencies.
+ 
+ import (
++	_ "github.com/a8m/envsubst/cmd/envsubst"
+ 	_ "github.com/client9/misspell/cmd/misspell"
+ 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
+ 	_ "github.com/google/addlicense"

@@ -1,0 +1,29 @@
+diff --git a/config/configload/testdata/config.yaml b/config/configload/testdata/config.yaml
+deleted file mode 100644
+index 38227d7a6..000000000
+--- a/config/configload/testdata/config.yaml
++++ /dev/null
+@@ -1,23 +0,0 @@
+-receivers:
+-    nop:
+-    nop/myreceiver:
+-
+-processors:
+-    nop:
+-    nop/myprocessor:
+-
+-exporters:
+-    nop:
+-    nop/myexporter:
+-
+-extensions:
+-    nop:
+-    nop/myextension:
+-
+-service:
+-    extensions: [nop]
+-    pipelines:
+-        traces:
+-            receivers: [nop]
+-            processors: [nop]
+-            exporters: [nop]

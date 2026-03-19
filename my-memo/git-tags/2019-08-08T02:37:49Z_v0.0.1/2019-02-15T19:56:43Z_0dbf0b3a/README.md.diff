@@ -1,0 +1,14 @@
+diff --git a/README.md b/README.md
+index 93312a7bd..946d4cdac 100644
+--- a/README.md
++++ b/README.md
+@@ -175,6 +175,9 @@ exporters:
+     default_service_name: "verifiability_agent"
+     version: "latest"
+     buffer_size: 200
++  honeycomb:
++    write_key: "739769d7-e61c-42ec-82b9-3ee88dfeff43"
++    dataset_name: "dc8_9"
+ ```
+ 
+ ### <a name="config-diagnostics"></a>Diagnostics

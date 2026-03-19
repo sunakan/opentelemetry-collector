@@ -1,0 +1,23 @@
+diff --git a/pdata/pmetric/generated_scopemetrics.go b/pdata/pmetric/generated_scopemetrics.go
+index 11a2a2b7d..7b9e35031 100644
+--- a/pdata/pmetric/generated_scopemetrics.go
++++ b/pdata/pmetric/generated_scopemetrics.go
+@@ -75,7 +75,7 @@ func (ms ScopeMetrics) Metrics() MetricSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ScopeMetrics) CopyTo(dest ScopeMetrics) {
+ 	dest.state.AssertMutable()
+-	copyOrigScopeMetrics(dest.orig, ms.orig)
++	internal.CopyOrigScopeMetrics(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -110,9 +110,3 @@ func (ms ScopeMetrics) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigScopeMetrics(dest, src *otlpmetrics.ScopeMetrics) {
+-	internal.CopyOrigInstrumentationScope(&dest.Scope, &src.Scope)
+-	dest.SchemaUrl = src.SchemaUrl
+-	dest.Metrics = copyOrigMetricSlice(dest.Metrics, src.Metrics)
+-}

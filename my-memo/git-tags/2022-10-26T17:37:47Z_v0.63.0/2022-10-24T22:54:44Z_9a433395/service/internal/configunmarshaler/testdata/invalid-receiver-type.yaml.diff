@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml b/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml
+deleted file mode 100644
+index c4673ebd7..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-  /custom:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

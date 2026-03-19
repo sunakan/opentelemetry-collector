@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
+index d688e5246..fc3810edb 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
+@@ -22,8 +22,8 @@ import (
+ 
+ const (
+ 	deviceLabelName     = "device"
+-	mountModeLabelName  = "mount.mode"
+-	mountPointLabelName = "mount.point"
++	mountModeLabelName  = "mode"
++	mountPointLabelName = "mountpoint"
+ 	stateLabelName      = "state"
+ 	typeLabelName       = "type"
+ )

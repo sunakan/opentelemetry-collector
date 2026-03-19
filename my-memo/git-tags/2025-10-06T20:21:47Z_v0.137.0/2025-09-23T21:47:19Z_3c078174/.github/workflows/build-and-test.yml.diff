@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index fdda7b064..66c0ab13f 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -266,6 +266,8 @@ jobs:
+             goarch: 386
+           - goos: windows
+             goarch: amd64
++          - goos: windows
++            goarch: arm64
+ 
+     steps:
+       - name: Checkout Repo

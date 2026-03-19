@@ -1,0 +1,15 @@
+diff --git a/extension/pprofextension/testdata/config.yaml b/extension/pprofextension/testdata/config.yaml
+index 179e8db9a..63e757ebf 100644
+--- a/extension/pprofextension/testdata/config.yaml
++++ b/extension/pprofextension/testdata/config.yaml
+@@ -2,8 +2,8 @@ extensions:
+   pprof:
+   pprof/1:
+     endpoint: "0.0.0.0:1777"
+-    block-profile-fraction: 3
+-    mutex-profile-fraction: 5
++    block_profile_fraction: 3
++    mutex_profile_fraction: 5
+ 
+ service:
+   extensions: [pprof/1]

@@ -1,0 +1,13 @@
+diff --git a/service/internal/servicetelemetry/telemetry_settings.go b/service/internal/servicetelemetry/telemetry_settings.go
+index 55c6b9f39..55da9bcf0 100644
+--- a/service/internal/servicetelemetry/telemetry_settings.go
++++ b/service/internal/servicetelemetry/telemetry_settings.go
+@@ -37,7 +37,7 @@ type TelemetrySettings struct {
+ 
+ 	// Status contains a Reporter that allows the service to report status on behalf of a
+ 	// component.
+-	Status *status.Reporter
++	Status status.Reporter
+ }
+ 
+ // ToComponentTelemetrySettings returns a TelemetrySettings for a specific component derived from

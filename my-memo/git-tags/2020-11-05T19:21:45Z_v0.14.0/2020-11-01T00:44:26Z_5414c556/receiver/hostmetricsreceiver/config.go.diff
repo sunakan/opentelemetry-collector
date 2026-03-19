@@ -1,0 +1,24 @@
+diff --git a/receiver/hostmetricsreceiver/config.go b/receiver/hostmetricsreceiver/config.go
+index b1cc11f66..5a271b434 100644
+--- a/receiver/hostmetricsreceiver/config.go
++++ b/receiver/hostmetricsreceiver/config.go
+@@ -15,16 +15,12 @@
+ package hostmetricsreceiver
+ 
+ import (
+-	"time"
+-
+-	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+ // Config defines configuration for HostMetrics receiver.
+ type Config struct {
+-	configmodels.ReceiverSettings `mapstructure:",squash"`
+-
+-	CollectionInterval time.Duration              `mapstructure:"collection_interval"`
+-	Scrapers           map[string]internal.Config `mapstructure:"-"`
++	receiverhelper.ScraperControllerSettings `mapstructure:",squash"`
++	Scrapers                                 map[string]internal.Config `mapstructure:"-"`
+ }

@@ -1,0 +1,10 @@
+diff --git a/extension/memorylimiterextension/metadata.yaml b/extension/memorylimiterextension/metadata.yaml
+index c14628cb0..d22c83dcb 100644
+--- a/extension/memorylimiterextension/metadata.yaml
++++ b/extension/memorylimiterextension/metadata.yaml
+@@ -13,5 +13,3 @@ tests:
+     check_interval: 5s
+     limit_mib: 400
+     spike_limit_mib: 50
+-  # TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/9686
+-  skip_shutdown: true

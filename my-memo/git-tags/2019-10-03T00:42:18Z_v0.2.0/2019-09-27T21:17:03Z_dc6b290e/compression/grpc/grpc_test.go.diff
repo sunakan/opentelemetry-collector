@@ -1,0 +1,13 @@
+diff --git a/compression/grpc/grpc_test.go b/compression/grpc/grpc_test.go
+index 5b6aea1da..65e9f2f4d 100644
+--- a/compression/grpc/grpc_test.go
++++ b/compression/grpc/grpc_test.go
+@@ -17,7 +17,7 @@ package grpc
+ import (
+ 	"testing"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/compression"
++	"github.com/open-telemetry/opentelemetry-collector/compression"
+ )
+ 
+ func TestGetGRPCCompressionKey(t *testing.T) {

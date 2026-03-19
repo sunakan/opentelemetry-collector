@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory_test.go b/processor/attributesprocessor/factory_test.go
+index bc72d241e..536615e2d 100644
+--- a/processor/attributesprocessor/factory_test.go
++++ b/processor/attributesprocessor/factory_test.go
+@@ -31,7 +31,7 @@ import (
+ 
+ func TestFactory_Type(t *testing.T) {
+ 	factory := Factory{}
+-	assert.Equal(t, factory.Type(), typeStr)
++	assert.Equal(t, factory.Type(), configmodels.Type(typeStr))
+ }
+ 
+ func TestFactory_CreateDefaultConfig(t *testing.T) {

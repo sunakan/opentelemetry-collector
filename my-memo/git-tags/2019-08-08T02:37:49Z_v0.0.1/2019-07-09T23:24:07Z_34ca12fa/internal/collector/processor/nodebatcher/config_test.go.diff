@@ -1,0 +1,13 @@
+diff --git a/internal/collector/processor/nodebatcher/config_test.go b/internal/collector/processor/nodebatcher/config_test.go
+index 056ee8a5e..35359149c 100644
+--- a/internal/collector/processor/nodebatcher/config_test.go
++++ b/internal/collector/processor/nodebatcher/config_test.go
+@@ -49,7 +49,7 @@ func TestLoadConfig(t *testing.T) {
+ 	sendBatchSize := 1000
+ 
+ 	assert.Equal(t, p1,
+-		&ConfigV2{
++		&Config{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: "batch",
+ 				NameVal: "batch/2",

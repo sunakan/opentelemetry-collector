@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_ipaddr.go b/pdata/internal/generated_proto_ipaddr.go
+index 37a6f62ed..d77ec13a9 100644
+--- a/pdata/internal/generated_proto_ipaddr.go
++++ b/pdata/internal/generated_proto_ipaddr.go
+@@ -15,8 +15,8 @@ import (
+ )
+ 
+ type IPAddr struct {
+-	IP   []byte
+ 	Zone string
++	IP   []byte
+ }
+ 
+ var (

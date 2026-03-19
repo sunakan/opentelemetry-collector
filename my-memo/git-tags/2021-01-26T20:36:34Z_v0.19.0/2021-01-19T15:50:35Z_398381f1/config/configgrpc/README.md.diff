@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/README.md b/config/configgrpc/README.md
+index 4a6ff017b..1322d2987 100644
+--- a/config/configgrpc/README.md
++++ b/config/configgrpc/README.md
+@@ -29,7 +29,7 @@ README](../configtls/README.md).
+ Example:
+ 
+ ```yaml
+-exporter:
++exporters:
+   otlp:
+     endpoint: otelcol2:55690
+     headers:

@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/expr_test.go b/processor/filterprocessor/expr_test.go
+index 7a329bb2b..cc0eb4fc9 100644
+--- a/processor/filterprocessor/expr_test.go
++++ b/processor/filterprocessor/expr_test.go
+@@ -156,7 +156,7 @@ func testProcessor(t *testing.T, include []string, exclude []string) (component.
+ 	core, logs := observer.New(zapcore.WarnLevel)
+ 	proc, err := factory.CreateMetricsProcessor(
+ 		ctx,
+-		component.ProcessorCreateParams{
++		component.ProcessorCreateSettings{
+ 			Logger: zap.New(core),
+ 		},
+ 		cfg,

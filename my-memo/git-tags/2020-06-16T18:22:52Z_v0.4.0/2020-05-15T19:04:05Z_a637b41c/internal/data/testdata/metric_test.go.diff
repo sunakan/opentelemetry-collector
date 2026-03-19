@@ -1,0 +1,13 @@
+diff --git a/internal/data/testdata/metric_test.go b/internal/data/testdata/metric_test.go
+index 7af49eb8f..4b382fc40 100644
+--- a/internal/data/testdata/metric_test.go
++++ b/internal/data/testdata/metric_test.go
+@@ -20,7 +20,7 @@ import (
+ 	otlpmetrics "github.com/open-telemetry/opentelemetry-proto/gen/go/metrics/v1"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data"
++	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ type traceMetricsCase struct {

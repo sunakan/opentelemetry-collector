@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+index 0af2f87f2..5aede0b5c 100644
+--- a/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetrytest.go.tmpl
+@@ -24,8 +24,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{ Telemetry: componenttest.NewTelemetry() }
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{ Telemetry: componenttest.NewTelemetry(opts...) }
+ }
+ 
+ {{- if or isConnector isExporter isExtension isProcessor isReceiver isScraper }}

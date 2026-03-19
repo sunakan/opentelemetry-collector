@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/prepare-release.yml b/.github/workflows/prepare-release.yml
+index f3029ed13..09b1e5bdd 100644
+--- a/.github/workflows/prepare-release.yml
++++ b/.github/workflows/prepare-release.yml
+@@ -63,7 +63,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v4
+         with:
+-          go-version: ~1.19.6
++          go-version: ~1.19.9
+       # Prepare Core for release.
+       #   - Update CHANGELOG.md file, this is done via chloggen
+       #   - Run make prepare-release PREVIOUS_VERSION=1.0.0 RELEASE_CANDIDATE=1.1.0 MODSET=stable

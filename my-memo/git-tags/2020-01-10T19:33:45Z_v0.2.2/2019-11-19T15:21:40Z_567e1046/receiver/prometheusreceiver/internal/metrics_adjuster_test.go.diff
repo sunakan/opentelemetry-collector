@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/metrics_adjuster_test.go b/receiver/prometheusreceiver/internal/metrics_adjuster_test.go
+index c3ecfc15c..6914e32a1 100644
+--- a/receiver/prometheusreceiver/internal/metrics_adjuster_test.go
++++ b/receiver/prometheusreceiver/internal/metrics_adjuster_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
+ 
+-	mtu "github.com/open-telemetry/opentelemetry-collector/internal/metricstestutils"
++	mtu "github.com/open-telemetry/opentelemetry-collector/testutils/metricstestutils"
+ )
+ 
+ func Test_gauge(t *testing.T) {

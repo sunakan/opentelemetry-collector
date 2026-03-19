@@ -1,0 +1,12 @@
+diff --git a/exporter/otlphttpexporter/metadata.yaml b/exporter/otlphttpexporter/metadata.yaml
+index e1afa2ea4..7fdb6b268 100644
+--- a/exporter/otlphttpexporter/metadata.yaml
++++ b/exporter/otlphttpexporter/metadata.yaml
+@@ -2,6 +2,7 @@ type: otlphttp
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: exporter
+   stability:
+     stable: [traces, metrics, logs]

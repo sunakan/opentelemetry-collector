@@ -1,0 +1,24 @@
+diff --git a/proto_patch.sed b/proto_patch.sed
+index 0552ae077..2cd96c47a 100644
+--- a/proto_patch.sed
++++ b/proto_patch.sed
+@@ -40,6 +40,9 @@ s+opentelemetry.proto.resource.v1.Resource resource = \(.*\);+opentelemetry.prot
+ s+opentelemetry.proto.common.v1.InstrumentationLibrary instrumentation_library = \(.*\);+opentelemetry.proto.common.v1.InstrumentationLibrary instrumentation_library = \1\
+   [ (gogoproto.nullable) = false ];+g
+ 
++s+opentelemetry.proto.common.v1.InstrumentationScope scope = \(.*\);+opentelemetry.proto.common.v1.InstrumentationScope scope = \1\
++  [ (gogoproto.nullable) = false ];+g
++
+ s+Status \(.*\);+Status \1\
+   [ (gogoproto.nullable) = false ];+g
+ 
+@@ -50,4 +53,7 @@ s+repeated Exemplar exemplars = \(.*\);+repeated Exemplar exemplars = \1\
+   [ (gogoproto.nullable) = false ];+g
+ 
+ s+Buckets \(.*\)tive = \(.*\);+Buckets \1tive = \2\
+-  [ (gogoproto.nullable) = false ];+g
+\ No newline at end of file
++  [ (gogoproto.nullable) = false ];+g
++
++# optional fixed64 foo = 1 -> oneof foo_ { fixed64 foo = 1;}
++s+optional \(.*\) \(.*\) = \(.*\);+ oneof \2_ { \1 \2 = \3;}+g

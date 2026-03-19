@@ -1,0 +1,18 @@
+diff --git a/processor/processortest/nop_processor.go b/processor/processortest/nop_processor.go
+index bf2627a9c..c5af55084 100644
+--- a/processor/processortest/nop_processor.go
++++ b/processor/processortest/nop_processor.go
+@@ -17,13 +17,6 @@ import (
+ 
+ var nopType = component.MustNewType("nop")
+ 
+-// NewNopCreateSettings returns a new nop settings for Create*Processor functions.
+-//
+-// Deprecated: [v0.103.0] Use processortest.NewNopSettings instead.
+-func NewNopCreateSettings() processor.Settings {
+-	return NewNopSettings()
+-}
+-
+ // NewNopSettings returns a new nop settings for Create*Processor functions.
+ func NewNopSettings() processor.Settings {
+ 	return processor.Settings{

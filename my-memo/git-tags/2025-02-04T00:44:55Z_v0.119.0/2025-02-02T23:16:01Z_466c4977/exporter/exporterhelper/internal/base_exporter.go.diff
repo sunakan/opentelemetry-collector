@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index a2b299136..dee317d55 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -27,7 +27,7 @@ import (
+ 
+ var usePullingBasedExporterQueueBatcher = featuregate.GlobalRegistry().MustRegister(
+ 	"exporter.UsePullingBasedExporterQueueBatcher",
+-	featuregate.StageBeta,
++	featuregate.StageAlpha,
+ 	featuregate.WithRegisterFromVersion("v0.115.0"),
+ 	featuregate.WithRegisterDescription("if set to true, turns on the pulling-based exporter queue bathcer"),
+ )

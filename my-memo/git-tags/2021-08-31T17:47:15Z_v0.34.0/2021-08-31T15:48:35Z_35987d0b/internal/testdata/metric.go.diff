@@ -1,0 +1,15 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index 3b864526b..4a8807a0f 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -93,8 +93,8 @@ func GenerateMetricsOneCounterOneSummaryMetrics() pdata.Metrics {
+ func GenerateMetricsOneMetricNoAttributes() pdata.Metrics {
+ 	md := GenerateMetricsOneMetric()
+ 	dps := md.ResourceMetrics().At(0).InstrumentationLibraryMetrics().At(0).Metrics().At(0).Sum().DataPoints()
+-	dps.At(0).Attributes().InitFromMap(map[string]pdata.AttributeValue{})
+-	dps.At(1).Attributes().InitFromMap(map[string]pdata.AttributeValue{})
++	pdata.NewAttributeMap().CopyTo(dps.At(0).Attributes())
++	pdata.NewAttributeMap().CopyTo(dps.At(1).Attributes())
+ 	return md
+ }
+ 

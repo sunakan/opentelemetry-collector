@@ -1,0 +1,17 @@
+diff --git a/exporter/kafkaexporter/config_test.go b/exporter/kafkaexporter/config_test.go
+index aee27033d..4382e6cdf 100644
+--- a/exporter/kafkaexporter/config_test.go
++++ b/exporter/kafkaexporter/config_test.go
+@@ -61,6 +61,12 @@ func TestLoadConfig(t *testing.T) {
+ 		Topic:    "spans",
+ 		Encoding: "otlp_proto",
+ 		Brokers:  []string{"foo:123", "bar:456"},
++		Authentication: Authentication{
++			PlainText: &PlainTextConfig{
++				Username: "jdoe",
++				Password: "pass",
++			},
++		},
+ 		Metadata: Metadata{
+ 			Full: false,
+ 			Retry: MetadataRetry{

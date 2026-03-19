@@ -1,0 +1,16 @@
+diff --git a/receiver/zipkinreceiver/proto_parse_test.go b/receiver/zipkinreceiver/proto_parse_test.go
+index dd37b523f..74205a08b 100644
+--- a/receiver/zipkinreceiver/proto_parse_test.go
++++ b/receiver/zipkinreceiver/proto_parse_test.go
+@@ -164,9 +164,9 @@ func TestConvertSpansToTraceSpans_protobuf(t *testing.T) {
+ 	}
+ }
+ 
+-func newTestZipkinReceiver() *ZipkinReceiver {
++func newTestZipkinReceiver() *zipkinReceiver {
+ 	cfg := createDefaultConfig().(*Config)
+-	return &ZipkinReceiver{
++	return &zipkinReceiver{
+ 		config:                   cfg,
+ 		jsonUnmarshaler:          zipkinv2.NewJSONTracesUnmarshaler(cfg.ParseStringTags),
+ 		protobufUnmarshaler:      zipkinv2.NewProtobufTracesUnmarshaler(false, cfg.ParseStringTags),

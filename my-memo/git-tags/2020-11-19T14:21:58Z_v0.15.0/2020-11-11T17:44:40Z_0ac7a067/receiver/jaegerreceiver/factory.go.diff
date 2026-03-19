@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index 63bab9078..13ede7d87 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -231,7 +231,7 @@ func createTraceReceiver(
+ 	}
+ 
+ 	// Create the receiver.
+-	return newJaegerReceiver(rCfg.Name(), &config, nextConsumer, params)
++	return newJaegerReceiver(rCfg.Name(), &config, nextConsumer, params), nil
+ }
+ 
+ // extract the port number from string in "address:port" format. If the

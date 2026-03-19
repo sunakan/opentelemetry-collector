@@ -1,0 +1,11 @@
+diff --git a/internal/iruntime/total_memory_linux_test.go b/internal/iruntime/total_memory_linux_test.go
+index 563f39422..3e05aee21 100644
+--- a/internal/iruntime/total_memory_linux_test.go
++++ b/internal/iruntime/total_memory_linux_test.go
+@@ -15,5 +15,5 @@ import (
+ func TestTotalMemory(t *testing.T) {
+ 	totalMemory, err := TotalMemory()
+ 	require.NoError(t, err)
+-	assert.True(t, totalMemory > 0)
++	assert.Positive(t, totalMemory)
+ }

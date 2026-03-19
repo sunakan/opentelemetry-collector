@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/stack.go b/pdata/pprofile/stack.go
+index 8d4f5be1d..ee4652c24 100644
+--- a/pdata/pprofile/stack.go
++++ b/pdata/pprofile/stack.go
+@@ -31,10 +31,6 @@ func (ms Stack) switchDictionary(src, dst ProfilesDictionary) error {
+ 		}
+ 
+ 		loc := src.LocationTable().At(int(v))
+-		err := loc.switchDictionary(src, dst)
+-		if err != nil {
+-			return fmt.Errorf("couldn't switch dictionary for location: %w", err)
+-		}
+ 		idx, err := SetLocation(dst.LocationTable(), loc)
+ 		if err != nil {
+ 			return fmt.Errorf("couldn't set location %d: %w", i, err)

@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+index c846ba897..a25e3ea4a 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportprofilesservicerequest.go
+@@ -31,12 +31,6 @@ func NewProfiles(orig *otlpcollectorprofiles.ExportProfilesServiceRequest, state
+ 	return Profiles{orig: orig, state: state}
+ }
+ 
+-func GenerateTestProfiles() Profiles {
+-	orig := NewOrigPtrExportProfilesServiceRequest()
+-	FillOrigTestExportProfilesServiceRequest(orig)
+-	return NewProfiles(orig, NewState())
+-}
+-
+ func NewOrigExportProfilesServiceRequest() otlpcollectorprofiles.ExportProfilesServiceRequest {
+ 	return otlpcollectorprofiles.ExportProfilesServiceRequest{}
+ }
+@@ -50,9 +44,11 @@ func CopyOrigExportProfilesServiceRequest(dest, src *otlpcollectorprofiles.Expor
+ 	CopyOrigProfilesDictionary(&dest.Dictionary, &src.Dictionary)
+ }
+ 
+-func FillOrigTestExportProfilesServiceRequest(orig *otlpcollectorprofiles.ExportProfilesServiceRequest) {
++func GenTestOrigExportProfilesServiceRequest() *otlpcollectorprofiles.ExportProfilesServiceRequest {
++	orig := NewOrigPtrExportProfilesServiceRequest()
+ 	orig.ResourceProfiles = GenerateOrigTestResourceProfilesSlice()
+-	FillOrigTestProfilesDictionary(&orig.Dictionary)
++	orig.Dictionary = *GenTestOrigProfilesDictionary()
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

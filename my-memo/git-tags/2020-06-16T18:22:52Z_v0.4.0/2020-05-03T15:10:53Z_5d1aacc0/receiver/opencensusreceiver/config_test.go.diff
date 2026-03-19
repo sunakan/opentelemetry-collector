@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/config_test.go b/receiver/opencensusreceiver/config_test.go
+index 1a7106f77..e9bb2a70c 100644
+--- a/receiver/opencensusreceiver/config_test.go
++++ b/receiver/opencensusreceiver/config_test.go
+@@ -38,8 +38,6 @@ func TestLoadConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)
+ 
+-	// Currently disabled receivers are removed from the total list of receivers so 'opencensus/disabled' doesn't
+-	// contribute to the count.
+ 	assert.Equal(t, len(cfg.Receivers), 7)
+ 
+ 	r0 := cfg.Receivers["opencensus"]

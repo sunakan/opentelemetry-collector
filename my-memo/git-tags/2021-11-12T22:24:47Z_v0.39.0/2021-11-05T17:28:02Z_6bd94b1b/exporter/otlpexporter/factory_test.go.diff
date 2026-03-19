@@ -1,0 +1,38 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index e791114d6..4fcf05f0c 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -99,7 +99,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			name: "Compression",
++			name: "GzipCompression",
+ 			config: Config{
+ 				ExporterSettings: config.NewExporterSettings(config.NewComponentID(typeStr)),
+ 				GRPCClientSettings: configgrpc.GRPCClientSettings{
+@@ -108,6 +108,24 @@ func TestCreateTracesExporter(t *testing.T) {
+ 				},
+ 			},
+ 		},
++		{
++			name: "SnappyCompression",
++			config: Config{
++				GRPCClientSettings: configgrpc.GRPCClientSettings{
++					Endpoint:    endpoint,
++					Compression: configgrpc.CompressionSnappy,
++				},
++			},
++		},
++		{
++			name: "ZstdCompression",
++			config: Config{
++				GRPCClientSettings: configgrpc.GRPCClientSettings{
++					Endpoint:    endpoint,
++					Compression: configgrpc.CompressionZstd,
++				},
++			},
++		},
+ 		{
+ 			name: "Headers",
+ 			config: Config{

@@ -1,0 +1,28 @@
+diff --git a/pdata/plog/json.go b/pdata/plog/json.go
+index 81dd7e47b..dbf636354 100644
+--- a/pdata/plog/json.go
++++ b/pdata/plog/json.go
+@@ -24,11 +24,6 @@ import (
+ 
+ var delegate = plogjson.JSONMarshaler
+ 
+-// Deprecated: [v0.63.0] use &JSONMarshaler{}
+-func NewJSONMarshaler() Marshaler {
+-	return &JSONMarshaler{}
+-}
+-
+ var _ Marshaler = (*JSONMarshaler)(nil)
+ 
+ type JSONMarshaler struct{}
+@@ -44,11 +39,6 @@ var _ Unmarshaler = (*JSONUnmarshaler)(nil)
+ 
+ type JSONUnmarshaler struct{}
+ 
+-// Deprecated: [v0.63.0] use &JSONUnmarshaler{}
+-func NewJSONUnmarshaler() Unmarshaler {
+-	return &JSONUnmarshaler{}
+-}
+-
+ func (*JSONUnmarshaler) UnmarshalLogs(buf []byte) (Logs, error) {
+ 	var ld otlplogs.LogsData
+ 	if err := plogjson.UnmarshalLogsData(buf, &ld); err != nil {

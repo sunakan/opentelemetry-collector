@@ -1,0 +1,27 @@
+diff --git a/exporter/jaeger/jaegergrpcexporter/exporter_test.go b/exporter/jaeger/jaegergrpcexporter/exporter_test.go
+index 73e6fc4c8..f69bf7377 100644
+--- a/exporter/jaeger/jaegergrpcexporter/exporter_test.go
++++ b/exporter/jaeger/jaegergrpcexporter/exporter_test.go
+@@ -49,6 +49,22 @@ func TestNew(t *testing.T) {
+ 				},
+ 			},
+ 		},
++		{
++			name: "createExporterWithHeaders",
++			args: args{
++				config: Config{
++					GRPCSettings: configgrpc.GRPCSettings{
++						Headers:             map[string]string{"extra-header": "header-value"},
++						Endpoint:            "foo.bar",
++						Compression:         "",
++						CertPemFile:         "",
++						UseSecure:           true,
++						ServerNameOverride:  "",
++						KeepaliveParameters: nil,
++					},
++				},
++			},
++		},
+ 		{
+ 			name: "createBasicSecureExporter",
+ 			args: args{

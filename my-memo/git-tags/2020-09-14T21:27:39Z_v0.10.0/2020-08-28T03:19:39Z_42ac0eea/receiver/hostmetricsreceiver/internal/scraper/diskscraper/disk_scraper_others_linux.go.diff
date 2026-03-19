@@ -1,0 +1,18 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
+index 0e17d152e..92b9f1cce 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_linux.go
+@@ -20,11 +20,12 @@ import (
+ 	"github.com/shirou/gopsutil/disk"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/dataold"
+ )
+ 
+ const systemSpecificMetricsLen = 1
+ 
+-func appendSystemSpecificMetrics(metrics pdata.MetricSlice, startIdx int, startTime, now pdata.TimestampUnixNano, ioCounters map[string]disk.IOCountersStat) {
++func appendSystemSpecificMetrics(metrics dataold.MetricSlice, startIdx int, startTime, now pdata.TimestampUnixNano, ioCounters map[string]disk.IOCountersStat) {
+ 	metric := metrics.At(startIdx)
+ 	diskMergedDescriptor.CopyTo(metric.MetricDescriptor())
+ 

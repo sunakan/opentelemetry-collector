@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_sample.go b/pdata/pprofile/generated_sample.go
+index c77f17078..37f767b5b 100644
+--- a/pdata/pprofile/generated_sample.go
++++ b/pdata/pprofile/generated_sample.go
+@@ -45,8 +45,8 @@ func (ms Sample) MoveTo(dest Sample) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpprofiles.Sample{}
++	internal.DeleteOrigSample(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // LocationsStartIndex returns the locationsstartindex associated with this Sample.

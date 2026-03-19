@@ -1,0 +1,17 @@
+diff --git a/service/internal/pipelines/testdata/unknown_exporter_config.yaml b/service/internal/pipelines/testdata/unknown_exporter_config.yaml
+new file mode 100644
+index 000000000..a205cbfa0
+--- /dev/null
++++ b/service/internal/pipelines/testdata/unknown_exporter_config.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  nop:
++exporters:
++  nop:
++
++service:
++  pipelines:
++    logs:
++      receivers: [nop]
++      exporters: [nop/1]
+\ No newline at end of file

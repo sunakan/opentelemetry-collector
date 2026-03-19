@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/testdata/config.yaml b/extension/zpagesextension/testdata/config.yaml
+index 9c61d2030..fd71ed1a1 100644
+--- a/extension/zpagesextension/testdata/config.yaml
++++ b/extension/zpagesextension/testdata/config.yaml
+@@ -1,7 +1,7 @@
+ extensions:
+   zpages:
+   zpages/1:
+-    endpoint: "127.0.0.1:56888"
++    endpoint: "localhost:56888"
+ 
+ service:
+   extensions: [zpages/1]

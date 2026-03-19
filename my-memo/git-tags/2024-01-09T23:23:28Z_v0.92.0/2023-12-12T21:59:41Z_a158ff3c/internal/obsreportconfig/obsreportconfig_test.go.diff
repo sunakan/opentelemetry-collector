@@ -1,0 +1,23 @@
+diff --git a/internal/obsreportconfig/obsreportconfig_test.go b/internal/obsreportconfig/obsreportconfig_test.go
+index 4156c5c01..3ec574524 100644
+--- a/internal/obsreportconfig/obsreportconfig_test.go
++++ b/internal/obsreportconfig/obsreportconfig_test.go
+@@ -7,11 +7,18 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/featuregate"
+ )
+ 
+ func TestConfigure(t *testing.T) {
++	originalValue := UseOtelForInternalMetricsfeatureGate.IsEnabled()
++	require.NoError(t, featuregate.GlobalRegistry().Set(UseOtelForInternalMetricsfeatureGate.ID(), false))
++	defer func() {
++		require.NoError(t, featuregate.GlobalRegistry().Set(UseOtelForInternalMetricsfeatureGate.ID(), originalValue))
++	}()
+ 	tests := []struct {
+ 		name         string
+ 		level        configtelemetry.Level

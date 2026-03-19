@@ -1,0 +1,13 @@
+diff --git a/internal/buildscripts/packaging/msi/make.ps1 b/internal/buildscripts/packaging/msi/make.ps1
+index 83f7589df..6eff43433 100644
+--- a/internal/buildscripts/packaging/msi/make.ps1
++++ b/internal/buildscripts/packaging/msi/make.ps1
+@@ -41,7 +41,7 @@ function Install-Tools {
+ 
+ function New-MSI(
+     [string]$Version="0.0.1",
+-    [string]$Config="./examples/otel-local-config.yaml"
++    [string]$Config="./examples/local/otel-config.yaml"
+ ) {
+     candle -arch x64 -dVersion="$Version" -dConfig="$Config" internal/buildscripts/packaging/msi/opentelemetry-collector.wxs
+     light opentelemetry-collector.wixobj

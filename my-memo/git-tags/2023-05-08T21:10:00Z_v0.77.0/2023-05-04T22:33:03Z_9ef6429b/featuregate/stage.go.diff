@@ -1,0 +1,13 @@
+diff --git a/featuregate/stage.go b/featuregate/stage.go
+index 9d5505422..2034e1c80 100644
+--- a/featuregate/stage.go
++++ b/featuregate/stage.go
+@@ -31,7 +31,7 @@ const (
+ 	// StageStable is used when feature is permanently enabled and can not be disabled by a Gate.
+ 	// This value is used to provide feedback to the user that the gate will be removed in the next versions.
+ 	//
+-	// The Gate will be enabled by default and will return an error if modified.
++	// The Gate will be enabled by default and will return an error if disabled.
+ 	StageStable
+ 	// StageDeprecated is used when feature is permanently disabled and can not be enabled by a Gate.
+ 	// This value is used to provide feedback to the user that the gate will be removed in the next versions.

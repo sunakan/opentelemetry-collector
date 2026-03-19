@@ -1,0 +1,13 @@
+diff --git a/service/telemetry_test.go b/service/telemetry_test.go
+index a8a382c62..7c2cb6541 100644
+--- a/service/telemetry_test.go
++++ b/service/telemetry_test.go
+@@ -194,7 +194,7 @@ func TestTelemetryInit(t *testing.T) {
+ 					{
+ 						Pull: &config.PullMetricReader{
+ 							Exporter: config.MetricExporter{
+-								Prometheus: testutil.GetAvailableLocalAddressPrometheus(t),
++								Prometheus: getAvailableLocalAddressPrometheus(t),
+ 							},
+ 						},
+ 					},

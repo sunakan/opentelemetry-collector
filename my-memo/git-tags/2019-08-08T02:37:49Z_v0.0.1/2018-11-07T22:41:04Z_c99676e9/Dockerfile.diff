@@ -1,0 +1,13 @@
+diff --git a/Dockerfile b/Dockerfile
+index 4bacaa17e..42541cb29 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -17,7 +17,7 @@ RUN apk update && apk upgrade && \
+ 
+ COPY --from=builder /ocagent /ocagent
+ 
+-# Expose the OpenCensus interceptor port.
++# Expose the OpenCensus receiver port.
+ EXPOSE 55678/tcp
+ 
+ CMD ["/ocagent"]

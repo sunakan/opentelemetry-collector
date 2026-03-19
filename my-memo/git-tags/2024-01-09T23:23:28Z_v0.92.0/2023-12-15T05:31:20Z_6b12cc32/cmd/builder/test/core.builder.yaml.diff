@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+index 4f792b2ee..34017f6fe 100644
+--- a/cmd/builder/test/core.builder.yaml
++++ b/cmd/builder/test/core.builder.yaml
+@@ -26,6 +26,7 @@ replaces:
+   - go.opentelemetry.io/collector/config/confighttp => ${WORKSPACE_DIR}/config/confighttp
+   - go.opentelemetry.io/collector/config/confignet => ${WORKSPACE_DIR}/config/confignet
+   - go.opentelemetry.io/collector/config/configopaque => ${WORKSPACE_DIR}/config/configopaque
++  - go.opentelemetry.io/collector/config/configretry => ${WORKSPACE_DIR}/config/configretry
+   - go.opentelemetry.io/collector/config/configtelemetry => ${WORKSPACE_DIR}/config/configtelemetry
+   - go.opentelemetry.io/collector/config/configtls => ${WORKSPACE_DIR}/config/configtls
+   - go.opentelemetry.io/collector/config/internal => ${WORKSPACE_DIR}/config/internal

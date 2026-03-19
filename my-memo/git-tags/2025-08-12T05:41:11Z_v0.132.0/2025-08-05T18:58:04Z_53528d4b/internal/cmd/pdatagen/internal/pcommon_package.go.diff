@@ -1,0 +1,38 @@
+diff --git a/internal/cmd/pdatagen/internal/pcommon_package.go b/internal/cmd/pdatagen/internal/pcommon_package.go
+index e9e8f1e32..901e74901 100644
+--- a/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -65,7 +65,7 @@ var scope = &messageStruct{
+ var mapStruct = &sliceOfValues{
+ 	structName:  "Map",
+ 	packageName: "pcommon",
+-	element:     keyValue,
++	element:     attribute,
+ }
+ 
+ var sliceStruct = &sliceOfValues{
+@@ -80,8 +80,9 @@ var scopeField = &MessageField{
+ }
+ 
+ var traceState = &messageStruct{
+-	structName:  "TraceState",
+-	packageName: "pcommon",
++	structName:     "TraceState",
++	packageName:    "pcommon",
++	originFullName: "otlpcommon.TraceState", // Fake name to generate correct CopyOrig* name.
+ }
+ 
+ var timestampType = &TypedType{
+@@ -115,12 +116,6 @@ var nameField = &PrimitiveField{
+ 	protoType: ProtoTypeString,
+ }
+ 
+-var keyValue = &messageStruct{
+-	structName:     "KeyValue",
+-	packageName:    "pcommon",
+-	originFullName: "otlpcommon.AnyValue",
+-}
+-
+ var anyValue = &messageStruct{
+ 	structName:     "Value",
+ 	packageName:    "pcommon",

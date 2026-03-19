@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/factory_test.go b/receiver/kafkareceiver/factory_test.go
+index 855d76aa8..1c8f8f3a3 100644
+--- a/receiver/kafkareceiver/factory_test.go
++++ b/receiver/kafkareceiver/factory_test.go
+@@ -85,7 +85,7 @@ type customUnamarshaller struct {
+ 
+ var _ Unmarshaller = (*customUnamarshaller)(nil)
+ 
+-func (c customUnamarshaller) Unmarshal(bytes []byte) (pdata.Traces, error) {
++func (c customUnamarshaller) Unmarshal([]byte) (pdata.Traces, error) {
+ 	panic("implement me")
+ }
+ 

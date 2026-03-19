@@ -1,0 +1,11 @@
+diff --git a/receiver/fluentforwardreceiver/factory.go b/receiver/fluentforwardreceiver/factory.go
+index 49a0d0856..900f68fb5 100644
+--- a/receiver/fluentforwardreceiver/factory.go
++++ b/receiver/fluentforwardreceiver/factory.go
+@@ -54,5 +54,5 @@ func createLogsReceiver(
+ ) (component.LogsReceiver, error) {
+ 
+ 	rCfg := cfg.(*Config)
+-	return New(ctx, params.Logger, rCfg, consumer)
++	return newFluentReceiver(ctx, params.Logger, rCfg, consumer)
+ }

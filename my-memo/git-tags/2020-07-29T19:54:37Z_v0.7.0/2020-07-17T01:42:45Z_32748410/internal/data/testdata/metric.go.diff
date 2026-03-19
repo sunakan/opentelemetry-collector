@@ -1,0 +1,52 @@
+diff --git a/internal/data/testdata/metric.go b/internal/data/testdata/metric.go
+index c348a5f0d..bdb7a36f7 100644
+--- a/internal/data/testdata/metric.go
++++ b/internal/data/testdata/metric.go
+@@ -41,7 +41,7 @@ const (
+ 	TestCounterIntMetricName          = "counter-int"
+ 	TestCumulativeHistogramMetricName = "cumulative-histogram"
+ 	TestSummaryMetricName             = "summary"
+-	NumMetricTests                    = 13
++	NumMetricTests                    = 14
+ )
+ 
+ func GenerateMetricDataEmpty() data.MetricData {
+@@ -157,6 +157,21 @@ func GenerateMetricDataOneMetric() data.MetricData {
+ 	return md
+ }
+ 
++func generateMetricOtlpOneMetric() []*otlpmetrics.ResourceMetrics {
++	return []*otlpmetrics.ResourceMetrics{
++		{
++			Resource: generateOtlpResource1(),
++			InstrumentationLibraryMetrics: []*otlpmetrics.InstrumentationLibraryMetrics{
++				{
++					Metrics: []*otlpmetrics.Metric{
++						generateOtlpCounterIntMetric(),
++					},
++				},
++			},
++		},
++	}
++}
++
+ func GenerateMetricDataOneMetricOneDataPoint() data.MetricData {
+ 	md := GenerateMetricDataOneEmptyInstrumentationLibrary()
+ 	rm0ils0 := md.ResourceMetrics().At(0).InstrumentationLibraryMetrics().At(0)
+@@ -174,7 +189,7 @@ func GenerateMetricDataTwoMetrics() data.MetricData {
+ 	return md
+ }
+ 
+-func generateMetricOtlpOneMetric() []*otlpmetrics.ResourceMetrics {
++func GenerateMetricOtlpTwoMetrics() []*otlpmetrics.ResourceMetrics {
+ 	return []*otlpmetrics.ResourceMetrics{
+ 		{
+ 			Resource: generateOtlpResource1(),
+@@ -182,6 +197,7 @@ func generateMetricOtlpOneMetric() []*otlpmetrics.ResourceMetrics {
+ 				{
+ 					Metrics: []*otlpmetrics.Metric{
+ 						generateOtlpCounterIntMetric(),
++						generateOtlpCounterIntMetric(),
+ 					},
+ 				},
+ 			},

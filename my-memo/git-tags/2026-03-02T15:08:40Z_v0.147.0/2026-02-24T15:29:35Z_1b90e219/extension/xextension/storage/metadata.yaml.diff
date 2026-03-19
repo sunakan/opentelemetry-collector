@@ -1,0 +1,16 @@
+diff --git a/extension/xextension/storage/metadata.yaml b/extension/xextension/storage/metadata.yaml
+index bc95f3e46..001e1ca1a 100644
+--- a/extension/xextension/storage/metadata.yaml
++++ b/extension/xextension/storage/metadata.yaml
+@@ -1,9 +1,9 @@
+-type: xextension
++type: xextension/storage
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
+   disable_codecov_badge: true
+-  class: extension
++  class: pkg
+   codeowners:
+     active:
+       - swiatekm

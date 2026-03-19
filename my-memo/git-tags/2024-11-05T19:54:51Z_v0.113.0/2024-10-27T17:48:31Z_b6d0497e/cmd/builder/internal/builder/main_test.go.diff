@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 787f47276..6a3991d23 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -82,6 +82,7 @@ var (
+ 		"/extension/zpagesextension",
+ 		"/featuregate",
+ 		"/internal/memorylimiter",
++		"/internal/fanoutconsumer",
+ 		"/otelcol",
+ 		"/pipeline",
+ 		"/pipeline/pipelineprofiles",

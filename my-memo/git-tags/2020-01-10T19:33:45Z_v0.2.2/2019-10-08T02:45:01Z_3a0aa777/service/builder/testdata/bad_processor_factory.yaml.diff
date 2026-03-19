@@ -1,0 +1,24 @@
+diff --git a/service/builder/testdata/bad_processor_factory.yaml b/service/builder/testdata/bad_processor_factory.yaml
+new file mode 100644
+index 000000000..b0a148a63
+--- /dev/null
++++ b/service/builder/testdata/bad_processor_factory.yaml
+@@ -0,0 +1,18 @@
++receivers:
++  examplereceiver:
++processors:
++  bf/traces: # this is the bad processor factory
++  bf/metrics:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [bf/traces]
++      exporters: [exampleexporter]
++    metrics:
++      receivers: [examplereceiver]
++      processors: [bf/metrics]
++      exporters: [exampleexporter]

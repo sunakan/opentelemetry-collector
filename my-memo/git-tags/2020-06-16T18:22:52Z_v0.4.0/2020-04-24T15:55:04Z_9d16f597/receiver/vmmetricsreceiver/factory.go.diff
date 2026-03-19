@@ -1,0 +1,13 @@
+diff --git a/receiver/vmmetricsreceiver/factory.go b/receiver/vmmetricsreceiver/factory.go
+index b179bd2fa..6474dfbeb 100644
+--- a/receiver/vmmetricsreceiver/factory.go
++++ b/receiver/vmmetricsreceiver/factory.go
+@@ -39,7 +39,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the Receiver config created by this Factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

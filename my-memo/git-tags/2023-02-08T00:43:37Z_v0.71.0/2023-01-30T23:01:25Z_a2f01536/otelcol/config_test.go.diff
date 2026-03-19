@@ -1,0 +1,13 @@
+diff --git a/otelcol/config_test.go b/otelcol/config_test.go
+index 584b23229..fc964b05e 100644
+--- a/otelcol/config_test.go
++++ b/otelcol/config_test.go
+@@ -295,7 +295,7 @@ func generateConfig() *Config {
+ 					DisableStacktrace: true,
+ 					OutputPaths:       []string{"stderr", "./output-logs"},
+ 					ErrorOutputPaths:  []string{"stderr", "./error-output-logs"},
+-					InitialFields:     map[string]interface{}{"fieldKey": "filed-value"},
++					InitialFields:     map[string]any{"fieldKey": "filed-value"},
+ 				},
+ 				Metrics: telemetry.MetricsConfig{
+ 					Level:   configtelemetry.LevelNormal,

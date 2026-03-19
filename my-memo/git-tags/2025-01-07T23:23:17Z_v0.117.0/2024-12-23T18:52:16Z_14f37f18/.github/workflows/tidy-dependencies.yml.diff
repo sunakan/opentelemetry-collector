@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/tidy-dependencies.yml b/.github/workflows/tidy-dependencies.yml
+index dd7edfceb..830a46a93 100644
+--- a/.github/workflows/tidy-dependencies.yml
++++ b/.github/workflows/tidy-dependencies.yml
+@@ -5,8 +5,7 @@ on:
+     branches:
+       - main
+ 
+-permissions:
+-  contents: read
++permissions: read-all
+ 
+ jobs:
+   setup-environment:

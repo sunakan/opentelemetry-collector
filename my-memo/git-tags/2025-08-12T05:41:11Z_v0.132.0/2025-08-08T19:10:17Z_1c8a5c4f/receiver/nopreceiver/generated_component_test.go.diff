@@ -1,0 +1,33 @@
+diff --git a/receiver/nopreceiver/generated_component_test.go b/receiver/nopreceiver/generated_component_test.go
+index 49d1db079..bafdd2446 100644
+--- a/receiver/nopreceiver/generated_component_test.go
++++ b/receiver/nopreceiver/generated_component_test.go
+@@ -73,7 +73,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 		t.Run(tt.name+"-lifecycle", func(t *testing.T) {
+ 			firstRcvr, err := tt.createFn(context.Background(), receivertest.NewNopSettings(typ), cfg)
+ 			require.NoError(t, err)
+-			host := componenttest.NewNopHost()
++			host := newMdatagenNopHost()
+ 			require.NoError(t, err)
+ 			require.NoError(t, firstRcvr.Start(context.Background(), host))
+ 			require.NoError(t, firstRcvr.Shutdown(context.Background()))
+@@ -84,3 +84,19 @@ func TestComponentLifecycle(t *testing.T) {
+ 		})
+ 	}
+ }
++
++var _ component.Host = (*mdatagenNopHost)(nil)
++
++type mdatagenNopHost struct{}
++
++func newMdatagenNopHost() component.Host {
++	return &mdatagenNopHost{}
++}
++
++func (mnh *mdatagenNopHost) GetExtensions() map[component.ID]component.Component {
++	return nil
++}
++
++func (mnh *mdatagenNopHost) GetFactory(_ component.Kind, _ component.Type) component.Factory {
++	return nil
++}

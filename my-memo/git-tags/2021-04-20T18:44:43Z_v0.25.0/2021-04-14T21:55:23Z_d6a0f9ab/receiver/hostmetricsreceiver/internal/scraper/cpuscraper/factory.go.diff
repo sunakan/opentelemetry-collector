@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+index 8411395dd..485e61d48 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+@@ -26,7 +26,7 @@ import (
+ // This file implements Factory for CPU scraper.
+ 
+ const (
+-	// The value of "type" key in configuration.
++	// TypeStr the value of "type" key in configuration.
+ 	TypeStr = "cpu"
+ )
+ 

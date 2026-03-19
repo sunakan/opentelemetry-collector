@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/go.mod b/processor/batchprocessor/go.mod
+index da9a3e4a9..27394e7cf 100644
+--- a/processor/batchprocessor/go.mod
++++ b/processor/batchprocessor/go.mod
+@@ -5,7 +5,7 @@ go 1.22.0
+ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector v0.107.0
+-	go.opentelemetry.io/collector/client v0.107.0
++	go.opentelemetry.io/collector/client v1.13.0
+ 	go.opentelemetry.io/collector/component v0.107.0
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.107.0
+ 	go.opentelemetry.io/collector/confmap v0.107.0

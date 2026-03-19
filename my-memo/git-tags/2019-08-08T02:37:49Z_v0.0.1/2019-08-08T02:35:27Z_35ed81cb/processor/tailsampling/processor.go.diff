@@ -1,0 +1,17 @@
+diff --git a/processor/tailsampling/processor.go b/processor/tailsampling/processor.go
+index e74aa3c7a..9622c7749 100644
+--- a/processor/tailsampling/processor.go
++++ b/processor/tailsampling/processor.go
+@@ -30,10 +30,10 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/internal/collector/processor/idbatcher"
+-	"github.com/open-telemetry/opentelemetry-service/internal/collector/sampling"
+ 	"github.com/open-telemetry/opentelemetry-service/observability"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
++	"github.com/open-telemetry/opentelemetry-service/processor/tailsampling/idbatcher"
++	"github.com/open-telemetry/opentelemetry-service/processor/tailsampling/sampling"
+ )
+ 
+ // Policy combines a sampling policy evaluator with the destinations to be

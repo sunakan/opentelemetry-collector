@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 5e83bfd73..1353c920b 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -85,7 +85,7 @@ func Components() (
+ 		loggingexporter.NewFactory(),
+ 		zipkinexporter.NewFactory(),
+ 		jaegerexporter.NewFactory(),
+-		&fileexporter.Factory{},
++		fileexporter.NewFactory(),
+ 		otlpexporter.NewFactory(),
+ 		kafkaexporter.NewFactory(),
+ 	)

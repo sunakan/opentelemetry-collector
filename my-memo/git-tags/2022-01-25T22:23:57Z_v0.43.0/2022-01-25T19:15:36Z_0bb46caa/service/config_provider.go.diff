@@ -1,0 +1,21 @@
+diff --git a/service/config_provider.go b/service/config_provider.go
+index 34bc8dc96..6b7f774be 100644
+--- a/service/config_provider.go
++++ b/service/config_provider.go
+@@ -28,7 +28,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/configmapprovider"
+ 	"go.opentelemetry.io/collector/config/configunmarshaler"
+ 	"go.opentelemetry.io/collector/config/experimental/configsource"
+-	"go.opentelemetry.io/collector/service/internal/configprovider"
+ )
+ 
+ // ConfigProvider provides the service configuration.
+@@ -112,7 +111,7 @@ func NewDefaultConfigProvider(configLocations []string, properties []string) Con
+ 		},
+ 		[]config.MapConverterFunc{
+ 			configmapprovider.NewOverwritePropertiesConverter(properties),
+-			configprovider.NewExpandConverter(),
++			configmapprovider.NewExpandConverter(),
+ 		},
+ 		configunmarshaler.NewDefault())
+ }

@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index db0273def..3d157f041 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -385,7 +385,9 @@ func (m *mockRequest) onPartialError(consumererror.PartialError) request {
+ }
+ 
+ func (m *mockRequest) checkNumRequests(t *testing.T, want int) {
+-	assert.EqualValues(t, want, atomic.LoadInt64(m.requestCount))
++	assert.Eventually(t, func() bool {
++		return int64(want) == atomic.LoadInt64(m.requestCount)
++	}, time.Second, 1*time.Millisecond)
+ }
+ 
+ func (m *mockRequest) count() int {

@@ -1,0 +1,30 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/metadata.yaml b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/metadata.yaml
+new file mode 100644
+index 000000000..f2de96cdf
+--- /dev/null
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/metadata.yaml
+@@ -0,0 +1,24 @@
++name: processes
++
++labels:
++  status:
++    description: Breakdown status of the processes.
++    enum: [blocked, running]
++
++metrics:
++  system.processes.created:
++    description: Total number of created processes.
++    unit: "{processes}"
++    data:
++      type: sum
++      aggregation: cumulative
++      monotonic: true
++
++  system.processes.count:
++    description: Total number of processes in each state.
++    unit: "{processes}"
++    data:
++      type: sum
++      aggregation: cumulative
++      monotonic: false
++    labels: [status]

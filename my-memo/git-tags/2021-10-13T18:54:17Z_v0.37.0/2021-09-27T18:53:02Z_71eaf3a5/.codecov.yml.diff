@@ -1,0 +1,13 @@
+diff --git a/.codecov.yml b/.codecov.yml
+index 4278b9488..459284b44 100644
+--- a/.codecov.yml
++++ b/.codecov.yml
+@@ -17,7 +17,5 @@ coverage:
+ 
+ ignore:
+   - "service/internal/zpages/tmplgen/**/*"
+-  - "*/**/metadata/generated_metrics.go"
+-  - "internal/data/protogen/**/*"
+-  - "testbed/**/*"
++  - "model/internal/data/protogen/**/*"
+   - "*/**/third_party/**/*"

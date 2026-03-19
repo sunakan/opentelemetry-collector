@@ -1,0 +1,17 @@
+diff --git a/testbed/testbed/load_generator.go b/testbed/testbed/load_generator.go
+index 5635ad8d6..267a5938d 100644
+--- a/testbed/testbed/load_generator.go
++++ b/testbed/testbed/load_generator.go
+@@ -185,10 +185,10 @@ func (lg *LoadGenerator) generateTrace() {
+ 			Kind:    tracepb.Span_CLIENT,
+ 			Attributes: &tracepb.Span_Attributes{
+ 				AttributeMap: map[string]*tracepb.AttributeValue{
+-					"load_generator.span_seq_num": &tracepb.AttributeValue{
++					"load_generator.span_seq_num": {
+ 						Value: &tracepb.AttributeValue_IntValue{IntValue: int64(spanID)},
+ 					},
+-					"load_generator.trace_seq_num": &tracepb.AttributeValue{
++					"load_generator.trace_seq_num": {
+ 						Value: &tracepb.AttributeValue_IntValue{IntValue: int64(traceID)},
+ 					},
+ 				},

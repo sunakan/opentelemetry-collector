@@ -1,0 +1,30 @@
+diff --git a/configv2/testdata/valid-config.yaml b/configv2/testdata/valid-config.yaml
+new file mode 100644
+index 000000000..5e2577751
+--- /dev/null
++++ b/configv2/testdata/valid-config.yaml
+@@ -0,0 +1,24 @@
++receivers:
++  examplereceiver:
++    # no settings
++  examplereceiver/myreceiver:
++    endpoint: "127.0.0.1:12345"
++    enabled: true
++    extra: "some string"
++
++processors:
++  exampleprocessor:
++    enabled: false
++
++exporters:
++  exampleexporter/myexporter:
++    extra: "some export string 2"
++    enabled: true
++  exampleexporter:
++    # no settings
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [exampleprocessor]
++    exporters: [exampleexporter]

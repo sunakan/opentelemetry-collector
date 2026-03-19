@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+index 101ba74e3..6920e994f 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+@@ -83,7 +83,7 @@ func BenchmarkV1ThriftToOCProto(b *testing.B) {
+ 	require.NoError(b, err, "Failed to unmarshal json into zipkin v1 thrift")
+ 
+ 	for n := 0; n < b.N; n++ {
+-		v1ThriftBatchToOCProto(ztSpans)
++		v1ThriftBatchToOCProto(ztSpans) // nolint:errcheck
+ 	}
+ }
+ 

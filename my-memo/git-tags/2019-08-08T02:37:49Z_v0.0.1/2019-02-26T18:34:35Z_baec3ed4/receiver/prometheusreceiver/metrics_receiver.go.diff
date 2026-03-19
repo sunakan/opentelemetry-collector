@@ -1,0 +1,18 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver.go b/receiver/prometheusreceiver/metrics_receiver.go
+index 99aea7faa..3d2f325b4 100644
+--- a/receiver/prometheusreceiver/metrics_receiver.go
++++ b/receiver/prometheusreceiver/metrics_receiver.go
+@@ -59,6 +59,13 @@ var (
+ 	errNilScrapeConfig        = errors.New("expecting a non-nil ScrapeConfig")
+ )
+ 
++const metricsSource string = "Prometheus"
++
++// MetricsSource returns the name of the metrics data source.
++func (pr *Preceiver) MetricsSource() string {
++	return metricsSource
++}
++
+ // StartMetricsReception is the method that starts Prometheus scraping and it
+ // is controlled by having previously defined a Configuration using perhaps New.
+ func (pr *Preceiver) StartMetricsReception(ctx context.Context, nextProcessor processor.MetricsDataProcessor) error {

@@ -1,0 +1,12 @@
+diff --git a/examples/demo/docker-compose.yaml b/examples/demo/docker-compose.yaml
+index b5ca673e6..e2cd55df0 100644
+--- a/examples/demo/docker-compose.yaml
++++ b/examples/demo/docker-compose.yaml
+@@ -43,6 +43,7 @@ services:
+       - "14268"       # Jaeger receiver
+       - "55678"       # OpenCensus receiver
+       - "55679:55679" # zpages extension
++      - "13133"       # health_check
+     depends_on:
+       - otel-collector
+ 

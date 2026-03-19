@@ -1,0 +1,22 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 60280337a..d0642a574 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -17,6 +17,17 @@
+ 
+ ### 🚩 Deprecations 🚩
+ 
++- Deprecate the `component.Factory.StabilityLevel(config.DataType)` in favor of Stability per component (#5762):
++  - `component.ExporterFactory.TracesExporterStability`
++  - `component.ExporterFactory.MetricsExporterStability`
++  - `component.ExporterFactory.LogsExporterStability`
++  - `component.ProcessorFactory.TracesProcessorStability`
++  - `component.ProcessorFactory.MetricsProcessorStability`
++  - `component.ProcessorFactory.LogsProcessorStability`
++  - `component.ReceiverFactory.TracesReceiverStability`
++  - `component.ReceiverFactory.MetricsReceiverStability`
++  - `component.ReceiverFactory.LogsReceiverStability`
++
+ ### 💡 Enhancements 💡
+ 
+ ### 🧰 Bug fixes 🧰

@@ -1,0 +1,13 @@
+diff --git a/exporter/internal/queue/queue.go b/exporter/internal/queue/queue.go
+index 35bc50457..54e8346a5 100644
+--- a/exporter/internal/queue/queue.go
++++ b/exporter/internal/queue/queue.go
+@@ -33,6 +33,8 @@ type Queue[T any] interface {
+ 	Size() int
+ 	// Capacity returns the capacity of the queue.
+ 	Capacity() int
++	// Should be called to remove the item of the given index from the queue once processing is finished.
++	OnProcessingFinished(index uint64, consumeErr error)
+ }
+ 
+ type itemsCounter interface {

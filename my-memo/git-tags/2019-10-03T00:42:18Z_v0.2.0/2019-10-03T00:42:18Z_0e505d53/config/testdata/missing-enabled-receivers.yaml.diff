@@ -1,0 +1,19 @@
+diff --git a/config/testdata/missing-enabled-receivers.yaml b/config/testdata/missing-enabled-receivers.yaml
+index f64b18808..548a6503a 100644
+--- a/config/testdata/missing-enabled-receivers.yaml
++++ b/config/testdata/missing-enabled-receivers.yaml
+@@ -16,8 +16,9 @@ exporters:
+     disabled: true
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver, examplereceiver/disabled]
+-    processors: [exampleprocessor, exampleprocessor/disabled]
+-    exporters: [exampleexporter/disabled, exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver, examplereceiver/disabled]
++      processors: [exampleprocessor, exampleprocessor/disabled]
++      exporters: [exampleexporter/disabled, exampleexporter]

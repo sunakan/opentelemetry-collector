@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index c1cfdcb4b..3a3034ff2 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -12,7 +12,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/configretry"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter"
+-	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper"
+ 	"go.opentelemetry.io/collector/exporter/otlpexporter/internal/metadata"
+@@ -32,7 +31,7 @@ func NewFactory() exporter.Factory {
+ }
+ 
+ func createDefaultConfig() component.Config {
+-	batcherCfg := exporterbatcher.NewDefaultConfig()
++	batcherCfg := exporterhelper.NewDefaultBatcherConfig()
+ 	batcherCfg.Enabled = false
+ 
+ 	clientCfg := *configgrpc.NewDefaultClientConfig()

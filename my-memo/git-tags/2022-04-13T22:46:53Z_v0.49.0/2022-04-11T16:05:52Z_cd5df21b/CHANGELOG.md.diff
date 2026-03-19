@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index ef81c50b4..2912bc207 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -15,6 +15,7 @@
+ ### 🚩 Deprecations 🚩
+ 
+ - Deprecate configmapprovider package, replace with mapconverter (#5167)
++- Deprecate `service.MustNewConfigProvider` and `service.MustNewDefaultConfigProvider`in favor of `service.NewConfigProvider` (#4762)
+ 
+ ### 💡 Enhancements 💡
+ 

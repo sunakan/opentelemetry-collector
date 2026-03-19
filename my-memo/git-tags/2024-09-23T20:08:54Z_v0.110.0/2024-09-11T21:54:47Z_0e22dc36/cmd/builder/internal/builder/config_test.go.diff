@@ -1,0 +1,21 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index e1fcd2fb5..60e1b426e 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -4,7 +4,6 @@
+ package builder
+ 
+ import (
+-	"errors"
+ 	"os"
+ 	"strings"
+ 	"testing"
+@@ -143,7 +142,7 @@ func TestMissingModule(t *testing.T) {
+ 	}
+ 
+ 	for _, test := range configurations {
+-		assert.True(t, errors.Is(test.cfg.Validate(), test.err))
++		assert.ErrorIs(t, test.cfg.Validate(), test.err)
+ 	}
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/zipkin_test.go b/exporter/zipkinexporter/zipkin_test.go
+index ff97212bd..56bd81d7a 100644
+--- a/exporter/zipkinexporter/zipkin_test.go
++++ b/exporter/zipkinexporter/zipkin_test.go
+@@ -159,7 +159,7 @@ type mockZipkinReporter struct {
+ 	serializer zipkinreporter.SpanSerializer
+ }
+ 
+-var _ (zipkinreporter.Reporter) = (*mockZipkinReporter)(nil)
++var _ zipkinreporter.Reporter = (*mockZipkinReporter)(nil)
+ 
+ func (r *mockZipkinReporter) Send(span zipkinmodel.SpanModel) {
+ 	r.batch = append(r.batch, &span)

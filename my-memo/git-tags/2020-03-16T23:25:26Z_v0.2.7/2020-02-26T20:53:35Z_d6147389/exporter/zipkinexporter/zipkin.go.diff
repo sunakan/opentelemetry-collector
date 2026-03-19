@@ -1,0 +1,15 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index d79f735e7..91db1d041 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -68,9 +68,7 @@ func NewTraceExporter(logger *zap.Logger, config configmodels.Exporter) (exporte
+ 	}
+ 	zexp, err := exporterhelper.NewTraceExporter(
+ 		config,
+-		ze.PushTraceData,
+-		exporterhelper.WithTracing(true),
+-		exporterhelper.WithMetrics(true))
++		ze.PushTraceData)
+ 	if err != nil {
+ 		return nil, err
+ 	}

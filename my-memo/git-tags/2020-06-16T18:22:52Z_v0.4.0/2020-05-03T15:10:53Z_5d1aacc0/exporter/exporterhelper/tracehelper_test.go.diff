@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index 0a0d5b5d2..d7b8b4d18 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -42,9 +42,8 @@ const (
+ 
+ var (
+ 	fakeTraceExporterConfig = &configmodels.ExporterSettings{
+-		TypeVal:  fakeTraceExporterType,
+-		NameVal:  fakeTraceExporterName,
+-		Disabled: false,
++		TypeVal: fakeTraceExporterType,
++		NameVal: fakeTraceExporterName,
+ 	}
+ )
+ 

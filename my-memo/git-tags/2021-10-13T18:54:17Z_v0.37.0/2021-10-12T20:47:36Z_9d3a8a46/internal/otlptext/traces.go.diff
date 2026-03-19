@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/traces.go b/internal/otlptext/traces.go
+index d3e3cc654..3a11e1e45 100644
+--- a/internal/otlptext/traces.go
++++ b/internal/otlptext/traces.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlptext
++package otlptext // import "go.opentelemetry.io/collector/internal/otlptext"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/model/pdata"

@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index 3e00b497d..fcd5ab5cd 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -102,7 +102,7 @@ func (dsb *DataSenderBase) GetFactory(_ component.Kind, _ configmodels.Type) com
+ }
+ 
+ // Return map of extensions. Only enabled and created extensions will be returned.
+-func (dsb *DataSenderBase) GetExtensions() map[configmodels.Extension]component.ServiceExtension {
++func (dsb *DataSenderBase) GetExtensions() map[configmodels.Extension]component.Extension {
+ 	return nil
+ }
+ 

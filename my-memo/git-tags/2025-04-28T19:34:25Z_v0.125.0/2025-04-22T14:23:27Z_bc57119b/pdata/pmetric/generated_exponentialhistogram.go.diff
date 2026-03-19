@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogram.go b/pdata/pmetric/generated_exponentialhistogram.go
+index 18ba20d73..f884b24d3 100644
+--- a/pdata/pmetric/generated_exponentialhistogram.go
++++ b/pdata/pmetric/generated_exponentialhistogram.go
+@@ -42,6 +42,10 @@ func NewExponentialHistogram() ExponentialHistogram {
+ func (ms ExponentialHistogram) MoveTo(dest ExponentialHistogram) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpmetrics.ExponentialHistogram{}
+ }

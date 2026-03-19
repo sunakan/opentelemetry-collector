@@ -1,0 +1,13 @@
+diff --git a/config/exporter.go b/config/exporter.go
+index fd68703e7..0f9ab30ac 100644
+--- a/config/exporter.go
++++ b/config/exporter.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package config
++package config // import "go.opentelemetry.io/collector/config"
+ 
+ // Exporter is the configuration of a component.Exporter. Specific extensions must implement
+ // this interface and must embed ExporterSettings struct or a struct that extends it.

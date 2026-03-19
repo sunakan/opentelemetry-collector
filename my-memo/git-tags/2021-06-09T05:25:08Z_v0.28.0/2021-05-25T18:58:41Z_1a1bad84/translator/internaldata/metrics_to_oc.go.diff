@@ -1,0 +1,20 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index ed77e5b23..e8fbbe4cd 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -189,13 +189,13 @@ func descriptorTypeToOC(metric pdata.Metric) ocmetrics.MetricDescriptor_Type {
+ 		return ocmetrics.MetricDescriptor_GAUGE_DOUBLE
+ 	case pdata.MetricDataTypeIntSum:
+ 		sd := metric.IntSum()
+-		if sd.IsMonotonic() || sd.AggregationTemporality() == pdata.AggregationTemporalityCumulative {
++		if sd.IsMonotonic() && sd.AggregationTemporality() == pdata.AggregationTemporalityCumulative {
+ 			return ocmetrics.MetricDescriptor_CUMULATIVE_INT64
+ 		}
+ 		return ocmetrics.MetricDescriptor_GAUGE_INT64
+ 	case pdata.MetricDataTypeDoubleSum:
+ 		sd := metric.DoubleSum()
+-		if sd.IsMonotonic() || sd.AggregationTemporality() == pdata.AggregationTemporalityCumulative {
++		if sd.IsMonotonic() && sd.AggregationTemporality() == pdata.AggregationTemporalityCumulative {
+ 			return ocmetrics.MetricDescriptor_CUMULATIVE_DOUBLE
+ 		}
+ 		return ocmetrics.MetricDescriptor_GAUGE_DOUBLE

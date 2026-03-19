@@ -1,0 +1,13 @@
+diff --git a/model/otlp/json_marshaler.go b/model/otlp/json_marshaler.go
+index 79df6e0d3..6744304f4 100644
+--- a/model/otlp/json_marshaler.go
++++ b/model/otlp/json_marshaler.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/gogo/protobuf/jsonpb"
+ 
+-	"go.opentelemetry.io/collector/internal"
++	"go.opentelemetry.io/collector/model/internal"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

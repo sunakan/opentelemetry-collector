@@ -1,0 +1,26 @@
+diff --git a/config/testdata/invalid-pipeline-section.yaml b/config/testdata/invalid-pipeline-section.yaml
+index 781634601..760edb27d 100644
+--- a/config/testdata/invalid-pipeline-section.yaml
++++ b/config/testdata/invalid-pipeline-section.yaml
+@@ -9,12 +9,12 @@ extensions:
+ service:
+   extensions:
+     - exampleextension
+-pipelines:
+-  traces:
+-    receivers:
+-      - examplereceiver
+-    processors:
+-      - exampleprocessor
+-    exporters:
+-      - exampleexporter
+-    unknown_section: 1
++  pipelines:
++    traces:
++      receivers:
++        - examplereceiver
++      processors:
++        - exampleprocessor
++      exporters:
++        - exampleexporter
++      unknown_section: 1

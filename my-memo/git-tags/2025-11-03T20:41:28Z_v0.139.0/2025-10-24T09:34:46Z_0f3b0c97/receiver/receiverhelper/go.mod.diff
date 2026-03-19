@@ -1,0 +1,25 @@
+diff --git a/receiver/receiverhelper/go.mod b/receiver/receiverhelper/go.mod
+index 46ce58bbf..9711321af 100644
+--- a/receiver/receiverhelper/go.mod
++++ b/receiver/receiverhelper/go.mod
+@@ -30,11 +30,8 @@ require (
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
+ 	go.opentelemetry.io/collector/consumer v1.44.0 // indirect
+-	go.opentelemetry.io/collector/internal/telemetry v0.138.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.44.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.138.0 // indirect
+-	go.opentelemetry.io/contrib/bridges/otelzap v0.13.0 // indirect
+-	go.opentelemetry.io/otel/log v0.14.0 // indirect
+ 	go.opentelemetry.io/otel/sdk v1.38.0 // indirect
+ 	go.uber.org/multierr v1.11.0 // indirect
+ 	go.uber.org/zap v1.27.0 // indirect
+@@ -67,8 +64,6 @@ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/co
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/telemetry => ../../internal/telemetry
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror

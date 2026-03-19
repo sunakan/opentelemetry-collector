@@ -1,0 +1,14 @@
+diff --git a/config/configauth/oidc_authenticator_test.go b/config/configauth/oidc_authenticator_test.go
+index 7f4879c6c..f64e9e2bc 100644
+--- a/config/configauth/oidc_authenticator_test.go
++++ b/config/configauth/oidc_authenticator_test.go
+@@ -192,7 +192,8 @@ func TestOIDCFailedToLoadIssuerCAFromPathInvalidContent(t *testing.T) {
+ 	file, err := ioutil.TempFile(os.TempDir(), "cert")
+ 	require.NoError(t, err)
+ 	defer os.Remove(file.Name())
+-	file.Write([]byte("foobar"))
++	_, err = file.Write([]byte("foobar"))
++	require.NoError(t, err)
+ 
+ 	config := OIDC{
+ 		IssuerCAPath: file.Name(),

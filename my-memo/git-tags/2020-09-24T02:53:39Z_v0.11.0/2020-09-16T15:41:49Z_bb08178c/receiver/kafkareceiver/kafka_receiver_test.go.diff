@@ -1,0 +1,43 @@
+diff --git a/receiver/kafkareceiver/kafka_receiver_test.go b/receiver/kafkareceiver/kafka_receiver_test.go
+index a1238c841..a48c22571 100644
+--- a/receiver/kafkareceiver/kafka_receiver_test.go
++++ b/receiver/kafkareceiver/kafka_receiver_test.go
+@@ -30,8 +30,10 @@ import (
+ 	"go.uber.org/zap/zaptest/observer"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/exporter/kafkaexporter"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
+ )
+ 
+@@ -55,6 +57,27 @@ func TestNewReceiver_encoding_err(t *testing.T) {
+ 	assert.EqualError(t, err, errUnrecognizedEncoding.Error())
+ }
+ 
++func TestNewExporter_err_auth_type(t *testing.T) {
++	c := Config{
++		ProtocolVersion: "2.0.0",
++		Authentication: kafkaexporter.Authentication{
++			TLS: &configtls.TLSClientSetting{
++				TLSSetting: configtls.TLSSetting{
++					CAFile: "/doesnotexist",
++				},
++			},
++		},
++		Encoding: defaultEncoding,
++		Metadata: kafkaexporter.Metadata{
++			Full: false,
++		},
++	}
++	r, err := newReceiver(c, component.ReceiverCreateParams{}, defaultUnmarshallers(), exportertest.NewNopTraceExporter())
++	assert.Error(t, err)
++	assert.Contains(t, err.Error(), "failed to load TLS config")
++	assert.Nil(t, r)
++}
++
+ func TestReceiverStart(t *testing.T) {
+ 	testClient := testConsumerGroup{once: &sync.Once{}}
+ 	c := kafkaConsumer{

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/release-branch.yml b/.github/workflows/release-branch.yml
+index 99c76987e..c8376a8d9 100644
+--- a/.github/workflows/release-branch.yml
++++ b/.github/workflows/release-branch.yml
+@@ -18,7 +18,7 @@ jobs:
+       contents: write
+     steps:
+       - name: Checkout repository
+-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
++        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+         with:
+           fetch-depth: 0
+ 

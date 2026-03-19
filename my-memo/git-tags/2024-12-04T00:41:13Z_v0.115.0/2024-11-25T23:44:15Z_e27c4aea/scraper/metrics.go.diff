@@ -1,0 +1,13 @@
+diff --git a/scraper/metrics.go b/scraper/metrics.go
+index b555f2f1d..d0ff3dc4f 100644
+--- a/scraper/metrics.go
++++ b/scraper/metrics.go
+@@ -30,7 +30,7 @@ type metrics struct {
+ }
+ 
+ // NewMetrics creates a new Metrics scraper.
+-func NewMetrics(_ context.Context, _ Settings, scrape ScrapeMetricsFunc, options ...Option) (Metrics, error) {
++func NewMetrics(scrape ScrapeMetricsFunc, options ...Option) (Metrics, error) {
+ 	if scrape == nil {
+ 		return nil, errNilFunc
+ 	}

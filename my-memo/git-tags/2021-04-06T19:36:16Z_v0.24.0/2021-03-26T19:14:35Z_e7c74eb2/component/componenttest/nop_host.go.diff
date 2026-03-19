@@ -1,0 +1,31 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index 7665fa532..9b97c75c3 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -16,7 +16,7 @@ package componenttest
+ 
+ import (
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
+ )
+ 
+ // nopHost mocks a receiver.ReceiverHost for test purposes.
+@@ -31,14 +31,14 @@ func NewNopHost() component.Host {
+ 
+ func (nh *nopHost) ReportFatalError(_ error) {}
+ 
+-func (nh *nopHost) GetFactory(_ component.Kind, _ configmodels.Type) component.Factory {
++func (nh *nopHost) GetFactory(_ component.Kind, _ config.Type) component.Factory {
+ 	return nil
+ }
+ 
+-func (nh *nopHost) GetExtensions() map[configmodels.NamedEntity]component.Extension {
++func (nh *nopHost) GetExtensions() map[config.NamedEntity]component.Extension {
+ 	return nil
+ }
+ 
+-func (nh *nopHost) GetExporters() map[configmodels.DataType]map[configmodels.NamedEntity]component.Exporter {
++func (nh *nopHost) GetExporters() map[config.DataType]map[config.NamedEntity]component.Exporter {
+ 	return nil
+ }

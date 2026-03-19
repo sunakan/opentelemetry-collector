@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogramdatapointslice_test.go b/pdata/pmetric/generated_histogramdatapointslice_test.go
+index 124133713..5fa860b8d 100644
+--- a/pdata/pmetric/generated_histogramdatapointslice_test.go
++++ b/pdata/pmetric/generated_histogramdatapointslice_test.go
+@@ -52,6 +52,8 @@ func TestHistogramDataPointSlice_CopyTo(t *testing.T) {
+ 	src := generateTestHistogramDataPointSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestHistogramDataPointSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestHistogramDataPointSlice(), dest)
+ }
+ 
+ func TestHistogramDataPointSlice_EnsureCapacity(t *testing.T) {

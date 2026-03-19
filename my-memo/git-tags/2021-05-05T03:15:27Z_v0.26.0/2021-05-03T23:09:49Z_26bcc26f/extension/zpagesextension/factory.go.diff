@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/factory.go b/extension/zpagesextension/factory.go
+index 1c4108acd..710614a41 100644
+--- a/extension/zpagesextension/factory.go
++++ b/extension/zpagesextension/factory.go
+@@ -41,7 +41,7 @@ func NewFactory() component.ExtensionFactory {
+ 
+ func createDefaultConfig() config.Extension {
+ 	return &Config{
+-		ExtensionSettings: config.NewExtensionSettings(typeStr),
++		ExtensionSettings: config.NewExtensionSettings(config.NewID(typeStr)),
+ 		TCPAddr: confignet.TCPAddr{
+ 			Endpoint: defaultEndpoint,
+ 		},

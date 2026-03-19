@@ -1,0 +1,22 @@
+diff --git a/service/builder/receivers_builder.go b/service/builder/receivers_builder.go
+index d362e56c8..2229481b6 100644
+--- a/service/builder/receivers_builder.go
++++ b/service/builder/receivers_builder.go
+@@ -22,7 +22,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/component/componenterr"
++	"github.com/open-telemetry/opentelemetry-collector/component/componenterror"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+@@ -61,7 +61,7 @@ func (rcvs Receivers) StopAll() error {
+ 	}
+ 
+ 	if len(errs) != 0 {
+-		return componenterr.CombineErrors(errs)
++		return componenterror.CombineErrors(errs)
+ 	}
+ 	return nil
+ }

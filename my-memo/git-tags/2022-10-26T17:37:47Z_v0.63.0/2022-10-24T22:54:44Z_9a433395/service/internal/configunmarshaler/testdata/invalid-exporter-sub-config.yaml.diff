@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-exporter-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-exporter-sub-config.yaml
+deleted file mode 100644
+index 46b0be229..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-exporter-sub-config.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-    tests
+-processors:
+-  nop:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]

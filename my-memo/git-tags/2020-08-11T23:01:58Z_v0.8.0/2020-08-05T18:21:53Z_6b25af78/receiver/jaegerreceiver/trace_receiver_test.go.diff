@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index d9053cf69..d91c1c8c6 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -252,7 +252,7 @@ func TestGRPCReception(t *testing.T) {
+ 
+ func TestGRPCReceptionWithTLS(t *testing.T) {
+ 	// prepare
+-	grpcServerOptions := []grpc.ServerOption{}
++	var grpcServerOptions []grpc.ServerOption
+ 	tlsCreds := configtls.TLSServerSetting{
+ 		TLSSetting: configtls.TLSSetting{
+ 			CertFile: path.Join(".", "testdata", "certificate.pem"),

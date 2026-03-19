@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint.go b/pdata/internal/generated_wrapper_summarydatapoint.go
+index 171f6cadb..9c2c86df5 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint.go
+@@ -19,3 +19,13 @@ func CopyOrigSummaryDataPoint(dest, src *otlpmetrics.SummaryDataPoint) {
+ 	dest.QuantileValues = CopyOrigSummaryDataPoint_ValueAtQuantileSlice(dest.QuantileValues, src.QuantileValues)
+ 	dest.Flags = src.Flags
+ }
++
++func FillOrigTestSummaryDataPoint(orig *otlpmetrics.SummaryDataPoint) {
++	orig.Attributes = GenerateOrigTestKeyValueSlice()
++	orig.StartTimeUnixNano = 1234567890
++	orig.TimeUnixNano = 1234567890
++	orig.Count = uint64(13)
++	orig.Sum = float64(3.1415926)
++	orig.QuantileValues = GenerateOrigTestSummaryDataPoint_ValueAtQuantileSlice()
++	orig.Flags = 1
++}

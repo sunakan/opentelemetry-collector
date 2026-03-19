@@ -1,0 +1,12 @@
+diff --git a/config/testdata/duplicate-pipeline.yaml b/config/testdata/duplicate-pipeline.yaml
+index d08d30109..152a800a8 100644
+--- a/config/testdata/duplicate-pipeline.yaml
++++ b/config/testdata/duplicate-pipeline.yaml
+@@ -4,7 +4,6 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-    enabled: true
+ pipelines:
+   traces/default:
+     receivers: [examplereceiver]

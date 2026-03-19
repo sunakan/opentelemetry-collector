@@ -1,0 +1,13 @@
+diff --git a/pdata/doc.go b/pdata/doc.go
+new file mode 100644
+index 000000000..cbfb4223b
+--- /dev/null
++++ b/pdata/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++// Package pdata provides the data model definitions for all supported pipeline data.
++package pdata // import "go.opentelemetry.io/collector/pdata"

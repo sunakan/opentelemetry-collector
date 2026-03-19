@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splitlogs_test.go b/processor/batchprocessor/splitlogs_test.go
+index 74ac51c85..e9a611d61 100644
+--- a/processor/batchprocessor/splitlogs_test.go
++++ b/processor/batchprocessor/splitlogs_test.go
+@@ -23,7 +23,7 @@ func TestSplitLogs_noop(t *testing.T) {
+ 		i++
+ 		return i > 5
+ 	})
+-	assert.EqualValues(t, td, split)
++	assert.Equal(t, td, split)
+ }
+ 
+ func TestSplitLogs(t *testing.T) {

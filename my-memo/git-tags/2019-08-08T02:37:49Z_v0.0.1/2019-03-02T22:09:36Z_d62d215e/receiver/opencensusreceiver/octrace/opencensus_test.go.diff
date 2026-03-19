@@ -1,0 +1,21 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index 33b6ff33f..6b7c0d269 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -38,6 +38,7 @@ import (
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/census-instrumentation/opencensus-service/data"
+ 	"github.com/census-instrumentation/opencensus-service/internal"
++	"github.com/census-instrumentation/opencensus-service/observability"
+ 	"github.com/census-instrumentation/opencensus-service/processor"
+ 	"go.opencensus.io/trace"
+ 	"go.opencensus.io/trace/tracestate"
+@@ -503,7 +504,7 @@ func ocReceiverOnGRPCServer(t *testing.T, sr processor.TraceDataProcessor, opts
+ 	}
+ 
+ 	// Now run it as a gRPC server
+-	srv := internal.GRPCServerWithObservabilityEnabled()
++	srv := observability.GRPCServerWithObservabilityEnabled()
+ 	agenttracepb.RegisterTraceServiceServer(srv, oci)
+ 	go func() {
+ 		_ = srv.Serve(ln)

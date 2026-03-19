@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces.go b/translator/trace/jaeger/jaegerthrift_to_traces.go
+index df6b9d841..c6aa7d219 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces.go
+@@ -56,8 +56,6 @@ func jThriftProcessToInternalResource(process *jaeger.Process, dest pdata.Resour
+ 		return
+ 	}
+ 
+-	dest.InitEmpty()
+-
+ 	serviceName := process.GetServiceName()
+ 	tags := process.GetTags()
+ 	if serviceName == "" && tags == nil {

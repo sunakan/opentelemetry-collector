@@ -1,0 +1,22 @@
+diff --git a/extension/pprofextension/factory_test.go b/extension/pprofextension/factory_test.go
+index 04d1af46a..e81a8492f 100644
+--- a/extension/pprofextension/factory_test.go
++++ b/extension/pprofextension/factory_test.go
+@@ -23,15 +23,15 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+-	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 	cfg := createDefaultConfig()
+ 	assert.Equal(t, &Config{
+-		ExtensionSettings: configmodels.ExtensionSettings{
++		ExtensionSettings: config.ExtensionSettings{
+ 			NameVal: typeStr,
+ 			TypeVal: typeStr,
+ 		},

@@ -1,0 +1,12 @@
+diff --git a/service/internal/configunmarshaler/exporters.go b/service/internal/configunmarshaler/exporters.go
+index cd68761ca..304a89dca 100644
+--- a/service/internal/configunmarshaler/exporters.go
++++ b/service/internal/configunmarshaler/exporters.go
+@@ -54,7 +54,6 @@ func (e *Exporters) Unmarshal(conf *confmap.Conf) error {
+ 
+ 		// Create the default config for this exporter.
+ 		exporterCfg := factory.CreateDefaultConfig()
+-		exporterCfg.SetIDName(id.Name()) //nolint:staticcheck
+ 
+ 		// Now that the default config struct is created we can Unmarshal into it,
+ 		// and it will apply user-defined config on top of the default.

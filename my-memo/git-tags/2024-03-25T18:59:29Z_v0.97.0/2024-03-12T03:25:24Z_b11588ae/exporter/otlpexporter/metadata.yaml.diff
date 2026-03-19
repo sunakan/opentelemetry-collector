@@ -1,0 +1,15 @@
+diff --git a/exporter/otlpexporter/metadata.yaml b/exporter/otlpexporter/metadata.yaml
+index 403b818ae..f24e40e1f 100644
+--- a/exporter/otlpexporter/metadata.yaml
++++ b/exporter/otlpexporter/metadata.yaml
+@@ -7,7 +7,6 @@ status:
+     beta: [logs]
+   distributions: [core, contrib]
+ 
+-# TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/9684
+ tests:
+-  skip_lifecycle: true
+-  skip_shutdown: true
++  config:
++    endpoint: otelcol:4317
+\ No newline at end of file

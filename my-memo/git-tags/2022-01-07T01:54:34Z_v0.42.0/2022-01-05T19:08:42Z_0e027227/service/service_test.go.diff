@@ -1,0 +1,22 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 461fee3a7..965a3c2e9 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -16,7 +16,7 @@ package service
+ 
+ import (
+ 	"context"
+-	"path"
++	"path/filepath"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -100,7 +100,7 @@ func createExampleService(t *testing.T) *service {
+ 	// Create some factories.
+ 	factories, err := componenttest.NopFactories()
+ 	require.NoError(t, err)
+-	cfg, err := servicetest.LoadConfigAndValidate(path.Join(".", "testdata", "otelcol-nop.yaml"), factories)
++	cfg, err := servicetest.LoadConfigAndValidate(filepath.Join("testdata", "otelcol-nop.yaml"), factories)
+ 	require.NoError(t, err)
+ 
+ 	srv, err := newService(&svcSettings{

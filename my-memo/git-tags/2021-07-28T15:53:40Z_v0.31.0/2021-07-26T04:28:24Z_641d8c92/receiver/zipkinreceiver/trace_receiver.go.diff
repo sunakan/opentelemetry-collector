@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/trace_receiver.go b/receiver/zipkinreceiver/trace_receiver.go
+index cb3e52aeb..c56b3a913 100644
+--- a/receiver/zipkinreceiver/trace_receiver.go
++++ b/receiver/zipkinreceiver/trace_receiver.go
+@@ -191,7 +191,7 @@ const (
+ )
+ 
+ // The ZipkinReceiver receives spans from endpoint /api/v2 as JSON,
+-// unmarshals them and sends them along to the nextConsumer.
++// unmarshalls them and sends them along to the nextConsumer.
+ func (zr *ZipkinReceiver) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+ 	ctx := r.Context()
+ 	if c, ok := client.FromHTTP(r); ok {

@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/logs_test.go b/internal/otlptext/logs_test.go
+index 0bfe4a105..898b6c193 100644
+--- a/internal/otlptext/logs_test.go
++++ b/internal/otlptext/logs_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+-func TestLogs(t *testing.T) {
++func TestLogsText(t *testing.T) {
+ 	type args struct {
+ 		ld pdata.Logs
+ 	}

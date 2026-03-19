@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 9f161a3f7..870e9ba83 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -415,7 +415,6 @@ func TestDecompressorAvoidDecompressionBomb(t *testing.T) {
+ 			compress: compressLz4,
+ 		},
+ 	} {
+-		tc := tc
+ 		t.Run(tc.name, func(t *testing.T) {
+ 			t.Parallel()
+ 

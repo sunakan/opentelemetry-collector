@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/testdata/config.yaml b/config/confighttp/testdata/config.yaml
+index 0b241df6f..3aae5f75b 100644
+--- a/config/confighttp/testdata/config.yaml
++++ b/config/confighttp/testdata/config.yaml
+@@ -61,6 +61,7 @@ client:
+ server:
+   # Network endpoint configuration
+   endpoint: "0.0.0.0:4318"
++  transport: tcp
+ 
+   # TLS configuration
+   tls:

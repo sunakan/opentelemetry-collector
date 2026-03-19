@@ -1,0 +1,15 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 24cb581e6..e2ee26c1e 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -31,8 +31,9 @@ const (
+ 	typeStr = "otlp"
+ 
+ 	defaultGRPCEndpoint = "0.0.0.0:4317"
+-	defaultHTTPEndpoint = "0.0.0.0:55681"
++	defaultHTTPEndpoint = "0.0.0.0:4318"
+ 	legacyGRPCEndpoint  = "0.0.0.0:55680"
++	legacyHTTPEndpoint  = "0.0.0.0:55681"
+ )
+ 
+ // NewFactory creates a new OTLP receiver factory.

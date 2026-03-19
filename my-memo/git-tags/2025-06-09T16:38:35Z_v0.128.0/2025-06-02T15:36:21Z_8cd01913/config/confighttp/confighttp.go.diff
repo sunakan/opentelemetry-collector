@@ -1,0 +1,15 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 909d033a9..5342a9d17 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -376,10 +376,8 @@ type ServerConfig struct {
+ // NewDefaultServerConfig returns ServerConfig type object with default values.
+ // We encourage to use this function to create an object of ServerConfig.
+ func NewDefaultServerConfig() ServerConfig {
+-	tlsDefaultServerConfig := configtls.NewDefaultServerConfig()
+ 	return ServerConfig{
+ 		ResponseHeaders:   map[string]configopaque.String{},
+-		TLSSetting:        &tlsDefaultServerConfig,
+ 		CORS:              NewDefaultCORSConfig(),
+ 		WriteTimeout:      30 * time.Second,
+ 		ReadHeaderTimeout: 1 * time.Minute,

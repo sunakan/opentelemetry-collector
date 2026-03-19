@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index 16879956f..6a830fbfb 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -40,7 +40,7 @@ func (f *factory) Type() string {
+ 
+ // CreateDefaultConfig creates the default configuration for exporter.
+ func (f *factory) CreateDefaultConfig() configmodels.Exporter {
+-	return &ConfigV2{
++	return &Config{
+ 		ExporterSettings: configmodels.ExporterSettings{
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,

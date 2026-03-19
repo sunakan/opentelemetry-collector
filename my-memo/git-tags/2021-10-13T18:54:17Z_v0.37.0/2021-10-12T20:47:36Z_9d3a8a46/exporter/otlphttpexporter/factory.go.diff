@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index ad8b2c33e..4baf2971f 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package otlphttpexporter
++package otlphttpexporter // import "go.opentelemetry.io/collector/exporter/otlphttpexporter"
+ 
+ import (
+ 	"context"

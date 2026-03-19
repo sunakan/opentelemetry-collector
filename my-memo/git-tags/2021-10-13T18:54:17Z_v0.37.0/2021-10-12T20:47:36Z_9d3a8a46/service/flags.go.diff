@@ -1,0 +1,13 @@
+diff --git a/service/flags.go b/service/flags.go
+index 76945d668..8eb90229e 100644
+--- a/service/flags.go
++++ b/service/flags.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package service
++package service // import "go.opentelemetry.io/collector/service"
+ 
+ import (
+ 	"flag"

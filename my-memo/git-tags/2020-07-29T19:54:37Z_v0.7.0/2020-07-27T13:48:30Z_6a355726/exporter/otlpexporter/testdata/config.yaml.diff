@@ -1,0 +1,18 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index 38787c3b0..c889a7af6 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -12,11 +12,11 @@ exporters:
+     ca_file: /var/lib/mycert.pem
+     timeout: 10s
+     sending_queue:
+-      disabled: false
++      enabled: true
+       num_consumers: 2
+       queue_size: 10
+     retry_on_failure:
+-      disabled: false
++      enabled: true
+       initial_interval: 10s
+       max_interval: 60s
+       max_elapsed_time: 10m

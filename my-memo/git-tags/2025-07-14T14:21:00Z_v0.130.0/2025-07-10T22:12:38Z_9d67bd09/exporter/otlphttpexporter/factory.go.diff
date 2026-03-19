@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index 082e3805f..fade359e5 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -166,7 +166,7 @@ func createProfiles(
+ 		return nil, err
+ 	}
+ 
+-	return xexporterhelper.NewProfilesExporter(ctx, set, cfg,
++	return xexporterhelper.NewProfiles(ctx, set, cfg,
+ 		oce.pushProfiles,
+ 		exporterhelper.WithStart(oce.start),
+ 		exporterhelper.WithCapabilities(consumer.Capabilities{MutatesData: false}),

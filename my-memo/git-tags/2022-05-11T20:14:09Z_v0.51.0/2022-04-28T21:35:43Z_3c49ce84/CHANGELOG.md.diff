@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 60084a50b..a3386458a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,9 @@
+ 
+ ### 🛑 Breaking changes 🛑
+ 
++- Remove deprecated model module, everything is available in `pdata` and `semconv`. (#5281)
++  - Old versions of the module are still available, but no new versions will be released.
++
+ ### 🚩 Deprecations 🚩
+ 
+ ### 💡 Enhancements 💡

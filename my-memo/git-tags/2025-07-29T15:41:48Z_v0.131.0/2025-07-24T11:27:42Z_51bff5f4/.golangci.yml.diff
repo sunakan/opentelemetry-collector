@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 27fc626b9..324018381 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -26,6 +26,7 @@ linters:
+     - depguard
+     - errcheck
+     - errorlint
++    - fatcontext
+     - gocritic
+     - gosec
+     - govet

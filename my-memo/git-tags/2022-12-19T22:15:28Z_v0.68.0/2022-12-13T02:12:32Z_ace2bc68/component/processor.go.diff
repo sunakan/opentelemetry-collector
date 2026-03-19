@@ -1,0 +1,27 @@
+diff --git a/component/processor.go b/component/processor.go
+index 2874b18b7..cb6982618 100644
+--- a/component/processor.go
++++ b/component/processor.go
+@@ -20,12 +20,6 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+-// Deprecated: [v0.67.0] use Config.
+-type ProcessorConfig = Config
+-
+-// Deprecated: [v0.67.0] use UnmarshalConfig.
+-var UnmarshalProcessorConfig = UnmarshalConfig
+-
+ // Deprecated: [v0.68.0] use processor.Traces.
+ type TracesProcessor interface {
+ 	Component
+@@ -84,9 +78,6 @@ type ProcessorFactory interface {
+ 	LogsProcessorStability() StabilityLevel
+ }
+ 
+-// Deprecated: [v0.67.0] use CreateDefaultConfigFunc.
+-type ProcessorCreateDefaultConfigFunc = CreateDefaultConfigFunc
+-
+ // Deprecated: [v0.68.0] use processor.FactoryOption.
+ type ProcessorFactoryOption interface {
+ 	// applyProcessorFactoryOption applies the option.

@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/doc.go b/receiver/otlpreceiver/doc.go
+index 78378a5c0..f0974c12e 100644
+--- a/receiver/otlpreceiver/doc.go
++++ b/receiver/otlpreceiver/doc.go
+@@ -1,5 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ // Package otlpreceiver receives data in OTLP format.
+ package otlpreceiver // import "go.opentelemetry.io/collector/receiver/otlpreceiver"

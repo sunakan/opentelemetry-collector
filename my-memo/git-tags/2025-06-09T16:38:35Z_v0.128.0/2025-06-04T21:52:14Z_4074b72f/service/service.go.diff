@@ -1,0 +1,24 @@
+diff --git a/service/service.go b/service/service.go
+index c22443829..a1b7993c9 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -225,7 +225,7 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 		return nil, err
+ 	}
+ 
+-	if cfg.Telemetry.Metrics.Level != configtelemetry.LevelNone && (len(mpConfig.Readers) != 0 || cfg.Telemetry.Metrics.Address != "") {
++	if cfg.Telemetry.Metrics.Level != configtelemetry.LevelNone && len(mpConfig.Readers) != 0 {
+ 		if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
+ 			return nil, fmt.Errorf("failed to register process metrics: %w", err)
+ 		}
+@@ -242,10 +242,6 @@ func logsAboutMeterProvider(logger *zap.Logger, cfg telemetry.MetricsConfig, mp
+ 		return
+ 	}
+ 
+-	if len(cfg.Address) != 0 {
+-		logger.Warn("service::telemetry::metrics::address is being deprecated in favor of service::telemetry::metrics::readers")
+-	}
+-
+ 	if lmp, ok := mp.(interface {
+ 		LogAboutServers(logger *zap.Logger, cfg telemetry.MetricsConfig)
+ 	}); ok {

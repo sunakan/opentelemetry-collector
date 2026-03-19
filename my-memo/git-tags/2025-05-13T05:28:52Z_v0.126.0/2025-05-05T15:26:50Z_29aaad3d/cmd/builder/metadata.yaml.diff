@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/metadata.yaml b/cmd/builder/metadata.yaml
+index e46f8297d..6cf04f23b 100644
+--- a/cmd/builder/metadata.yaml
++++ b/cmd/builder/metadata.yaml
+@@ -2,6 +2,7 @@ type: builder
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: cmd
+   stability:
+     alpha: [metrics]

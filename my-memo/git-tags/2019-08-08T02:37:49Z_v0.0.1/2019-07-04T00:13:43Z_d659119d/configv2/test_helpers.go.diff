@@ -1,0 +1,19 @@
+diff --git a/configv2/test_helpers.go b/configv2/test_helpers.go
+index 8c9c80bd5..f66e8ef22 100644
+--- a/configv2/test_helpers.go
++++ b/configv2/test_helpers.go
+@@ -18,12 +18,12 @@ import (
+ 	"os"
+ 	"testing"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/models"
++	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
+ 	"github.com/spf13/viper"
+ )
+ 
+ // LoadConfigFile loads a config from file.
+-func LoadConfigFile(t *testing.T, fileName string) (*models.ConfigV2, error) {
++func LoadConfigFile(t *testing.T, fileName string) (*configmodels.ConfigV2, error) {
+ 	// Open the file for reading.
+ 	file, err := os.Open(fileName)
+ 	if err != nil {

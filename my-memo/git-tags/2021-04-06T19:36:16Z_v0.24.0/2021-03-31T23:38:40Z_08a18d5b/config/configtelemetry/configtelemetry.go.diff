@@ -1,0 +1,12 @@
+diff --git a/config/configtelemetry/configtelemetry.go b/config/configtelemetry/configtelemetry.go
+index 0c01c70db..f944dd4ba 100644
+--- a/config/configtelemetry/configtelemetry.go
++++ b/config/configtelemetry/configtelemetry.go
+@@ -69,6 +69,7 @@ func (l *Level) String() string {
+ 	return "unknown"
+ }
+ 
++// Set sets the telemetry level.
+ func (l *Level) Set(s string) error {
+ 	lvl, err := parseLevel(s)
+ 	if err != nil {

@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_spanlink.go b/pdata/ptrace/generated_spanlink.go
+index 3121e263e..cb98d5775 100644
+--- a/pdata/ptrace/generated_spanlink.go
++++ b/pdata/ptrace/generated_spanlink.go
+@@ -45,6 +45,10 @@ func NewSpanLink() SpanLink {
+ func (ms SpanLink) MoveTo(dest SpanLink) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlptrace.Span_Link{}
+ }

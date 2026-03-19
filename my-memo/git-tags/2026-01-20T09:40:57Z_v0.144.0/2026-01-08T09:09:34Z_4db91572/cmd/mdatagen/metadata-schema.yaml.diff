@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index e11880d26..8659966fb 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -1,6 +1,12 @@
+ # Required: The type of the component - Usually the name. The type and class combined uniquely identify the component (eg. receiver/otlp) or subcomponent (eg. receiver/hostmetricsreceiver/cpu)
+ type:
+ 
++# Optional: Human-readable display name for the component. Used as the title in generated README files.
++display_name: string
++
++# Optional: Brief description of the component that will be included in the generated README.
++description: string
++
+ # Required for subcomponents: The type of the parent component.
+ parent: string
+ 

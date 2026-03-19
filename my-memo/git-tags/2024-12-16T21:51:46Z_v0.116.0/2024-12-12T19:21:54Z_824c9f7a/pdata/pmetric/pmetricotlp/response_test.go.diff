@@ -1,0 +1,17 @@
+diff --git a/pdata/pmetric/pmetricotlp/response_test.go b/pdata/pmetric/pmetricotlp/response_test.go
+index a8b689aac..bf1f70b41 100644
+--- a/pdata/pmetric/pmetricotlp/response_test.go
++++ b/pdata/pmetric/pmetricotlp/response_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportResponse{}
+-var _ json.Marshaler = ExportResponse{}
++var (
++	_ json.Unmarshaler = ExportResponse{}
++	_ json.Marshaler   = ExportResponse{}
++)
+ 
+ func TestExportResponseJSON(t *testing.T) {
+ 	jsonStr := `{"partialSuccess": {"rejectedDataPoints":1, "errorMessage":"nothing"}}`

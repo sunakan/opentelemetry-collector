@@ -1,0 +1,25 @@
+diff --git a/config/configunmarshaler/testdata/invalid-metrics-level.yaml b/config/configunmarshaler/testdata/invalid-metrics-level.yaml
+new file mode 100644
+index 000000000..814e63070
+--- /dev/null
++++ b/config/configunmarshaler/testdata/invalid-metrics-level.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++extensions:
++  exampleextension:
++service:
++  telemetry:
++    metrics:
++      level: "unknown"
++  extensions: [exampleextension]
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
++

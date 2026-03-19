@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_proto_profilesdata.go b/pdata/internal/generated_proto_profilesdata.go
+index f3d1c1a16..45a876f6d 100644
+--- a/pdata/internal/generated_proto_profilesdata.go
++++ b/pdata/internal/generated_proto_profilesdata.go
+@@ -46,12 +46,10 @@ func DeleteProfilesData(orig *ProfilesData, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.ResourceProfiles {
+ 		DeleteResourceProfiles(orig.ResourceProfiles[i], true)
+ 	}
+ 	DeleteProfilesDictionary(&orig.Dictionary, false)
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolProfilesData.Put(orig)

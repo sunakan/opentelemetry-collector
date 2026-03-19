@@ -1,0 +1,36 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index a0f5a06ac..5df836d63 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -202,6 +202,9 @@ type HTTPServerSettings struct {
+ 	// Auth for this receiver
+ 	Auth *configauth.Authentication `mapstructure:"auth,omitempty"`
+ 
++	// MaxRequestBodySize sets the maximum request body size in bytes
++	MaxRequestBodySize int64 `mapstructure:"max_request_body_size,omitempty"`
++
+ 	// IncludeMetadata propagates the client metadata from the incoming requests to the downstream consumers
+ 	// Experimental: *NOTE* this option is subject to change or removal in the future.
+ 	IncludeMetadata bool `mapstructure:"include_metadata,omitempty"`
+@@ -255,6 +258,10 @@ func (hss *HTTPServerSettings) ToServer(host component.Host, settings component.
+ 		withErrorHandlerForDecompressor(serverOpts.errorHandler),
+ 	)
+ 
++	if hss.MaxRequestBodySize > 0 {
++		handler = maxRequestBodySizeInterceptor(handler, hss.MaxRequestBodySize)
++	}
++
+ 	if hss.CORS != nil && len(hss.CORS.AllowedOrigins) > 0 {
+ 		co := cors.Options{
+ 			AllowedOrigins:   hss.CORS.AllowedOrigins,
+@@ -332,3 +339,10 @@ func authInterceptor(next http.Handler, authenticate configauth.AuthenticateFunc
+ 		next.ServeHTTP(w, r.WithContext(ctx))
+ 	})
+ }
++
++func maxRequestBodySizeInterceptor(next http.Handler, maxRecvSize int64) http.Handler {
++	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++		r.Body = http.MaxBytesReader(w, r.Body, maxRecvSize)
++		next.ServeHTTP(w, r)
++	})
++}

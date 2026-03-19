@@ -1,0 +1,23 @@
+diff --git a/processor/groupbytraceprocessor/testdata/config.yaml b/processor/groupbytraceprocessor/testdata/config.yaml
+new file mode 100644
+index 000000000..df0e7aada
+--- /dev/null
++++ b/processor/groupbytraceprocessor/testdata/config.yaml
+@@ -0,0 +1,17 @@
++receivers:
++  examplereceiver:
++
++processors:
++  groupbytrace/custom:
++    wait_duration: 10s
++    num_traces: 1000
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [groupbytrace/custom]
++      exporters: [exampleexporter]

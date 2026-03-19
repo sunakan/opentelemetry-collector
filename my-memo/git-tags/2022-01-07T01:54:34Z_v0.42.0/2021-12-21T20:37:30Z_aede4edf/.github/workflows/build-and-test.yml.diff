@@ -1,0 +1,40 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 074dc7a71..a8ff0d850 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -13,7 +13,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v2
+       - name: Setup Go
+-        uses: actions/setup-go@v2.1.4
++        uses: actions/setup-go@v2.1.5
+         with:
+           go-version: 1.17
+       - name: Setup Go Environment
+@@ -45,7 +45,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v2
+       - name: Setup Go
+-        uses: actions/setup-go@v2.1.4
++        uses: actions/setup-go@v2.1.5
+         with:
+           go-version: 1.17
+       - name: Setup Go Environment
+@@ -91,7 +91,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v2
+       - name: Setup Go
+-        uses: actions/setup-go@v2.1.4
++        uses: actions/setup-go@v2.1.5
+         with:
+           go-version: 1.17
+       - name: Setup Go Environment
+@@ -124,7 +124,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v2
+       - name: Setup Go
+-        uses: actions/setup-go@v2.1.4
++        uses: actions/setup-go@v2.1.5
+         with:
+           go-version: 1.17
+       - name: Setup Go Environment

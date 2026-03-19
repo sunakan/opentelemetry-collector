@@ -1,0 +1,10 @@
+diff --git a/exporter/otlpexporter/testdata/default-batch.yaml b/exporter/otlpexporter/testdata/default-batch.yaml
+new file mode 100644
+index 000000000..64a309821
+--- /dev/null
++++ b/exporter/otlpexporter/testdata/default-batch.yaml
+@@ -0,0 +1,4 @@
++endpoint: "1.2.3.4:1234"
++timeout: 10s
++sending_queue:
++  batch:

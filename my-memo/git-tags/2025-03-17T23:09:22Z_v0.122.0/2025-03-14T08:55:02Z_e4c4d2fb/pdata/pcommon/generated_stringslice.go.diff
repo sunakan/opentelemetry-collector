@@ -1,0 +1,30 @@
+diff --git a/pdata/pcommon/generated_stringslice.go b/pdata/pcommon/generated_stringslice.go
+index 80c677721..b16564570 100644
+--- a/pdata/pcommon/generated_stringslice.go
++++ b/pdata/pcommon/generated_stringslice.go
+@@ -7,6 +7,7 @@
+ package pcommon
+ 
+ import (
++	"iter"
+ 	"slices"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -57,6 +58,17 @@ func (ms StringSlice) At(i int) string {
+ 	return (*ms.getOrig())[i]
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++func (ms StringSlice) All() iter.Seq2[int, string] {
++	return func(yield func(int, string) bool) {
++		for i := 0; i < ms.Len(); i++ {
++			if !yield(i, ms.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // SetAt sets string item at particular index.
+ // Equivalent of stringSlice[i] = val
+ func (ms StringSlice) SetAt(i int, val string) {

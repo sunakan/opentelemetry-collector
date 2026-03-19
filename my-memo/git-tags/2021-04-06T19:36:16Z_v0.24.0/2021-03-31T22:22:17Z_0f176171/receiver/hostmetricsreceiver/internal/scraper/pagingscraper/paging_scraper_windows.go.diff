@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
+index 0a88cf82e..545149a15 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_windows.go
+@@ -170,7 +170,7 @@ func initializePagingOperationsDataPoint(dataPoint pdata.IntDataPoint, startTime
+ 	labelsMap := dataPoint.LabelsMap()
+ 	labelsMap.Insert(metadata.Labels.PagingType, metadata.LabelPagingType.Major)
+ 	labelsMap.Insert(metadata.Labels.PagingDirection, directionLabel)
+-	dataPoint.SetStartTime(startTime)
++	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetValue(value)
+ }

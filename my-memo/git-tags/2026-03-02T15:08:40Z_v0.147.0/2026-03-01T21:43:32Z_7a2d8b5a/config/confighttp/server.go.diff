@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/server.go b/config/confighttp/server.go
+index e6dec5b3e..733e069b3 100644
+--- a/config/confighttp/server.go
++++ b/config/confighttp/server.go
+@@ -207,7 +207,7 @@ func (sc *ServerConfig) ToServer(ctx context.Context, extensions map[component.I
+ 		if err != nil {
+ 			return nil, err
+ 		}
+-		handler, err = wrapper(handler)
++		handler, err = wrapper(ctx, handler)
+ 		// If we failed to construct a wrapper
+ 		if err != nil {
+ 			return nil, err

@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 062bfec80..a39a64ecb 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@
+ 
+ ## 🛑 Breaking changes 🛑
+ 
++- Change configmapprovider.Provider to accept a location for retrieve (#4657)
+ - Define a type `WatcherFunc` for onChange func instead of func pointer (#4656)
+ - Remove deprecated `configtest.LoadConfig` and `configtest.LoadConfigAndValidate` (#4659)
+ 

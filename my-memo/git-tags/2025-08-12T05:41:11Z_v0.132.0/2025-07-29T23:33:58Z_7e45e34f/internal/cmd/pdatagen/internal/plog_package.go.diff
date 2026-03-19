@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/plog_package.go b/internal/cmd/pdatagen/internal/plog_package.go
+index 6abfbcd28..aac11ec6a 100644
+--- a/internal/cmd/pdatagen/internal/plog_package.go
++++ b/internal/cmd/pdatagen/internal/plog_package.go
+@@ -8,6 +8,7 @@ var plog = &Package{
+ 		name: "plog",
+ 		path: "plog",
+ 		imports: []string{
++			`"iter"`,
+ 			`"sort"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,

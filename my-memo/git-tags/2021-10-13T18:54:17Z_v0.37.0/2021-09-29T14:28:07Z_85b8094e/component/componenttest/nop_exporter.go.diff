@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_exporter.go b/component/componenttest/nop_exporter.go
+index d93d52b39..0cd9430b1 100644
+--- a/component/componenttest/nop_exporter.go
++++ b/component/componenttest/nop_exporter.go
+@@ -53,7 +53,7 @@ func (f *nopExporterFactory) Type() config.Type {
+ // CreateDefaultConfig creates the default configuration for the Exporter.
+ func (f *nopExporterFactory) CreateDefaultConfig() config.Exporter {
+ 	return &nopExporterConfig{
+-		ExporterSettings: config.NewExporterSettings(config.NewID("nop")),
++		ExporterSettings: config.NewExporterSettings(config.NewComponentID("nop")),
+ 	}
+ }
+ 

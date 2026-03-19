@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index ea56d07ff..794adda2e 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -100,7 +100,7 @@ func TestHTTPClientCompression(t *testing.T) {
+ 				Endpoint:    srv.URL,
+ 				Compression: tt.encoding,
+ 			}
+-			client, err := clientSettings.ToClientContext(context.Background(), componenttest.NewNopHost(), componenttest.NewNopTelemetrySettings())
++			client, err := clientSettings.ToClient(context.Background(), componenttest.NewNopHost(), componenttest.NewNopTelemetrySettings())
+ 			require.NoError(t, err)
+ 			res, err := client.Do(req)
+ 			if tt.shouldError {

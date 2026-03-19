@@ -1,0 +1,13 @@
+diff --git a/.chloggen/config.yaml b/.chloggen/config.yaml
+index 9e5d20ad5..4216205aa 100644
+--- a/.chloggen/config.yaml
++++ b/.chloggen/config.yaml
+@@ -17,7 +17,7 @@ components:
+     - docs/rfcs
+     - exporter/debug
+     - exporter/nop
+-    - exporter/otlp
++    - exporter/otlp_grpc
+     - exporter/otlp_http
+     - extension/memory_limiter
+     - extension/xextension

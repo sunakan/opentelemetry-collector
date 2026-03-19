@@ -1,0 +1,21 @@
+diff --git a/interceptor/opencensus/opencensus.go b/interceptor/opencensus/opencensus.go
+index 6a16acb02..9e553115f 100644
+--- a/interceptor/opencensus/opencensus.go
++++ b/interceptor/opencensus/opencensus.go
+@@ -103,13 +103,13 @@ func (oci *OCInterceptor) Export(tes agenttracepb.TraceService_ExportServer) err
+ 
+ 	processReceivedSpans := func(ni *commonpb.Node, spans []*tracepb.Span) {
+ 		// Firstly, we'll add them to the bundler.
+-		if len(recv.Spans) > 0 {
+-			bundlerPayload := &spansAndNode{node: ni, spans: recv.Spans}
++		if len(spans) > 0 {
++			bundlerPayload := &spansAndNode{node: ni, spans: spans}
+ 			traceBundler.Add(bundlerPayload, len(bundlerPayload.spans))
+ 		}
+ 
+ 		// We MUST unconditionally record metrics from this reception.
+-		spansMetricsFn(ni, recv.Spans)
++		spansMetricsFn(ni, spans)
+ 	}
+ 
+ 	var lastNonNilNode *commonpb.Node

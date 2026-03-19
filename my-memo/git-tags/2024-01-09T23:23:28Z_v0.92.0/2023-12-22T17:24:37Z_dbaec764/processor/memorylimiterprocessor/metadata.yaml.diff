@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+new file mode 100644
+index 000000000..bc9e18291
+--- /dev/null
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -0,0 +1,7 @@
++type: memory_limiter
++
++status:
++  class: processor
++  stability:
++    beta: [traces, metrics, logs]
++  distributions: [core, contrib]

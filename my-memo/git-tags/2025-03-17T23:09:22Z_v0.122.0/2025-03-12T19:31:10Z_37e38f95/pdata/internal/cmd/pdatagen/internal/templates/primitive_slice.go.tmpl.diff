@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+index c8b848a81..39e3032cf 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+@@ -104,6 +104,11 @@ func (ms {{ .structName }}) CopyTo(dest {{ .structName }}) {
+ 	*dest.getOrig() = copy{{ .structName }}(*dest.getOrig(), *ms.getOrig())
+ }
+ 
++// Equal checks equality with another {{ .structName }}
++func (ms {{ .structName }}) Equal(val {{ .structName }}) bool {
++	return slices.Equal(*ms.getOrig(), *val.getOrig())
++}
++
+ func copy{{ .structName }}(dst, src []{{ .itemType }}) []{{ .itemType }} {
+ 	dst = dst[:0]
+ 	return append(dst, src...)

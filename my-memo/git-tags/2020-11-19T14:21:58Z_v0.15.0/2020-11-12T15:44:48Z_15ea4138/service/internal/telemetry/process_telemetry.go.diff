@@ -1,0 +1,13 @@
+diff --git a/service/internal/telemetry/process_telemetry.go b/service/internal/telemetry/process_telemetry.go
+index c3d7b6f8d..37e28ef15 100644
+--- a/service/internal/telemetry/process_telemetry.go
++++ b/service/internal/telemetry/process_telemetry.go
+@@ -97,7 +97,7 @@ var viewCPUSeconds = &view.View{
+ var mRSSMemory = stats.Int64(
+ 	"process/memory/rss",
+ 	"Total physical memory (resident set size)",
+-	stats.UnitDimensionless)
++	stats.UnitBytes)
+ var viewRSSMemory = &view.View{
+ 	Name:        mRSSMemory.Name(),
+ 	Description: mRSSMemory.Description(),

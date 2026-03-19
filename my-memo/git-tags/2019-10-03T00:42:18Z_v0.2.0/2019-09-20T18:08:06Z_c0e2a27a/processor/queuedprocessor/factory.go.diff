@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index a4cf8e311..22a46137b 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -27,7 +27,7 @@ import (
+ 
+ const (
+ 	// The value of "type" key in configuration.
+-	typeStr = "queued-retry"
++	typeStr = "queued_retry"
+ )
+ 
+ // Factory is the factory for OpenCensus exporter.

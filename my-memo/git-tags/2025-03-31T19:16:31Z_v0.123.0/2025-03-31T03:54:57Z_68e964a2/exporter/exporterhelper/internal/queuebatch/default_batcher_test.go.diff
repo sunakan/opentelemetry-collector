@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/default_batcher_test.go b/exporter/exporterhelper/internal/queuebatch/default_batcher_test.go
+index efdb2fae0..4a6f4e287 100644
+--- a/exporter/exporterhelper/internal/queuebatch/default_batcher_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/default_batcher_test.go
+@@ -427,7 +427,7 @@ func (fd fakeDone) OnDone(err error) {
+ func newFakeBytesSizer() request.Sizer[request.Request] {
+ 	return request.BaseSizer{
+ 		SizeofFunc: func(req request.Request) int64 {
+-			return int64(req.(*requesttest.FakeRequest).Items)
++			return int64(req.(*requesttest.FakeRequest).Bytes)
+ 		},
+ 	}
+ }

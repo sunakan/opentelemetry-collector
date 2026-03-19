@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp.go b/receiver/otlpreceiver/metrics/otlp.go
+index 80a423202..deeb5c4da 100644
+--- a/receiver/otlpreceiver/metrics/otlp.go
++++ b/receiver/otlpreceiver/metrics/otlp.go
+@@ -49,6 +49,7 @@ const (
+ 	receiverTransport = "grpc"
+ )
+ 
++// Export implements the service Export metrics func.
+ func (r *Receiver) Export(ctx context.Context, req *collectormetrics.ExportMetricsServiceRequest) (*collectormetrics.ExportMetricsServiceResponse, error) {
+ 	receiverCtx := obsreport.ReceiverContext(ctx, r.instanceName, receiverTransport)
+ 

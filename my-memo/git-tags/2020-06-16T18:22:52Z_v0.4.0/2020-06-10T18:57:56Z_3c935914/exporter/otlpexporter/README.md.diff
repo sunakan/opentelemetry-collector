@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/README.md b/exporter/otlpexporter/README.md
+index 85b161203..c827d2b99 100644
+--- a/exporter/otlpexporter/README.md
++++ b/exporter/otlpexporter/README.md
+@@ -28,7 +28,7 @@ Example:
+ ```yaml
+ exporters:
+   otlp:
+-    endpoint: localhost:14250
++    endpoint: 0.0.0.0:14250
+     reconnection_delay: 60s
+     secure: false
+ ```

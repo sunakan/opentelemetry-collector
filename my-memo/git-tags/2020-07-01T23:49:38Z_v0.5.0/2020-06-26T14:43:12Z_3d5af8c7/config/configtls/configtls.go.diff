@@ -1,0 +1,13 @@
+diff --git a/config/configtls/configtls.go b/config/configtls/configtls.go
+index b66ad0af1..982950845 100644
+--- a/config/configtls/configtls.go
++++ b/config/configtls/configtls.go
+@@ -142,7 +142,7 @@ func (c TLSServerSetting) LoadTLSConfig() (*tls.Config, error) {
+ 	if c.ClientCAFile != "" {
+ 		certPool, err := c.loadCert(c.ClientCAFile)
+ 		if err != nil {
+-			return nil, err
++			return nil, fmt.Errorf("failed to load TLS config: failed to load client CA CertPool: %w", err)
+ 		}
+ 		tlsCfg.ClientCAs = certPool
+ 		tlsCfg.ClientAuth = tls.RequireAndVerifyClientCert

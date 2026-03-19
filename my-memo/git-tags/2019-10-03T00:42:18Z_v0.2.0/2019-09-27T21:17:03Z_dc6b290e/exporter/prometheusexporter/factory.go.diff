@@ -1,0 +1,17 @@
+diff --git a/exporter/prometheusexporter/factory.go b/exporter/prometheusexporter/factory.go
+index 070a72718..28a4da16e 100644
+--- a/exporter/prometheusexporter/factory.go
++++ b/exporter/prometheusexporter/factory.go
+@@ -22,9 +22,9 @@ import (
+ 	"github.com/orijtech/prometheus-go-metrics-exporter"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/exporter"
++	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ const (

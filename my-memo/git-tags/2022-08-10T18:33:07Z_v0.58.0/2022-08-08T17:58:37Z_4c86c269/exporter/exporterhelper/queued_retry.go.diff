@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry.go b/exporter/exporterhelper/queued_retry.go
+index 2c7fca297..008d2e690 100644
+--- a/exporter/exporterhelper/queued_retry.go
++++ b/exporter/exporterhelper/queued_retry.go
+@@ -121,7 +121,7 @@ func newQueuedRetrySender(id config.ComponentID, signal config.DataType, qCfg Qu
+ 	}
+ 
+ 	if qCfg.StorageID == nil {
+-		qrs.queue = internal.NewBoundedMemoryQueue(qrs.cfg.QueueSize, func(item interface{}) {})
++		qrs.queue = internal.NewBoundedMemoryQueue(qrs.cfg.QueueSize)
+ 	}
+ 	// The Persistent Queue is initialized separately as it needs extra information about the component
+ 

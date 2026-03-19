@@ -1,0 +1,17 @@
+diff --git a/service/graph.go b/service/graph.go
+index 02ff3dc87..279992f70 100644
+--- a/service/graph.go
++++ b/service/graph.go
+@@ -316,11 +316,7 @@ func (g *pipelinesGraph) GetExporters() map[component.DataType]map[component.ID]
+ }
+ 
+ func (g *pipelinesGraph) HandleZPages(w http.ResponseWriter, r *http.Request) {
+-	pipes := make(map[component.ID]zpagesPipeline, len(g.pipelines))
+-	for id, pipe := range g.pipelines {
+-		pipes[id] = pipe
+-	}
+-	handleZPages(w, r, pipes)
++	handleZPages(w, r, g.pipelines)
+ }
+ 
+ func (p *pipelineNodes) receiverIDs() []string {

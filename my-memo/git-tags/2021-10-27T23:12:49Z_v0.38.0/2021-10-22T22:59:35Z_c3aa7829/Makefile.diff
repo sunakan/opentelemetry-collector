@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 049abf45d..ebd8d4573 100644
+--- a/Makefile
++++ b/Makefile
+@@ -360,7 +360,7 @@ genproto_sub:
+ # Generate structs, functions and tests for pdata package. Must be used after any changes
+ # to proto and after running `make genproto`
+ genpdata:
+-	go run cmd/pdatagen/main.go
++	go run model/internal/cmd/pdatagen/main.go
+ 	$(MAKE) fmt
+ 
+ # Generate semantic convention constants. Requires a clone of the opentelemetry-specification repo

@@ -1,0 +1,19 @@
+diff --git a/service/internal/pipelines/testdata/not_supported_processor_traces.yaml b/service/internal/pipelines/testdata/not_supported_processor_traces.yaml
+new file mode 100644
+index 000000000..79baed24a
+--- /dev/null
++++ b/service/internal/pipelines/testdata/not_supported_processor_traces.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  nop:
++processors:
++  bf:
++exporters:
++  nop:
++
++service:
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [bf]
++      exporters: [nop]

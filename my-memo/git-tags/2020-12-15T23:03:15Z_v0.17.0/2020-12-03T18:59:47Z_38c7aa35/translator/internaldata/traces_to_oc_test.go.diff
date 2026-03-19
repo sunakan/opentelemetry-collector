@@ -1,0 +1,20 @@
+diff --git a/translator/internaldata/traces_to_oc_test.go b/translator/internaldata/traces_to_oc_test.go
+index e089f778d..1fd58cf40 100644
+--- a/translator/internaldata/traces_to_oc_test.go
++++ b/translator/internaldata/traces_to_oc_test.go
+@@ -289,6 +289,7 @@ func TestInternalToOC(t *testing.T) {
+ 			},
+ 			DroppedLinksCount: 3,
+ 		},
++		Status: &octrace.Status{},
+ 	}
+ 
+ 	ocSpan3 := &octrace.Span{
+@@ -306,6 +307,7 @@ func TestInternalToOC(t *testing.T) {
+ 			},
+ 			DroppedAttributesCount: 5,
+ 		},
++		Status: &octrace.Status{},
+ 	}
+ 
+ 	tests := []struct {

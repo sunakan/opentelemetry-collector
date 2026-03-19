@@ -1,0 +1,38 @@
+diff --git a/pdata/pcommon/generated_float64slice_test.go b/pdata/pcommon/generated_float64slice_test.go
+index 5c0dc6f97..992d040bf 100644
+--- a/pdata/pcommon/generated_float64slice_test.go
++++ b/pdata/pcommon/generated_float64slice_test.go
+@@ -10,10 +10,8 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestNewFloat64Slice(t *testing.T) {
+@@ -131,22 +129,6 @@ func TestFloat64SliceEqual(t *testing.T) {
+ 	assert.True(t, ms.Equal(ms2))
+ }
+ 
+-func TestFloat64Slice_MarshalAndUnmarshalJSON(t *testing.T) {
+-	stream := json.BorrowStream(nil)
+-	defer json.ReturnStream(stream)
+-	src := NewFloat64Slice()
+-	*src.getOrig() = internal.GenerateOrigTestFloat64Slice()
+-	internal.MarshalJSONStreamFloat64Slice(internal.Float64Slice(src), stream)
+-	require.NoError(t, stream.Error())
+-
+-	iter := json.BorrowIterator(stream.Buffer())
+-	defer json.ReturnIterator(iter)
+-	dest := NewFloat64Slice()
+-	internal.UnmarshalJSONIterFloat64Slice(internal.Float64Slice(dest), iter)
+-
+-	assert.Equal(t, src, dest)
+-}
+-
+ func BenchmarkFloat64SliceEqual(b *testing.B) {
+ 	ms := NewFloat64Slice()
+ 	ms.Append(1.1, 2.2, 3.3)

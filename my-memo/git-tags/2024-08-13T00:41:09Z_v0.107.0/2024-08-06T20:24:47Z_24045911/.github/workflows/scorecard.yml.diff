@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/scorecard.yml b/.github/workflows/scorecard.yml
+index 25f07f2d7..e4ff70fc0 100644
+--- a/.github/workflows/scorecard.yml
++++ b/.github/workflows/scorecard.yml
+@@ -64,6 +64,6 @@ jobs:
+ 
+       # Upload the results to GitHub's code scanning dashboard.
+       - name: "Upload to code-scanning"
+-        uses: github/codeql-action/upload-sarif@afb54ba388a7dca6ecae48f608c4ff05ff4cc77a # v3.25.15
++        uses: github/codeql-action/upload-sarif@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
+         with:
+           sarif_file: results.sarif

@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/command_test.go b/cmd/builder/internal/command_test.go
+index e27da29a6..3454c5e97 100644
+--- a/cmd/builder/internal/command_test.go
++++ b/cmd/builder/internal/command_test.go
+@@ -60,7 +60,6 @@ func Test_applyCfgFromFile(t *testing.T) {
+ 		Name:             "testName",
+ 		Go:               "testGO",
+ 		Description:      "testDescription",
+-		OtelColVersion:   "testOtelColVersion",
+ 		OutputPath:       "testOutputPath",
+ 		Version:          "testVersion",
+ 		BuildTags:        "",

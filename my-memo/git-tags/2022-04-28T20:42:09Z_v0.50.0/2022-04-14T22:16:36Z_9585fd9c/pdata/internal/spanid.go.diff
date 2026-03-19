@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/spanid.go b/pdata/internal/spanid.go
+index 91eda5767..2ac539e11 100644
+--- a/pdata/internal/spanid.go
++++ b/pdata/internal/spanid.go
+@@ -18,7 +18,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/data"
+ )
+ 
+-// SpanID is an alias of OTLP SpanID data type.
++// SpanID is span identifier.
+ type SpanID struct {
+ 	orig data.SpanID
+ }

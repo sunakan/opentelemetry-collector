@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/templates/main_others.go.tmpl b/cmd/builder/internal/builder/templates/main_others.go.tmpl
+index 5b77780a7..e80a51cd4 100644
+--- a/cmd/builder/internal/builder/templates/main_others.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main_others.go.tmpl
+@@ -5,8 +5,8 @@
+ 
+ package main
+ 
+-import "go.opentelemetry.io/collector/service"
++import "go.opentelemetry.io/collector/otelcol"
+ 
+-func run(params service.CollectorSettings) error {
++func run(params otelcol.CollectorSettings) error {
+ 	return runInteractive(params)
+ }

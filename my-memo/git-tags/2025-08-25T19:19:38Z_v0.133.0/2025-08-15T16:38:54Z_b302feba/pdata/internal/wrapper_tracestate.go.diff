@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/wrapper_tracestate.go b/pdata/internal/wrapper_tracestate.go
+index cd3294ea6..3612ddd2c 100644
+--- a/pdata/internal/wrapper_tracestate.go
++++ b/pdata/internal/wrapper_tracestate.go
+@@ -27,8 +27,7 @@ func NewTraceState(orig *string, state *State) TraceState {
+ func GenerateTestTraceState() TraceState {
+ 	var orig string
+ 	FillOrigTestTraceState(&orig)
+-	state := StateMutable
+-	return NewTraceState(&orig, &state)
++	return NewTraceState(&orig, NewState())
+ }
+ 
+ // MarshalJSONOrigTraceState marshals all properties from the current struct to the destination stream.

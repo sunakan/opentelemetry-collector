@@ -1,0 +1,16 @@
+diff --git a/processor/processorhelper/internal/metadata/generated_telemetry.go b/processor/processorhelper/internal/metadata/generated_telemetry.go
+index e008730be..0cc9d5c52 100644
+--- a/processor/processorhelper/internal/metadata/generated_telemetry.go
++++ b/processor/processorhelper/internal/metadata/generated_telemetry.go
+@@ -17,11 +17,6 @@ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/processor/processorhelper")
+ }
+ 
+-// Deprecated: [v0.114.0] use Meter instead.
+-func LeveledMeter(settings component.TelemetrySettings, level configtelemetry.Level) metric.Meter {
+-	return settings.LeveledMeterProvider(level).Meter("go.opentelemetry.io/collector/processor/processorhelper")
+-}
+-
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ 	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/processor/processorhelper")
+ }

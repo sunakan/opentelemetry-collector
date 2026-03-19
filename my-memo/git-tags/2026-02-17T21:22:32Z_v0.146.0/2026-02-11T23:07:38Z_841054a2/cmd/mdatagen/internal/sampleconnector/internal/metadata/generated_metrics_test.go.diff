@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_metrics_test.go b/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_metrics_test.go
+index f20f2db07..bea4933d9 100644
+--- a/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_metrics_test.go
++++ b/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_metrics_test.go
+@@ -162,6 +162,14 @@ func TestMetricsBuilder(t *testing.T) {
+ 			rb.SetStringResourceAttrToBeRemoved("string.resource.attr_to_be_removed-val")
+ 			res := rb.Emit()
+ 			metrics := mb.Emit(WithResource(res))
++			if tt.name == "reaggregate_set" {
++				assert.Empty(t, mb.metricDefaultMetric.aggDataPoints)
++				assert.Empty(t, mb.metricDefaultMetricToBeRemoved.aggDataPoints)
++				assert.Empty(t, mb.metricMetricInputType.aggDataPoints)
++				assert.Empty(t, mb.metricOptionalMetric.aggDataPoints)
++				assert.Empty(t, mb.metricOptionalMetricEmptyUnit.aggDataPoints)
++				assert.Empty(t, mb.metricReaggregateMetric.aggDataPoints)
++			}
+ 
+ 			if tt.expectEmpty {
+ 				assert.Equal(t, 0, metrics.ResourceMetrics().Len())

@@ -1,0 +1,17 @@
+diff --git a/vendor/github.com/tinylib/msgp/.travis.yml b/vendor/github.com/tinylib/msgp/.travis.yml
+new file mode 100644
+index 000000000..b9c6a1b63
+--- /dev/null
++++ b/vendor/github.com/tinylib/msgp/.travis.yml
+@@ -0,0 +1,11 @@
++language: go
++
++go:
++  - 1.7
++  - tip
++
++env:
++  - GIMME_ARCH=amd64
++  - GIMME_ARCH=386
++
++script: "make travis"

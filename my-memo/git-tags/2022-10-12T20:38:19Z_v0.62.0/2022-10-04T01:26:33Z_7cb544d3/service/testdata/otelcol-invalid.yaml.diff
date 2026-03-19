@@ -1,0 +1,14 @@
+diff --git a/service/testdata/otelcol-invalid.yaml b/service/testdata/otelcol-invalid.yaml
+index d6cab5765..133ce74d8 100644
+--- a/service/testdata/otelcol-invalid.yaml
++++ b/service/testdata/otelcol-invalid.yaml
+@@ -8,6 +8,9 @@ exporters:
+   nop:
+ 
+ service:
++  telemetry:
++    metrics:
++      address: localhost:8888
+   pipelines:
+     traces:
+       receivers: [nop]

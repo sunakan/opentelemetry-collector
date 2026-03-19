@@ -1,0 +1,17 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index 75c5a2699..c7077e733 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -18,9 +18,9 @@ package consumer
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ // MetricsConsumerBase defines a common interface for MetricsConsumerOld and MetricsConsumer.

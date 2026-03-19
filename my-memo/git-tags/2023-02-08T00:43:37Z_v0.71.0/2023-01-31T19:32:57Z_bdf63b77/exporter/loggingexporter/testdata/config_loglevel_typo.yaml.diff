@@ -1,0 +1,8 @@
+diff --git a/exporter/loggingexporter/testdata/config_loglevel_typo.yaml b/exporter/loggingexporter/testdata/config_loglevel_typo.yaml
+new file mode 100644
+index 000000000..59222127e
+--- /dev/null
++++ b/exporter/loggingexporter/testdata/config_loglevel_typo.yaml
+@@ -0,0 +1,2 @@
++# Typo in the configuration that assumes that this property is camelcase
++logLevel: debug

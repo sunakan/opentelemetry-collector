@@ -1,0 +1,15 @@
+diff --git a/service/defaultcomponents/default_processors_test.go b/service/defaultcomponents/default_processors_test.go
+index ab919756e..cd20fad11 100644
+--- a/service/defaultcomponents/default_processors_test.go
++++ b/service/defaultcomponents/default_processors_test.go
+@@ -118,8 +118,8 @@ func verifyProcessorLifecycle(t *testing.T, factory component.ProcessorFactory,
+ 	ctx := context.Background()
+ 	host := newAssertNoErrorHost(t)
+ 	processorCreateParams := component.ProcessorCreateParams{
+-		Logger:               zap.NewNop(),
+-		ApplicationStartInfo: component.DefaultApplicationStartInfo(),
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
+ 	}
+ 
+ 	if getConfigFn == nil {

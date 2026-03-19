@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+index 17b1e7c3a..a4135ecc1 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_unix.go
+@@ -40,7 +40,9 @@ func appendSystemSpecificProcessesMetrics(metrics pdata.MetricSlice, startIndex
+ 
+ 	metrics.Resize(startIndex + unixMetricsLen)
+ 	initializeProcessesCountMetric(metrics.At(startIndex+0), now, misc)
+-	appendUnixSystemSpecificProcessesMetrics(metrics, startIndex+1, now, misc)
++	if err = appendUnixSystemSpecificProcessesMetrics(metrics, startIndex+1, now, misc); err != nil {
++		return err
++	}
+ 	return nil
+ }
+ 

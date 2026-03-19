@@ -1,0 +1,24 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 6acd3e5bc..f8f2ad63d 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -24,13 +24,17 @@ jobs:
+         group:
+           - receiver-0
+           - receiver-1
++          - receiver-2
++          - receiver-3
+           - processor
+-          - exporter
++          - exporter-0
++          - exporter-1
+           - extension
+           - connector
+           - internal
+           - pkg
+-          - cmd
++          - cmd-0
++          - cmd-1
+           - other
+     steps:
+       - name: Checkout Repo

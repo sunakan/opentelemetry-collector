@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/go.mod b/exporter/exporterhelper/xexporterhelper/go.mod
+index 9e17e3e30..3b15fc49a 100644
+--- a/exporter/exporterhelper/xexporterhelper/go.mod
++++ b/exporter/exporterhelper/xexporterhelper/go.mod
+@@ -101,10 +101,6 @@ replace go.opentelemetry.io/collector/consumer/consumererror => ../../../consume
+ 
+ replace go.opentelemetry.io/collector/extension/extensiontest => ../../../extension/extensiontest
+ 
+-replace go.opentelemetry.io/collector/scraper => ../../../scraper
+-
+ replace go.opentelemetry.io/collector/featuregate => ../../../featuregate
+ 
+-replace go.opentelemetry.io/collector/scraper/scraperhelper => ../../../scraper/scraperhelper
+-
+ replace go.opentelemetry.io/collector/extension/xextension => ../../../extension/xextension

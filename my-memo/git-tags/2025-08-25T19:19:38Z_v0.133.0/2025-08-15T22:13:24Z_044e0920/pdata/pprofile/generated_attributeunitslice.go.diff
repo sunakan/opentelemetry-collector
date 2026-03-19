@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_attributeunitslice.go b/pdata/pprofile/generated_attributeunitslice.go
+index f4a891261..c6d20d5c8 100644
+--- a/pdata/pprofile/generated_attributeunitslice.go
++++ b/pdata/pprofile/generated_attributeunitslice.go
+@@ -99,7 +99,7 @@ func (es AttributeUnitSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added AttributeUnit.
+ func (es AttributeUnitSlice) AppendEmpty() AttributeUnit {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpprofiles.AttributeUnit{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrAttributeUnit())
+ 	return es.At(es.Len() - 1)
+ }
+ 

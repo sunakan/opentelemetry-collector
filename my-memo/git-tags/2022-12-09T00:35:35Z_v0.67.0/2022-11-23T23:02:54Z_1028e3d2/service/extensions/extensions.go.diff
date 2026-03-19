@@ -1,0 +1,15 @@
+diff --git a/service/extensions/extensions.go b/service/extensions/extensions.go
+index 8bc1beb0d..6d8d662ee 100644
+--- a/service/extensions/extensions.go
++++ b/service/extensions/extensions.go
+@@ -122,8 +122,8 @@ type Settings struct {
+ 	Telemetry component.TelemetrySettings
+ 	BuildInfo component.BuildInfo
+ 
+-	// Configs is a map of component.ID to component.ExtensionConfig.
+-	Configs map[component.ID]component.ExtensionConfig
++	// Configs is a map of component.ID to component.Config.
++	Configs map[component.ID]component.Config
+ 
+ 	// Factories maps extension type names in the config to the respective component.ExtensionFactory.
+ 	Factories map[component.Type]component.ExtensionFactory

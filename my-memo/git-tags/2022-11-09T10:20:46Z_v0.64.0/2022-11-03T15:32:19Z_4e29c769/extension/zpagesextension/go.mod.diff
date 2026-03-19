@@ -1,0 +1,10 @@
+diff --git a/extension/zpagesextension/go.mod b/extension/zpagesextension/go.mod
+index b67b8d33b..ffb450622 100644
+--- a/extension/zpagesextension/go.mod
++++ b/extension/zpagesextension/go.mod
+@@ -46,3 +46,5 @@ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/extension/ballastextension => ../ballastextension
++
++replace go.opentelemetry.io/collector/processor/batchprocessor => ../../processor/batchprocessor

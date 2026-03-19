@@ -1,0 +1,25 @@
+diff --git a/pdata/pmetric/json_test.go b/pdata/pmetric/json_test.go
+index 182856d2f..4c2f7143e 100644
+--- a/pdata/pmetric/json_test.go
++++ b/pdata/pmetric/json_test.go
+@@ -49,6 +49,20 @@ func TestMetricsJSON_Marshal(t *testing.T) {
+ 	assert.JSONEq(t, metricsJSON, string(jsonBuf))
+ }
+ 
++func TestJSONMarshalAndUnmarshal(t *testing.T) {
++	want := NewMetrics()
++	fillTestResourceMetricsSlice(want.ResourceMetrics())
++
++	encoder := &JSONMarshaler{}
++	jsonBuf, err := encoder.MarshalMetrics(want)
++	require.NoError(t, err)
++
++	decoder := &JSONUnmarshaler{}
++	got, err := decoder.UnmarshalMetrics(jsonBuf)
++	require.NoError(t, err)
++	assert.Equal(t, want, got)
++}
++
+ var metricsSumOTLPFull = func() Metrics {
+ 	metric := NewMetrics()
+ 	rs := metric.ResourceMetrics().AppendEmpty()

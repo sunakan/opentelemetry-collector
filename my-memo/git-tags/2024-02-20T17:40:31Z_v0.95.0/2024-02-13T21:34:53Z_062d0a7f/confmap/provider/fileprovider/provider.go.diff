@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/fileprovider/provider.go b/confmap/provider/fileprovider/provider.go
+index 5fb5cab70..a4da3af38 100644
+--- a/confmap/provider/fileprovider/provider.go
++++ b/confmap/provider/fileprovider/provider.go
+@@ -33,7 +33,7 @@ type provider struct{}
+ // `file:/path/to/file` - absolute path (unix, windows)
+ // `file:c:/path/to/file` - absolute path including drive-letter (windows)
+ // `file:c:\path\to\file` - absolute path including drive-letter (windows)
+-func NewWithSettings(_ confmap.ProviderSettings) confmap.Provider {
++func NewWithSettings(confmap.ProviderSettings) confmap.Provider {
+ 	return &provider{}
+ }
+ 

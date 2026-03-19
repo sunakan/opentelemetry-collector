@@ -1,0 +1,13 @@
+diff --git a/config/internal/go.mod b/config/internal/go.mod
+index 4568a8a7e..07e2fab5c 100644
+--- a/config/internal/go.mod
++++ b/config/internal/go.mod
+@@ -36,8 +36,6 @@ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
+ 
+ replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile
+ 
+-replace go.opentelemetry.io/collector/internal/globalgates => ../../internal/globalgates
+-
+ replace go.opentelemetry.io/collector/consumer/consumerprofiles => ../../consumer/consumerprofiles
+ 
+ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/consumertest

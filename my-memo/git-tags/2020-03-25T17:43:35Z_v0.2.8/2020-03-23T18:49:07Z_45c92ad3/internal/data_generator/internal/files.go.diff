@@ -1,0 +1,12 @@
+diff --git a/internal/data_generator/internal/files.go b/internal/data_generator/internal/files.go
+index 91190e2a8..c2f098573 100644
+--- a/internal/data_generator/internal/files.go
++++ b/internal/data_generator/internal/files.go
+@@ -37,6 +37,7 @@ package data`
+ 
+ // AllFiles is a list of all files that needs to be generated.
+ var AllFiles = []*File{
++	commonFile,
+ 	metricsFile,
+ 	resourceFile,
+ 	traceFile,

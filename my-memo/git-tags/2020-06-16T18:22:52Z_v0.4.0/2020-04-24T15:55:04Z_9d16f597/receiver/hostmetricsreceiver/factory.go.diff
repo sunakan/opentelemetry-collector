@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/factory.go b/receiver/hostmetricsreceiver/factory.go
+index 2045f0cb8..54ffbc801 100644
+--- a/receiver/hostmetricsreceiver/factory.go
++++ b/receiver/hostmetricsreceiver/factory.go
+@@ -51,7 +51,7 @@ func NewFactory() *Factory {
+ }
+ 
+ // Type gets the type of the Receiver config created by this Factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

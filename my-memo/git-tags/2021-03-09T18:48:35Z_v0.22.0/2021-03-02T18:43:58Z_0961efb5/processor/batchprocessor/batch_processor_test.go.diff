@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index b21bbe3df..9a6b95ec3 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -689,3 +689,8 @@ func logsReceivedByName(lds []pdata.Logs) map[string]pdata.LogRecord {
+ 	}
+ 	return logsReceivedByName
+ }
++
++func TestShutdown(t *testing.T) {
++	factory := NewFactory()
++	componenttest.VerifyProcessorShutdown(t, factory, factory.CreateDefaultConfig())
++}

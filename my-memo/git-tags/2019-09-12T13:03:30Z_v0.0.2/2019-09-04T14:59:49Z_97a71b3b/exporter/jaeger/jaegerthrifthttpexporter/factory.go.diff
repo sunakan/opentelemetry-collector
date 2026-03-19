@@ -1,0 +1,13 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/factory.go b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+index 2ee5f6c65..db977cc3b 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/factory.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/factory.go
+@@ -75,7 +75,7 @@ func (f *Factory) CreateTraceExporter(
+ 	}
+ 
+ 	exp, err := New(
+-		expCfg.Name(),
++		config,
+ 		expCfg.URL,
+ 		expCfg.Headers,
+ 		expCfg.Timeout)

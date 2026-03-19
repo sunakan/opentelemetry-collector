@@ -1,0 +1,30 @@
+diff --git a/pdata/internal/generated_proto_scopeprofiles.go b/pdata/internal/generated_proto_scopeprofiles.go
+index b88f3b1e1..ca13dbc36 100644
+--- a/pdata/internal/generated_proto_scopeprofiles.go
++++ b/pdata/internal/generated_proto_scopeprofiles.go
+@@ -11,6 +11,7 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal/json"
++	"go.opentelemetry.io/collector/pdata/internal/metadata"
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+@@ -30,7 +31,7 @@ var (
+ )
+ 
+ func NewScopeProfiles() *ScopeProfiles {
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		return &ScopeProfiles{}
+ 	}
+ 	return protoPoolScopeProfiles.Get().(*ScopeProfiles)
+@@ -41,7 +42,7 @@ func DeleteScopeProfiles(orig *ScopeProfiles, nullable bool) {
+ 		return
+ 	}
+ 
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		orig.Reset()
+ 		return
+ 	}

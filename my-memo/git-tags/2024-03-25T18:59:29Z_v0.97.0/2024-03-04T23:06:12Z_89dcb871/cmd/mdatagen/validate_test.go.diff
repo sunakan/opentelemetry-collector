@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/validate_test.go b/cmd/mdatagen/validate_test.go
+index 4c2ddea57..b64ca66e7 100644
+--- a/cmd/mdatagen/validate_test.go
++++ b/cmd/mdatagen/validate_test.go
+@@ -40,11 +40,11 @@ func TestValidate(t *testing.T) {
+ 		},
+ 		{
+ 			name:    "testdata/invalid_stability.yaml",
+-			wantErr: "invalid stability: incorrectstability",
++			wantErr: "1 error(s) decoding:\n\n* error decoding 'status.stability': invalid stability level: incorrectstability",
+ 		},
+ 		{
+ 			name:    "testdata/no_stability_component.yaml",
+-			wantErr: "missing component for stability: beta",
++			wantErr: "missing component for stability: Beta",
+ 		},
+ 		{
+ 			name:    "testdata/invalid_stability_component.yaml",

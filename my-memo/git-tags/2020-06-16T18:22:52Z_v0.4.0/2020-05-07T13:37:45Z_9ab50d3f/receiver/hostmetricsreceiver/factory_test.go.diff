@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/factory_test.go b/receiver/hostmetricsreceiver/factory_test.go
+index 8bba97aed..71e1841ba 100644
+--- a/receiver/hostmetricsreceiver/factory_test.go
++++ b/receiver/hostmetricsreceiver/factory_test.go
+@@ -46,6 +46,6 @@ func TestCreateReceiver(t *testing.T) {
+ 
+ 	mReceiver, err := factory.CreateMetricsReceiver(context.Background(), creationParams, cfg, nil)
+ 
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 	assert.NotNil(t, mReceiver)
+ }

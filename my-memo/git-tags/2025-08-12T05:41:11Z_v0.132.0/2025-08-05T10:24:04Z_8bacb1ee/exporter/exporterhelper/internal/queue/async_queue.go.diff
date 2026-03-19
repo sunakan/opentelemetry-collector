@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queue/async_queue.go b/exporter/exporterhelper/internal/queue/async_queue.go
+index 675ab6cbc..ea9a5a96c 100644
+--- a/exporter/exporterhelper/internal/queue/async_queue.go
++++ b/exporter/exporterhelper/internal/queue/async_queue.go
+@@ -36,7 +36,7 @@ func (qc *asyncQueue[T]) Start(ctx context.Context, host component.Host) error {
+ 	for i := 0; i < qc.numConsumers; i++ {
+ 		qc.stopWG.Add(1)
+ 		startWG.Add(1)
+-		go func() {
++		go func() { //nolint:contextcheck
+ 			startWG.Done()
+ 			defer qc.stopWG.Done()
+ 			for {

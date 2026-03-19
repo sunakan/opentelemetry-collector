@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterbatcher/config_test.go b/exporter/exporterbatcher/config_test.go
+index 90b4c2fe4..d71475e17 100644
+--- a/exporter/exporterbatcher/config_test.go
++++ b/exporter/exporterbatcher/config_test.go
+@@ -22,6 +22,13 @@ func TestValidateConfig(t *testing.T) {
+ 
+ func TestValidateSizeConfig(t *testing.T) {
+ 	cfg := SizeConfig{
++		Sizer:   SizerTypeBytes,
++		MaxSize: 10,
++		MinSize: 100,
++	}
++	require.EqualError(t, cfg.Validate(), "unsupported sizer type: {\"bytes\"}")
++
++	cfg = SizeConfig{
+ 		Sizer:   SizerTypeItems,
+ 		MaxSize: -100,
+ 		MinSize: 100,

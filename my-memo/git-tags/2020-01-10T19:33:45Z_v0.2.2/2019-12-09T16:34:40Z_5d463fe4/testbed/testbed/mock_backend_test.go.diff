@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/mock_backend_test.go b/testbed/testbed/mock_backend_test.go
+index d69381471..d38c9cd74 100644
+--- a/testbed/testbed/mock_backend_test.go
++++ b/testbed/testbed/mock_backend_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ )
+ 
+ func TestGeneratorAndBackend(t *testing.T) {

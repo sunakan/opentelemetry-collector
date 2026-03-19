@@ -1,0 +1,34 @@
+diff --git a/internal/data/metric.go b/internal/data/metric.go
+index 21b2ca592..9d49d75fd 100644
+--- a/internal/data/metric.go
++++ b/internal/data/metric.go
+@@ -87,11 +87,8 @@ func (md MetricData) SetResourceMetrics(r []ResourceMetrics) {
+ // MetricCount calculates the total number of metrics.
+ func (md MetricData) MetricCount() int {
+ 	metricCount := 0
+-	// TODO: Do not access internal members, add a metricCount to ResourceMetrics.
+-	for _, rm := range md.pimpl.resourceMetrics {
+-		for _, ilm := range rm.pimpl.instrumentationLibraryMetrics {
+-			metricCount += len(ilm.pimpl.metrics)
+-		}
++	for _, rm := range md.ResourceMetrics() {
++		metricCount += rm.MetricCount()
+ 	}
+ 	return metricCount
+ }
+@@ -193,6 +190,15 @@ func (rm ResourceMetrics) SetInstrumentationLibraryMetrics(s []InstrumentationLi
+ 	}
+ }
+ 
++// MetricCount calculates the total number of metrics.
++func (rm ResourceMetrics) MetricCount() int {
++	metricCount := 0
++	for _, ilm := range rm.InstrumentationLibraryMetrics() {
++		metricCount += len(ilm.pimpl.metrics)
++	}
++	return metricCount
++}
++
+ func (rm ResourceMetrics) flushInternal() {
+ 	if !rm.pimpl.initialized {
+ 		// Guaranteed no changes via internal fields.

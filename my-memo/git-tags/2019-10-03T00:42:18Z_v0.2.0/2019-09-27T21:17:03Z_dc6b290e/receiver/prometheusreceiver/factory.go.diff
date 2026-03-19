@@ -1,0 +1,19 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 632e0df52..f83398fe4 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -23,10 +23,10 @@ import (
+ 	"go.uber.org/zap"
+ 	"gopkg.in/yaml.v2"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+ // This file implements config V2 for Prometheus receiver.

@@ -1,0 +1,13 @@
+diff --git a/service/internal/promtest/server_util.go b/service/internal/promtest/server_util.go
+index 4c04ba7a7..c50616580 100644
+--- a/service/internal/promtest/server_util.go
++++ b/service/internal/promtest/server_util.go
+@@ -8,7 +8,7 @@ import (
+ 	"strconv"
+ 	"testing"
+ 
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 
+ 	"go.opentelemetry.io/collector/internal/testutil"
+ )

@@ -1,0 +1,25 @@
+diff --git a/exporter/exporterhelper/internal/hosttest/hosttest.go b/exporter/exporterhelper/internal/hosttest/hosttest.go
+new file mode 100644
+index 000000000..136cd0233
+--- /dev/null
++++ b/exporter/exporterhelper/internal/hosttest/hosttest.go
+@@ -0,0 +1,19 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package hosttest // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal/hosttest"
++
++import (
++	"go.opentelemetry.io/collector/component"
++)
++
++var _ component.Host = (*MockHost)(nil)
++
++type MockHost struct {
++	component.Host
++	Ext map[component.ID]component.Component
++}
++
++func (nh *MockHost) GetExtensions() map[component.ID]component.Component {
++	return nh.Ext
++}

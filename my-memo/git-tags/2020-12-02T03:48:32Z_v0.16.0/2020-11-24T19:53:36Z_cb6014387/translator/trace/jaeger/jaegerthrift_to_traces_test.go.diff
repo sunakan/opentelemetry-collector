@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces_test.go b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+index ee3315f9c..9f668ccfd 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

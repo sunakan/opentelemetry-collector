@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensus/opencensus.go b/receiver/opencensus/opencensus.go
+index b8da95d8a..17938f3fc 100644
+--- a/receiver/opencensus/opencensus.go
++++ b/receiver/opencensus/opencensus.go
+@@ -157,7 +157,7 @@ func (ocr *Receiver) Start(ctx context.Context, ts receiver.TraceReceiverSink, m
+ 	}
+ 
+ 	if err := ocr.startGRPCServer(); err != nil && err != errAlreadyStarted {
+-		return nil
++		return err
+ 	}
+ 
+ 	// At this point we've successfully started all the services/receivers.

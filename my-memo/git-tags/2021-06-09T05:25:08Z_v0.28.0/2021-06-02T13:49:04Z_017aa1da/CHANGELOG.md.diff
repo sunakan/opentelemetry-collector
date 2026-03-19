@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 40ebd5db7..bb65ebb43 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -10,6 +10,7 @@
+ - Move BigEndian helper functions in `tracetranslator` to an internal package.(#3298)
+ - Rename `configtest.LoadConfigFile` to `configtest.LoadConfigAndValidate` (#3306)
+ - Replace `ExtensionCreateParams` with `ExtensionCreateSettings` (#3294)
++- Replace `ProcessorCreateParams` with `ProcessorCreateSettings`. (#3181)
+ - Replace `ExporterCreateParams` with `ExporterCreateSettings` (#3164)
+ - Replace `ReceiverCreateParams` with `ReceiverCreateSettings`. (#3167)
+ 

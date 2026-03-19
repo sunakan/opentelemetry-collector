@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/templates/components_test.go.tmpl b/cmd/builder/internal/builder/templates/components_test.go.tmpl
+index 19cbf5990..d53206a45 100644
+--- a/cmd/builder/internal/builder/templates/components_test.go.tmpl
++++ b/cmd/builder/internal/builder/templates/components_test.go.tmpl
+@@ -4,9 +4,7 @@ package main
+ 
+ import (
+ 	"testing"
+-
+ 	"github.com/stretchr/testify/assert"
+-
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ )
+ 

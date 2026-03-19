@@ -1,0 +1,12 @@
+diff --git a/config/testdata/pipeline-must-have-exporter.yaml b/config/testdata/pipeline-must-have-exporter.yaml
+index 9c59bfdd7..714506f34 100644
+--- a/config/testdata/pipeline-must-have-exporter.yaml
++++ b/config/testdata/pipeline-must-have-exporter.yaml
+@@ -2,6 +2,7 @@ receivers:
+   multireceiver:
+ exporters:
+   exampleexporter:
++    extra: "not present in the service pipeline"
+ processors:
+   exampleprocessor:
+ service:

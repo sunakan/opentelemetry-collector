@@ -1,0 +1,24 @@
+diff --git a/service/testdata/otelcol-invalid.yaml b/service/testdata/otelcol-invalid.yaml
+deleted file mode 100644
+index 133ce74d8..000000000
+--- a/service/testdata/otelcol-invalid.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      address: localhost:8888
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [invalid]
+-      exporters: [nop]

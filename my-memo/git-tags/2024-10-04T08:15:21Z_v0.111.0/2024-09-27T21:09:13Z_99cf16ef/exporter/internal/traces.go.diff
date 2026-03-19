@@ -1,0 +1,21 @@
+diff --git a/exporter/internal/traces.go b/exporter/internal/traces.go
+deleted file mode 100644
+index 5a49e5b86..000000000
+--- a/exporter/internal/traces.go
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package internal // import "go.opentelemetry.io/collector/exporter/internal"
+-
+-import (
+-	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer"
+-)
+-
+-// Traces is an exporter that can consume traces.
+-type Traces interface {
+-	component.Component
+-	consumer.Traces
+-}

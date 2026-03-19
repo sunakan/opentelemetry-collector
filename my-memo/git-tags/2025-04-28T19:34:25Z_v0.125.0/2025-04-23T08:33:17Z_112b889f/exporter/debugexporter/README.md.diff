@@ -1,0 +1,25 @@
+diff --git a/exporter/debugexporter/README.md b/exporter/debugexporter/README.md
+index 32acc918f..18289592f 100644
+--- a/exporter/debugexporter/README.md
++++ b/exporter/debugexporter/README.md
+@@ -25,9 +25,8 @@ See also the [Troubleshooting][troubleshooting_docs] document for examples on us
+ 
+ The following settings are optional:
+ 
+-- `verbosity` (default = `basic`): the verbosity of the debug exporter
+-  (detailed|normal|basic). When set to `detailed`, pipeline data is verbosely
+-  logged.
++- `verbosity` (default = `basic`): the verbosity of the debug exporter: `basic`, `normal` or `detailed`.
++  See [Verbosity levels](#verbosity-levels) below for more information.
+ - `sampling_initial` (default = `2`): number of messages initially logged each
+   second.
+ - `sampling_thereafter` (default = `1`): sampling rate after the initial
+@@ -53,6 +52,8 @@ exporters:
+ The following subsections describe the output from the exporter depending on the configured verbosity level - `basic`, `normal` and `detailed`.
+ The default verbosity level is `basic`.
+ 
++To understand how the below example output was generated, see [Generating example output](./generating-example-output.md).
++
+ ### Basic verbosity
+ 
+ With `verbosity: basic`, the exporter outputs a single-line summary of received data with a total count of telemetry records for every batch of received logs, metrics or traces.

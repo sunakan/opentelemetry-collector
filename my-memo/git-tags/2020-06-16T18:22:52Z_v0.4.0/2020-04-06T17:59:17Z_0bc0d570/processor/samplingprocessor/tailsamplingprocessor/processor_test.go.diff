@@ -1,0 +1,18 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/processor_test.go b/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
+index 0e4a900ee..44ef0e6c7 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/processor_test.go
+@@ -321,11 +321,11 @@ func (p *mockSpanProcessor) GetCapabilities() component.ProcessorCapabilities {
+ }
+ 
+ // Start is invoked during service startup.
+-func (p *mockSpanProcessor) Start(host component.Host) error {
++func (p *mockSpanProcessor) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }
+ 
+ // Shutdown is invoked during service shutdown.
+-func (p *mockSpanProcessor) Shutdown() error {
++func (p *mockSpanProcessor) Shutdown(context.Context) error {
+ 	return nil
+ }

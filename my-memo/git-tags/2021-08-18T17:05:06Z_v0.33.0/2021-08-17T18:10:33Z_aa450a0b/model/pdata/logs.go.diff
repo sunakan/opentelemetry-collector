@@ -1,0 +1,39 @@
+diff --git a/model/pdata/logs.go b/model/pdata/logs.go
+index 87d82c230..cb57c394e 100644
+--- a/model/pdata/logs.go
++++ b/model/pdata/logs.go
+@@ -24,7 +24,7 @@ import (
+ type LogsMarshaler interface {
+ 	// MarshalLogs the given pdata.Logs into bytes.
+ 	// If the error is not nil, the returned bytes slice cannot be used.
+-	MarshalLogs(td Logs) ([]byte, error)
++	MarshalLogs(ld Logs) ([]byte, error)
+ }
+ 
+ // LogsUnmarshaler unmarshalls bytes into pdata.Logs.
+@@ -34,6 +34,12 @@ type LogsUnmarshaler interface {
+ 	UnmarshalLogs(buf []byte) (Logs, error)
+ }
+ 
++// LogsSizer returns the size of a Logs.
++type LogsSizer interface {
++	// LogsSize returns the size in bytes of a Logs.
++	LogsSize(ld Logs) int
++}
++
+ // Logs is the top-level struct that is propagated through the logs pipeline.
+ //
+ // This is a reference type (like builtin map).
+@@ -85,12 +91,6 @@ func (ld Logs) LogRecordCount() int {
+ 	return logCount
+ }
+ 
+-// OtlpProtoSize returns the size in bytes of this Logs encoded as OTLP Collector
+-// ExportLogsServiceRequest ProtoBuf bytes.
+-func (ld Logs) OtlpProtoSize() int {
+-	return ld.orig.Size()
+-}
+-
+ // ResourceLogs returns the ResourceLogsSlice associated with this Logs.
+ func (ld Logs) ResourceLogs() ResourceLogsSlice {
+ 	return newResourceLogsSlice(&ld.orig.ResourceLogs)

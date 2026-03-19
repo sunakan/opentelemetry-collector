@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterbatcher/config.go b/exporter/exporterbatcher/config.go
+index a3c56e5cf..4a3ef0d37 100644
+--- a/exporter/exporterbatcher/config.go
++++ b/exporter/exporterbatcher/config.go
+@@ -56,11 +56,11 @@ func (c *Config) Unmarshal(conf *confmap.Conf) error {
+ 		return err
+ 	}
+ 
+-	if c.MinSizeItems != nil {
++	if c.MinSizeItems != nil && !conf.IsSet("min_size") {
+ 		c.SizeConfig.MinSize = *c.MinSizeItems
+ 	}
+ 
+-	if c.MaxSizeItems != nil {
++	if c.MaxSizeItems != nil && !conf.IsSet("max_size") {
+ 		c.SizeConfig.MaxSize = *c.MaxSizeItems
+ 	}
+ 

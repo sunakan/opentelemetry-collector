@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 5a348462c..790fc90a4 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -60,6 +60,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"jaeger",
+ 		"file",
+ 		"otlp",
++		"kafka",
+ 	}
+ 
+ 	factories, err := Components()

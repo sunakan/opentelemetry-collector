@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 19cf5b2ed..c4b510036 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -40,8 +40,9 @@ require (
+ var replaceModules = []string{
+ 	"",
+ 	"/component",
+-	"/component/componenttest",
++	"/component/componentattribute",
+ 	"/component/componentstatus",
++	"/component/componenttest",
+ 	"/client",
+ 	"/config/configauth",
+ 	"/config/configcompression",

@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_scopespans_test.go b/pdata/internal/generated_wrapper_scopespans_test.go
+index 5e6fa5033..f10010101 100644
+--- a/pdata/internal/generated_wrapper_scopespans_test.go
++++ b/pdata/internal/generated_wrapper_scopespans_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigScopeSpans(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigScopeSpans(t *testing.T) {
++	src := &otlptrace.ScopeSpans{}
++	FillOrigTestScopeSpans(src)
++	buf, err := MarshalProtoOrigScopeSpans(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigScopeSpans(src))
++
++	dest := &otlptrace.ScopeSpans{}
++	require.NoError(t, UnmarshalProtoOrigScopeSpans(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptyScopeSpans(t *testing.T) {
++	src := &otlptrace.ScopeSpans{}
++	buf, err := MarshalProtoOrigScopeSpans(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigScopeSpans(src))
++
++	dest := &otlptrace.ScopeSpans{}
++	require.NoError(t, UnmarshalProtoOrigScopeSpans(dest, buf))
++	assert.Equal(t, src, dest)
++}

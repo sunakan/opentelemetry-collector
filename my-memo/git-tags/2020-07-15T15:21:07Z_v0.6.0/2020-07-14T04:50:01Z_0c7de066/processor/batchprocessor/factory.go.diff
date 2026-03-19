@@ -1,0 +1,88 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index fddd68e9f..537a19b90 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configmodels"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 
+ const (
+@@ -31,49 +32,42 @@ const (
+ 	defaultTimeout       = 200 * time.Millisecond
+ )
+ 
+-// Factory is the factory for batch processor.
+-type Factory struct {
++// NewFactory returns a new factory for the Batch processor.
++func NewFactory() component.ProcessorFactory {
++	return processorhelper.NewFactory(
++		typeStr,
++		createDefaultConfig,
++		processorhelper.WithTraceProcessor(createTraceProcessor),
++		processorhelper.WithMetricsProcessor(createMetricsProcessor))
+ }
+ 
+-// Type gets the type of the config created by this factory.
+-func (f *Factory) Type() configmodels.Type {
+-	return typeStr
+-}
+-
+-// CreateDefaultConfig creates the default configuration for processor.
+-func (f *Factory) CreateDefaultConfig() configmodels.Processor {
+-	return generateDefaultConfig()
++func createDefaultConfig() configmodels.Processor {
++	return &Config{
++		ProcessorSettings: configmodels.ProcessorSettings{
++			TypeVal: typeStr,
++			NameVal: typeStr,
++		},
++		SendBatchSize: defaultSendBatchSize,
++		Timeout:       defaultTimeout,
++	}
+ }
+ 
+-// CreateTraceProcessor creates a trace processor based on this config.
+-func (f *Factory) CreateTraceProcessor(
+-	ctx context.Context,
++func createTraceProcessor(
++	_ context.Context,
+ 	params component.ProcessorCreateParams,
++	cfg configmodels.Processor,
+ 	nextConsumer consumer.TraceConsumer,
+-	c configmodels.Processor,
+ ) (component.TraceProcessor, error) {
+-	cfg := c.(*Config)
+-	return newBatchTracesProcessor(params, nextConsumer, cfg), nil
++	oCfg := cfg.(*Config)
++	return newBatchTracesProcessor(params, nextConsumer, oCfg), nil
+ }
+ 
+-// CreateMetricsProcessor creates a metrics processor based on this config.
+-func (f *Factory) CreateMetricsProcessor(
+-	ctx context.Context,
++func createMetricsProcessor(
++	_ context.Context,
+ 	params component.ProcessorCreateParams,
++	cfg configmodels.Processor,
+ 	nextConsumer consumer.MetricsConsumer,
+-	c configmodels.Processor,
+ ) (component.MetricsProcessor, error) {
+-	cfg := c.(*Config)
+-	return newBatchMetricsProcessor(params, nextConsumer, cfg), nil
+-}
+-
+-func generateDefaultConfig() *Config {
+-	return &Config{
+-		ProcessorSettings: configmodels.ProcessorSettings{
+-			TypeVal: typeStr,
+-			NameVal: typeStr,
+-		},
+-		SendBatchSize: defaultSendBatchSize,
+-		Timeout:       defaultTimeout,
+-	}
++	oCfg := cfg.(*Config)
++	return newBatchMetricsProcessor(params, nextConsumer, oCfg), nil
+ }

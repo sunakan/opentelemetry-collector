@@ -1,0 +1,19 @@
+diff --git a/exporter/prometheusexporter/testdata/config.yaml b/exporter/prometheusexporter/testdata/config.yaml
+index 026094819..3159ea974 100644
+--- a/exporter/prometheusexporter/testdata/config.yaml
++++ b/exporter/prometheusexporter/testdata/config.yaml
+@@ -13,8 +13,9 @@ exporters:
+       label1: value1
+       "another label": spaced value
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [prometheus]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [prometheus]

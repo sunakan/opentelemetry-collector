@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/templates/status.go.tmpl b/cmd/mdatagen/templates/status.go.tmpl
+index d35cf76ff..27c2d6fa7 100644
+--- a/cmd/mdatagen/templates/status.go.tmpl
++++ b/cmd/mdatagen/templates/status.go.tmpl
+@@ -3,7 +3,7 @@
+ package {{ .Package }}
+ 
+ import (
+-    "go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/trace"
+ )
+@@ -16,7 +16,7 @@ var (
+ const (
+ 	{{- range $stability, $signals := .Status.Stability }}
+ 	{{- range $signal := $signals }}
+-	{{ toCamelCase $signal }}Stability = component.StabilityLevel{{ casesTitle $stability }}
++	{{ toCamelCase $signal }}Stability = component.StabilityLevel{{ casesTitle $stability.String }}
+ 	{{- end }}
+ 	{{- end }}
+ )

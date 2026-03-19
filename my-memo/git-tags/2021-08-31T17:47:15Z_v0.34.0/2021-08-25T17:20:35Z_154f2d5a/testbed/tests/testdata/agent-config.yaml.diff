@@ -1,0 +1,34 @@
+diff --git a/testbed/tests/testdata/agent-config.yaml b/testbed/tests/testdata/agent-config.yaml
+deleted file mode 100644
+index c864f8c39..000000000
+--- a/testbed/tests/testdata/agent-config.yaml
++++ /dev/null
+@@ -1,28 +0,0 @@
+-receivers:
+-  jaeger:
+-    protocols:
+-      grpc:
+-        endpoint: "localhost:14250"
+-  opencensus:
+-    endpoint: "localhost:55678"
+-
+-exporters:
+-  opencensus:
+-    endpoint: "localhost:56565"
+-    insecure: true
+-  logging:
+-    loglevel: info
+-
+-processors:
+-  batch:
+-
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [jaeger]
+-      processors: [batch]
+-      exporters: [opencensus,logging]
+-    metrics:
+-      receivers: [opencensus]
+-      processors: [batch]
+-      exporters: [opencensus,logging]

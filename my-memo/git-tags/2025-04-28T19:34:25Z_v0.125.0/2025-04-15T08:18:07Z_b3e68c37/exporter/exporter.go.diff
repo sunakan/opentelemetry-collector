@@ -1,0 +1,14 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 6542d9ef8..2df5ab685 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -39,6 +39,9 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo component.BuildInfo
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Factory is factory interface for exporters.

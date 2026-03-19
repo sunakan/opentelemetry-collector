@@ -1,0 +1,16 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice_test.go b/pdata/ptrace/generated_spanlinkslice_test.go
+index 48b147719..6d139c8e6 100644
+--- a/pdata/ptrace/generated_spanlinkslice_test.go
++++ b/pdata/ptrace/generated_spanlinkslice_test.go
+@@ -117,9 +117,9 @@ func TestSpanLinkSlice_RemoveIf(t *testing.T) {
+ 	pos := 0
+ 	filtered.RemoveIf(func(el SpanLink) bool {
+ 		pos++
+-		return pos%3 == 0
++		return pos%2 == 1
+ 	})
+-	assert.Equal(t, 5, filtered.Len())
++	assert.Equal(t, 2, filtered.Len())
+ }
+ 
+ func TestSpanLinkSlice_RemoveIfAll(t *testing.T) {

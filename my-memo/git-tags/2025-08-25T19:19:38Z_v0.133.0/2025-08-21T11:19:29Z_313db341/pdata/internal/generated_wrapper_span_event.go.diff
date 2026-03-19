@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_span_event.go b/pdata/internal/generated_wrapper_span_event.go
+index d27d710c5..0e4400168 100644
+--- a/pdata/internal/generated_wrapper_span_event.go
++++ b/pdata/internal/generated_wrapper_span_event.go
+@@ -51,6 +51,10 @@ func DeleteOrigSpan_Event(orig *otlptrace.Span_Event, nullable bool) {
+ }
+ 
+ func CopyOrigSpan_Event(dest, src *otlptrace.Span_Event) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.TimeUnixNano = src.TimeUnixNano
+ 	dest.Name = src.Name
+ 	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)

@@ -1,0 +1,17 @@
+diff --git a/vendor/golang.org/x/text/language/go1_2.go b/vendor/golang.org/x/text/language/go1_2.go
+deleted file mode 100644
+index 38268c57a..000000000
+--- a/vendor/golang.org/x/text/language/go1_2.go
++++ /dev/null
+@@ -1,11 +0,0 @@
+-// Copyright 2013 The Go Authors. All rights reserved.
+-// Use of this source code is governed by a BSD-style
+-// license that can be found in the LICENSE file.
+-
+-// +build go1.2
+-
+-package language
+-
+-import "sort"
+-
+-var sortStable = sort.Stable

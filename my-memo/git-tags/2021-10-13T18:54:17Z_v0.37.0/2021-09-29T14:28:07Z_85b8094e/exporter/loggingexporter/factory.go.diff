@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index d7a3bcf50..d6049f7a4 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -44,7 +44,7 @@ func NewFactory() component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings:   config.NewExporterSettings(config.NewID(typeStr)),
++		ExporterSettings:   config.NewExporterSettings(config.NewComponentID(typeStr)),
+ 		LogLevel:           "info",
+ 		SamplingInitial:    defaultSamplingInitial,
+ 		SamplingThereafter: defaultSamplingThereafter,

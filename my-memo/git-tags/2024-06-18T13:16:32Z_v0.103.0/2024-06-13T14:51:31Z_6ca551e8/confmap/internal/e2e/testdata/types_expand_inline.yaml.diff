@@ -1,0 +1,7 @@
+diff --git a/confmap/internal/e2e/testdata/types_expand_inline.yaml b/confmap/internal/e2e/testdata/types_expand_inline.yaml
+new file mode 100644
+index 000000000..7235c4b32
+--- /dev/null
++++ b/confmap/internal/e2e/testdata/types_expand_inline.yaml
+@@ -0,0 +1 @@
++field: "inline field with ${env:ENV} expansion"

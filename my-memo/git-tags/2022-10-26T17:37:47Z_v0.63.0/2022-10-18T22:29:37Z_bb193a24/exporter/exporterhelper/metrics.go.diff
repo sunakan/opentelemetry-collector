@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 2c326c209..5d2e7ffd4 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -26,8 +26,8 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ )
+ 
+-var metricsMarshaler = pmetric.NewProtoMarshaler()
+-var metricsUnmarshaler = pmetric.NewProtoUnmarshaler()
++var metricsMarshaler = &pmetric.ProtoMarshaler{}
++var metricsUnmarshaler = &pmetric.ProtoUnmarshaler{}
+ 
+ type metricsRequest struct {
+ 	baseRequest

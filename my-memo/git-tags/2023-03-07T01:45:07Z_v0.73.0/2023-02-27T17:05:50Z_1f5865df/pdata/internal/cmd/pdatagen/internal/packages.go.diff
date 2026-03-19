@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/packages.go b/pdata/internal/cmd/pdatagen/internal/packages.go
+index c52191bd2..c5b1b193b 100644
+--- a/pdata/internal/cmd/pdatagen/internal/packages.go
++++ b/pdata/internal/cmd/pdatagen/internal/packages.go
+@@ -59,6 +59,8 @@ type Package struct {
+ 	structs []baseStruct
+ }
+ 
++const newLine = "\n"
++
+ // GenerateFiles generates files with the configured data structures for this Package.
+ func (p *Package) GenerateFiles() error {
+ 	for _, s := range p.structs {

@@ -1,0 +1,15 @@
+diff --git a/internal/processor/filterspan/filterspan.go b/internal/processor/filterspan/filterspan.go
+index 0d07ec39f..d7dadf05d 100644
+--- a/internal/processor/filterspan/filterspan.go
++++ b/internal/processor/filterspan/filterspan.go
+@@ -19,8 +19,8 @@ import (
+ 	"fmt"
+ 	"regexp"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterhelper"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal/processor/filterhelper"
+ )
+ 
+ var (

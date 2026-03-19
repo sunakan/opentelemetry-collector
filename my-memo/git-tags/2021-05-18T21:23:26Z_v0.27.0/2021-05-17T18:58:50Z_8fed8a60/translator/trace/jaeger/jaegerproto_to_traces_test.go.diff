@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces_test.go b/translator/trace/jaeger/jaegerproto_to_traces_test.go
+index dee7dca4b..01aef4a82 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces_test.go
+@@ -192,7 +192,7 @@ func TestProtoBatchToInternalTraces(t *testing.T) {
+ 		{
+ 			name: "empty",
+ 			jb:   model.Batch{},
+-			td:   testdata.GenerateTraceDataEmpty(),
++			td:   pdata.NewTraces(),
+ 		},
+ 
+ 		{

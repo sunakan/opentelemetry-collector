@@ -1,0 +1,12 @@
+diff --git a/versions.yaml b/versions.yaml
+index f35a1bd02..dce8c9ead 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -25,6 +25,7 @@ module-sets:
+       - go.opentelemetry.io/collector
+       - go.opentelemetry.io/collector/internal/memorylimiter
+       - go.opentelemetry.io/collector/internal/fanoutconsumer
++      - go.opentelemetry.io/collector/internal/sharedcomponent
+       - go.opentelemetry.io/collector/cmd/builder
+       - go.opentelemetry.io/collector/cmd/mdatagen
+       - go.opentelemetry.io/collector/component

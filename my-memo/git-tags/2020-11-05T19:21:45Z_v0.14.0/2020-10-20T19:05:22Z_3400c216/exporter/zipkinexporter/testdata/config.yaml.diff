@@ -1,0 +1,20 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+index 1154b6dca..0a68945d0 100644
+--- a/exporter/zipkinexporter/testdata/config.yaml
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -11,6 +11,15 @@ exporters:
+     endpoint: "https://somedest:1234/api/v2/spans"
+     format: proto
+     default_service_name: test_name
++    sending_queue:
++      enabled: true
++      num_consumers: 2
++      queue_size: 10
++    retry_on_failure:
++      enabled: true
++      initial_interval: 10s
++      max_interval: 60s
++      max_elapsed_time: 10m
+ 
+ service:
+   pipelines:

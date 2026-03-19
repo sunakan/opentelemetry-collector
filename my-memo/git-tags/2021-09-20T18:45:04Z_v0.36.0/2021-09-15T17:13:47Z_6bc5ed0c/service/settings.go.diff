@@ -1,0 +1,22 @@
+diff --git a/service/settings.go b/service/settings.go
+index e105b38af..9e0fa9eff 100644
+--- a/service/settings.go
++++ b/service/settings.go
+@@ -16,6 +16,7 @@ package service
+ 
+ import (
+ 	"go.opentelemetry.io/contrib/zpages"
++	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/trace"
+ 	"go.uber.org/zap"
+ 
+@@ -42,6 +43,9 @@ type svcSettings struct {
+ 	// TracerProvider represents the TracerProvider used for all the components.
+ 	TracerProvider trace.TracerProvider
+ 
++	// MeterProvider represents the MeterProvider used for all the components.
++	MeterProvider metric.MeterProvider
++
+ 	// ZPagesSpanProcessor represents the SpanProcessor for tracez page.
+ 	ZPagesSpanProcessor *zpages.SpanProcessor
+ 

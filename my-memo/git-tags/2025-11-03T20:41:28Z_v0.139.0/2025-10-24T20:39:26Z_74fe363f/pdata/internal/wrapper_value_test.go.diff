@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/wrapper_value_test.go b/pdata/internal/wrapper_value_test.go
+index 67d0fe68a..a617dee09 100644
+--- a/pdata/internal/wrapper_value_test.go
++++ b/pdata/internal/wrapper_value_test.go
+@@ -19,8 +19,8 @@ func TestAnyValueBytes(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	pav := &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_BytesValue{BytesValue: nil}}
+-	pbuf := make([]byte, SizeProtoOrigAnyValue(pav))
+-	n := MarshalProtoOrigAnyValue(pav, pbuf)
++	pbuf := make([]byte, SizeProtoAnyValue(pav))
++	n := MarshalProtoAnyValue(pav, pbuf)
+ 	pbuf = pbuf[:n]
+ 	require.Equal(t, buf, pbuf)
+ }

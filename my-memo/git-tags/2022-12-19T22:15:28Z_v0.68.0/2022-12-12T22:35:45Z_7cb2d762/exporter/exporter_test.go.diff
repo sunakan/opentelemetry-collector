@@ -1,0 +1,27 @@
+diff --git a/exporter/exporter_test.go b/exporter/exporter_test.go
+index 8890943cf..685d607eb 100644
+--- a/exporter/exporter_test.go
++++ b/exporter/exporter_test.go
+@@ -23,12 +23,11 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ )
+ 
+ func TestNewFactory(t *testing.T) {
+ 	const typeStr = "test"
+-	defaultCfg := config.NewExporterSettings(component.NewID(typeStr))
++	defaultCfg := struct{}{}
+ 	factory := NewFactory(
+ 		typeStr,
+ 		func() component.Config { return &defaultCfg })
+@@ -44,7 +43,7 @@ func TestNewFactory(t *testing.T) {
+ 
+ func TestNewFactoryWithOptions(t *testing.T) {
+ 	const typeStr = "test"
+-	defaultCfg := config.NewExporterSettings(component.NewID(typeStr))
++	defaultCfg := struct{}{}
+ 	factory := NewFactory(
+ 		typeStr,
+ 		func() component.Config { return &defaultCfg },

@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/go.mod b/exporter/exporterhelper/go.mod
+index 5c03ad7d8..72e81b306 100644
+--- a/exporter/exporterhelper/go.mod
++++ b/exporter/exporterhelper/go.mod
+@@ -20,6 +20,7 @@ require (
+ 	go.opentelemetry.io/collector/extension/extensiontest v0.141.0
+ 	go.opentelemetry.io/collector/extension/xextension v0.141.0
+ 	go.opentelemetry.io/collector/featuregate v1.47.0
++	go.opentelemetry.io/collector/internal/testutil v0.141.0
+ 	go.opentelemetry.io/collector/pdata v1.47.0
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.141.0
+ 	go.opentelemetry.io/collector/pdata/testdata v0.141.0

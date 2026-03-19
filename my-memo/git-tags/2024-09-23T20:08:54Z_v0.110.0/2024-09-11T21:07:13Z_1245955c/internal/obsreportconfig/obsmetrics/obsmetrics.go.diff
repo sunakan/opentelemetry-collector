@@ -1,0 +1,17 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obsmetrics.go b/internal/obsreportconfig/obsmetrics/obsmetrics.go
+deleted file mode 100644
+index 02a49557c..000000000
+--- a/internal/obsreportconfig/obsmetrics/obsmetrics.go
++++ /dev/null
+@@ -1,11 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-// Package obsmetrics defines the obsreport metrics for each components
+-package obsmetrics // import "go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+-
+-const (
+-	SpanNameSep   = "/"
+-	MetricNameSep = "_"
+-	Scope         = "go.opentelemetry.io/collector/obsreport"
+-)

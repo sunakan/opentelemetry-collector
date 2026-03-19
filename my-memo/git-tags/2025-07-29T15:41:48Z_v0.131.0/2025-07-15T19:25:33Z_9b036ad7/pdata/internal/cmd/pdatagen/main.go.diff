@@ -1,0 +1,28 @@
+diff --git a/pdata/internal/cmd/pdatagen/main.go b/pdata/internal/cmd/pdatagen/main.go
+deleted file mode 100644
+index 3b3f69054..000000000
+--- a/pdata/internal/cmd/pdatagen/main.go
++++ /dev/null
+@@ -1,22 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package main
+-
+-import (
+-	"go.opentelemetry.io/collector/pdata/internal/cmd/pdatagen/internal"
+-)
+-
+-func check(e error) {
+-	if e != nil {
+-		panic(e)
+-	}
+-}
+-
+-func main() {
+-	for _, fp := range internal.AllPackages {
+-		check(fp.GenerateFiles())
+-		check(fp.GenerateTestFiles())
+-		check(fp.GenerateInternalFiles())
+-	}
+-}

@@ -1,0 +1,12 @@
+diff --git a/consumer/pdata/generated_resource.go b/consumer/pdata/generated_resource.go
+index e9df3b55d..e8e7e75bc 100644
+--- a/consumer/pdata/generated_resource.go
++++ b/consumer/pdata/generated_resource.go
+@@ -29,7 +29,6 @@ import (
+ // Must use NewResource function to create new instances.
+ // Important: zero-initialized instance is not valid for use.
+ type Resource struct {
+-	// orig points to the pointer otlpresource.Resource field contained somewhere else.
+ 	orig *otlpresource.Resource
+ }
+ 

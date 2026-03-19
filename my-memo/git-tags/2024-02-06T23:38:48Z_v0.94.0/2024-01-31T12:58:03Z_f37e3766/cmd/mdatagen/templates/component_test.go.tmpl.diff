@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/templates/component_test.go.tmpl b/cmd/mdatagen/templates/component_test.go.tmpl
+index 94739cb73..dc1f67eea 100644
+--- a/cmd/mdatagen/templates/component_test.go.tmpl
++++ b/cmd/mdatagen/templates/component_test.go.tmpl
+@@ -54,6 +54,10 @@ func (aneh *assertNoErrorHost) ReportFatalError(err error) {
+ }
+ 
+ 
++func TestCheckConfigStruct(t *testing.T) {
++	componenttest.CheckConfigStruct(NewFactory().CreateDefaultConfig())
++}
++
+ {{ if isExporter }}
+ func Test_ComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()

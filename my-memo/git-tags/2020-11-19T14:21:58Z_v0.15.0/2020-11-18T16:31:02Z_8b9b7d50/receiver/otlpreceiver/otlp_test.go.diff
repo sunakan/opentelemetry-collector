@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 7f5cc28f2..d4e4e9163 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -65,7 +65,7 @@ var traceJSON = []byte(`
+ 		  "resource": {
+ 			"attributes": [
+ 			  {
+-				"key": "host.hostname",
++				"key": "host.name",
+ 				"value": { "stringValue": "testHost" }
+ 			  }
+ 			]
+@@ -98,7 +98,7 @@ var resourceSpansOtlp = otlptrace.ResourceSpans{
+ 	Resource: otlpresource.Resource{
+ 		Attributes: []otlpcommon.KeyValue{
+ 			{
+-				Key:   conventions.AttributeHostHostname,
++				Key:   conventions.AttributeHostName,
+ 				Value: &otlpcommon.AnyValue{Value: &otlpcommon.AnyValue_StringValue{StringValue: "testHost"}},
+ 			},
+ 		},

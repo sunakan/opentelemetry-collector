@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/value_test.go b/pdata/pcommon/value_test.go
+index 920bd0b6e..deb03b996 100644
+--- a/pdata/pcommon/value_test.go
++++ b/pdata/pcommon/value_test.go
+@@ -558,7 +558,7 @@ func TestNewValueFromRawInvalid(t *testing.T) {
+ 
+ func TestInvalidValue(t *testing.T) {
+ 	v := Value{}
+-	assert.Equal(t, false, v.Bool())
++	assert.False(t, v.Bool())
+ 	assert.Equal(t, int64(0), v.Int())
+ 	assert.Equal(t, float64(0), v.Double())
+ 	assert.Equal(t, "", v.Str())

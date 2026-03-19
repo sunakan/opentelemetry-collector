@@ -1,0 +1,14 @@
+diff --git a/extension/healthcheckextension/README.md b/extension/healthcheckextension/README.md
+index a57ab881d..2e33a89ad 100644
+--- a/extension/healthcheckextension/README.md
++++ b/extension/healthcheckextension/README.md
+@@ -6,7 +6,8 @@ liveness and/or readiness probe on Kubernetes.
+ 
+ The following settings are required:
+ 
+-- `port` (default = 13133): What port to expose HTTP health information.
++- `endpoint` (default = localhost:13133): Address to publish the health check status to
++- `port` (default = 13133): [deprecated] What port to expose HTTP health information.
+ 
+ Example:
+ 

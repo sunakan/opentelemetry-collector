@@ -1,0 +1,10 @@
+diff --git a/versions.yaml b/versions.yaml
+index ddf51b5fb..470450fe8 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -47,4 +47,5 @@ module-sets:
+ 
+ excluded-modules:
+   - go.opentelemetry.io/collector/cmd/otelcorecol
++  - go.opentelemetry.io/collector/internal/e2e
+   - go.opentelemetry.io/collector/internal/tools

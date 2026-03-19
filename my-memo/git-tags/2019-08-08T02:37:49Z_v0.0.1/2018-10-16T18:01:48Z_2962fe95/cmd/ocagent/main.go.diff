@@ -1,0 +1,32 @@
+diff --git a/cmd/ocagent/main.go b/cmd/ocagent/main.go
+index 037fc7968..f0f8609d0 100644
+--- a/cmd/ocagent/main.go
++++ b/cmd/ocagent/main.go
+@@ -17,7 +17,6 @@
+ package main
+ 
+ import (
+-	"flag"
+ 	"fmt"
+ 	"io/ioutil"
+ 	"log"
+@@ -36,11 +35,16 @@ import (
+ 	"go.opencensus.io/stats/view"
+ )
+ 
++var configYAMLFile string
++var ocInterceptorPort int
++
+ func main() {
+-	var configYAMLFile string
+-	flag.StringVar(&configYAMLFile, "config", "config.yaml", "The YAML file with the configurations for the various exporters")
+-	flag.Parse()
++	if err := rootCmd.Execute(); err != nil {
++		log.Fatal(err)
++	}
++}
+ 
++func runOCAgent() {
+ 	yamlBlob, err := ioutil.ReadFile(configYAMLFile)
+ 	if err != nil {
+ 		log.Fatalf("Cannot read the YAML file %v error: %v", configYAMLFile, err)

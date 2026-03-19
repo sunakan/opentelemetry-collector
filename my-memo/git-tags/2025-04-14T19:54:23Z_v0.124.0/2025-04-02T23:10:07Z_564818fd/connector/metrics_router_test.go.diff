@@ -1,0 +1,13 @@
+diff --git a/connector/metrics_router_test.go b/connector/metrics_router_test.go
+index 942e27d49..f82f770c2 100644
+--- a/connector/metrics_router_test.go
++++ b/connector/metrics_router_test.go
+@@ -98,7 +98,7 @@ func fuzzMetrics(numIDs, numCons, numMetrics int) func(*testing.T) {
+ 				}
+ 				assert.Len(t, metrics, expected[id])
+ 				for n := 0; n < len(metrics); n++ {
+-					assert.EqualValues(t, md, metrics[n])
++					assert.Equal(t, md, metrics[n])
+ 				}
+ 			}
+ 		}

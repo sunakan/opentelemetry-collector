@@ -1,0 +1,13 @@
+diff --git a/config/extension.go b/config/extension.go
+index ad0a4a473..d9d4a6b29 100644
+--- a/config/extension.go
++++ b/config/extension.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package config
++package config // import "go.opentelemetry.io/collector/config"
+ 
+ // Extension is the configuration of a component.Extension. Specific extensions must implement
+ // this interface and must embed ExtensionSettings struct or a struct that extends it.

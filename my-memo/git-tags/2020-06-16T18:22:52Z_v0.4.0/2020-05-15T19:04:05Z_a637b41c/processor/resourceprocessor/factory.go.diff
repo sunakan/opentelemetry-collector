@@ -1,0 +1,17 @@
+diff --git a/processor/resourceprocessor/factory.go b/processor/resourceprocessor/factory.go
+index ff442e92a..28f416b12 100644
+--- a/processor/resourceprocessor/factory.go
++++ b/processor/resourceprocessor/factory.go
+@@ -17,9 +17,9 @@ package resourceprocessor
+ import (
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ const (

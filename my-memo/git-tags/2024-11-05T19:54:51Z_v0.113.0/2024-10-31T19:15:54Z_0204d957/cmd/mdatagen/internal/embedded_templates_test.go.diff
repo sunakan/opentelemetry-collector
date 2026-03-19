@@ -1,0 +1,10 @@
+diff --git a/cmd/mdatagen/internal/embedded_templates_test.go b/cmd/mdatagen/internal/embedded_templates_test.go
+index 97bc268ed..5ffdc562c 100644
+--- a/cmd/mdatagen/internal/embedded_templates_test.go
++++ b/cmd/mdatagen/internal/embedded_templates_test.go
+@@ -48,5 +48,4 @@ func TestEnsureTemplatesLoaded(t *testing.T) {
+ 		return nil
+ 	}))
+ 	assert.Equal(t, len(templateFiles), count, "Must match the expected number of calls")
+-
+ }

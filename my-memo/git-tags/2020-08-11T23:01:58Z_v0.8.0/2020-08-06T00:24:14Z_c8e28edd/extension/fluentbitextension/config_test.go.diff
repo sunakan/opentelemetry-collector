@@ -1,0 +1,13 @@
+diff --git a/extension/fluentbitextension/config_test.go b/extension/fluentbitextension/config_test.go
+index 10b9b064d..63cb7c37b 100644
+--- a/extension/fluentbitextension/config_test.go
++++ b/extension/fluentbitextension/config_test.go
+@@ -30,7 +30,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	factories.Extensions[typeStr] = factory
+ 	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 

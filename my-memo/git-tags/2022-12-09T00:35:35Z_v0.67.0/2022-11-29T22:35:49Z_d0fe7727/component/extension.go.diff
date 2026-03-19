@@ -1,0 +1,14 @@
+diff --git a/component/extension.go b/component/extension.go
+index d866a1b2d..8af600121 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -48,6 +48,9 @@ type PipelineWatcher interface {
+ 
+ // ExtensionCreateSettings is passed to ExtensionFactory.Create* functions.
+ type ExtensionCreateSettings struct {
++	// ID returns the ID of the component that will be created.
++	ID ID
++
+ 	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes

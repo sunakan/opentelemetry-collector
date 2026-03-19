@@ -1,0 +1,15 @@
+diff --git a/config/configauth/config.yaml b/config/configauth/config.yaml
+deleted file mode 100644
+index a3649bbe6..000000000
+--- a/config/configauth/config.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-$defs:
+-  config:
+-    description: Config defines the auth settings for the receiver.
+-    type: object
+-    properties:
+-      authenticator:
+-        description: AuthenticatorID specifies the name of the extension to use in order to authenticate the incoming data point.
+-        type: string
+-        x-customType: go.opentelemetry.io/collector/component.ID

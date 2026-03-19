@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index afd1f09b6..375c5b0fb 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -14,7 +14,7 @@ generated_package_name: string
+ status:
+   # Required: The class of the component (For example receiver)
+   class: <receiver|processor|exporter|connector|extension|cmd|pkg>
+-  # Required: The stability of the component - See https://github.com/open-telemetry/opentelemetry-collector#stability-levels
++  # Required: The stability of the component - See https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/component-stability.md#stability-levels
+   stability:
+     development: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension>]
+     alpha: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension>]

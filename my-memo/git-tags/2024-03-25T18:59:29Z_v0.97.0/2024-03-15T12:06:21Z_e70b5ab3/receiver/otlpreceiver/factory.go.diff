@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 3e1df3903..4b148c40b 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -44,7 +44,7 @@ func createDefaultConfig() component.Config {
+ 			GRPC: &configgrpc.ServerConfig{
+ 				NetAddr: confignet.AddrConfig{
+ 					Endpoint:  localhostgate.EndpointForPort(grpcPort),
+-					Transport: "tcp",
++					Transport: confignet.TransportTypeTCP,
+ 				},
+ 				// We almost write 0 bytes, so no need to tune WriteBufferSize.
+ 				ReadBufferSize: 512 * 1024,

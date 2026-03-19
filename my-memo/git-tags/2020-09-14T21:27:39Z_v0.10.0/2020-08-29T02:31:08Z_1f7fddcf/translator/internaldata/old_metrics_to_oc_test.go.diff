@@ -1,0 +1,22 @@
+diff --git a/translator/internaldata/old_metrics_to_oc_test.go b/translator/internaldata/old_metrics_to_oc_test.go
+index fc93368da..b6b4efd81 100644
+--- a/translator/internaldata/old_metrics_to_oc_test.go
++++ b/translator/internaldata/old_metrics_to_oc_test.go
+@@ -141,7 +141,7 @@ func TestMetricsDataToOC(t *testing.T) {
+ 			name:     "all-types-no-data-points",
+ 			internal: testdataold.GenerateMetricDataAllTypesNoDataPoints(),
+ 			oc: []consumerdata.MetricsData{
+-				generateOCTestDataNoPoints(),
++				generateOCTestDataNoPointsOld(),
+ 			},
+ 		},
+ 
+@@ -186,7 +186,7 @@ func generateOCTestData() consumerdata.MetricsData {
+ 		Metrics: []*ocmetrics.Metric{
+ 			generateOCTestMetricInt(),
+ 			generateOCTestMetricDouble(),
+-			generateOCTestMetricHistogram(),
++			generateOCTestMetricDoubleHistogram(),
+ 			generateOCTestMetricSummary(),
+ 		},
+ 	}

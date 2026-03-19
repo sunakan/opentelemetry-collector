@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index cc745bfd2..cae2ba47d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@
+ 
+ ## 🛑 Breaking changes 🛑
+ 
++- Move ValidateConfig from configcheck to configtest (#3956)
+ - Remove AttributeMessageType (#4020)
+ - Remove `mem-ballast-size-mib`, already deprecated and no-op (#4005).
+ - Remove `AttributeHTTPStatusText` const, replaced with `"http.status_text"` (#4015, contrib/#5182).

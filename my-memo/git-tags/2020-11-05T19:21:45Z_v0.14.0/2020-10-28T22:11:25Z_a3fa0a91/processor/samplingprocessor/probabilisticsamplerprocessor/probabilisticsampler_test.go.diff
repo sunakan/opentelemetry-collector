@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index 25664cfa9..a360981d7 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -36,7 +36,7 @@ func TestNewTraceProcessor(t *testing.T) {
+ 		name         string
+ 		nextConsumer consumer.TracesConsumer
+ 		cfg          Config
+-		want         component.TraceProcessor
++		want         component.TracesProcessor
+ 		wantErr      bool
+ 	}{
+ 		{

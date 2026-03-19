@@ -1,0 +1,34 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index b6a05b0df..c1ede02b0 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -4,7 +4,7 @@ type: sample
+ scope_name: go.opentelemetry.io/collector/internal/receiver/samplereceiver
+ github_project: open-telemetry/opentelemetry-collector
+ 
+-sem_conv_version: 1.9.0
++sem_conv_version: 1.37.0
+ 
+ status:
+   disable_codecov_badge: true
+@@ -234,6 +234,20 @@ metrics:
+     warnings:
+       if_configured: This metric is deprecated and will be removed soon.
+ 
++  system.cpu.time:
++    enabled: true
++    stability:
++      level: beta
++    description: Monotonic cumulative sum int metric enabled by default.
++    extended_documentation: The metric will be become optional soon.
++    unit: s
++    sum:
++      value_type: int
++      monotonic: true
++      aggregation_temporality: cumulative
++    semantic_convention:
++      ref: https://github.com/open-telemetry/semantic-conventions/blob/v1.37.0/docs/system/system-metrics.md#metric-systemcputime
++
+ telemetry:
+   metrics:
+     batch_size_trigger_send:

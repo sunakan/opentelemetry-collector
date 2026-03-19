@@ -1,0 +1,21 @@
+diff --git a/receiver/zipkinreceiver/config_test.go b/receiver/zipkinreceiver/config_test.go
+index 36a0bcc03..a2c50232f 100644
+--- a/receiver/zipkinreceiver/config_test.go
++++ b/receiver/zipkinreceiver/config_test.go
+@@ -22,14 +22,14 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/configv2"
+-	"github.com/open-telemetry/opentelemetry-service/factories"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
++	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 
+ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factory := factories.GetReceiverFactory(typeStr)
++	factory := receiver.GetReceiverFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/data_providers.go b/testbed/testbed/data_providers.go
+index 0767135a9..302544cf6 100644
+--- a/testbed/testbed/data_providers.go
++++ b/testbed/testbed/data_providers.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.uber.org/atomic"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ )
+ 

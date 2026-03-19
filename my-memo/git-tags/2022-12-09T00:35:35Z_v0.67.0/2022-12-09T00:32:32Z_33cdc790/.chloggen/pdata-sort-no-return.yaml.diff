@@ -1,0 +1,17 @@
+diff --git a/.chloggen/pdata-sort-no-return.yaml b/.chloggen/pdata-sort-no-return.yaml
+deleted file mode 100644
+index e150c26ec..000000000
+--- a/.chloggen/pdata-sort-no-return.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: breaking
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: pdata
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Change [...Slice|Map].Sort methods to not return any value
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [6660]

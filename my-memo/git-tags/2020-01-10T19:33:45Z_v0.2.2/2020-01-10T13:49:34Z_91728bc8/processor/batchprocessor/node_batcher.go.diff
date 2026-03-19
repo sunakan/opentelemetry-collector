@@ -1,0 +1,24 @@
+diff --git a/processor/batchprocessor/node_batcher.go b/processor/batchprocessor/node_batcher.go
+index c198913c4..75d4c9447 100644
+--- a/processor/batchprocessor/node_batcher.go
++++ b/processor/batchprocessor/node_batcher.go
+@@ -29,6 +29,7 @@ import (
+ 	"go.opencensus.io/stats"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/observability"
+@@ -113,6 +114,11 @@ func (b *batcher) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
+ 
++// Start is invoked during service startup.
++func (b *batcher) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (b *batcher) Shutdown() error {
+ 	// TODO: flush accumulated data.

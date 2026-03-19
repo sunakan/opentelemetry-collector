@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index db5760b3a..c6c564712 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -178,8 +178,9 @@ func spanKindToOCAttribute(kind pdata.SpanKind) *octrace.AttributeValue {
+ 		ocKind = tracetranslator.OpenTracingSpanKindConsumer
+ 	case pdata.SpanKindPRODUCER:
+ 		ocKind = tracetranslator.OpenTracingSpanKindProducer
+-	case pdata.SpanKindUNSPECIFIED:
+ 	case pdata.SpanKindINTERNAL:
++		ocKind = tracetranslator.OpenTracingSpanKindInternal
++	case pdata.SpanKindUNSPECIFIED:
+ 	case pdata.SpanKindSERVER: // explicitly handled as SpanKind
+ 	case pdata.SpanKindCLIENT: // explicitly handled as SpanKind
+ 	default:

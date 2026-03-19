@@ -1,0 +1,15 @@
+diff --git a/vendor/google.golang.org/appengine/internal/api_race_test.go b/vendor/google.golang.org/appengine/internal/api_race_test.go
+deleted file mode 100644
+index 6cfe90649..000000000
+--- a/vendor/google.golang.org/appengine/internal/api_race_test.go
++++ /dev/null
+@@ -1,9 +0,0 @@
+-// Copyright 2014 Google Inc. All rights reserved.
+-// Use of this source code is governed by the Apache 2.0
+-// license that can be found in the LICENSE file.
+-
+-// +build race
+-
+-package internal
+-
+-func init() { raceDetector = true }

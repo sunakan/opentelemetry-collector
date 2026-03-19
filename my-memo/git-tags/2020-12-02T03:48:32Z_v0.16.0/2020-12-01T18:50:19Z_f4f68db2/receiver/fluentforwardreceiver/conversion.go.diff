@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/conversion.go b/receiver/fluentforwardreceiver/conversion.go
+index da3c727fd..74e3b0feb 100644
+--- a/receiver/fluentforwardreceiver/conversion.go
++++ b/receiver/fluentforwardreceiver/conversion.go
+@@ -397,8 +397,6 @@ func (pfe *PackedForwardEventLogRecords) parseEntries(entriesRaw []byte, isGzipp
+ 	msgpReader := msgp.NewReader(reader)
+ 	for {
+ 		lr := pdata.NewLogRecord()
+-		lr.InitEmpty()
+-
+ 		err := parseEntryToLogRecord(msgpReader, lr)
+ 		if err != nil {
+ 			if msgp.Cause(err) == io.EOF {

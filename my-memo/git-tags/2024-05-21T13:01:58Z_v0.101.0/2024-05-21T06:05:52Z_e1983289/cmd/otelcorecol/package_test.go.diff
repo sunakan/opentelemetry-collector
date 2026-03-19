@@ -1,0 +1,20 @@
+diff --git a/cmd/otelcorecol/package_test.go b/cmd/otelcorecol/package_test.go
+deleted file mode 100644
+index 5cd502ca5..000000000
+--- a/cmd/otelcorecol/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package main
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

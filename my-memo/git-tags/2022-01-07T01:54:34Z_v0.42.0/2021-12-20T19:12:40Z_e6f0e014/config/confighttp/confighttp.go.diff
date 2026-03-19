@@ -1,0 +1,29 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 74e4f37cc..cd249f9e6 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -266,7 +266,7 @@ func (hss *HTTPServerSettings) ToServer(host component.Host, settings component.
+ 			return nil, err
+ 		}
+ 
+-		handler = authenticator.HTTPInterceptor(handler)
++		handler = authInterceptor(handler, authenticator.Authenticate)
+ 	}
+ 
+ 	// Enable OpenTelemetry observability plugin.
+@@ -313,3 +313,15 @@ type CORSSettings struct {
+ 	// preflight response for.
+ 	MaxAge int `mapstructure:"max_age,omitempty"`
+ }
++
++func authInterceptor(next http.Handler, authenticate configauth.AuthenticateFunc) http.Handler {
++	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++		ctx, err := authenticate(r.Context(), r.Header)
++		if err != nil {
++			http.Error(w, http.StatusText(http.StatusUnauthorized), http.StatusUnauthorized)
++			return
++		}
++
++		next.ServeHTTP(w, r.WithContext(ctx))
++	})
++}

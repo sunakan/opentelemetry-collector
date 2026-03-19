@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 23a9804f0..d3dc2607f 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -80,6 +80,10 @@ func NewTraceExporter(
+ 		return nil, errNilConfig
+ 	}
+ 
++	if logger == nil {
++		return nil, errNilLogger
++	}
++
+ 	if dataPusher == nil {
+ 		return nil, errNilPushTraceData
+ 	}

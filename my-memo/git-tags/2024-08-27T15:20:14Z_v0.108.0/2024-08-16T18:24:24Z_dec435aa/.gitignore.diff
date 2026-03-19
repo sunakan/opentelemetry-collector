@@ -1,0 +1,13 @@
+diff --git a/.gitignore b/.gitignore
+index dc9533595..1957dffda 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -31,3 +31,8 @@ benchmarks.txt
+ 
+ # golang
+ go.work*
++
++# npm (used for markdown-link-check)
++node_modules/*
++package-lock.json
++

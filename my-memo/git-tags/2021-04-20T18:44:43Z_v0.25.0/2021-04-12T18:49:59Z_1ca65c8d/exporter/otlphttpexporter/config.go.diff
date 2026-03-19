@@ -1,0 +1,15 @@
+diff --git a/exporter/otlphttpexporter/config.go b/exporter/otlphttpexporter/config.go
+index 077787856..10ec9750f 100644
+--- a/exporter/otlphttpexporter/config.go
++++ b/exporter/otlphttpexporter/config.go
+@@ -40,3 +40,10 @@ type Config struct {
+ 	// collector. Currently the only supported mode is `gzip`.
+ 	Compression string `mapstructure:"compression"`
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

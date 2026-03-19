@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_metrics.go b/translator/internaldata/oc_to_metrics.go
+index 5bd79e2a1..1042103ac 100644
+--- a/translator/internaldata/oc_to_metrics.go
++++ b/translator/internaldata/oc_to_metrics.go
+@@ -335,7 +335,7 @@ func ocHistogramBucketsToMetrics(ocBuckets []*ocmetrics.DistributionValue_Bucket
+ 			exemplar := pdata.NewDoubleExemplar()
+ 			exemplar.InitEmpty()
+ 			exemplarToMetrics(ocBuckets[i].GetExemplar(), exemplar)
+-			dp.Exemplars().Append(&exemplar)
++			dp.Exemplars().Append(exemplar)
+ 		}
+ 	}
+ 	dp.SetBucketCounts(buckets)

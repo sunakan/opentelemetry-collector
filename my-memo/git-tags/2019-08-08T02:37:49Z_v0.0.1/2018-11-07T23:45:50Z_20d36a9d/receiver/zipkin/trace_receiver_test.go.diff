@@ -1,0 +1,24 @@
+diff --git a/receiver/zipkin/trace_receiver_test.go b/receiver/zipkin/trace_receiver_test.go
+index 59a6d223e..229b4f990 100644
+--- a/receiver/zipkin/trace_receiver_test.go
++++ b/receiver/zipkin/trace_receiver_test.go
+@@ -35,7 +35,7 @@ import (
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/census-instrumentation/opencensus-service/internal"
+ 	"github.com/census-instrumentation/opencensus-service/internal/testutils"
+-	"github.com/census-instrumentation/opencensus-service/spanreceiver"
++	"github.com/census-instrumentation/opencensus-service/spansink"
+ 	"github.com/census-instrumentation/opencensus-service/translator/trace"
+ )
+ 
+@@ -397,8 +397,8 @@ func TestConversionRoundtrip(t *testing.T) {
+ 
+ type noopSink int
+ 
+-var _ spanreceiver.SpanReceiver = (*noopSink)(nil)
++var _ spansink.Sink = (*noopSink)(nil)
+ 
+-func (ns *noopSink) ReceiveSpans(ctx context.Context, node *commonpb.Node, spans ...*tracepb.Span) (*spanreceiver.Acknowledgement, error) {
++func (ns *noopSink) ReceiveSpans(ctx context.Context, node *commonpb.Node, spans ...*tracepb.Span) (*spansink.Acknowledgement, error) {
+ 	return nil, nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/config/exporter.go b/config/exporter.go
+index eb7c5b946..770708ab3 100644
+--- a/config/exporter.go
++++ b/config/exporter.go
+@@ -45,7 +45,7 @@ func (es *ExporterSettings) SetIDName(idName string) {
+ 	es.id = component.NewIDWithName(es.id.Type(), idName)
+ }
+ 
+-// Validate validates the configuration and returns an error if invalid.
++// Deprecated: [v0.65.0] use component.ValidateConfig.
+ func (es *ExporterSettings) Validate() error {
+ 	return nil
+ }

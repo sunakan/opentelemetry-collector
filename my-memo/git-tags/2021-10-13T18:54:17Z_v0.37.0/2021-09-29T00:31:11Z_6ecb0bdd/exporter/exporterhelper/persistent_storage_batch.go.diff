@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/persistent_storage_batch.go b/exporter/exporterhelper/persistent_storage_batch.go
+index 189a56399..eeea9ab12 100644
+--- a/exporter/exporterhelper/persistent_storage_batch.go
++++ b/exporter/exporterhelper/persistent_storage_batch.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/extension/storage"
++	"go.opentelemetry.io/collector/extension/experimental/storage"
+ )
+ 
+ var errItemIndexArrInvalidDataType = errors.New("invalid data type, expected []itemIndex")

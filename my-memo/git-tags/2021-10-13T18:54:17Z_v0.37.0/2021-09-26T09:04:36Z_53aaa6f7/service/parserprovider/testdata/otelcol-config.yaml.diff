@@ -1,0 +1,30 @@
+diff --git a/service/parserprovider/testdata/otelcol-config.yaml b/service/parserprovider/testdata/otelcol-config.yaml
+deleted file mode 100644
+index 0858017c1..000000000
+--- a/service/parserprovider/testdata/otelcol-config.yaml
++++ /dev/null
+@@ -1,24 +0,0 @@
+-receivers:
+-  otlp:
+-    protocols:
+-      grpc:
+-
+-exporters:
+-  otlp:
+-    endpoint: "locahost:55678"
+-
+-processors:
+-  batch:
+-
+-extensions:
+-  memory_ballast:
+-    size_mib: 512
+-  zpages:
+-
+-service:
+-  extensions: [memory_ballast, zpages]
+-  pipelines:
+-    traces:
+-      receivers: [otlp]
+-      processors: [batch]
+-      exporters: [otlp]

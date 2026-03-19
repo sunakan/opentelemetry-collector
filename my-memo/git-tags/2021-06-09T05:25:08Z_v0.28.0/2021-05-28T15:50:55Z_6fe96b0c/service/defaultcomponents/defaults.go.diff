@@ -1,0 +1,23 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 30214cfbf..803b7d3a4 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -28,8 +28,8 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/prometheusexporter"
+ 	"go.opentelemetry.io/collector/exporter/prometheusremotewriteexporter"
+ 	"go.opentelemetry.io/collector/exporter/zipkinexporter"
+-	"go.opentelemetry.io/collector/extension/authoidcextension"
+ 	"go.opentelemetry.io/collector/extension/healthcheckextension"
++	"go.opentelemetry.io/collector/extension/oidcauthextension"
+ 	"go.opentelemetry.io/collector/extension/pprofextension"
+ 	"go.opentelemetry.io/collector/extension/zpagesextension"
+ 	"go.opentelemetry.io/collector/processor/attributesprocessor"
+@@ -57,7 +57,7 @@ func Components() (
+ 	var errs []error
+ 
+ 	extensions, err := component.MakeExtensionFactoryMap(
+-		authoidcextension.NewFactory(),
++		oidcauthextension.NewFactory(),
+ 		healthcheckextension.NewFactory(),
+ 		pprofextension.NewFactory(),
+ 		zpagesextension.NewFactory(),

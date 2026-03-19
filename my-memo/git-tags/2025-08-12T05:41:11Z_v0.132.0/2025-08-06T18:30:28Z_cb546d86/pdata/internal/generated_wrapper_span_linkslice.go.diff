@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_span_linkslice.go b/pdata/internal/generated_wrapper_span_linkslice.go
+index 89450286e..c43f6e1d5 100644
+--- a/pdata/internal/generated_wrapper_span_linkslice.go
++++ b/pdata/internal/generated_wrapper_span_linkslice.go
+@@ -38,3 +38,12 @@ func CopyOrigSpan_LinkSlice(dest, src []*otlptrace.Span_Link) []*otlptrace.Span_
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestSpan_LinkSlice() []*otlptrace.Span_Link {
++	orig := make([]*otlptrace.Span_Link, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlptrace.Span_Link{}
++		FillOrigTestSpan_Link(orig[i])
++	}
++	return orig
++}

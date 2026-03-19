@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/config_test.go b/exporter/jaegerexporter/config_test.go
+index c9060f4a5..8e7c532c0 100644
+--- a/exporter/jaegerexporter/config_test.go
++++ b/exporter/jaegerexporter/config_test.go
+@@ -32,7 +32,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories, err := config.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	factories.Exporters[typeStr] = factory
+ 	cfg, err := config.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 

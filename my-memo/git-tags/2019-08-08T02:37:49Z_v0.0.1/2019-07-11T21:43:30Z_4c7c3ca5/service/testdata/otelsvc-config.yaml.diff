@@ -1,0 +1,28 @@
+diff --git a/service/testdata/otelsvc-config.yaml b/service/testdata/otelsvc-config.yaml
+new file mode 100644
+index 000000000..e499552ca
+--- /dev/null
++++ b/service/testdata/otelsvc-config.yaml
+@@ -0,0 +1,22 @@
++receivers:
++  jaeger:
++    enabled: true
++
++exporters:
++  opencensus:
++    endpoint: "locahost:55678"
++    enabled: true
++
++processors:
++  attributes:
++    enabled: true
++  queued-retry:
++    enabled: true
++  batch:
++    enabled: true
++
++pipelines:
++  traces:
++    receivers: [jaeger]
++    processors: [attributes, batch, queued-retry]
++    exporters: [opencensus]

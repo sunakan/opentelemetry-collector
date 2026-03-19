@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/traces_test.go b/exporter/exporterhelper/traces_test.go
+index 7b22e8dbb..fe1d1390e 100644
+--- a/exporter/exporterhelper/traces_test.go
++++ b/exporter/exporterhelper/traces_test.go
+@@ -421,8 +421,10 @@ func generateTraceTraffic(t *testing.T, tracer trace.Tracer, te exporter.Traces,
+ 	}
+ }
+ 
++// nolint: unparam
+ func checkWrapSpanForTraces(t *testing.T, sr *tracetest.SpanRecorder, tracer trace.Tracer,
+-	te exporter.Traces, wantError error, numSpans int64) { // nolint: unparam
++	te exporter.Traces, wantError error, numSpans int64,
++) {
+ 	const numRequests = 5
+ 	generateTraceTraffic(t, tracer, te, numRequests, wantError)
+ 

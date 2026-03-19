@@ -1,0 +1,21 @@
+diff --git a/receiver/nopreceiver/go.mod b/receiver/nopreceiver/go.mod
+index 84694d2f4..a7460dad4 100644
+--- a/receiver/nopreceiver/go.mod
++++ b/receiver/nopreceiver/go.mod
+@@ -5,6 +5,7 @@ go 1.22.0
+ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/confmap v1.19.0
+ 	go.opentelemetry.io/collector/consumer v0.113.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.113.0
+@@ -54,6 +55,8 @@ require (
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer

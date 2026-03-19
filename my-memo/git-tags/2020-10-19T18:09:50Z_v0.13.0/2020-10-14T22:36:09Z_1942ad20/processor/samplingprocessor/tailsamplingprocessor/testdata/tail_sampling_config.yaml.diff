@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/testdata/tail_sampling_config.yaml b/processor/samplingprocessor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+index 10dd8dd93..fa5963b93 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
++++ b/processor/samplingprocessor/tailsamplingprocessor/testdata/tail_sampling_config.yaml
+@@ -29,7 +29,7 @@ processors:
+             name: test-policy-4,
+             type: rate_limiting,
+             rate_limiting: {spans_per_second: 35}
+-         }
++         },
+       ]
+ 
+ service:

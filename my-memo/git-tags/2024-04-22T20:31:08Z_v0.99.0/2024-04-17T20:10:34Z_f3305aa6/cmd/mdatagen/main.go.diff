@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/main.go b/cmd/mdatagen/main.go
+index 0f458d5cf..35f5acedf 100644
+--- a/cmd/mdatagen/main.go
++++ b/cmd/mdatagen/main.go
+@@ -66,6 +66,10 @@ func run(ymlPath string) error {
+ 				filepath.Join(ymlDir, "generated_component_test.go"), md, packageName); err != nil {
+ 				return err
+ 			}
++			if err = generateFile(filepath.Join(tmplDir, "package_test.go.tmpl"),
++				filepath.Join(ymlDir, "generated_package_test.go"), md, packageName); err != nil {
++				return err
++			}
+ 		}
+ 
+ 		if _, err = os.Stat(filepath.Join(ymlDir, "README.md")); err == nil {

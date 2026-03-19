@@ -1,0 +1,21 @@
+diff --git a/receiver/jaeger/trace_receiver.go b/receiver/jaeger/trace_receiver.go
+index fbf9bc066..b07c882fc 100644
+--- a/receiver/jaeger/trace_receiver.go
++++ b/receiver/jaeger/trace_receiver.go
+@@ -94,12 +94,15 @@ func (jr *jReceiver) StartTraceReception(ctx context.Context, spanSink receiver.
+ 
+ 	var err = errAlreadyStarted
+ 	jr.startOnce.Do(func() {
+-		tch, terr := tchannel.NewChannel("recv", new(tchannel.ChannelOptions))
++		tch, terr := tchannel.NewChannel("jaeger-collector", new(tchannel.ChannelOptions))
+ 		if terr != nil {
+ 			err = fmt.Errorf("Failed to create NewTChannel: %v", terr)
+ 			return
+ 		}
+ 
++		server := thrift.NewServer(tch)
++		server.Register(jaeger.NewTChanCollectorServer(jr))
++
+ 		taddr := jr.tchannelAddr()
+ 		tln, terr := net.Listen("tcp", taddr)
+ 		if terr != nil {

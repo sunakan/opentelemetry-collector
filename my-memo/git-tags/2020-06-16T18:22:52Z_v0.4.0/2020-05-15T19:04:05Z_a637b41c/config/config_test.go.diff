@@ -1,0 +1,13 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index 87e6dd7ce..a61bd6c0c 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestDecodeConfig(t *testing.T) {

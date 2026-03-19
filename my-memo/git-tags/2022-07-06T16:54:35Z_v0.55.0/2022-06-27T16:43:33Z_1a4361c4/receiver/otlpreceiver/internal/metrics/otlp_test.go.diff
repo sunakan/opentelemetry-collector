@@ -1,0 +1,22 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index d00d3f6b8..c2a082fcc 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -43,7 +43,7 @@ func TestExport(t *testing.T) {
+ 	require.NoError(t, err, "Failed to create the MetricsServiceClient: %v", err)
+ 	defer metricsClientDoneFn()
+ 
+-	md := testdata.GenerateMetricsOneMetric()
++	md := testdata.GenerateMetrics(1)
+ 
+ 	// Keep metric data to compare the test result against it
+ 	// Clone needed because OTLP proto XXX_ fields are altered in the GRPC downstream
+@@ -83,7 +83,7 @@ func TestExport_ErrorConsumer(t *testing.T) {
+ 	require.NoError(t, err, "Failed to create the MetricsServiceClient: %v", err)
+ 	defer metricsClientDoneFn()
+ 
+-	md := testdata.GenerateMetricsOneMetric()
++	md := testdata.GenerateMetrics(1)
+ 	req := pmetricotlp.NewRequestFromMetrics(md)
+ 
+ 	resp, err := metricsClient.Export(context.Background(), req)

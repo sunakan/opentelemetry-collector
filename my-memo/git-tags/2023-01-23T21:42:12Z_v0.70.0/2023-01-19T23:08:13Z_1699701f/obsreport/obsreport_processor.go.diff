@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_processor.go b/obsreport/obsreport_processor.go
+index 05550abaa..a77737224 100644
+--- a/obsreport/obsreport_processor.go
++++ b/obsreport/obsreport_processor.go
+@@ -83,7 +83,7 @@ type ProcessorSettings struct {
+ 
+ // NewProcessor creates a new Processor.
+ func NewProcessor(cfg ProcessorSettings) (*Processor, error) {
+-	return newProcessor(cfg, featuregate.GetRegistry())
++	return newProcessor(cfg, featuregate.GlobalRegistry())
+ }
+ 
+ func newProcessor(cfg ProcessorSettings, registry *featuregate.Registry) (*Processor, error) {

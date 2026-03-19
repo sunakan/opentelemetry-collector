@@ -1,0 +1,13 @@
+diff --git a/component/factory_helpers.go b/component/factory_helpers.go
+index 970209bf7..b21a1d95c 100644
+--- a/component/factory_helpers.go
++++ b/component/factory_helpers.go
+@@ -17,7 +17,7 @@ package component
+ import (
+ 	"fmt"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // MakeReceiverFactoryMap takes a list of receiver factories and returns a map

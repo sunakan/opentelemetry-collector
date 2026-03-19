@@ -1,0 +1,12 @@
+diff --git a/otelcol/testdata/otelcol-emptyreaders.yaml b/otelcol/testdata/otelcol-emptyreaders.yaml
+index 3a71b541f..f8f78dc7b 100644
+--- a/otelcol/testdata/otelcol-emptyreaders.yaml
++++ b/otelcol/testdata/otelcol-emptyreaders.yaml
+@@ -7,6 +7,7 @@ exporters:
+ service:
+   telemetry:
+     metrics:
++      level: none
+       readers: []
+   pipelines:
+     metrics:

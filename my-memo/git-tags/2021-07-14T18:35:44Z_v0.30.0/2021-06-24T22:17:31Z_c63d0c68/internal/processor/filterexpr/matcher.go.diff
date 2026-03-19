@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterexpr/matcher.go b/internal/processor/filterexpr/matcher.go
+index c84212abe..be32d8d89 100644
+--- a/internal/processor/filterexpr/matcher.go
++++ b/internal/processor/filterexpr/matcher.go
+@@ -18,7 +18,7 @@ import (
+ 	"github.com/antonmedv/expr"
+ 	"github.com/antonmedv/expr/vm"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type Matcher struct {

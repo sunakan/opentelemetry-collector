@@ -1,0 +1,24 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index f6d23b091..83a85ae99 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -103,8 +103,6 @@ const (
+ 	defaultAgentQueueSize     = 1000
+ 	defaultAgentMaxPacketSize = 65000
+ 	defaultAgentServerWorkers = 10
+-
+-	traceSource string = "Jaeger"
+ )
+ 
+ // New creates a TraceReceiver that receives traffic as a collector with both Thrift and HTTP transports.
+@@ -196,10 +194,6 @@ func (jr *jReceiver) collectorThriftEnabled() bool {
+ 	return jr.config != nil && jr.config.CollectorThriftPort > 0
+ }
+ 
+-func (jr *jReceiver) TraceSource() string {
+-	return traceSource
+-}
+-
+ func (jr *jReceiver) Start(host component.Host) error {
+ 	jr.mu.Lock()
+ 	defer jr.mu.Unlock()

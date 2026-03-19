@@ -1,0 +1,25 @@
+diff --git a/service/parserprovider/merge_test.go b/service/parserprovider/merge_test.go
+index eaaac0f08..764c9a552 100644
+--- a/service/parserprovider/merge_test.go
++++ b/service/parserprovider/merge_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/config/configparser"
++	"go.opentelemetry.io/collector/config"
+ )
+ 
+ func TestMerge_GetError(t *testing.T) {
+@@ -43,9 +43,9 @@ type errProvider struct {
+ 	err error
+ }
+ 
+-func (epl *errProvider) Get(context.Context) (*configparser.ConfigMap, error) {
++func (epl *errProvider) Get(context.Context) (*config.Map, error) {
+ 	if epl.err == nil {
+-		return configparser.NewConfigMap(), nil
++		return config.NewMap(), nil
+ 	}
+ 	return nil, epl.err
+ }

@@ -1,0 +1,17 @@
+diff --git a/.chloggen/returnsame.yaml b/.chloggen/returnsame.yaml
+deleted file mode 100755
+index c97b9af3b..000000000
+--- a/.chloggen/returnsame.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: enhancement
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: capabilityconsumer
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: If the consumer has already the desired capability, don't wrap
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7116]

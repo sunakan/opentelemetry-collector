@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/statusdata.go b/cmd/mdatagen/statusdata.go
+index ebe60dc4b..d65a5c20f 100644
+--- a/cmd/mdatagen/statusdata.go
++++ b/cmd/mdatagen/statusdata.go
+@@ -28,6 +28,8 @@ type Codeowners struct {
+ 	Active []string `mapstructure:"active"`
+ 	// Emeritus codeowners
+ 	Emeritus []string `mapstructure:"emeritus"`
++	// Whether new codeowners are being sought
++	SeekingNew bool `mapstructure:"seeking_new"`
+ }
+ 
+ type Status struct {

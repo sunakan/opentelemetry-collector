@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/logs_test.go b/processor/processorhelper/logs_test.go
+index 1f0359b26..b3a220bfb 100644
+--- a/processor/processorhelper/logs_test.go
++++ b/processor/processorhelper/logs_test.go
+@@ -61,7 +61,7 @@ func TestNewLogsProcessor_ProcessLogError(t *testing.T) {
+ func TestNewLogsProcessor_ProcessLogsErrSkipProcessingData(t *testing.T) {
+ 	lp, err := NewLogsProcessor(context.Background(), processortest.NewNopSettings(), &testLogsCfg, consumertest.NewNop(), newTestLProcessor(ErrSkipProcessingData))
+ 	require.NoError(t, err)
+-	assert.Equal(t, nil, lp.ConsumeLogs(context.Background(), plog.NewLogs()))
++	assert.NoError(t, lp.ConsumeLogs(context.Background(), plog.NewLogs()))
+ }
+ 
+ func newTestLProcessor(retError error) ProcessLogsFunc {

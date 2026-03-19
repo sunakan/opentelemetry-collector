@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
+index 4d407ba15..36355f4c1 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice.go.tmpl
+@@ -40,8 +40,7 @@ func new{{ .structName }}(orig *[]{{ .originElementType }}, state *internal.Stat
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func New{{ .structName }}() {{ .structName }} {
+ 	orig := []{{ .originElementType }}(nil)
+-	state := internal.StateMutable
+-	return new{{ .structName }}(&orig, &state)
++	return new{{ .structName }}(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

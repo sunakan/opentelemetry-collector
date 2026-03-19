@@ -1,0 +1,13 @@
+diff --git a/reports/distributions/otlp.yaml b/reports/distributions/otlp.yaml
+index 24293aded..4fecd644a 100644
+--- a/reports/distributions/otlp.yaml
++++ b/reports/distributions/otlp.yaml
+@@ -3,7 +3,7 @@ url: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/mai
+ maintainers: []
+ components:
+     exporter:
+-        - otlp
++        - otlp_grpc
+         - otlp_http
+     receiver:
+         - otlp

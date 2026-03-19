@@ -1,0 +1,13 @@
+diff --git a/service/servicetest/configprovider.go b/service/servicetest/configprovider.go
+index 6f69ef785..1b8250ef5 100644
+--- a/service/servicetest/configprovider.go
++++ b/service/servicetest/configprovider.go
+@@ -28,7 +28,7 @@ func LoadConfig(fileName string, factories component.Factories) (*config.Config,
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	return configunmarshaler.New().Unmarshal(conf, factories)
++	return configunmarshaler.Unmarshal(conf, factories)
+ }
+ 
+ // LoadConfigAndValidate loads a config from the file, and validates the configuration.

@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/pict_metrics_gen.go b/internal/goldendataset/pict_metrics_gen.go
+index b84c53ff6..d6ebaaa7b 100644
+--- a/internal/goldendataset/pict_metrics_gen.go
++++ b/internal/goldendataset/pict_metrics_gen.go
+@@ -17,7 +17,7 @@ package goldendataset
+ import (
+ 	"fmt"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // GenerateMetrics takes the filename of a PICT-generated file, walks through all of the rows in the PICT

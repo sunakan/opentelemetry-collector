@@ -1,0 +1,13 @@
+diff --git a/client/client_test.go b/client/client_test.go
+index ddec6bd89..37f300de4 100644
+--- a/client/client_test.go
++++ b/client/client_test.go
+@@ -71,7 +71,7 @@ func TestFromContext(t *testing.T) {
+ 	}
+ 	for _, tC := range testCases {
+ 		t.Run(tC.desc, func(t *testing.T) {
+-			assert.Equal(t, FromContext(tC.input), tC.expected)
++			assert.Equal(t, tC.expected, FromContext(tC.input))
+ 		})
+ 	}
+ }

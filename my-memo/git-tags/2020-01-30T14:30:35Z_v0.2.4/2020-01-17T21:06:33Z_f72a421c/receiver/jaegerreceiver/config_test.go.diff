@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index 362d700df..9e09fdf5d 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -74,6 +74,7 @@ func TestLoadConfig(t *testing.T) {
+ 				},
+ 			},
+ 			RemoteSampling: &RemoteSamplingConfig{
++				HostEndpoint:  "0.0.0.0:5778",
+ 				FetchEndpoint: "jaeger-collector:1234",
+ 			},
+ 		})

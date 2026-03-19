@@ -1,0 +1,22 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaller_test.go b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+index 2259e1f8a..350fa3f7c 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaller_test.go
++++ b/receiver/kafkareceiver/otlp_unmarshaller_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+-func TestUnmarshallOTLP(t *testing.T) {
++func TestUnmarshallOTLPTraces(t *testing.T) {
+ 	td := pdata.NewTraces()
+ 	td.ResourceSpans().Resize(1)
+ 	td.ResourceSpans().At(0).Resource().Attributes().InsertString("foo", "bar")
+@@ -40,7 +40,7 @@ func TestUnmarshallOTLP(t *testing.T) {
+ 	assert.Equal(t, "otlp_proto", p.Encoding())
+ }
+ 
+-func TestUnmarshallOTLP_error(t *testing.T) {
++func TestUnmarshallOTLPTraces_error(t *testing.T) {
+ 	p := otlpTracesPbUnmarshaller{}
+ 	_, err := p.Unmarshal([]byte("+$%"))
+ 	assert.Error(t, err)

@@ -1,0 +1,13 @@
+diff --git a/.chloggen/mdatagen-filter.yaml b/.chloggen/mdatagen-filter.yaml
+index 554eda7ce..78b446c23 100755
+--- a/.chloggen/mdatagen-filter.yaml
++++ b/.chloggen/mdatagen-filter.yaml
+@@ -4,7 +4,7 @@
+ change_type: enhancement
+ 
+ # The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: "cmd/metadatagen"
++component: "cmd/mdatagen"
+ 
+ # A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+ note: "support excluding some metrics based on string and regexes in resource_attributes"

@@ -1,0 +1,19 @@
+diff --git a/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml b/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml
+new file mode 100644
+index 000000000..7b0fe077c
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/invalid-processor-name-after-slash.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++  exampleprocessor/:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

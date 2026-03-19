@@ -1,0 +1,31 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 0c3129c54..dd177adab 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -82,7 +82,7 @@ func TestLoadConfig(t *testing.T) {
+ 			Protocols: Protocols{
+ 				GRPC: &configgrpc.GRPCServerSettings{
+ 					NetAddr: confignet.NetAddr{
+-						Endpoint:  "0.0.0.0:55680",
++						Endpoint:  "0.0.0.0:4317",
+ 						Transport: "tcp",
+ 					},
+ 					ReadBufferSize: 512 * 1024,
+@@ -112,7 +112,7 @@ func TestLoadConfig(t *testing.T) {
+ 			Protocols: Protocols{
+ 				GRPC: &configgrpc.GRPCServerSettings{
+ 					NetAddr: confignet.NetAddr{
+-						Endpoint:  "0.0.0.0:55680",
++						Endpoint:  "0.0.0.0:4317",
+ 						Transport: "tcp",
+ 					},
+ 					MaxRecvMsgSizeMiB:    32,
+@@ -139,7 +139,7 @@ func TestLoadConfig(t *testing.T) {
+ 			Protocols: Protocols{
+ 				GRPC: &configgrpc.GRPCServerSettings{
+ 					NetAddr: confignet.NetAddr{
+-						Endpoint:  "0.0.0.0:55680",
++						Endpoint:  "0.0.0.0:4317",
+ 						Transport: "tcp",
+ 					},
+ 					TLSSetting: &configtls.TLSServerSetting{

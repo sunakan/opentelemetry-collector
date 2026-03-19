@@ -1,0 +1,13 @@
+diff --git a/confmap/internal/mapstructure/encoder.go b/confmap/internal/mapstructure/encoder.go
+index d8208747d..0a10560ff 100644
+--- a/confmap/internal/mapstructure/encoder.go
++++ b/confmap/internal/mapstructure/encoder.go
+@@ -12,7 +12,7 @@ import (
+ 	"strings"
+ 
+ 	"github.com/go-viper/mapstructure/v2"
+-	yaml "go.yaml.in/yaml/v3"
++	"go.yaml.in/yaml/v3"
+ )
+ 
+ const (

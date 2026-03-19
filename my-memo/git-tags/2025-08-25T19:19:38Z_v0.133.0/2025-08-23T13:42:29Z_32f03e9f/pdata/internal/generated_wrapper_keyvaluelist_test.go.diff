@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_keyvaluelist_test.go b/pdata/internal/generated_wrapper_keyvaluelist_test.go
+index 36607b320..2615bb9a6 100644
+--- a/pdata/internal/generated_wrapper_keyvaluelist_test.go
++++ b/pdata/internal/generated_wrapper_keyvaluelist_test.go
+@@ -23,7 +23,7 @@ import (
+ func TestCopyOrigKeyValueList(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesKeyValueList() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -52,7 +52,7 @@ func TestMarshalAndUnmarshalJSONOrigKeyValueListUnknown(t *testing.T) {
+ func TestMarshalAndUnmarshalJSONOrigKeyValueList(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesKeyValueList() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {
+@@ -96,7 +96,7 @@ func TestMarshalAndUnmarshalProtoOrigKeyValueListUnknown(t *testing.T) {
+ func TestMarshalAndUnmarshalProtoOrigKeyValueList(t *testing.T) {
+ 	for name, src := range genTestEncodingValuesKeyValueList() {
+ 		for _, pooling := range []bool{true, false} {
+-			t.Run(name+"pooling_"+strconv.FormatBool(pooling), func(t *testing.T) {
++			t.Run(name+"/Pooling="+strconv.FormatBool(pooling), func(t *testing.T) {
+ 				prevPooling := UseProtoPooling.IsEnabled()
+ 				require.NoError(t, featuregate.GlobalRegistry().Set(UseProtoPooling.ID(), pooling))
+ 				defer func() {

@@ -1,0 +1,23 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index d86bcdae8..ac20333a5 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -124,6 +124,9 @@ jobs:
+       - name: Multimod verify
+         run: make multimod-verify
+   unittest:
++    strategy:
++      matrix:
++        go-version: [1.18, 1.17]
+     runs-on: ubuntu-latest
+     needs: [setup-environment]
+     steps:
+@@ -132,7 +135,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v3
+         with:
+-          go-version: 1.17
++          go-version: ${{ matrix.go-version }}
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV

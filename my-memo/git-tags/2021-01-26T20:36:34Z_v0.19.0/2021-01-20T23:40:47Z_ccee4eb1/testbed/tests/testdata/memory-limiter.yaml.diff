@@ -1,0 +1,21 @@
+diff --git a/testbed/tests/testdata/memory-limiter.yaml b/testbed/tests/testdata/memory-limiter.yaml
+index 2449b3548..ec07c8c2e 100644
+--- a/testbed/tests/testdata/memory-limiter.yaml
++++ b/testbed/tests/testdata/memory-limiter.yaml
+@@ -14,7 +14,6 @@ exporters:
+     loglevel: info
+ 
+ processors:
+-  queued_retry:
+   memory_limiter:
+     check_interval: 1s
+     limit_mib: 10
+@@ -23,7 +22,7 @@ service:
+   pipelines:
+     traces:
+       receivers: [jaeger]
+-      processors: [memory_limiter,queued_retry]
++      processors: [memory_limiter]
+       exporters: [opencensus,logging]
+     metrics:
+       receivers: [opencensus]

@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
+index ee65f8881..2905f1194 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper.go
+@@ -248,7 +248,7 @@ func initializeDiskIOMetric(metric pdata.Metric, startTime, now pdata.Timestamp,
+ func initializeDiskIODataPoint(dataPoint pdata.IntDataPoint, startTime, now pdata.Timestamp, value int64, directionLabel string) {
+ 	labelsMap := dataPoint.LabelsMap()
+ 	labelsMap.Insert(metadata.Labels.ProcessDirection, directionLabel)
+-	dataPoint.SetStartTime(startTime)
++	dataPoint.SetStartTimestamp(startTime)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetValue(value)
+ }

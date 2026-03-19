@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+index e907feb44..a43522e66 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/factory.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ )
+ 
+ // This file implements Factory for CPU scraper.

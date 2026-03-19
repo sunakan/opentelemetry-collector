@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index 0e4738dec..a3d7ae733 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -9,6 +9,13 @@ github_project: open-telemetry/opentelemetry-collector
+ 
+ sem_conv_version: 1.38.0
+ 
++feature_gates:
++  - id: receiver.sample.featuregate.example
++    description: This is an example feature gate for testing mdatagen code generation.
++    stage: alpha
++    from_version: v0.100.0
++    reference_url: https://github.com/open-telemetry/opentelemetry-collector/issues/12345
++
+ status:
+   disable_codecov_badge: true
+   class: receiver

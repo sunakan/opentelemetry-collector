@@ -1,0 +1,21 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml b/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml
+deleted file mode 100644
+index 1c1ac6f96..000000000
+--- a/receiver/hostmetricsreceiver/testdata/config-noscrapers.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  hostmetrics:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [hostmetrics]
+-      processors: [nop]
+-      exporters: [nop]

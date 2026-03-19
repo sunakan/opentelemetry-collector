@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
+index 2e1ae08d5..cc205edfe 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_others_fallback.go
+@@ -19,7 +19,7 @@ package diskscraper
+ import (
+ 	"github.com/shirou/gopsutil/disk"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ const systemSpecificMetricsLen = 0

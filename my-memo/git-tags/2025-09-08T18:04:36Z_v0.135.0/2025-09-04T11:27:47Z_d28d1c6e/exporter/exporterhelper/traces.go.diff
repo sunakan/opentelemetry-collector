@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index a9af17812..96e87d6ff 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -126,6 +126,10 @@ func (req *tracesRequest) setCachedSize(size int) {
+ 	req.cachedSize = size
+ }
+ 
++func (req *tracesRequest) BytesSize() int {
++	return tracesMarshaler.TracesSize(req.td)
++}
++
+ type tracesExporter struct {
+ 	*internal.BaseExporter
+ 	consumer.Traces

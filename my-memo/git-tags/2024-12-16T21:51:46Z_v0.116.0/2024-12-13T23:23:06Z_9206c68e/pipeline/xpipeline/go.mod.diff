@@ -1,0 +1,13 @@
+diff --git a/pipeline/xpipeline/go.mod b/pipeline/xpipeline/go.mod
+new file mode 100644
+index 000000000..b4181ba8b
+--- /dev/null
++++ b/pipeline/xpipeline/go.mod
+@@ -0,0 +1,7 @@
++module go.opentelemetry.io/collector/pipeline/xpipeline
++
++go 1.22.0
++
++require go.opentelemetry.io/collector/pipeline v0.115.0
++
++replace go.opentelemetry.io/collector/pipeline => ../

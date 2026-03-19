@@ -1,0 +1,31 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index adef2da8b..d7fde0063 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -2,10 +2,18 @@
+ 
+ version: 2
+ updates:
++  - package-ecosystem: "docker"
++    directory: "/"
++    schedule:
++      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/"
+     schedule:
+       interval: "weekly"
++  - package-ecosystem: "gomod"
++    directory: "/cmd/checkdoc"
++    schedule:
++      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/cmd/issuegenerator"
+     schedule:
+@@ -22,7 +30,3 @@ updates:
+     directory: "/internal/tools"
+     schedule:
+       interval: "weekly"
+-  - package-ecosystem: "gomod"
+-    directory: "/cmd/checkdoc"
+-    schedule:
+-      interval: "weekly"

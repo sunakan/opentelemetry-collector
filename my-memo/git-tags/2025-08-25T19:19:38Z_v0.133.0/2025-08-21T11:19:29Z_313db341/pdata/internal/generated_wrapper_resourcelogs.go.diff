@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogs.go b/pdata/internal/generated_wrapper_resourcelogs.go
+index e740d13ae..924251f15 100644
+--- a/pdata/internal/generated_wrapper_resourcelogs.go
++++ b/pdata/internal/generated_wrapper_resourcelogs.go
+@@ -50,6 +50,10 @@ func DeleteOrigResourceLogs(orig *otlplogs.ResourceLogs, nullable bool) {
+ }
+ 
+ func CopyOrigResourceLogs(dest, src *otlplogs.ResourceLogs) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.ScopeLogs = CopyOrigScopeLogsSlice(dest.ScopeLogs, src.ScopeLogs)
+ 	dest.SchemaUrl = src.SchemaUrl

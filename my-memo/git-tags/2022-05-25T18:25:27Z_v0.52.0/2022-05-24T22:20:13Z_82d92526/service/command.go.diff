@@ -1,0 +1,13 @@
+diff --git a/service/command.go b/service/command.go
+index 6130105f9..5b7e68aa1 100644
+--- a/service/command.go
++++ b/service/command.go
+@@ -35,7 +35,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 				cfgSet := newDefaultConfigProviderSettings(getConfigFlag())
+ 				// Append the "overwrite properties converter" as the first converter.
+ 				cfgSet.MapConverters = append(
+-					[]config.MapConverterFunc{overwritepropertiesmapconverter.New(getSetFlag())},
++					[]config.MapConverter{overwritepropertiesmapconverter.New(getSetFlag())},
+ 					cfgSet.MapConverters...)
+ 				set.ConfigProvider, err = NewConfigProvider(cfgSet)
+ 				if err != nil {

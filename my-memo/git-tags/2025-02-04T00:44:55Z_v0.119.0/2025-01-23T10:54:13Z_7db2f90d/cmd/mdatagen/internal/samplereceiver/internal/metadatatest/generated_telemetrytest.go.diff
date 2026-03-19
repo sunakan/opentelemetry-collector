@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go b/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
+index 162590131..194def3a3 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadatatest/generated_telemetrytest.go
+@@ -20,8 +20,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ func (tt *Telemetry) NewSettings() receiver.Settings {
+ 	set := receivertest.NewNopSettings()

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index a3b53d3f8..7edf7788e 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -103,7 +103,7 @@ func TestQueuedRetry_OnError(t *testing.T) {
+ 		assert.NoError(t, be.Shutdown(context.Background()))
+ 	})
+ 
+-	traceErr := consumererror.NewTraces(errors.New("some error"), testdata.GenerateTracesOneSpan())
++	traceErr := consumererror.NewTraces(errors.New("some error"), testdata.GenerateTraces(1))
+ 	mockR := newMockRequest(context.Background(), 2, traceErr)
+ 	ocs.run(func() {
+ 		// This is asynchronous so it should just enqueue, no errors expected.

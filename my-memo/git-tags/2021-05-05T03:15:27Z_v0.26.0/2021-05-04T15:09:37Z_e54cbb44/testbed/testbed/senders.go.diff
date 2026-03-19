@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/senders.go b/testbed/testbed/senders.go
+index db59b24a7..c5d0131fa 100644
+--- a/testbed/testbed/senders.go
++++ b/testbed/testbed/senders.go
+@@ -100,7 +100,7 @@ func (dsb *DataSenderBase) GetExtensions() map[config.ComponentID]component.Exte
+ 	return nil
+ }
+ 
+-func (dsb *DataSenderBase) GetExporters() map[config.DataType]map[config.NamedEntity]component.Exporter {
++func (dsb *DataSenderBase) GetExporters() map[config.DataType]map[config.ComponentID]component.Exporter {
+ 	return nil
+ }
+ 

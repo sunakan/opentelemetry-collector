@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/persistent_queue_test.go b/exporter/exporterhelper/persistent_queue_test.go
+index d01208734..ddbbcb45c 100644
+--- a/exporter/exporterhelper/persistent_queue_test.go
++++ b/exporter/exporterhelper/persistent_queue_test.go
+@@ -43,7 +43,7 @@ func createTestQueue(extension storage.Extension, capacity int) *persistentQueue
+ 	}
+ 
+ 	wq := newPersistentQueue(context.Background(), "foo", capacity, logger, client, newTraceRequestUnmarshalerFunc(nopTracePusher()))
+-	return wq
++	return wq.(*persistentQueue)
+ }
+ 
+ func TestPersistentQueue_Capacity(t *testing.T) {

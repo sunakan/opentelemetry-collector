@@ -1,0 +1,22 @@
+diff --git a/service/zpages.go b/service/zpages.go
+index b9b3ad0eb..e1a42c7f1 100644
+--- a/service/zpages.go
++++ b/service/zpages.go
+@@ -90,12 +90,16 @@ func (srv *service) getPipelinesSummaryTableData() zpages.SummaryPipelinesTableD
+ 		for _, recvID := range c.Receivers {
+ 			recvs = append(recvs, recvID.String())
+ 		}
++		var procs []string
++		for _, procID := range c.Processors {
++			procs = append(procs, procID.String())
++		}
+ 		row := zpages.SummaryPipelinesTableRowData{
+ 			FullName:            c.Name,
+ 			InputType:           string(c.InputType),
+ 			MutatesConsumedData: p.MutatesConsumedData,
+ 			Receivers:           recvs,
+-			Processors:          c.Processors,
++			Processors:          procs,
+ 			Exporters:           c.Exporters,
+ 		}
+ 		data.Rows = append(data.Rows, row)

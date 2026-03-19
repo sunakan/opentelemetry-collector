@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/obsexporter_test.go b/exporter/exporterhelper/obsexporter_test.go
+index c37a42870..f6f46ccba 100644
+--- a/exporter/exporterhelper/obsexporter_test.go
++++ b/exporter/exporterhelper/obsexporter_test.go
+@@ -20,7 +20,7 @@ import (
+ )
+ 
+ var (
+-	exporterID = component.NewID("fakeExporter")
++	exporterID = component.MustNewID("fakeExporter")
+ 
+ 	errFake = errors.New("errFake")
+ )

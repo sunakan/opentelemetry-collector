@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index 3897383c8..c8d8ebaa8 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -156,7 +156,7 @@ prometheus:
+ 		},
+ 	}
+ 	me := mes[0]
+-	me.ExportMetricsData(context.Background(), data.MetricsData{Metrics: []*metricspb.Metric{metric1}})
++	me.ProcessMetricsData(context.Background(), data.MetricsData{Metrics: []*metricspb.Metric{metric1}})
+ 
+ 	res, err := http.Get("http://localhost:7777/metrics")
+ 	if err != nil {

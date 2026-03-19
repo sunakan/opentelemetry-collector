@@ -1,0 +1,13 @@
+diff --git a/confmap/resolver.go b/confmap/resolver.go
+index 7c9ed303c..7b7de3d50 100644
+--- a/confmap/resolver.go
++++ b/confmap/resolver.go
+@@ -167,7 +167,7 @@ func (mr *Resolver) Resolve(ctx context.Context) (*Conf, error) {
+ 
+ 	cfgMap := make(map[string]any)
+ 	for _, k := range retMap.AllKeys() {
+-		val, err := mr.expandValueRecursively(ctx, retMap.Get(k))
++		val, err := mr.expandValueRecursively(ctx, retMap.unsanitizedGet(k))
+ 		if err != nil {
+ 			return nil, err
+ 		}

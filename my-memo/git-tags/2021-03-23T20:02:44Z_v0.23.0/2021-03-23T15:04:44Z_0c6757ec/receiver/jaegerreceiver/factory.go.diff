@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index 162e2f536..9bd940384 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -145,7 +145,7 @@ func createTraceReceiver(
+ 	_ context.Context,
+ 	params component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+-	nextConsumer consumer.TracesConsumer,
++	nextConsumer consumer.Traces,
+ ) (component.TracesReceiver, error) {
+ 
+ 	// Convert settings in the source config to configuration struct

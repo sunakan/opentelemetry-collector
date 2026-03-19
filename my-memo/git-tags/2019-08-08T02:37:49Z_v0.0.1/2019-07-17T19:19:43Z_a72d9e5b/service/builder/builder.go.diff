@@ -1,0 +1,13 @@
+diff --git a/service/builder/builder.go b/service/builder/builder.go
+index 52af877c2..ece0e4bd2 100644
+--- a/service/builder/builder.go
++++ b/service/builder/builder.go
+@@ -12,6 +12,8 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++// Package builder contains the logic on parsing configs and building receivers,
++// exporters, pipeplines and tail sampling.
+ package builder
+ 
+ import (

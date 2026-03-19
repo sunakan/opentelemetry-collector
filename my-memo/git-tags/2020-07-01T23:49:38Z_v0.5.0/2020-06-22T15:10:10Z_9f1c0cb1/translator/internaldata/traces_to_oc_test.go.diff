@@ -1,0 +1,32 @@
+diff --git a/translator/internaldata/traces_to_oc_test.go b/translator/internaldata/traces_to_oc_test.go
+index 56b4d3252..adb2bccbd 100644
+--- a/translator/internaldata/traces_to_oc_test.go
++++ b/translator/internaldata/traces_to_oc_test.go
+@@ -118,6 +118,10 @@ func TestSpanKindToOC(t *testing.T) {
+ 			kind:   pdata.SpanKindUNSPECIFIED,
+ 			ocKind: octrace.Span_SPAN_KIND_UNSPECIFIED,
+ 		},
++		{
++			kind:   pdata.SpanKindINTERNAL,
++			ocKind: octrace.Span_SPAN_KIND_UNSPECIFIED,
++		},
+ 	}
+ 
+ 	for _, test := range tests {
+@@ -153,6 +157,16 @@ func TestSpanKindToOCAttribute(t *testing.T) {
+ 				},
+ 			},
+ 		},
++		{
++			kind: pdata.SpanKindINTERNAL,
++			ocAttribute: &octrace.AttributeValue{
++				Value: &octrace.AttributeValue_StringValue{
++					StringValue: &octrace.TruncatableString{
++						Value: string(tracetranslator.OpenTracingSpanKindInternal),
++					},
++				},
++			},
++		},
+ 		{
+ 			kind:        pdata.SpanKindUNSPECIFIED,
+ 			ocAttribute: nil,

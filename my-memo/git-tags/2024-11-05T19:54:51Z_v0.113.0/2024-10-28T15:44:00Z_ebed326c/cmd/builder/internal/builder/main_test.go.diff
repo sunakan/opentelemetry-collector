@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 6a3991d23..0c0b6be20 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -95,6 +95,7 @@ var (
+ 		"/receiver/nopreceiver",
+ 		"/receiver/otlpreceiver",
+ 		"/receiver/receiverprofiles",
++		"/receiver/receivertest",
+ 		"/pdata",
+ 		"/pdata/testdata",
+ 		"/pdata/pprofile",

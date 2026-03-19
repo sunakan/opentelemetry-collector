@@ -1,0 +1,49 @@
+diff --git a/processor/processorhelper/metadata.yaml b/processor/processorhelper/metadata.yaml
+index 7e0c72f5c..2b6ec764d 100644
+--- a/processor/processorhelper/metadata.yaml
++++ b/processor/processorhelper/metadata.yaml
+@@ -33,6 +33,14 @@ telemetry:
+         value_type: int
+         monotonic: true
+ 
++    processor_inserted_spans:
++      enabled: true
++      description: Number of spans that were inserted.
++      unit: 1
++      sum:
++        value_type: int
++        monotonic: true
++
+     processor_accepted_metric_points:
+       enabled: true
+       description: Number of metric points successfully pushed into the next component in the pipeline.
+@@ -57,6 +65,14 @@ telemetry:
+         value_type: int
+         monotonic: true
+ 
++    processor_inserted_metric_points:
++      enabled: true
++      description: Number of metric points that were inserted.
++      unit: 1
++      sum:
++        value_type: int
++        monotonic: true
++
+     processor_accepted_log_records:
+       enabled: true
+       description: Number of log records successfully pushed into the next component in the pipeline.
+@@ -79,4 +95,12 @@ telemetry:
+       unit: 1
+       sum:
+         value_type: int
+-        monotonic: true
+\ No newline at end of file
++        monotonic: true
++
++    processor_inserted_log_records:
++      enabled: true
++      description: Number of log records that were inserted.
++      unit: 1
++      sum:
++        value_type: int
++        monotonic: true

@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_test.go b/exporter/exporterhelper/internal/persistent_storage_test.go
+index 92293d977..3a4f33a6a 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_test.go
+@@ -336,11 +336,11 @@ func TestItemIndexArrayMarshaling(t *testing.T) {
+ 		},
+ 		{
+ 			in:  []uint64{},
+-			out: []uint64{},
++			out: nil,
+ 		},
+ 		{
+ 			in:  nil,
+-			out: []uint64{},
++			out: nil,
+ 		},
+ 	}
+ 

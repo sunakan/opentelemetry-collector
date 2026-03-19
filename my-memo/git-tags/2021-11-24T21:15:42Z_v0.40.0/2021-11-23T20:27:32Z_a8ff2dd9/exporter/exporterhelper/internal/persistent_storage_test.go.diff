@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_test.go b/exporter/exporterhelper/internal/persistent_storage_test.go
+index 9648994bd..06258fb1d 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_test.go
+@@ -216,7 +216,7 @@ func TestPersistentStorage_RepeatPutCloseReadClose(t *testing.T) {
+ 	ext := createStorageExtension(path)
+ 	wq := createTestQueue(ext, 5000)
+ 	require.Equal(t, 0, wq.Size())
+-	ext.Shutdown(context.Background())
++	require.NoError(t, ext.Shutdown(context.Background()))
+ }
+ 
+ func TestPersistentStorage_EmptyRequest(t *testing.T) {
+@@ -279,7 +279,7 @@ func BenchmarkPersistentStorage_TraceSpans(b *testing.B) {
+ 				req := ps.get()
+ 				require.NotNil(bb, req)
+ 			}
+-			ext.Shutdown(context.Background())
++			require.NoError(b, ext.Shutdown(context.Background()))
+ 		})
+ 	}
+ }

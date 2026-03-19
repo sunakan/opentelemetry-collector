@@ -1,0 +1,17 @@
+diff --git a/translator/metrics/oc_to_otlp.go b/translator/metrics/oc_to_otlp.go
+index 7550db9bb..15d269dd1 100644
+--- a/translator/metrics/oc_to_otlp.go
++++ b/translator/metrics/oc_to_otlp.go
+@@ -312,8 +312,11 @@ func getPointsCount(ocMetric *ocmetrics.Metric) int {
+ }
+ 
+ func descriptorToOtlp(descriptor *ocmetrics.MetricDescriptor) *otlpmetrics.MetricDescriptor {
++	if descriptor == nil {
++		return nil
++	}
+ 	descriptorType := descriptorTypeToOtlp(descriptor.Type)
+-	if descriptor == nil || descriptorType == invalidOtlpMetricDescriptorType {
++	if descriptorType == invalidOtlpMetricDescriptorType {
+ 		return nil
+ 	}
+ 

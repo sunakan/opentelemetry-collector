@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/requesttest/request.go b/exporter/exporterhelper/internal/requesttest/request.go
+index 135f1cb77..9c5c03d05 100644
+--- a/exporter/exporterhelper/internal/requesttest/request.go
++++ b/exporter/exporterhelper/internal/requesttest/request.go
+@@ -44,6 +44,10 @@ func (r *FakeRequest) ItemsCount() int {
+ 	return r.Items
+ }
+ 
++func (r *FakeRequest) BytesSize() int {
++	return r.Bytes
++}
++
+ func (r *FakeRequest) MergeSplit(_ context.Context, maxSize int, szt request.SizerType, r2 request.Request) ([]request.Request, error) {
+ 	if r.MergeErr != nil {
+ 		return r.MergeErrResult, r.MergeErr

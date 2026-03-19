@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 047f6dab3..5a348462c 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -30,6 +30,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"health_check",
+ 		"pprof",
+ 		"zpages",
++		"fluentbit",
+ 	}
+ 	expectedReceivers := []configmodels.Type{
+ 		"jaeger",

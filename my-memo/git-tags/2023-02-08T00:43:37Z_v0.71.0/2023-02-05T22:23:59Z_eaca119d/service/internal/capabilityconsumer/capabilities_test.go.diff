@@ -1,0 +1,34 @@
+diff --git a/service/internal/capabilityconsumer/capabilities_test.go b/service/internal/capabilityconsumer/capabilities_test.go
+index 2e9ba798a..878eaf62c 100644
+--- a/service/internal/capabilityconsumer/capabilities_test.go
++++ b/service/internal/capabilityconsumer/capabilities_test.go
+@@ -30,6 +30,9 @@ func TestLogs(t *testing.T) {
+ 	sink := &consumertest.LogsSink{}
+ 	require.Equal(t, consumer.Capabilities{MutatesData: false}, sink.Capabilities())
+ 
++	same := NewLogs(sink, consumer.Capabilities{MutatesData: false})
++	assert.Same(t, sink, same)
++
+ 	wrap := NewLogs(sink, consumer.Capabilities{MutatesData: true})
+ 	assert.Equal(t, consumer.Capabilities{MutatesData: true}, wrap.Capabilities())
+ 
+@@ -42,6 +45,9 @@ func TestMetrics(t *testing.T) {
+ 	sink := &consumertest.MetricsSink{}
+ 	require.Equal(t, consumer.Capabilities{MutatesData: false}, sink.Capabilities())
+ 
++	same := NewMetrics(sink, consumer.Capabilities{MutatesData: false})
++	assert.Same(t, sink, same)
++
+ 	wrap := NewMetrics(sink, consumer.Capabilities{MutatesData: true})
+ 	assert.Equal(t, consumer.Capabilities{MutatesData: true}, wrap.Capabilities())
+ 
+@@ -54,6 +60,9 @@ func TestTraces(t *testing.T) {
+ 	sink := &consumertest.TracesSink{}
+ 	require.Equal(t, consumer.Capabilities{MutatesData: false}, sink.Capabilities())
+ 
++	same := NewTraces(sink, consumer.Capabilities{MutatesData: false})
++	assert.Same(t, sink, same)
++
+ 	wrap := NewTraces(sink, consumer.Capabilities{MutatesData: true})
+ 	assert.Equal(t, consumer.Capabilities{MutatesData: true}, wrap.Capabilities())
+ 

@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/defaultunmarshaler.go b/config/configunmarshaler/defaultunmarshaler.go
+index 4b5bbc86b..953b67089 100644
+--- a/config/configunmarshaler/defaultunmarshaler.go
++++ b/config/configunmarshaler/defaultunmarshaler.go
+@@ -96,7 +96,7 @@ func NewDefault() ConfigUnmarshaler {
+ }
+ 
+ // Unmarshal the Config from a Parser.
+-// After the config is unmarshalled, `Validate()` must be called to validate.
++// After the config is unmarshaled, `Validate()` must be called to validate.
+ func (*defaultUnmarshaler) Unmarshal(v *configparser.ConfigMap, factories component.Factories) (*config.Config, error) {
+ 	var cfg config.Config
+ 

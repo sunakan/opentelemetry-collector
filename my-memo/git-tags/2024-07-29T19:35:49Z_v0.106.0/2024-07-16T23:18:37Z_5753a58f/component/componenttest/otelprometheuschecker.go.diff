@@ -1,0 +1,14 @@
+diff --git a/component/componenttest/otelprometheuschecker.go b/component/componenttest/otelprometheuschecker.go
+index 9dbe60384..f7a0e548d 100644
+--- a/component/componenttest/otelprometheuschecker.go
++++ b/component/componenttest/otelprometheuschecker.go
+@@ -117,8 +117,7 @@ func (pc *prometheusChecker) checkExporterMetricGauge(exporter component.ID, met
+ }
+ 
+ func (pc *prometheusChecker) checkCounter(expectedMetric string, value int64, attrs []attribute.KeyValue) error {
+-
+-	ts, err := pc.getMetric(expectedMetric, io_prometheus_client.MetricType_COUNTER, attrs)
++	ts, err := pc.getMetric(fmt.Sprintf("otelcol_%s", expectedMetric), io_prometheus_client.MetricType_COUNTER, attrs)
+ 	if err != nil {
+ 		return err
+ 	}

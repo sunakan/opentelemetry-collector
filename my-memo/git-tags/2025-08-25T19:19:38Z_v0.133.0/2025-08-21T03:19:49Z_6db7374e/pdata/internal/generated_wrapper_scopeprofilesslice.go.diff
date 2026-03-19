@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_scopeprofilesslice.go b/pdata/internal/generated_wrapper_scopeprofilesslice.go
+index ba279d5e7..01e089413 100644
+--- a/pdata/internal/generated_wrapper_scopeprofilesslice.go
++++ b/pdata/internal/generated_wrapper_scopeprofilesslice.go
+@@ -25,6 +25,7 @@ func CopyOrigScopeProfilesSlice(dest, src []*otlpprofiles.ScopeProfiles) []*otlp
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
++			DeleteOrigScopeProfiles(dest[i], true)
+ 			dest[i] = nil
+ 		}
+ 		// Add new pointers for missing elements.

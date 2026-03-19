@@ -1,0 +1,25 @@
+diff --git a/otelcol/internal/configunmarshaler/configs_test.go b/otelcol/internal/configunmarshaler/configs_test.go
+index fbd14fa10..86a04099f 100644
+--- a/otelcol/internal/configunmarshaler/configs_test.go
++++ b/otelcol/internal/configunmarshaler/configs_test.go
+@@ -22,6 +22,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/confmap"
++	"go.opentelemetry.io/collector/connector/connectortest"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/extension/extensiontest"
+ 	"go.opentelemetry.io/collector/processor/processortest"
+@@ -50,6 +51,12 @@ var testKinds = []struct {
+ 			"nop": exportertest.NewNopFactory(),
+ 		},
+ 	},
++	{
++		kind: "connector",
++		factories: map[component.Type]component.Factory{
++			"nop": connectortest.NewNopFactory(),
++		},
++	},
+ 	{
+ 		kind: "extension",
+ 		factories: map[component.Type]component.Factory{

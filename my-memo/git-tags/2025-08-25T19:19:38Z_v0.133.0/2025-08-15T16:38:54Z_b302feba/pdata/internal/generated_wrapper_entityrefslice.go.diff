@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_entityrefslice.go b/pdata/internal/generated_wrapper_entityrefslice.go
+index 53aed5ef2..58387e139 100644
+--- a/pdata/internal/generated_wrapper_entityrefslice.go
++++ b/pdata/internal/generated_wrapper_entityrefslice.go
+@@ -30,8 +30,7 @@ func NewEntityRefSlice(orig *[]*otlpcommon.EntityRef, state *State) EntityRefSli
+ 
+ func GenerateTestEntityRefSlice() EntityRefSlice {
+ 	orig := GenerateOrigTestEntityRefSlice()
+-	state := StateMutable
+-	return NewEntityRefSlice(&orig, &state)
++	return NewEntityRefSlice(&orig, NewState())
+ }
+ 
+ func CopyOrigEntityRefSlice(dest, src []*otlpcommon.EntityRef) []*otlpcommon.EntityRef {

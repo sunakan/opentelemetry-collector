@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/metadatatest/generated_telemetrytest.go b/exporter/exporterhelper/internal/metadatatest/generated_telemetrytest.go
+index 8d057d367..9aa491c00 100644
+--- a/exporter/exporterhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/exporter/exporterhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -20,8 +20,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ func (tt *Telemetry) NewSettings() exporter.Settings {
+ 	set := exportertest.NewNopSettings()

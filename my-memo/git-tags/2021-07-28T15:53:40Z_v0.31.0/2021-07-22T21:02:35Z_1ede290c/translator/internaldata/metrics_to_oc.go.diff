@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index 4cccce5f6..49edd7b23 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -260,7 +260,7 @@ func doublePointToOC(dps pdata.NumberDataPointSlice, labelKeys *labelKeys) []*oc
+ 				{
+ 					Timestamp: timestampAsTimestampPb(dp.Timestamp()),
+ 					Value: &ocmetrics.Point_DoubleValue{
+-						DoubleValue: dp.Value(),
++						DoubleValue: dp.DoubleVal(),
+ 					},
+ 				},
+ 			},

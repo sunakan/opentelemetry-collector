@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pmetric_package.go b/internal/cmd/pdatagen/internal/pdata/pmetric_package.go
+index 87ec1b227..ae78f656c 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pmetric_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pmetric_package.go
+@@ -27,6 +27,7 @@ var pmetric = &Package{
+ 			`"go.opentelemetry.io/collector/pdata/pcommon"`,
+ 		},
+ 		testImports: []string{
++			`"strconv"`,
+ 			`"testing"`,
+ 			`"unsafe"`,
+ 			``,

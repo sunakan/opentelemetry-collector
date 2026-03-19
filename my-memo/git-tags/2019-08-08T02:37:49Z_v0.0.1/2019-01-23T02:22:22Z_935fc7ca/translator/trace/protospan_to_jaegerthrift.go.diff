@@ -1,0 +1,25 @@
+diff --git a/translator/trace/protospan_to_jaegerthrift.go b/translator/trace/protospan_to_jaegerthrift.go
+index 0f36b089b..68e3aee0d 100644
+--- a/translator/trace/protospan_to_jaegerthrift.go
++++ b/translator/trace/protospan_to_jaegerthrift.go
+@@ -37,6 +37,10 @@ var (
+ 	errWrongLenID      = errors.New("ID does not have 8 bytes")
+ )
+ 
++var (
++	unknownProcess = &jaeger.Process{ServiceName: "unknown-service-name"}
++)
++
+ // OCProtoToJaegerThrift translates OpenCensus trace data into the Jaeger Thrift format.
+ func OCProtoToJaegerThrift(ocBatch *agenttracepb.ExportTraceServiceRequest) (*jaeger.Batch, error) {
+ 	if ocBatch == nil {
+@@ -58,7 +62,8 @@ func OCProtoToJaegerThrift(ocBatch *agenttracepb.ExportTraceServiceRequest) (*ja
+ 
+ func ocNodeToJaegerProcess(node *commonpb.Node) *jaeger.Process {
+ 	if node == nil {
+-		return nil
++		// Jaeger requires a non-nil Process
++		return unknownProcess
+ 	}
+ 
+ 	var jTags []*jaeger.Tag

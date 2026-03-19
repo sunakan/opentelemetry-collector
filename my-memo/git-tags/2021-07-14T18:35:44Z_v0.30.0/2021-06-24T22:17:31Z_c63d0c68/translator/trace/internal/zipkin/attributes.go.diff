@@ -1,0 +1,13 @@
+diff --git a/translator/trace/internal/zipkin/attributes.go b/translator/trace/internal/zipkin/attributes.go
+index cbd9d0aa2..9269d866a 100644
+--- a/translator/trace/internal/zipkin/attributes.go
++++ b/translator/trace/internal/zipkin/attributes.go
+@@ -17,7 +17,7 @@ package zipkin
+ import (
+ 	"regexp"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // These constants are the attribute keys used when translating from zipkin

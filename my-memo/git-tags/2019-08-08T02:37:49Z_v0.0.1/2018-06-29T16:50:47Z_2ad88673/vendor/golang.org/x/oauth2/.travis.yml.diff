@@ -1,0 +1,19 @@
+diff --git a/vendor/golang.org/x/oauth2/.travis.yml b/vendor/golang.org/x/oauth2/.travis.yml
+new file mode 100644
+index 000000000..fa139db22
+--- /dev/null
++++ b/vendor/golang.org/x/oauth2/.travis.yml
+@@ -0,0 +1,13 @@
++language: go
++
++go:
++  - tip
++
++install:
++  - export GOPATH="$HOME/gopath"
++  - mkdir -p "$GOPATH/src/golang.org/x"
++  - mv "$TRAVIS_BUILD_DIR" "$GOPATH/src/golang.org/x/oauth2"
++  - go get -v -t -d golang.org/x/oauth2/...
++
++script:
++  - go test -v golang.org/x/oauth2/...

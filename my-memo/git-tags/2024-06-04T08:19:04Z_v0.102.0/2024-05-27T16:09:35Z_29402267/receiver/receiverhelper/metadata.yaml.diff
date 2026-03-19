@@ -1,0 +1,14 @@
+diff --git a/receiver/receiverhelper/metadata.yaml b/receiver/receiverhelper/metadata.yaml
+index 9d1fe3c44..2897d549a 100644
+--- a/receiver/receiverhelper/metadata.yaml
++++ b/receiver/receiverhelper/metadata.yaml
+@@ -1,7 +1,8 @@
+ type: receiverhelper
+ 
+ status:
+-  class: pkg
++  class: receiver
++  not_component: true
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib]

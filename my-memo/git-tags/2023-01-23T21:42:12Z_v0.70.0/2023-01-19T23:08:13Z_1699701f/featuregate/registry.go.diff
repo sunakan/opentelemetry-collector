@@ -1,0 +1,23 @@
+diff --git a/featuregate/registry.go b/featuregate/registry.go
+index c3c75b2dd..b404f782b 100644
+--- a/featuregate/registry.go
++++ b/featuregate/registry.go
+@@ -19,11 +19,14 @@ import (
+ 	"sync"
+ )
+ 
+-var reg = NewRegistry()
++var globalRegistry = NewRegistry()
+ 
+-// GetRegistry returns the global Registry.
+-func GetRegistry() *Registry {
+-	return reg
++// Deprecated: [v0.70.0] use GlobalRegistry.
++var GetRegistry = GlobalRegistry
++
++// GlobalRegistry returns the global Registry.
++func GlobalRegistry() *Registry {
++	return globalRegistry
+ }
+ 
+ type Registry struct {

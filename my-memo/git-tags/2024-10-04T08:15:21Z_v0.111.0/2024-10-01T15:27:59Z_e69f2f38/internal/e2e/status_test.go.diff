@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index a87a59807..67dc15680 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -128,7 +128,7 @@ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
+ 
+ 	for instanceID, events := range eventsReceived {
+ 		pipelineIDs := ""
+-		instanceID.AllPipelineIDsWithPipelineIDs(func(id pipeline.ID) bool {
++		instanceID.AllPipelineIDs(func(id pipeline.ID) bool {
+ 			pipelineIDs += id.String() + ","
+ 			return true
+ 		})

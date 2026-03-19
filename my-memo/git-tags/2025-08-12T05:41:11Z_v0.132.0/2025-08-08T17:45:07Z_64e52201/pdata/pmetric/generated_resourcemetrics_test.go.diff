@@ -1,0 +1,32 @@
+diff --git a/pdata/pmetric/generated_resourcemetrics_test.go b/pdata/pmetric/generated_resourcemetrics_test.go
+index aac025a5a..441ce4c4b 100644
+--- a/pdata/pmetric/generated_resourcemetrics_test.go
++++ b/pdata/pmetric/generated_resourcemetrics_test.go
+@@ -48,6 +48,13 @@ func TestResourceMetrics_Resource(t *testing.T) {
+ 	assert.Equal(t, pcommon.Resource(internal.GenerateTestResource()), ms.Resource())
+ }
+ 
++func TestResourceMetrics_ScopeMetrics(t *testing.T) {
++	ms := NewResourceMetrics()
++	assert.Equal(t, NewScopeMetricsSlice(), ms.ScopeMetrics())
++	ms.orig.ScopeMetrics = internal.GenerateOrigTestScopeMetricsSlice()
++	assert.Equal(t, generateTestScopeMetricsSlice(), ms.ScopeMetrics())
++}
++
+ func TestResourceMetrics_SchemaUrl(t *testing.T) {
+ 	ms := NewResourceMetrics()
+ 	assert.Empty(t, ms.SchemaUrl())
+@@ -59,13 +66,6 @@ func TestResourceMetrics_SchemaUrl(t *testing.T) {
+ 	})
+ }
+ 
+-func TestResourceMetrics_ScopeMetrics(t *testing.T) {
+-	ms := NewResourceMetrics()
+-	assert.Equal(t, NewScopeMetricsSlice(), ms.ScopeMetrics())
+-	ms.orig.ScopeMetrics = internal.GenerateOrigTestScopeMetricsSlice()
+-	assert.Equal(t, generateTestScopeMetricsSlice(), ms.ScopeMetrics())
+-}
+-
+ func generateTestResourceMetrics() ResourceMetrics {
+ 	ms := NewResourceMetrics()
+ 	internal.FillOrigTestResourceMetrics(ms.orig)

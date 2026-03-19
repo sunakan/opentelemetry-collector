@@ -1,0 +1,22 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index 107e3bef6..f3f2ddcf7 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -26,14 +26,12 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	receivers, processors, exporters, err := config.ExampleComponents()
++	factories, err := config.ExampleComponents()
+ 	assert.Nil(t, err)
+ 
+ 	factory := &Factory{}
+-	receivers[typeStr] = factory
+-	cfg, err := config.LoadConfigFile(
+-		t, path.Join(".", "testdata", "config.yaml"), receivers, processors, exporters,
+-	)
++	factories.Receivers[typeStr] = factory
++	cfg, err := config.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)

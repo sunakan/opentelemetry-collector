@@ -1,0 +1,15 @@
+diff --git a/filter/config.yaml b/filter/config.yaml
+new file mode 100644
+index 000000000..02fe9b5d1
+--- /dev/null
++++ b/filter/config.yaml
+@@ -0,0 +1,9 @@
++$defs:
++  config:
++    description: Config configures the matching behavior of a Filter.
++    type: object
++    properties:
++      regexp:
++        type: string
++      strict:
++        type: string

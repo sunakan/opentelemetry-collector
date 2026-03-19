@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_float64slice_test.go b/pdata/pcommon/generated_float64slice_test.go
+index 40f06639e..5c0dc6f97 100644
+--- a/pdata/pcommon/generated_float64slice_test.go
++++ b/pdata/pcommon/generated_float64slice_test.go
+@@ -135,7 +135,7 @@ func TestFloat64Slice_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	stream := json.BorrowStream(nil)
+ 	defer json.ReturnStream(stream)
+ 	src := NewFloat64Slice()
+-	internal.FillTestFloat64Slice(internal.Float64Slice(src))
++	*src.getOrig() = internal.GenerateOrigTestFloat64Slice()
+ 	internal.MarshalJSONStreamFloat64Slice(internal.Float64Slice(src), stream)
+ 	require.NoError(t, stream.Error())
+ 

@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/healthcheckextension.go b/extension/healthcheckextension/healthcheckextension.go
+index 7e0c3112b..0f4b51336 100644
+--- a/extension/healthcheckextension/healthcheckextension.go
++++ b/extension/healthcheckextension/healthcheckextension.go
+@@ -33,7 +33,7 @@ type healthCheckExtension struct {
+ 	server http.Server
+ }
+ 
+-var _ (component.PipelineWatcher) = (*healthCheckExtension)(nil)
++var _ component.PipelineWatcher = (*healthCheckExtension)(nil)
+ 
+ func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) error {
+ 

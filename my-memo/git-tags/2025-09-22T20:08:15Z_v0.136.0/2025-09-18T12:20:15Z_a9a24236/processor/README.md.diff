@@ -1,0 +1,13 @@
+diff --git a/processor/README.md b/processor/README.md
+index b44791961..c7f9ff553 100644
+--- a/processor/README.md
++++ b/processor/README.md
+@@ -30,7 +30,7 @@ processor documentation for more information.
+ 1. [memory_limiter](memorylimiterprocessor/README.md)
+ 2. Any sampling or initial filtering processors
+ 3. Any processor relying on sending source from `Context` (e.g. `k8sattributes`)
+-3. [batch](batchprocessor/README.md)
++3. [batch](batchprocessor/README.md), although prefer using the exporter's batching capabilities
+ 4. Any other processors
+ 
+ ## Data Ownership

@@ -1,0 +1,29 @@
+diff --git a/testbed/tests/log_test.go b/testbed/tests/log_test.go
+index 08cf0dc34..08091a380 100644
+--- a/testbed/tests/log_test.go
++++ b/testbed/tests/log_test.go
+@@ -24,7 +24,6 @@ import (
+ )
+ 
+ func TestLog10kDPS(t *testing.T) {
+-	flw := testbed.NewFluentBitFileLogWriter(testbed.DefaultHost, testbed.GetAvailablePort(t))
+ 	tests := []struct {
+ 		name         string
+ 		sender       testbed.DataSender
+@@ -50,16 +49,6 @@ func TestLog10kDPS(t *testing.T) {
+ 				ExpectedMaxRAM: 70,
+ 			},
+ 		},
+-		{
+-			name:     "FluentBitToOTLP",
+-			sender:   flw,
+-			receiver: testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)),
+-			resourceSpec: testbed.ResourceSpec{
+-				ExpectedMaxCPU: 50,
+-				ExpectedMaxRAM: 155,
+-			},
+-			extensions: flw.Extensions(),
+-		},
+ 	}
+ 
+ 	processors := map[string]string{

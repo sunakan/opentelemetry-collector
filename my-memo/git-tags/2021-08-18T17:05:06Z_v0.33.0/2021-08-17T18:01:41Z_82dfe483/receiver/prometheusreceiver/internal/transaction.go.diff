@@ -1,0 +1,20 @@
+diff --git a/receiver/prometheusreceiver/internal/transaction.go b/receiver/prometheusreceiver/internal/transaction.go
+index 90449c0e9..15367a9d6 100644
+--- a/receiver/prometheusreceiver/internal/transaction.go
++++ b/receiver/prometheusreceiver/internal/transaction.go
+@@ -68,7 +68,6 @@ type transaction struct {
+ 	jobsMap              *JobsMap
+ 	useStartTimeMetric   bool
+ 	startTimeMetricRegex string
+-	receiverID           config.ComponentID
+ 	ms                   *metadataService
+ 	node                 *commonpb.Node
+ 	resource             *resourcepb.Resource
+@@ -98,7 +97,6 @@ func newTransaction(
+ 		jobsMap:              jobsMap,
+ 		useStartTimeMetric:   useStartTimeMetric,
+ 		startTimeMetricRegex: startTimeMetricRegex,
+-		receiverID:           receiverID,
+ 		ms:                   ms,
+ 		externalLabels:       externalLabels,
+ 		logger:               logger,

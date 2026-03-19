@@ -1,0 +1,81 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 6bd5fd701..032f10744 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -116,6 +116,7 @@ func Test_NewPRWExporter(t *testing.T) {
+ 				assert.Error(t, err)
+ 				return
+ 			}
++			assert.NoError(t, err)
+ 			require.NotNil(t, prwe)
+ 			assert.NotNil(t, prwe.namespace)
+ 			assert.NotNil(t, prwe.endpointURL)
+@@ -371,17 +372,13 @@ func Test_PushMetrics(t *testing.T) {
+ 	unmatchedBoundBucketHistBatch := getMetricsFromMetricList(validMetrics2[unmatchedBoundBucketHist])
+ 
+ 	// fail cases
+-	emptyIntGaugeBatch := getMetricsFromMetricList(invalidMetrics[emptyIntGauge])
+-
+-	emptyDoubleGaugeBatch := getMetricsFromMetricList(invalidMetrics[emptyDoubleGauge])
+-
+-	emptyCumulativeIntSumBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeIntSum])
++	emptyDoubleGaugeBatch := getMetricsFromMetricList(invalidMetrics[emptyGauge])
+ 
+ 	emptyCumulativeSumBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeSum])
+ 
+ 	emptyCumulativeHistogramBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeHistogram])
+ 
+-	emptyCumulativeSummaryBatch := getMetricsFromMetricList(invalidMetrics[emptySummary])
++	emptySummaryBatch := getMetricsFromMetricList(invalidMetrics[emptySummary])
+ 
+ 	checkFunc := func(t *testing.T, r *http.Request, expected int) {
+ 		body, err := ioutil.ReadAll(r.Body)
+@@ -483,21 +480,13 @@ func Test_PushMetrics(t *testing.T) {
+ 			true,
+ 		},
+ 		{
+-			"emptyDoubleGauge_case",
++			"emptyGauge_case",
+ 			&emptyDoubleGaugeBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+-		{
+-			"emptyIntGauge_case",
+-			&emptyIntGaugeBatch,
+-			checkFunc,
+-			0,
+-			http.StatusAccepted,
+-			true,
+-		},
+ 		{
+ 			"emptyCumulativeSum_case",
+ 			&emptyCumulativeSumBatch,
+@@ -506,14 +495,6 @@ func Test_PushMetrics(t *testing.T) {
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+-		{
+-			"emptyCumulativeIntSum_case",
+-			&emptyCumulativeIntSumBatch,
+-			checkFunc,
+-			0,
+-			http.StatusAccepted,
+-			true,
+-		},
+ 		{
+ 			"emptyCumulativeHistogram_case",
+ 			&emptyCumulativeHistogramBatch,
+@@ -523,8 +504,8 @@ func Test_PushMetrics(t *testing.T) {
+ 			true,
+ 		},
+ 		{
+-			"emptyCumulativeSummary_case",
+-			&emptyCumulativeSummaryBatch,
++			"emptySummary_case",
++			&emptySummaryBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,

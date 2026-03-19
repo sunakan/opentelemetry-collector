@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 4b8b85b30..a67ffabe2 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -103,7 +103,7 @@ func Components() (
+ 		batchprocessor.NewFactory(),
+ 		memorylimiter.NewFactory(),
+ 		&tailsamplingprocessor.Factory{},
+-		&probabilisticsamplerprocessor.Factory{},
++		probabilisticsamplerprocessor.NewFactory(),
+ 		spanprocessor.NewFactory(),
+ 		filterprocessor.NewFactory(),
+ 		groupbytraceprocessor.NewFactory(),

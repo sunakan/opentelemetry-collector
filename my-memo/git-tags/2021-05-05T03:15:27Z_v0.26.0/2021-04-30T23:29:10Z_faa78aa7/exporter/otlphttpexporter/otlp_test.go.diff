@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index 2dcdb8843..7a2d56bcc 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -353,7 +353,7 @@ func startLogsReceiver(t *testing.T, addr string, next consumer.Logs) {
+ 	startAndCleanup(t, recv)
+ }
+ 
+-func createReceiverConfig(addr string, defaultCfg config.Exporter) *otlpreceiver.Config {
++func createReceiverConfig(addr string, defaultCfg config.Receiver) *otlpreceiver.Config {
+ 	cfg := defaultCfg.(*otlpreceiver.Config)
+ 	cfg.HTTP.Endpoint = addr
+ 	cfg.GRPC = nil

@@ -1,0 +1,26 @@
+diff --git a/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go b/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
+index 26bf0ad84..56889a5be 100644
+--- a/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
++++ b/cmd/mdatagen/internal/sampleprocessor/generated_component_test.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ 	"go.opentelemetry.io/collector/processor"
+ 	"go.opentelemetry.io/collector/processor/processortest"
++	"go.opentelemetry.io/collector/processor/xprocessor"
+ )
+ 
+ var typ = component.MustNewType("sample")
+@@ -60,6 +61,13 @@ func TestComponentLifecycle(t *testing.T) {
+ 				return factory.CreateTraces(ctx, set, cfg, consumertest.NewNop())
+ 			},
+ 		},
++
++		{
++			name: "profiles",
++			createFn: func(ctx context.Context, set processor.Settings, cfg component.Config) (component.Component, error) {
++				return factory.(xprocessor.Factory).CreateProfiles(ctx, set, cfg, consumertest.NewNop())
++			},
++		},
+ 	}
+ 
+ 	cm, err := confmaptest.LoadConf("metadata.yaml")

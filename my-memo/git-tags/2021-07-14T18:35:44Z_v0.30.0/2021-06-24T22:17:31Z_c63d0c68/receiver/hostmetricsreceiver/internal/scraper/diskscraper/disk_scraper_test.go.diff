@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_test.go
+index 14d797dae..5961111da 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_test.go
+@@ -24,8 +24,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ )

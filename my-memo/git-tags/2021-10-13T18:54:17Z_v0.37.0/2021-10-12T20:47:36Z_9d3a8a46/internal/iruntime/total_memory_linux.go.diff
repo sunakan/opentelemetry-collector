@@ -1,0 +1,13 @@
+diff --git a/internal/iruntime/total_memory_linux.go b/internal/iruntime/total_memory_linux.go
+index 8048dcf8f..28f177bd1 100644
+--- a/internal/iruntime/total_memory_linux.go
++++ b/internal/iruntime/total_memory_linux.go
+@@ -15,7 +15,7 @@
+ //go:build linux
+ // +build linux
+ 
+-package iruntime
++package iruntime // import "go.opentelemetry.io/collector/internal/iruntime"
+ 
+ import "go.opentelemetry.io/collector/internal/cgroups"
+ 

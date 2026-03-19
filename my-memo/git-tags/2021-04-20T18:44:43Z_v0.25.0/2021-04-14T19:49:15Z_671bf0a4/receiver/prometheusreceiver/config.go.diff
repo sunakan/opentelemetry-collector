@@ -1,0 +1,23 @@
+diff --git a/receiver/prometheusreceiver/config.go b/receiver/prometheusreceiver/config.go
+index 5bfa4019e..2c2f00bf5 100644
+--- a/receiver/prometheusreceiver/config.go
++++ b/receiver/prometheusreceiver/config.go
+@@ -50,6 +50,9 @@ var _ config.CustomUnmarshable = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {
++	if cfg.PrometheusConfig != nil && len(cfg.PrometheusConfig.ScrapeConfigs) == 0 {
++		return errNilScrapeConfig
++	}
+ 	return nil
+ }
+ 
+@@ -80,8 +83,5 @@ func (cfg *Config) Unmarshal(componentParser *config.Parser) error {
+ 	if err != nil {
+ 		return fmt.Errorf("prometheus receiver failed to unmarshal yaml to prometheus config: %s", err)
+ 	}
+-	if len(cfg.PrometheusConfig.ScrapeConfigs) == 0 {
+-		return errNilScrapeConfig
+-	}
+ 	return nil
+ }

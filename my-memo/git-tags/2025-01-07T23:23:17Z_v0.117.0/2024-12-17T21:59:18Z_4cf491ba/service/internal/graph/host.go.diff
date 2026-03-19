@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/host.go b/service/internal/graph/host.go
+index fd81f7dcc..3aaef5e05 100644
+--- a/service/internal/graph/host.go
++++ b/service/internal/graph/host.go
+@@ -21,8 +21,6 @@ import (
+ )
+ 
+ // TODO: remove as part of https://github.com/open-telemetry/opentelemetry-collector/issues/7370 for service 1.0
+-//
+-// nolint
+ type getExporters interface {
+ 	GetExporters() map[pipeline.Signal]map[component.ID]component.Component
+ }

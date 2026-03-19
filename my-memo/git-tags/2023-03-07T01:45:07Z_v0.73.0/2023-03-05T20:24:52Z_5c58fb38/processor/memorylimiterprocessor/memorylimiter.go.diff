@@ -1,0 +1,24 @@
+diff --git a/processor/memorylimiterprocessor/memorylimiter.go b/processor/memorylimiterprocessor/memorylimiter.go
+index 95059876f..09c6042cb 100644
+--- a/processor/memorylimiterprocessor/memorylimiter.go
++++ b/processor/memorylimiterprocessor/memorylimiter.go
+@@ -20,9 +20,9 @@ import (
+ 	"fmt"
+ 	"runtime"
+ 	"sync"
++	"sync/atomic"
+ 	"time"
+ 
+-	"go.uber.org/atomic"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -129,7 +129,7 @@ func newMemoryLimiter(set processor.CreateSettings, cfg *Config) (*memoryLimiter
+ 		ticker:         time.NewTicker(cfg.CheckInterval),
+ 		readMemStatsFn: runtime.ReadMemStats,
+ 		logger:         logger,
+-		forceDrop:      atomic.NewBool(false),
++		forceDrop:      &atomic.Bool{},
+ 		obsrep:         obsrep,
+ 	}
+ 

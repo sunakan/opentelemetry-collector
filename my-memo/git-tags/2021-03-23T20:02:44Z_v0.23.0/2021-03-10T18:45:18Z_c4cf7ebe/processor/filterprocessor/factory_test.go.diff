@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/factory_test.go b/processor/filterprocessor/factory_test.go
+index 74e34f3a7..01018e3b5 100644
+--- a/processor/filterprocessor/factory_test.go
++++ b/processor/filterprocessor/factory_test.go
+@@ -68,7 +68,7 @@ func TestCreateProcessors(t *testing.T) {
+ 	}
+ 
+ 	for _, test := range tests {
+-		factories, err := componenttest.ExampleComponents()
++		factories, err := componenttest.NopFactories()
+ 		assert.Nil(t, err)
+ 
+ 		factory := NewFactory()

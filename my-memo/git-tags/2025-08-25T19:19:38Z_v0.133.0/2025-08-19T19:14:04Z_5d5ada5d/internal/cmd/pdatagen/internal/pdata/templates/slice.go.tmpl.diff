@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
+index c890670f7..a921819e8 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/slice.go.tmpl
+@@ -103,7 +103,7 @@ func (es {{ .structName }}) EnsureCapacity(newCap int) {
+ // It returns the newly added {{ .elementName }}.
+ func (es {{ .structName }}) AppendEmpty() {{ .elementName }} {
+ 	es.{{ .stateAccessor }}.AssertMutable()
+-	*es.{{ .origAccessor }} = append(*es.{{ .origAccessor }}, {{- if .elementNullable }}internal.NewOrigPtr{{ .elementOriginName }}(){{ else }}{{ .elementOriginFullName }}{}{{ end }})
++	*es.{{ .origAccessor }} = append(*es.{{ .origAccessor }}, {{- if .elementNullable }}internal.NewOrig{{ .elementOriginName }}(){{ else }}{{ .elementOriginFullName }}{}{{ end }})
+ 	return es.At(es.Len() - 1)
+ }
+ 

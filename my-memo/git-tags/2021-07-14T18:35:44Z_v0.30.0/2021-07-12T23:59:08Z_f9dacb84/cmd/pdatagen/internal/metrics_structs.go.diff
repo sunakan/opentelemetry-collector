@@ -1,0 +1,15 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index 5b61cf06a..ffa923bcf 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -141,8 +141,8 @@ var intGauge = &messageValueStruct{
+ }
+ 
+ var doubleGauge = &messageValueStruct{
+-	structName:     "DoubleGauge",
+-	description:    "// DoubleGauge represents the type of a double scalar metric that always exports the \"current value\" for every data point.",
++	structName:     "Gauge",
++	description:    "// Gauge represents the type of a double scalar metric that always exports the \"current value\" for every data point.",
+ 	originFullName: "otlpmetrics.Gauge",
+ 	fields: []baseField{
+ 		&sliceField{

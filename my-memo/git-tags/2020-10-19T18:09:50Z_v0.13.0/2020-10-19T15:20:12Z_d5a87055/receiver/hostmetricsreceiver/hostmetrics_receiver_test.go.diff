@@ -1,0 +1,16 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+index 02a610df8..bb406544c 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+@@ -45,9 +45,10 @@ var standardMetrics = []string{
+ 	"system.cpu.time",
+ 	"system.memory.usage",
+ 	"system.disk.io",
++	"system.disk.io_time",
+ 	"system.disk.ops",
++	"system.disk.operation_time",
+ 	"system.disk.pending_operations",
+-	"system.disk.time",
+ 	"system.filesystem.usage",
+ 	"system.cpu.load_average.1m",
+ 	"system.cpu.load_average.5m",

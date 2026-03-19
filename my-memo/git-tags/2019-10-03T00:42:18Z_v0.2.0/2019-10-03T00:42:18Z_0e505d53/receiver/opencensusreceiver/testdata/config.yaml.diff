@@ -1,0 +1,25 @@
+diff --git a/receiver/opencensusreceiver/testdata/config.yaml b/receiver/opencensusreceiver/testdata/config.yaml
+index 420e8afe6..58c79a123 100644
+--- a/receiver/opencensusreceiver/testdata/config.yaml
++++ b/receiver/opencensusreceiver/testdata/config.yaml
+@@ -60,11 +60,12 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [opencensus/customname]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter]
+-  metrics:
+-    receivers: [opencensus]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [opencensus/customname]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
++    metrics:
++      receivers: [opencensus]
++      exporters: [exampleexporter]

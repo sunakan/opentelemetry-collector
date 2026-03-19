@@ -1,0 +1,128 @@
+commit 4e2a593219d07b619e8580a9b22e99c729060d74
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue Jan 14 15:30:53 2025 +0000
+
+    Update All go.opentelemetry.io/build-tools packages to v0.16.0 (#12082)
+    
+    This PR contains the following updates:
+    
+    | Package | Change | Age | Adoption | Passing | Confidence |
+    |---|---|---|---|---|---|
+    |
+    [go.opentelemetry.io/build-tools/checkfile](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools)
+    | `v0.15.0` -> `v0.16.0` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/go.opentelemetry.io%2fbuild-tools%2fcheckfile/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/go.opentelemetry.io%2fbuild-tools%2fcheckfile/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/go.opentelemetry.io%2fbuild-tools%2fcheckfile/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/go.opentelemetry.io%2fbuild-tools%2fcheckfile/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    |
+    [go.opentelemetry.io/build-tools/chloggen](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools)
+    | `v0.15.0` -> `v0.16.0` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/go.opentelemetry.io%2fbuild-tools%2fchloggen/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/go.opentelemetry.io%2fbuild-tools%2fchloggen/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/go.opentelemetry.io%2fbuild-tools%2fchloggen/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/go.opentelemetry.io%2fbuild-tools%2fchloggen/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    |
+    [go.opentelemetry.io/build-tools/crosslink](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools)
+    | `v0.15.0` -> `v0.16.0` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/go.opentelemetry.io%2fbuild-tools%2fcrosslink/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/go.opentelemetry.io%2fbuild-tools%2fcrosslink/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/go.opentelemetry.io%2fbuild-tools%2fcrosslink/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/go.opentelemetry.io%2fbuild-tools%2fcrosslink/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    |
+    [go.opentelemetry.io/build-tools/multimod](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools)
+    | `v0.15.1-0.20250105162204-3f22feb044ba` -> `v0.16.0` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/go.opentelemetry.io%2fbuild-tools%2fmultimod/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/go.opentelemetry.io%2fbuild-tools%2fmultimod/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/go.opentelemetry.io%2fbuild-tools%2fmultimod/v0.15.1-0.20250105162204-3f22feb044ba/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/go.opentelemetry.io%2fbuild-tools%2fmultimod/v0.15.1-0.20250105162204-3f22feb044ba/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    |
+    [go.opentelemetry.io/build-tools/semconvgen](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools)
+    | `v0.15.0` -> `v0.16.0` |
+    [![age](https://developer.mend.io/api/mc/badges/age/go/go.opentelemetry.io%2fbuild-tools%2fsemconvgen/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![adoption](https://developer.mend.io/api/mc/badges/adoption/go/go.opentelemetry.io%2fbuild-tools%2fsemconvgen/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![passing](https://developer.mend.io/api/mc/badges/compatibility/go/go.opentelemetry.io%2fbuild-tools%2fsemconvgen/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    [![confidence](https://developer.mend.io/api/mc/badges/confidence/go/go.opentelemetry.io%2fbuild-tools%2fsemconvgen/v0.15.0/v0.16.0?slim=true)](https://docs.renovatebot.com/merge-confidence/)
+    |
+    
+    ---
+    
+    > [!WARNING]
+    > Some dependencies could not be looked up. Check the Dependency
+    Dashboard for more information.
+    
+    ---
+    
+    ### Release Notes
+    
+    <details>
+    <summary>open-telemetry/opentelemetry-go-build-tools
+    (go.opentelemetry.io/build-tools/checkfile)</summary>
+    
+    ###
+    [`v0.16.0`](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools/blob/HEAD/CHANGELOG.md#v0160)
+    
+    [Compare
+    Source](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools/compare/v0.15.0...v0.16.0)
+    
+    ##### 💡 Enhancements 💡
+    
+    - `crosslink`: Adds a 'tidy' subcommand to generate 'go mod tidy'
+    schedules
+    ([#&#8203;642](https://redirect.github.com/open-telemetry/opentelemetry-go-build-tools/issues/642))
+    
+    </details>
+    
+    ---
+    
+    ### Configuration
+    
+    📅 **Schedule**: Branch creation - "on tuesday" (UTC), Automerge - At any
+    time (no schedule defined).
+    
+    🚦 **Automerge**: Disabled by config. Please merge this manually once you
+    are satisfied.
+    
+    ♻ **Rebasing**: Whenever PR becomes conflicted, or you tick the
+    rebase/retry checkbox.
+    
+    🔕 **Ignore**: Close this PR and you won't be reminded about these
+    updates again.
+    
+    ---
+    
+    - [ ] <!-- rebase-check -->If you want to rebase/retry this PR, check
+    this box
+    
+    ---
+    
+    This PR was generated by [Mend Renovate](https://mend.io/renovate/).
+    View the [repository job
+    log](https://developer.mend.io/github/open-telemetry/opentelemetry-collector).
+    
+    <!--renovate-debug:eyJjcmVhdGVkSW5WZXIiOiIzOS45Mi4wIiwidXBkYXRlZEluVmVyIjoiMzkuOTIuMCIsInRhcmdldEJyYW5jaCI6Im1haW4iLCJsYWJlbHMiOlsiZGVwZW5kZW5jaWVzIiwicmVub3ZhdGVib3QiXX0=-->
+    
+    ---------
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+    Co-authored-by: opentelemetrybot <107717825+opentelemetrybot@users.noreply.github.com>
+    Co-authored-by: Alex Boten <223565+codeboten@users.noreply.github.com>

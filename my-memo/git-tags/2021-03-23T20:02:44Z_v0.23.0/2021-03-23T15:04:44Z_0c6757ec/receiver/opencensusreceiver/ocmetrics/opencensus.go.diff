@@ -1,0 +1,18 @@
+diff --git a/receiver/opencensusreceiver/ocmetrics/opencensus.go b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+index b005724a3..40dfbe45d 100644
+--- a/receiver/opencensusreceiver/ocmetrics/opencensus.go
++++ b/receiver/opencensusreceiver/ocmetrics/opencensus.go
+@@ -33,11 +33,11 @@ import (
+ type Receiver struct {
+ 	agentmetricspb.UnimplementedMetricsServiceServer
+ 	instanceName string
+-	nextConsumer consumer.MetricsConsumer
++	nextConsumer consumer.Metrics
+ }
+ 
+ // New creates a new ocmetrics.Receiver reference.
+-func New(instanceName string, nextConsumer consumer.MetricsConsumer) (*Receiver, error) {
++func New(instanceName string, nextConsumer consumer.Metrics) (*Receiver, error) {
+ 	if nextConsumer == nil {
+ 		return nil, componenterror.ErrNilNextConsumer
+ 	}

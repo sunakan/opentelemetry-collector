@@ -1,0 +1,12 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index 3fd506b7d..a4244ffaa 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -52,6 +52,7 @@ const (
+ 	defaultAgentRemoteSamplingHTTPPort = 5778
+ )
+ 
++// NewFactory creates a new Jaeger receiver factory.
+ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,

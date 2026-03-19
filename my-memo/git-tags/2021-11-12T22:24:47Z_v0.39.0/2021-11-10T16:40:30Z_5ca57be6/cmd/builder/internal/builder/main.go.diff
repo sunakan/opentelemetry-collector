@@ -1,0 +1,20 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index af163385e..6655c4ddd 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -59,7 +59,6 @@ func Generate(cfg Config) error {
+ 			return fmt.Errorf("failed to create output path: %w", err)
+ 		}
+ 	} else if err != nil {
+-		// something else happened
+ 		return fmt.Errorf("failed to create output path: %w", err)
+ 	}
+ 
+@@ -79,7 +78,6 @@ func Generate(cfg Config) error {
+ 			"main_windows.go",
+ 			scaffold.MainWindows,
+ 		},
+-		// components.go
+ 		{
+ 			"components.go",
+ 			scaffold.Components,

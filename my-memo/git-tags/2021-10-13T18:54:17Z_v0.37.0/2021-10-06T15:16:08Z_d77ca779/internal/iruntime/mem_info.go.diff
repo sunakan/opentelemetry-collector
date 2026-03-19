@@ -1,0 +1,13 @@
+diff --git a/internal/iruntime/mem_info.go b/internal/iruntime/mem_info.go
+index 53019e8dd..ca2313611 100644
+--- a/internal/iruntime/mem_info.go
++++ b/internal/iruntime/mem_info.go
+@@ -15,7 +15,7 @@
+ package iruntime
+ 
+ import (
+-	"github.com/shirou/gopsutil/mem"
++	"github.com/shirou/gopsutil/v3/mem"
+ )
+ 
+ // readMemInfo returns the total memory

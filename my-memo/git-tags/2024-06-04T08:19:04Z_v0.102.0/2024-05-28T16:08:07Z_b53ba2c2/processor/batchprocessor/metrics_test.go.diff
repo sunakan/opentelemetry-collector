@@ -1,0 +1,15 @@
+diff --git a/processor/batchprocessor/metrics_test.go b/processor/batchprocessor/metrics_test.go
+index 47345e99d..0f7f4db91 100644
+--- a/processor/batchprocessor/metrics_test.go
++++ b/processor/batchprocessor/metrics_test.go
+@@ -47,9 +47,7 @@ type expectedMetrics struct {
+ }
+ 
+ func telemetryTest(t *testing.T, testFunc func(t *testing.T, tel testTelemetry)) {
+-	t.Run("WithOTel", func(t *testing.T) {
+-		testFunc(t, setupTelemetry(t))
+-	})
++	testFunc(t, setupTelemetry(t))
+ }
+ 
+ func setupTelemetry(t *testing.T) testTelemetry {

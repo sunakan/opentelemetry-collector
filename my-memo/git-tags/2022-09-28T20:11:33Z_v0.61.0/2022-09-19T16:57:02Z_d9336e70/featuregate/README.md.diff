@@ -1,0 +1,13 @@
+diff --git a/featuregate/README.md b/featuregate/README.md
+index af7bf9b33..f71dd5438 100644
+--- a/featuregate/README.md
++++ b/featuregate/README.md
+@@ -17,7 +17,7 @@ const myFeatureGateID = "namespaced.uniqueIdentifier"
+ 
+ func init() {
+ 	featuregate.Register(featuregate.Gate{
+-		ID:          fancyNewFeatureGate,
++		ID:          myFeatureGateID,
+ 		Description: "A brief description of what the gate controls",
+ 		Enabled:     false,
+ 	})

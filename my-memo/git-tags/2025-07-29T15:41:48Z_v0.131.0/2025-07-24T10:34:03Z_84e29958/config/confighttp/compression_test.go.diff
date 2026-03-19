@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 29838757d..771e0470b 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -396,7 +396,7 @@ func TestHTTPContentCompressionRequestWithNilBody(t *testing.T) {
+ 	}))
+ 	defer srv.Close()
+ 
+-	req, err := http.NewRequest(http.MethodGet, srv.URL, nil)
++	req, err := http.NewRequest(http.MethodGet, srv.URL, http.NoBody)
+ 	require.NoError(t, err, "failed to create request to test handler")
+ 
+ 	client := srv.Client()

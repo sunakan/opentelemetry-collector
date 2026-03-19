@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+index 471107d93..54aa577d5 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_scraper.go
+@@ -63,8 +63,7 @@ func initializeMemoryUsageMetric(metric pdata.Metric, now pdata.Timestamp, memIn
+ }
+ 
+ func initializeMemoryUsageDataPoint(dataPoint pdata.NumberDataPoint, now pdata.Timestamp, stateLabel string, value int64) {
+-	labelsMap := dataPoint.LabelsMap()
+-	labelsMap.Insert(metadata.Labels.MemState, stateLabel)
++	dataPoint.Attributes().InsertString(metadata.Labels.MemState, stateLabel)
+ 	dataPoint.SetTimestamp(now)
+ 	dataPoint.SetIntVal(value)
+ }

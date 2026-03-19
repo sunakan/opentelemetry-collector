@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 243674437..5b5b38cd2 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -81,7 +81,7 @@ func NewMetricsExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be := newBaseExporter(cfg, set.Logger, bs)
++	be := newBaseExporter(cfg, set, bs)
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &metricsSenderWithObservability{
+ 			obsrep:     be.obsrep,

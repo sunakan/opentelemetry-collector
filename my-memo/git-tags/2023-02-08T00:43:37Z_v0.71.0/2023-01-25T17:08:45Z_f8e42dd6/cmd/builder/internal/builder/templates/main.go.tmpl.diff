@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index 6891f450b..2def32ffe 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -5,7 +5,6 @@ package main
+ 
+ import (
+ 	"log"
+-
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/otelcol"
+ )

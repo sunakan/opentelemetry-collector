@@ -1,0 +1,21 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index a51f2acfe..74337afc0 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -17,6 +17,7 @@ package exportertest
+ import (
+ 	"context"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+@@ -32,7 +33,7 @@ type nopExporter struct {
+ var _ exporter.TraceExporter = (*nopExporter)(nil)
+ var _ exporter.MetricsExporter = (*nopExporter)(nil)
+ 
+-func (ne *nopExporter) Start(host exporter.Host) error {
++func (ne *nopExporter) Start(host component.Host) error {
+ 	return nil
+ }
+ 

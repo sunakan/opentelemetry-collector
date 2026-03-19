@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
+index ff76eb180..89a29a7ab 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper.go
+@@ -71,8 +71,8 @@ func (s *Scraper) Start(ctx context.Context) error {
+ 	return nil
+ }
+ 
+-// Close
+-func (s *Scraper) Close(ctx context.Context) error {
++// Shutdown
++func (s *Scraper) Shutdown(ctx context.Context) error {
+ 	s.cancel()
+ 	return nil
+ }

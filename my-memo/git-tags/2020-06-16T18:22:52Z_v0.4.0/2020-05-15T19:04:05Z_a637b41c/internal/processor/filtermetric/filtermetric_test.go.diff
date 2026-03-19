@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filtermetric/filtermetric_test.go b/internal/processor/filtermetric/filtermetric_test.go
+index 3fd75f0a8..c13709717 100644
+--- a/internal/processor/filtermetric/filtermetric_test.go
++++ b/internal/processor/filtermetric/filtermetric_test.go
+@@ -20,7 +20,7 @@ import (
+ 	metricspb "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/internal/processor/filterset"
+ )
+ 
+ var (

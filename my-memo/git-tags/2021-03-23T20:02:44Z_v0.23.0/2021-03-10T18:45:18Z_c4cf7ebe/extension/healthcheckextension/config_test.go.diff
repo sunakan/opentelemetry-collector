@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/config_test.go b/extension/healthcheckextension/config_test.go
+index 76c3c2c42..9b0e12bdf 100644
+--- a/extension/healthcheckextension/config_test.go
++++ b/extension/healthcheckextension/config_test.go
+@@ -27,7 +27,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

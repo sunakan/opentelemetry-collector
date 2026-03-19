@@ -1,0 +1,29 @@
+diff --git a/confmap/testdata/config.yaml b/confmap/testdata/config.yaml
+new file mode 100644
+index 000000000..38227d7a6
+--- /dev/null
++++ b/confmap/testdata/config.yaml
+@@ -0,0 +1,23 @@
++receivers:
++    nop:
++    nop/myreceiver:
++
++processors:
++    nop:
++    nop/myprocessor:
++
++exporters:
++    nop:
++    nop/myexporter:
++
++extensions:
++    nop:
++    nop/myextension:
++
++service:
++    extensions: [nop]
++    pipelines:
++        traces:
++            receivers: [nop]
++            processors: [nop]
++            exporters: [nop]

@@ -1,0 +1,27 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/multi_batcher.go b/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
+index 92428ae1c..6fb9eeb79 100644
+--- a/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/multi_batcher.go
+@@ -14,12 +14,10 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+ )
+ 
+-var _ Batcher[request.Request] = (*multiBatcher)(nil)
+-
+ type multiBatcher struct {
+ 	cfg         BatchConfig
+ 	wp          *workerPool
+-	sizer       request.Sizer[request.Request]
++	sizer       request.Sizer
+ 	partitioner Partitioner[request.Request]
+ 	mergeCtx    func(context.Context, context.Context) context.Context
+ 	consumeFunc sender.SendFunc[request.Request]
+@@ -29,7 +27,7 @@ type multiBatcher struct {
+ 
+ func newMultiBatcher(
+ 	bCfg BatchConfig,
+-	sizer request.Sizer[request.Request],
++	sizer request.Sizer,
+ 	wp *workerPool,
+ 	partitioner Partitioner[request.Request],
+ 	mergeCtx func(context.Context, context.Context) context.Context,

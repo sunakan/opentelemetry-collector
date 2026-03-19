@@ -1,0 +1,14 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces.go b/translator/trace/jaeger/jaegerthrift_to_traces.go
+index 2367541ba..433247bda 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces.go
+@@ -21,8 +21,8 @@ import (
+ 
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	idutils "go.opentelemetry.io/collector/internal/idutils"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )

@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/scripts/verify-dist-files-exist.sh b/.github/workflows/scripts/verify-dist-files-exist.sh
+index 71c22b782..e32cdbf45 100755
+--- a/.github/workflows/scripts/verify-dist-files-exist.sh
++++ b/.github/workflows/scripts/verify-dist-files-exist.sh
+@@ -1,3 +1,5 @@
++#!/usr/bin/env bash
++
+ files=(
+     bin/otelcol_darwin_amd64
+     bin/otelcol_darwin_arm64
+@@ -11,8 +13,8 @@ do
+     if [[ ! -f $f ]]
+     then
+         echo "$f does not exist."
+-        echo "passed=false" >> $GITHUB_OUTPUT
++        echo "passed=false" >> "$GITHUB_OUTPUT"
+         exit 0 
+     fi
+ done
+-echo "passed=true" >> $GITHUB_OUTPUT
++echo "passed=true" >> "$GITHUB_OUTPUT"

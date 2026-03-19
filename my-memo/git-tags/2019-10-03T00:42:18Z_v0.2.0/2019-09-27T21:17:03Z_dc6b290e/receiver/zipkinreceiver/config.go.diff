@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/config.go b/receiver/zipkinreceiver/config.go
+index ff0643f76..e38afd1fd 100644
+--- a/receiver/zipkinreceiver/config.go
++++ b/receiver/zipkinreceiver/config.go
+@@ -14,7 +14,7 @@
+ 
+ package zipkinreceiver
+ 
+-import "github.com/open-telemetry/opentelemetry-service/config/configmodels"
++import "github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ 
+ // Config defines configuration for Zipkin receiver.
+ type Config struct {

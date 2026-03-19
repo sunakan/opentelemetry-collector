@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metricdata_test.go b/cmd/mdatagen/metricdata_test.go
+index 2921b8666..2908f694d 100644
+--- a/cmd/mdatagen/metricdata_test.go
++++ b/cmd/mdatagen/metricdata_test.go
+@@ -27,8 +27,6 @@ func TestMetricData(t *testing.T) {
+ 		hasAggregated bool
+ 		hasMonotonic  bool
+ 	}{
+-		{&intGauge{}, "IntGauge", false, false},
+-		{&intSum{}, "IntSum", true, true},
+ 		{&gauge{}, "Gauge", false, false},
+ 		{&sum{}, "Sum", true, true},
+ 		{&histogram{}, "Histogram", true, false},

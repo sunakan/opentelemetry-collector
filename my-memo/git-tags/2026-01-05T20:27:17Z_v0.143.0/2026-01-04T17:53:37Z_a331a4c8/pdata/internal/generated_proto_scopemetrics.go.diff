@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_scopemetrics.go b/pdata/internal/generated_proto_scopemetrics.go
+index 42f048a42..5c7a9d1d5 100644
+--- a/pdata/internal/generated_proto_scopemetrics.go
++++ b/pdata/internal/generated_proto_scopemetrics.go
+@@ -16,9 +16,9 @@ import (
+ 
+ // ScopeMetrics is a collection of metrics from a LibraryInstrumentation.
+ type ScopeMetrics struct {
+-	Scope     InstrumentationScope
+-	Metrics   []*Metric
+ 	SchemaUrl string
++	Metrics   []*Metric
++	Scope     InstrumentationScope
+ }
+ 
+ var (

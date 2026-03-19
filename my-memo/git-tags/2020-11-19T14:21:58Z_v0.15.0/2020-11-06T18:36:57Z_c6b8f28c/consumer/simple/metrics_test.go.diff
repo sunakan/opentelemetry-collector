@@ -1,0 +1,12 @@
+diff --git a/consumer/simple/metrics_test.go b/consumer/simple/metrics_test.go
+index 110ff8836..fa7c496bf 100644
+--- a/consumer/simple/metrics_test.go
++++ b/consumer/simple/metrics_test.go
+@@ -476,7 +476,6 @@ func BenchmarkPdataMetrics(b *testing.B) {
+ 		rm.InitEmpty()
+ 
+ 		res := rm.Resource()
+-		res.InitEmpty()
+ 		resAttrs := res.Attributes()
+ 		resAttrs.Insert("host", pdata.NewAttributeValueString("my-host"))
+ 		resAttrs.Insert("serviceName", pdata.NewAttributeValueString("app"))

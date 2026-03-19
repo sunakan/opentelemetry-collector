@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/logs/otlp_test.go b/receiver/otlpreceiver/logs/otlp_test.go
+index c670a03cc..d7e819ec4 100644
+--- a/receiver/otlpreceiver/logs/otlp_test.go
++++ b/receiver/otlpreceiver/logs/otlp_test.go
+@@ -67,7 +67,7 @@ func TestExport(t *testing.T) {
+ 					Logs: []*otlplog.LogRecord{
+ 						{
+ 							TraceId:      v1.NewTraceID(traceID),
+-							SpanId:       spanID,
++							SpanId:       v1.NewSpanID(spanID),
+ 							Name:         "operationB",
+ 							TimeUnixNano: unixnanos,
+ 						},

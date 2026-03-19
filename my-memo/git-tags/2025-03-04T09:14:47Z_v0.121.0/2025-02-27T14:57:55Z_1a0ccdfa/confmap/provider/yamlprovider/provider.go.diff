@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/yamlprovider/provider.go b/confmap/provider/yamlprovider/provider.go
+index 723643d30..5f4d1a55a 100644
+--- a/confmap/provider/yamlprovider/provider.go
++++ b/confmap/provider/yamlprovider/provider.go
+@@ -3,6 +3,8 @@
+ 
+ package yamlprovider // import "go.opentelemetry.io/collector/confmap/provider/yamlprovider"
+ 
++//go:generate mdatagen metadata.yaml
++
+ import (
+ 	"context"
+ 	"fmt"

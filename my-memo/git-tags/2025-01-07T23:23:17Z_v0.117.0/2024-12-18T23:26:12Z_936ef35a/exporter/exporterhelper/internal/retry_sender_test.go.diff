@@ -1,0 +1,31 @@
+diff --git a/exporter/exporterhelper/internal/retry_sender_test.go b/exporter/exporterhelper/internal/retry_sender_test.go
+index e9ff0dbd9..b990d399f 100644
+--- a/exporter/exporterhelper/internal/retry_sender_test.go
++++ b/exporter/exporterhelper/internal/retry_sender_test.go
+@@ -279,7 +279,7 @@ func TestQueuedRetry_RetryOnError(t *testing.T) {
+ func TestQueueRetryWithNoQueue(t *testing.T) {
+ 	runTest := func(testName string, enableQueueBatcher bool) {
+ 		t.Run(testName, func(t *testing.T) {
+-			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)
++			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)()
+ 			rCfg := configretry.NewDefaultBackOffConfig()
+ 			rCfg.MaxElapsedTime = time.Nanosecond // fail fast
+ 			be, err := NewBaseExporter(exportertest.NewNopSettings(), pipeline.SignalLogs, newObservabilityConsumerSender, WithRetry(rCfg))
+@@ -304,7 +304,7 @@ func TestQueueRetryWithNoQueue(t *testing.T) {
+ func TestQueueRetryWithDisabledRetires(t *testing.T) {
+ 	runTest := func(testName string, enableQueueBatcher bool) {
+ 		t.Run(testName, func(t *testing.T) {
+-			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)
++			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)()
+ 			rCfg := configretry.NewDefaultBackOffConfig()
+ 			rCfg.Enabled = false
+ 			set := exportertest.NewNopSettings()
+@@ -335,7 +335,7 @@ func TestQueueRetryWithDisabledRetires(t *testing.T) {
+ func TestRetryWithContextTimeout(t *testing.T) {
+ 	runTest := func(testName string, enableQueueBatcher bool) {
+ 		t.Run(testName, func(t *testing.T) {
+-			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)
++			defer setFeatureGateForTest(t, usePullingBasedExporterQueueBatcher, enableQueueBatcher)()
+ 			const testTimeout = 10 * time.Second
+ 
+ 			rCfg := configretry.NewDefaultBackOffConfig()

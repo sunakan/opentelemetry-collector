@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/loader_test.go b/cmd/mdatagen/loader_test.go
+index 98da3801a..cf3d59e07 100644
+--- a/cmd/mdatagen/loader_test.go
++++ b/cmd/mdatagen/loader_test.go
+@@ -35,7 +35,8 @@ func TestLoadMetadata(t *testing.T) {
+ 					Codeowners: &Codeowners{
+ 						Active: []string{"dmitryax"},
+ 					},
+-					Warnings: []string{"Any additional information that should be brought to the consumer's attention"},
++					Warnings:             []string{"Any additional information that should be brought to the consumer's attention"},
++					UnsupportedPlatforms: []string{"freebsd", "illumos"},
+ 				},
+ 				ResourceAttributes: map[attributeName]attribute{
+ 					"string.resource.attr": {

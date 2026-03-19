@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_anyvalueslice.go b/pdata/internal/generated_wrapper_anyvalueslice.go
+index 5d099e909..909ff0229 100644
+--- a/pdata/internal/generated_wrapper_anyvalueslice.go
++++ b/pdata/internal/generated_wrapper_anyvalueslice.go
+@@ -30,8 +30,7 @@ func NewSlice(orig *[]otlpcommon.AnyValue, state *State) Slice {
+ 
+ func GenerateTestSlice() Slice {
+ 	orig := GenerateOrigTestAnyValueSlice()
+-	state := StateMutable
+-	return NewSlice(&orig, &state)
++	return NewSlice(&orig, NewState())
+ }
+ 
+ func CopyOrigAnyValueSlice(dest, src []otlpcommon.AnyValue) []otlpcommon.AnyValue {

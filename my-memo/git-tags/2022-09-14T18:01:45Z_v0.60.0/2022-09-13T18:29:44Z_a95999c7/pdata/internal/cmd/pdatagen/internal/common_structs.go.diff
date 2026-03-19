@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/common_structs.go b/pdata/internal/cmd/pdatagen/internal/common_structs.go
+index 1c1aecd45..2cb1d4af7 100644
+--- a/pdata/internal/cmd/pdatagen/internal/common_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/common_structs.go
+@@ -72,6 +72,11 @@ var scopeField = &messageValueField{
+ 	returnMessage:   scope,
+ }
+ 
++var traceState = &messageValueStruct{
++	structName:  "TraceState",
++	packageName: "pcommon",
++}
++
+ var timestampType = &primitiveType{
+ 	structName:  "Timestamp",
+ 	packageName: "pcommon",

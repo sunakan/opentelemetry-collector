@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/config.go b/receiver/opencensusreceiver/config.go
+index 0e24b4f0b..be372c67c 100644
+--- a/receiver/opencensusreceiver/config.go
++++ b/receiver/opencensusreceiver/config.go
+@@ -50,7 +50,7 @@ func (cfg *Config) buildOptions() ([]ocOption, error) {
+ 	return opts, nil
+ }
+ 
+-var _ config.CustomConfigOptions = (*Config)(nil)
++var _ config.Receiver = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

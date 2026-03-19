@@ -1,0 +1,22 @@
+diff --git a/processor/processorhelper/processor.go b/processor/processorhelper/processor.go
+index 074f25976..7e1458e85 100644
+--- a/processor/processorhelper/processor.go
++++ b/processor/processorhelper/processor.go
+@@ -130,7 +130,7 @@ func (bp *baseProcessor) Shutdown(ctx context.Context) error {
+ type tracesProcessor struct {
+ 	baseProcessor
+ 	processor    TProcessor
+-	nextConsumer consumer.TraceConsumer
++	nextConsumer consumer.TracesConsumer
+ }
+ 
+ func (mp *tracesProcessor) ConsumeTraces(ctx context.Context, td pdata.Traces) error {
+@@ -147,7 +147,7 @@ func (mp *tracesProcessor) ConsumeTraces(ctx context.Context, td pdata.Traces) e
+ // TODO: Add observability metrics support
+ func NewTraceProcessor(
+ 	config configmodels.Processor,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ 	processor TProcessor,
+ 	options ...Option,
+ ) (component.TraceProcessor, error) {

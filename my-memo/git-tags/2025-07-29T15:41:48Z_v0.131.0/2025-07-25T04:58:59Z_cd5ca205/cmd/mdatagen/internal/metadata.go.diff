@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metadata.go b/cmd/mdatagen/internal/metadata.go
+index 1a8488363..3fe2cbe82 100644
+--- a/cmd/mdatagen/internal/metadata.go
++++ b/cmd/mdatagen/internal/metadata.go
+@@ -43,6 +43,8 @@ type Metadata struct {
+ 	ShortFolderName string `mapstructure:"-"`
+ 	// Tests is the set of tests generated with the component
+ 	Tests Tests `mapstructure:"tests"`
++	// PackageName is the name of the package where the component is defined.
++	PackageName string `mapstructure:"package_name"`
+ }
+ 
+ func (md Metadata) GetCodeCovComponentID() string {

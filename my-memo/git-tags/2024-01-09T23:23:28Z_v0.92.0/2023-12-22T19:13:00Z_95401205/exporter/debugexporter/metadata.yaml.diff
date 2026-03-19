@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/metadata.yaml b/exporter/debugexporter/metadata.yaml
+new file mode 100644
+index 000000000..cb93e49ce
+--- /dev/null
++++ b/exporter/debugexporter/metadata.yaml
+@@ -0,0 +1,7 @@
++type: debug
++
++status:
++  class: exporter
++  stability:
++    development: [traces, metrics, logs]
++  distributions: [core, contrib]

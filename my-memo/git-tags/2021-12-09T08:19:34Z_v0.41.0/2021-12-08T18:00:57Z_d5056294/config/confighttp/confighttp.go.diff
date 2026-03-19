@@ -1,0 +1,16 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index e6c805ad7..d62b70292 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -269,6 +269,11 @@ func (hss *HTTPServerSettings) ToServer(_ component.Host, settings component.Tel
+ 		}),
+ 	)
+ 
++	// wrap the current handler in an interceptor that will add client.Info to the request's context
++	handler = &clientInfoHandler{
++		next: handler,
++	}
++
+ 	return &http.Server{
+ 		Handler: handler,
+ 	}, nil

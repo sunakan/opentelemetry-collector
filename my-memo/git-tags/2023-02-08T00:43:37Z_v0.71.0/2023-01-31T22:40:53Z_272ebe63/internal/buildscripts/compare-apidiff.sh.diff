@@ -1,0 +1,24 @@
+diff --git a/internal/buildscripts/compare-apidiff.sh b/internal/buildscripts/compare-apidiff.sh
+index 4252ce6f3..d8f886ccd 100755
+--- a/internal/buildscripts/compare-apidiff.sh
++++ b/internal/buildscripts/compare-apidiff.sh
+@@ -34,15 +34,15 @@ while getopts "cp:d:" o; do
+ done
+ shift $((OPTIND-1))
+ 
+-if [ -z $package ]; then
++if [ -z "$package" ]; then
+   usage
+ fi
+ 
+ set -e
+ 
+-if [ -e $input_dir/$package/apidiff.state ]; then
+-  changes=$(${apidiff_cmd} $input_dir/$package/apidiff.state $package)
+-  if [ ! -z "$changes" -a "$changes"!=" " ]; then
++if [ -e "$input_dir"/"$package"/apidiff.state ]; then
++  changes=$(${apidiff_cmd} "$input_dir"/"$package"/apidiff.state "$package")
++  if [ -n "$changes" ] && [ "$changes" != " " ]; then
+     SUB='Incompatible changes:'
+     if [ $check_only = true ] && [[ "$changes" =~ .*"$SUB".* ]]; then
+       echo "Incompatible Changes Found."

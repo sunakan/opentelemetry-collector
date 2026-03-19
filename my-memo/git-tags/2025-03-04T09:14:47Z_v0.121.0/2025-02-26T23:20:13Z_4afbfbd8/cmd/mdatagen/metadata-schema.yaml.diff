@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/metadata-schema.yaml b/cmd/mdatagen/metadata-schema.yaml
+index d0ab41320..aff35e5f9 100644
+--- a/cmd/mdatagen/metadata-schema.yaml
++++ b/cmd/mdatagen/metadata-schema.yaml
+@@ -22,6 +22,11 @@ status:
+     stable: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
+     deprecated: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
+     unmaintained: [<metrics|traces|logs|traces_to_metrics|metrics_to_metrics|logs_to_metrics|extension,converter,provider>]
++  # [WIP] Will be a requirement for deprecated components: The deprecation information for the deprecated components
++  deprecation:
++    <component>:
++      date: string
++      migration: string
+   # Optional: The distributions that this component is bundled with (For example core or contrib). See statusdata.go for a list of common distros.
+   distributions: [string]
+   # Optional: A list of warnings that should be brought to the attention of users looking to use this component

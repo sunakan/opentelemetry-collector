@@ -1,0 +1,31 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 4e1c8d9f6..96a31f2b2 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -190,6 +190,12 @@ func TestHTTPContentDecompressionHandler(t *testing.T) {
+ 			reqBody:  compressZstd(t, testBody),
+ 			respCode: http.StatusOK,
+ 		},
++		{
++			name:     "ValidSnappy",
++			encoding: "snappy",
++			reqBody:  compressSnappy(t, testBody),
++			respCode: http.StatusOK,
++		},
+ 		{
+ 			name:     "InvalidDeflate",
+ 			encoding: "deflate",
+@@ -218,6 +224,13 @@ func TestHTTPContentDecompressionHandler(t *testing.T) {
+ 			respCode: http.StatusBadRequest,
+ 			respBody: "invalid input: magic number mismatch",
+ 		},
++		{
++			name:     "InvalidSnappy",
++			encoding: "snappy",
++			reqBody:  bytes.NewBuffer(testBody),
++			respCode: http.StatusBadRequest,
++			respBody: "snappy: corrupt input\n",
++		},
+ 		{
+ 			name:     "UnsupportedCompression",
+ 			encoding: "nosuchcompression",

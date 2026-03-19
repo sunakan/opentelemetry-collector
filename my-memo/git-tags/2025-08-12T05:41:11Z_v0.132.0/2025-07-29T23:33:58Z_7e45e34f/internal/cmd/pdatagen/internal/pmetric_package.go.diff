@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/pmetric_package.go b/internal/cmd/pdatagen/internal/pmetric_package.go
+index 0a7babfc3..d4ad1dd91 100644
+--- a/internal/cmd/pdatagen/internal/pmetric_package.go
++++ b/internal/cmd/pdatagen/internal/pmetric_package.go
+@@ -8,6 +8,7 @@ var pmetric = &Package{
+ 		name: "pmetric",
+ 		path: "pmetric",
+ 		imports: []string{
++			`"iter"`,
+ 			`"sort"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,

@@ -1,0 +1,25 @@
+diff --git a/pdata/pcommon/generated_int32slice.go b/pdata/pcommon/generated_int32slice.go
+index 35a40bd07..3589fad57 100644
+--- a/pdata/pcommon/generated_int32slice.go
++++ b/pdata/pcommon/generated_int32slice.go
+@@ -7,6 +7,8 @@
+ package pcommon
+ 
+ import (
++	"slices"
++
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ )
+ 
+@@ -102,6 +104,11 @@ func (ms Int32Slice) CopyTo(dest Int32Slice) {
+ 	*dest.getOrig() = copyInt32Slice(*dest.getOrig(), *ms.getOrig())
+ }
+ 
++// Equal checks equality with another Int32Slice
++func (ms Int32Slice) Equal(val Int32Slice) bool {
++	return slices.Equal(*ms.getOrig(), *val.getOrig())
++}
++
+ func copyInt32Slice(dst, src []int32) []int32 {
+ 	dst = dst[:0]
+ 	return append(dst, src...)

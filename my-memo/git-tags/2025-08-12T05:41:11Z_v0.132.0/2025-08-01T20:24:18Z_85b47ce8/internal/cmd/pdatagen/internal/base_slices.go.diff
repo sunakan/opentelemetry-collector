@@ -1,0 +1,10 @@
+diff --git a/internal/cmd/pdatagen/internal/base_slices.go b/internal/cmd/pdatagen/internal/base_slices.go
+index 28f978c68..c1d9a5d86 100644
+--- a/internal/cmd/pdatagen/internal/base_slices.go
++++ b/internal/cmd/pdatagen/internal/base_slices.go
+@@ -118,4 +118,4 @@ func (ss *sliceOfValues) generateInternal(packageInfo *PackageInfo) []byte {
+ 	return []byte(executeTemplate(sliceInternalTemplate, ss.templateFields(packageInfo)))
+ }
+ 
+-var _ baseStruct = (*sliceOfValues)(nil)
++var _ baseSlice = (*sliceOfValues)(nil)

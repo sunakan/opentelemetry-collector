@@ -1,0 +1,16 @@
+diff --git a/consumer/pdata/trace_test.go b/consumer/pdata/trace_test.go
+index ebbdfa7f6..efa8001e1 100644
+--- a/consumer/pdata/trace_test.go
++++ b/consumer/pdata/trace_test.go
+@@ -95,9 +95,11 @@ func TestSpanCountWithEmpty(t *testing.T) {
+ func TestSpanID(t *testing.T) {
+ 	sid := InvalidSpanID()
+ 	assert.EqualValues(t, [8]byte{}, sid.Bytes())
++	assert.True(t, sid.IsEmpty())
+ 
+ 	sid = NewSpanID([8]byte{1, 2, 3, 4, 4, 3, 2, 1})
+ 	assert.EqualValues(t, [8]byte{1, 2, 3, 4, 4, 3, 2, 1}, sid.Bytes())
++	assert.False(t, sid.IsEmpty())
+ }
+ 
+ func TestTraceID(t *testing.T) {

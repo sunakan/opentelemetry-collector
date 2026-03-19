@@ -1,0 +1,18 @@
+diff --git a/receiver/zipkinreceiver/scribe/scribe_receiver.go b/receiver/zipkinreceiver/scribe/scribe_receiver.go
+index 0ead4d778..2c4b738a1 100644
+--- a/receiver/zipkinreceiver/scribe/scribe_receiver.go
++++ b/receiver/zipkinreceiver/scribe/scribe_receiver.go
+@@ -65,6 +65,13 @@ func NewReceiver(addr string, port uint16, category string) (receiver.TraceRecei
+ 	return r, nil
+ }
+ 
++const traceSource string = "Zipkin-Scribe"
++
++// TraceSource returns the name of the trace data source.
++func (r *scribeReceiver) TraceSource() string {
++	return traceSource
++}
++
+ func (r *scribeReceiver) StartTraceReception(ctx context.Context, nextProcessor processor.TraceDataProcessor) error {
+ 	r.Lock()
+ 	defer r.Unlock()

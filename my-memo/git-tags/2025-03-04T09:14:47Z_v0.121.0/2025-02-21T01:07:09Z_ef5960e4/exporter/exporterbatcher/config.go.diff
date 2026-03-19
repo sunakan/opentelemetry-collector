@@ -1,0 +1,46 @@
+diff --git a/exporter/exporterbatcher/config.go b/exporter/exporterbatcher/config.go
+index 239dc2dd4..922a051c0 100644
+--- a/exporter/exporterbatcher/config.go
++++ b/exporter/exporterbatcher/config.go
+@@ -19,10 +19,21 @@ type Config struct {
+ 	// FlushTimeout sets the time after which a batch will be sent regardless of its size.
+ 	FlushTimeout time.Duration `mapstructure:"flush_timeout"`
+ 
++	SizeConfig `mapstructure:",squash"`
++
++	// Deprecated. Ignored if SizeConfig is set.
+ 	MinSizeConfig `mapstructure:",squash"`
++	// Deprecated. Ignored if SizeConfig is set.
+ 	MaxSizeConfig `mapstructure:",squash"`
+ }
+ 
++type SizeConfig struct {
++	Sizer SizerType `mapstructure:"sizer"`
++
++	MinSize int `mapstructure:"mix_size"`
++	MaxSize int `mapstructure:"max_size"`
++}
++
+ // MinSizeConfig defines the configuration for the minimum number of items in a batch.
+ // Experimental: This API is at the early stage of development and may change without backward compatibility
+ // until https://github.com/open-telemetry/opentelemetry-collector/issues/8122 is resolved.
+@@ -59,6 +70,19 @@ func (c Config) Validate() error {
+ 	return nil
+ }
+ 
++func (c SizeConfig) Validate() error {
++	if c.MinSize < 0 {
++		return errors.New("min_size must be greater than or equal to zero")
++	}
++	if c.MaxSize < 0 {
++		return errors.New("max_size must be greater than or equal to zero")
++	}
++	if c.MaxSize != 0 && c.MaxSize < c.MinSize {
++		return errors.New("max_size must be greater than or equal to mix_size")
++	}
++	return nil
++}
++
+ func NewDefaultConfig() Config {
+ 	return Config{
+ 		Enabled:      true,

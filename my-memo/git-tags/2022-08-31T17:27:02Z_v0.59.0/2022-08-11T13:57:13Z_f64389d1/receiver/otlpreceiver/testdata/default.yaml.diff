@@ -1,0 +1,11 @@
+diff --git a/receiver/otlpreceiver/testdata/default.yaml b/receiver/otlpreceiver/testdata/default.yaml
+new file mode 100644
+index 000000000..af0e1f51c
+--- /dev/null
++++ b/receiver/otlpreceiver/testdata/default.yaml
+@@ -0,0 +1,5 @@
++# The following entry initializes the default OTLP receiver.
++# The full name of this receiver is `otlp` and can be referenced in pipelines by 'otlp'.
++protocols:
++  grpc:
++  http:

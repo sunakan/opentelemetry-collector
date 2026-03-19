@@ -1,0 +1,34 @@
+diff --git a/exporter/loggingexporter/logging_exporter_test.go b/exporter/loggingexporter/logging_exporter_test.go
+index 4702119fd..221b18fb7 100644
+--- a/exporter/loggingexporter/logging_exporter_test.go
++++ b/exporter/loggingexporter/logging_exporter_test.go
+@@ -22,6 +22,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/data/testdata"
+ )
+ 
+@@ -69,3 +70,21 @@ func TestLoggingLogsExporterNoErrors(t *testing.T) {
+ 
+ 	assert.NoError(t, lle.Shutdown(context.Background()))
+ }
++
++func TestNestedArraySerializesCorrectly(t *testing.T) {
++	av := pdata.NewAnyValueArray()
++	ava := pdata.NewAttributeValueArray()
++	av.Append(pdata.NewAttributeValueString("foo"))
++	av.Append(pdata.NewAttributeValueInt(42))
++
++	av2 := pdata.NewAnyValueArray()
++	av2.Append(pdata.NewAttributeValueString("bar"))
++	ava2 := pdata.NewAttributeValueArray()
++	ava2.SetArrayVal(av2)
++
++	av.Append(ava2)
++	ava.SetArrayVal(av)
++
++	assert.Equal(t, 3, ava.ArrayVal().Len())
++	assert.Equal(t, "[foo, 42, [bar]]", attributeValueToString(ava))
++}

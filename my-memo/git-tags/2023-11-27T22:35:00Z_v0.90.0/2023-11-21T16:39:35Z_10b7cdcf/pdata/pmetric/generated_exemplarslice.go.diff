@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_exemplarslice.go b/pdata/pmetric/generated_exemplarslice.go
+index 733341c36..15d70a6ed 100644
+--- a/pdata/pmetric/generated_exemplarslice.go
++++ b/pdata/pmetric/generated_exemplarslice.go
+@@ -117,7 +117,6 @@ func (es ExemplarSlice) RemoveIf(f func(Exemplar) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

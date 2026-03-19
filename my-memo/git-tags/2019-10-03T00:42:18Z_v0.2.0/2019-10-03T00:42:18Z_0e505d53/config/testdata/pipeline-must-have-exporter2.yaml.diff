@@ -1,0 +1,15 @@
+diff --git a/config/testdata/pipeline-must-have-exporter2.yaml b/config/testdata/pipeline-must-have-exporter2.yaml
+index 53674eb56..66400e9b1 100644
+--- a/config/testdata/pipeline-must-have-exporter2.yaml
++++ b/config/testdata/pipeline-must-have-exporter2.yaml
+@@ -4,6 +4,7 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  metrics:
+-    receivers: [multireceiver]
++service:
++  pipelines:
++    metrics:
++      receivers: [multireceiver]

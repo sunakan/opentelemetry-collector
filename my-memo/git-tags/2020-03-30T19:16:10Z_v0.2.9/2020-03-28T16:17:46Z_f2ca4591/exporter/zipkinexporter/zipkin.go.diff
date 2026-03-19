@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index 7d93e3ec3..77a73272b 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -111,7 +111,7 @@ func createZipkinExporter(logger *zap.Logger, config configmodels.Exporter) (*zi
+ 	return ze, nil
+ }
+ 
+-func (ze *zipkinExporter) PushTraceData(ctx context.Context, td consumerdata.TraceData) (droppedSpans int, err error) {
++func (ze *zipkinExporter) PushTraceData(ctx context.Context, td consumerdata.TraceData) (int, error) {
+ 	tbatch := []*zipkinmodel.SpanModel{}
+ 
+ 	var resource *resourcepb.Resource

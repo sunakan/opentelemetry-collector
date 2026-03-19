@@ -1,0 +1,21 @@
+diff --git a/connector/connectortest/go.mod b/connector/connectortest/go.mod
+index 5b8a396a6..b926d7acc 100644
+--- a/connector/connectortest/go.mod
++++ b/connector/connectortest/go.mod
+@@ -6,6 +6,7 @@ require (
+ 	github.com/google/uuid v1.6.0
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/connector v0.113.0
+ 	go.opentelemetry.io/collector/connector/connectorprofiles v0.113.0
+ 	go.opentelemetry.io/collector/consumer v0.113.0
+@@ -47,6 +48,8 @@ require (
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/connector => ../../connector
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer

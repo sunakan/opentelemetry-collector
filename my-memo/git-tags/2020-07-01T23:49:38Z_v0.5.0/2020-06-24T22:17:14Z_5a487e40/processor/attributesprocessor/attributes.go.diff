@@ -1,0 +1,63 @@
+diff --git a/processor/attributesprocessor/attributes.go b/processor/attributesprocessor/attributes.go
+index 3d6df1dc1..0f74cf274 100644
+--- a/processor/attributesprocessor/attributes.go
++++ b/processor/attributesprocessor/attributes.go
+@@ -16,6 +16,7 @@ package attributesprocessor
+ 
+ import (
+ 	"context"
++	"regexp"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenterror"
+@@ -42,6 +43,12 @@ type attributesConfig struct {
+ type attributeAction struct {
+ 	Key           string
+ 	FromAttribute string
++	// Compiled regex if provided
++	Regex *regexp.Regexp
++	// Attribute names extracted from the regexp's subexpressions.
++	AttrNames []string
++	// Number of non empty strings in above array
++
+ 	// TODO https://go.opentelemetry.io/collector/issues/296
+ 	// Do benchmark testing between having action be of type string vs integer.
+ 	// The reason is attributes processor will most likely be commonly used
+@@ -140,6 +147,8 @@ func (a *attributesProcessor) processSpan(span pdata.Span, serviceName string) {
+ 			attrs.Upsert(action.Key, av)
+ 		case HASH:
+ 			hashAttribute(action, attrs)
++		case EXTRACT:
++			extractAttributes(action, attrs)
+ 		}
+ 	}
+ }
+@@ -159,6 +168,28 @@ func hashAttribute(action attributeAction, attrs pdata.AttributeMap) {
+ 	}
+ }
+ 
++func extractAttributes(action attributeAction, attrs pdata.AttributeMap) {
++	value, found := attrs.Get(action.Key)
++
++	// Extracting values only functions on strings.
++	if !found || value.Type() != pdata.AttributeValueSTRING {
++		return
++	}
++
++	// Note: The number of matches will always be equal to number of
++	// subexpressions.
++	matches := action.Regex.FindStringSubmatch(value.StringVal())
++	if matches == nil {
++		return
++	}
++
++	// Start from index 1, which is the first submatch (index 0 is the entire
++	// match).
++	for i := 1; i < len(matches); i++ {
++		attrs.UpsertString(action.AttrNames[i], matches[i])
++	}
++}
++
+ // skipSpan determines if a span should be processed.
+ // True is returned when a span should be skipped.
+ // False is returned when a span should not be skipped.

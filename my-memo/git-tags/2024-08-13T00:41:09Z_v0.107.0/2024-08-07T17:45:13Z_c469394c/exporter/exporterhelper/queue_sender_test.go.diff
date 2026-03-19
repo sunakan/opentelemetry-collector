@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/queue_sender_test.go b/exporter/exporterhelper/queue_sender_test.go
+index bd783512d..514908109 100644
+--- a/exporter/exporterhelper/queue_sender_test.go
++++ b/exporter/exporterhelper/queue_sender_test.go
+@@ -432,9 +432,9 @@ func TestQueuedRetryPersistentEnabled_NoDataLossOnShutdown(t *testing.T) {
+ func TestQueueSenderNoStartShutdown(t *testing.T) {
+ 	queue := queue.NewBoundedMemoryQueue[Request](queue.MemoryQueueSettings[Request]{})
+ 	set := exportertest.NewNopSettings()
+-	obsrep, err := NewObsReport(ObsReportSettings{
+-		ExporterID:             exporterID,
+-		ExporterCreateSettings: exportertest.NewNopSettings(),
++	obsrep, err := newObsReport(obsReportSettings{
++		exporterID:             exporterID,
++		exporterCreateSettings: exportertest.NewNopSettings(),
+ 	})
+ 	assert.NoError(t, err)
+ 	qs := newQueueSender(queue, set, 1, "", obsrep)

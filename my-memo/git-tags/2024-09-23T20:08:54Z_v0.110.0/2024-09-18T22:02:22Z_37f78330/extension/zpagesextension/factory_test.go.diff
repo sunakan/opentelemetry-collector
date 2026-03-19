@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/factory_test.go b/extension/zpagesextension/factory_test.go
+index d4e66830a..0d851a98b 100644
+--- a/extension/zpagesextension/factory_test.go
++++ b/extension/zpagesextension/factory_test.go
+@@ -25,7 +25,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 	},
+ 		cfg)
+ 
+-	assert.NoError(t, componenttest.CheckConfigStruct(cfg))
++	require.NoError(t, componenttest.CheckConfigStruct(cfg))
+ 	ext, err := createExtension(context.Background(), extensiontest.NewNopSettings(), cfg)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, ext)

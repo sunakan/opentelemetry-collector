@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/factory_test.go b/extension/zpagesextension/factory_test.go
+index ffb1281db..09e9ee211 100644
+--- a/extension/zpagesextension/factory_test.go
++++ b/extension/zpagesextension/factory_test.go
+@@ -39,7 +39,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
+ 			NameVal: typeStr,
+ 			TypeVal: typeStr,
+ 		},
+-		Endpoint: "127.0.0.1:55679",
++		Endpoint: "localhost:55679",
+ 	},
+ 		cfg)
+ 

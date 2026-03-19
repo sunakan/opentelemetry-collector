@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetricsslice.go b/pdata/internal/generated_wrapper_resourcemetricsslice.go
+index 4c23aadd5..6bba1f117 100644
+--- a/pdata/internal/generated_wrapper_resourcemetricsslice.go
++++ b/pdata/internal/generated_wrapper_resourcemetricsslice.go
+@@ -49,19 +49,6 @@ func GenerateOrigTestResourceMetricsSlice() []*otlpmetrics.ResourceMetrics {
+ 	return orig
+ }
+ 
+-// MarshalJSONOrigResourceMetricsSlice marshals all properties from the current struct to the destination stream.
+-func MarshalJSONOrigResourceMetricsSlice(orig []*otlpmetrics.ResourceMetrics, dest *json.Stream) {
+-	dest.WriteArrayStart()
+-	if len(orig) > 0 {
+-		MarshalJSONOrigResourceMetrics(orig[0], dest)
+-	}
+-	for i := 1; i < len(orig); i++ {
+-		dest.WriteMore()
+-		MarshalJSONOrigResourceMetrics(orig[i], dest)
+-	}
+-	dest.WriteArrayEnd()
+-}
+-
+ // UnmarshalJSONOrigResourceMetricsSlice unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigResourceMetricsSlice(iter *json.Iterator) []*otlpmetrics.ResourceMetrics {
+ 	var orig []*otlpmetrics.ResourceMetrics

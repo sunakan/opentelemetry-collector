@@ -1,0 +1,17 @@
+diff --git a/config/testdata/pipeline-exporter-not-exists.yaml b/config/testdata/pipeline-exporter-not-exists.yaml
+index 84e06474c..0a88af150 100644
+--- a/config/testdata/pipeline-exporter-not-exists.yaml
++++ b/config/testdata/pipeline-exporter-not-exists.yaml
+@@ -4,7 +4,8 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  metrics:
+-    receivers: [multireceiver]
+-    exporters: [nosuchexporter]
++service:
++  pipelines:
++    metrics:
++      receivers: [multireceiver]
++      exporters: [nosuchexporter]

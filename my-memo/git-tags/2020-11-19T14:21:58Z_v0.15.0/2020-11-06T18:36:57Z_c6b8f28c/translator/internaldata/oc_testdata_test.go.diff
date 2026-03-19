@@ -1,0 +1,12 @@
+diff --git a/translator/internaldata/oc_testdata_test.go b/translator/internaldata/oc_testdata_test.go
+index 4ff24f74a..27fbca545 100644
+--- a/translator/internaldata/oc_testdata_test.go
++++ b/translator/internaldata/oc_testdata_test.go
+@@ -496,7 +496,6 @@ func generateOCTestMetricDoubleSummary() *ocmetrics.Metric {
+ 
+ func generateResourceWithOcNodeAndResource() pdata.Resource {
+ 	resource := pdata.NewResource()
+-	resource.InitEmpty()
+ 	resource.Attributes().InitFromMap(map[string]pdata.AttributeValue{
+ 		conventions.OCAttributeProcessStartTime:   pdata.NewAttributeValueString("2020-02-11T20:26:00Z"),
+ 		conventions.AttributeHostHostname:         pdata.NewAttributeValueString("host1"),

@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
+index c4b40505e..ad9ac91ef 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
+@@ -32,8 +32,7 @@ func New{{ .structName }}(orig *[]{{ .originElementType }}, state *State) {{ .st
+ 
+ func GenerateTest{{ .structName }}() {{ .structName }} {
+ 	orig := GenerateOrigTest{{ .elementOriginName }}Slice()
+-	state := StateMutable
+-	return New{{ .structName }}(&orig, &state)
++	return New{{ .structName }}(&orig, NewState())
+ }
+ {{ end }}
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/templates/component_test.go.tmpl b/cmd/mdatagen/templates/component_test.go.tmpl
+index 45deb99e5..bfc70c2b7 100644
+--- a/cmd/mdatagen/templates/component_test.go.tmpl
++++ b/cmd/mdatagen/templates/component_test.go.tmpl
+@@ -16,7 +16,7 @@ import (
+ 	{{- end }}
+ 
+ 	"github.com/stretchr/testify/require"
+-	{{- if not (and .Tests.SkipLifecycle .Tests.SkipShutdown) }}
++	{{- if and (not (and .Tests.SkipLifecycle .Tests.SkipShutdown)) (not isExtension) }}
+ 	"go.opentelemetry.io/collector/component"
+ 	{{- end }}
+ 	"go.opentelemetry.io/collector/component/componenttest"

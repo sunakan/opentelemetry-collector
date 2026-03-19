@@ -1,0 +1,64 @@
+diff --git a/consumer/consumererror/signalerrors.go b/consumer/consumererror/signalerrors.go
+index 47456f0de..f8c7e5bd5 100644
+--- a/consumer/consumererror/signalerrors.go
++++ b/consumer/consumererror/signalerrors.go
+@@ -15,8 +15,6 @@
+ package consumererror // import "go.opentelemetry.io/collector/consumer/consumererror"
+ 
+ import (
+-	"errors"
+-
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+@@ -35,16 +33,6 @@ func NewTraces(err error, failed pdata.Traces) error {
+ 	}
+ }
+ 
+-// AsTraces finds the first error in err's chain that can be assigned to target. If such an error is found,
+-// it is assigned to target and true is returned, otherwise false is returned.
+-// Deprecated: Use `errors.As(err, target)` instead.
+-func AsTraces(err error, target *Traces) bool {
+-	if err == nil {
+-		return false
+-	}
+-	return errors.As(err, target)
+-}
+-
+ // GetTraces returns failed traces from the associated error.
+ func (err Traces) GetTraces() pdata.Traces {
+ 	return err.failed
+@@ -70,16 +58,6 @@ func NewLogs(err error, failed pdata.Logs) error {
+ 	}
+ }
+ 
+-// AsLogs finds the first error in err's chain that can be assigned to target. If such an error is found,
+-// it is assigned to target and true is returned, otherwise false is returned.
+-// Deprecated: Use `errors.As(err, target)` instead.
+-func AsLogs(err error, target *Logs) bool {
+-	if err == nil {
+-		return false
+-	}
+-	return errors.As(err, target)
+-}
+-
+ // GetLogs returns failed logs from the associated error.
+ func (err Logs) GetLogs() pdata.Logs {
+ 	return err.failed
+@@ -105,16 +83,6 @@ func NewMetrics(err error, failed pdata.Metrics) error {
+ 	}
+ }
+ 
+-// AsMetrics finds the first error in err's chain that can be assigned to target. If such an error is found,
+-// it is assigned to target and true is returned, otherwise false is returned.
+-// Deprecated: Use `errors.As(err, target)` instead.
+-func AsMetrics(err error, target *Metrics) bool {
+-	if err == nil {
+-		return false
+-	}
+-	return errors.As(err, target)
+-}
+-
+ // GetMetrics returns failed metrics from the associated error.
+ func (err Metrics) GetMetrics() pdata.Metrics {
+ 	return err.failed

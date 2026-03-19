@@ -1,0 +1,24 @@
+diff --git a/pdata/pprofile/pprofileotlp/response.go b/pdata/pprofile/pprofileotlp/response.go
+index 2b88ef01c..765510a65 100644
+--- a/pdata/pprofile/pprofileotlp/response.go
++++ b/pdata/pprofile/pprofileotlp/response.go
+@@ -12,6 +12,9 @@ import (
+ 
+ // MarshalProto marshals ExportResponse into proto bytes.
+ func (ms ExportResponse) MarshalProto() ([]byte, error) {
++	if !internal.UseCustomProtoEncoding.IsEnabled() {
++		return ms.orig.Marshal()
++	}
+ 	size := internal.SizeProtoOrigExportProfilesServiceResponse(ms.orig)
+ 	buf := make([]byte, size)
+ 	_ = internal.MarshalProtoOrigExportProfilesServiceResponse(ms.orig, buf)
+@@ -20,6 +23,9 @@ func (ms ExportResponse) MarshalProto() ([]byte, error) {
+ 
+ // UnmarshalProto unmarshalls ExportResponse from proto bytes.
+ func (ms ExportResponse) UnmarshalProto(data []byte) error {
++	if !internal.UseCustomProtoEncoding.IsEnabled() {
++		return ms.orig.Unmarshal(data)
++	}
+ 	return internal.UnmarshalProtoOrigExportProfilesServiceResponse(ms.orig, data)
+ }
+ 

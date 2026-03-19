@@ -1,0 +1,14 @@
+diff --git a/receiver/jaegerreceiver/README.md b/receiver/jaegerreceiver/README.md
+index e30ef771e..58875946b 100644
+--- a/receiver/jaegerreceiver/README.md
++++ b/receiver/jaegerreceiver/README.md
+@@ -77,7 +77,8 @@ receivers:
+     protocols:
+       grpc:
+     remote_sampling:
+-      host_endpoint: "jaeger-collector:1234"
++      endpoint: "jaeger-collector:14250"
++      insecure: true
+ ```
+ 
+ Remote sampling can also be directly served by the collector by providing a

@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_attribute.go b/pdata/pprofile/generated_attribute.go
+index aebec5002..b3ee86d3b 100644
+--- a/pdata/pprofile/generated_attribute.go
++++ b/pdata/pprofile/generated_attribute.go
+@@ -45,8 +45,8 @@ func (ms Attribute) MoveTo(dest Attribute) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpcommon.KeyValue{}
++	internal.DeleteOrigKeyValue(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Key returns the key associated with this Attribute.

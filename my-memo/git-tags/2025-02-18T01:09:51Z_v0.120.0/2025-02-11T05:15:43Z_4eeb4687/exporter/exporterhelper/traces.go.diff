@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index d83e4ebb2..03cc3f156 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -126,7 +126,7 @@ func NewTracesRequest(
+ 		return nil, errNilTracesConverter
+ 	}
+ 
+-	be, err := internal.NewBaseExporter(set, pipeline.SignalTraces, internal.NewObsReportSender, options...)
++	be, err := internal.NewBaseExporter(set, pipeline.SignalTraces, options...)
+ 	if err != nil {
+ 		return nil, err
+ 	}

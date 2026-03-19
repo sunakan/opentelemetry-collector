@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/forward_test.go b/connector/forwardconnector/forward_test.go
+index 3ce18c4f5..f21711d01 100644
+--- a/connector/forwardconnector/forward_test.go
++++ b/connector/forwardconnector/forward_test.go
+@@ -22,7 +22,7 @@ func TestForward(t *testing.T) {
+ 	assert.Equal(t, &Config{}, cfg)
+ 
+ 	ctx := context.Background()
+-	set := connectortest.NewNopCreateSettings()
++	set := connectortest.NewNopSettings()
+ 	host := componenttest.NewNopHost()
+ 
+ 	tracesSink := new(consumertest.TracesSink)

@@ -1,0 +1,13 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 224be7600..28cbf5e3a 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/consumer
+ go 1.24
+ 
+ require (
+-	github.com/stretchr/testify v1.10.0
++	github.com/stretchr/testify v1.11.1
+ 	go.opentelemetry.io/collector/pdata v1.41.0
+ 	go.uber.org/goleak v1.3.0
+ )

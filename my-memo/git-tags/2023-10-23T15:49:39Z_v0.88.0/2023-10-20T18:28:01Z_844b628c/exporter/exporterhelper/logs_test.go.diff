@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index ad4b13040..f5b56eea6 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -248,7 +248,7 @@ func TestLogsExporter_WithRecordEnqueueFailedMetrics(t *testing.T) {
+ 	}
+ 
+ 	// 2 batched must be in queue, and 5 batches (15 log records) rejected due to queue overflow
+-	checkExporterEnqueueFailedLogsStats(t, globalInstruments, fakeLogsExporterName, int64(15))
++	require.NoError(t, tt.CheckExporterEnqueueFailedLogs(int64(15)))
+ }
+ 
+ func TestLogsExporter_WithSpan(t *testing.T) {

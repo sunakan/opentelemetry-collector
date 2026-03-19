@@ -1,0 +1,24 @@
+diff --git a/pdata/ptrace/generated_traces_test.go b/pdata/ptrace/generated_traces_test.go
+index 5c374f1dd..81435e503 100644
+--- a/pdata/ptrace/generated_traces_test.go
++++ b/pdata/ptrace/generated_traces_test.go
+@@ -24,8 +24,8 @@ func TestTraces_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestTraces(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newTraces(internal.NewOrigPtrExportTraceServiceRequest(), sharedState)) })
+-	assert.Panics(t, func() { newTraces(internal.NewOrigPtrExportTraceServiceRequest(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newTraces(internal.NewOrigExportTraceServiceRequest(), sharedState)) })
++	assert.Panics(t, func() { newTraces(internal.NewOrigExportTraceServiceRequest(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestTraces_CopyTo(t *testing.T) {
+@@ -38,7 +38,7 @@ func TestTraces_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newTraces(internal.NewOrigPtrExportTraceServiceRequest(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newTraces(internal.NewOrigExportTraceServiceRequest(), sharedState)) })
+ }
+ 
+ func TestTraces_ResourceSpans(t *testing.T) {

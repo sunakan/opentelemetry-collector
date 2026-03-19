@@ -1,0 +1,16 @@
+diff --git a/model/pdata/generated_trace.go b/model/pdata/generated_trace.go
+index 4015d0629..0fe770278 100644
+--- a/model/pdata/generated_trace.go
++++ b/model/pdata/generated_trace.go
+@@ -1204,6 +1204,11 @@ func (ms SpanStatus) Code() StatusCode {
+ 	return StatusCode((*ms.orig).Code)
+ }
+ 
++// SetCode replaces the code associated with this SpanStatus.
++func (ms SpanStatus) SetCode(v StatusCode) {
++	(*ms.orig).Code = otlptrace.Status_StatusCode(v)
++}
++
+ // Message returns the message associated with this SpanStatus.
+ func (ms SpanStatus) Message() string {
+ 	return (*ms.orig).Message

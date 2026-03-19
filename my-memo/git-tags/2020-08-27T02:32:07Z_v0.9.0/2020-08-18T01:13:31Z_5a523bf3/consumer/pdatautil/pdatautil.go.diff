@@ -1,0 +1,16 @@
+diff --git a/consumer/pdatautil/pdatautil.go b/consumer/pdatautil/pdatautil.go
+index 2fe2d521c..20316e077 100644
+--- a/consumer/pdatautil/pdatautil.go
++++ b/consumer/pdatautil/pdatautil.go
+@@ -116,6 +116,11 @@ func MetricAndDataPointCount(md pdata.Metrics) (int, int) {
+ 	panic("Unsupported metrics type.")
+ }
+ 
++func MetricPointCount(md pdata.Metrics) int {
++	_, points := MetricAndDataPointCount(md)
++	return points
++}
++
+ // CloneMetricsDataOld copied from processors.cloneMetricsDataOld
+ func CloneMetricsDataOld(md consumerdata.MetricsData) consumerdata.MetricsData {
+ 	clone := consumerdata.MetricsData{

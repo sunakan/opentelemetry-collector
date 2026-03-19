@@ -1,0 +1,24 @@
+diff --git a/extension/healthcheckextension/healthcheckextension.go b/extension/healthcheckextension/healthcheckextension.go
+index 0710db1fc..1b62d3d93 100644
+--- a/extension/healthcheckextension/healthcheckextension.go
++++ b/extension/healthcheckextension/healthcheckextension.go
+@@ -41,8 +41,17 @@ func (hc *healthCheckExtension) Start(_ context.Context, host component.Host) er
+ 	hc.logger.Info("Starting health_check extension", zap.Any("config", hc.config))
+ 
+ 	// Initialize listener
+-	portStr := ":" + strconv.Itoa(int(hc.config.Port))
+-	ln, err := net.Listen("tcp", portStr)
++	var (
++		ln  net.Listener
++		err error
++	)
++	if hc.config.Port != 0 && hc.config.TCPAddr.Endpoint == defaultEndpoint {
++		hc.logger.Warn("`Port` is deprecated, use `Endpoint` instead")
++		portStr := ":" + strconv.Itoa(int(hc.config.Port))
++		ln, err = net.Listen("tcp", portStr)
++	} else {
++		ln, err = hc.config.TCPAddr.Listen()
++	}
+ 	if err != nil {
+ 		return err
+ 	}

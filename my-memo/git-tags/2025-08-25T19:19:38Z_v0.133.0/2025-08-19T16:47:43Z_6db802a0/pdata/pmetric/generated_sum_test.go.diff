@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_sum_test.go b/pdata/pmetric/generated_sum_test.go
+index f6386247e..70e50a09b 100644
+--- a/pdata/pmetric/generated_sum_test.go
++++ b/pdata/pmetric/generated_sum_test.go
+@@ -68,7 +68,6 @@ func TestSum_IsMonotonic(t *testing.T) {
+ }
+ 
+ func generateTestSum() Sum {
+-	ms := NewSum()
+-	internal.FillOrigTestSum(ms.orig)
++	ms := newSum(internal.GenTestOrigSum(), internal.NewState())
+ 	return ms
+ }

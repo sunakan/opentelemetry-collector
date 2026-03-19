@@ -1,0 +1,15 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index d0ae0296a..06062464f 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -95,8 +95,8 @@ common/goimports: $(GOIMPORTS)
+ common/gofumpt: $(GOFUMPT)
+ 	$(GOFUMPT) -l -w -extra .
+ 
+-.PHONY: govulncheck
+-govulncheck: $(GOVULNCHECK)
++.PHONY: vulncheck
++vulncheck: $(GOVULNCHECK)
+ 	$(GOVULNCHECK) ./...
+ 
+ .PHONY: generate

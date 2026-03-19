@@ -1,0 +1,73 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index cd81b9f28..9daf158cb 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -79,13 +79,22 @@ func TestModuleFromCore(t *testing.T) {
+ 	assert.True(t, strings.HasPrefix(cfg.Extensions[0].Name, "otlpreceiver"))
+ }
+ 
+-func TestInvalidModule(t *testing.T) {
++func TestMissingModule(t *testing.T) {
+ 	type invalidModuleTest struct {
+ 		cfg Config
+ 		err error
+ 	}
+ 	// prepare
+ 	configurations := []invalidModuleTest{
++		{
++			cfg: Config{
++				Logger: zap.NewNop(),
++				Providers: &[]Module{{
++					Import: "invalid",
++				}},
++			},
++			err: ErrMissingGoMod,
++		},
+ 		{
+ 			cfg: Config{
+ 				Logger: zap.NewNop(),
+@@ -93,7 +102,7 @@ func TestInvalidModule(t *testing.T) {
+ 					Import: "invalid",
+ 				}},
+ 			},
+-			err: ErrInvalidGoMod,
++			err: ErrMissingGoMod,
+ 		},
+ 		{
+ 			cfg: Config{
+@@ -102,7 +111,7 @@ func TestInvalidModule(t *testing.T) {
+ 					Import: "invalid",
+ 				}},
+ 			},
+-			err: ErrInvalidGoMod,
++			err: ErrMissingGoMod,
+ 		},
+ 		{
+ 			cfg: Config{
+@@ -111,7 +120,7 @@ func TestInvalidModule(t *testing.T) {
+ 					Import: "invali",
+ 				}},
+ 			},
+-			err: ErrInvalidGoMod,
++			err: ErrMissingGoMod,
+ 		},
+ 		{
+ 			cfg: Config{
+@@ -120,7 +129,16 @@ func TestInvalidModule(t *testing.T) {
+ 					Import: "invalid",
+ 				}},
+ 			},
+-			err: ErrInvalidGoMod,
++			err: ErrMissingGoMod,
++		},
++		{
++			cfg: Config{
++				Logger: zap.NewNop(),
++				Connectors: []Module{{
++					Import: "invalid",
++				}},
++			},
++			err: ErrMissingGoMod,
+ 		},
+ 	}
+ 

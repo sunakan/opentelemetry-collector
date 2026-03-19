@@ -1,0 +1,14 @@
+diff --git a/receiver/nopreceiver/internal/metadata/generated_status.go b/receiver/nopreceiver/internal/metadata/generated_status.go
+index 1901cab9e..a8716db91 100644
+--- a/receiver/nopreceiver/internal/metadata/generated_status.go
++++ b/receiver/nopreceiver/internal/metadata/generated_status.go
+@@ -7,7 +7,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("nop")
++	Type      = component.MustNewType("nop")
++	ScopeName = "go.opentelemetry.io/collector/receiver/nopreceiver"
+ )
+ 
+ const (

@@ -1,0 +1,12 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index 0079f8992..ec787e79d 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -67,6 +67,7 @@ func Configure(level configtelemetry.Level) (views []*view.View) {
+ 	gLevel = level
+ 
+ 	if gLevel != configtelemetry.LevelNone {
++		gProcessorObsReport.level = level
+ 		views = append(views, AllViews()...)
+ 	}
+ 

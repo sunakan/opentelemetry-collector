@@ -1,0 +1,22 @@
+diff --git a/obsreport/obsreport_scraper.go b/obsreport/obsreport_scraper.go
+index 3c3717281..29df9cd39 100644
+--- a/obsreport/obsreport_scraper.go
++++ b/obsreport/obsreport_scraper.go
+@@ -16,6 +16,7 @@ package obsreport // import "go.opentelemetry.io/collector/obsreport"
+ 
+ import (
+ 	"context"
++	"errors"
+ 
+ 	"go.opencensus.io/stats"
+ 	"go.opencensus.io/tag"
+@@ -77,7 +78,8 @@ func (s *Scraper) EndMetricsOp(
+ ) {
+ 	numErroredMetrics := 0
+ 	if err != nil {
+-		if partialErr, isPartial := err.(scrapererror.PartialScrapeError); isPartial {
++		var partialErr scrapererror.PartialScrapeError
++		if errors.As(err, &partialErr) {
+ 			numErroredMetrics = partialErr.Failed
+ 		} else {
+ 			numErroredMetrics = numScrapedMetrics

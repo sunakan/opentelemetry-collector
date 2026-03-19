@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/processor.go b/processor/processorhelper/processor.go
+index 528560b20..7db885fb8 100644
+--- a/processor/processorhelper/processor.go
++++ b/processor/processorhelper/processor.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package processorhelper
++package processorhelper // import "go.opentelemetry.io/collector/processor/processorhelper"
+ 
+ import (
+ 	"errors"

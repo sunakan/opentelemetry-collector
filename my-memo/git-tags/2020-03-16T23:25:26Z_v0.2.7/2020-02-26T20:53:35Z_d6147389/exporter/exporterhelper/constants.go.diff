@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/constants.go b/exporter/exporterhelper/constants.go
+index 285e4abe5..e5a5936da 100644
+--- a/exporter/exporterhelper/constants.go
++++ b/exporter/exporterhelper/constants.go
+@@ -26,10 +26,3 @@ var (
+ 	// errNilPushMetricsData is returned when a nil pushMetricsData is given.
+ 	errNilPushMetricsData = errors.New("nil pushMetricsData")
+ )
+-
+-const (
+-	numDroppedTimeSeriesAttribute  = "num_dropped_timeseries"
+-	numReceivedTimeSeriesAttribute = "num_received_timeseries"
+-	numDroppedSpansAttribute       = "num_dropped_spans"
+-	numReceivedSpansAttribute      = "num_received_spans"
+-)

@@ -1,0 +1,22 @@
+diff --git a/component/extension.go b/component/extension.go
+index d5493829e..4615a2139 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -46,8 +46,8 @@ type PipelineWatcher interface {
+ 	NotReady() error
+ }
+ 
+-// ExtensionCreateParams is passed to ExtensionFactory.Create* functions.
+-type ExtensionCreateParams struct {
++// ExtensionCreateSettings is passed to ExtensionFactory.Create* functions.
++type ExtensionCreateSettings struct {
+ 	// Logger that the factory can use during creation and can pass to the created
+ 	// component to be used later as well.
+ 	Logger *zap.Logger
+@@ -70,5 +70,5 @@ type ExtensionFactory interface {
+ 	CreateDefaultConfig() config.Extension
+ 
+ 	// CreateExtension creates a service extension based on the given config.
+-	CreateExtension(ctx context.Context, params ExtensionCreateParams, cfg config.Extension) (Extension, error)
++	CreateExtension(ctx context.Context, set ExtensionCreateSettings, cfg config.Extension) (Extension, error)
+ }

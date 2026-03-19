@@ -1,0 +1,12 @@
+diff --git a/confmap/confmaptest/configtest_test.go b/confmap/confmaptest/configtest_test.go
+index 26bb68835..634f6239b 100644
+--- a/confmap/confmaptest/configtest_test.go
++++ b/confmap/confmaptest/configtest_test.go
+@@ -65,6 +65,6 @@ func (s schemeProvider) Scheme() string {
+ 	return s.scheme
+ }
+ 
+-func (s schemeProvider) Shutdown(ctx context.Context) error {
++func (s schemeProvider) Shutdown(_ context.Context) error {
+ 	return nil
+ }

@@ -1,0 +1,14 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces.go b/translator/trace/zipkin/zipkinv2_to_traces.go
+index 185099160..662776751 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces.go
+@@ -143,7 +143,8 @@ func zSpanToInternal(zspan *zipkinmodel.SpanModel, tags map[string]string, dest
+ 	}
+ 
+ 	attrs := dest.Attributes()
+-	attrs.InitEmptyWithCapacity(len(tags))
++	attrs.Clear()
++	attrs.EnsureCapacity(len(tags))
+ 	if err := zTagsToInternalAttrs(zspan, tags, attrs, parseStringTags); err != nil {
+ 		return err
+ 	}

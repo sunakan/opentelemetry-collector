@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/generated_component_telemetry_test.go b/exporter/exporterhelper/generated_component_telemetry_test.go
+index ee107fbb7..86c7b7761 100644
+--- a/exporter/exporterhelper/generated_component_telemetry_test.go
++++ b/exporter/exporterhelper/generated_component_telemetry_test.go
+@@ -26,14 +26,15 @@ type componentTestTelemetry struct {
+ 
+ func (tt *componentTestTelemetry) NewSettings() exporter.Settings {
+ 	set := exportertest.NewNopSettings()
+-	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	set.ID = component.NewID(component.MustNewType("exporterhelper"))
++	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	return set
+ }
+ 
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

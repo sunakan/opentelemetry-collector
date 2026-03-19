@@ -1,0 +1,13 @@
+diff --git a/internal/sharedcomponent/sharedcomponent.go b/internal/sharedcomponent/sharedcomponent.go
+index 66e6487f7..02043b729 100644
+--- a/internal/sharedcomponent/sharedcomponent.go
++++ b/internal/sharedcomponent/sharedcomponent.go
+@@ -14,7 +14,7 @@
+ 
+ // Package sharedcomponent exposes util functionality for receivers and exporters
+ // that need to share state between different signal types instances such as net.Listener or os.File.
+-package sharedcomponent
++package sharedcomponent // import "go.opentelemetry.io/collector/internal/sharedcomponent"
+ 
+ import (
+ 	"context"

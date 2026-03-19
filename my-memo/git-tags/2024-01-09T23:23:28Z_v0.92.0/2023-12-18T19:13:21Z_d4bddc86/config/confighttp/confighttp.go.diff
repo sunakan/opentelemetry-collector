@@ -1,0 +1,22 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index e41a64cc1..257ba9b33 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -342,7 +342,6 @@ func (hss *HTTPServerSettings) ToServer(host component.Host, settings component.
+ 		handler = authInterceptor(handler, server)
+ 	}
+ 
+-	// TODO: emit a warning when non-empty CorsHeaders and empty CorsOrigins.
+ 	if hss.CORS != nil && len(hss.CORS.AllowedOrigins) > 0 {
+ 		co := cors.Options{
+ 			AllowedOrigins:   hss.CORS.AllowedOrigins,
+@@ -352,6 +351,9 @@ func (hss *HTTPServerSettings) ToServer(host component.Host, settings component.
+ 		}
+ 		handler = cors.New(co).Handler(handler)
+ 	}
++	if hss.CORS != nil && len(hss.CORS.AllowedOrigins) == 0 && len(hss.CORS.AllowedHeaders) > 0 {
++		settings.Logger.Warn("The CORS configuration specifies allowed headers but no allowed origins, and is therefore ignored.")
++	}
+ 
+ 	if hss.ResponseHeaders != nil {
+ 		handler = responseHeadersHandler(handler, hss.ResponseHeaders)

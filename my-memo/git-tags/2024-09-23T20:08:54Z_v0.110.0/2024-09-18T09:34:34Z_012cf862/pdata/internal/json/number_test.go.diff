@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/json/number_test.go b/pdata/internal/json/number_test.go
+index 35cb8c8cc..d40df2d3d 100644
+--- a/pdata/internal/json/number_test.go
++++ b/pdata/internal/json/number_test.go
+@@ -270,7 +270,7 @@ func TestReadFloat64(t *testing.T) {
+ 				return
+ 			}
+ 			assert.NoError(t, iter.Error)
+-			assert.Equal(t, tt.want, val)
++			assert.InDelta(t, tt.want, val, 0.01)
+ 		})
+ 	}
+ }

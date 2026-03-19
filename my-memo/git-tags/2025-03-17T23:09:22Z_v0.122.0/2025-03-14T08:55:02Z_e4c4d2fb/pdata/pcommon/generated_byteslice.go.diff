@@ -1,0 +1,30 @@
+diff --git a/pdata/pcommon/generated_byteslice.go b/pdata/pcommon/generated_byteslice.go
+index db38e98f0..f730a185c 100644
+--- a/pdata/pcommon/generated_byteslice.go
++++ b/pdata/pcommon/generated_byteslice.go
+@@ -7,6 +7,7 @@
+ package pcommon
+ 
+ import (
++	"iter"
+ 	"slices"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -57,6 +58,17 @@ func (ms ByteSlice) At(i int) byte {
+ 	return (*ms.getOrig())[i]
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++func (ms ByteSlice) All() iter.Seq2[int, byte] {
++	return func(yield func(int, byte) bool) {
++		for i := 0; i < ms.Len(); i++ {
++			if !yield(i, ms.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // SetAt sets byte item at particular index.
+ // Equivalent of byteSlice[i] = val
+ func (ms ByteSlice) SetAt(i int, val byte) {

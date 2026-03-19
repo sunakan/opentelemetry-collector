@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metric_diff_test.go b/testbed/correctness/metrics/metric_diff_test.go
+index 870ad9437..33ac61c22 100644
+--- a/testbed/correctness/metrics/metric_diff_test.go
++++ b/testbed/correctness/metrics/metric_diff_test.go
+@@ -64,7 +64,7 @@ func TestDifferentNumPts(t *testing.T) {
+ func TestDifferentPtTypes(t *testing.T) {
+ 	expected := goldendataset.MetricsFromCfg(goldendataset.DefaultCfg())
+ 	cfg := goldendataset.DefaultCfg()
+-	cfg.MetricDescriptorType = pdata.MetricDataTypeDoubleGauge
++	cfg.MetricDescriptorType = pdata.MetricDataTypeGauge
+ 	actual := goldendataset.MetricsFromCfg(cfg)
+ 	diffs := diffMetricData(expected, actual)
+ 	assert.Len(t, diffs, 1)

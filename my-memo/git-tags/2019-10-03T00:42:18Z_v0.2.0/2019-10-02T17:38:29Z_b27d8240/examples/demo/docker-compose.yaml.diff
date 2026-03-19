@@ -1,0 +1,13 @@
+diff --git a/examples/demo/docker-compose.yaml b/examples/demo/docker-compose.yaml
+index 4e8290e99..b5ca673e6 100644
+--- a/examples/demo/docker-compose.yaml
++++ b/examples/demo/docker-compose.yaml
+@@ -11,7 +11,7 @@ services:
+ 
+   # Zipkin
+   zipkin-all-in-one:
+-    image: openzipkin/zipkin:2.11.12
++    image: openzipkin/zipkin:latest
+     ports:
+       - "9411:9411"
+ 

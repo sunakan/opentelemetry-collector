@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+index 84291450b..eb7ef27f9 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper.go
+@@ -57,7 +57,7 @@ func (s *scraper) start(context.Context, component.Host) error {
+ func (s *scraper) scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 	metrics := pdata.NewMetricSlice()
+ 
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 	cpuTimes, err := s.times( /*percpu=*/ true)
+ 	if err != nil {
+ 		return metrics, scrapererror.NewPartialScrapeError(err, metricsLen)

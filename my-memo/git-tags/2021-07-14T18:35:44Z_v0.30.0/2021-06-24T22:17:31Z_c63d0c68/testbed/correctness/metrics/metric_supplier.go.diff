@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metric_supplier.go b/testbed/correctness/metrics/metric_supplier.go
+index d1b01510e..624a2a3b4 100644
+--- a/testbed/correctness/metrics/metric_supplier.go
++++ b/testbed/correctness/metrics/metric_supplier.go
+@@ -15,7 +15,7 @@
+ package metrics
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type metricSupplier struct {

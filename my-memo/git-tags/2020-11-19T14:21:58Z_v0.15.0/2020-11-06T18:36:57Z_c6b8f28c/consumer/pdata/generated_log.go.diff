@@ -1,0 +1,14 @@
+diff --git a/consumer/pdata/generated_log.go b/consumer/pdata/generated_log.go
+index 828c13ed1..104b8c80f 100644
+--- a/consumer/pdata/generated_log.go
++++ b/consumer/pdata/generated_log.go
+@@ -178,9 +178,6 @@ func (ms ResourceLogs) IsNil() bool {
+ }
+ 
+ // Resource returns the resource associated with this ResourceLogs.
+-// If no resource available, it creates an empty message and associates it with this ResourceLogs.
+-//
+-//  Empty initialized ResourceLogs will return "nil" Resource.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+ func (ms ResourceLogs) Resource() Resource {

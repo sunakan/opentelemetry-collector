@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_exporter.go b/obsreport/obsreport_exporter.go
+index 5ddb2fcc4..e57c3f93c 100644
+--- a/obsreport/obsreport_exporter.go
++++ b/obsreport/obsreport_exporter.go
+@@ -67,7 +67,7 @@ type ExporterSettings struct {
+ 
+ // NewExporter creates a new Exporter.
+ func NewExporter(cfg ExporterSettings) (*Exporter, error) {
+-	return newExporter(cfg, featuregate.GetRegistry())
++	return newExporter(cfg, featuregate.GlobalRegistry())
+ }
+ 
+ func newExporter(cfg ExporterSettings, registry *featuregate.Registry) (*Exporter, error) {

@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/status.go b/cmd/mdatagen/internal/status.go
+index 74191fa8c..eafd86ca1 100644
+--- a/cmd/mdatagen/internal/status.go
++++ b/cmd/mdatagen/internal/status.go
+@@ -77,6 +77,7 @@ func (s *Status) Validate() error {
+ 	if err := s.validateClass(); err != nil {
+ 		errs = errors.Join(errs, err)
+ 	}
++
+ 	if err := s.Stability.Validate(); err != nil {
+ 		errs = errors.Join(errs, err)
+ 	}

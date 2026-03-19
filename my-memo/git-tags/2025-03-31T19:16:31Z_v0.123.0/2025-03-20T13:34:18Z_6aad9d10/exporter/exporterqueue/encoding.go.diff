@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterqueue/encoding.go b/exporter/exporterqueue/encoding.go
+new file mode 100644
+index 000000000..fed24d6fa
+--- /dev/null
++++ b/exporter/exporterqueue/encoding.go
+@@ -0,0 +1,12 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package exporterqueue // import "go.opentelemetry.io/collector/exporter/exporterqueue"
++
++type Encoding[T any] interface {
++	// Marshal is a function that can marshal a request into bytes.
++	Marshal(T) ([]byte, error)
++
++	// Unmarshal is a function that can unmarshal bytes into a request.
++	Unmarshal([]byte) (T, error)
++}

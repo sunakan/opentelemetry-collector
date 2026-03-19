@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_span.go b/pdata/internal/generated_wrapper_span.go
+index 42168af97..5bbcbe3f1 100644
+--- a/pdata/internal/generated_wrapper_span.go
++++ b/pdata/internal/generated_wrapper_span.go
+@@ -62,6 +62,10 @@ func DeleteOrigSpan(orig *otlptrace.Span, nullable bool) {
+ }
+ 
+ func CopyOrigSpan(dest, src *otlptrace.Span) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.TraceId = src.TraceId
+ 	dest.SpanId = src.SpanId
+ 	CopyOrigTraceState(&dest.TraceState, &src.TraceState)

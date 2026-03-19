@@ -1,0 +1,19 @@
+diff --git a/service/pipelines/config_test.go b/service/pipelines/config_test.go
+index 7ad94d5ab..d4b5503e3 100644
+--- a/service/pipelines/config_test.go
++++ b/service/pipelines/config_test.go
+@@ -74,10 +74,10 @@ func TestConfigValidate(t *testing.T) {
+ 		},
+ 	}
+ 
+-	for _, test := range testCases {
+-		t.Run(test.name, func(t *testing.T) {
+-			cfg := test.cfgFn()
+-			assert.Equal(t, test.expected, cfg.Validate())
++	for _, tt := range testCases {
++		t.Run(tt.name, func(t *testing.T) {
++			cfg := tt.cfgFn()
++			assert.Equal(t, tt.expected, cfg.Validate())
+ 		})
+ 	}
+ }

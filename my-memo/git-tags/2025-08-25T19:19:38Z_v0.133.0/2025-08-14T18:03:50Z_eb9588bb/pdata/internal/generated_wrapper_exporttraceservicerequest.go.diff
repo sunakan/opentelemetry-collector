@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_exporttraceservicerequest.go b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+index e4b6a30d3..fc3a520d1 100644
+--- a/pdata/internal/generated_wrapper_exporttraceservicerequest.go
++++ b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+@@ -98,7 +98,7 @@ func MarshalProtoOrigExportTraceServiceRequest(orig *otlpcollectortrace.ExportTr
+ 	pos := len(buf)
+ 	var l int
+ 	_ = l
+-	for i := range orig.ResourceSpans {
++	for i := len(orig.ResourceSpans) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigResourceSpans(orig.ResourceSpans[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

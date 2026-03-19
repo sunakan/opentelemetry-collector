@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index c6d1376fe..14ca9bbe5 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -337,7 +337,7 @@ func TestSkipGoInitialization(t *testing.T) {
+ 	}
+ 	assert.NoError(t, cfg.Validate())
+ 	assert.NoError(t, cfg.SetGoPath())
+-	assert.Zero(t, cfg.Distribution.Go)
++	assert.Empty(t, cfg.Distribution.Go)
+ }
+ 
+ func TestBuildTagConfig(t *testing.T) {

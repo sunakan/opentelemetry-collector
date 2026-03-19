@@ -1,0 +1,12 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index 3712dfda4..a986f7535 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -201,7 +201,6 @@ func TestDecodeConfig_Invalid(t *testing.T) {
+ 		{name: "pipeline-exporter-not-exists", expected: errPipelineExporterNotExists},
+ 		{name: "pipeline-processor-not-exists", expected: errPipelineProcessorNotExists},
+ 		{name: "pipeline-must-have-processors", expected: errPipelineMustHaveProcessors},
+-		{name: "metric-pipeline-cannot-have-processors", expected: errMetricPipelineCannotHaveProcessors},
+ 		{name: "unknown-extension-type", expected: errUnknownExtensionType},
+ 		{name: "unknown-receiver-type", expected: errUnknownReceiverType},
+ 		{name: "unknown-exporter-type", expected: errUnknownExporterType},

@@ -1,0 +1,20 @@
+diff --git a/renovate.json b/renovate.json
+index 2d1bb38f1..bddc603bc 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -98,6 +98,15 @@
+         "golang.org/x{/,}**"
+       ]
+     },
++    {
++      "matchManagers": [
++        "gomod"
++      ],
++      "groupName": "All github.com/knadh/koanf packages",
++      "matchPackageNames": [
++        "github.com/knadh/koanf{/,}**"
++      ]
++    },
+     {
+       "matchManagers": [
+         "gomod"

@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+index 11d2d3f1c..df8824331 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantileslice.go
+@@ -99,7 +99,7 @@ func (es SummaryDataPointValueAtQuantileSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added SummaryDataPointValueAtQuantile.
+ func (es SummaryDataPointValueAtQuantileSlice) AppendEmpty() SummaryDataPointValueAtQuantile {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpmetrics.SummaryDataPoint_ValueAtQuantile{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrSummaryDataPoint_ValueAtQuantile())
+ 	return es.At(es.Len() - 1)
+ }
+ 

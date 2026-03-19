@@ -1,0 +1,14 @@
+diff --git a/testbed/Makefile b/testbed/Makefile
+index 403068f79..688b37581 100644
+--- a/testbed/Makefile
++++ b/testbed/Makefile
+@@ -17,8 +17,7 @@ test:
+ 
+ .PHONY: runtests
+ runtests: test
+-	cd tests && TESTBED_CONFIG=local.yaml go test -v 2>&1 | tee results/testoutput.log
+-	cd tests && mkdir -p results/junit && go-junit-report < results/testoutput.log > results/junit/results.xml
++	./runtests.sh
+ 
+ .PHONY: fmt
+ fmt:

@@ -1,0 +1,14 @@
+diff --git a/connector/forwardconnector/generated_component_test.go b/connector/forwardconnector/generated_component_test.go
+index dcab04cfe..b9f09f4c2 100644
+--- a/connector/forwardconnector/generated_component_test.go
++++ b/connector/forwardconnector/generated_component_test.go
+@@ -30,8 +30,8 @@ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 
+ 	tests := []struct {
+-		name     string
+ 		createFn func(ctx context.Context, set connector.Settings, cfg component.Config) (component.Component, error)
++		name     string
+ 	}{
+ 
+ 		{

@@ -1,0 +1,13 @@
+diff --git a/internal/data/testdata/trace_test.go b/internal/data/testdata/trace_test.go
+index 1ac35aa62..30999ae1d 100644
+--- a/internal/data/testdata/trace_test.go
++++ b/internal/data/testdata/trace_test.go
+@@ -79,7 +79,7 @@ func generateAllTraceTestCases() []traceTestCase {
+ 		{
+ 			name: "two-spans-same-resource",
+ 			td:   GenerateTraceDataTwoSpansSameResource(),
+-			otlp: generateTraceOtlpSameResourceTwoSpans(),
++			otlp: GenerateTraceOtlpSameResourceTwoSpans(),
+ 		},
+ 		{
+ 			name: "two-spans-same-resource-one-different",

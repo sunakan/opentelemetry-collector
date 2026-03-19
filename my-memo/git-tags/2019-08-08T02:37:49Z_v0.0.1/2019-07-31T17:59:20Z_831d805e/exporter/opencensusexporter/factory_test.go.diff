@@ -1,0 +1,24 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index 08cbecf6b..57c85fedf 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -23,9 +23,9 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-service/compression"
+ 	"github.com/open-telemetry/opentelemetry-service/config/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/exportertest"
+-	"github.com/open-telemetry/opentelemetry-service/internal/compression"
+ 	"github.com/open-telemetry/opentelemetry-service/internal/testutils"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver/opencensusreceiver"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver/receivertest"
+@@ -95,7 +95,7 @@ func TestCreateTraceExporter(t *testing.T) {
+ 			name: "KeepaliveParameters",
+ 			config: Config{
+ 				Endpoint: rcvCfg.Endpoint,
+-				KeepaliveParameters: &keepaliveConfig{
++				KeepaliveParameters: &KeepaliveConfig{
+ 					Time:                30 * time.Second,
+ 					Timeout:             25 * time.Second,
+ 					PermitWithoutStream: true,

@@ -1,0 +1,41 @@
+diff --git a/processor/spanprocessor/config_test.go b/processor/spanprocessor/config_test.go
+index cc7e58fad..007f8c15b 100644
+--- a/processor/spanprocessor/config_test.go
++++ b/processor/spanprocessor/config_test.go
+@@ -22,6 +22,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/config"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/internal/processor/span"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -72,4 +73,28 @@ func TestLoadConfig(t *testing.T) {
+ 			},
+ 		},
+ 	})
++
++	p3 := config.Processors["span/includeexclude"]
++	assert.Equal(t, p3, &Config{
++		ProcessorSettings: configmodels.ProcessorSettings{
++			TypeVal: typeStr,
++			NameVal: "span/includeexclude",
++		},
++		MatchConfig: span.MatchConfig{
++			Include: &span.MatchProperties{
++				MatchType: span.MatchTypeRegexp,
++				Services:  []string{`banks`},
++				SpanNames: []string{"^(.*?)/(.*?)$"},
++			},
++			Exclude: &span.MatchProperties{
++				MatchType: span.MatchTypeStrict,
++				SpanNames: []string{`donot/change`},
++			},
++		},
++		Rename: Name{
++			ToAttributes: &ToAttributes{
++				Rules: []string{`(?P<operation_website>.*?)$`},
++			},
++		},
++	})
+ }

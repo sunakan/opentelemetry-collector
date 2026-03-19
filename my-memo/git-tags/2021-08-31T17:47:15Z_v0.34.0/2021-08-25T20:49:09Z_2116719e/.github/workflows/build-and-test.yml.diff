@@ -1,0 +1,67 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 068a6acf0..dcab27402 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -17,7 +17,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -46,7 +46,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -86,7 +86,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -128,7 +128,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -172,7 +172,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -206,7 +206,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV
+@@ -266,7 +266,7 @@ jobs:
+       - name: Setup Go
+         uses: actions/setup-go@v2.1.3
+         with:
+-          go-version: 1.16
++          go-version: 1.17
+       - name: Setup Go Environment
+         run: |
+           echo "GOPATH=$(go env GOPATH)" >> $GITHUB_ENV

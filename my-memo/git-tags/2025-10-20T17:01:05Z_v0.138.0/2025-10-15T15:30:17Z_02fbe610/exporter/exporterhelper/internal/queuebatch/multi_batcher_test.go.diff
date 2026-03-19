@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go b/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
+index 55779c3ae..58cce15ce 100644
+--- a/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
+@@ -28,7 +28,7 @@ func TestMultiBatcher_NoTimeout(t *testing.T) {
+ 	type partitionKey struct{}
+ 
+ 	ba := newMultiBatcher(cfg,
+-		request.NewItemsSizer[request.Request](),
++		request.NewItemsSizer(),
+ 		newWorkerPool(1),
+ 		NewPartitioner(func(ctx context.Context, _ request.Request) string {
+ 			return ctx.Value(partitionKey{}).(string)
+@@ -81,7 +81,7 @@ func TestMultiBatcher_Timeout(t *testing.T) {
+ 	type partitionKey struct{}
+ 
+ 	ba := newMultiBatcher(cfg,
+-		request.NewItemsSizer[request.Request](),
++		request.NewItemsSizer(),
+ 		newWorkerPool(1),
+ 		NewPartitioner(func(ctx context.Context, _ request.Request) string {
+ 			return ctx.Value(partitionKey{}).(string)

@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/plogotlp/generated_exportpartialsuccess_test.go b/pdata/plog/plogotlp/generated_exportpartialsuccess_test.go
+index cfe21f2ca..4d3448e47 100644
+--- a/pdata/plog/plogotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/plog/plogotlp/generated_exportpartialsuccess_test.go
+@@ -69,7 +69,6 @@ func TestExportPartialSuccess_ErrorMessage(t *testing.T) {
+ }
+ 
+ func generateTestExportPartialSuccess() ExportPartialSuccess {
+-	ms := NewExportPartialSuccess()
+-	internal.FillOrigTestExportLogsPartialSuccess(ms.orig)
++	ms := newExportPartialSuccess(internal.GenTestOrigExportLogsPartialSuccess(), internal.NewState())
+ 	return ms
+ }

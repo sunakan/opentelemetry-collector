@@ -1,0 +1,21 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index ab78f8b5c..ae2e26d47 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -28,6 +28,7 @@ require (
+ 	go.opentelemetry.io/collector/pipeline v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
+ 	go.opentelemetry.io/collector/receiver/otlpreceiver v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	go.opentelemetry.io/collector/service v0.112.0
+ 	go.uber.org/goleak v1.3.0
+ 	go.uber.org/zap v1.27.0
+@@ -208,6 +209,8 @@ replace go.opentelemetry.io/collector/extension/extensioncapabilities => ../../e
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../../receiver/receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../../receiver/receivertest
++
+ replace go.opentelemetry.io/collector/processor/processorprofiles => ../../processor/processorprofiles
+ 
+ replace go.opentelemetry.io/collector/connector/connectorprofiles => ../../connector/connectorprofiles

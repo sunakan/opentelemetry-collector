@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/sourcecode-release.yaml b/.github/workflows/sourcecode-release.yaml
+index cf38bfcc3..0b3f20858 100644
+--- a/.github/workflows/sourcecode-release.yaml
++++ b/.github/workflows/sourcecode-release.yaml
+@@ -10,7 +10,7 @@ jobs:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout Repo
+-        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
++        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+         with:
+           fetch-depth: 0
+       - name: Create Github Release

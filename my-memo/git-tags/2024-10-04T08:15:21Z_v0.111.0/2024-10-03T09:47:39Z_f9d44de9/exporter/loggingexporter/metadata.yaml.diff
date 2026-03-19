@@ -1,0 +1,14 @@
+diff --git a/exporter/loggingexporter/metadata.yaml b/exporter/loggingexporter/metadata.yaml
+deleted file mode 100644
+index 135c17496..000000000
+--- a/exporter/loggingexporter/metadata.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-type: logging
+-github_project: open-telemetry/opentelemetry-collector
+-
+-status:
+-  class: exporter
+-  stability:
+-    deprecated: [traces, metrics, logs]
+-  distributions: [core, contrib]

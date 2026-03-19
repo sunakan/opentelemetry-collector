@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index a895bfa0a..386a4b7da 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -22,6 +22,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+@@ -67,6 +68,10 @@ type metricsExporter struct {
+ 	pusher PushMetrics
+ }
+ 
++func (mexp *metricsExporter) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ func (mexp *metricsExporter) ConsumeMetrics(ctx context.Context, md pdata.Metrics) error {
+ 	if mexp.baseExporter.convertResourceToTelemetry {
+ 		md = convertResourceToLabels(md)

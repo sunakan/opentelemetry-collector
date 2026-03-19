@@ -1,0 +1,15 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index ccb917bc2..79320689e 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -106,8 +106,8 @@ func verifyReceiverLifecycle(t *testing.T, factory component.ReceiverFactory, ge
+ 	ctx := context.Background()
+ 	host := newAssertNoErrorHost(t)
+ 	receiverCreateParams := component.ReceiverCreateParams{
+-		Logger:               zap.NewNop(),
+-		ApplicationStartInfo: component.DefaultApplicationStartInfo(),
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
+ 	}
+ 
+ 	if getConfigFn == nil {

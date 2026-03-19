@@ -1,0 +1,17 @@
+diff --git a/processor/processortest/nop_processor.go b/processor/processortest/nop_processor.go
+index 6b3997cb0..99f62734f 100644
+--- a/processor/processortest/nop_processor.go
++++ b/processor/processortest/nop_processor.go
+@@ -17,9 +17,9 @@ package processortest
+ import (
+ 	"context"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/processor"
++	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/processor"
+ )
+ 
+ type nopProcessor struct {

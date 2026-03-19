@@ -1,0 +1,31 @@
+diff --git a/internal/goldendataset/span_generator.go b/internal/goldendataset/span_generator.go
+index ba73f7b33..df4cdd4ba 100644
+--- a/internal/goldendataset/span_generator.go
++++ b/internal/goldendataset/span_generator.go
+@@ -188,7 +188,7 @@ func lookupSpanKind(kind PICTInputKind) otlptrace.Span_SpanKind {
+ 	}
+ }
+ 
+-func generateSpanAttributes(spanTypeID PICTInputAttributes, statusStr PICTInputStatus) []*otlpcommon.KeyValue {
++func generateSpanAttributes(spanTypeID PICTInputAttributes, statusStr PICTInputStatus) []otlpcommon.KeyValue {
+ 	includeStatus := SpanStatusNil != statusStr
+ 	var attrs map[string]interface{}
+ 	switch spanTypeID {
+@@ -511,7 +511,7 @@ func generateSpanEvent(index int) *otlptrace.Span_Event {
+ 	}
+ }
+ 
+-func generateEventAttributes(index int) []*otlpcommon.KeyValue {
++func generateEventAttributes(index int) []otlpcommon.KeyValue {
+ 	if index%4 == 2 {
+ 		return nil
+ 	}
+@@ -542,7 +542,7 @@ func generateSpanLink(random io.Reader, index int) *otlptrace.Span_Link {
+ 	}
+ }
+ 
+-func generateLinkAttributes(index int) []*otlpcommon.KeyValue {
++func generateLinkAttributes(index int) []otlpcommon.KeyValue {
+ 	if index%4 == 2 {
+ 		return nil
+ 	}

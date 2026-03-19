@@ -1,0 +1,11 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+index 708e4aec3..a56cc7c0d 100644
+--- a/cmd/builder/test/core.builder.yaml
++++ b/cmd/builder/test/core.builder.yaml
+@@ -65,5 +65,6 @@ replaces:
+   - go.opentelemetry.io/collector/receiver => ${WORKSPACE_DIR}/receiver
+   - go.opentelemetry.io/collector/receiver/otlpreceiver => ${WORKSPACE_DIR}/receiver/otlpreceiver
+   - go.opentelemetry.io/collector/receiver/receiverprofiles => ${WORKSPACE_DIR}/receiver/receiverprofiles
++  - go.opentelemetry.io/collector/receiver/receivertest => ${WORKSPACE_DIR}/receiver/receivertest
+   - go.opentelemetry.io/collector/semconv => ${WORKSPACE_DIR}/semconv
+   - go.opentelemetry.io/collector/service => ${WORKSPACE_DIR}/service

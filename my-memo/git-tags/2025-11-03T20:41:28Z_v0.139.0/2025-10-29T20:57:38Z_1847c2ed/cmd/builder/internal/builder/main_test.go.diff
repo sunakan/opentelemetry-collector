@@ -1,0 +1,21 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index e15cdf23f..5e4f39e72 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -327,6 +327,16 @@ func TestGenerateAndCompile(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
++		{
++			name: "CGoEnabled set to true",
++			cfgBuilder: func(t *testing.T) *Config {
++				cfg := newTestConfig(t)
++				cfg.Distribution.OutputPath = t.TempDir()
++				cfg.Replaces = append(cfg.Replaces, replaces...)
++				cfg.Distribution.CGoEnabled = true
++				return cfg
++			},
++		},
+ 	}
+ 
+ 	for _, tt := range testCases {

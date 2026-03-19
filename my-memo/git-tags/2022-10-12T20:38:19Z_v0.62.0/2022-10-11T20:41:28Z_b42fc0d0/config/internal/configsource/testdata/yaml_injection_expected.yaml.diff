@@ -1,0 +1,21 @@
+diff --git a/config/internal/configsource/testdata/yaml_injection_expected.yaml b/config/internal/configsource/testdata/yaml_injection_expected.yaml
+deleted file mode 100644
+index fd85e38d0..000000000
+--- a/config/internal/configsource/testdata/yaml_injection_expected.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-yaml_00:
+-  bool: true
+-  int: 42
+-  source: string
+-  map:
+-    k0: v0
+-    k1: v1
+-yaml_01: ":"
+-yaml_02:
+-  bool: true
+-  int: 42
+-  source: "[]byte"
+-  map:
+-    k0: v0
+-    k1: v1

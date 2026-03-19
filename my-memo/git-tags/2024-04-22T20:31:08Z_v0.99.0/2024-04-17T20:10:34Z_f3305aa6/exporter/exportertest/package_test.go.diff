@@ -1,0 +1,20 @@
+diff --git a/exporter/exportertest/package_test.go b/exporter/exportertest/package_test.go
+deleted file mode 100644
+index 8fa8a72b8..000000000
+--- a/exporter/exportertest/package_test.go
++++ /dev/null
+@@ -1,14 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package exportertest
+-
+-import (
+-	"testing"
+-
+-	"go.uber.org/goleak"
+-)
+-
+-func TestMain(m *testing.M) {
+-	goleak.VerifyTestMain(m)
+-}

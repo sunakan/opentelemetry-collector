@@ -1,0 +1,28 @@
+diff --git a/pdata/pmetric/generated_sum.go b/pdata/pmetric/generated_sum.go
+index 342b23b63..eaf680fb4 100644
+--- a/pdata/pmetric/generated_sum.go
++++ b/pdata/pmetric/generated_sum.go
+@@ -49,6 +49,11 @@ func (ms Sum) MoveTo(dest Sum) {
+ 	*ms.orig = otlpmetrics.Sum{}
+ }
+ 
++// DataPoints returns the DataPoints associated with this Sum.
++func (ms Sum) DataPoints() NumberDataPointSlice {
++	return newNumberDataPointSlice(&ms.orig.DataPoints, ms.state)
++}
++
+ // AggregationTemporality returns the aggregationtemporality associated with this Sum.
+ func (ms Sum) AggregationTemporality() AggregationTemporality {
+ 	return AggregationTemporality(ms.orig.AggregationTemporality)
+@@ -71,11 +76,6 @@ func (ms Sum) SetIsMonotonic(v bool) {
+ 	ms.orig.IsMonotonic = v
+ }
+ 
+-// DataPoints returns the DataPoints associated with this Sum.
+-func (ms Sum) DataPoints() NumberDataPointSlice {
+-	return newNumberDataPointSlice(&ms.orig.DataPoints, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms Sum) CopyTo(dest Sum) {
+ 	dest.state.AssertMutable()

@@ -1,0 +1,34 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+deleted file mode 100644
+index 2d0ba10b3..000000000
+--- a/examples/demo/otel-collector-config.yaml
++++ /dev/null
+@@ -1,28 +0,0 @@
+-receivers:
+-  otlp:
+-    protocols:
+-      grpc:
+-
+-exporters:
+-  logging:
+-
+-processors:
+-  batch:
+-
+-extensions:
+-  pprof:
+-    endpoint: :1888
+-  zpages:
+-    endpoint: :55679
+-
+-service:
+-  extensions: [pprof, zpages]
+-  pipelines:
+-    traces:
+-      receivers: [otlp]
+-      processors: [batch]
+-      exporters: [logging]
+-    metrics:
+-      receivers: [otlp]
+-      processors: [batch]
+-      exporters: [logging]

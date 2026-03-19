@@ -1,0 +1,19 @@
+diff --git a/service/telemetry/config_test.go b/service/telemetry/config_test.go
+index a2412a5d1..8af1616fb 100644
+--- a/service/telemetry/config_test.go
++++ b/service/telemetry/config_test.go
+@@ -220,6 +220,14 @@ func TestUnmarshalSpanProcessor(t *testing.T) {
+ 				},
+ 			}}),
+ 		},
++		{
++			name: "valid batch processor type, valid otlp exporter",
++			cfg: confmap.NewFromStringMap(map[string]any{"batch": BatchSpanProcessor{
++				Exporter: SpanExporter{
++					Otlp: &Otlp{},
++				},
++			}}),
++		},
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {

@@ -1,0 +1,146 @@
+commit 436df17c503ea22bb7a115443417a066bfd4d251
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue Dec 10 00:44:02 2024 +0000
+
+    chore(deps): update github-actions deps (#11831)
+    
+    This PR contains the following updates:
+    
+    | Package | Type | Update | Change |
+    |---|---|---|---|
+    | [actions/cache](https://redirect.github.com/actions/cache) | action |
+    minor | `v4.1.2` -> `v4.2.0` |
+    |
+    [codecov/codecov-action](https://redirect.github.com/codecov/codecov-action)
+    | action | minor | `5.0.7` -> `5.1.1` |
+    
+    ---
+    
+    > [!WARNING]
+    > Some dependencies could not be looked up. Check the Dependency
+    Dashboard for more information.
+    
+    ---
+    
+    ### Release Notes
+    
+    <details>
+    <summary>actions/cache (actions/cache)</summary>
+    
+    ###
+    [`v4.2.0`](https://redirect.github.com/actions/cache/releases/tag/v4.2.0)
+    
+    [Compare
+    Source](https://redirect.github.com/actions/cache/compare/v4.1.2...v4.2.0)
+    
+    #### ⚠️ Important Changes
+    
+    The cache backend service has been rewritten from the ground up for
+    improved performance and reliability.
+    [actions/cache](https://redirect.github.com/actions/cache) now
+    integrates with the new cache service (v2) APIs.
+    
+    The new service will gradually roll out as of **February 1st, 2025**.
+    The legacy service will also be sunset on the same date. Changes in
+    these release are **fully backward compatible**.
+    
+    **We are deprecating some versions of this action**. We recommend
+    upgrading to version `v4` or `v3` as soon as possible before **February
+    1st, 2025.** (Upgrade instructions below).
+    
+    If you are using pinned SHAs, please use the SHAs of versions `v4.2.0`
+    or `v3.4.0`
+    
+    If you do not upgrade, all workflow runs using any of the deprecated
+    [actions/cache](https://redirect.github.com/actions/cache) will fail.
+    
+    Upgrading to the recommended versions will not break your workflows.
+    
+    Read more about the change & access the migration guide: [reference to
+    the
+    announcement](https://redirect.github.com/actions/cache/discussions/1510).
+    
+    ##### Minor changes
+    
+    Minor and patch version updates for these dependencies:
+    
+    - [@&#8203;actions/core](https://redirect.github.com/actions/core):
+    `1.11.1`
+    - [@&#8203;actions/io](https://redirect.github.com/actions/io): `1.1.3`
+    - [@&#8203;vercel/ncc](https://redirect.github.com/vercel/ncc): `0.38.3`
+    
+    **Full Changelog**: https://github.com/actions/cache/compare/v4...v4.2.0
+    
+    </details>
+    
+    <details>
+    <summary>codecov/codecov-action (codecov/codecov-action)</summary>
+    
+    ###
+    [`v5.1.1`](https://redirect.github.com/codecov/codecov-action/blob/HEAD/CHANGELOG.md#v511)
+    
+    [Compare
+    Source](https://redirect.github.com/codecov/codecov-action/compare/v5.1.0...v5.1.1)
+    
+    ##### What's Changed
+    
+    **Full Changelog**:
+    https://github.com/codecov/codecov-action/compare/v5.1.0..v5.1.1
+    
+    ###
+    [`v5.1.0`](https://redirect.github.com/codecov/codecov-action/blob/HEAD/CHANGELOG.md#v510)
+    
+    [Compare
+    Source](https://redirect.github.com/codecov/codecov-action/compare/v5.0.7...v5.1.0)
+    
+    ##### What's Changed
+    
+    - fix: hide unnecessary error on shasum by
+    [@&#8203;thomasrockhu-codecov](https://redirect.github.com/thomasrockhu-codecov)
+    in
+    [https://github.com/codecov/codecov-action/pull/1692](https://redirect.github.com/codecov/codecov-action/pull/1692)
+    - build(deps): bump github/codeql-action from 3.27.4 to 3.27.5 by
+    [@&#8203;app/dependabot](https://redirect.github.com/app/dependabot) in
+    [https://github.com/codecov/codecov-action/pull/1701](https://redirect.github.com/codecov/codecov-action/pull/1701)
+    - chore(release): wrapper-0.0.29 by
+    [@&#8203;app/codecov-releaser-app](https://redirect.github.com/app/codecov-releaser-app)
+    in
+    [https://github.com/codecov/codecov-action/pull/1713](https://redirect.github.com/codecov/codecov-action/pull/1713)
+    
+    **Full Changelog**:
+    https://github.com/codecov/codecov-action/compare/v5.0.7..v5.1.0
+    
+    </details>
+    
+    ---
+    
+    ### Configuration
+    
+    📅 **Schedule**: Branch creation - "on tuesday" (UTC), Automerge - At any
+    time (no schedule defined).
+    
+    🚦 **Automerge**: Disabled by config. Please merge this manually once you
+    are satisfied.
+    
+    ♻ **Rebasing**: Whenever PR becomes conflicted, or you tick the
+    rebase/retry checkbox.
+    
+    👻 **Immortal**: This PR will be recreated if closed unmerged. Get
+    [config
+    help](https://redirect.github.com/renovatebot/renovate/discussions) if
+    that's undesired.
+    
+    ---
+    
+    - [ ] <!-- rebase-check -->If you want to rebase/retry this PR, check
+    this box
+    
+    ---
+    
+    This PR was generated by [Mend Renovate](https://mend.io/renovate/).
+    View the [repository job
+    log](https://developer.mend.io/github/open-telemetry/opentelemetry-collector).
+    
+    <!--renovate-debug:eyJjcmVhdGVkSW5WZXIiOiIzOS40Mi40IiwidXBkYXRlZEluVmVyIjoiMzkuNDIuNCIsInRhcmdldEJyYW5jaCI6Im1haW4iLCJsYWJlbHMiOlsiZGVwZW5kZW5jaWVzIiwicmVub3ZhdGVib3QiXX0=-->
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>

@@ -1,0 +1,11 @@
+diff --git a/pdata/pprofile/generated_scopeprofiles_test.go b/pdata/pprofile/generated_scopeprofiles_test.go
+index 73ba11047..c3f86f149 100644
+--- a/pdata/pprofile/generated_scopeprofiles_test.go
++++ b/pdata/pprofile/generated_scopeprofiles_test.go
+@@ -96,5 +96,5 @@ func generateTestScopeProfiles() ScopeProfiles {
+ func fillTestScopeProfiles(tv ScopeProfiles) {
+ 	internal.FillTestInstrumentationScope(internal.NewInstrumentationScope(&tv.orig.Scope, tv.state))
+ 	tv.orig.SchemaUrl = "https://opentelemetry.io/schemas/1.5.0"
+-	fillTestProfilesSlice(newProfilesSlice(&tv.orig.Profiles, tv.state))
++	fillTestProfilesSlice(tv.Profiles())
+ }

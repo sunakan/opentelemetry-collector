@@ -1,0 +1,23 @@
+diff --git a/testbed/correctness/testdata/generated_pict_pairs_traces_pipeline.txt b/testbed/correctness/testdata/generated_pict_pairs_traces_pipeline.txt
+new file mode 100644
+index 000000000..af31f5aa3
+--- /dev/null
++++ b/testbed/correctness/testdata/generated_pict_pairs_traces_pipeline.txt
+@@ -0,0 +1,17 @@
++Receiver	Exporter
++otlp	jaeger
++zipkin	opencensus
++otlp	opencensus
++jaeger	opencensus
++opencensus	jaeger
++zipkin	otlp
++jaeger	jaeger
++opencensus	opencensus
++otlp	zipkin
++jaeger	zipkin
++opencensus	zipkin
++zipkin	jaeger
++otlp	otlp
++jaeger	otlp
++opencensus	otlp
++zipkin	zipkin

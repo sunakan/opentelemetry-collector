@@ -1,0 +1,13 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 53a1ac14c..94752cc65 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -59,7 +59,7 @@ modernize:
+ 	$(GO_TOOL) modernize \
+ 		-fix -test -v -any -fmtappendf -forvar -mapsloop -minmax -newexpr -omitzero -plusbuild \
+ 		-rangeint -reflecttypefor -slicescontains -slicessort -stditerators -stringscut \
+-		-stringscutprefix -stringsseq -stringsbuilder -testingcontext -waitgroup ./...
++		-stringscutprefix -stringsseq -stringsbuilder -testingcontext -unsafefuncs -waitgroup ./...
+ 
+ .PHONY: tidy
+ tidy:

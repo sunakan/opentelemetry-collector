@@ -1,0 +1,21 @@
+diff --git a/internal/memorylimiter/iruntime/mem_info.go b/internal/memorylimiter/iruntime/mem_info.go
+new file mode 100644
+index 000000000..1157cd779
+--- /dev/null
++++ b/internal/memorylimiter/iruntime/mem_info.go
+@@ -0,0 +1,15 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package iruntime // import "go.opentelemetry.io/collector/internal/memorylimiter/iruntime"
++
++import (
++	"github.com/shirou/gopsutil/v4/mem"
++)
++
++// readMemInfo returns the total memory
++// supports in linux, darwin and windows
++func readMemInfo() (uint64, error) {
++	vmStat, err := mem.VirtualMemory()
++	return vmStat.Total, err
++}

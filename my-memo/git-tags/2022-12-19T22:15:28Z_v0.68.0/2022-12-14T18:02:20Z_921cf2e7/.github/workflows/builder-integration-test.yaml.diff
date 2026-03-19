@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/builder-integration-test.yaml b/.github/workflows/builder-integration-test.yaml
+index 025775157..1911f6506 100644
+--- a/.github/workflows/builder-integration-test.yaml
++++ b/.github/workflows/builder-integration-test.yaml
+@@ -4,15 +4,11 @@ on:
+   # on changes to the main branch touching the builder
+   push:
+     branches: [ main ]
+-    paths:
+-      - 'cmd/builder/**'
+ 
+   # on PRs touching the builder
+   pull_request:
+     branches: [ main ]
+-    paths:
+-      - 'cmd/builder/**'
+-  
++
+   # once a day at 6:17 AM UTC
+   schedule:
+     - cron: '17 6 * * *'

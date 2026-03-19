@@ -1,0 +1,18 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index dde254354..903967b30 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -26,13 +26,6 @@ import (
+ 
+ // Some of the keys used to represent OTLP constructs as tags or annotations in other formats.
+ const (
+-	AnnotationDescriptionKey = "description"
+-
+-	MessageEventIDKey               = "message.id"
+-	MessageEventTypeKey             = "message.type"
+-	MessageEventCompressedSizeKey   = "message.compressed_size"
+-	MessageEventUncompressedSizeKey = "message.uncompressed_size"
+-
+ 	TagMessage = "message"
+ 
+ 	TagSpanKind = "span.kind"

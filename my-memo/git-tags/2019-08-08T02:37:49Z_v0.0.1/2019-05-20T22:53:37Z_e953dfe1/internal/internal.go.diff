@@ -1,0 +1,13 @@
+diff --git a/internal/internal.go b/internal/internal.go
+index 5c0f17ba0..9bd7d9536 100644
+--- a/internal/internal.go
++++ b/internal/internal.go
+@@ -40,7 +40,7 @@ func CombineErrors(errs []error) error {
+ 	if numErrors == 1 {
+ 		return errs[0]
+ 	} else if numErrors > 1 {
+-		errMsgs := make([]string, numErrors)
++		errMsgs := make([]string, 0, numErrors)
+ 		for _, err := range errs {
+ 			errMsgs = append(errMsgs, err.Error())
+ 		}

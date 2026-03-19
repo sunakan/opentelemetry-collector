@@ -1,0 +1,13 @@
+diff --git a/consumer/consumertest/consumer.go b/consumer/consumertest/consumer.go
+index f79972ce4..ee5125b4b 100644
+--- a/consumer/consumertest/consumer.go
++++ b/consumer/consumertest/consumer.go
+@@ -18,7 +18,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // Consumer is a convenience interface that implements all consumer interfaces.

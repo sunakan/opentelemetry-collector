@@ -1,0 +1,13 @@
+diff --git a/translator/trace/protospan_translation_test.go b/translator/trace/protospan_translation_test.go
+index 11d96f8a5..a3d04ffa8 100644
+--- a/translator/trace/protospan_translation_test.go
++++ b/translator/trace/protospan_translation_test.go
+@@ -85,7 +85,7 @@ func TestAttributeValueToString(t *testing.T) {
+ 		},
+ 		{
+ 			name:     "array",
+-			input:    pdata.NewAttributeValue(),
++			input:    pdata.NewAttributeValueNull(),
+ 			jsonLike: false,
+ 			expected: "",
+ 		},

@@ -1,0 +1,33 @@
+diff --git a/pdata/plog/generated_logrecord_test.go b/pdata/plog/generated_logrecord_test.go
+index 090e200d1..6fbcf0103 100644
+--- a/pdata/plog/generated_logrecord_test.go
++++ b/pdata/plog/generated_logrecord_test.go
+@@ -14,6 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	"go.opentelemetry.io/collector/pdata/internal/data"
+ 	otlplogs "go.opentelemetry.io/collector/pdata/internal/data/protogen/logs/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+@@ -42,6 +43,20 @@ func TestLogRecord_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newLogRecord(&otlplogs.LogRecord{}, &sharedState)) })
+ }
+ 
++func TestLogRecord_MarshalAndUnmarshal(t *testing.T) {
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	src := generateTestLogRecord()
++	src.marshalJSONStream(stream)
++
++	iter := json.BorrowIterator(stream.Buffer())
++	defer json.ReturnIterator(iter)
++	dest := NewLogRecord()
++	dest.unmarshalJsoniter(iter)
++
++	assert.Equal(t, src, dest)
++}
++
+ func TestLogRecord_ObservedTimestamp(t *testing.T) {
+ 	ms := NewLogRecord()
+ 	assert.Equal(t, pcommon.Timestamp(0), ms.ObservedTimestamp())

@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/internal/migration/v0.2.0_test.go b/service/telemetry/internal/migration/v0.2.0_test.go
+index 1d4626444..868becfa4 100644
+--- a/service/telemetry/internal/migration/v0.2.0_test.go
++++ b/service/telemetry/internal/migration/v0.2.0_test.go
+@@ -8,7 +8,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+-	config "go.opentelemetry.io/contrib/config/v0.3.0"
++	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/confmap/confmaptest"

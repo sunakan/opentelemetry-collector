@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/resource_to_label.go b/exporter/exporterhelper/resource_to_label.go
+index 71f46fca9..25f6852ef 100644
+--- a/exporter/exporterhelper/resource_to_label.go
++++ b/exporter/exporterhelper/resource_to_label.go
+@@ -25,8 +25,8 @@ type ResourceToTelemetrySettings struct {
+ 	Enabled bool `mapstructure:"enabled"`
+ }
+ 
+-// createDefaultResourceToTelemetrySettings returns the default settings for ResourceToTelemetrySettings.
+-func createDefaultResourceToTelemetrySettings() ResourceToTelemetrySettings {
++// defaultResourceToTelemetrySettings returns the default settings for ResourceToTelemetrySettings.
++func defaultResourceToTelemetrySettings() ResourceToTelemetrySettings {
+ 	return ResourceToTelemetrySettings{
+ 		Enabled: false,
+ 	}

@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/testdata/no_description_rattr.yaml b/cmd/mdatagen/testdata/no_description_rattr.yaml
+new file mode 100644
+index 000000000..d489eaa7c
+--- /dev/null
++++ b/cmd/mdatagen/testdata/no_description_rattr.yaml
+@@ -0,0 +1,12 @@
++type: file
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++
++resource_attributes:
++  string.resource.attr:
++    type: string
++    enabled: true

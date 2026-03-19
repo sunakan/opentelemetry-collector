@@ -1,0 +1,51 @@
+diff --git a/extension/extensionhelper/factory_test.go b/extension/extensionhelper/factory_test.go
+index 319c6bd26..dec42bfc0 100644
+--- a/extension/extensionhelper/factory_test.go
++++ b/extension/extensionhelper/factory_test.go
+@@ -16,10 +16,8 @@ package extensionhelper
+ 
+ import (
+ 	"context"
+-	"errors"
+ 	"testing"
+ 
+-	"github.com/spf13/viper"
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -48,24 +46,6 @@ func TestNewFactory(t *testing.T) {
+ 	assert.Same(t, nopExtensionInstance, ext)
+ }
+ 
+-func TestNewFactory_WithConstructors(t *testing.T) {
+-	factory := NewFactory(
+-		typeStr,
+-		defaultConfig,
+-		createExtension,
+-		WithCustomUnmarshaler(customUnmarshaler))
+-	assert.EqualValues(t, typeStr, factory.Type())
+-	assert.EqualValues(t, defaultCfg, factory.CreateDefaultConfig())
+-
+-	fu, ok := factory.(component.ConfigUnmarshaler)
+-	assert.True(t, ok)
+-	assert.Equal(t, errors.New("my error"), fu.Unmarshal(nil, nil))
+-
+-	ext, err := factory.CreateExtension(context.Background(), component.ExtensionCreateParams{}, defaultCfg)
+-	assert.NoError(t, err)
+-	assert.Same(t, nopExtensionInstance, ext)
+-}
+-
+ func defaultConfig() config.Extension {
+ 	return defaultCfg
+ }
+@@ -74,10 +54,6 @@ func createExtension(context.Context, component.ExtensionCreateParams, config.Ex
+ 	return nopExtensionInstance, nil
+ }
+ 
+-func customUnmarshaler(*viper.Viper, interface{}) error {
+-	return errors.New("my error")
+-}
+-
+ type nopExtension struct {
+ }
+ 

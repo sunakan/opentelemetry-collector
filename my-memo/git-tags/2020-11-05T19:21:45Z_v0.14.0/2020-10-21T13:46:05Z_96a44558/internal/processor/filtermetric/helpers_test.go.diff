@@ -1,0 +1,15 @@
+diff --git a/internal/processor/filtermetric/helpers_test.go b/internal/processor/filtermetric/helpers_test.go
+index defeef581..dc26b8972 100644
+--- a/internal/processor/filtermetric/helpers_test.go
++++ b/internal/processor/filtermetric/helpers_test.go
+@@ -20,9 +20,7 @@ import (
+ 
+ func createConfig(filters []string, matchType filterset.MatchType) *MatchProperties {
+ 	return &MatchProperties{
+-		Config: filterset.Config{
+-			MatchType: matchType,
+-		},
++		MatchType:   MatchType(matchType),
+ 		MetricNames: filters,
+ 	}
+ }

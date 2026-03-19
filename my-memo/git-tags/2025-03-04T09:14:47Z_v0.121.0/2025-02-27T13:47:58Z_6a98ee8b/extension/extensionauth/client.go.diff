@@ -1,0 +1,19 @@
+diff --git a/extension/extensionauth/client.go b/extension/extensionauth/client.go
+index a303082cb..f066651d8 100644
+--- a/extension/extensionauth/client.go
++++ b/extension/extensionauth/client.go
+@@ -116,12 +116,12 @@ func WithClientPerRPCCredentials(perRPCCredentialsFunc ClientPerRPCCredentialsFu
+ }
+ 
+ // NewClient returns a Client configured with the provided options.
+-func NewClient(options ...ClientOption) Client {
++func NewClient(options ...ClientOption) (Client, error) {
+ 	bc := &defaultClient{}
+ 
+ 	for _, op := range options {
+ 		op.apply(bc)
+ 	}
+ 
+-	return bc
++	return bc, nil
+ }

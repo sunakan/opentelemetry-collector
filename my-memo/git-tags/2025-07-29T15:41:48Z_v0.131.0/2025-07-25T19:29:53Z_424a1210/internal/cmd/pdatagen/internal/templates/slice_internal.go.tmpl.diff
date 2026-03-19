@@ -1,0 +1,38 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
+index 335b192a6..6e61e6305 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice_internal.go.tmpl
+@@ -8,13 +8,12 @@ package internal
+ 
+ import (
+ 	{{ range $index, $element := .imports -}}
+-	{{ if ne $element `"go.opentelemetry.io/collector/pdata/internal"` }}
++	{{ if ne $element "go.opentelemetry.io/collector/pdata/internal" }}
+ 	{{ $element }}
+-	{{ end }}
+-	{{ end }}
++	{{- end }}
++	{{- end }}
+ )
+ 
+-
+ type {{ .structName }} struct {
+ 	orig *[]{{ .originElementType }}
+ 	state *State
+@@ -64,3 +63,16 @@ func FillTest{{ .structName }}(es {{ .structName }}) {
+ 		FillTest{{ .elementName }}(New{{ .elementName }}((*es.orig)[i], es.state))
+ 	}
+ }
++
++// MarshalJSONStream marshals all properties from the current struct to the destination stream.
++func MarshalJSONStream{{ .structName }}(ms {{ .structName }}, dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(*ms.orig) > 0 {
++		MarshalJSONStream{{ .elementName }}(New{{ .elementName }}((*ms.orig)[0], ms.state), dest)
++	}
++	for i := 1; i < len((*ms.orig)); i++ {
++		dest.WriteMore()
++		MarshalJSONStream{{ .elementName }}(New{{ .elementName }}((*ms.orig)[i], ms.state), dest)
++	}
++	dest.WriteArrayEnd()
++}

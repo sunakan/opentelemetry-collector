@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index a4484d4fc..28cab168d 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -52,6 +52,8 @@ type DataReceiverBase struct {
+ 	Port int
+ }
+ 
++const DefaultHost = "localhost"
++
+ func (mb *DataReceiverBase) ReportFatalError(err error) {
+ 	log.Printf("Fatal error reported: %v", err)
+ }

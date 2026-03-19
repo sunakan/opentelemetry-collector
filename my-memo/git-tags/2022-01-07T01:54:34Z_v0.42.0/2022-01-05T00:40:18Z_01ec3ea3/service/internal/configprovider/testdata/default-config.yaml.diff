@@ -1,0 +1,11 @@
+diff --git a/service/internal/configprovider/testdata/default-config.yaml b/service/internal/configprovider/testdata/default-config.yaml
+new file mode 100644
+index 000000000..ee4ead5c1
+--- /dev/null
++++ b/service/internal/configprovider/testdata/default-config.yaml
+@@ -0,0 +1,5 @@
++processors:
++  batch:
++exporters:
++  otlp:
++    endpoint: "localhost:4317"

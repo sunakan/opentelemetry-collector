@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go b/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
+index a361cca6f..38cb009de 100644
+--- a/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/primitive_slice_structs.go
+@@ -67,9 +67,7 @@ func copy${structName}(from []${itemType}) []${itemType} {
+ 	}
+ 
+ 	to := make([]${itemType}, len(from))
+-	for i := range from {
+-		to[i] = from[i]
+-	}
++	copy(to, from)
+ 	return to
+ }`
+ 

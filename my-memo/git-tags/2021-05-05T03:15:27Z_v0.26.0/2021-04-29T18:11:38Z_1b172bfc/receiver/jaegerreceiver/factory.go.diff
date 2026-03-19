@@ -1,0 +1,22 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index c7636a93f..a304f0fbf 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -103,16 +103,12 @@ func createTracesReceiver(
+ 	var config configuration
+ 	// Set ports
+ 	if rCfg.Protocols.GRPC != nil {
++		config.CollectorGRPCServerSettings = *rCfg.Protocols.GRPC
+ 		var err error
+ 		config.CollectorGRPCPort, err = extractPortFromEndpoint(rCfg.Protocols.GRPC.NetAddr.Endpoint)
+ 		if err != nil {
+ 			return nil, fmt.Errorf("unable to extract port for GRPC: %w", err)
+ 		}
+-
+-		config.CollectorGRPCOptions, err = rCfg.Protocols.GRPC.ToServerOption()
+-		if err != nil {
+-			return nil, err
+-		}
+ 	}
+ 
+ 	if rCfg.Protocols.ThriftHTTP != nil {

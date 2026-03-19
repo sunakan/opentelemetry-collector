@@ -1,0 +1,28 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go b/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
+index 8ca60ff31..fcf04ce2c 100644
+--- a/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/multi_batcher_test.go
+@@ -10,6 +10,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
++	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
+@@ -33,6 +34,7 @@ func TestMultiBatcher_NoTimeout(t *testing.T) {
+ 			return ctx.Value(partitionKey{}).(string)
+ 		}),
+ 		sink.Export,
++		zap.NewNop(),
+ 	)
+ 
+ 	require.NoError(t, ba.Start(context.Background(), componenttest.NewNopHost()))
+@@ -84,6 +86,7 @@ func TestMultiBatcher_Timeout(t *testing.T) {
+ 			return ctx.Value(partitionKey{}).(string)
+ 		}),
+ 		sink.Export,
++		zap.NewNop(),
+ 	)
+ 
+ 	require.NoError(t, ba.Start(context.Background(), componenttest.NewNopHost()))

@@ -1,0 +1,26 @@
+diff --git a/processor/memorylimiterprocessor/internal/metadata/generated_status.go b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+index 5fd2a9e9b..0b2058d89 100644
+--- a/processor/memorylimiterprocessor/internal/metadata/generated_status.go
++++ b/processor/memorylimiterprocessor/internal/metadata/generated_status.go
+@@ -10,7 +10,8 @@ import (
+ )
+ 
+ var (
+-	Type = component.MustNewType("memory_limiter")
++	Type      = component.MustNewType("memory_limiter")
++	scopeName = "go.opentelemetry.io/collector/processor/memorylimiterprocessor"
+ )
+ 
+ const (
+@@ -20,9 +21,9 @@ const (
+ )
+ 
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+-	return settings.MeterProvider.Meter("otelcol/memorylimiter")
++	return settings.MeterProvider.Meter(scopeName)
+ }
+ 
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+-	return settings.TracerProvider.Tracer("otelcol/memorylimiter")
++	return settings.TracerProvider.Tracer(scopeName)
+ }

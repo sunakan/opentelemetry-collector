@@ -1,0 +1,13 @@
+diff --git a/config/extension.go b/config/extension.go
+index 22a08fba0..99054c550 100644
+--- a/config/extension.go
++++ b/config/extension.go
+@@ -44,8 +44,3 @@ func (es *ExtensionSettings) ID() component.ID {
+ func (es *ExtensionSettings) SetIDName(idName string) {
+ 	es.id = component.NewIDWithName(es.id.Type(), idName)
+ }
+-
+-// Deprecated: [v0.65.0] use component.ValidateConfig.
+-func (es *ExtensionSettings) Validate() error {
+-	return nil
+-}

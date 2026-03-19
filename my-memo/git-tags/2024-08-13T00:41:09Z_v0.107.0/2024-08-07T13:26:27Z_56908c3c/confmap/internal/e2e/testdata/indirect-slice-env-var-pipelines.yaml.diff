@@ -1,0 +1,9 @@
+diff --git a/confmap/internal/e2e/testdata/indirect-slice-env-var-pipelines.yaml b/confmap/internal/e2e/testdata/indirect-slice-env-var-pipelines.yaml
+new file mode 100644
+index 000000000..04f4f2312
+--- /dev/null
++++ b/confmap/internal/e2e/testdata/indirect-slice-env-var-pipelines.yaml
+@@ -0,0 +1,3 @@
++logs:
++  receivers: ${env:OTEL_LOGS_RECEIVER}
++  exporters: ${env:OTEL_LOGS_EXPORTER}

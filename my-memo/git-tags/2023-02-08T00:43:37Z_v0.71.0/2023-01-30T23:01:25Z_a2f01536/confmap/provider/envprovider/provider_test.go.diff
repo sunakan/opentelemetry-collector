@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/envprovider/provider_test.go b/confmap/provider/envprovider/provider_test.go
+index 60af13577..4da506dd2 100644
+--- a/confmap/provider/envprovider/provider_test.go
++++ b/confmap/provider/envprovider/provider_test.go
+@@ -71,7 +71,7 @@ func TestEnv(t *testing.T) {
+ 	require.NoError(t, err)
+ 	retMap, err := ret.AsConf()
+ 	assert.NoError(t, err)
+-	expectedMap := confmap.NewFromStringMap(map[string]interface{}{
++	expectedMap := confmap.NewFromStringMap(map[string]any{
+ 		"processors::batch":         nil,
+ 		"exporters::otlp::endpoint": "localhost:4317",
+ 	})

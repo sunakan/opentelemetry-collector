@@ -1,0 +1,20 @@
+diff --git a/docs/release.md b/docs/release.md
+index 03f0a5a51..a54d16c5f 100644
+--- a/docs/release.md
++++ b/docs/release.md
+@@ -116,7 +116,7 @@ When considering making a bugfix release on the `v0.N.x` release cycle, the bug
+     - Reverting a feature gate.
+     - Changing the configuration to an easy to find value.
+ 2. The bug happens in common setups. To gauge this, maintainers can consider the following:
+-    - The bug is not specific to an uncommon platform
++    - If the bug is specific to a certain platform, and if that platform is in [Tier 1](../docs/platform-support.md#tiered-platform-support-model).
+     - The bug happens with the default configuration or with a commonly used one (e.g. has been reported by multiple people)
+ 3. The bug is sufficiently severe. For example (non-exhaustive list):
+     - The bug makes the Collector crash reliably
+@@ -151,4 +151,4 @@ The following documents the procedure to release a bugfix
+ | 2023-11-06 | v0.89.0 | @jpkrohling     |
+ | 2023-11-20 | v0.90.0 | @djaglowski     |
+ | 2023-12-04 | v0.91.0 | @dmitryax       |
+-| 2023-12-18 | v0.92.0 | @codeboten      |
+\ No newline at end of file
++| 2023-12-18 | v0.92.0 | @codeboten      |

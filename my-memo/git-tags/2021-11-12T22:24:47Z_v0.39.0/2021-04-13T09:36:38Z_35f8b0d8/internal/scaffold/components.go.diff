@@ -1,0 +1,12 @@
+diff --git a/internal/scaffold/components.go b/internal/scaffold/components.go
+index 74b105c86..4173576ee 100644
+--- a/internal/scaffold/components.go
++++ b/internal/scaffold/components.go
+@@ -125,6 +125,6 @@ func components() (component.Factories, error) {
+ 		errs = append(errs, err)
+ 	}
+ 
+-	return factories, consumererror.CombineErrors(errs)
++	return factories, consumererror.Combine(errs)
+ }
+ `

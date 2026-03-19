@@ -1,0 +1,19 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index c20fe1ab3..22fc14ced 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -84,7 +84,6 @@ require (
+ 	go.opentelemetry.io/collector/extension/experimental/storage v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/extension/extensioncapabilities v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/featuregate v1.17.0 // indirect
+-	go.opentelemetry.io/collector/internal/globalsignal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pipeline/pipelineprofiles v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/processor v0.111.0 // indirect
+@@ -207,6 +206,4 @@ replace go.opentelemetry.io/collector/exporter/exporterprofiles => ../../exporte
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../globalsignal
+-
+ replace go.opentelemetry.io/collector/pipeline/pipelineprofiles => ../../pipeline/pipelineprofiles

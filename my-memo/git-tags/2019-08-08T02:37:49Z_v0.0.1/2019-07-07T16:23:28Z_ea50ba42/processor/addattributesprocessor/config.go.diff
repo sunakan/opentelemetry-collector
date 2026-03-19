@@ -1,0 +1,13 @@
+diff --git a/processor/addattributesprocessor/config.go b/processor/addattributesprocessor/config.go
+index 3983f6638..18e6f0085 100644
+--- a/processor/addattributesprocessor/config.go
++++ b/processor/addattributesprocessor/config.go
+@@ -15,7 +15,7 @@
+ package addattributesprocessor
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ )
+ 
+ // ConfigV2 defines configuration for Attributes processor.

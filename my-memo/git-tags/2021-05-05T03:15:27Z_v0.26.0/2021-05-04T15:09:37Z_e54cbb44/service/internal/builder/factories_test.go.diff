@@ -1,0 +1,17 @@
+diff --git a/service/internal/builder/factories_test.go b/service/internal/builder/factories_test.go
+index 28ad7fb2b..add76844a 100644
+--- a/service/internal/builder/factories_test.go
++++ b/service/internal/builder/factories_test.go
+@@ -78,8 +78,10 @@ func newBadProcessorFactory() component.ProcessorFactory {
+ 
+ func newBadExporterFactory() component.ExporterFactory {
+ 	return exporterhelper.NewFactory("bf", func() config.Exporter {
+-		return &config.ExporterSettings{
+-			TypeVal: "bf",
++		return &struct {
++			config.ExporterSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
++		}{
++			ExporterSettings: config.NewExporterSettings(config.NewID("bf")),
+ 		}
+ 	})
+ }

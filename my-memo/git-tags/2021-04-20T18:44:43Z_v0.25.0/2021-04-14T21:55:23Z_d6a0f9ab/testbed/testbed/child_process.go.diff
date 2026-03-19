@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index cc03fb1df..dbdad37d5 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -187,7 +187,7 @@ func expandExeFileName(exeName string) string {
+ 	return buf.String()
+ }
+ 
+-// start a child process.
++// Start a child process.
+ //
+ // cp.AgentExePath defines the executable to run. If unspecified
+ // "../../bin/otelcol_{{.GOOS}}_{{.GOARCH}}" will be used.

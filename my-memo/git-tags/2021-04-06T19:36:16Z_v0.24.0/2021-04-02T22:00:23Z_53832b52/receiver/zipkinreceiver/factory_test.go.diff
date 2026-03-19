@@ -1,0 +1,22 @@
+diff --git a/receiver/zipkinreceiver/factory_test.go b/receiver/zipkinreceiver/factory_test.go
+index db1d1fe85..a85986f80 100644
+--- a/receiver/zipkinreceiver/factory_test.go
++++ b/receiver/zipkinreceiver/factory_test.go
+@@ -39,7 +39,7 @@ func TestCreateReceiver(t *testing.T) {
+ 		context.Background(),
+ 		component.ReceiverCreateParams{Logger: zap.NewNop()},
+ 		cfg,
+-		consumertest.NewTracesNop())
++		consumertest.NewNop())
+ 	assert.NoError(t, err, "receiver creation failed")
+ 	assert.NotNil(t, tReceiver, "receiver creation failed")
+ 
+@@ -47,7 +47,7 @@ func TestCreateReceiver(t *testing.T) {
+ 		context.Background(),
+ 		component.ReceiverCreateParams{Logger: zap.NewNop()},
+ 		cfg,
+-		consumertest.NewTracesNop())
++		consumertest.NewNop())
+ 	assert.NoError(t, err, "receiver creation failed")
+ 	assert.NotNil(t, tReceiver, "receiver creation failed")
+ }

@@ -1,0 +1,11 @@
+diff --git a/extension/zpagesextension/go.mod b/extension/zpagesextension/go.mod
+index 08fe1b4b7..f474e48e8 100644
+--- a/extension/zpagesextension/go.mod
++++ b/extension/zpagesextension/go.mod
+@@ -73,6 +73,4 @@ retract (
+ 	v0.69.0 // Release failed, use v0.69.1
+ )
+ 
+-replace go.opentelemetry.io/collector/connector => ../../connector
+-
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry

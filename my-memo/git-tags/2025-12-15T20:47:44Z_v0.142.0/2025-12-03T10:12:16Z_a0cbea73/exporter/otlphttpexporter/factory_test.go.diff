@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory_test.go b/exporter/otlphttpexporter/factory_test.go
+index 3e4b1e690..90364a050 100644
+--- a/exporter/otlphttpexporter/factory_test.go
++++ b/exporter/otlphttpexporter/factory_test.go
+@@ -35,7 +35,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ 	assert.Equal(t, 300*time.Second, ocfg.RetryConfig.MaxElapsedTime, "default retry MaxElapsedTime")
+ 	assert.Equal(t, 5*time.Second, ocfg.RetryConfig.InitialInterval, "default retry InitialInterval")
+ 	assert.Equal(t, 30*time.Second, ocfg.RetryConfig.MaxInterval, "default retry MaxInterval")
+-	assert.True(t, ocfg.QueueConfig.Enabled, "default sending queue is enabled")
++	assert.True(t, ocfg.QueueConfig.HasValue(), "default sending queue is enabled")
+ 	assert.Equal(t, EncodingProto, ocfg.Encoding)
+ 	assert.Equal(t, configcompression.TypeGzip, ocfg.ClientConfig.Compression)
+ }

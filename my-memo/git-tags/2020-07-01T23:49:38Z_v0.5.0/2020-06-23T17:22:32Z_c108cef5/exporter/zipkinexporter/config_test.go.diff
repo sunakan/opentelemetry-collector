@@ -1,0 +1,12 @@
+diff --git a/exporter/zipkinexporter/config_test.go b/exporter/zipkinexporter/config_test.go
+index d51a04b51..aae66a938 100644
+--- a/exporter/zipkinexporter/config_test.go
++++ b/exporter/zipkinexporter/config_test.go
+@@ -48,7 +48,6 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Equal(t, "zipkin/2", e1.(*Config).Name())
+ 	assert.Equal(t, "https://somedest:1234/api/v2/spans", e1.(*Config).URL)
+ 	assert.Equal(t, "proto", e1.(*Config).Format)
+-	assert.Equal(t, false, *e1.(*Config).ExportResourceLabels)
+ 	_, err = factory.CreateTraceExporter(zap.NewNop(), e1)
+ 	require.NoError(t, err)
+ }

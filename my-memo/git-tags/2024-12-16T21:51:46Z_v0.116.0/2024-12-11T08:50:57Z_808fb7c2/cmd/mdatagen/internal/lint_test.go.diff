@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/lint_test.go b/cmd/mdatagen/internal/lint_test.go
+index 24789d101..feca8fac2 100644
+--- a/cmd/mdatagen/internal/lint_test.go
++++ b/cmd/mdatagen/internal/lint_test.go
+@@ -10,7 +10,7 @@ import (
+ )
+ 
+ func TestFormatIdentifier(t *testing.T) {
+-	var tests = []struct {
++	tests := []struct {
+ 		input    string
+ 		want     string
+ 		exported bool

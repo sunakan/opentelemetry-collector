@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv1/json.go b/translator/trace/zipkinv1/json.go
+index 6c2700e8f..d74c1895a 100644
+--- a/translator/trace/zipkinv1/json.go
++++ b/translator/trace/zipkinv1/json.go
+@@ -31,7 +31,7 @@ import (
+ 	"go.opentelemetry.io/collector/internal/idutils"
+ 	"go.opentelemetry.io/collector/internal/model"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+-	"go.opentelemetry.io/collector/translator/trace/zipkin"
++	"go.opentelemetry.io/collector/translator/trace/internal/zipkin"
+ )
+ 
+ var (

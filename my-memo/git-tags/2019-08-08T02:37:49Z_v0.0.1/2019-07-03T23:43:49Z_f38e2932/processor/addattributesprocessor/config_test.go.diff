@@ -1,0 +1,13 @@
+diff --git a/processor/addattributesprocessor/config_test.go b/processor/addattributesprocessor/config_test.go
+index 131ee04ad..d6fd3eaa7 100644
+--- a/processor/addattributesprocessor/config_test.go
++++ b/processor/addattributesprocessor/config_test.go
+@@ -30,7 +30,7 @@ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+ 
+-	factory := processor.GetProcessorFactory(typeStr)
++	factory := processor.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

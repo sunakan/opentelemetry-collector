@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_status_test.go b/pdata/ptrace/generated_status_test.go
+index 0ca2ba296..356a13284 100644
+--- a/pdata/ptrace/generated_status_test.go
++++ b/pdata/ptrace/generated_status_test.go
+@@ -21,6 +21,8 @@ func TestStatus_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewStatus(), ms)
+ 	assert.Equal(t, generateTestStatus(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestStatus(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newStatus(&otlptrace.Status{}, &sharedState)) })
+ 	assert.Panics(t, func() { newStatus(&otlptrace.Status{}, &sharedState).MoveTo(dest) })

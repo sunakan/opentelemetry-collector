@@ -1,0 +1,12 @@
+diff --git a/service/builder/testdata/receivers_enabled.yaml b/service/builder/testdata/receivers_enabled.yaml
+new file mode 100644
+index 000000000..0c011be00
+--- /dev/null
++++ b/service/builder/testdata/receivers_enabled.yaml
+@@ -0,0 +1,6 @@
++# Enable receivers with default configuration
++receivers:
++  jaeger: {} 
++  opencensus: {}
++  zipkin: {}
++  zipkin-scribe: {}

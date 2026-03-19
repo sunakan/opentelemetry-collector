@@ -1,0 +1,25 @@
+diff --git a/receiver/receivertest/nop_receiver.go b/receiver/receivertest/nop_receiver.go
+index f1f275843..753b6f25c 100644
+--- a/receiver/receivertest/nop_receiver.go
++++ b/receiver/receivertest/nop_receiver.go
+@@ -20,6 +20,8 @@ import (
+ 	"go.opentelemetry.io/collector/receiver"
+ )
+ 
++const typeStr = "nop"
++
+ // NewNopCreateSettings returns a new nop settings for Create* functions.
+ func NewNopCreateSettings() receiver.CreateSettings {
+ 	return receiver.CreateSettings{
+@@ -30,3 +32,11 @@ func NewNopCreateSettings() receiver.CreateSettings {
+ 
+ // NewNopFactory returns a receiver.Factory that constructs nop receivers.
+ var NewNopFactory = componenttest.NewNopReceiverFactory //nolint:staticcheck
++
++// NewNopBuilder returns a receiver.Builder that constructs nop receivers.
++func NewNopBuilder() *receiver.Builder {
++	nopFactory := NewNopFactory()
++	return receiver.NewBuilder(
++		map[component.ID]component.Config{component.NewID(typeStr): nopFactory.CreateDefaultConfig()},
++		map[component.Type]receiver.Factory{typeStr: nopFactory})
++}

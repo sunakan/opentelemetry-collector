@@ -1,0 +1,16 @@
+diff --git a/receiver/opencensusreceiver/ocmetrics/opencensus_test.go b/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
+index 7b5181dd0..93b4dd581 100644
+--- a/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
++++ b/receiver/opencensusreceiver/ocmetrics/opencensus_test.go
+@@ -433,9 +433,7 @@ func makeMetric(val int) *metricspb.Metric {
+ 	}
+ 
+ 	return &metricspb.Metric{
+-		Descriptor_: &metricspb.Metric_MetricDescriptor{
+-			MetricDescriptor: descriptor,
+-		},
+-		Timeseries: []*metricspb.TimeSeries{ts},
++		MetricDescriptor: descriptor,
++		Timeseries:       []*metricspb.TimeSeries{ts},
+ 	}
+ }

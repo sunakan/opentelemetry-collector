@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_sum.go b/pdata/internal/generated_wrapper_sum.go
+index 971788fa4..61266ac9c 100644
+--- a/pdata/internal/generated_wrapper_sum.go
++++ b/pdata/internal/generated_wrapper_sum.go
+@@ -49,6 +49,10 @@ func DeleteOrigSum(orig *otlpmetrics.Sum, nullable bool) {
+ }
+ 
+ func CopyOrigSum(dest, src *otlpmetrics.Sum) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.DataPoints = CopyOrigNumberDataPointSlice(dest.DataPoints, src.DataPoints)
+ 	dest.AggregationTemporality = src.AggregationTemporality
+ 	dest.IsMonotonic = src.IsMonotonic

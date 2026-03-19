@@ -1,0 +1,31 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index d513a83b3..e17453a26 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -33,7 +33,7 @@ func NewFactory() component.ExporterFactory {
+ 	return exporterhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		exporterhelper.WithTraces(createTraceExporter),
++		exporterhelper.WithTraces(createTracesExporter),
+ 		exporterhelper.WithMetrics(createMetricsExporter),
+ 		exporterhelper.WithLogs(createLogsExporter))
+ }
+@@ -52,7 +52,7 @@ func createDefaultConfig() config.Exporter {
+ 	}
+ }
+ 
+-func createTraceExporter(
++func createTracesExporter(
+ 	_ context.Context,
+ 	params component.ExporterCreateParams,
+ 	cfg config.Exporter,
+@@ -62,7 +62,7 @@ func createTraceExporter(
+ 		return nil, err
+ 	}
+ 	oCfg := cfg.(*Config)
+-	oexp, err := exporterhelper.NewTraceExporter(
++	oexp, err := exporterhelper.NewTracesExporter(
+ 		cfg,
+ 		params.Logger,
+ 		oce.pushTraceData,

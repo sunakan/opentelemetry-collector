@@ -1,0 +1,12 @@
+diff --git a/receiver/nopreceiver/go.mod b/receiver/nopreceiver/go.mod
+index 1b3b7d06e..eb2b4b7d3 100644
+--- a/receiver/nopreceiver/go.mod
++++ b/receiver/nopreceiver/go.mod
+@@ -12,6 +12,7 @@ require (
+ 	go.opentelemetry.io/collector/receiver v0.98.0
+ 	go.opentelemetry.io/otel/metric v1.25.0
+ 	go.opentelemetry.io/otel/trace v1.25.0
++	go.uber.org/goleak v1.3.0
+ )
+ 
+ require (

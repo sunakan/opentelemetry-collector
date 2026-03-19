@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterspan/filterspan_test.go b/internal/processor/filterspan/filterspan_test.go
+index c3dc30e91..24dd9ba9a 100644
+--- a/internal/processor/filterspan/filterspan_test.go
++++ b/internal/processor/filterspan/filterspan_test.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ func TestSpan_validateMatchesConfiguration_InvalidConfig(t *testing.T) {

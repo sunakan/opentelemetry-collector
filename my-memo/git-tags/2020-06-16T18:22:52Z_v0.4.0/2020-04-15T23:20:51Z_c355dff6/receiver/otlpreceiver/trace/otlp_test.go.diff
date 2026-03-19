@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/trace/otlp_test.go b/receiver/otlpreceiver/trace/otlp_test.go
+index 57979c248..c24b57974 100644
+--- a/receiver/otlpreceiver/trace/otlp_test.go
++++ b/receiver/otlpreceiver/trace/otlp_test.go
+@@ -117,7 +117,7 @@ func TestExport(t *testing.T) {
+ 
+ 	// Keep trace data to compare the test result against it
+ 	// Clone needed because OTLP proto XXX_ fields are altered in the GRPC downstream
+-	traceData := pdata.TraceDataFromOtlp(resourceSpans).Clone()
++	traceData := pdata.TracesFromOtlp(resourceSpans).Clone()
+ 
+ 	req := &collectortrace.ExportTraceServiceRequest{
+ 		ResourceSpans: resourceSpans,

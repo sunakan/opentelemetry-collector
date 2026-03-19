@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice.go b/pdata/pmetric/generated_numberdatapointslice.go
+index 13cd71b72..57cdd1174 100644
+--- a/pdata/pmetric/generated_numberdatapointslice.go
++++ b/pdata/pmetric/generated_numberdatapointslice.go
+@@ -119,7 +119,6 @@ func (es NumberDataPointSlice) RemoveIf(f func(NumberDataPoint) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

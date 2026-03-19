@@ -1,0 +1,13 @@
+diff --git a/otelcol/testdata/otelcol-validprop.yaml b/otelcol/testdata/otelcol-validprop.yaml
+index 1d478caba..10c573686 100644
+--- a/otelcol/testdata/otelcol-validprop.yaml
++++ b/otelcol/testdata/otelcol-validprop.yaml
+@@ -19,7 +19,7 @@ service:
+             exporter:
+               prometheus:
+                 host: "localhost"
+-                port: 8888
++                port: 9999
+   pipelines:
+     traces:
+       receivers: [nop]

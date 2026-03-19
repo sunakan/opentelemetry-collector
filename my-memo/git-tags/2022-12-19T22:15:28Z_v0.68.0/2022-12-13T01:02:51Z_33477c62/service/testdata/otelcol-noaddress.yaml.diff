@@ -1,0 +1,20 @@
+diff --git a/service/testdata/otelcol-noaddress.yaml b/service/testdata/otelcol-noaddress.yaml
+deleted file mode 100644
+index c363f848e..000000000
+--- a/service/testdata/otelcol-noaddress.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-receivers:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      address: ""
+-  pipelines:
+-    metrics:
+-      receivers: [nop]
+-      exporters: [nop]

@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/create-dependabot-pr.yml b/.github/workflows/create-dependabot-pr.yml
+new file mode 100644
+index 000000000..5bc9bd94c
+--- /dev/null
++++ b/.github/workflows/create-dependabot-pr.yml
+@@ -0,0 +1,15 @@
++name: dependabot-pr
++
++on:
++  workflow_dispatch:
++
++jobs:
++  create-pr:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v3
++
++      - name: Run dependabot-pr.sh
++        run: ./.github/workflows/scripts/dependabot-pr.sh
++        env:
++          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

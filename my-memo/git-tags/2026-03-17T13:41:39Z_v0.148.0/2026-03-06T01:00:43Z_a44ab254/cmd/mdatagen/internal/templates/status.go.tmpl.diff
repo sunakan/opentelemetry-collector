@@ -1,0 +1,18 @@
+diff --git a/cmd/mdatagen/internal/templates/status.go.tmpl b/cmd/mdatagen/internal/templates/status.go.tmpl
+index 789605ee0..9f7206a68 100644
+--- a/cmd/mdatagen/internal/templates/status.go.tmpl
++++ b/cmd/mdatagen/internal/templates/status.go.tmpl
+@@ -7,8 +7,11 @@ import (
+ )
+ 
+ var (
+-	Type      = component.MustNewType("{{ .Type }}")
+-	ScopeName = "{{ .ScopeName }}"
++	Type           = component.MustNewType("{{ .Type }}")
++{{-	if .DeprecatedType }}
++	DeprecatedType = component.MustNewType("{{ .DeprecatedType }}")
++{{- end }}
++	ScopeName      = "{{ .ScopeName }}"
+ )
+ 
+ const (

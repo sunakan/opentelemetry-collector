@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/metrics/metrics_test_harness.go b/testbed/correctness/metrics/metrics_test_harness.go
+index 71bbf971d..5004bb197 100644
+--- a/testbed/correctness/metrics/metrics_test_harness.go
++++ b/testbed/correctness/metrics/metrics_test_harness.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/testbed/testbed"
+ )
+ 

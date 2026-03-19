@@ -1,0 +1,17 @@
+diff --git a/config/testdata/missing-processor-type.yaml b/config/testdata/missing-processor-type.yaml
+deleted file mode 100644
+index d7e0036dd..000000000
+--- a/config/testdata/missing-processor-type.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  /exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]

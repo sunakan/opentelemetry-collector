@@ -1,0 +1,23 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index a2067bac9..1cec37a3e 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -27,6 +27,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/translator/conventions"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+@@ -469,8 +470,8 @@ func genRandomTestData(numBatches, numTracesPerBatch int, serviceName string, re
+ 				span.SetTraceID(tracetranslator.UInt64ToTraceID(r.Uint64(), r.Uint64()))
+ 				span.SetSpanID(tracetranslator.UInt64ToSpanID(r.Uint64()))
+ 				attributes := make(map[string]pdata.AttributeValue)
+-				attributes[tracetranslator.TagHTTPStatusCode] = pdata.NewAttributeValueInt(404)
+-				attributes[tracetranslator.TagHTTPStatusMsg] = pdata.NewAttributeValueString("Not Found")
++				attributes[conventions.AttributeHTTPStatusCode] = pdata.NewAttributeValueInt(404)
++				attributes[conventions.AttributeHTTPStatusText] = pdata.NewAttributeValueString("Not Found")
+ 				span.Attributes().InitFromMap(attributes)
+ 			}
+ 		}

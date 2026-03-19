@@ -1,0 +1,31 @@
+diff --git a/consumer/pdata/common_test.go b/consumer/pdata/common_test.go
+index a436e8afc..0c726e51e 100644
+--- a/consumer/pdata/common_test.go
++++ b/consumer/pdata/common_test.go
+@@ -16,7 +16,6 @@ package pdata
+ 
+ import (
+ 	"encoding/json"
+-	"math/rand"
+ 	"strconv"
+ 	"testing"
+ 
+@@ -283,18 +282,6 @@ func TestAttributeValueEqual(t *testing.T) {
+ 	assert.False(t, av1.Equal(av2))
+ }
+ 
+-func TestNewAttributeValueSlice(t *testing.T) {
+-	events := NewAttributeValueSlice(0)
+-	assert.EqualValues(t, 0, len(events))
+-
+-	n := rand.Intn(10)
+-	events = NewAttributeValueSlice(n)
+-	assert.EqualValues(t, n, len(events))
+-	for event := range events {
+-		assert.NotNil(t, event)
+-	}
+-}
+-
+ func TestNilAttributeMap(t *testing.T) {
+ 	assert.EqualValues(t, 0, NewAttributeMap().Len())
+ 

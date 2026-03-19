@@ -1,0 +1,18 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index c3a16e32b..a1bbd37c3 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -2,9 +2,13 @@ name: build-and-test
+ on:
+   push:
+     branches: [main]
++    paths-ignore:
++      - 'builder/**'
+     tags:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
+   pull_request:
++    paths-ignore:
++      - 'builder/**'
+ 
+ jobs:
+   setup-environment:

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index 5e9a73b40..c4e7eea51 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -54,7 +54,7 @@ func TestMetricsRequest(t *testing.T) {
+ 	assert.EqualValues(
+ 		t,
+ 		newMetricsRequest(context.Background(), pmetric.NewMetrics(), nil),
+-		mr.onError(metricsErr),
++		mr.OnError(metricsErr),
+ 	)
+ }
+ 

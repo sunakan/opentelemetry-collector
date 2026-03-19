@@ -1,0 +1,13 @@
+diff --git a/config/confignet/confignet.go b/config/confignet/confignet.go
+index 067812f13..1b32d54fb 100644
+--- a/config/confignet/confignet.go
++++ b/config/confignet/confignet.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package confignet
++package confignet // import "go.opentelemetry.io/collector/config/confignet"
+ 
+ import (
+ 	"net"

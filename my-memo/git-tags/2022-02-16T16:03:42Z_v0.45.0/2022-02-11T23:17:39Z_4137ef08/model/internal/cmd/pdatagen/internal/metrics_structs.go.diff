@@ -1,0 +1,28 @@
+diff --git a/model/internal/cmd/pdatagen/internal/metrics_structs.go b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+index 8bcf5b883..6d91ed174 100644
+--- a/model/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -123,7 +123,6 @@ var metric = &messageValueStruct{
+ 			testVal:         `"1"`,
+ 		},
+ 		&oneOfField{
+-			typeAccessor:     "DataType",
+ 			typeName:         "MetricDataType",
+ 			originFieldName:  "Data",
+ 			originTypePrefix: "otlpmetrics.Metric_",
+@@ -243,7 +242,6 @@ var numberDataPoint = &messageValueStruct{
+ 		startTimeField,
+ 		timeField,
+ 		&oneOfField{
+-			typeAccessor:     "Type",
+ 			typeName:         "MetricValueType",
+ 			originFieldName:  "Value",
+ 			originTypePrefix: "otlpmetrics.NumberDataPoint_",
+@@ -414,7 +412,6 @@ var exemplar = &messageValueStruct{
+ 	fields: []baseField{
+ 		timeField,
+ 		&oneOfField{
+-			typeAccessor:     "Type",
+ 			typeName:         "MetricValueType",
+ 			originFieldName:  "Value",
+ 			originTypePrefix: "otlpmetrics.Exemplar_",

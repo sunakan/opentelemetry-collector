@@ -1,0 +1,22 @@
+diff --git a/service/internal/testcomponents/example_connector.go b/service/internal/testcomponents/example_connector.go
+index c5c10b92b..75c5145cf 100644
+--- a/service/internal/testcomponents/example_connector.go
++++ b/service/internal/testcomponents/example_connector.go
+@@ -15,7 +15,7 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
+-const connType = "exampleconnector"
++var connType = component.MustNewType("exampleconnector")
+ 
+ // ExampleConnectorFactory is factory for ExampleConnector.
+ var ExampleConnectorFactory = connector.NewFactory(
+@@ -36,7 +36,7 @@ var ExampleConnectorFactory = connector.NewFactory(
+ )
+ 
+ var MockForwardConnectorFactory = connector.NewFactory(
+-	"mockforward",
++	component.MustNewType("mockforward"),
+ 	createExampleConnectorDefaultConfig,
+ 	connector.WithTracesToTraces(createExampleTracesToTraces, component.StabilityLevelDevelopment),
+ 	connector.WithMetricsToMetrics(createExampleMetricsToMetrics, component.StabilityLevelDevelopment),

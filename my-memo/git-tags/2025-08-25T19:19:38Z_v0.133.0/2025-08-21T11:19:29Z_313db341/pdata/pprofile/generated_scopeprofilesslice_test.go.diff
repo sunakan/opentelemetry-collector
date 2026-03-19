@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_scopeprofilesslice_test.go b/pdata/pprofile/generated_scopeprofilesslice_test.go
+index 3a1b87204..de804535d 100644
+--- a/pdata/pprofile/generated_scopeprofilesslice_test.go
++++ b/pdata/pprofile/generated_scopeprofilesslice_test.go
+@@ -52,6 +52,8 @@ func TestScopeProfilesSlice_CopyTo(t *testing.T) {
+ 	src := generateTestScopeProfilesSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestScopeProfilesSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestScopeProfilesSlice(), dest)
+ }
+ 
+ func TestScopeProfilesSlice_EnsureCapacity(t *testing.T) {

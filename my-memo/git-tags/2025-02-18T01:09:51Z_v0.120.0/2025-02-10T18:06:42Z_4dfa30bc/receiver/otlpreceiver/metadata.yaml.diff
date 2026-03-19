@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/metadata.yaml b/receiver/otlpreceiver/metadata.yaml
+index cae2267ea..323da9db7 100644
+--- a/receiver/otlpreceiver/metadata.yaml
++++ b/receiver/otlpreceiver/metadata.yaml
+@@ -4,7 +4,6 @@ github_project: open-telemetry/opentelemetry-collector
+ status:
+   class: receiver
+   stability:
+-    stable: [traces, metrics]
+-    beta: [logs]
++    stable: [traces, metrics, logs]
+     development: [profiles]
+   distributions: [core, contrib, k8s, otlp]

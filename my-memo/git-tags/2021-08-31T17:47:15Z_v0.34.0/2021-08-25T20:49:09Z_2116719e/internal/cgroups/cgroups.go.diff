@@ -1,0 +1,12 @@
+diff --git a/internal/cgroups/cgroups.go b/internal/cgroups/cgroups.go
+index f51cb2f2c..8eb3c1834 100644
+--- a/internal/cgroups/cgroups.go
++++ b/internal/cgroups/cgroups.go
+@@ -34,6 +34,7 @@
+ // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ // THE SOFTWARE.
+ 
++//go:build linux
+ // +build linux
+ 
+ package cgroups

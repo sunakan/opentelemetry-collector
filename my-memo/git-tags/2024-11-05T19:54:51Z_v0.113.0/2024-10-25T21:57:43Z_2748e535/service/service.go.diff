@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index e52154145..bf7e5265d 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -148,7 +148,7 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 			if level <= cfg.Telemetry.Metrics.Level {
+ 				return mp
+ 			}
+-			return noop.MeterProvider{}
++			return noop.NewMeterProvider()
+ 		},
+ 		Logger:         logger,
+ 		MeterProvider:  mp,

@@ -1,0 +1,26 @@
+diff --git a/component/componenttest/nop_extension.go b/component/componenttest/nop_extension.go
+index 3c87ca5b6..e8e4d1807 100644
+--- a/component/componenttest/nop_extension.go
++++ b/component/componenttest/nop_extension.go
+@@ -17,11 +17,21 @@ package componenttest
+ import (
+ 	"context"
+ 
++	"go.uber.org/zap"
++
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
++// NewNopExtensionCreateSettings returns a new nop settings for Create*Extension functions.
++func NewNopExtensionCreateSettings() component.ExtensionCreateSettings {
++	return component.ExtensionCreateSettings{
++		Logger:    zap.NewNop(),
++		BuildInfo: component.DefaultBuildInfo(),
++	}
++}
++
+ type nopExtensionConfig struct {
+ 	config.ExtensionSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+ }

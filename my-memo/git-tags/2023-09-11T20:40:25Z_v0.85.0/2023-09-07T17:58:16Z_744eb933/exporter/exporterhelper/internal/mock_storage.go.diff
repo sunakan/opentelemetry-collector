@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/internal/mock_storage.go b/exporter/exporterhelper/internal/mock_storage.go
+index 8d45d53ab..0c544f572 100644
+--- a/exporter/exporterhelper/internal/mock_storage.go
++++ b/exporter/exporterhelper/internal/mock_storage.go
+@@ -25,8 +25,8 @@ func (m mockStorageExtension) GetClient(_ context.Context, _ component.Kind, _ c
+ 	return &mockStorageClient{st: map[string][]byte{}}, nil
+ }
+ 
+-func NewMockStorageExtension() storage.Extension {
+-	return &mockStorageExtension{}
++func NewMockStorageExtension(getClientError error) storage.Extension {
++	return &mockStorageExtension{getClientError: getClientError}
+ }
+ 
+ type mockStorageClient struct {

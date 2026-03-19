@@ -1,0 +1,34 @@
+diff --git a/internal/cmd/pdatagen/internal/message_field.go b/internal/cmd/pdatagen/internal/message_field.go
+index 505d7090f..392dc2bc2 100644
+--- a/internal/cmd/pdatagen/internal/message_field.go
++++ b/internal/cmd/pdatagen/internal/message_field.go
+@@ -42,6 +42,7 @@ const messageUnmarshalJSONTemplate = `case "{{ lowerFirst .fieldOriginFullName }
+ 
+ type MessageField struct {
+ 	fieldName     string
++	protoID       uint32
+ 	returnMessage *messageStruct
+ }
+ 
+@@ -75,6 +76,21 @@ func (mf *MessageField) GenerateUnmarshalJSON(ms *messageStruct) string {
+ 	return executeTemplate(t, mf.templateFields(ms))
+ }
+ 
++func (mf *MessageField) GenerateSizeProto(*messageStruct) string {
++	pt := ProtoTypeMessage
++	if mf.returnMessage.getName() == "TraceState" {
++		pt = ProtoTypeString
++	}
++	pf := &ProtoField{
++		Type:        pt,
++		ID:          mf.protoID,
++		Name:        mf.fieldName,
++		MessageName: mf.returnMessage.getOriginName(),
++		Nullable:    false,
++	}
++	return pf.genSizeProto()
++}
++
+ func (mf *MessageField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"isCommon":            usedByOtherDataTypes(mf.returnMessage.packageName),

@@ -1,0 +1,18 @@
+diff --git a/config/confighttp/compression.go b/config/confighttp/compression.go
+index eb13e9886..48898a627 100644
+--- a/config/confighttp/compression.go
++++ b/config/confighttp/compression.go
+@@ -32,6 +32,13 @@ var enableFramedSnappy = featuregate.GlobalRegistry().MustRegister(
+ 	featuregate.WithRegisterReferenceURL("https://github.com/open-telemetry/opentelemetry-collector/issues/10584"),
+ )
+ 
++func defaultCompressionAlgorithms() []string {
++	if enableFramedSnappy.IsEnabled() {
++		return []string{"", "gzip", "zstd", "zlib", "snappy", "deflate", "lz4", "x-snappy-framed"}
++	}
++	return []string{"", "gzip", "zstd", "zlib", "snappy", "deflate", "lz4"}
++}
++
+ type compressRoundTripper struct {
+ 	rt                http.RoundTripper
+ 	compressionType   configcompression.Type

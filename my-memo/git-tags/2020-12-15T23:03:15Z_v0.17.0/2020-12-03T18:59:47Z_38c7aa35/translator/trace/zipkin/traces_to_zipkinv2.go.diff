@@ -1,0 +1,23 @@
+diff --git a/translator/trace/zipkin/traces_to_zipkinv2.go b/translator/trace/zipkin/traces_to_zipkinv2.go
+index bd4988bdf..ad2631293 100644
+--- a/translator/trace/zipkin/traces_to_zipkinv2.go
++++ b/translator/trace/zipkin/traces_to_zipkinv2.go
+@@ -137,13 +137,11 @@ func spanToZipkinSpan(
+ 	removeRedundentTags(redundantKeys, tags)
+ 
+ 	status := span.Status()
+-	if !status.IsNil() {
+-		tags[tracetranslator.TagStatusCode] = status.Code().String()
+-		if status.Message() != "" {
+-			tags[tracetranslator.TagStatusMsg] = status.Message()
+-			if int32(status.Code()) > 0 {
+-				zs.Err = fmt.Errorf("%s", status.Message())
+-			}
++	tags[tracetranslator.TagStatusCode] = status.Code().String()
++	if status.Message() != "" {
++		tags[tracetranslator.TagStatusMsg] = status.Message()
++		if int32(status.Code()) > 0 {
++			zs.Err = fmt.Errorf("%s", status.Message())
+ 		}
+ 	}
+ 

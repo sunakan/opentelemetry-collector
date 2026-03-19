@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/idbatcher/id_batcher_test.go b/processor/samplingprocessor/tailsamplingprocessor/idbatcher/id_batcher_test.go
+index 24637e72b..051abc6d3 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/idbatcher/id_batcher_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/idbatcher/id_batcher_test.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func TestBatcherNew(t *testing.T) {

@@ -1,0 +1,16 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index d4ce20299..dcc0262db 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -36,10 +36,10 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configparser"
+ 	"go.opentelemetry.io/collector/config/configunmarshaler"
++	"go.opentelemetry.io/collector/internal/testutil"
+ 	"go.opentelemetry.io/collector/service/defaultcomponents"
+ 	"go.opentelemetry.io/collector/service/internal/builder"
+ 	"go.opentelemetry.io/collector/service/parserprovider"
+-	"go.opentelemetry.io/collector/testutil"
+ )
+ 
+ func TestCollector_Start(t *testing.T) {

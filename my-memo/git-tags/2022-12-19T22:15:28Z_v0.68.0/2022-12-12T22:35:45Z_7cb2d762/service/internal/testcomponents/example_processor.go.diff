@@ -1,0 +1,34 @@
+diff --git a/service/internal/testcomponents/example_processor.go b/service/internal/testcomponents/example_processor.go
+index 390c8ae02..6cf9d3899 100644
+--- a/service/internal/testcomponents/example_processor.go
++++ b/service/internal/testcomponents/example_processor.go
+@@ -18,18 +18,12 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/processor"
+ )
+ 
+ const procType = "exampleprocessor"
+ 
+-// ExampleProcessorConfig config for ExampleProcessor.
+-type ExampleProcessorConfig struct {
+-	config.ProcessorSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+-}
+-
+ // ExampleProcessorFactory is factory for ExampleProcessor.
+ var ExampleProcessorFactory = processor.NewFactory(
+ 	procType,
+@@ -40,9 +34,7 @@ var ExampleProcessorFactory = processor.NewFactory(
+ 
+ // CreateDefaultConfig creates the default configuration for the Processor.
+ func createDefaultConfig() component.Config {
+-	return &ExampleProcessorConfig{
+-		ProcessorSettings: config.NewProcessorSettings(component.NewID(procType)),
+-	}
++	return &struct{}{}
+ }
+ 
+ func createTracesProcessor(_ context.Context, _ processor.CreateSettings, _ component.Config, nextConsumer consumer.Traces) (processor.Traces, error) {

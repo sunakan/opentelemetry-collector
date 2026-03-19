@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/resource_to_oc.go b/translator/internaldata/resource_to_oc.go
+index 55a40dc3a..5f156bbf6 100644
+--- a/translator/internaldata/resource_to_oc.go
++++ b/translator/internaldata/resource_to_oc.go
+@@ -104,7 +104,7 @@ func internalResourceToOC(resource pdata.Resource) (*occommon.Node, *ocresource.
+ 			getProcessIdentifier(ocNode).StartTimestamp = ts
+ 		case conventions.AttributeHostName:
+ 			getProcessIdentifier(ocNode).HostName = val
+-		case conventions.OCAttributeProcessID:
++		case conventions.AttributeProcessID:
+ 			pid, err := strconv.Atoi(val)
+ 			if err != nil {
+ 				pid = defaultProcessID

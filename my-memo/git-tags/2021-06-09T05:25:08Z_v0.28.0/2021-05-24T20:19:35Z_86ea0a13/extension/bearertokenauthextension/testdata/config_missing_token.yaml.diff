@@ -1,0 +1,24 @@
+diff --git a/extension/bearertokenauthextension/testdata/config_missing_token.yaml b/extension/bearertokenauthextension/testdata/config_missing_token.yaml
+deleted file mode 100644
+index ccd474c56..000000000
+--- a/extension/bearertokenauthextension/testdata/config_missing_token.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-extensions:
+-  bearertokenauth:
+-
+-# Data pipeline is required to load the config.
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  extensions: [bearertokenauth]
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

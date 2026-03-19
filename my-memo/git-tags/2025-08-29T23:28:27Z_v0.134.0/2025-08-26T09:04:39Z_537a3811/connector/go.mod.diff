@@ -1,0 +1,13 @@
+diff --git a/connector/go.mod b/connector/go.mod
+index 63e898386..79811dbef 100644
+--- a/connector/go.mod
++++ b/connector/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/connector
+ go 1.24
+ 
+ require (
+-	github.com/stretchr/testify v1.10.0
++	github.com/stretchr/testify v1.11.0
+ 	go.opentelemetry.io/collector/component v1.39.0
+ 	go.opentelemetry.io/collector/consumer v1.39.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.133.0

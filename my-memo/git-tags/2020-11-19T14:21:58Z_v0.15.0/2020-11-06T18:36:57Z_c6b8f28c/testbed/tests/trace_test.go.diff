@@ -1,0 +1,12 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index d9a423e1f..7424d78dd 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -344,7 +344,6 @@ func verifySingleSpan(
+ 	// Send one span.
+ 	td := pdata.NewTraces()
+ 	td.ResourceSpans().Resize(1)
+-	td.ResourceSpans().At(0).Resource().InitEmpty()
+ 	td.ResourceSpans().At(0).Resource().Attributes().InitFromMap(map[string]pdata.AttributeValue{
+ 		conventions.AttributeServiceName: pdata.NewAttributeValueString(serviceName),
+ 	})

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index 050cc5969..8133afb0b 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -55,7 +55,7 @@ func TestLogsRequest(t *testing.T) {
+ 	assert.EqualValues(
+ 		t,
+ 		newLogsRequest(context.Background(), plog.NewLogs(), nil),
+-		lr.onError(logErr),
++		lr.OnError(logErr),
+ 	)
+ }
+ 

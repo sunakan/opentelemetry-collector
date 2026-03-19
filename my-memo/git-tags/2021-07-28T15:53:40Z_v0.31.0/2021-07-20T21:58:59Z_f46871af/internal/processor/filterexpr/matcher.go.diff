@@ -1,0 +1,34 @@
+diff --git a/internal/processor/filterexpr/matcher.go b/internal/processor/filterexpr/matcher.go
+index b40ccc7b4..54a39278c 100644
+--- a/internal/processor/filterexpr/matcher.go
++++ b/internal/processor/filterexpr/matcher.go
+@@ -52,8 +52,6 @@ func (m *Matcher) MatchMetric(metric pdata.Metric) (bool, error) {
+ 		return m.matchIntSum(metricName, metric.IntSum())
+ 	case pdata.MetricDataTypeSum:
+ 		return m.matchSum(metricName, metric.Sum())
+-	case pdata.MetricDataTypeIntHistogram:
+-		return m.matchIntHistogram(metricName, metric.IntHistogram())
+ 	case pdata.MetricDataTypeHistogram:
+ 		return m.matchDoubleHistogram(metricName, metric.Histogram())
+ 	default:
+@@ -117,20 +115,6 @@ func (m *Matcher) matchIntSum(metricName string, sum pdata.IntSum) (bool, error)
+ 	return false, nil
+ }
+ 
+-func (m *Matcher) matchIntHistogram(metricName string, histogram pdata.IntHistogram) (bool, error) {
+-	pts := histogram.DataPoints()
+-	for i := 0; i < pts.Len(); i++ {
+-		matched, err := m.matchEnv(metricName, pts.At(i).LabelsMap())
+-		if err != nil {
+-			return false, err
+-		}
+-		if matched {
+-			return true, nil
+-		}
+-	}
+-	return false, nil
+-}
+-
+ func (m *Matcher) matchDoubleHistogram(metricName string, histogram pdata.Histogram) (bool, error) {
+ 	pts := histogram.DataPoints()
+ 	for i := 0; i < pts.Len(); i++ {

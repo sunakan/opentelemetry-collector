@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/go.mod b/cmd/mdatagen/go.mod
+index 72eb4f4bb..6ad8fffe9 100644
+--- a/cmd/mdatagen/go.mod
++++ b/cmd/mdatagen/go.mod
+@@ -16,6 +16,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.139.0
+ 	go.opentelemetry.io/collector/filter v0.139.0
+ 	go.opentelemetry.io/collector/pdata v1.45.0
++	go.opentelemetry.io/collector/pdata/xpdata v0.139.0
+ 	go.opentelemetry.io/collector/pipeline v1.45.0
+ 	go.opentelemetry.io/collector/processor v1.45.0
+ 	go.opentelemetry.io/collector/processor/processortest v0.139.0

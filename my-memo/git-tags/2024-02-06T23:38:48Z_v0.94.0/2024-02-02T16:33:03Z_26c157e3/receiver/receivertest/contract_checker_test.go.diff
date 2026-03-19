@@ -1,0 +1,13 @@
+diff --git a/receiver/receivertest/contract_checker_test.go b/receiver/receivertest/contract_checker_test.go
+index 2212d0b61..359d40015 100644
+--- a/receiver/receivertest/contract_checker_test.go
++++ b/receiver/receivertest/contract_checker_test.go
+@@ -83,7 +83,7 @@ func (g *exampleGenerator) Generate() []UniqueIDAttrVal {
+ 
+ func newExampleFactory() receiver.Factory {
+ 	return receiver.NewFactory(
+-		"example_receiver",
++		component.MustNewType("example_receiver"),
+ 		func() component.Config {
+ 			return &exampleReceiverConfig{}
+ 		},

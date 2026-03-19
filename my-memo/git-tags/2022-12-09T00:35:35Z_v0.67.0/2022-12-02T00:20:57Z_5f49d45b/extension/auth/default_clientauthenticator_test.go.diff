@@ -1,0 +1,13 @@
+diff --git a/extension/auth/default_clientauthenticator_test.go b/extension/auth/default_clientauthenticator_test.go
+index 155ff9eb6..31dc6420d 100644
+--- a/extension/auth/default_clientauthenticator_test.go
++++ b/extension/auth/default_clientauthenticator_test.go
+@@ -114,7 +114,7 @@ func (c *customPerRPCCredentials) RequireTransportSecurity() bool {
+ 
+ func TestWithPerRPCCredentials(t *testing.T) {
+ 	called := false
+-	e := NewClient(WithPerRPCCredentials(func() (credentials.PerRPCCredentials, error) {
++	e := NewClient(WithClientPerRPCCredentials(func() (credentials.PerRPCCredentials, error) {
+ 		called = true
+ 		return &customPerRPCCredentials{}, nil
+ 	}))

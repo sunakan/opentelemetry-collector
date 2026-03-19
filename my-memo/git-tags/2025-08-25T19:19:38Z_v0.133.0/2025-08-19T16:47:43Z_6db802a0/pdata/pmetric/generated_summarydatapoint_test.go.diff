@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapoint_test.go b/pdata/pmetric/generated_summarydatapoint_test.go
+index 24be84aa1..51ebdb6f3 100644
+--- a/pdata/pmetric/generated_summarydatapoint_test.go
++++ b/pdata/pmetric/generated_summarydatapoint_test.go
+@@ -102,7 +102,6 @@ func TestSummaryDataPoint_Flags(t *testing.T) {
+ }
+ 
+ func generateTestSummaryDataPoint() SummaryDataPoint {
+-	ms := NewSummaryDataPoint()
+-	internal.FillOrigTestSummaryDataPoint(ms.orig)
++	ms := newSummaryDataPoint(internal.GenTestOrigSummaryDataPoint(), internal.NewState())
+ 	return ms
+ }

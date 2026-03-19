@@ -1,0 +1,25 @@
+diff --git a/internal/collector/processor/queued/testdata/config.yaml b/internal/collector/processor/queued/testdata/config.yaml
+new file mode 100644
+index 000000000..9a1f415fc
+--- /dev/null
++++ b/internal/collector/processor/queued/testdata/config.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  examplereceiver:
++
++processors:
++  queued-retry:
++  queued-retry/2:
++    num-workers: 2
++    queue-size: 10
++    retry-on-failure: true
++    backoff-delay: 5s
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [queued-retry/2]
++    exporters: [exampleexporter]

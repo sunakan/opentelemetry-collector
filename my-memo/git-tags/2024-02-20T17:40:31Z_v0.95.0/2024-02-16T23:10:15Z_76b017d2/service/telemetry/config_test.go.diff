@@ -1,0 +1,23 @@
+diff --git a/service/telemetry/config_test.go b/service/telemetry/config_test.go
+index f08a8c922..5417347c7 100644
+--- a/service/telemetry/config_test.go
++++ b/service/telemetry/config_test.go
+@@ -7,6 +7,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"go.opentelemetry.io/contrib/config"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+@@ -42,8 +43,8 @@ func TestLoadConfig(t *testing.T) {
+ 			cfg: &Config{
+ 				Metrics: MetricsConfig{
+ 					Level: configtelemetry.LevelBasic,
+-					Readers: []MetricReader{
+-						{Pull: &PullMetricReader{}},
++					Readers: []config.MetricReader{
++						{Pull: &config.PullMetricReader{}},
+ 					},
+ 				},
+ 			},

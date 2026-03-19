@@ -1,0 +1,14 @@
+diff --git a/service/service.go b/service/service.go
+index 0d7e89981..30cdc60ca 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -209,9 +209,6 @@ func (srv *Service) Start(ctx context.Context) error {
+ 		zap.Int("NumCPU", runtime.NumCPU()),
+ 	)
+ 
+-	// enable status reporting
+-	srv.host.Reporter.Ready()
+-
+ 	if err := srv.host.ServiceExtensions.Start(ctx, srv.host); err != nil {
+ 		return fmt.Errorf("failed to start extensions: %w", err)
+ 	}

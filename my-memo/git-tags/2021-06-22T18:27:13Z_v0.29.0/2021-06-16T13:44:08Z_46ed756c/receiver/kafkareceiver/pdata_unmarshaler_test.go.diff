@@ -1,0 +1,16 @@
+diff --git a/receiver/kafkareceiver/pdata_unmarshaler_test.go b/receiver/kafkareceiver/pdata_unmarshaler_test.go
+index 9f5d75b2e..3d5ebde89 100644
+--- a/receiver/kafkareceiver/pdata_unmarshaler_test.go
++++ b/receiver/kafkareceiver/pdata_unmarshaler_test.go
+@@ -27,6 +27,11 @@ func TestNewPdataTracesUnmarshaler(t *testing.T) {
+ 	assert.Equal(t, "test", um.Encoding())
+ }
+ 
++func TestNewPdataMetricsUnmarshaler(t *testing.T) {
++	um := newPdataMetricsUnmarshaler(otlp.NewProtobufMetricsUnmarshaler(), "test")
++	assert.Equal(t, "test", um.Encoding())
++}
++
+ func TestNewPdataLogsUnmarshaler(t *testing.T) {
+ 	um := newPdataLogsUnmarshaler(otlp.NewProtobufLogsUnmarshaler(), "test")
+ 	assert.Equal(t, "test", um.Encoding())

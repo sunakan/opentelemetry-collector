@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/scorecard.yml b/.github/workflows/scorecard.yml
+index ab5b8e8be..22097ff55 100644
+--- a/.github/workflows/scorecard.yml
++++ b/.github/workflows/scorecard.yml
+@@ -34,7 +34,7 @@ jobs:
+           persist-credentials: false
+ 
+       - name: "Run analysis"
+-        uses: ossf/scorecard-action@05b42c624433fc40578a4040d5cf5e36ddca8cde # v2.4.2
++        uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3
+         with:
+           results_file: results.sarif
+           results_format: sarif

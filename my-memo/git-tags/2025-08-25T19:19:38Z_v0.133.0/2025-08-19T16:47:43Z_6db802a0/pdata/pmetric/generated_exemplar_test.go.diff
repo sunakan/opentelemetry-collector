@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exemplar_test.go b/pdata/pmetric/generated_exemplar_test.go
+index 35d8cf439..6964b5a60 100644
+--- a/pdata/pmetric/generated_exemplar_test.go
++++ b/pdata/pmetric/generated_exemplar_test.go
+@@ -103,7 +103,6 @@ func TestExemplar_TraceID(t *testing.T) {
+ }
+ 
+ func generateTestExemplar() Exemplar {
+-	ms := NewExemplar()
+-	internal.FillOrigTestExemplar(ms.orig)
++	ms := newExemplar(internal.GenTestOrigExemplar(), internal.NewState())
+ 	return ms
+ }

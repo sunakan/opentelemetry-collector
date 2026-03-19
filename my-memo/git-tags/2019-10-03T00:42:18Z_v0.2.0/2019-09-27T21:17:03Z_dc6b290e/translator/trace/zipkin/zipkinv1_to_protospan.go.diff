@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan.go b/translator/trace/zipkin/zipkinv1_to_protospan.go
+index 030dace9b..ef12be9ef 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan.go
+@@ -26,8 +26,8 @@ import (
+ 	"github.com/jaegertracing/jaeger/thrift-gen/zipkincore"
+ 	"github.com/pkg/errors"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ var (

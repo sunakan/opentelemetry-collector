@@ -1,0 +1,16 @@
+diff --git a/model/otlpgrpc/logs_test.go b/model/otlpgrpc/logs_test.go
+index ab5d16226..c437daa05 100644
+--- a/model/otlpgrpc/logs_test.go
++++ b/model/otlpgrpc/logs_test.go
+@@ -33,9 +33,9 @@ var logsRequestJSON = []byte(`
+ 	  "resourceLogs": [
+ 		{
+           "resource": {},
+-		  "instrumentationLibraryLogs": [
++		  "scopeLogs": [
+ 			{
+-              "instrumentationLibrary": {},
++              "scope": {},
+ 			  "logRecords": [
+ 				{
+ 				  "body": {

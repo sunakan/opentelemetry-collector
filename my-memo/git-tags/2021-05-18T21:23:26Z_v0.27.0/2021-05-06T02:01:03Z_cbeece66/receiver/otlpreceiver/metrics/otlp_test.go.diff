@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/metrics/otlp_test.go b/receiver/otlpreceiver/metrics/otlp_test.go
+index 4cca0893a..965d8edb6 100644
+--- a/receiver/otlpreceiver/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/metrics/otlp_test.go
+@@ -201,7 +201,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, mc consumer.Metrics) (net.Addr, func
+ 		}
+ 	}
+ 
+-	r := New(receiverTagValue, mc)
++	r := New(receiverID, mc)
+ 	// Now run it as a gRPC server
+ 	srv := obsreport.GRPCServerWithObservabilityEnabled()
+ 	collectormetrics.RegisterMetricsServiceServer(srv, r)

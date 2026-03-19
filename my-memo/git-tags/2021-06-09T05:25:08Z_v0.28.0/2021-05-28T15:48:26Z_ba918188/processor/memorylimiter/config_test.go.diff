@@ -1,0 +1,16 @@
+diff --git a/processor/memorylimiter/config_test.go b/processor/memorylimiter/config_test.go
+index 451a5ce7d..f2cbcb0e0 100644
+--- a/processor/memorylimiter/config_test.go
++++ b/processor/memorylimiter/config_test.go
+@@ -34,10 +34,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories.Processors[typeStr] = factory
+ 	require.NoError(t, err)
+ 
+-	cfg, err := configtest.LoadConfigFile(
+-		t,
+-		path.Join(".", "testdata", "config.yaml"),
+-		factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.Nil(t, err)
+ 	require.NotNil(t, cfg)

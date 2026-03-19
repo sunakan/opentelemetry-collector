@@ -1,0 +1,18 @@
+diff --git a/model/pdata/metrics.go b/model/pdata/metrics.go
+index 9d5c61882..39e253d2b 100644
+--- a/model/pdata/metrics.go
++++ b/model/pdata/metrics.go
+@@ -70,6 +70,13 @@ func (md Metrics) Clone() Metrics {
+ 	return cloneMd
+ }
+ 
++// MoveTo moves all properties from the current struct to dest
++// resetting the current instance to its zero value.
++func (md Metrics) MoveTo(dest Metrics) {
++	*dest.orig = *md.orig
++	*md.orig = otlpmetrics.MetricsData{}
++}
++
+ // ResourceMetrics returns the ResourceMetricsSlice associated with this Metrics.
+ func (md Metrics) ResourceMetrics() ResourceMetricsSlice {
+ 	return newResourceMetricsSlice(&md.orig.ResourceMetrics)

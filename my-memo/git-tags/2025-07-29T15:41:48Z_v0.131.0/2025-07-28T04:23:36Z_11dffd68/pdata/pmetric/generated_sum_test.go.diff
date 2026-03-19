@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/generated_sum_test.go b/pdata/pmetric/generated_sum_test.go
+index b22996526..ff0da6b1c 100644
+--- a/pdata/pmetric/generated_sum_test.go
++++ b/pdata/pmetric/generated_sum_test.go
+@@ -47,13 +47,13 @@ func TestSum_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestSum()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewSum()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

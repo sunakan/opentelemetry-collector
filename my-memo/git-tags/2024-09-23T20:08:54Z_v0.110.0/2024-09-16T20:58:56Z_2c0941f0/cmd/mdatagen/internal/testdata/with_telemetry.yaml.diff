@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_telemetry.yaml b/cmd/mdatagen/internal/testdata/with_telemetry.yaml
+new file mode 100644
+index 000000000..161010df9
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/with_telemetry.yaml
+@@ -0,0 +1,14 @@
++type: metric
++
++status:
++  class: receiver
++  stability:
++    beta: [traces, logs, metrics]
++telemetry:
++  metrics:
++    sampling_decision_latency:
++      description: Latency (in microseconds) of a given sampling policy
++      unit: µs
++      enabled: true
++      histogram:
++        value_type: int

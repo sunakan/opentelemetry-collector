@@ -1,0 +1,22 @@
+diff --git a/internal/fanoutconsumer/metrics_test.go b/internal/fanoutconsumer/metrics_test.go
+index 37fde6ad5..cf6455d0d 100644
+--- a/internal/fanoutconsumer/metrics_test.go
++++ b/internal/fanoutconsumer/metrics_test.go
+@@ -148,7 +148,7 @@ func TestMetricsMultiplexingMixLastMutating(t *testing.T) {
+ 	p3 := &mutatingMetricsSink{MetricsSink: new(consumertest.MetricsSink)}
+ 
+ 	mfc := NewMetrics([]consumer.Metrics{p1, p2, p3})
+-	assert.True(t, mfc.Capabilities().MutatesData)
++	assert.False(t, mfc.Capabilities().MutatesData)
+ 	md := testdata.GenerateMetrics(1)
+ 
+ 	for i := 0; i < 2; i++ {
+@@ -186,7 +186,7 @@ func TestMetricsMultiplexingMixLastNonMutating(t *testing.T) {
+ 	p3 := new(consumertest.MetricsSink)
+ 
+ 	mfc := NewMetrics([]consumer.Metrics{p1, p2, p3})
+-	assert.True(t, mfc.Capabilities().MutatesData)
++	assert.False(t, mfc.Capabilities().MutatesData)
+ 	md := testdata.GenerateMetrics(1)
+ 
+ 	for i := 0; i < 2; i++ {

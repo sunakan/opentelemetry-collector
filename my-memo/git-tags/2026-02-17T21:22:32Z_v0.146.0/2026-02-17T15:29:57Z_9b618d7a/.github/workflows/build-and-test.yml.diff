@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 6f1a5b5e7..242c046f9 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -244,6 +244,8 @@ jobs:
+             goarch: amd64
+           - goos: darwin
+             goarch: arm64
++          - goos: js
++            goarch: wasm
+           - goos: linux
+             goarch: 386
+           - goos: linux

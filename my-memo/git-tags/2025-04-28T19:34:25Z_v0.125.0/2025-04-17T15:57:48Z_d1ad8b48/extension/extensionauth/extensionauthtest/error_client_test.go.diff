@@ -1,0 +1,33 @@
+diff --git a/extension/extensionauth/extensionauthtest/error_client_test.go b/extension/extensionauth/extensionauthtest/error_client_test.go
+deleted file mode 100644
+index fd34fa962..000000000
+--- a/extension/extensionauth/extensionauthtest/error_client_test.go
++++ /dev/null
+@@ -1,27 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package extensionauthtest
+-
+-import (
+-	"errors"
+-	"testing"
+-
+-	"github.com/stretchr/testify/require"
+-
+-	"go.opentelemetry.io/collector/extension/extensionauth"
+-)
+-
+-func TestErrorClient(t *testing.T) {
+-	client := NewErrorClient(errors.New("error"))
+-
+-	httpClient, ok := client.(extensionauth.HTTPClient)
+-	require.True(t, ok)
+-	_, err := httpClient.RoundTripper(nil)
+-	require.Error(t, err)
+-
+-	grpcClient, ok := client.(extensionauth.GRPCClient)
+-	require.True(t, ok)
+-	_, err = grpcClient.PerRPCCredentials()
+-	require.Error(t, err)
+-}

@@ -1,0 +1,10 @@
+diff --git a/processor/processorhelper/xprocessorhelper/go.mod b/processor/processorhelper/xprocessorhelper/go.mod
+index dd2512220..09c5341f7 100644
+--- a/processor/processorhelper/xprocessorhelper/go.mod
++++ b/processor/processorhelper/xprocessorhelper/go.mod
+@@ -72,3 +72,5 @@ replace go.opentelemetry.io/collector/processor/processorhelper => ../
+ replace go.opentelemetry.io/collector/processor/xprocessor => ../../xprocessor
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../../internal/testutil

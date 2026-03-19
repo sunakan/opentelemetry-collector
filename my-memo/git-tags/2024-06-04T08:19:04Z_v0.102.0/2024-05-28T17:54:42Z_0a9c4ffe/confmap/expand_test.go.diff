@@ -1,0 +1,11 @@
+diff --git a/confmap/expand_test.go b/confmap/expand_test.go
+index c1dc66461..984a96a29 100644
+--- a/confmap/expand_test.go
++++ b/confmap/expand_test.go
+@@ -457,5 +457,5 @@ func TestResolverExpandStringValueInvalidReturnValue(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	_, err = resolver.Resolve(context.Background())
+-	assert.EqualError(t, err, `expanding ${test:PORT}, expected convertable to string value type, got ['ӛ']([]interface {})`)
++	assert.EqualError(t, err, `expanding ${test:PORT}: expected convertable to string value type, got ['ӛ']([]interface {})`)
+ }

@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/metrics.go b/service/telemetry/metrics.go
+index a3be9169c..8981200e9 100644
+--- a/service/telemetry/metrics.go
++++ b/service/telemetry/metrics.go
+@@ -36,6 +36,7 @@ type meterProviderSettings struct {
+ 	asyncErrorChannel chan error
+ }
+ 
++// newMeterProvider creates a new MeterProvider from Config.
+ func newMeterProvider(set meterProviderSettings, disableHighCardinality bool) (metric.MeterProvider, error) {
+ 	if set.cfg.Level == configtelemetry.LevelNone || len(set.cfg.Readers) == 0 {
+ 		return noop.NewMeterProvider(), nil

@@ -1,0 +1,25 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index a88a4dee7..5eca80245 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -185,11 +185,15 @@ jobs:
+       - name: Run Unit Tests With Coverage
+         run: make gotest-with-cover
+       - name: Upload coverage report
+-        uses: codecov/codecov-action@v3
+-        with:
+-          file: ./coverage.txt
+-          fail_ci_if_error: true
+-          verbose: true
++        uses: Wandalen/wretry.action@v1.3.0
++        with:
++          action: codecov/codecov-action@v3
++          with: |
++            file: ./coverage.txt
++            fail_ci_if_error: true
++            verbose: true
++          attempt_limit: 10
++          attempt_delay: 15000
+ 
+   cross-build-collector:
+     needs: [setup-environment]

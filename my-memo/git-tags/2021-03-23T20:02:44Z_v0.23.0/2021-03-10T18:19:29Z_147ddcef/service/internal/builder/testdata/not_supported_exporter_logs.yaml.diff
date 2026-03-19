@@ -1,0 +1,16 @@
+diff --git a/service/internal/builder/testdata/not_supported_exporter_logs.yaml b/service/internal/builder/testdata/not_supported_exporter_logs.yaml
+new file mode 100644
+index 000000000..5dcb27600
+--- /dev/null
++++ b/service/internal/builder/testdata/not_supported_exporter_logs.yaml
+@@ -0,0 +1,10 @@
++receivers:
++  examplereceiver:
++exporters:
++  bf:
++
++service:
++  pipelines:
++    logs:
++      receivers: [examplereceiver]
++      exporters: [bf]

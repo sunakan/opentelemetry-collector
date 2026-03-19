@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index a67d6b842..7c1c2cae4 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -4,6 +4,8 @@ on:
+     branches: [main]
+     tags:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
++  merge_group:
++    types: [checks_requested]
+   pull_request:
+ 
+ concurrency:

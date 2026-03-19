@@ -1,0 +1,14 @@
+diff --git a/connector/traces_router_test.go b/connector/traces_router_test.go
+index 33a2124ed..8c93b1052 100644
+--- a/connector/traces_router_test.go
++++ b/connector/traces_router_test.go
+@@ -14,8 +14,8 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ type mutatingTracesSink struct {

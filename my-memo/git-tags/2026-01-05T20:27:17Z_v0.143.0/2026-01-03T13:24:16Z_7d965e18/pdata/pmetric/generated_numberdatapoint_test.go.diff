@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint_test.go b/pdata/pmetric/generated_numberdatapoint_test.go
+index e1c70248a..710a42687 100644
+--- a/pdata/pmetric/generated_numberdatapoint_test.go
++++ b/pdata/pmetric/generated_numberdatapoint_test.go
+@@ -82,7 +82,6 @@ func TestNumberDataPoint_DoubleValue(t *testing.T) {
+ 		newNumberDataPoint(internal.NewNumberDataPoint(), sharedState).SetDoubleValue(float64(3.1415926))
+ 	})
+ }
+-
+ func TestNumberDataPoint_IntValue(t *testing.T) {
+ 	ms := NewNumberDataPoint()
+ 	assert.Equal(t, int64(0), ms.IntValue())

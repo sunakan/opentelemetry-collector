@@ -1,0 +1,19 @@
+diff --git a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+index 9ca23483e..693b582d8 100644
+--- a/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
++++ b/pdata/pprofile/pprofileotlp/generated_exportresponse_test.go
+@@ -46,12 +46,11 @@ func TestExportResponse_CopyTo(t *testing.T) {
+ func TestExportResponse_PartialSuccess(t *testing.T) {
+ 	ms := NewExportResponse()
+ 	assert.Equal(t, NewExportPartialSuccess(), ms.PartialSuccess())
+-	internal.FillOrigTestExportProfilesPartialSuccess(&ms.orig.PartialSuccess)
++	ms.orig.PartialSuccess = *internal.GenTestOrigExportProfilesPartialSuccess()
+ 	assert.Equal(t, generateTestExportPartialSuccess(), ms.PartialSuccess())
+ }
+ 
+ func generateTestExportResponse() ExportResponse {
+-	ms := NewExportResponse()
+-	internal.FillOrigTestExportProfilesServiceResponse(ms.orig)
++	ms := newExportResponse(internal.GenTestOrigExportProfilesServiceResponse(), internal.NewState())
+ 	return ms
+ }

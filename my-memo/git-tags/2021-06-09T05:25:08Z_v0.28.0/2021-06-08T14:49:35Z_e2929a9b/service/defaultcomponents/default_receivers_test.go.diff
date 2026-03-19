@@ -1,0 +1,28 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index 10ccb92d5..31f81e361 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -22,10 +22,10 @@ import (
+ 	promconfig "github.com/prometheus/prometheus/config"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenterror"
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/receiver/prometheusreceiver"
+@@ -105,10 +105,7 @@ type getReceiverConfigFn func() config.Receiver
+ func verifyReceiverLifecycle(t *testing.T, factory component.ReceiverFactory, getConfigFn getReceiverConfigFn) {
+ 	ctx := context.Background()
+ 	host := newAssertNoErrorHost(t)
+-	receiverCreateSet := component.ReceiverCreateSettings{
+-		Logger:    zap.NewNop(),
+-		BuildInfo: component.DefaultBuildInfo(),
+-	}
++	receiverCreateSet := componenttest.NewNopReceiverCreateSettings()
+ 
+ 	if getConfigFn == nil {
+ 		getConfigFn = factory.CreateDefaultConfig

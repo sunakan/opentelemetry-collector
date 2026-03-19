@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_resourceprofiles.go b/pdata/internal/generated_wrapper_resourceprofiles.go
+index 8c9790667..10bc9ecc4 100644
+--- a/pdata/internal/generated_wrapper_resourceprofiles.go
++++ b/pdata/internal/generated_wrapper_resourceprofiles.go
+@@ -50,6 +50,10 @@ func DeleteOrigResourceProfiles(orig *otlpprofiles.ResourceProfiles, nullable bo
+ }
+ 
+ func CopyOrigResourceProfiles(dest, src *otlpprofiles.ResourceProfiles) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigResource(&dest.Resource, &src.Resource)
+ 	dest.ScopeProfiles = CopyOrigScopeProfilesSlice(dest.ScopeProfiles, src.ScopeProfiles)
+ 	dest.SchemaUrl = src.SchemaUrl

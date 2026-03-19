@@ -1,0 +1,19 @@
+diff --git a/exporter/loggingexporter/logging_exporter.go b/exporter/loggingexporter/logging_exporter.go
+index 2ed4b4a3c..e43b42cc5 100644
+--- a/exporter/loggingexporter/logging_exporter.go
++++ b/exporter/loggingexporter/logging_exporter.go
+@@ -19,10 +19,10 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/exporter"
+-	"github.com/open-telemetry/opentelemetry-service/exporter/exporterhelper"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
++	"github.com/open-telemetry/opentelemetry-collector/exporter/exporterhelper"
+ )
+ 
+ // NewTraceExporter creates an exporter.TraceExporter that just drops the

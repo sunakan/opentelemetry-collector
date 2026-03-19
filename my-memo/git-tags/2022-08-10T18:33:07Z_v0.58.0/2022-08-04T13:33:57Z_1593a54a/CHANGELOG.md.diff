@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e68044398..1a6479ae7 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,7 @@
+ 
+ ### 🛑 Breaking changes 🛑
+ 
++- Remove deprecated `confighttp.HTTPClientSettings.ToClientWithHost` (#5803)
+ - Remove deprecated component stability helpers (#5802):
+   - `component.WithTracesExporterAndStabilityLevel`
+   - `component.WithMetricsExporterAndStabilityLevel`

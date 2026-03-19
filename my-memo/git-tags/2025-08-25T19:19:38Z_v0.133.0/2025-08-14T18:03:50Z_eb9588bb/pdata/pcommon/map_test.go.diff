@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index a6f1b59f2..5c42d14fb 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -542,7 +542,7 @@ func TestMap_RemoveIf(t *testing.T) {
+ 
+ func TestMap_RemoveIfAll(t *testing.T) {
+ 	am := Map(internal.GenerateTestMap())
+-	assert.Equal(t, 7, am.Len())
++	assert.Equal(t, 5, am.Len())
+ 	am.RemoveIf(func(string, Value) bool {
+ 		return true
+ 	})

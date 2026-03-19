@@ -1,0 +1,12 @@
+diff --git a/extension/authoidcextension/README.md b/extension/authoidcextension/README.md
+index fbffe4550..4b93b3d4e 100644
+--- a/extension/authoidcextension/README.md
++++ b/extension/authoidcextension/README.md
+@@ -27,6 +27,7 @@ exporters:
+     logLevel: debug
+ 
+ service:
++  extensions: [oidc]
+   pipelines:
+     traces:
+       receivers: [otlp]

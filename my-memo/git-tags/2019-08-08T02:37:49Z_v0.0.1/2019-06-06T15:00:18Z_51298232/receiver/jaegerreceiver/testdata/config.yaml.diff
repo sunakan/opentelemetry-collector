@@ -1,0 +1,28 @@
+diff --git a/receiver/jaegerreceiver/testdata/config.yaml b/receiver/jaegerreceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..5bb8fb236
+--- /dev/null
++++ b/receiver/jaegerreceiver/testdata/config.yaml
+@@ -0,0 +1,22 @@
++receivers:
++  jaeger:
++  jaeger/customname:
++    protocols:
++      thrift-http:
++        endpoint: "127.0.0.1:3456"
++      thrift-tchannel:
++        endpoint: "0.0.0.0:123"
++        enabled: true
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++   receivers: [jaeger]
++   processors: [exampleprocessor]
++   exporters: [exampleexporter]
++

@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/config_test.go b/receiver/kafkareceiver/config_test.go
+index 436e533d3..3bf6eacf3 100644
+--- a/receiver/kafkareceiver/config_test.go
++++ b/receiver/kafkareceiver/config_test.go
+@@ -35,7 +35,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Receivers[typeStr] = factory
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 	require.NoError(t, err)
+ 	require.Equal(t, 1, len(cfg.Receivers))
+ 

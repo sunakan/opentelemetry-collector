@@ -1,0 +1,11 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obs_processor.go b/internal/obsreportconfig/obsmetrics/obs_processor.go
+index 75084014e..3cbd8fc4a 100644
+--- a/internal/obsreportconfig/obsmetrics/obs_processor.go
++++ b/internal/obsreportconfig/obsmetrics/obs_processor.go
+@@ -18,5 +18,5 @@ const (
+ )
+ 
+ var (
+-	ProcessorPrefix = ProcessorKey + NameSep
++	ProcessorMetricPrefix = ProcessorKey + MetricNameSep
+ )

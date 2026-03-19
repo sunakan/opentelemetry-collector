@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus_test.go b/receiver/opencensusreceiver/octrace/opencensus_test.go
+index 65661b6d1..e2f350728 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus_test.go
++++ b/receiver/opencensusreceiver/octrace/opencensus_test.go
+@@ -361,7 +361,7 @@ func nodeToKey(n *commonpb.Node) string {
+ 	return string(blob)
+ }
+ 
+-func ocReceiverOnGRPCServer(t *testing.T, sr consumer.TraceConsumer) (int, func()) {
++func ocReceiverOnGRPCServer(t *testing.T, sr consumer.TracesConsumer) (int, func()) {
+ 	ln, err := net.Listen("tcp", "localhost:0")
+ 	require.NoError(t, err, "Failed to find an available address to run the gRPC server: %v", err)
+ 

@@ -1,0 +1,11 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 89988bd39..fd06473e6 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -162,5 +162,6 @@ func processAndWrite(cfg Config, tmpl *template.Template, outFile string, tmplPa
+ 		return err
+ 	}
+ 
++	defer out.Close()
+ 	return tmpl.Execute(out, tmplParams)
+ }

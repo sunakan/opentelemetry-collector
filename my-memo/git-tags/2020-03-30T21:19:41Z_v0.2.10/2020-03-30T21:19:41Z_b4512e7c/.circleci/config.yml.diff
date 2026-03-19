@@ -1,0 +1,61 @@
+diff --git a/.circleci/config.yml b/.circleci/config.yml
+index f086c1b78..4918e5981 100644
+--- a/.circleci/config.yml
++++ b/.circleci/config.yml
+@@ -34,25 +34,46 @@ workflows:
+   version: 2
+   build-and-test:
+     jobs:
+-      - setup-and-lint
++      - setup-and-lint:
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - build:
+           requires:
+             - setup-and-lint
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - cross-compile:
+           requires:
+             - build
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - loadtest:
+           requires:
+             - build
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - test:
+           requires:
+             - setup-and-lint
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - gosec:
+           requires:
+             - setup-and-lint
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - coverage:
+           requires:
+             - setup-and-lint
++          filters:
++            tags:
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+       - publish-stable:
+           requires:
+             - cross-compile
+@@ -64,7 +85,7 @@ workflows:
+             branches:
+               ignore: /.*/
+             tags:
+-              only: /^v[0-9].[0-9].[0-9]+.*/
++              only: /^v([0-9])+.([0-9])+.([0-9])+.*/
+ 
+ jobs:
+   setup-and-lint:

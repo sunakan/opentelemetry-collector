@@ -1,0 +1,22 @@
+diff --git a/confmap/confmap_test.go b/confmap/confmap_test.go
+index 9e4940b58..1a19752c8 100644
+--- a/confmap/confmap_test.go
++++ b/confmap/confmap_test.go
+@@ -16,7 +16,7 @@ package confmap
+ 
+ import (
+ 	"errors"
+-	"io/ioutil"
++	"os"
+ 	"path/filepath"
+ 	"strings"
+ 	"testing"
+@@ -220,7 +220,7 @@ func TestMapKeyStringToMapKeyTextUnmarshalerHookFuncErrorUnmarshal(t *testing.T)
+ 
+ // newConfFromFile creates a new Conf by reading the given file.
+ func newConfFromFile(t testing.TB, fileName string) map[string]interface{} {
+-	content, err := ioutil.ReadFile(filepath.Clean(fileName))
++	content, err := os.ReadFile(filepath.Clean(fileName))
+ 	require.NoErrorf(t, err, "unable to read the file %v", fileName)
+ 
+ 	var data map[string]interface{}

@@ -1,0 +1,12 @@
+diff --git a/otelcol/command.go b/otelcol/command.go
+index fca6286c9..9350b8b68 100644
+--- a/otelcol/command.go
++++ b/otelcol/command.go
+@@ -28,6 +28,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 		},
+ 	}
+ 	rootCmd.AddCommand(newBuildSubCommand(set))
++	rootCmd.AddCommand(newValidateSubCommand(set, flagSet))
+ 	rootCmd.Flags().AddGoFlagSet(flagSet)
+ 	return rootCmd
+ }

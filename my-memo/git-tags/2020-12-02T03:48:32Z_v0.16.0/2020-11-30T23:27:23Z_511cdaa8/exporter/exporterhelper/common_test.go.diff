@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index fb14c712f..23718d422 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -50,8 +50,8 @@ func TestBaseExporterWithOptions(t *testing.T) {
+ 		zap.NewNop(),
+ 		WithStart(func(ctx context.Context, host component.Host) error { return want }),
+ 		WithShutdown(func(ctx context.Context) error { return want }),
+-		WithResourceToTelemetryConversion(createDefaultResourceToTelemetrySettings()),
+-		WithTimeout(CreateDefaultTimeoutSettings()),
++		WithResourceToTelemetryConversion(defaultResourceToTelemetrySettings()),
++		WithTimeout(DefaultTimeoutSettings()),
+ 	)
+ 	require.Equal(t, want, be.Start(context.Background(), componenttest.NewNopHost()))
+ 	require.Equal(t, want, be.Shutdown(context.Background()))

@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 85a2eaf6e..4f0e34ba4 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -123,8 +123,7 @@ func TestGenerateInvalidOutputPath(t *testing.T) {
+ 	cfg := newInitializedConfig(t)
+ 	cfg.Distribution.OutputPath = ":/invalid"
+ 	err := Generate(cfg)
+-	require.Error(t, err)
+-	require.Contains(t, err.Error(), "failed to create output path")
++	require.ErrorContains(t, err, "failed to create output path")
+ }
+ 
+ func TestVersioning(t *testing.T) {

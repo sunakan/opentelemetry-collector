@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index 585d5ce0f..3d46f4b49 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -78,7 +78,7 @@ func spanToOC(span pdata.Span) *octrace.Span {
+ 				DroppedAttributesCount: 0,
+ 			}
+ 		}
+-		attributes.AttributeMap[tracetranslator.TagStatusCode] = statusAttr
++		attributes.AttributeMap[conventions.OtelStatusCode] = statusAttr
+ 	}
+ 
+ 	return &octrace.Span{

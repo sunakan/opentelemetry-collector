@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/factory.go b/processor/queuedprocessor/factory.go
+index 09ed5e81f..482ecc57a 100644
+--- a/processor/queuedprocessor/factory.go
++++ b/processor/queuedprocessor/factory.go
+@@ -56,7 +56,7 @@ func createTraceProcessor(
+ 	params component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+ 	nextConsumer consumer.TracesConsumer,
+-) (component.TraceProcessor, error) {
++) (component.TracesProcessor, error) {
+ 	params.Logger.Warn("QueuedRetry processor is deprecated. Use exporter's queued retry config.")
+ 	return newQueuedTracesProcessor(params, nextConsumer, cfg.(*Config)), nil
+ }

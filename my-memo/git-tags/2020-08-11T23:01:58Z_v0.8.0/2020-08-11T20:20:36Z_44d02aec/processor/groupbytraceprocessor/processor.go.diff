@@ -1,0 +1,13 @@
+diff --git a/processor/groupbytraceprocessor/processor.go b/processor/groupbytraceprocessor/processor.go
+index c3080480c..e21081127 100644
+--- a/processor/groupbytraceprocessor/processor.go
++++ b/processor/groupbytraceprocessor/processor.go
+@@ -101,7 +101,7 @@ func (sp *groupByTraceProcessor) Start(context.Context, component.Host) error {
+ }
+ 
+ // Shutdown is invoked during service shutdown.
+-func (sp *groupByTraceProcessor) Shutdown(ctx context.Context) error {
++func (sp *groupByTraceProcessor) Shutdown(_ context.Context) error {
+ 	sp.eventMachine.shutdown()
+ 	return nil
+ }

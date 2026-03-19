@@ -1,0 +1,13 @@
+diff --git a/model/semconv/semconv_test.go b/model/semconv/semconv_test.go
+index 2c07fb43e..fa55ce1e1 100644
+--- a/model/semconv/semconv_test.go
++++ b/model/semconv/semconv_test.go
+@@ -24,7 +24,7 @@ import (
+ 
+ func TestAllSemConvFilesAreCrated(t *testing.T) {
+ 	// Files that have to be present in each semconv package
+-	var expectedFiles = []string{"nonstandard.go", "resource.go", "schema.go", "trace.go"}
++	var expectedFiles = []string{"generated_resource.go", "generated_trace.go", "nonstandard.go", "schema.go"}
+ 
+ 	files, err := os.ReadDir(".")
+ 	assert.NoError(t, err)

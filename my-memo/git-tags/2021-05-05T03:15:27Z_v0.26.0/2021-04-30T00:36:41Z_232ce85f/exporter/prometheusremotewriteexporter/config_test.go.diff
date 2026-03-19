@@ -1,0 +1,11 @@
+diff --git a/exporter/prometheusremotewriteexporter/config_test.go b/exporter/prometheusremotewriteexporter/config_test.go
+index 0135e46f9..0f51d49c0 100644
+--- a/exporter/prometheusremotewriteexporter/config_test.go
++++ b/exporter/prometheusremotewriteexporter/config_test.go
+@@ -83,5 +83,6 @@ func Test_loadConfig(t *testing.T) {
+ 					"prometheus-remote-write-version": "0.1.0",
+ 					"x-scope-orgid":                   "234"},
+ 			},
++			ResourceToTelemetrySettings: exporterhelper.ResourceToTelemetrySettings{Enabled: true},
+ 		})
+ }

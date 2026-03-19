@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/config_test.go b/exporter/debugexporter/config_test.go
+index 288ecd9be..a9fbf9f87 100644
+--- a/exporter/debugexporter/config_test.go
++++ b/exporter/debugexporter/config_test.go
+@@ -94,7 +94,7 @@ func Test_UnmarshalMarshalled(t *testing.T) {
+ 
+ 			if tc.expectedErr == "" {
+ 				assert.NoError(t, err)
+-				assert.Equal(t, outCfg, tc.expectedConfig)
++				assert.Equal(t, tc.expectedConfig, outCfg)
+ 				return
+ 			}
+ 			assert.Error(t, err)

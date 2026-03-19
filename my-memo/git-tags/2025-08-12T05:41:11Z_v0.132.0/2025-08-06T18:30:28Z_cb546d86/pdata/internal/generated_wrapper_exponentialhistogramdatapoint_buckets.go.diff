@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+index 6a29c89fc..b9711ab00 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+@@ -14,3 +14,8 @@ func CopyOrigExponentialHistogramDataPoint_Buckets(dest, src *otlpmetrics.Expone
+ 	dest.Offset = src.Offset
+ 	dest.BucketCounts = CopyOrigUint64Slice(dest.BucketCounts, src.BucketCounts)
+ }
++
++func FillOrigTestExponentialHistogramDataPoint_Buckets(orig *otlpmetrics.ExponentialHistogramDataPoint_Buckets) {
++	orig.Offset = int32(13)
++	orig.BucketCounts = GenerateOrigTestUint64Slice()
++}

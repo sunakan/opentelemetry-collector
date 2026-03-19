@@ -1,0 +1,22 @@
+diff --git a/pdata/internal/generated_wrapper_int32slice_test.go b/pdata/internal/generated_wrapper_int32slice_test.go
+index dbd14e1ff..0906bb2e1 100644
+--- a/pdata/internal/generated_wrapper_int32slice_test.go
++++ b/pdata/internal/generated_wrapper_int32slice_test.go
+@@ -12,13 +12,13 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ )
+ 
+-func TestCopyOrigInt32Slice(t *testing.T) {
++func TestCopyInt32Slice(t *testing.T) {
+ 	src := []int32{}
+ 	dest := []int32{}
+ 	// Copy empty
+-	dest = CopyOrigInt32Slice(dest, src)
++	dest = CopyInt32Slice(dest, src)
+ 	assert.Equal(t, src, dest)
+-	src = GenerateOrigTestInt32Slice()
+-	dest = CopyOrigInt32Slice(dest, src)
++	src = GenTestInt32Slice()
++	dest = CopyInt32Slice(dest, src)
+ 	assert.Equal(t, src, dest)
+ }

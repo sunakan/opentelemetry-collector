@@ -1,0 +1,10 @@
+diff --git a/cmd/builder/internal/builder/templates/go.mod.tmpl b/cmd/builder/internal/builder/templates/go.mod.tmpl
+index 52c508f0d..1294bf5d2 100644
+--- a/cmd/builder/internal/builder/templates/go.mod.tmpl
++++ b/cmd/builder/internal/builder/templates/go.mod.tmpl
+@@ -51,4 +51,4 @@ exclude {{.}}
+ {{- end}}
+ 
+ // ambiguous import: found package cloud.google.com/go/compute/metadata in multiple modules
+-replace cloud.google.com/go => cloud.google.com/go v0.110.2
++replace cloud.google.com/go => cloud.google.com/go v0.110.9

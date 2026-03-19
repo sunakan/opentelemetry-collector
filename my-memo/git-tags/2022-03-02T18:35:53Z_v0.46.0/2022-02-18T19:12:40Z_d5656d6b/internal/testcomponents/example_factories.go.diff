@@ -1,0 +1,21 @@
+diff --git a/internal/testcomponents/example_factories.go b/internal/testcomponents/example_factories.go
+index 44935a0d6..c071bb158 100644
+--- a/internal/testcomponents/example_factories.go
++++ b/internal/testcomponents/example_factories.go
+@@ -46,11 +46,11 @@ func ExampleComponents() (
+ 	return
+ }
+ 
+-// DefaultFactories returns the set of components in "testdata/otelcol-config.yaml". This is only used by tests.
+-func DefaultFactories() (
+-	component.Factories,
+-	error,
+-) {
++// Deprecated: [v0.46.0] use NewDefaultFactories instead.
++var DefaultFactories = NewDefaultFactories
++
++// NewDefaultFactories returns the set of components in "testdata/otelcol-config.yaml". This is only used by tests.
++func NewDefaultFactories() (component.Factories, error) {
+ 	var errs error
+ 
+ 	extensions, err := component.MakeExtensionFactoryMap(

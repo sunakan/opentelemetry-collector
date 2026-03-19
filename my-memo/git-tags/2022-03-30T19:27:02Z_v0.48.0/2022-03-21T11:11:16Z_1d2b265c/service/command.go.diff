@@ -1,0 +1,14 @@
+diff --git a/service/command.go b/service/command.go
+index 13aebff98..cff608bb0 100644
+--- a/service/command.go
++++ b/service/command.go
+@@ -20,8 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/service/featuregate"
+ )
+ 
+-// NewCommand constructs a new cobra.Command using the given Collector.
+-// TODO: Make this independent of the collector internals.
++// NewCommand constructs a new cobra.Command using the given CollectorSettings.
+ func NewCommand(set CollectorSettings) *cobra.Command {
+ 	rootCmd := &cobra.Command{
+ 		Use:          set.BuildInfo.Command,

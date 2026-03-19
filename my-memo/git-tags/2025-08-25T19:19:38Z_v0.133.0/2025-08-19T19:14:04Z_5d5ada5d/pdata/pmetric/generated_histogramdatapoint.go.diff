@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_histogramdatapoint.go b/pdata/pmetric/generated_histogramdatapoint.go
+index b42799f43..f7fe0fde8 100644
+--- a/pdata/pmetric/generated_histogramdatapoint.go
++++ b/pdata/pmetric/generated_histogramdatapoint.go
+@@ -33,7 +33,7 @@ func newHistogramDataPoint(orig *otlpmetrics.HistogramDataPoint, state *internal
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewHistogramDataPoint() HistogramDataPoint {
+-	return newHistogramDataPoint(internal.NewOrigPtrHistogramDataPoint(), internal.NewState())
++	return newHistogramDataPoint(internal.NewOrigHistogramDataPoint(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

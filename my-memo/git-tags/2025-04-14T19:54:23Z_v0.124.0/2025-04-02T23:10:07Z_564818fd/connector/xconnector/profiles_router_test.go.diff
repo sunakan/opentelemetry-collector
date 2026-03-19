@@ -1,0 +1,13 @@
+diff --git a/connector/xconnector/profiles_router_test.go b/connector/xconnector/profiles_router_test.go
+index ba2fe1964..e93f40693 100644
+--- a/connector/xconnector/profiles_router_test.go
++++ b/connector/xconnector/profiles_router_test.go
+@@ -100,7 +100,7 @@ func fuzzProfiles(numIDs, numCons, numProfiles int) func(*testing.T) {
+ 				}
+ 				assert.Len(t, profiles, expected[id])
+ 				for n := 0; n < len(profiles); n++ {
+-					assert.EqualValues(t, td, profiles[n])
++					assert.Equal(t, td, profiles[n])
+ 				}
+ 			}
+ 		}

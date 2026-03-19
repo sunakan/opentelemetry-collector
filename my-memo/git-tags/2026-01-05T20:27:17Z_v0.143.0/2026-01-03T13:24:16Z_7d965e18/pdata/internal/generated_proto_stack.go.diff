@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_stack.go b/pdata/internal/generated_proto_stack.go
+index df0a00c04..be7a4ce48 100644
+--- a/pdata/internal/generated_proto_stack.go
++++ b/pdata/internal/generated_proto_stack.go
+@@ -157,6 +157,7 @@ func (orig *Stack) SizeProto() int {
+ 	var n int
+ 	var l int
+ 	_ = l
++
+ 	if len(orig.LocationIndices) > 0 {
+ 		l = 0
+ 		for _, e := range orig.LocationIndices {

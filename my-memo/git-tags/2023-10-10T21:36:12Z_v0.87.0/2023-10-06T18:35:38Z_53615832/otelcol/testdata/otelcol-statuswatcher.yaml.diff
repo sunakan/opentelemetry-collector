@@ -1,0 +1,37 @@
+diff --git a/otelcol/testdata/otelcol-statuswatcher.yaml b/otelcol/testdata/otelcol-statuswatcher.yaml
+new file mode 100644
+index 000000000..2dcc322d3
+--- /dev/null
++++ b/otelcol/testdata/otelcol-statuswatcher.yaml
+@@ -0,0 +1,31 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++  unhealthy:
++
++exporters:
++  nop:
++
++extensions:
++  statuswatcher:
++
++service:
++  telemetry:
++    metrics:
++      address: localhost:8888
++  extensions: [statuswatcher]
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop,unhealthy]
++      exporters: [nop]
++    metrics:
++      receivers: [nop]
++      processors: [nop,unhealthy]
++      exporters: [nop]
++    logs:
++      receivers: [nop]
++      processors: [nop,unhealthy]
++      exporters: [nop]

@@ -1,0 +1,22 @@
+diff --git a/testbed/testbed/data_providers.go b/testbed/testbed/data_providers.go
+index 7f57f5aaf..54c170807 100644
+--- a/testbed/testbed/data_providers.go
++++ b/testbed/testbed/data_providers.go
+@@ -287,7 +287,7 @@ func (dp *GoldenDataProvider) GetGeneratedSpan(traceID pdata.TraceID, spanID pda
+ 	if dp.spansMap == nil {
+ 		var resourceSpansList []*otlptrace.ResourceSpans
+ 		for _, td := range dp.tracesGenerated {
+-			resourceSpansList = append(resourceSpansList, pdata.TracesToOtlp(td)...)
++			resourceSpansList = append(resourceSpansList, internal.TracesToOtlp(td.InternalRep()).ResourceSpans...)
+ 		}
+ 		dp.spansMap = populateSpansMap(resourceSpansList)
+ 	}
+@@ -345,7 +345,7 @@ func NewFileDataProvider(filePath string, dataType configmodels.DataType) (*File
+ 		}
+ 		message = &msg
+ 
+-		md := pdata.TracesFromOtlp(msg.ResourceSpans)
++		md := pdata.TracesFromInternalRep(internal.TracesFromOtlp(&msg))
+ 		dataPointCount = md.SpanCount()
+ 
+ 	case configmodels.MetricsDataType:

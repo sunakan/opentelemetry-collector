@@ -1,0 +1,12 @@
+diff --git a/service/internal/promtest/server_util.go b/service/internal/promtest/server_util.go
+index c50616580..7f188c61f 100644
+--- a/service/internal/promtest/server_util.go
++++ b/service/internal/promtest/server_util.go
+@@ -36,7 +36,6 @@ func addrToPrometheus(address string) *config.Prometheus {
+ 	return &config.Prometheus{
+ 		Host:              &host,
+ 		Port:              &portInt,
+-		WithoutScopeInfo:  ptr(true),
+ 		WithoutUnits:      ptr(true),
+ 		WithoutTypeSuffix: ptr(true),
+ 		WithResourceConstantLabels: &config.IncludeExclude{

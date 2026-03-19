@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/retry_sender.go b/exporter/exporterhelper/retry_sender.go
+index 3cb3f775a..e1ffb7b93 100644
+--- a/exporter/exporterhelper/retry_sender.go
++++ b/exporter/exporterhelper/retry_sender.go
+@@ -132,11 +132,7 @@ func (rs *retrySender) send(ctx context.Context, req Request) error {
+ 			return err
+ 		}
+ 
+-		// Give the request a chance to extract signal data to retry if only some data
+-		// failed to process.
+-		if errReq, ok := req.(RequestErrorHandler); ok {
+-			req = errReq.OnError(err)
+-		}
++		req = extractPartialRequest(req, err)
+ 
+ 		backoffDelay := expBackoff.NextBackOff()
+ 		if backoffDelay == backoff.Stop {

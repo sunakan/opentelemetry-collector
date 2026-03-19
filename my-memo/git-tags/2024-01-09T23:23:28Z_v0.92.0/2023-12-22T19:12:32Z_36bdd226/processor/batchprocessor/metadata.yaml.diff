@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metadata.yaml b/processor/batchprocessor/metadata.yaml
+new file mode 100644
+index 000000000..f535dc6c6
+--- /dev/null
++++ b/processor/batchprocessor/metadata.yaml
+@@ -0,0 +1,7 @@
++type: batch
++
++status:
++  class: processor
++  stability:
++    beta: [traces, metrics, logs]
++  distributions: [core, contrib]

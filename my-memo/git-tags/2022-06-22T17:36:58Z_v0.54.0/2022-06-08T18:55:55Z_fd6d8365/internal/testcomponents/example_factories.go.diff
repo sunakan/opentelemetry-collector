@@ -1,0 +1,15 @@
+diff --git a/internal/testcomponents/example_factories.go b/internal/testcomponents/example_factories.go
+index 0973b1251..3d0478abf 100644
+--- a/internal/testcomponents/example_factories.go
++++ b/internal/testcomponents/example_factories.go
+@@ -29,10 +29,6 @@ func ExampleComponents() (
+ 	factories component.Factories,
+ 	err error,
+ ) {
+-	if factories.Extensions, err = component.MakeExtensionFactoryMap(ExampleExtensionFactory); err != nil {
+-		return
+-	}
+-
+ 	if factories.Receivers, err = component.MakeReceiverFactoryMap(ExampleReceiverFactory); err != nil {
+ 		return
+ 	}

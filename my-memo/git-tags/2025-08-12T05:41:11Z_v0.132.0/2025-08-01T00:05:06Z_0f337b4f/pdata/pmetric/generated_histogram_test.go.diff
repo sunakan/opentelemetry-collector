@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/generated_histogram_test.go b/pdata/pmetric/generated_histogram_test.go
+index 0ed4d0f76..d01d34b93 100644
+--- a/pdata/pmetric/generated_histogram_test.go
++++ b/pdata/pmetric/generated_histogram_test.go
+@@ -85,5 +85,5 @@ func generateTestHistogram() Histogram {
+ 
+ func fillTestHistogram(tv Histogram) {
+ 	tv.orig.AggregationTemporality = otlpmetrics.AggregationTemporality(1)
+-	fillTestHistogramDataPointSlice(newHistogramDataPointSlice(&tv.orig.DataPoints, tv.state))
++	fillTestHistogramDataPointSlice(tv.DataPoints())
+ }

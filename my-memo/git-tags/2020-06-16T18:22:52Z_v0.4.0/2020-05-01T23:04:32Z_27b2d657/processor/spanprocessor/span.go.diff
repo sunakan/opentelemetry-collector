@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/span.go b/processor/spanprocessor/span.go
+index 0ed8f68c2..15de0e5c6 100644
+--- a/processor/spanprocessor/span.go
++++ b/processor/spanprocessor/span.go
+@@ -144,7 +144,7 @@ func (sp *spanProcessor) processFromAttributes(span pdata.Span) {
+ 	}
+ 
+ 	attrs := span.Attributes()
+-	if attrs.Cap() == 0 {
++	if attrs.Len() == 0 {
+ 		// There are no attributes to create span name from.
+ 		return
+ 	}

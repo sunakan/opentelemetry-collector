@@ -1,0 +1,25 @@
+diff --git a/service/internal/metricviews/views.go b/service/internal/metricviews/views.go
+index cce77fe81..137bffd6e 100644
+--- a/service/internal/metricviews/views.go
++++ b/service/internal/metricviews/views.go
+@@ -101,7 +101,19 @@ func DefaultViews(level configtelemetry.Level) []config.View {
+ 			dropViewOption(&config.ViewSelector{
+ 				MeterName:      scope,
+ 				InstrumentName: ptr("otelcol_exporter_queue_batch_send_size"),
+-			}))
++			}),
++			config.View{
++				Selector: &config.ViewSelector{
++					MeterName:      scope,
++					InstrumentName: ptr("otelcol_exporter_send_failed_*"),
++				},
++				Stream: &config.ViewStream{
++					AttributeKeys: &config.IncludeExclude{
++						Excluded: []string{"error.type", "error.permanent"},
++					},
++				},
++			},
++		)
+ 	}
+ 
+ 	// Batch processor metrics

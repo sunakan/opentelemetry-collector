@@ -1,0 +1,15 @@
+diff --git a/service/internal/builder/receivers_builder_test.go b/service/internal/builder/receivers_builder_test.go
+index 28169e0bb..9c017703c 100644
+--- a/service/internal/builder/receivers_builder_test.go
++++ b/service/internal/builder/receivers_builder_test.go
+@@ -27,9 +27,9 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/testcomponents"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/processor/attributesprocessor"
+ )
+ 

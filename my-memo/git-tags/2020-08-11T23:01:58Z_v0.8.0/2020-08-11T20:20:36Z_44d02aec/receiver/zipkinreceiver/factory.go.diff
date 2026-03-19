@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index 43e79e742..23a18bb2d 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -57,7 +57,7 @@ func createDefaultConfig() configmodels.Receiver {
+ 
+ // createTraceReceiver creates a trace receiver based on provided config.
+ func createTraceReceiver(
+-	ctx context.Context,
++	_ context.Context,
+ 	_ component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+ 	nextConsumer consumer.TraceConsumer,

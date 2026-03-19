@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/README.md b/config/configgrpc/README.md
+index e1e652591..1f469d58d 100644
+--- a/config/configgrpc/README.md
++++ b/config/configgrpc/README.md
+@@ -35,7 +35,7 @@ Example:
+ 
+ ```yaml
+ exporters:
+-  otlp:
++  otlp_grpc:
+     endpoint: otelcol2:55690
+     auth:
+       authenticator: some-authenticator-extension

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/README.md b/exporter/exporterhelper/README.md
+index 4652383c6..e47d5e47d 100644
+--- a/exporter/exporterhelper/README.md
++++ b/exporter/exporterhelper/README.md
+@@ -116,7 +116,7 @@ receivers:
+     protocols:
+       grpc:
+ exporters:
+-  otlp:
++  otlp_grpc:
+     endpoint: <ENDPOINT>
+     sending_queue:
+       storage: file_storage/otc

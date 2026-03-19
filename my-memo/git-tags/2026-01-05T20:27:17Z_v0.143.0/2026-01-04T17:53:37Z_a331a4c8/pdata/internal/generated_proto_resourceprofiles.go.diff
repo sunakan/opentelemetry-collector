@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_proto_resourceprofiles.go b/pdata/internal/generated_proto_resourceprofiles.go
+index 85bf7b3b1..e1b091072 100644
+--- a/pdata/internal/generated_proto_resourceprofiles.go
++++ b/pdata/internal/generated_proto_resourceprofiles.go
+@@ -16,9 +16,9 @@ import (
+ 
+ // ResourceProfiles is a collection of profiles from a Resource.
+ type ResourceProfiles struct {
++	SchemaUrl     string
+ 	Resource      Resource
+ 	ScopeProfiles []*ScopeProfiles
+-	SchemaUrl     string
+ }
+ 
+ var (

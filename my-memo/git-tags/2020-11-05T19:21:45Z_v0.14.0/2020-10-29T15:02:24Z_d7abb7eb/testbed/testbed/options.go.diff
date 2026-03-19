@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/options.go b/testbed/testbed/options.go
+index df78d6dc7..ed401666c 100644
+--- a/testbed/testbed/options.go
++++ b/testbed/testbed/options.go
+@@ -13,7 +13,7 @@
+ // limitations under the License.
+ 
+ // Package tests contains test cases. To run the tests go to tests directory and run:
+-// TESTBED_CONFIG=local.yaml go test -v
++// RUN_TESTBED=1 go test -v
+ 
+ package testbed
+ 

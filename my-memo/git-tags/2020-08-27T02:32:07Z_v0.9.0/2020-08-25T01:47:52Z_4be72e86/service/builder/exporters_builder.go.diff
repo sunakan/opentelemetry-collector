@@ -1,0 +1,13 @@
+diff --git a/service/builder/exporters_builder.go b/service/builder/exporters_builder.go
+index 21423b1c5..6a46f9903 100644
+--- a/service/builder/exporters_builder.go
++++ b/service/builder/exporters_builder.go
+@@ -357,7 +357,7 @@ func createLogsExporter(
+ 	logger *zap.Logger,
+ 	cfg configmodels.Exporter,
+ ) (component.LogsExporter, error) {
+-	factory, ok := factoryBase.(component.LogsExporterFactory)
++	factory, ok := factoryBase.(component.ExporterFactory)
+ 	if !ok {
+ 		return nil, fmt.Errorf("exporter %q does not support data type %q", factoryBase.Type(), configmodels.LogsDataType)
+ 	}

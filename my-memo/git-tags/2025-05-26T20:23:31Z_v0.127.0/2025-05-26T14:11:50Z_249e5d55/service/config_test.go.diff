@@ -1,0 +1,24 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 97cd6c35c..604f484ab 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -53,19 +53,6 @@ func TestConfigValidate(t *testing.T) {
+ 			},
+ 			expected: errors.New(`references processor "nop" multiple times`),
+ 		},
+-		{
+-			name: "invalid-service-pipeline-type",
+-			cfgFn: func() *Config {
+-				cfg := generateConfig()
+-				cfg.Pipelines[pipeline.MustNewID("wrongtype")] = &pipelines.PipelineConfig{
+-					Receivers:  []component.ID{component.MustNewID("nop")},
+-					Processors: []component.ID{component.MustNewID("nop")},
+-					Exporters:  []component.ID{component.MustNewID("nop")},
+-				}
+-				return cfg
+-			},
+-			expected: errors.New(`pipeline "wrongtype": unknown signal "wrongtype"`),
+-		},
+ 		{
+ 			name: "invalid-telemetry-metric-config",
+ 			cfgFn: func() *Config {

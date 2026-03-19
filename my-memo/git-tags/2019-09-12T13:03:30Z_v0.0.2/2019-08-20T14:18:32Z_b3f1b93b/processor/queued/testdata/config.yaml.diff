@@ -1,0 +1,25 @@
+diff --git a/processor/queued/testdata/config.yaml b/processor/queued/testdata/config.yaml
+deleted file mode 100644
+index 9a1f415fc..000000000
+--- a/processor/queued/testdata/config.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-  examplereceiver:
+-
+-processors:
+-  queued-retry:
+-  queued-retry/2:
+-    num-workers: 2
+-    queue-size: 10
+-    retry-on-failure: true
+-    backoff-delay: 5s
+-
+-exporters:
+-  exampleexporter:
+-
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [queued-retry/2]
+-    exporters: [exampleexporter]

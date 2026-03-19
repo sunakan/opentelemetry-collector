@@ -1,0 +1,28 @@
+diff --git a/pdata/ptrace/generated_resourcespans.go b/pdata/ptrace/generated_resourcespans.go
+index 70de37d86..f24e6bfb7 100644
+--- a/pdata/ptrace/generated_resourcespans.go
++++ b/pdata/ptrace/generated_resourcespans.go
+@@ -55,6 +55,11 @@ func (ms ResourceSpans) Resource() pcommon.Resource {
+ 	return pcommon.Resource(internal.NewResource(&ms.orig.Resource, ms.state))
+ }
+ 
++// ScopeSpans returns the ScopeSpans associated with this ResourceSpans.
++func (ms ResourceSpans) ScopeSpans() ScopeSpansSlice {
++	return newScopeSpansSlice(&ms.orig.ScopeSpans, ms.state)
++}
++
+ // SchemaUrl returns the schemaurl associated with this ResourceSpans.
+ func (ms ResourceSpans) SchemaUrl() string {
+ 	return ms.orig.SchemaUrl
+@@ -66,11 +71,6 @@ func (ms ResourceSpans) SetSchemaUrl(v string) {
+ 	ms.orig.SchemaUrl = v
+ }
+ 
+-// ScopeSpans returns the ScopeSpans associated with this ResourceSpans.
+-func (ms ResourceSpans) ScopeSpans() ScopeSpansSlice {
+-	return newScopeSpansSlice(&ms.orig.ScopeSpans, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ResourceSpans) CopyTo(dest ResourceSpans) {
+ 	dest.state.AssertMutable()

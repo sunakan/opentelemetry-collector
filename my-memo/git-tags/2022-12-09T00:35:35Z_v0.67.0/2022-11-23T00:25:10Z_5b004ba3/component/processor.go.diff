@@ -1,0 +1,14 @@
+diff --git a/component/processor.go b/component/processor.go
+index 7c8e878fb..a7512246d 100644
+--- a/component/processor.go
++++ b/component/processor.go
+@@ -34,9 +34,6 @@ func UnmarshalProcessorConfig(conf *confmap.Conf, cfg ProcessorConfig) error {
+ 	return unmarshal(conf, cfg)
+ }
+ 
+-// Deprecated: [v0.65.0] unnecessary interface, will be removed.
+-type Processor = Component
+-
+ // TracesProcessor is a processor that can consume traces.
+ type TracesProcessor interface {
+ 	Component

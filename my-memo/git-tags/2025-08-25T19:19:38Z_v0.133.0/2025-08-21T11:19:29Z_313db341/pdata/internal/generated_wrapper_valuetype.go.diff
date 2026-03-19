@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_valuetype.go b/pdata/internal/generated_wrapper_valuetype.go
+index 4ff6d1a23..8396b707d 100644
+--- a/pdata/internal/generated_wrapper_valuetype.go
++++ b/pdata/internal/generated_wrapper_valuetype.go
+@@ -45,6 +45,10 @@ func DeleteOrigValueType(orig *otlpprofiles.ValueType, nullable bool) {
+ }
+ 
+ func CopyOrigValueType(dest, src *otlpprofiles.ValueType) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.TypeStrindex = src.TypeStrindex
+ 	dest.UnitStrindex = src.UnitStrindex
+ 	dest.AggregationTemporality = src.AggregationTemporality

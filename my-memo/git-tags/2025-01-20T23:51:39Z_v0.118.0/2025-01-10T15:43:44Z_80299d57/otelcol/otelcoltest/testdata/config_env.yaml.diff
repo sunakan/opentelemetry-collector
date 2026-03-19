@@ -1,0 +1,17 @@
+diff --git a/otelcol/otelcoltest/testdata/config_env.yaml b/otelcol/otelcoltest/testdata/config_env.yaml
+new file mode 100644
+index 000000000..0968289ba
+--- /dev/null
++++ b/otelcol/otelcoltest/testdata/config_env.yaml
+@@ -0,0 +1,11 @@
++receivers:
++    nop:
++
++exporters:
++    nop:
++
++service:
++    pipelines:
++        traces:
++            receivers: ${env:RECEIVERS}
++            exporters: [nop]

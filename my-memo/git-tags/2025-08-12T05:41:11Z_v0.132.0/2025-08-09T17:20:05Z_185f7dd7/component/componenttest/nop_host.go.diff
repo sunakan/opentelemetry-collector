@@ -1,0 +1,24 @@
+diff --git a/component/componenttest/nop_host.go b/component/componenttest/nop_host.go
+index e9bc17a94..ac68689eb 100644
+--- a/component/componenttest/nop_host.go
++++ b/component/componenttest/nop_host.go
+@@ -7,6 +7,8 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++var _ component.Host = (*nopHost)(nil)
++
+ // nopHost mocks a [component.Host] for testing purposes.
+ type nopHost struct{}
+ 
+@@ -17,10 +19,6 @@ func NewNopHost() component.Host {
+ 	return &nopHost{}
+ }
+ 
+-func (nh *nopHost) GetFactory(component.Kind, component.Type) component.Factory {
+-	return nil
+-}
+-
+ // GetExtensions returns a `nil` extensions map.
+ func (nh *nopHost) GetExtensions() map[component.ID]component.Component {
+ 	return nil

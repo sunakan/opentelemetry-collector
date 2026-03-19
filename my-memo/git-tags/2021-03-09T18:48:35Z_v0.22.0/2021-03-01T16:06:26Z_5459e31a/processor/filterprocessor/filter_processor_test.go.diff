@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/filter_processor_test.go b/processor/filterprocessor/filter_processor_test.go
+index 3834c37a1..f9542b00e 100644
+--- a/processor/filterprocessor/filter_processor_test.go
++++ b/processor/filterprocessor/filter_processor_test.go
+@@ -488,7 +488,7 @@ func pdm(prefix string, size int) pdata.Metrics {
+ 		NumResourceAttrs:     size,
+ 		NumResourceMetrics:   size,
+ 	}
+-	return goldendataset.MetricDataFromCfg(c)
++	return goldendataset.MetricsFromCfg(c)
+ }
+ 
+ func TestMetricIndexSingle(t *testing.T) {

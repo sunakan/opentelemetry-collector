@@ -1,0 +1,12 @@
+diff --git a/internal/goldendataset/metric_gen.go b/internal/goldendataset/metric_gen.go
+index 9851b52c3..14983ed20 100644
+--- a/internal/goldendataset/metric_gen.go
++++ b/internal/goldendataset/metric_gen.go
+@@ -94,7 +94,6 @@ func (g *metricGenerator) genMetricDataFromCfg(cfg MetricCfg) pdata.Metrics {
+ 	for i := 0; i < cfg.NumResourceMetrics; i++ {
+ 		rm := rms.At(i)
+ 		resource := rm.Resource()
+-		resource.InitEmpty()
+ 		for j := 0; j < cfg.NumResourceAttrs; j++ {
+ 			resource.Attributes().Insert(
+ 				fmt.Sprintf("resource-attr-name-%d", j),

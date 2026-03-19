@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_resource.go b/pdata/internal/generated_wrapper_resource.go
+index 9db21b52f..6e45dbdec 100644
+--- a/pdata/internal/generated_wrapper_resource.go
++++ b/pdata/internal/generated_wrapper_resource.go
+@@ -33,11 +33,13 @@ func NewResource(orig *otlpresource.Resource, state *State) Resource {
+ 	return Resource{orig: orig, state: state}
+ }
+ 
+-var protoPoolResource = sync.Pool{
+-	New: func() any {
+-		return &otlpresource.Resource{}
+-	},
+-}
++var (
++	protoPoolResource = sync.Pool{
++		New: func() any {
++			return &otlpresource.Resource{}
++		},
++	}
++)
+ 
+ func NewOrigResource() *otlpresource.Resource {
+ 	if !UseProtoPooling.IsEnabled() {

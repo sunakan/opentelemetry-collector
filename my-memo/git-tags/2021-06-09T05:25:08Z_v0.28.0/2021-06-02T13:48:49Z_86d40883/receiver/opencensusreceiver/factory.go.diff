@@ -1,0 +1,22 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index a6d9d61b9..88dfab0a7 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -53,7 +53,7 @@ func createDefaultConfig() config.Receiver {
+ 
+ func createTracesReceiver(
+ 	_ context.Context,
+-	_ component.ReceiverCreateParams,
++	_ component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesReceiver, error) {
+@@ -74,7 +74,7 @@ func createTracesReceiver(
+ 
+ func createMetricsReceiver(
+ 	_ context.Context,
+-	_ component.ReceiverCreateParams,
++	_ component.ReceiverCreateSettings,
+ 	cfg config.Receiver,
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsReceiver, error) {

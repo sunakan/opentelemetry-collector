@@ -1,0 +1,21 @@
+diff --git a/exporter/loggingexporter/factory_test.go b/exporter/loggingexporter/factory_test.go
+index ef541da60..c15f9f92d 100644
+--- a/exporter/loggingexporter/factory_test.go
++++ b/exporter/loggingexporter/factory_test.go
+@@ -19,12 +19,15 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"go.uber.org/zap"
++
++	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+-	factory := &Factory{}
++	factory := Factory{}
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.NotNil(t, cfg, "failed to create default config")
++	assert.NoError(t, configcheck.ValidateConfig(cfg))
+ }
+ 
+ func TestCreateMetricsExporter(t *testing.T) {

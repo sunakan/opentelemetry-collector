@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/testdata/memory-limiter.yaml b/testbed/tests/testdata/memory-limiter.yaml
+index d2d52a254..ee364e9cd 100644
+--- a/testbed/tests/testdata/memory-limiter.yaml
++++ b/testbed/tests/testdata/memory-limiter.yaml
+@@ -1,7 +1,7 @@
+ receivers:
+   jaeger:
+     protocols:
+-      thrift-http:
++      thrift_http:
+         endpoint: "localhost:14268"
+   opencensus:
+     endpoint: "localhost:55678"

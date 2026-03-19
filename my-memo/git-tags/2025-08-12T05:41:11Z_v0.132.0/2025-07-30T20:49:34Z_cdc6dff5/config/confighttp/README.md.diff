@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/README.md b/config/confighttp/README.md
+index 20abc5dba..08987e611 100644
+--- a/config/confighttp/README.md
++++ b/config/confighttp/README.md
+@@ -56,6 +56,7 @@ README](../configtls/README.md).
+ - [`idle_conn_timeout`](https://golang.org/pkg/net/http/#Transport)
+ - [`auth`](../configauth/README.md)
+ - [`disable_keep_alives`](https://golang.org/pkg/net/http/#Transport)
++- [`force_attempt_http2`](https://golang.org/pkg/net/http/#Transport)
+ - [`http2_read_idle_timeout`](https://pkg.go.dev/golang.org/x/net/http2#Transport)
+ - [`http2_ping_timeout`](https://pkg.go.dev/golang.org/x/net/http2#Transport)
+ - [`cookies`](https://pkg.go.dev/net/http#CookieJar)

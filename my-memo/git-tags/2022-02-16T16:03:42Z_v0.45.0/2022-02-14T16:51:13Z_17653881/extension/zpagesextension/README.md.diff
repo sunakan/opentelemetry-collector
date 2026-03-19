@@ -1,0 +1,31 @@
+diff --git a/extension/zpagesextension/README.md b/extension/zpagesextension/README.md
+index 7c60c5344..90d0dc2e5 100644
+--- a/extension/zpagesextension/README.md
++++ b/extension/zpagesextension/README.md
+@@ -28,9 +28,9 @@ The collector exposes the following zPage routes:
+ 
+ ### ServiceZ
+ 
+-ServiceZ gives an overview of the collector services by gives quick access to the
+-`pipelinez` and `extensionz` zPages.  The page also provides build and runtime 
+-information.
++ServiceZ gives an overview of the collector services and quick access to the
++`pipelinez`, `extensionz`, and `featurez` zPages.  The page also provides build 
++and runtime information.
+ 
+ Example URL: http://localhost:55679/debug/servicez
+ 
+@@ -48,6 +48,13 @@ ExtensionZ shows the extensions that are active in the collector.
+ 
+ Example URL: http://localhost:55679/debug/extensionz
+ 
++### FeatureZ
++
++FeatureZ lists the feature gates available along with their current status 
++and description.
++
++Example URL: http://localhost:55679/debug/featurez
++
+ ### TraceZ
+ The TraceZ route is available to examine and bucketize spans by latency buckets for 
+ example

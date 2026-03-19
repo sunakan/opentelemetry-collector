@@ -1,0 +1,34 @@
+diff --git a/component/identifiable_test.go b/component/identifiable_test.go
+index 25c449ef1..7b8dd7753 100644
+--- a/component/identifiable_test.go
++++ b/component/identifiable_test.go
+@@ -35,6 +35,18 @@ func TestUnmarshalText(t *testing.T) {
+ 			idStr:      "   valid_type   /   valid_name  ",
+ 			expectedID: ID{typeVal: validType, nameVal: "valid_name"},
+ 		},
++		{
++			idStr:      "valid_type/中文好",
++			expectedID: ID{typeVal: validType, nameVal: "中文好"},
++		},
++		{
++			idStr:      "valid_type/name-with-dashes",
++			expectedID: ID{typeVal: validType, nameVal: "name-with-dashes"},
++		},
++		{
++			idStr:      "valid_type/1",
++			expectedID: ID{typeVal: validType, nameVal: "1"},
++		},
+ 		{
+ 			idStr:       "/valid_name",
+ 			expectedErr: true,
+@@ -55,6 +67,10 @@ func TestUnmarshalText(t *testing.T) {
+ 			idStr:       "      ",
+ 			expectedErr: true,
+ 		},
++		{
++			idStr:       "valid_type/invalid name",
++			expectedErr: true,
++		},
+ 	}
+ 
+ 	for _, test := range testCases {

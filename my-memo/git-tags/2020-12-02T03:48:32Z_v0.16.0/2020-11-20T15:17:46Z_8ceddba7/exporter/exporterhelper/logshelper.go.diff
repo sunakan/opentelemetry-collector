@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index 26df9fe96..e55239921 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -73,7 +73,7 @@ func NewLogsExporter(
+ 	cfg configmodels.Exporter,
+ 	logger *zap.Logger,
+ 	pushLogsData PushLogsData,
+-	options ...ExporterOption,
++	options ...Option,
+ ) (component.LogsExporter, error) {
+ 	if cfg == nil {
+ 		return nil, errNilConfig

@@ -1,0 +1,27 @@
+diff --git a/service/telemetry/metrics.go b/service/telemetry/metrics.go
+index 70deb0220..2cb482cfc 100644
+--- a/service/telemetry/metrics.go
++++ b/service/telemetry/metrics.go
+@@ -8,6 +8,7 @@ import (
+ 	"net/http"
+ 	"sync"
+ 
++	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ 	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/metric/noop"
+ 	"go.opentelemetry.io/otel/sdk/instrumentation"
+@@ -66,6 +67,14 @@ func newMeterProvider(set meterProviderSettings, disableHighCardinality bool) (m
+ 		opts = append(opts, sdkmetric.WithReader(r))
+ 	}
+ 
++	if set.cfg.Level < configtelemetry.LevelDetailed {
++		// Drop all otelhttp metrics if the level is not detailed.
++		opts = append(opts, dropViewOption(sdkmetric.Instrument{
++			Scope: instrumentation.Scope{Name: otelhttp.ScopeName},
++		},
++		))
++	}
++
+ 	// otel-arrow library metrics
+ 	// See https://github.com/open-telemetry/otel-arrow/blob/c39257/pkg/otel/arrow_record/consumer.go#L174-L176
+ 	if set.cfg.Level < configtelemetry.LevelNormal {

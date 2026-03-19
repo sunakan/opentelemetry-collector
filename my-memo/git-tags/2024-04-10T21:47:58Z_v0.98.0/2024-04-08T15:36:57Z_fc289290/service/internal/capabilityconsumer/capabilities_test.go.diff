@@ -1,0 +1,13 @@
+diff --git a/service/internal/capabilityconsumer/capabilities_test.go b/service/internal/capabilityconsumer/capabilities_test.go
+index 73ce2b577..69e9f1724 100644
+--- a/service/internal/capabilityconsumer/capabilities_test.go
++++ b/service/internal/capabilityconsumer/capabilities_test.go
+@@ -12,7 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func TestLogs(t *testing.T) {

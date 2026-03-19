@@ -1,0 +1,32 @@
+diff --git a/extension/extensionmiddleware/extensionmiddlewaretest/nop_test.go b/extension/extensionmiddleware/extensionmiddlewaretest/nop_test.go
+index 4b136369f..8c92eca20 100644
+--- a/extension/extensionmiddleware/extensionmiddlewaretest/nop_test.go
++++ b/extension/extensionmiddleware/extensionmiddlewaretest/nop_test.go
+@@ -4,6 +4,7 @@
+ package extensionmiddlewaretest
+ 
+ import (
++	"net/http"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+@@ -42,3 +43,19 @@ func TestNopServer(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.Nil(t, grpcOpts)
+ }
++
++func TestHTTPClientFunc(t *testing.T) {
++	called := false
++	req := &http.Request{}
++	resp := &http.Response{}
++
++	f := HTTPClientFunc(func(r *http.Request) (*http.Response, error) {
++		require.Equal(t, r, req)
++		called = true
++		return resp, nil
++	})
++
++	result, _ := f.RoundTrip(req)
++	require.True(t, called)
++	require.Equal(t, resp, result)
++}

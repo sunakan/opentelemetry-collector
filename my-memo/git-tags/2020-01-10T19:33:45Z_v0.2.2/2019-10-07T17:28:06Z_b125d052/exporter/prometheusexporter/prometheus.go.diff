@@ -1,0 +1,23 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index de8b88094..cdb30cb66 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -24,6 +24,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/exporterhelper"
+ )
+ 
+@@ -37,6 +38,10 @@ type prometheusExporter struct {
+ 
+ var _ consumer.MetricsConsumer = (*prometheusExporter)(nil)
+ 
++func (pe *prometheusExporter) Start(host exporter.Host) error {
++	return nil
++}
++
+ func (pe *prometheusExporter) ConsumeMetricsData(ctx context.Context, md consumerdata.MetricsData) error {
+ 	for _, metric := range md.Metrics {
+ 		_ = pe.exporter.ExportMetric(ctx, md.Node, md.Resource, metric)

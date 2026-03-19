@@ -1,0 +1,12 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 6f7398cea..561df1f1d 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -560,7 +560,6 @@ func TestGRPCServerWarning(t *testing.T) {
+ 			require.Len(t, observed.FilterLevelExact(zap.WarnLevel).All(), test.len)
+ 		})
+ 	}
+-
+ }
+ 
+ func TestGRPCServerSettingsError(t *testing.T) {

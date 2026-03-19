@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index 84716624c..2af50b921 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -115,8 +115,9 @@ func attributesMapToOCAttributeMap(attributes pdata.AttributeMap) map[string]*oc
+ 	}
+ 
+ 	ocAttributes := make(map[string]*octrace.AttributeValue, attributes.Len())
+-	attributes.ForEach(func(k string, v pdata.AttributeValue) {
++	attributes.Range(func(k string, v pdata.AttributeValue) bool {
+ 		ocAttributes[k] = attributeValueToOC(v)
++		return true
+ 	})
+ 	return ocAttributes
+ }

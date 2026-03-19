@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index 959edf0e3..7fa3455b8 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -76,7 +76,7 @@ func makeMetricsServiceClient(t *testing.T, mc consumer.Metrics) pmetricotlp.GRP
+ 		require.NoError(t, cc.Close())
+ 	})
+ 
+-	return pmetricotlp.NewClient(cc)
++	return pmetricotlp.NewGRPCClient(cc)
+ }
+ 
+ func otlpReceiverOnGRPCServer(t *testing.T, mc consumer.Metrics) net.Addr {

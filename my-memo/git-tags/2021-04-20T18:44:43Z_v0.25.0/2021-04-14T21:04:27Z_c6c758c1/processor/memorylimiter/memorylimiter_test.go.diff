@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/memorylimiter_test.go b/processor/memorylimiter/memorylimiter_test.go
+index b2b4b8d5e..cb0906001 100644
+--- a/processor/memorylimiter/memorylimiter_test.go
++++ b/processor/memorylimiter/memorylimiter_test.go
+@@ -188,7 +188,7 @@ func TestTraceMemoryPressureResponse(t *testing.T) {
+ 		}),
+ 		logger: zap.NewNop(),
+ 	}
+-	tp, err := processorhelper.NewTraceProcessor(
++	tp, err := processorhelper.NewTracesProcessor(
+ 		&Config{
+ 			ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 		},

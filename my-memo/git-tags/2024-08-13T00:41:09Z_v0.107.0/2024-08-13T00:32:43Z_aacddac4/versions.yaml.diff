@@ -1,0 +1,22 @@
+diff --git a/versions.yaml b/versions.yaml
+index f5f47a5f3..b1ca12a3b 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -3,7 +3,7 @@
+ 
+ module-sets:
+   stable:
+-    version: v1.12.0
++    version: v1.13.0
+     modules:
+       - go.opentelemetry.io/collector/client
+       - go.opentelemetry.io/collector/featuregate
+@@ -13,7 +13,7 @@ module-sets:
+       - go.opentelemetry.io/collector/config/configretry
+       - go.opentelemetry.io/collector/config/configtls
+   beta:
+-    version: v0.106.1
++    version: v0.107.0
+     modules:
+       - go.opentelemetry.io/collector
+       - go.opentelemetry.io/collector/internal/globalgates

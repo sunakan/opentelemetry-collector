@@ -1,0 +1,19 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index edd767f3c..e57d3f8af 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -132,6 +132,14 @@ func TestTypeCasting(t *testing.T) {
+ 		},
+ 	}
+ 
++	previousValue := featuregates.StrictlyTypedInputGate.IsEnabled()
++	err := featuregate.GlobalRegistry().Set(featuregates.StrictlyTypedInputID, false)
++	require.NoError(t, err)
++	defer func() {
++		err := featuregate.GlobalRegistry().Set(featuregates.StrictlyTypedInputID, previousValue)
++		require.NoError(t, err)
++	}()
++
+ 	for _, tt := range values {
+ 		t.Run(tt.value+"/"+string(tt.targetField), func(t *testing.T) {
+ 			testFile := "types_expand.yaml"

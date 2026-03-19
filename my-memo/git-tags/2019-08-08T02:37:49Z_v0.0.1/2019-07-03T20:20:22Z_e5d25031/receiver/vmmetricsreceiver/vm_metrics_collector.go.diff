@@ -1,0 +1,22 @@
+diff --git a/receiver/vmmetricsreceiver/vm_metrics_collector.go b/receiver/vmmetricsreceiver/vm_metrics_collector.go
+index 30b59692a..7b42c0e15 100644
+--- a/receiver/vmmetricsreceiver/vm_metrics_collector.go
++++ b/receiver/vmmetricsreceiver/vm_metrics_collector.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.opencensus.io/trace"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+-	"github.com/open-telemetry/opentelemetry-service/data"
++	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-service/internal"
+ 
+ 	"contrib.go.opencensus.io/resource/auto"
+@@ -220,7 +220,7 @@ func (vmc *VMMetricsCollector) scrapeAndExport() {
+ 	}
+ 
+ 	if len(metrics) > 0 {
+-		vmc.consumer.ConsumeMetricsData(ctx, data.MetricsData{Metrics: metrics})
++		vmc.consumer.ConsumeMetricsData(ctx, consumerdata.MetricsData{Metrics: metrics})
+ 	}
+ }
+ 

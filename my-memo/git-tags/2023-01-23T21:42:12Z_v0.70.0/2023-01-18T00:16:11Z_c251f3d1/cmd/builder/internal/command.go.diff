@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index c732083a5..1933a793c 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -165,6 +165,7 @@ func applyCfgFromFile(flags *flag.FlagSet, cfgFromFile builder.Config) {
+ 	cfg.Extensions = cfgFromFile.Extensions
+ 	cfg.Receivers = cfgFromFile.Receivers
+ 	cfg.Processors = cfgFromFile.Processors
++	cfg.Connectors = cfgFromFile.Connectors
+ 	cfg.Replaces = cfgFromFile.Replaces
+ 	cfg.Excludes = cfgFromFile.Excludes
+ 

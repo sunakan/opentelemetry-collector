@@ -1,0 +1,21 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index b0a19c241..3cc685da2 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -18,7 +18,6 @@
+ package tests
+ 
+ import (
+-	"fmt"
+ 	"strconv"
+ 	"testing"
+ 	"time"
+@@ -85,7 +84,7 @@ func TestBallastMemory(t *testing.T) {
+ 			return vms > test.ballastSize
+ 		}, time.Second*2, "VMS must be greater than %d", test.ballastSize)
+ 
+-		assert.True(t, rss <= test.maxRSS, fmt.Sprintf("RSS must be less than or equal to %d", test.maxRSS))
++		assert.LessOrEqual(t, rss, test.maxRSS)
+ 		tc.Stop()
+ 	}
+ }

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/field.go b/internal/cmd/pdatagen/internal/proto/field.go
+index e347537bd..e50511816 100644
+--- a/internal/cmd/pdatagen/internal/proto/field.go
++++ b/internal/cmd/pdatagen/internal/proto/field.go
+@@ -53,7 +53,7 @@ func (pf *Field) DefaultValue() string {
+ 	case TypeBool:
+ 		return `false`
+ 	case TypeBytes:
+-		return `[]byte{}`
++		return `nil`
+ 	case TypeString:
+ 		return `""`
+ 	case TypeMessage:

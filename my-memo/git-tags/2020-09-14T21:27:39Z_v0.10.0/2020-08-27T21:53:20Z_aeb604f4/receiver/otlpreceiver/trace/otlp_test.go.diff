@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/trace/otlp_test.go b/receiver/otlpreceiver/trace/otlp_test.go
+index c1a515939..01e28fff7 100644
+--- a/receiver/otlpreceiver/trace/otlp_test.go
++++ b/receiver/otlpreceiver/trace/otlp_test.go
+@@ -67,10 +67,10 @@ func TestExport(t *testing.T) {
+ 							TraceId:           traceID,
+ 							SpanId:            spanID,
+ 							Name:              "operationB",
+-							Kind:              otlptrace.Span_SERVER,
++							Kind:              otlptrace.Span_SPAN_KIND_SERVER,
+ 							StartTimeUnixNano: unixnanos,
+ 							EndTimeUnixNano:   unixnanos,
+-							Status:            &otlptrace.Status{Message: "status-cancelled", Code: otlptrace.Status_Cancelled},
++							Status:            &otlptrace.Status{Message: "status-cancelled", Code: otlptrace.Status_STATUS_CODE_CANCELLED},
+ 							TraceState:        "a=text,b=123",
+ 						},
+ 					},

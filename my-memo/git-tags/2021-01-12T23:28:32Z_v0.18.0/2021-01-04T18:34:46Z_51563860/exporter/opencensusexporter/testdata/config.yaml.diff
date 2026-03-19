@@ -1,0 +1,20 @@
+diff --git a/exporter/opencensusexporter/testdata/config.yaml b/exporter/opencensusexporter/testdata/config.yaml
+index 20b1284dd..a75278dfe 100644
+--- a/exporter/opencensusexporter/testdata/config.yaml
++++ b/exporter/opencensusexporter/testdata/config.yaml
+@@ -20,6 +20,15 @@ exporters:
+       time: 20
+       timeout: 30
+       permit_without_stream: true
++    sending_queue:
++      enabled: true
++      num_consumers: 2
++      queue_size: 10
++    retry_on_failure:
++      enabled: true
++      initial_interval: 10s
++      max_interval: 60s
++      max_elapsed_time: 10m
+ 
+ service:
+   pipelines:

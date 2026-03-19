@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 75573a72c..b02b1b53e 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -73,6 +73,7 @@ type Distribution struct {
+ 	Version          string `mapstructure:"version"`
+ 	BuildTags        string `mapstructure:"build_tags"`
+ 	DebugCompilation bool   `mapstructure:"debug_compilation"`
++	CGoEnabled       bool   `mapstructure:"cgo_enabled"`
+ }
+ 
+ // Module represents a receiver, exporter, processor or extension for the distribution

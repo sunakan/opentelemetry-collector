@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+index 4431e873e..ac591f136 100644
+--- a/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
++++ b/pdata/internal/generated_wrapper_exportprofilesserviceresponse.go
+@@ -26,8 +26,10 @@ func CopyOrigExportProfilesServiceResponse(dest, src *otlpcollectorprofiles.Expo
+ 	CopyOrigExportProfilesPartialSuccess(&dest.PartialSuccess, &src.PartialSuccess)
+ }
+ 
+-func FillOrigTestExportProfilesServiceResponse(orig *otlpcollectorprofiles.ExportProfilesServiceResponse) {
+-	FillOrigTestExportProfilesPartialSuccess(&orig.PartialSuccess)
++func GenTestOrigExportProfilesServiceResponse() *otlpcollectorprofiles.ExportProfilesServiceResponse {
++	orig := NewOrigPtrExportProfilesServiceResponse()
++	orig.PartialSuccess = *GenTestOrigExportProfilesPartialSuccess()
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

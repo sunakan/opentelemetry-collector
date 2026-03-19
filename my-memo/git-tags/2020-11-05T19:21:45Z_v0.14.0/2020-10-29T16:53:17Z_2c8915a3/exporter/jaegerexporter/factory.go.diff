@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/factory.go b/exporter/jaegerexporter/factory.go
+index 16fa2b361..11a384769 100644
+--- a/exporter/jaegerexporter/factory.go
++++ b/exporter/jaegerexporter/factory.go
+@@ -57,7 +57,7 @@ func createTraceExporter(
+ 	_ context.Context,
+ 	params component.ExporterCreateParams,
+ 	config configmodels.Exporter,
+-) (component.TraceExporter, error) {
++) (component.TracesExporter, error) {
+ 
+ 	expCfg := config.(*Config)
+ 	if expCfg.Endpoint == "" {

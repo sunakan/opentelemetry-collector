@@ -1,0 +1,32 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 98215e4c0..15c2f68c9 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -195,16 +195,22 @@ func (hss *HTTPServerSettings) ToServer(handler http.Handler, opts ...ToServerOp
+ 	for _, o := range opts {
+ 		o(serverOpts)
+ 	}
+-	if len(hss.CorsOrigins) > 0 {
+-		co := cors.Options{AllowedOrigins: hss.CorsOrigins, AllowedHeaders: hss.CorsHeaders}
+-		handler = cors.New(co).Handler(handler)
+-	}
+-	// TODO: emit a warning when non-empty CorsHeaders and empty CorsOrigins.
+ 
+ 	handler = middleware.HTTPContentDecompressor(
+ 		handler,
+ 		middleware.WithErrorHandler(serverOpts.errorHandler),
+ 	)
++
++	if len(hss.CorsOrigins) > 0 {
++		co := cors.Options{
++			AllowedOrigins:   hss.CorsOrigins,
++			AllowCredentials: true,
++			AllowedHeaders:   hss.CorsHeaders,
++		}
++		handler = cors.New(co).Handler(handler)
++	}
++	// TODO: emit a warning when non-empty CorsHeaders and empty CorsOrigins.
++
+ 	return &http.Server{
+ 		Handler: handler,
+ 	}

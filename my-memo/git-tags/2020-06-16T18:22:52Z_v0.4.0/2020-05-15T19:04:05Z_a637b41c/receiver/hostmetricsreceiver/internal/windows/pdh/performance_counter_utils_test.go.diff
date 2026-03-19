@@ -1,0 +1,15 @@
+diff --git a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils_test.go b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils_test.go
+index 861144a4b..048170a66 100644
+--- a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils_test.go
++++ b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_utils_test.go
+@@ -21,8 +21,8 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
+ )
+ 
+ func TestPerfCounter_InitializeMetric_NoLabels(t *testing.T) {

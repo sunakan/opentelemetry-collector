@@ -1,0 +1,16 @@
+diff --git a/config/configgrpc/configgrpc_benchmark_test.go b/config/configgrpc/configgrpc_benchmark_test.go
+index d1fc95f77..1ad755f2b 100644
+--- a/config/configgrpc/configgrpc_benchmark_test.go
++++ b/config/configgrpc/configgrpc_benchmark_test.go
+@@ -16,10 +16,10 @@ import (
+ 	"google.golang.org/grpc/encoding/gzip"
+ 	"google.golang.org/grpc/status"
+ 
+-	"go.opentelemetry.io/collector/internal/testdata"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
++	"go.opentelemetry.io/collector/pdata/testdata"
+ )
+ 
+ func BenchmarkCompressors(b *testing.B) {

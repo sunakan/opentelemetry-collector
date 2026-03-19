@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/factory_test.go b/processor/batchprocessor/factory_test.go
+index 83371f0c1..6dbc3af13 100644
+--- a/processor/batchprocessor/factory_test.go
++++ b/processor/batchprocessor/factory_test.go
+@@ -25,7 +25,7 @@ func TestCreateProcessor(t *testing.T) {
+ 	factory := NewFactory()
+ 
+ 	cfg := factory.CreateDefaultConfig()
+-	creationSet := processortest.NewNopCreateSettings()
++	creationSet := processortest.NewNopSettings()
+ 	tp, err := factory.CreateTracesProcessor(context.Background(), creationSet, cfg, nil)
+ 	assert.NotNil(t, tp)
+ 	assert.NoError(t, err, "cannot create trace processor")

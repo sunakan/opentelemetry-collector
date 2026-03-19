@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/templates/logs.go.tmpl b/cmd/mdatagen/internal/templates/logs.go.tmpl
+index 58d33df66..c377bf49e 100644
+--- a/cmd/mdatagen/internal/templates/logs.go.tmpl
++++ b/cmd/mdatagen/internal/templates/logs.go.tmpl
+@@ -27,8 +27,8 @@ type LogBuilderOption interface {
+     apply(*LogsBuilder)
+ }
+ 
+-{{- if isReceiver }}
+-func NewLogsBuilder(settings {{ .Status.Class }}.Settings) *LogsBuilder {
++{{- if or isReceiver isScraper }}
++func NewLogsBuilder({{ if .Events }}lbc LogsBuilderConfig, {{ end }}settings {{ .Status.Class }}.Settings) *LogsBuilder {
+ 	lb := &LogsBuilder{
+ 		logsBuffer:     plog.NewLogs(),
+ 		logRecordsBuffer: plog.NewLogRecordSlice(),

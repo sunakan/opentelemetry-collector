@@ -1,0 +1,17 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index 07ca158ad..b185c4583 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -50,11 +50,10 @@ func TestLoadConfig(t *testing.T) {
+ 			NameVal: "jaeger/customname",
+ 			Protocols: map[string]*configmodels.ReceiverSettings{
+ 				"thrift-http": {
+-					Enabled:  false,
++					Disabled: true,
+ 					Endpoint: "127.0.0.1:3456",
+ 				},
+ 				"thrift-tchannel": {
+-					Enabled:  true,
+ 					Endpoint: "0.0.0.0:123",
+ 				},
+ 			},

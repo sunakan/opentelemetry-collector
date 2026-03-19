@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/gzip.go b/config/configgrpc/gzip.go
+index a6f64286d..3b7a4de68 100644
+--- a/config/configgrpc/gzip.go
++++ b/config/configgrpc/gzip.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configgrpc
++package configgrpc // import "go.opentelemetry.io/collector/config/configgrpc"
+ 
+ import (
+ 	// Import the gzip package which auto-registers the gzip gRPC compressor.

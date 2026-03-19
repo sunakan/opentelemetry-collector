@@ -1,0 +1,14 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index d7c3503ac..4202a9688 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -85,7 +85,8 @@ func Configure(
+ 	return views
+ }
+ 
+-// CountMetricPoints is a helper to count the "amount" of metrics data.
++// CountMetricPoints is a helper to count the "amount" of metrics data. For code using the
++// internal data structure, pdatautil.MetricAndDataPointCount should be used instead
+ func CountMetricPoints(md consumerdata.MetricsData) (numTimeSeries int, numPoints int) {
+ 	for _, metric := range md.Metrics {
+ 		tss := metric.GetTimeseries()

@@ -1,0 +1,13 @@
+diff --git a/internal/collector/telemetry/telemetry.go b/internal/collector/telemetry/telemetry.go
+index a31de98ee..f82106f2b 100644
+--- a/internal/collector/telemetry/telemetry.go
++++ b/internal/collector/telemetry/telemetry.go
+@@ -20,7 +20,7 @@ import (
+ 	"fmt"
+ 	"strings"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/version"
++	"go.opentelemetry.io/collector/internal/version"
+ )
+ 
+ const (

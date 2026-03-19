@@ -1,0 +1,13 @@
+diff --git a/service/telemetry_test.go b/service/telemetry_test.go
+index fe1be5466..573cd36a4 100644
+--- a/service/telemetry_test.go
++++ b/service/telemetry_test.go
+@@ -212,7 +212,7 @@ func createTestMetrics(t *testing.T, mp metric.MeterProvider) *view.View {
+ }
+ 
+ func getMetricsFromPrometheus(t *testing.T, handler http.Handler) map[string]*io_prometheus_client.MetricFamily {
+-	req, err := http.NewRequest("GET", "/metrics", nil)
++	req, err := http.NewRequest(http.MethodGet, "/metrics", nil)
+ 	require.NoError(t, err)
+ 
+ 	rr := httptest.NewRecorder()

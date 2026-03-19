@@ -1,0 +1,19 @@
+diff --git a/pdata/pmetric/generated_exemplarslice_test.go b/pdata/pmetric/generated_exemplarslice_test.go
+index e4259d406..278a12b93 100644
+--- a/pdata/pmetric/generated_exemplarslice_test.go
++++ b/pdata/pmetric/generated_exemplarslice_test.go
+@@ -140,6 +140,14 @@ func TestExemplarSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestExemplarSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestExemplarSlice()
++	got.RemoveIf(func(el Exemplar) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestExemplarSliceAll(t *testing.T) {
+ 	ms := generateTestExemplarSlice()
+ 	assert.NotEmpty(t, ms.Len())

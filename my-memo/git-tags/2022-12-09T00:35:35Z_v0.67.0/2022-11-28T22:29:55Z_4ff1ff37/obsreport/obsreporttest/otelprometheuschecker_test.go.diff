@@ -1,0 +1,34 @@
+diff --git a/obsreport/obsreporttest/otelprometheuschecker_test.go b/obsreport/obsreporttest/otelprometheuschecker_test.go
+index bde065ce0..078762199 100644
+--- a/obsreport/obsreporttest/otelprometheuschecker_test.go
++++ b/obsreport/obsreporttest/otelprometheuschecker_test.go
+@@ -49,6 +49,7 @@ func TestPromChecker(t *testing.T) {
+ 
+ 	scraper := component.NewID("fakeScraper")
+ 	receiver := component.NewID("fakeReceiver")
++	processor := component.NewID("fakeProcessor")
+ 	exporter := component.NewID("fakeExporter")
+ 	transport := "fakeTransport"
+ 
+@@ -97,6 +98,21 @@ func TestPromChecker(t *testing.T) {
+ 		"metrics from Receiver Logs should be valid",
+ 	)
+ 
++	assert.NoError(t,
++		pc.checkProcessorTraces(processor, 42, 13, 7),
++		"metrics from Receiver Traces should be valid",
++	)
++
++	assert.NoError(t,
++		pc.checkProcessorMetrics(processor, 7, 41, 13),
++		"metrics from Receiver Metrics should be valid",
++	)
++
++	assert.NoError(t,
++		pc.checkProcessorLogs(processor, 102, 35, 14),
++		"metrics from Receiver Logs should be valid",
++	)
++
+ 	assert.NoError(t,
+ 		pc.checkExporterTraces(exporter, 43, 14),
+ 		"metrics from Exporter Traces should be valid",

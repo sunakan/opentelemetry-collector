@@ -1,0 +1,11 @@
+diff --git a/internal/configunmarshaler/testdata/empty-all-sections.yaml b/internal/configunmarshaler/testdata/empty-all-sections.yaml
+new file mode 100644
+index 000000000..05341a021
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/empty-all-sections.yaml
+@@ -0,0 +1,5 @@
++receivers:
++exporters:
++processors:
++service:
++  pipelines:

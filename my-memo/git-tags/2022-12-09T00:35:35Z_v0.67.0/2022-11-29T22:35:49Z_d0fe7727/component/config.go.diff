@@ -1,0 +1,17 @@
+diff --git a/component/config.go b/component/config.go
+index 29c71f4ba..a0e8dac0a 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -23,7 +23,11 @@ import (
+ )
+ 
+ type Config interface {
+-	identifiable
++	// Deprecated: [v0.67.0] use Settings.ID.
++	ID() ID
++
++	// Deprecated: [v0.67.0] use Settings.ID.
++	SetIDName(idName string)
+ 
+ 	privateConfig()
+ }

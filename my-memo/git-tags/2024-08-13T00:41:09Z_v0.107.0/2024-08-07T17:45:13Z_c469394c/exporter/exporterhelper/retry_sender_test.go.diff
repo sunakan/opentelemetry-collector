@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/retry_sender_test.go b/exporter/exporterhelper/retry_sender_test.go
+index 57a653d2a..e4de2a7a7 100644
+--- a/exporter/exporterhelper/retry_sender_test.go
++++ b/exporter/exporterhelper/retry_sender_test.go
+@@ -339,7 +339,7 @@ type observabilityConsumerSender struct {
+ 	droppedItemsCount *atomic.Int64
+ }
+ 
+-func newObservabilityConsumerSender(*ObsReport) requestSender {
++func newObservabilityConsumerSender(*obsReport) requestSender {
+ 	return &observabilityConsumerSender{
+ 		waitGroup:         new(sync.WaitGroup),
+ 		droppedItemsCount: &atomic.Int64{},

@@ -1,0 +1,13 @@
+diff --git a/internal/middleware/wrappedstream.go b/internal/middleware/wrappedstream.go
+index 232e2ae6f..ea42ade78 100644
+--- a/internal/middleware/wrappedstream.go
++++ b/internal/middleware/wrappedstream.go
+@@ -21,6 +21,8 @@ import (
+ 	"google.golang.org/grpc"
+ )
+ 
++// this functionality was originally copied from grpc-ecosystem/go-grpc-middleware project
++
+ // WrappedServerStream is a thin wrapper around grpc.ServerStream that allows modifying context.
+ type WrappedServerStream struct {
+ 	grpc.ServerStream

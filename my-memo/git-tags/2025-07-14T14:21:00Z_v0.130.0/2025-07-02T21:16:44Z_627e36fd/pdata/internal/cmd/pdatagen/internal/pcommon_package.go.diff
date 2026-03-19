@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/pcommon_package.go b/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
+index 2576108d4..e5601d541 100644
+--- a/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/pdata/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -160,6 +160,13 @@ var resource = &messageValueStruct{
+ 	fields: []baseField{
+ 		attributes,
+ 		droppedAttributesCount,
++		&sliceField{
++			// Hide accessors for this field from 1.x public API since the proto field is experimental.
++			// It's available via the xpdata/entity.ResourceEntityRefs.
++			hideAccessors:   true,
++			originFieldName: "EntityRefs",
++			returnSlice:     entityRefSlice,
++		},
+ 	},
+ }
+ 

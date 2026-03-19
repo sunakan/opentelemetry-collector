@@ -1,0 +1,16 @@
+diff --git a/testbed/testbed/data_providers.go b/testbed/testbed/data_providers.go
+index aa37666c6..d2b793ae5 100644
+--- a/testbed/testbed/data_providers.go
++++ b/testbed/testbed/data_providers.go
+@@ -25,10 +25,10 @@ import (
+ 	"go.uber.org/atomic"
+ 
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ 	"go.opentelemetry.io/collector/internal/idutils"
+ 	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // DataProvider defines the interface for generators of test data used to drive various end-to-end tests.

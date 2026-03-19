@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/testdata/metrics_and_type.yaml b/cmd/mdatagen/testdata/metrics_and_type.yaml
+index 81d66bde9..2306a08b3 100644
+--- a/cmd/mdatagen/testdata/metrics_and_type.yaml
++++ b/cmd/mdatagen/testdata/metrics_and_type.yaml
+@@ -17,3 +17,7 @@ metrics:
+     unit: s
+     gauge:
+       value_type: double
++
++tests:
++  skip_lifecycle: true
++  skip_shutdown: true

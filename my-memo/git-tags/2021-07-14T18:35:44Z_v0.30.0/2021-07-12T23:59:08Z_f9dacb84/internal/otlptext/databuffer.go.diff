@@ -1,0 +1,15 @@
+diff --git a/internal/otlptext/databuffer.go b/internal/otlptext/databuffer.go
+index 230e59f8d..85bd31591 100644
+--- a/internal/otlptext/databuffer.go
++++ b/internal/otlptext/databuffer.go
+@@ -82,8 +82,8 @@ func (b *dataBuffer) logMetricDataPoints(m pdata.Metric) {
+ 		return
+ 	case pdata.MetricDataTypeIntGauge:
+ 		b.logIntDataPoints(m.IntGauge().DataPoints())
+-	case pdata.MetricDataTypeDoubleGauge:
+-		b.logDoubleDataPoints(m.DoubleGauge().DataPoints())
++	case pdata.MetricDataTypeGauge:
++		b.logDoubleDataPoints(m.Gauge().DataPoints())
+ 	case pdata.MetricDataTypeIntSum:
+ 		data := m.IntSum()
+ 		b.logEntry("     -> IsMonotonic: %t", data.IsMonotonic())

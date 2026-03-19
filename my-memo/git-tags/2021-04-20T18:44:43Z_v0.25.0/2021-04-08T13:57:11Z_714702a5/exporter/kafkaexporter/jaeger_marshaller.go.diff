@@ -1,0 +1,14 @@
+diff --git a/exporter/kafkaexporter/jaeger_marshaller.go b/exporter/kafkaexporter/jaeger_marshaller.go
+index 56eb44da4..da0e9be0e 100644
+--- a/exporter/kafkaexporter/jaeger_marshaller.go
++++ b/exporter/kafkaexporter/jaeger_marshaller.go
+@@ -47,7 +47,8 @@ func (j jaegerMarshaller) Marshal(traces pdata.Traces) ([]Message, error) {
+ 				errs = append(errs, err)
+ 				continue
+ 			}
+-			messages = append(messages, Message{Value: bts})
++			key := []byte(span.TraceID.String())
++			messages = append(messages, Message{Value: bts, Key: key})
+ 		}
+ 	}
+ 	return messages, consumererror.Combine(errs)

@@ -1,0 +1,26 @@
+diff --git a/config/confignet/confignet.go b/config/confignet/confignet.go
+index bab71e7c1..09f7ec24f 100644
+--- a/config/confignet/confignet.go
++++ b/config/confignet/confignet.go
+@@ -16,10 +16,6 @@ type DialerConfig struct {
+ 	Timeout time.Duration `mapstructure:"timeout"`
+ }
+ 
+-// NetAddr represents a network endpoint address.
+-// Deprecated: [v0.95.0] Use AddrConfig instead.
+-type NetAddr = AddrConfig
+-
+ // AddrConfig represents a network endpoint address.
+ type AddrConfig struct {
+ 	// Endpoint configures the address for this network connection.
+@@ -49,10 +45,6 @@ func (na *AddrConfig) Listen(ctx context.Context) (net.Listener, error) {
+ 	return lc.Listen(ctx, na.Transport, na.Endpoint)
+ }
+ 
+-// TCPAddr represents a TCP endpoint address.
+-// Deprecated: [v0.95.0] Use TCPAddrConfig instead.
+-type TCPAddr = TCPAddrConfig
+-
+ // TCPAddrConfig represents a TCP endpoint address.
+ type TCPAddrConfig struct {
+ 	// Endpoint configures the address for this network connection.

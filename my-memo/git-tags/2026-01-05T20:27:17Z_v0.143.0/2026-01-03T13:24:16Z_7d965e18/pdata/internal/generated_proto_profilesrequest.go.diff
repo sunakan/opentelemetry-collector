@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_profilesrequest.go b/pdata/internal/generated_proto_profilesrequest.go
+index bab36486f..b8956807f 100644
+--- a/pdata/internal/generated_proto_profilesrequest.go
++++ b/pdata/internal/generated_proto_profilesrequest.go
+@@ -45,7 +45,6 @@ func DeleteProfilesRequest(orig *ProfilesRequest, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteRequestContext(orig.RequestContext, true)
+ 	DeleteProfilesData(&orig.ProfilesData, false)
+ 

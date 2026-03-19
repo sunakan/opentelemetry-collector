@@ -1,0 +1,16 @@
+diff --git a/testbed/tests/scenarios.go b/testbed/tests/scenarios.go
+index b50caf651..86dcd19f8 100644
+--- a/testbed/tests/scenarios.go
++++ b/testbed/tests/scenarios.go
+@@ -71,9 +71,9 @@ func createConfigYaml(
+ 	// Set pipeline based on DataSender type
+ 	var pipeline string
+ 	switch sender.(type) {
+-	case testbed.TraceDataSender, testbed.TraceDataSenderOld:
++	case testbed.TraceDataSender:
+ 		pipeline = "traces"
+-	case testbed.MetricDataSender, testbed.MetricDataSenderOld:
++	case testbed.MetricDataSender:
+ 		pipeline = "metrics"
+ 	default:
+ 		t.Error("Invalid DataSender type")

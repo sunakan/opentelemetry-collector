@@ -1,0 +1,35 @@
+diff --git a/service/testdata/otelcol-config.yaml b/service/testdata/otelcol-config.yaml
+new file mode 100644
+index 000000000..fae644088
+--- /dev/null
++++ b/service/testdata/otelcol-config.yaml
+@@ -0,0 +1,29 @@
++receivers:
++  jaeger:
++
++exporters:
++  opencensus:
++    endpoint: "locahost:55678"
++
++processors:
++  attributes:
++    actions:
++      - key: key1
++        value: 123
++        action: insert
++  queued_retry:
++  batch:
++
++pipelines:
++  traces:
++    receivers: [jaeger]
++    processors: [attributes, batch, queued_retry]
++    exporters: [opencensus]
++
++extensions:
++  health_check:
++  pprof:
++  zpages:
++
++service:
++  extensions: [pprof, zpages, health_check]

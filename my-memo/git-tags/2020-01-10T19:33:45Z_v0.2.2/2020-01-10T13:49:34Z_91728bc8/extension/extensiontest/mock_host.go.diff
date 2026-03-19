@@ -1,0 +1,39 @@
+diff --git a/extension/extensiontest/mock_host.go b/extension/extensiontest/mock_host.go
+index 2ad6c07de..f6df39b8a 100644
+--- a/extension/extensiontest/mock_host.go
++++ b/extension/extensiontest/mock_host.go
+@@ -15,17 +15,18 @@
+ package extensiontest
+ 
+ import (
++	"context"
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/extension"
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ )
+ 
+-// MockHost mocks an extension.Host for test purposes.
++// MockHost mocks an component.Host for test purposes.
+ type MockHost struct {
+ 	errorChan chan error
+ }
+ 
+-var _ extension.Host = (*MockHost)(nil)
++var _ component.Host = (*MockHost)(nil)
+ 
+ // NewMockHost returns a new instance of MockHost with proper defaults for most
+ // tests.
+@@ -42,6 +43,12 @@ func (mh *MockHost) ReportFatalError(err error) {
+ 	mh.errorChan <- err
+ }
+ 
++// Context returns a context provided by the host to be used on the component
++// operations.
++func (mh *MockHost) Context() context.Context {
++	return context.Background()
++}
++
+ // WaitForFatalError waits the given amount of time until an error is reported via
+ // ReportFatalError. It returns the error, if any, and a bool to indicated if
+ // an error was received before the time out.

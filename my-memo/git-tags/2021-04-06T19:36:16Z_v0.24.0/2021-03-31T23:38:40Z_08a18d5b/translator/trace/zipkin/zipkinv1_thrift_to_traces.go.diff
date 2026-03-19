@@ -1,0 +1,12 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_traces.go b/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
+index f435c8800..0eee057a9 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_traces.go
+@@ -21,6 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/translator/internaldata"
+ )
+ 
++// V1ThriftBatchToInternalTraces transforms Zipkin v1 spans into pdata.Traces.
+ func V1ThriftBatchToInternalTraces(zSpans []*zipkincore.Span) (pdata.Traces, error) {
+ 	traces := pdata.NewTraces()
+ 	ocTraces, _ := v1ThriftBatchToOCProto(zSpans)

@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index c4773c027..9ac3a7f7e 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -300,11 +300,11 @@ func templatize(tmplFile string, md Metadata) *template.Template {
+ 				"toCamelCase": func(s string) string {
+ 					caser := cases.Title(language.English).String
+ 					parts := strings.Split(s, "_")
+-					result := ""
++					var result strings.Builder
+ 					for _, part := range parts {
+-						result += caser(part)
++						fmt.Fprintf(&result, "%s", caser(part))
+ 					}
+-					return result
++					return result.String()
+ 				},
+ 				"inc":       func(i int) int { return i + 1 },
+ 				"distroURL": distroURL,

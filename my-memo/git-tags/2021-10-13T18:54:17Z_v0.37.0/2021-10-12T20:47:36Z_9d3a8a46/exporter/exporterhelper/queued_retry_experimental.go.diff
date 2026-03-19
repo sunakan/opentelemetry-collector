@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/queued_retry_experimental.go b/exporter/exporterhelper/queued_retry_experimental.go
+index a122727fa..8e91cf34a 100644
+--- a/exporter/exporterhelper/queued_retry_experimental.go
++++ b/exporter/exporterhelper/queued_retry_experimental.go
+@@ -15,7 +15,7 @@
+ //go:build enable_unstable
+ // +build enable_unstable
+ 
+-package exporterhelper
++package exporterhelper // import "go.opentelemetry.io/collector/exporter/exporterhelper"
+ 
+ import (
+ 	"context"

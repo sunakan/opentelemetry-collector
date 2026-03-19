@@ -1,0 +1,16 @@
+diff --git a/receiver/otlpreceiver/otlphttp.go b/receiver/otlpreceiver/otlphttp.go
+index 49deeeda9..1f0e14d51 100644
+--- a/receiver/otlpreceiver/otlphttp.go
++++ b/receiver/otlpreceiver/otlphttp.go
+@@ -38,9 +38,9 @@ func (*xProtobufMarshaler) ContentType() string {
+ 
+ var jsonMarshaller = &jsonpb.Marshaler{}
+ 
+-// OTLPErrorHandler encodes the HTTP error message inside a rpc.Status message as required
++// errorHandler encodes the HTTP error message inside a rpc.Status message as required
+ // by the OTLP protocol.
+-func OTLPErrorHandler(w http.ResponseWriter, r *http.Request, errMsg string, statusCode int) {
++func errorHandler(w http.ResponseWriter, r *http.Request, errMsg string, statusCode int) {
+ 	var (
+ 		msg []byte
+ 		s   *status.Status

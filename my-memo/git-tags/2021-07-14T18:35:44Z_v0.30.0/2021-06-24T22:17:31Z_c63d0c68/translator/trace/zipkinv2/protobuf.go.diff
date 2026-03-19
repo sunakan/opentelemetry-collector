@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv2/protobuf.go b/translator/trace/zipkinv2/protobuf.go
+index 8e7ffba61..558b57c63 100644
+--- a/translator/trace/zipkinv2/protobuf.go
++++ b/translator/trace/zipkinv2/protobuf.go
+@@ -18,7 +18,7 @@ import (
+ 	zipkinmodel "github.com/openzipkin/zipkin-go/model"
+ 	"github.com/openzipkin/zipkin-go/proto/zipkin_proto3"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ var _ pdata.TracesDecoder = (*protobufDecoder)(nil)

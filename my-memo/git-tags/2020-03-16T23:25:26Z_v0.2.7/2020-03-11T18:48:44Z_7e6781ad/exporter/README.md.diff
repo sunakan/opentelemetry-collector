@@ -1,0 +1,13 @@
+diff --git a/exporter/README.md b/exporter/README.md
+index 5bdc7ed2b..5710e9677 100644
+--- a/exporter/README.md
++++ b/exporter/README.md
+@@ -87,7 +87,7 @@ exporters:
+     server_name_override: opentelemetry.io
+ ```
+ 
+-The full list of settings exposed for this exporter are documented [here](jaeger/jaegergrpcpexporter/config.go)
++The full list of settings exposed for this exporter are documented [here](jaeger/jaegergrpcexporter/config.go)
+ with detailed sample configurations [here](jaeger/jaegergrpcexporter/testdata/config.yaml).
+ 
+ ### <a name="jaeger_thrift_http"></a>Thrift HTTP

@@ -1,0 +1,12 @@
+diff --git a/confmap/provider/envprovider/metadata.yaml b/confmap/provider/envprovider/metadata.yaml
+index 228ca4596..35ec18c74 100644
+--- a/confmap/provider/envprovider/metadata.yaml
++++ b/confmap/provider/envprovider/metadata.yaml
+@@ -2,6 +2,7 @@ type: env
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: provider
+   stability:
+     stable: [provider]

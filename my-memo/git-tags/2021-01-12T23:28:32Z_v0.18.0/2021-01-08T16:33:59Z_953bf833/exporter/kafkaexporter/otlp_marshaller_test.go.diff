@@ -1,0 +1,15 @@
+diff --git a/exporter/kafkaexporter/otlp_marshaller_test.go b/exporter/kafkaexporter/otlp_marshaller_test.go
+index 1b70acdf6..ff13aa148 100644
+--- a/exporter/kafkaexporter/otlp_marshaller_test.go
++++ b/exporter/kafkaexporter/otlp_marshaller_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+-	otlpmetric "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/metrics/v1"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/collector/trace/v1"
++	otlpmetric "go.opentelemetry.io/collector/internal/data/protogen/collector/metrics/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 

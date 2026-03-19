@@ -1,0 +1,20 @@
+diff --git a/service/service.go b/service/service.go
+index 92b42dd53..5e87429d1 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -171,3 +171,15 @@ func (srv *service) initExtensionsAndPipeline(set *settings) error {
+ 
+ 	return nil
+ }
++
++func getBallastSize(host component.Host) uint64 {
++	var ballastSize uint64
++	extensions := host.GetExtensions()
++	for _, extension := range extensions {
++		if ext, ok := extension.(interface{ GetBallastSize() uint64 }); ok {
++			ballastSize = ext.GetBallastSize()
++			break
++		}
++	}
++	return ballastSize
++}

@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/span_generator.go b/internal/goldendataset/span_generator.go
+index e013f698e..06269688d 100644
+--- a/internal/goldendataset/span_generator.go
++++ b/internal/goldendataset/span_generator.go
+@@ -19,7 +19,7 @@ import (
+ 	"io"
+ 	"time"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

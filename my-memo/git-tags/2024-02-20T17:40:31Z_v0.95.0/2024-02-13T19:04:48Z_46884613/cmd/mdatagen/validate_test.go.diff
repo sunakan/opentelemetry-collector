@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/validate_test.go b/cmd/mdatagen/validate_test.go
+index 12871a4ab..4c2ddea57 100644
+--- a/cmd/mdatagen/validate_test.go
++++ b/cmd/mdatagen/validate_test.go
+@@ -113,7 +113,7 @@ func TestValidateMetricDuplicates(t *testing.T) {
+ 		"container.uptime":          {"docker_stats", "kubeletstats"},
+ 	}
+ 	allMetrics := map[string][]string{}
+-	err := filepath.Walk("../../receiver", func(path string, info fs.FileInfo, err error) error {
++	err := filepath.Walk("../../receiver", func(path string, info fs.FileInfo, _ error) error {
+ 		if info.Name() == "metadata.yaml" {
+ 			md, err := loadMetadata(path)
+ 			require.NoError(t, err)

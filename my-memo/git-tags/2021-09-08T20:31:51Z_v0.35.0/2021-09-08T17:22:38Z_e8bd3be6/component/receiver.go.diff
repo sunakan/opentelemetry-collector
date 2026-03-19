@@ -1,0 +1,13 @@
+diff --git a/component/receiver.go b/component/receiver.go
+index 20dbd16ba..970771190 100644
+--- a/component/receiver.go
++++ b/component/receiver.go
+@@ -55,7 +55,7 @@ type LogsReceiver interface {
+ 
+ // ReceiverCreateSettings configures Receiver creators.
+ type ReceiverCreateSettings struct {
+-	TelemetryCreateSettings
++	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes.
+ 	BuildInfo BuildInfo

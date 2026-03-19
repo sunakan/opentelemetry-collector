@@ -1,0 +1,13 @@
+diff --git a/processor/groupbytraceprocessor/factory_test.go b/processor/groupbytraceprocessor/factory_test.go
+index 91d5e429d..67365509b 100644
+--- a/processor/groupbytraceprocessor/factory_test.go
++++ b/processor/groupbytraceprocessor/factory_test.go
+@@ -79,7 +79,7 @@ func TestCreateTestProcessorWithNotImplementedOptions(t *testing.T) {
+ 			errDiskStorageNotSupported,
+ 		},
+ 	} {
+-		p, err := f.CreateTraceProcessor(context.Background(), params, next, tt.config)
++		p, err := f.CreateTraceProcessor(context.Background(), params, tt.config, next)
+ 
+ 		// verify
+ 		assert.Error(t, tt.expectedErr, err)

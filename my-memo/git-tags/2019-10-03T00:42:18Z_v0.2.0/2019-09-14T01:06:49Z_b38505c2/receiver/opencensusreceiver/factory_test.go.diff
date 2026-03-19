@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory_test.go b/receiver/opencensusreceiver/factory_test.go
+index 4b1607f1f..cb3d5f8e9 100644
+--- a/receiver/opencensusreceiver/factory_test.go
++++ b/receiver/opencensusreceiver/factory_test.go
+@@ -80,7 +80,7 @@ func TestCreateTraceReceiver(t *testing.T) {
+ 					ReceiverSettings: configmodels.ReceiverSettings{
+ 						TypeVal:  typeStr,
+ 						NameVal:  typeStr,
+-						Endpoint: "127.0.0.1:112233",
++						Endpoint: "localhost:112233",
+ 					},
+ 				},
+ 			},

@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetrytest_test.go.tmpl b/cmd/mdatagen/internal/templates/telemetrytest_test.go.tmpl
+index a60140c43..d4680f089 100644
+--- a/cmd/mdatagen/internal/templates/telemetrytest_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetrytest_test.go.tmpl
+@@ -19,6 +19,7 @@ import (
+     "go.opentelemetry.io/otel/sdk/metric/metricdata/metricdatatest"
+ 
+     "go.opentelemetry.io/collector/component/componenttest"
++    "{{ .PackageName }}/internal/{{ .GeneratedPackageName }}"
+ )
+ 
+ func TestSetupTelemetry(t *testing.T) {

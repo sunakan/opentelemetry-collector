@@ -1,0 +1,23 @@
+diff --git a/processor/memorylimiter/config_test.go b/processor/memorylimiter/config_test.go
+index 8c4731c5c..b437f358c 100644
+--- a/processor/memorylimiter/config_test.go
++++ b/processor/memorylimiter/config_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/config/configtest"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+@@ -34,7 +34,7 @@ func TestLoadConfig(t *testing.T) {
+ 	factories.Processors[typeStr] = factory
+ 	require.NoError(t, err)
+ 
+-	cfg, err := config.LoadConfigFile(
++	cfg, err := configtest.LoadConfigFile(
+ 		t,
+ 		path.Join(".", "testdata", "config.yaml"),
+ 		factories)

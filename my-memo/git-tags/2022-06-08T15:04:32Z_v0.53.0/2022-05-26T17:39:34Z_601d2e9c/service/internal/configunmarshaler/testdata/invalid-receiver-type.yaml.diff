@@ -1,0 +1,24 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml b/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml
+index 29ffaffac..c4673ebd7 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-receiver-type.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver:
++  nop:
+   /custom:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

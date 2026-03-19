@@ -1,0 +1,19 @@
+diff --git a/component/componenttest/nop_telemetry.go b/component/componenttest/nop_telemetry.go
+index a20ee3420..9cd83a1de 100644
+--- a/component/componenttest/nop_telemetry.go
++++ b/component/componenttest/nop_telemetry.go
+@@ -21,6 +21,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+ // NewNopTelemetrySettings returns a new nop telemetry settings for Create* functions.
+@@ -30,5 +31,6 @@ func NewNopTelemetrySettings() component.TelemetrySettings {
+ 		TracerProvider: trace.NewNoopTracerProvider(),
+ 		MeterProvider:  noop.NewMeterProvider(),
+ 		MetricsLevel:   configtelemetry.LevelNone,
++		Resource:       pcommon.NewResource(),
+ 	}
+ }

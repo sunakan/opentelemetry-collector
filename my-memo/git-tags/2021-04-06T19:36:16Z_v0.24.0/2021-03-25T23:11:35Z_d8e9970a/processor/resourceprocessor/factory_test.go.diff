@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/factory_test.go b/processor/resourceprocessor/factory_test.go
+index 6f8cabfc9..78d503b1a 100644
+--- a/processor/resourceprocessor/factory_test.go
++++ b/processor/resourceprocessor/factory_test.go
+@@ -42,7 +42,7 @@ func TestCreateProcessor(t *testing.T) {
+ 			NameVal: "resource",
+ 		},
+ 		AttributesActions: []processorhelper.ActionKeyValue{
+-			{Key: "cloud.zone", Value: "zone-1", Action: processorhelper.UPSERT},
++			{Key: "cloud.availability_zone", Value: "zone-1", Action: processorhelper.UPSERT},
+ 		},
+ 	}
+ 

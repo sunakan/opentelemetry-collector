@@ -1,0 +1,15 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/exporter.go b/exporter/jaeger/jaegerthrifthttpexporter/exporter.go
+index 3ab537fd7..b98b3f26e 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/exporter.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/exporter.go
+@@ -63,9 +63,7 @@ func New(
+ 
+ 	exp, err := exporterhelper.NewTraceExporter(
+ 		config,
+-		s.pushTraceData,
+-		exporterhelper.WithTracing(true),
+-		exporterhelper.WithMetrics(true))
++		s.pushTraceData)
+ 
+ 	return exp, err
+ }

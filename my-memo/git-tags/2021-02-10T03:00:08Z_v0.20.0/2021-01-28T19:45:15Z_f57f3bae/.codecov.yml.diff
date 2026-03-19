@@ -1,0 +1,13 @@
+diff --git a/.codecov.yml b/.codecov.yml
+index 692852819..3e32a9f1f 100644
+--- a/.codecov.yml
++++ b/.codecov.yml
+@@ -1,7 +1,7 @@
+ codecov:
+   notify:
+     require_ci_to_pass: yes
+-  strict_yaml_branch: master  # only use the latest copy on master branch
++  strict_yaml_branch: main  # only use the latest copy on main branch
+ 
+ coverage:
+   precision: 2

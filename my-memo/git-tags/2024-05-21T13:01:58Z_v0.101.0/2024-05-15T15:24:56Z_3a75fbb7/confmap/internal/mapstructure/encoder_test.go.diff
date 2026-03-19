@@ -1,0 +1,36 @@
+diff --git a/confmap/internal/mapstructure/encoder_test.go b/confmap/internal/mapstructure/encoder_test.go
+index fac12e8a6..54800e7a7 100644
+--- a/confmap/internal/mapstructure/encoder_test.go
++++ b/confmap/internal/mapstructure/encoder_test.go
+@@ -47,6 +47,8 @@ func (tID TestID) MarshalText() (text []byte, err error) {
+ 	return []byte(out), nil
+ }
+ 
++type TestStringLike string
++
+ func TestEncode(t *testing.T) {
+ 	enc := New(&EncoderConfig{
+ 		EncodeHook: TextMarshalerHookFunc(),
+@@ -63,6 +65,22 @@ func TestEncode(t *testing.T) {
+ 			input: TestID("type"),
+ 			want:  "type_",
+ 		},
++		"MapWithTextMarshalerKey": {
++			input: map[TestID]TestSimpleStruct{
++				TestID("type"): {Value: "value"},
++			},
++			want: map[string]any{
++				"type_": map[string]any{"value": "value"},
++			},
++		},
++		"MapWithoutTextMarshalerKey": {
++			input: map[TestStringLike]TestSimpleStruct{
++				TestStringLike("key"): {Value: "value"},
++			},
++			want: map[string]any{
++				"key": map[string]any{"value": "value"},
++			},
++		},
+ 		"WithSlice": {
+ 			input: []TestID{
+ 				TestID("nop"),

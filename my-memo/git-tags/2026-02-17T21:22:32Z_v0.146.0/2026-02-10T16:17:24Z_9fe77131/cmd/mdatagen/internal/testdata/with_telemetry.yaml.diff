@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_telemetry.yaml b/cmd/mdatagen/internal/testdata/with_telemetry.yaml
+index 6d203ac98..212511683 100644
+--- a/cmd/mdatagen/internal/testdata/with_telemetry.yaml
++++ b/cmd/mdatagen/internal/testdata/with_telemetry.yaml
+@@ -14,8 +14,7 @@ telemetry:
+       description: Latency (in microseconds) of a given sampling policy
+       unit: µs
+       enabled: true
+-      stability:
+-        level: alpha
++      stability: alpha
+       histogram:
+         value_type: int
+       attributes: [name]

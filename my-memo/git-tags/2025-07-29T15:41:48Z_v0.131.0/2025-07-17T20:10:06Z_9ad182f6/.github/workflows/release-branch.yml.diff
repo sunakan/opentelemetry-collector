@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/release-branch.yml b/.github/workflows/release-branch.yml
+index 9088d48cc..5f46c8457 100644
+--- a/.github/workflows/release-branch.yml
++++ b/.github/workflows/release-branch.yml
+@@ -8,6 +8,9 @@ on:
+       - 'v0.[0-9]+.[0-9]+'
+       - 'v0.[0-9]+.[0-9]+-*' # Also support release candidates if needed
+ 
++permissions:
++  contents: read
++
+ jobs:
+   release-branch:
+     runs-on: ubuntu-latest

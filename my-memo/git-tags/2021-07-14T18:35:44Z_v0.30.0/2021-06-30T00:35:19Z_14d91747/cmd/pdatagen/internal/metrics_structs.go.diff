@@ -1,0 +1,21 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index c46e3f71e..4d6d38ad0 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -17,14 +17,14 @@ package internal
+ var metricsFile = &File{
+ 	Name: "metrics",
+ 	imports: []string{
+-		`otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"`,
++		`otlpmetrics "go.opentelemetry.io/collector/model/internal/data/protogen/metrics/v1"`,
+ 	},
+ 	testImports: []string{
+ 		`"testing"`,
+ 		``,
+ 		`"github.com/stretchr/testify/assert"`,
+ 		``,
+-		`otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"`,
++		`otlpmetrics "go.opentelemetry.io/collector/model/internal/data/protogen/metrics/v1"`,
+ 	},
+ 	structs: []baseStruct{
+ 		resourceMetricsSlice,

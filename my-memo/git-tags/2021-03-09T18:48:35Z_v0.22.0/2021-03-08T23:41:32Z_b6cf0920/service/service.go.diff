@@ -1,0 +1,14 @@
+diff --git a/service/service.go b/service/service.go
+index 196116c51..dc7a136f8 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -41,8 +41,8 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/internal/collector/telemetry"
+ 	"go.opentelemetry.io/collector/internal/version"
+-	"go.opentelemetry.io/collector/service/builder"
+ 	"go.opentelemetry.io/collector/service/internal"
++	"go.opentelemetry.io/collector/service/internal/builder"
+ )
+ 
+ const (

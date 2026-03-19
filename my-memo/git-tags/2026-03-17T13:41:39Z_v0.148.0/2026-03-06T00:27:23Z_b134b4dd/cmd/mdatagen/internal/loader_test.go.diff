@@ -1,0 +1,16 @@
+diff --git a/cmd/mdatagen/internal/loader_test.go b/cmd/mdatagen/internal/loader_test.go
+index dd6b63465..ec2912b4a 100644
+--- a/cmd/mdatagen/internal/loader_test.go
++++ b/cmd/mdatagen/internal/loader_test.go
+@@ -77,6 +77,11 @@ func TestLoadMetadata(t *testing.T) {
+ 				},
+ 				Config: &cfggen.ConfigMetadata{
+ 					Type: "object",
++					AllOf: []*cfggen.ConfigMetadata{
++						{
++							Ref: "./internal/metadata.metrics_builder_config",
++						},
++					},
+ 					Properties: map[string]*cfggen.ConfigMetadata{
+ 						"endpoint": {
+ 							Description: "The endpoint to scrape metrics from.",

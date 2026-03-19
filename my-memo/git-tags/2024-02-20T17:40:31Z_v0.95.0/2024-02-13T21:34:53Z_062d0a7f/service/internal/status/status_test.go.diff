@@ -1,0 +1,13 @@
+diff --git a/service/internal/status/status_test.go b/service/internal/status/status_test.go
+index 1bc20a268..c31c649e4 100644
+--- a/service/internal/status/status_test.go
++++ b/service/internal/status/status_test.go
+@@ -230,7 +230,7 @@ func TestStatusFuncs(t *testing.T) {
+ func TestStatusFuncsConcurrent(t *testing.T) {
+ 	ids := []*component.InstanceID{{}, {}, {}, {}}
+ 	count := 0
+-	statusFunc := func(_ *component.InstanceID, _ *component.StatusEvent) {
++	statusFunc := func(*component.InstanceID, *component.StatusEvent) {
+ 		count++
+ 	}
+ 	rep := NewReporter(statusFunc,

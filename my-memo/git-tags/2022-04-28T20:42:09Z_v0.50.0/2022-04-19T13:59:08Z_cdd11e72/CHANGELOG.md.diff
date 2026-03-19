@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 467e5df5d..576af6183 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -29,6 +29,7 @@
+ - Do not set MeterProvider to global otel (#5146)
+ - Make `InstrumentationLibrary<signal>ToScope` helper functions unexported (#5164)
+ - Remove Log's "ShortName" from logging exporter output (#5172)
++- `exporter/otlp`: Retry RESOURCE_EXHAUSTED only if the server returns RetryInfo (#5147)
+ 
+ ### 🚩 Deprecations 🚩
+ 

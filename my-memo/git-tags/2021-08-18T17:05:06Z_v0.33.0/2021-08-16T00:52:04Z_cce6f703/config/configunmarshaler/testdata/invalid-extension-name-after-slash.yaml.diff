@@ -1,0 +1,21 @@
+diff --git a/config/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml b/config/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
+new file mode 100644
+index 000000000..7361f2807
+--- /dev/null
++++ b/config/configunmarshaler/testdata/invalid-extension-name-after-slash.yaml
+@@ -0,0 +1,14 @@
++extensions:
++  exampleextension/:
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]
+\ No newline at end of file

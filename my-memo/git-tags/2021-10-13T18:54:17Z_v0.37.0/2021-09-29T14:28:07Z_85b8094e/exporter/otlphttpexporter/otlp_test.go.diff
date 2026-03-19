@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/otlp_test.go b/exporter/otlphttpexporter/otlp_test.go
+index cd38f2207..530f971ae 100644
+--- a/exporter/otlphttpexporter/otlp_test.go
++++ b/exporter/otlphttpexporter/otlp_test.go
+@@ -444,7 +444,7 @@ func TestErrorResponses(t *testing.T) {
+ 			}()
+ 
+ 			cfg := &Config{
+-				ExporterSettings: config.NewExporterSettings(config.NewID(typeStr)),
++				ExporterSettings: config.NewExporterSettings(config.NewComponentID(typeStr)),
+ 				TracesEndpoint:   fmt.Sprintf("http://%s/v1/traces", addr),
+ 				// Create without QueueSettings and RetrySettings so that ConsumeTraces
+ 				// returns the errors that we want to check immediately.

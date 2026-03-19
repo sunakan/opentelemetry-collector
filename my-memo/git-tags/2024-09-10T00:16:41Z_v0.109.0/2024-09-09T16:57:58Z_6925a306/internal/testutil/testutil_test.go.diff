@@ -1,0 +1,15 @@
+diff --git a/internal/testutil/testutil_test.go b/internal/testutil/testutil_test.go
+index f8dc5cd5e..90c19a6a9 100644
+--- a/internal/testutil/testutil_test.go
++++ b/internal/testutil/testutil_test.go
+@@ -68,8 +68,8 @@ Start Port    End Port
+ * - Administered port exclusions.
+ `
+ 	exclusions := createExclusionsList(exclusionsText, t)
+-	require.Equal(t, len(exclusions), 2)
++	require.Len(t, exclusions, 2)
+ 
+ 	emptyExclusions := createExclusionsList(emptyExclusionsText, t)
+-	require.Equal(t, len(emptyExclusions), 0)
++	require.Empty(t, emptyExclusions)
+ }

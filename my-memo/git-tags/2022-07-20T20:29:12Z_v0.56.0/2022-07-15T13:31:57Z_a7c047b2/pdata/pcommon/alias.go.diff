@@ -1,0 +1,11 @@
+diff --git a/pdata/pcommon/alias.go b/pdata/pcommon/alias.go
+index f7bfd6ebb..c3d9a84e0 100644
+--- a/pdata/pcommon/alias.go
++++ b/pdata/pcommon/alias.go
+@@ -93,3 +93,6 @@ var (
+ 	// NewMapFromRaw creates a Map with values from the given map[string]interface{}.
+ 	NewMapFromRaw = internal.NewMapFromRaw
+ )
++
++// NewSliceFromRaw creates a Slice with values from the given []interface{}.
++var NewSliceFromRaw = internal.NewSliceFromRaw

@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_mapping.go b/pdata/internal/generated_wrapper_mapping.go
+index 43d70d30b..9f2c02203 100644
+--- a/pdata/internal/generated_wrapper_mapping.go
++++ b/pdata/internal/generated_wrapper_mapping.go
+@@ -45,6 +45,10 @@ func DeleteOrigMapping(orig *otlpprofiles.Mapping, nullable bool) {
+ }
+ 
+ func CopyOrigMapping(dest, src *otlpprofiles.Mapping) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.MemoryStart = src.MemoryStart
+ 	dest.MemoryLimit = src.MemoryLimit
+ 	dest.FileOffset = src.FileOffset

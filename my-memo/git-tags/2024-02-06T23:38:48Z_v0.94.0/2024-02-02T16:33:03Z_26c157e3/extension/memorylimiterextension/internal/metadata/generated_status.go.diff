@@ -1,0 +1,17 @@
+diff --git a/extension/memorylimiterextension/internal/metadata/generated_status.go b/extension/memorylimiterextension/internal/metadata/generated_status.go
+index b76d2f1cd..c5131e1f7 100644
+--- a/extension/memorylimiterextension/internal/metadata/generated_status.go
++++ b/extension/memorylimiterextension/internal/metadata/generated_status.go
+@@ -9,8 +9,11 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++var (
++	Type = component.MustNewType("memory_limiter")
++)
++
+ const (
+-	Type               = "memory_limiter"
+ 	ExtensionStability = component.StabilityLevelDevelopment
+ )
+ 

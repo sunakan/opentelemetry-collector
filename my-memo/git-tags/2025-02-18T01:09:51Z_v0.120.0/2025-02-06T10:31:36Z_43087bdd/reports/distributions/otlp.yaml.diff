@@ -1,0 +1,15 @@
+diff --git a/reports/distributions/otlp.yaml b/reports/distributions/otlp.yaml
+new file mode 100644
+index 000000000..1f62a8063
+--- /dev/null
++++ b/reports/distributions/otlp.yaml
+@@ -0,0 +1,9 @@
++name: otlp
++url: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-otlp
++maintainers: []
++components:
++    exporter:
++        - otlp
++        - otlphttp
++    receiver:
++        - otlp

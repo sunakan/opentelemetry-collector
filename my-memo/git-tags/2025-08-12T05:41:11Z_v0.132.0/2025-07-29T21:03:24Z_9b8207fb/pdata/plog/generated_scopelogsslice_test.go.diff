@@ -1,0 +1,19 @@
+diff --git a/pdata/plog/generated_scopelogsslice_test.go b/pdata/plog/generated_scopelogsslice_test.go
+index 4c250e84f..3fbc40477 100644
+--- a/pdata/plog/generated_scopelogsslice_test.go
++++ b/pdata/plog/generated_scopelogsslice_test.go
+@@ -141,6 +141,14 @@ func TestScopeLogsSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestScopeLogsSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestScopeLogsSlice()
++	got.RemoveIf(func(el ScopeLogs) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestScopeLogsSliceAll(t *testing.T) {
+ 	ms := generateTestScopeLogsSlice()
+ 	assert.NotEmpty(t, ms.Len())

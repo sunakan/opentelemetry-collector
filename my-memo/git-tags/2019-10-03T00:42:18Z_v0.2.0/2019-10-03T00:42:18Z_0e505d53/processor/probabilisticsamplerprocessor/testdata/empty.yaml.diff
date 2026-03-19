@@ -1,0 +1,19 @@
+diff --git a/processor/probabilisticsamplerprocessor/testdata/empty.yaml b/processor/probabilisticsamplerprocessor/testdata/empty.yaml
+index b67c1aaec..c837bd77f 100644
+--- a/processor/probabilisticsamplerprocessor/testdata/empty.yaml
++++ b/processor/probabilisticsamplerprocessor/testdata/empty.yaml
+@@ -8,8 +8,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [probabilistic_sampler]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [probabilistic_sampler]
++      exporters: [exampleexporter]

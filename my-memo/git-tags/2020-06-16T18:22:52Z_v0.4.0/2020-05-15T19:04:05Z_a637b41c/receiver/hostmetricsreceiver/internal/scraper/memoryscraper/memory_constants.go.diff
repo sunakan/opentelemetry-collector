@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_constants.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_constants.go
+index ca6a13bf3..217a6a2ef 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_constants.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/memory_constants.go
+@@ -15,7 +15,7 @@
+ package memoryscraper
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // memory metric constants

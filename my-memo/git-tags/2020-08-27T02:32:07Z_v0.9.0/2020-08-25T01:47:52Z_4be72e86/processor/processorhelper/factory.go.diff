@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/factory.go b/processor/processorhelper/factory.go
+index a197db115..0788b3437 100644
+--- a/processor/processorhelper/factory.go
++++ b/processor/processorhelper/factory.go
+@@ -49,8 +49,6 @@ type factory struct {
+ 	createLogsProcessor    CreateLogsProcessor
+ }
+ 
+-var _ component.LogsProcessorFactory = new(factory)
+-
+ // WithCustomUnmarshaler implements component.ConfigUnmarshaler.
+ func WithCustomUnmarshaler(customUnmarshaler component.CustomUnmarshaler) FactoryOption {
+ 	return func(o *factory) {

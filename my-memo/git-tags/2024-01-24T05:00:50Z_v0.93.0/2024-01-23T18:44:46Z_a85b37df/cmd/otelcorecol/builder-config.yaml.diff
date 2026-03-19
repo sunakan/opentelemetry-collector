@@ -1,0 +1,20 @@
+diff --git a/cmd/otelcorecol/builder-config.yaml b/cmd/otelcorecol/builder-config.yaml
+index 91e8fd198..355b08b7a 100644
+--- a/cmd/otelcorecol/builder-config.yaml
++++ b/cmd/otelcorecol/builder-config.yaml
+@@ -14,6 +14,7 @@ exporters:
+   - gomod: go.opentelemetry.io/collector/exporter/otlphttpexporter v0.92.0
+ extensions:
+   - gomod: go.opentelemetry.io/collector/extension/ballastextension v0.92.0
++  - gomod: go.opentelemetry.io/collector/extension/memorylimiterextension v0.92.0
+   - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.92.0
+ processors:
+   - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.92.0
+@@ -47,6 +48,7 @@ replaces:
+   - go.opentelemetry.io/collector/extension => ../../extension
+   - go.opentelemetry.io/collector/extension/auth => ../../extension/auth
+   - go.opentelemetry.io/collector/extension/ballastextension => ../../extension/ballastextension
++  - go.opentelemetry.io/collector/extension/memorylimiterextension => ../../extension/memorylimiterextension
+   - go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
+   - go.opentelemetry.io/collector/featuregate => ../../featuregate
+   - go.opentelemetry.io/collector/pdata => ../../pdata

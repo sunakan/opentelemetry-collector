@@ -1,0 +1,12 @@
+diff --git a/model/internal/cmd/pdatagen/internal/log_structs.go b/model/internal/cmd/pdatagen/internal/log_structs.go
+index 0a61207ee..32fb9829c 100644
+--- a/model/internal/cmd/pdatagen/internal/log_structs.go
++++ b/model/internal/cmd/pdatagen/internal/log_structs.go
+@@ -122,6 +122,7 @@ var logRecord = &messageValueStruct{
+ 			testVal:         `SeverityNumberINFO`,
+ 		},
+ 		&primitiveField{
++			extraComment:    "Deprecated: [v0.48.0] it was removed from the data model.",
+ 			fieldName:       "Name",
+ 			originFieldName: "Name",
+ 			returnType:      "string",

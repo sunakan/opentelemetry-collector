@@ -1,0 +1,24 @@
+diff --git a/receiver/opencensus/options.go b/receiver/opencensus/options.go
+index e0ec145d4..9fc54ba18 100644
+--- a/receiver/opencensus/options.go
++++ b/receiver/opencensus/options.go
+@@ -57,3 +57,19 @@ func (mro *metricsReceiverOptions) withReceiver(ocr *Receiver) {
+ func WithMetricsReceiverOptions(opts ...ocmetrics.Option) Option {
+ 	return &metricsReceiverOptions{opts: opts}
+ }
++
++type corsOrigins struct {
++	origins []string
++}
++
++var _ Option = (*corsOrigins)(nil)
++
++func (co *corsOrigins) withReceiver(ocr *Receiver) {
++	ocr.corsOrigins = co.origins
++}
++
++// WithCorsOrigins is an option to specify the allowed origins to enable writing
++// HTTP/JSON requests to the grpc-gateway adapter using CORS.
++func WithCorsOrigins(origins []string) Option {
++	return &corsOrigins{origins: origins}
++}

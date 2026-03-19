@@ -1,0 +1,13 @@
+diff --git a/reports/distributions/contrib.yaml b/reports/distributions/contrib.yaml
+index a616a6e16..4aeb5b314 100644
+--- a/reports/distributions/contrib.yaml
++++ b/reports/distributions/contrib.yaml
+@@ -7,7 +7,7 @@ components:
+     exporter:
+         - debug
+         - nop
+-        - otlp
++        - otlp_grpc
+         - otlp_http
+     extension:
+         - zpages

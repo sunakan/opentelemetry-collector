@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index a48fb0075..6028f0cf2 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -398,7 +398,7 @@ func TestGRPCInvalidTLSCredentials(t *testing.T) {
+ 		Protocols: Protocols{
+ 			GRPC: &configgrpc.GRPCServerSettings{
+ 				Endpoint: "localhost:50000",
+-				TLSCredentials: &configtls.TLSServerSetting{
++				TLSSetting: &configtls.TLSServerSetting{
+ 					TLSSetting: configtls.TLSSetting{
+ 						CertFile: "willfail",
+ 					},

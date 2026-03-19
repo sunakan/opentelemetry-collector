@@ -1,0 +1,22 @@
+diff --git a/otelcol/command_validate_test.go b/otelcol/command_validate_test.go
+index 4aa09d7ff..a8d36eafa 100644
+--- a/otelcol/command_validate_test.go
++++ b/otelcol/command_validate_test.go
+@@ -16,7 +16,7 @@ import (
+ )
+ 
+ func TestValidateSubCommandNoConfig(t *testing.T) {
+-	cmd := newValidateSubCommand(CollectorSettings{Factories: nopFactories}, flags(featuregate.GlobalRegistry()))
++	cmd := newValidateSubCommand(CollectorSettings{Factories: nopFactories}, flags(featuregate.GlobalRegistry()), false)
+ 	err := cmd.Execute()
+ 	require.Error(t, err)
+ 	require.Contains(t, err.Error(), "at least one config flag must be provided")
+@@ -29,7 +29,7 @@ func TestValidateSubCommandInvalidComponents(t *testing.T) {
+ 			ProviderFactories:  []confmap.ProviderFactory{fileprovider.NewFactory()},
+ 			ConverterFactories: []confmap.ConverterFactory{expandconverter.NewFactory()},
+ 		},
+-	}}, flags(featuregate.GlobalRegistry()))
++	}}, flags(featuregate.GlobalRegistry()), false)
+ 	err := cmd.Execute()
+ 	require.Error(t, err)
+ 	require.Contains(t, err.Error(), "unknown type: \"nosuchprocessor\"")

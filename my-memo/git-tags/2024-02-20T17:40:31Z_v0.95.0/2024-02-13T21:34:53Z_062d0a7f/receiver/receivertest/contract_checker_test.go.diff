@@ -1,0 +1,18 @@
+diff --git a/receiver/receivertest/contract_checker_test.go b/receiver/receivertest/contract_checker_test.go
+index 359d40015..32130735c 100644
+--- a/receiver/receivertest/contract_checker_test.go
++++ b/receiver/receivertest/contract_checker_test.go
+@@ -23,11 +23,11 @@ type exampleReceiver struct {
+ 	nextConsumer consumer.Logs
+ }
+ 
+-func (s *exampleReceiver) Start(_ context.Context, _ component.Host) error {
++func (s *exampleReceiver) Start(context.Context, component.Host) error {
+ 	return nil
+ }
+ 
+-func (s *exampleReceiver) Shutdown(_ context.Context) error {
++func (s *exampleReceiver) Shutdown(context.Context) error {
+ 	return nil
+ }
+ 

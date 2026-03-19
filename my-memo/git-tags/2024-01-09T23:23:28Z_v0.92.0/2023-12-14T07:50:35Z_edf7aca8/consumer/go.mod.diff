@@ -1,0 +1,11 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 9cc8e80c7..e7b021926 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -50,6 +50,4 @@ retract (
+ 	v0.69.0 // Release failed, use v0.69.1
+ )
+ 
+-replace go.opentelemetry.io/collector/connector => ../connector
+-
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../config/configtelemetry

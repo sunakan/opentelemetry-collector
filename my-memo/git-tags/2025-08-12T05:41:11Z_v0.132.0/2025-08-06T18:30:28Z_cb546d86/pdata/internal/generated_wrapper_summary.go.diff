@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_summary.go b/pdata/internal/generated_wrapper_summary.go
+index 8855cd64b..32986c60c 100644
+--- a/pdata/internal/generated_wrapper_summary.go
++++ b/pdata/internal/generated_wrapper_summary.go
+@@ -13,3 +13,7 @@ import (
+ func CopyOrigSummary(dest, src *otlpmetrics.Summary) {
+ 	dest.DataPoints = CopyOrigSummaryDataPointSlice(dest.DataPoints, src.DataPoints)
+ }
++
++func FillOrigTestSummary(orig *otlpmetrics.Summary) {
++	orig.DataPoints = GenerateOrigTestSummaryDataPointSlice()
++}

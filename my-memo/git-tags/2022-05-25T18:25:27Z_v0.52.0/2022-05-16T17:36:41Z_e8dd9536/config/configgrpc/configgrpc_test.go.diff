@@ -1,0 +1,31 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 85e96e1ec..076015c7f 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -16,7 +16,7 @@ package configgrpc
+ 
+ import (
+ 	"context"
+-	"fmt"
++	"errors"
+ 	"io/ioutil"
+ 	"net"
+ 	"os"
+@@ -895,7 +895,7 @@ func TestDefaultUnaryInterceptorAuthSucceeded(t *testing.T) {
+ func TestDefaultUnaryInterceptorAuthFailure(t *testing.T) {
+ 	// prepare
+ 	authCalled := false
+-	expectedErr := fmt.Errorf("not authenticated")
++	expectedErr := errors.New("not authenticated")
+ 	authFunc := func(context.Context, map[string][]string) (context.Context, error) {
+ 		authCalled = true
+ 		return context.Background(), expectedErr
+@@ -969,7 +969,7 @@ func TestDefaultStreamInterceptorAuthSucceeded(t *testing.T) {
+ func TestDefaultStreamInterceptorAuthFailure(t *testing.T) {
+ 	// prepare
+ 	authCalled := false
+-	expectedErr := fmt.Errorf("not authenticated")
++	expectedErr := errors.New("not authenticated")
+ 	authFunc := func(context.Context, map[string][]string) (context.Context, error) {
+ 		authCalled = true
+ 		return context.Background(), expectedErr

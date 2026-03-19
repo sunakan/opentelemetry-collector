@@ -1,0 +1,28 @@
+diff --git a/service/telemetry/config.go b/service/telemetry/config.go
+index 198dbef21..1a71487e5 100644
+--- a/service/telemetry/config.go
++++ b/service/telemetry/config.go
+@@ -15,6 +15,8 @@
+ package telemetry // import "go.opentelemetry.io/collector/service/telemetry"
+ 
+ import (
++	"fmt"
++
+ 	"go.uber.org/zap/zapcore"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+@@ -113,3 +115,14 @@ type TracesConfig struct {
+ 	// context propagation is disabled.
+ 	Propagators []string `mapstructure:"propagators"`
+ }
++
++// Validate checks whether the current configuration is valid
++func (c *Config) Validate() error {
++
++	// Check when service telemetry metric level is not none, the metrics address should not be empty
++	if c.Metrics.Level != configtelemetry.LevelNone && c.Metrics.Address == "" {
++		return fmt.Errorf("collector telemetry metric address should exist when metric level is not none")
++	}
++
++	return nil
++}

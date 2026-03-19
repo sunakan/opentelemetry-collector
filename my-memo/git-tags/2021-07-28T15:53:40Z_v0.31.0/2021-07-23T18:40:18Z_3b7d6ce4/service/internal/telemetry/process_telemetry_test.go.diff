@@ -1,0 +1,12 @@
+diff --git a/service/internal/telemetry/process_telemetry_test.go b/service/internal/telemetry/process_telemetry_test.go
+index 593e82961..ad4be1cf6 100644
+--- a/service/internal/telemetry/process_telemetry_test.go
++++ b/service/internal/telemetry/process_telemetry_test.go
+@@ -25,7 +25,6 @@ import (
+ 
+ func TestProcessTelemetry(t *testing.T) {
+ 	const ballastSizeBytes uint64 = 0
+-
+ 	pmv, err := NewProcessMetricsViews(ballastSizeBytes)
+ 	require.NoError(t, err)
+ 	assert.NotNil(t, pmv)

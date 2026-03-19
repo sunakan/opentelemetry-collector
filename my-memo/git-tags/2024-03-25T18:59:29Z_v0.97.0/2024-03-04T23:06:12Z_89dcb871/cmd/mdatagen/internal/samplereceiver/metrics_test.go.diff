@@ -1,0 +1,26 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metrics_test.go b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+new file mode 100644
+index 000000000..ec5f67cf0
+--- /dev/null
++++ b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+@@ -0,0 +1,20 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package samplereceiver
++
++import (
++	"testing"
++
++	"github.com/stretchr/testify/require"
++
++	"go.opentelemetry.io/collector/cmd/mdatagen/internal/samplereceiver/internal/metadata"
++	"go.opentelemetry.io/collector/receiver/receivertest"
++)
++
++// TestGeneratedMetrics verifies that the internal/metadata API is generated correctly.
++func TestGeneratedMetrics(t *testing.T) {
++	mb := metadata.NewMetricsBuilder(metadata.DefaultMetricsBuilderConfig(), receivertest.NewNopCreateSettings())
++	m := mb.Emit()
++	require.Equal(t, 0, m.ResourceMetrics().Len())
++}

@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/generated_exemplarslice.go b/pdata/pmetric/generated_exemplarslice.go
+index ca2aea31f..9d421c7a9 100644
+--- a/pdata/pmetric/generated_exemplarslice.go
++++ b/pdata/pmetric/generated_exemplarslice.go
+@@ -129,6 +129,7 @@ func (es ExemplarSlice) RemoveIf(f func(Exemplar) bool) {
+ 	newLen := 0
+ 	for i := 0; i < len(*es.orig); i++ {
+ 		if f(es.At(i)) {
++			(*es.orig)[i] = otlpmetrics.Exemplar{}
+ 			continue
+ 		}
+ 		if newLen == i {
+@@ -137,6 +138,7 @@ func (es ExemplarSlice) RemoveIf(f func(Exemplar) bool) {
+ 			continue
+ 		}
+ 		(*es.orig)[newLen] = (*es.orig)[i]
++		(*es.orig)[i] = otlpmetrics.Exemplar{}
+ 		newLen++
+ 	}
+ 	*es.orig = (*es.orig)[:newLen]

@@ -1,0 +1,13 @@
+diff --git a/scraper/scraperhelper/obs_logs_test.go b/scraper/scraperhelper/obs_logs_test.go
+index 854d7058e..60dee5870 100644
+--- a/scraper/scraperhelper/obs_logs_test.go
++++ b/scraper/scraperhelper/obs_logs_test.go
+@@ -49,7 +49,7 @@ func TestScrapeLogsDataOp(t *testing.T) {
+ 	}
+ 
+ 	spans := tel.SpanRecorder.Ended()
+-	require.Equal(t, len(params), len(spans))
++	require.Len(t, spans, len(params))
+ 
+ 	var scrapedLogRecords, erroredLogRecords int
+ 	for i, span := range spans {

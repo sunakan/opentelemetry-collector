@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/config.go b/exporter/opencensusexporter/config.go
+index 269a7dbb1..a48deef0b 100644
+--- a/exporter/opencensusexporter/config.go
++++ b/exporter/opencensusexporter/config.go
+@@ -22,7 +22,7 @@ import (
+ 
+ // Config defines configuration for OpenCensus exporter.
+ type Config struct {
+-	config.ExporterSettings       `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
++	*config.ExporterSettings      `mapstructure:"-"`
+ 	configgrpc.GRPCClientSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct.
+ 	exporterhelper.QueueSettings  `mapstructure:"sending_queue"`
+ 	exporterhelper.RetrySettings  `mapstructure:"retry_on_failure"`

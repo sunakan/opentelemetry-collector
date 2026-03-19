@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_sample.go b/pdata/internal/generated_wrapper_sample.go
+index 3e3aeac96..198b83355 100644
+--- a/pdata/internal/generated_wrapper_sample.go
++++ b/pdata/internal/generated_wrapper_sample.go
+@@ -45,6 +45,10 @@ func DeleteOrigSample(orig *otlpprofiles.Sample, nullable bool) {
+ }
+ 
+ func CopyOrigSample(dest, src *otlpprofiles.Sample) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.LocationsStartIndex = src.LocationsStartIndex
+ 	dest.LocationsLength = src.LocationsLength
+ 	dest.Value = CopyOrigInt64Slice(dest.Value, src.Value)

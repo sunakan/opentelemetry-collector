@@ -1,0 +1,28 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index bff3d5785..61bf580dd 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -8,6 +8,9 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/confmap"
++	{{- range .Converters}}
++	{{.Name}} "{{.Import}}"
++	{{- end}}	
+ 	{{- range .Providers}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+@@ -31,6 +34,13 @@ func main() {
+ 					{{.Name}}.NewFactory(),
+ 					{{- end}}
+ 				},
++				{{- if .Converters }}
++				ConverterFactories: []confmap.ConverterFactory{
++					{{- range .Converters}}
++					{{.Name}}.NewFactory(),
++					{{- end}}
++				},
++				{{- end }}
+ 				{{- if .ConfResolver.DefaultURIScheme }}
+ 				DefaultScheme: "{{ .ConfResolver.DefaultURIScheme }}",
+ 				{{- end }}

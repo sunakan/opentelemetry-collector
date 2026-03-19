@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/metrics.go.tmpl b/cmd/mdatagen/internal/templates/metrics.go.tmpl
+index 86f62292d..938b4fa56 100644
+--- a/cmd/mdatagen/internal/templates/metrics.go.tmpl
++++ b/cmd/mdatagen/internal/templates/metrics.go.tmpl
+@@ -12,7 +12,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+-	{{- if or isReceiver isScraper }}
++	{{- if or isReceiver isScraper isConnector }}
+ 	"go.opentelemetry.io/collector/{{ .Status.Class }}"
+ 	{{- end }}
+ 	{{- if .SemConvVersion }}

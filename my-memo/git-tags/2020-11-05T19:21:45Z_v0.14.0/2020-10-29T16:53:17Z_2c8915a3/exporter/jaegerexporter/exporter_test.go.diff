@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index 8d1fe9ae7..1c4a2f27a 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -225,7 +225,7 @@ func TestMutualTLS(t *testing.T) {
+ 			ServerName: "localhost",
+ 		},
+ 	}
+-	exporter, err := factory.CreateTraceExporter(context.Background(), component.ExporterCreateParams{Logger: zap.NewNop()}, cfg)
++	exporter, err := factory.CreateTracesExporter(context.Background(), component.ExporterCreateParams{Logger: zap.NewNop()}, cfg)
+ 	require.NoError(t, err)
+ 	err = exporter.Start(context.Background(), nil)
+ 	require.NoError(t, err)

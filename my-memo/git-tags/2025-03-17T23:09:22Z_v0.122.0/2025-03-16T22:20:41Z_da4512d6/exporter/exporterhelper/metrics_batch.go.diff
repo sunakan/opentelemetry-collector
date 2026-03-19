@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics_batch.go b/exporter/exporterhelper/metrics_batch.go
+index e259600f7..02b3f40b7 100644
+--- a/exporter/exporterhelper/metrics_batch.go
++++ b/exporter/exporterhelper/metrics_batch.go
+@@ -53,7 +53,7 @@ func (req *metricsRequest) split(maxSize int, sz sizer.MetricsSizer) []Request {
+ 	for req.size(sz) > maxSize {
+ 		md, rmSize := extractMetrics(req.md, maxSize, sz)
+ 		req.setCachedSize(req.size(sz) - rmSize)
+-		res = append(res, newMetricsRequest(md, req.pusher))
++		res = append(res, newMetricsRequest(md))
+ 	}
+ 	res = append(res, req)
+ 	return res

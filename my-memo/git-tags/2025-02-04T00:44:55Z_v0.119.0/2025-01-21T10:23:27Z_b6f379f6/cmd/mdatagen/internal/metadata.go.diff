@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/metadata.go b/cmd/mdatagen/internal/metadata.go
+index 9348d7a12..22b42ff6e 100644
+--- a/cmd/mdatagen/internal/metadata.go
++++ b/cmd/mdatagen/internal/metadata.go
+@@ -198,7 +198,7 @@ func (mvt *ValueType) UnmarshalText(text []byte) error {
+ 
+ // String returns capitalized name of the ValueType.
+ func (mvt ValueType) String() string {
+-	return strings.Title(strings.ToLower(mvt.ValueType.String())) // nolint SA1019
++	return strings.Title(strings.ToLower(mvt.ValueType.String())) //nolint:staticcheck // SA1019
+ }
+ 
+ // Primitive returns name of primitive type for the ValueType.

@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/log_structs.go b/cmd/pdatagen/internal/log_structs.go
+index e22c837a3..e4500d7b5 100644
+--- a/cmd/pdatagen/internal/log_structs.go
++++ b/cmd/pdatagen/internal/log_structs.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/cmd/pdatagen/internal"
+ 
+ var logFile = &File{
+ 	Name: "log",

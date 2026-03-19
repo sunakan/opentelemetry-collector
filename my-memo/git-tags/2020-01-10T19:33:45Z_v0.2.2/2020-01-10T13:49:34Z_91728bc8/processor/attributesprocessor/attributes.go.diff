@@ -1,0 +1,24 @@
+diff --git a/processor/attributesprocessor/attributes.go b/processor/attributesprocessor/attributes.go
+index 4f03f300d..b84d092dd 100644
+--- a/processor/attributesprocessor/attributes.go
++++ b/processor/attributesprocessor/attributes.go
+@@ -19,6 +19,7 @@ import (
+ 
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/oterr"
+@@ -126,6 +127,11 @@ func (a *attributesProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: true}
+ }
+ 
++// Start is invoked during service startup.
++func (a *attributesProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (a *attributesProcessor) Shutdown() error {
+ 	return nil

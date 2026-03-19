@@ -1,0 +1,32 @@
+diff --git a/internal/cmd/pdatagen/internal/message_field.go b/internal/cmd/pdatagen/internal/message_field.go
+index 392dc2bc2..076bf6108 100644
+--- a/internal/cmd/pdatagen/internal/message_field.go
++++ b/internal/cmd/pdatagen/internal/message_field.go
+@@ -77,18 +77,24 @@ func (mf *MessageField) GenerateUnmarshalJSON(ms *messageStruct) string {
+ }
+ 
+ func (mf *MessageField) GenerateSizeProto(*messageStruct) string {
++	return mf.toProtoField().genSizeProto()
++}
++
++func (mf *MessageField) GenerateMarshalProto(*messageStruct) string {
++	return mf.toProtoField().genMarshalProto()
++}
++
++func (mf *MessageField) toProtoField() *ProtoField {
+ 	pt := ProtoTypeMessage
+ 	if mf.returnMessage.getName() == "TraceState" {
+ 		pt = ProtoTypeString
+ 	}
+-	pf := &ProtoField{
++	return &ProtoField{
+ 		Type:        pt,
+ 		ID:          mf.protoID,
+ 		Name:        mf.fieldName,
+ 		MessageName: mf.returnMessage.getOriginName(),
+-		Nullable:    false,
+ 	}
+-	return pf.genSizeProto()
+ }
+ 
+ func (mf *MessageField) templateFields(ms *messageStruct) map[string]any {

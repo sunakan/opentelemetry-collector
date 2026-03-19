@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/status_code_test.go b/translator/trace/zipkin/status_code_test.go
+index d73a7ca69..c568dd34b 100644
+--- a/translator/trace/zipkin/status_code_test.go
++++ b/translator/trace/zipkin/status_code_test.go
+@@ -270,7 +270,7 @@ func attributesFromMap(mapValues map[string]string) map[string]*tracepb.Attribut
+ 	res := map[string]*tracepb.AttributeValue{}
+ 
+ 	for k, v := range mapValues {
+-		pbAttrib := parseAnnotationValue(v)
++		pbAttrib := parseAnnotationValue(v, false)
+ 		res[k] = pbAttrib
+ 	}
+ 	return res

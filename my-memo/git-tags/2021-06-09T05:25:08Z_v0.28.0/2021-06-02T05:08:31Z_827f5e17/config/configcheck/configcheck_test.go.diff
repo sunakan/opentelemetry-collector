@@ -1,0 +1,12 @@
+diff --git a/config/configcheck/configcheck_test.go b/config/configcheck/configcheck_test.go
+index d27022318..279f766ce 100644
+--- a/config/configcheck/configcheck_test.go
++++ b/config/configcheck/configcheck_test.go
+@@ -198,6 +198,6 @@ func (b badConfigExtensionFactory) CreateDefaultConfig() config.Extension {
+ 	}{}
+ }
+ 
+-func (b badConfigExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateParams, _ config.Extension) (component.Extension, error) {
++func (b badConfigExtensionFactory) CreateExtension(_ context.Context, _ component.ExtensionCreateSettings, _ config.Extension) (component.Extension, error) {
+ 	return nil, nil
+ }

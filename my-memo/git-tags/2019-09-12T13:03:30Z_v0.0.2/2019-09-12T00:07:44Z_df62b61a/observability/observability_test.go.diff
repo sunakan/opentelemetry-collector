@@ -1,0 +1,16 @@
+diff --git a/observability/observability_test.go b/observability/observability_test.go
+index c36344bd7..f62abbac9 100644
+--- a/observability/observability_test.go
++++ b/observability/observability_test.go
+@@ -20,9 +20,10 @@ import (
+ 	"context"
+ 	"testing"
+ 
++	"github.com/stretchr/testify/require"
++
+ 	"github.com/open-telemetry/opentelemetry-service/observability"
+ 	"github.com/open-telemetry/opentelemetry-service/observability/observabilitytest"
+-	"github.com/stretchr/testify/require"
+ )
+ 
+ const (

@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_config_test.go b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_config_test.go
+index cc1a2cd05..d68dcc807 100644
+--- a/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_config_test.go
++++ b/cmd/mdatagen/internal/samplescraper/internal/metadata/generated_config_test.go
+@@ -32,6 +32,7 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 					MetricInputType:          MetricConfig{Enabled: true},
+ 					OptionalMetric:           MetricConfig{Enabled: true},
+ 					OptionalMetricEmptyUnit:  MetricConfig{Enabled: true},
++					SystemCPUTime:            MetricConfig{Enabled: true},
+ 				},
+ 				ResourceAttributes: ResourceAttributesConfig{
+ 					MapResourceAttr:                  ResourceAttributeConfig{Enabled: true},
+@@ -54,6 +55,7 @@ func TestMetricsBuilderConfig(t *testing.T) {
+ 					MetricInputType:          MetricConfig{Enabled: false},
+ 					OptionalMetric:           MetricConfig{Enabled: false},
+ 					OptionalMetricEmptyUnit:  MetricConfig{Enabled: false},
++					SystemCPUTime:            MetricConfig{Enabled: false},
+ 				},
+ 				ResourceAttributes: ResourceAttributesConfig{
+ 					MapResourceAttr:                  ResourceAttributeConfig{Enabled: false},

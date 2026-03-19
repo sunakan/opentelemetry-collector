@@ -1,0 +1,15 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index e36e83ae7..880917b21 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -76,8 +76,8 @@ var replaceModules = []string{
+ 	"/exporter/otlpexporter",
+ 	"/exporter/otlphttpexporter",
+ 	"/extension",
+-	"/extension/auth",
+-	"/extension/auth/authtest",
++	"/extension/extensionauth",
++	"/extension/extensionauth/extensionauthtest",
+ 	"/extension/extensioncapabilities",
+ 	"/extension/extensiontest",
+ 	"/extension/zpagesextension",

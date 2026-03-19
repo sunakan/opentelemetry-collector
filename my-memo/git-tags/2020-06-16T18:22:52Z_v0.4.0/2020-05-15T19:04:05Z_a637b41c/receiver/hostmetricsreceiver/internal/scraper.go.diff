@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper.go b/receiver/hostmetricsreceiver/internal/scraper.go
+index 04c240370..5dc43beac 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ // Scraper gathers metrics from the host machine and converts

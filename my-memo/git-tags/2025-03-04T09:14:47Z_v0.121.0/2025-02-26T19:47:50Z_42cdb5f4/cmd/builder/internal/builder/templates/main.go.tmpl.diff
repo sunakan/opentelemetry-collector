@@ -1,0 +1,26 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index a69b29299..e3b1e8499 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -45,16 +45,17 @@ func main() {
+ 				DefaultScheme: "{{ .ConfResolver.DefaultURIScheme }}",
+ 				{{- end }}
+ 			},
+-		}, ProviderModules: map[string]string{
++		},
++		ProviderModules: map[string]string{
+ 			{{- range .ConfmapProviders}}
+ 			{{.Name}}.NewFactory().Create(confmap.ProviderSettings{}).Scheme(): "{{.GoMod}}",
+ 			{{- end}}
+-    }, ConverterModules: []string{
+-		  {{- range .ConfmapConverters}}
++    	},
++		ConverterModules: []string{
++			{{- range .ConfmapConverters}}
+ 			"{{.GoMod}}",
+ 			{{- end}}
+ 		},
+-
+ 	}
+ 
+ 	if err := run(set); err != nil {

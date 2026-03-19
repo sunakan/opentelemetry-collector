@@ -1,0 +1,10 @@
+diff --git a/consumer/consumertest/doc.go b/consumer/consumertest/doc.go
+index 78a0f4aaf..b7f10dd63 100644
+--- a/consumer/consumertest/doc.go
++++ b/consumer/consumertest/doc.go
+@@ -14,4 +14,4 @@
+ 
+ // Package consumertest defines types and functions used to help test packages
+ // implementing the consumer package interfaces.
+-package consumertest
++package consumertest // import "go.opentelemetry.io/collector/consumer/consumertest"

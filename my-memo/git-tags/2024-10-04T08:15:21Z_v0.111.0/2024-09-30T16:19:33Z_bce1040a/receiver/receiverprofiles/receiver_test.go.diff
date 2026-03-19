@@ -1,0 +1,15 @@
+diff --git a/receiver/receiverprofiles/receiver_test.go b/receiver/receiverprofiles/receiver_test.go
+index eb0945767..7f30fb4a0 100644
+--- a/receiver/receiverprofiles/receiver_test.go
++++ b/receiver/receiverprofiles/receiver_test.go
+@@ -26,8 +26,8 @@ func TestNewFactoryWithProfiles(t *testing.T) {
+ 	assert.EqualValues(t, testType, factory.Type())
+ 	assert.EqualValues(t, &defaultCfg, factory.CreateDefaultConfig())
+ 
+-	assert.Equal(t, component.StabilityLevelAlpha, factory.ProfilesReceiverStability())
+-	_, err := factory.CreateProfilesReceiver(context.Background(), receiver.Settings{}, &defaultCfg, nil)
++	assert.Equal(t, component.StabilityLevelAlpha, factory.ProfilesStability())
++	_, err := factory.CreateProfiles(context.Background(), receiver.Settings{}, &defaultCfg, nil)
+ 	assert.NoError(t, err)
+ }
+ 

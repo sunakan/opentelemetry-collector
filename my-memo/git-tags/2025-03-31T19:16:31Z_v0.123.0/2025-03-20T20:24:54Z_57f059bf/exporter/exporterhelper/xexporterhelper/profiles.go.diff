@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index 9a4e14145..5b01b6804 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -92,9 +92,6 @@ func NewProfilesExporter(
+ 		append([]exporterhelper.Option{internal.WithQueueBatchSettings(queuebatch.Settings[exporterhelper.Request]{Encoding: profilesEncoding{}})}, options...)...)
+ }
+ 
+-// Deprecated: [v0.122.0] use exporterhelper.RequestConverterFunc[pprofile.Profiles].
+-type RequestFromProfilesFunc = exporterhelper.RequestConverterFunc[pprofile.Profiles]
+-
+ // requestConsumeFromProfiles returns a RequestConsumeFunc that consumes pprofile.Profiles.
+ func requestConsumeFromProfiles(pusher xconsumer.ConsumeProfilesFunc) exporterhelper.RequestConsumeFunc {
+ 	return func(ctx context.Context, request exporterhelper.Request) error {

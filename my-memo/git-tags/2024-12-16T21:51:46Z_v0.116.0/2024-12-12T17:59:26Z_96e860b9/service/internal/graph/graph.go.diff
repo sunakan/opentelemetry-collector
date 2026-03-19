@@ -1,0 +1,19 @@
+diff --git a/service/internal/graph/graph.go b/service/internal/graph/graph.go
+index 26754e8fc..76e4d8628 100644
+--- a/service/internal/graph/graph.go
++++ b/service/internal/graph/graph.go
+@@ -603,9 +603,11 @@ func connectorStability(f connector.Factory, expType, recType pipeline.Signal) c
+ 	return component.StabilityLevelUndefined
+ }
+ 
+-var _ getExporters = (*HostWrapper)(nil)
+-var _ component.Host = (*HostWrapper)(nil)
+-var _ componentstatus.Reporter = (*HostWrapper)(nil)
++var (
++	_ getExporters             = (*HostWrapper)(nil)
++	_ component.Host           = (*HostWrapper)(nil)
++	_ componentstatus.Reporter = (*HostWrapper)(nil)
++)
+ 
+ type HostWrapper struct {
+ 	*Host

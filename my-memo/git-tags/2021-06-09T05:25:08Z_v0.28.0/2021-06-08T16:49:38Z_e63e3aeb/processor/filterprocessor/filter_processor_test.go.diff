@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/filter_processor_test.go b/processor/filterprocessor/filter_processor_test.go
+index b18437e64..e53c9f20f 100644
+--- a/processor/filterprocessor/filter_processor_test.go
++++ b/processor/filterprocessor/filter_processor_test.go
+@@ -421,7 +421,7 @@ func metricSlice(numMetrics int) []pdata.Metrics {
+ }
+ 
+ func pdm(prefix string, size int) pdata.Metrics {
+-	c := goldendataset.MetricCfg{
++	c := goldendataset.MetricsCfg{
+ 		MetricDescriptorType: pdata.MetricDataTypeIntGauge,
+ 		MetricNamePrefix:     prefix,
+ 		NumILMPerResource:    size,

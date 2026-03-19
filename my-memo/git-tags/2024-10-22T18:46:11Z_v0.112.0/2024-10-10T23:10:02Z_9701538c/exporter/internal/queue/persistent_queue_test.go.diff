@@ -1,0 +1,13 @@
+diff --git a/exporter/internal/queue/persistent_queue_test.go b/exporter/internal/queue/persistent_queue_test.go
+index b5a7cfa3d..61c9285d4 100644
+--- a/exporter/internal/queue/persistent_queue_test.go
++++ b/exporter/internal/queue/persistent_queue_test.go
+@@ -327,7 +327,7 @@ func TestInvalidStorageExtensionType(t *testing.T) {
+ 	factory := extensiontest.NewNopFactory()
+ 	extConfig := factory.CreateDefaultConfig()
+ 	settings := extensiontest.NewNopSettings()
+-	extension, err := factory.CreateExtension(context.Background(), settings, extConfig)
++	extension, err := factory.Create(context.Background(), settings, extConfig)
+ 	require.NoError(t, err)
+ 	var extensions = map[component.ID]component.Component{
+ 		storageID: extension,

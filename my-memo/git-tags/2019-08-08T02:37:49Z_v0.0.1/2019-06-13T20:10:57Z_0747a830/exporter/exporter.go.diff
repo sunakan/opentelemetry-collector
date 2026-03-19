@@ -1,0 +1,15 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 4f329704e..9f8c83c38 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -37,3 +37,10 @@ type MetricsExporter interface {
+ 	// as suffix (e.g. "oc_metrics").
+ 	MetricsExportFormat() string
+ }
++
++// Exporter is union of trace and/or metrics exporter.
++type Exporter interface {
++	TraceExporter
++	MetricsExporter
++	Stop() error
++}

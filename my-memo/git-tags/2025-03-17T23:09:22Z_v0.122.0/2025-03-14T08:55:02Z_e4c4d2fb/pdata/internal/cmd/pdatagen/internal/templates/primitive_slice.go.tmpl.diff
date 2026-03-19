@@ -1,0 +1,22 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+index 39e3032cf..bdb55f35a 100644
+--- a/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
++++ b/pdata/internal/cmd/pdatagen/internal/templates/primitive_slice.go.tmpl
+@@ -57,6 +57,17 @@ func (ms {{ .structName }}) At(i int) {{ .itemType }} {
+ 	return (*ms.getOrig())[i]
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++func (ms {{ .structName }}) All() iter.Seq2[int, {{ .itemType }}] {
++	return func(yield func(int, {{ .itemType }}) bool) {
++		for i := 0; i < ms.Len(); i++ {
++			if !yield(i, ms.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // SetAt sets {{ .itemType }} item at particular index.
+ // Equivalent of {{ .lowerStructName }}[i] = val
+ func (ms {{ .structName }}) SetAt(i int, val {{ .itemType }}) {

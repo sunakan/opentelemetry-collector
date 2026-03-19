@@ -1,0 +1,14 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index b2d0f40e8..98f5e9b68 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -33,7 +33,8 @@ const (
+ )
+ 
+ var (
+-	errNilScrapeConfig = errors.New("expecting a non-nil ScrapeConfig")
++	errNilScrapeConfig    = errors.New("expecting a non-nil ScrapeConfig")
++	errRenamingDisallowed = errors.New("metric renaming using metric_relabel_configs is disallowed")
+ )
+ 
+ // NewFactory creates a new Prometheus receiver factory.

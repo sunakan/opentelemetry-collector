@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/metadata.yaml b/cmd/mdatagen/metadata.yaml
+index 65bb097a9..bc18609e7 100644
+--- a/cmd/mdatagen/metadata.yaml
++++ b/cmd/mdatagen/metadata.yaml
+@@ -2,5 +2,7 @@ type: mdatagen
+ 
+ status:
+   class: cmd
++  stability:
++    alpha: [metrics]
+   codeowners:
+     active: [dmitryax]
+\ No newline at end of file

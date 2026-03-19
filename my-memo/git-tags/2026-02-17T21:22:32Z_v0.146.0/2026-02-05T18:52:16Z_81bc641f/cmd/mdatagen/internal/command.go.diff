@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index 8bc9c8116..430cc349c 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -59,6 +59,7 @@ func NewCommand() (*cobra.Command, error) {
+ 		Use:          "mdatagen",
+ 		Version:      ver,
+ 		SilenceUsage: true,
++		Args:         cobra.ExactArgs(1),
+ 		RunE: func(_ *cobra.Command, args []string) error {
+ 			return run(args[0])
+ 		},

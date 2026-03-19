@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/resource_structs.go b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+index 6688ffc08..249a07faf 100644
+--- a/pdata/internal/cmd/pdatagen/internal/resource_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/resource_structs.go
+@@ -44,7 +44,6 @@ var resource = &messageValueStruct{
+ }
+ 
+ var resourceField = &messageValueField{
+-	fieldName:       "Resource",
+-	originFieldName: "Resource",
+-	returnMessage:   resource,
++	fieldName:     "Resource",
++	returnMessage: resource,
+ }

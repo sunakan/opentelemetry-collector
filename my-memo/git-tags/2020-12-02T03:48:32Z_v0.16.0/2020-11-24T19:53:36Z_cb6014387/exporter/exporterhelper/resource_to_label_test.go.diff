@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/resource_to_label_test.go b/exporter/exporterhelper/resource_to_label_test.go
+index 83fa53ba6..1b445b97b 100644
+--- a/exporter/exporterhelper/resource_to_label_test.go
++++ b/exporter/exporterhelper/resource_to_label_test.go
+@@ -18,7 +18,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ func TestConvertResourceToLabels(t *testing.T) {

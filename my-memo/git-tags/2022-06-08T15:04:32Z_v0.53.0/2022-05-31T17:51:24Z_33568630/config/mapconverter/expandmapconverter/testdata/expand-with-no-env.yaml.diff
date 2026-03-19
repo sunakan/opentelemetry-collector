@@ -1,0 +1,16 @@
+diff --git a/config/mapconverter/expandmapconverter/testdata/expand-with-no-env.yaml b/config/mapconverter/expandmapconverter/testdata/expand-with-no-env.yaml
+deleted file mode 100644
+index fd4dd0821..000000000
+--- a/config/mapconverter/expandmapconverter/testdata/expand-with-no-env.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-test_map:
+-  extra: "some string"
+-  extra_map:
+-    recv.1: "some map value_1"
+-    recv.2: "some map value_2"
+-  extra_list_map:
+-    - { recv.1: "some list map value_1",recv.2: "some list map value_2" }
+-  extra_list:
+-    - "some list value_1"
+-    - "some list value_2"

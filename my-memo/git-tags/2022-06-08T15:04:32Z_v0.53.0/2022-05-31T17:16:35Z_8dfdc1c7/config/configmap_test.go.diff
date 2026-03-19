@@ -1,0 +1,13 @@
+diff --git a/config/configmap_test.go b/config/configmap_test.go
+index a487c0e7c..000e7665e 100644
+--- a/config/configmap_test.go
++++ b/config/configmap_test.go
+@@ -24,7 +24,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+-	"gopkg.in/yaml.v2"
++	"gopkg.in/yaml.v3"
+ )
+ 
+ func TestToStringMap_WithSet(t *testing.T) {

@@ -1,0 +1,15 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index be278ce26..4ef1dad84 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -160,10 +160,6 @@ func extractStringAttribute(
+ 	return value, ok
+ }
+ 
+-func (ze *zipkinExporter) Name() string {
+-	return ze.defaultServiceName
+-}
+-
+ func (ze *zipkinExporter) Start(host exporter.Host) error {
+ 	return nil
+ }

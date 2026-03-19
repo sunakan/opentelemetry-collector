@@ -1,0 +1,13 @@
+diff --git a/config/testdata/multiproto-config.yaml b/config/testdata/multiproto-config.yaml
+index 930079bd8..f8a076464 100644
+--- a/config/testdata/multiproto-config.yaml
++++ b/config/testdata/multiproto-config.yaml
+@@ -3,7 +3,7 @@ receivers:
+   multireceiver/myreceiver:
+     protocols:
+       http:
+-        endpoint: "127.0.0.1:12345"
++        endpoint: "localhost:12345"
+         extra: "some string 1"
+       tcp:
+         endpoint: "0.0.0.0:4567"

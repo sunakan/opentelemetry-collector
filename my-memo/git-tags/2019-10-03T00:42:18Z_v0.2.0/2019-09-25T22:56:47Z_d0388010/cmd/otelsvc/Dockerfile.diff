@@ -1,0 +1,14 @@
+diff --git a/cmd/otelsvc/Dockerfile b/cmd/otelsvc/Dockerfile
+deleted file mode 100644
+index a5982572b..000000000
+--- a/cmd/otelsvc/Dockerfile
++++ /dev/null
+@@ -1,8 +0,0 @@
+-FROM alpine:3.9 as certs
+-RUN apk --update add ca-certificates
+-
+-FROM scratch
+-COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+-COPY otelsvc /
+-ENTRYPOINT ["/otelsvc"]
+-EXPOSE 55678 55679

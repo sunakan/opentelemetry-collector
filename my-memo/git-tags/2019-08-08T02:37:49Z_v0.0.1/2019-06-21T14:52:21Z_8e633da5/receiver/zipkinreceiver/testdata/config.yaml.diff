@@ -1,0 +1,24 @@
+diff --git a/receiver/zipkinreceiver/testdata/config.yaml b/receiver/zipkinreceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..bf6e7af9c
+--- /dev/null
++++ b/receiver/zipkinreceiver/testdata/config.yaml
+@@ -0,0 +1,18 @@
++receivers:
++  zipkin:
++  zipkin/customname:
++    endpoint: "127.0.0.1:8765"
++    enabled: true
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++   receivers: [zipkin]
++   processors: [exampleprocessor]
++   exporters: [exampleexporter]
++

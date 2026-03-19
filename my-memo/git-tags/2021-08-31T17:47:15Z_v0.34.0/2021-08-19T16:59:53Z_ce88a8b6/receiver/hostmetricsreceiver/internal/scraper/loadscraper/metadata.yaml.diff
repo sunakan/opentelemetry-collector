@@ -1,0 +1,28 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/metadata.yaml b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/metadata.yaml
+new file mode 100644
+index 000000000..eaef89fef
+--- /dev/null
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/metadata.yaml
+@@ -0,0 +1,22 @@
++name: load
++
++labels:
++
++metrics:
++  system.cpu.load_average.1m:
++    description: Average CPU Load over 1 minute.
++    unit: 1
++    data:
++      type: gauge
++
++  system.cpu.load_average.5m:
++    description: Average CPU Load over 5 minutes.
++    unit: 1
++    data:
++      type: gauge
++
++  system.cpu.load_average.15m:
++    description: Average CPU Load over 15 minutes.
++    unit: 1
++    data:
++      type: gauge

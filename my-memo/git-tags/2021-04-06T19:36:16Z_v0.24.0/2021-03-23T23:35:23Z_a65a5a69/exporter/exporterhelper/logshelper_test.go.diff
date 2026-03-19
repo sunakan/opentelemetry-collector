@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/logshelper_test.go b/exporter/exporterhelper/logshelper_test.go
+index 6a7c3a430..c0e36d4cb 100644
+--- a/exporter/exporterhelper/logshelper_test.go
++++ b/exporter/exporterhelper/logshelper_test.go
+@@ -48,11 +48,11 @@ var (
+ func TestLogsRequest(t *testing.T) {
+ 	lr := newLogsRequest(context.Background(), testdata.GenerateLogDataOneLog(), nil)
+ 
+-	partialErr := consumererror.PartialLogsError(errors.New("some error"), testdata.GenerateLogDataEmpty())
++	logErr := consumererror.NewLogs(errors.New("some error"), testdata.GenerateLogDataEmpty())
+ 	assert.EqualValues(
+ 		t,
+ 		newLogsRequest(context.Background(), testdata.GenerateLogDataEmpty(), nil),
+-		lr.onPartialError(partialErr.(consumererror.PartialError)),
++		lr.onError(logErr),
+ 	)
+ }
+ 

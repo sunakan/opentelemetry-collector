@@ -1,0 +1,45 @@
+diff --git a/examples/demo/otel-collector-config.yaml b/examples/demo/otel-collector-config.yaml
+new file mode 100644
+index 000000000..b712a6f5f
+--- /dev/null
++++ b/examples/demo/otel-collector-config.yaml
+@@ -0,0 +1,39 @@
++# Enable debug level to see output of "logging" exporter
++log-level: DEBUG
++
++receivers:
++  opencensus:
++    endpoint: 0.0.0.0:55678
++
++exporters:
++  prometheus:
++    endpoint: "0.0.0.0:8889"
++    namespace: promexample
++    const_labels:
++      label1: value1
++  logging:
++
++  zipkin:
++    url: "http://zipkin-all-in-one:9411/api/v2/spans"
++
++  jaeger-grpc:
++    endpoint: jaeger-all-in-one:14250
++
++# Alternatively, use jaeger-thrift-http with the settings below. In this case
++# update the list of exporters on the traces pipeline.
++#
++#  jaeger-thrift-http:
++#    url: http://jaeger-all-in-one:14268/api/traces
++
++processors:
++  batch:
++  queued-retry:
++
++pipelines:
++  traces:
++    receivers: [opencensus]
++    exporters: [logging, zipkin, jaeger-grpc]
++    processors: [batch, queued-retry]
++  metrics:
++    receivers: [opencensus]
++    exporters: [logging,prometheus]

@@ -1,0 +1,21 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+index c75625916..444559591 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+@@ -186,12 +186,12 @@ func TestMultipleJSONV1BatchesToOCProto(t *testing.T) {
+ 
+ 		// Coalesce the nodes otherwise they will differ due to multiple
+ 		// nodes representing same logical service
+-		for _, tsr := range g {
+-			key := tsr.Node.String()
++		for i := range g {
++			key := g[i].Node.String()
+ 			if pTsr, ok := nodeToTraceReqs[key]; ok {
+-				pTsr.Spans = append(pTsr.Spans, tsr.Spans...)
++				pTsr.Spans = append(pTsr.Spans, g[i].Spans...)
+ 			} else {
+-				nodeToTraceReqs[key] = &tsr
++				nodeToTraceReqs[key] = &g[i]
+ 			}
+ 		}
+ 	}

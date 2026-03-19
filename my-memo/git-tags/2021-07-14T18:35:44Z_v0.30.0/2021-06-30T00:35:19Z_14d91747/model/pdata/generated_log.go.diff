@@ -1,0 +1,13 @@
+diff --git a/model/pdata/generated_log.go b/model/pdata/generated_log.go
+index ed93fedb7..30d005a31 100644
+--- a/model/pdata/generated_log.go
++++ b/model/pdata/generated_log.go
+@@ -18,7 +18,7 @@
+ package pdata
+ 
+ import (
+-	otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
++	otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"
+ )
+ 
+ // ResourceLogsSlice logically represents a slice of ResourceLogs.

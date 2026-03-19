@@ -1,0 +1,13 @@
+diff --git a/cmd/pdatagen/internal/trace_structs.go b/cmd/pdatagen/internal/trace_structs.go
+index 5b3cbc380..dd6af4ca2 100644
+--- a/cmd/pdatagen/internal/trace_structs.go
++++ b/cmd/pdatagen/internal/trace_structs.go
+@@ -17,6 +17,8 @@ package internal
+ var traceFile = &File{
+ 	Name: "trace",
+ 	imports: []string{
++		`"sort"`,
++		``,
+ 		`otlptrace "go.opentelemetry.io/collector/model/internal/data/protogen/trace/v1"`,
+ 	},
+ 	testImports: []string{

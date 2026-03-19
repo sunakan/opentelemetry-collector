@@ -1,0 +1,10 @@
+diff --git a/connector/go.mod b/connector/go.mod
+index 66d28697f..1758e26ba 100644
+--- a/connector/go.mod
++++ b/connector/go.mod
+@@ -63,3 +63,5 @@ replace go.opentelemetry.io/collector/processor => ../processor
+ replace go.opentelemetry.io/collector/receiver => ../receiver
+ 
+ replace go.opentelemetry.io/collector/exporter => ../exporter
++
++replace go.opentelemetry.io/collector/config/configretry => ../config/configretry

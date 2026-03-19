@@ -1,0 +1,24 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index ef5db3376..5cca94b09 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -104,8 +104,8 @@ func TestJsonHttp(t *testing.T) {
+ 			name:               "Permanent GRPCError",
+ 			encoding:           "",
+ 			contentType:        "application/json",
+-			err:                status.New(codes.InvalidArgument, "").Err(),
+-			expectedStatus:     &spb.Status{Code: int32(codes.InvalidArgument), Message: ""},
++			err:                status.New(codes.Internal, "").Err(),
++			expectedStatus:     &spb.Status{Code: int32(codes.Internal), Message: ""},
+ 			expectedStatusCode: http.StatusInternalServerError,
+ 		},
+ 		{
+@@ -361,7 +361,7 @@ func TestProtoHttp(t *testing.T) {
+ 			encoding:           "",
+ 			err:                status.New(codes.InvalidArgument, "").Err(),
+ 			expectedStatus:     &spb.Status{Code: int32(codes.InvalidArgument), Message: ""},
+-			expectedStatusCode: http.StatusInternalServerError,
++			expectedStatusCode: http.StatusBadRequest,
+ 		},
+ 		{
+ 			name:               "Retryable GRPCError",

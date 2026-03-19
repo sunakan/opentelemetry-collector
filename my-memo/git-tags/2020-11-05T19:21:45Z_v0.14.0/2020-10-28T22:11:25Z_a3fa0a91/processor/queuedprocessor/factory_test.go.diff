@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/factory_test.go b/processor/queuedprocessor/factory_test.go
+index bfa8ed66c..a4a69cc9f 100644
+--- a/processor/queuedprocessor/factory_test.go
++++ b/processor/queuedprocessor/factory_test.go
+@@ -37,7 +37,7 @@ func TestCreateProcessor(t *testing.T) {
+ 	cfg := factory.CreateDefaultConfig()
+ 	creationParams := component.ProcessorCreateParams{Logger: zap.NewNop()}
+ 
+-	tp, err := factory.CreateTraceProcessor(context.Background(), creationParams, cfg, nil)
++	tp, err := factory.CreateTracesProcessor(context.Background(), creationParams, cfg, nil)
+ 	assert.NotNil(t, tp)
+ 	assert.NoError(t, err, "cannot create trace processor")
+ 

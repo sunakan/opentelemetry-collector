@@ -1,0 +1,13 @@
+diff --git a/config/testdata/unknown-receiver-type.yaml b/config/testdata/unknown-receiver-type.yaml
+index eef9a5a79..75c777f2b 100644
+--- a/config/testdata/unknown-receiver-type.yaml
++++ b/config/testdata/unknown-receiver-type.yaml
+@@ -8,7 +8,7 @@ service:
+   pipelines:
+     traces:
+       receivers:
+-        - multireceiver
++        - examplereceiver
+       exporters:
+         - exampleexporter
+       processors:

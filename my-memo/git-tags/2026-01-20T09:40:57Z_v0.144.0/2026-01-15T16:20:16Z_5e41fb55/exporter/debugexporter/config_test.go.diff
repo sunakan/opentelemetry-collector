@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/config_test.go b/exporter/debugexporter/config_test.go
+index ffd98e148..abf75dd97 100644
+--- a/exporter/debugexporter/config_test.go
++++ b/exporter/debugexporter/config_test.go
+@@ -42,7 +42,7 @@ func TestUnmarshalConfig(t *testing.T) {
+ 		},
+ 		{
+ 			filename:    "config_verbosity_typo.yaml",
+-			expectedErr: "'' has invalid keys: verBosity",
++			expectedErr: "has invalid keys: verBosity",
+ 		},
+ 	}
+ 

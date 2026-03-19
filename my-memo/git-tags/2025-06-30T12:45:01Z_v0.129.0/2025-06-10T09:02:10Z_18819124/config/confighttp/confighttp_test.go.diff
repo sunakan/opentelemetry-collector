@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index ecb710812..85fd11762 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -740,7 +740,7 @@ func TestHttpCors(t *testing.T) {
+ 		},
+ 		{
+ 			name:             "emptyCORS",
+-			CORSConfig:       NewDefaultCORSConfig(),
++			CORSConfig:       ptr(NewDefaultCORSConfig()),
+ 			allowedWorks:     false,
+ 			disallowedWorks:  false,
+ 			extraHeaderWorks: false,

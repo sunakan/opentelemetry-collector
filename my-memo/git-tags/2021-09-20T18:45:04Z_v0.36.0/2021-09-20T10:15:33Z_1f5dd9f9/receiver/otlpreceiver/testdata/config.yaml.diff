@@ -1,0 +1,18 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index 7e9a8ab94..568df9e71 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -54,11 +54,11 @@ receivers:
+   otlp/tlscredentials:
+     protocols:
+       grpc:
+-        tls_settings:
++        tls:
+           cert_file: test.crt
+           key_file: test.key
+       http:
+-        tls_settings:
++        tls:
+           cert_file: test.crt
+           key_file: test.key
+   # The following entry demonstrates how to specify a Unix Domain Socket for the server.

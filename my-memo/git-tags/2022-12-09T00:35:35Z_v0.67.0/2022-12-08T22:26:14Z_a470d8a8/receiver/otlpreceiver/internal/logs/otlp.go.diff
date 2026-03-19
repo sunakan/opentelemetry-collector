@@ -1,0 +1,25 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp.go b/receiver/otlpreceiver/internal/logs/otlp.go
+index ff2ee3ac7..4bb0fc20c 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp.go
++++ b/receiver/otlpreceiver/internal/logs/otlp.go
+@@ -17,10 +17,10 @@ package logs // import "go.opentelemetry.io/collector/receiver/otlpreceiver/inte
+ import (
+ 	"context"
+ 
+-	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/obsreport"
+ 	"go.opentelemetry.io/collector/pdata/plog/plogotlp"
++	"go.opentelemetry.io/collector/receiver"
+ )
+ 
+ const (
+@@ -35,7 +35,7 @@ type Receiver struct {
+ }
+ 
+ // New creates a new Receiver reference.
+-func New(nextConsumer consumer.Logs, set component.ReceiverCreateSettings) (*Receiver, error) {
++func New(nextConsumer consumer.Logs, set receiver.CreateSettings) (*Receiver, error) {
+ 	obsrecv, err := obsreport.NewReceiver(obsreport.ReceiverSettings{
+ 		ReceiverID:             set.ID,
+ 		Transport:              receiverTransport,

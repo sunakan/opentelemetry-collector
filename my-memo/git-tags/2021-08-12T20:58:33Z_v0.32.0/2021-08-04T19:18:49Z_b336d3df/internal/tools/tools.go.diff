@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 6d3599e88..70147f27a 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -30,6 +30,7 @@ import (
+ 	_ "github.com/ory/go-acc"
+ 	_ "github.com/pavius/impi/cmd/impi"
+ 	_ "github.com/tcnksm/ghr"
++	_ "go.opentelemetry.io/build-tools/semconvgen"
+ 	_ "golang.org/x/exp/cmd/apidiff"
+ 	_ "golang.org/x/tools/cmd/goimports"
+ )

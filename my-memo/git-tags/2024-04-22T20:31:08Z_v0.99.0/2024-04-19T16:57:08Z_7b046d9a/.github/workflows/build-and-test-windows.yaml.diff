@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 1b3f986a4..0323f79ab 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -34,7 +34,7 @@ jobs:
+             ~\AppData\Local\go-build
+           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+       - name: Run Unit Tests
+-        run: make gotest GOTEST_TIMEOUT=240s
++        run: make gotest
+ 
+   windows-service-test:
+     runs-on: windows-latest

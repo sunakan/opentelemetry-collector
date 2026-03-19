@@ -1,0 +1,36 @@
+diff --git a/exporter/internal/requesttest/fake_request.go b/exporter/internal/requesttest/fake_request.go
+index d5e8e511f..2c80e01cf 100644
+--- a/exporter/internal/requesttest/fake_request.go
++++ b/exporter/internal/requesttest/fake_request.go
+@@ -10,6 +10,9 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
+ 	"go.opentelemetry.io/collector/exporter/internal"
++	"go.opentelemetry.io/collector/pdata/plog"
++	"go.opentelemetry.io/collector/pdata/pmetric"
++	"go.opentelemetry.io/collector/pdata/ptrace"
+ )
+ 
+ type Sink struct {
+@@ -120,3 +123,21 @@ func (r *FakeRequest) MergeSplit(_ context.Context, cfg exporterbatcher.MaxSizeC
+ 
+ 	return res, nil
+ }
++
++func RequestFromMetricsFunc(reqErr error) func(context.Context, pmetric.Metrics) (internal.Request, error) {
++	return func(_ context.Context, md pmetric.Metrics) (internal.Request, error) {
++		return &FakeRequest{Items: md.DataPointCount(), ExportErr: reqErr}, nil
++	}
++}
++
++func RequestFromTracesFunc(reqErr error) func(context.Context, ptrace.Traces) (internal.Request, error) {
++	return func(_ context.Context, td ptrace.Traces) (internal.Request, error) {
++		return &FakeRequest{Items: td.SpanCount(), ExportErr: reqErr}, nil
++	}
++}
++
++func RequestFromLogsFunc(reqErr error) func(context.Context, plog.Logs) (internal.Request, error) {
++	return func(_ context.Context, ld plog.Logs) (internal.Request, error) {
++		return &FakeRequest{Items: ld.LogRecordCount(), ExportErr: reqErr}, nil
++	}
++}

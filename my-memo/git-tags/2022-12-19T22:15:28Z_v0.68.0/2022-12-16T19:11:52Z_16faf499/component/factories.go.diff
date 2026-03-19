@@ -1,0 +1,13 @@
+diff --git a/component/factories.go b/component/factories.go
+index 8a0d47428..3a041bb31 100644
+--- a/component/factories.go
++++ b/component/factories.go
+@@ -18,7 +18,7 @@ import (
+ 	"fmt"
+ )
+ 
+-// Deprecated: [v0.68.0] use service.Factories.
++// Deprecated: [v0.68.0] use otelcol.Factories.
+ type Factories struct {
+ 	// Receivers maps receiver type names in the config to the respective factory.
+ 	Receivers map[Type]ReceiverFactory

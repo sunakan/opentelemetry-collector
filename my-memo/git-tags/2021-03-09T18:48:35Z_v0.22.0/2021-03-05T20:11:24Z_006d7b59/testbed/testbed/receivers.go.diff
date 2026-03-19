@@ -1,0 +1,18 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index 8199fd51e..bdff9707b 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -72,11 +72,11 @@ func (mb *DataReceiverBase) GetFactory(_ component.Kind, _ configmodels.Type) co
+ }
+ 
+ // Return map of extensions. Only enabled and created extensions will be returned.
+-func (mb *DataReceiverBase) GetExtensions() map[configmodels.Extension]component.Extension {
++func (mb *DataReceiverBase) GetExtensions() map[configmodels.NamedEntity]component.Extension {
+ 	return nil
+ }
+ 
+-func (mb *DataReceiverBase) GetExporters() map[configmodels.DataType]map[configmodels.Exporter]component.Exporter {
++func (mb *DataReceiverBase) GetExporters() map[configmodels.DataType]map[configmodels.NamedEntity]component.Exporter {
+ 	return nil
+ }
+ 

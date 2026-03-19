@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterset/testdata/config_invalid.yaml b/internal/processor/filterset/testdata/config_invalid.yaml
+new file mode 100644
+index 000000000..bc854ccc6
+--- /dev/null
++++ b/internal/processor/filterset/testdata/config_invalid.yaml
+@@ -0,0 +1,6 @@
++# Yaml form of the configuration for FilterSets
++# This configuration can be embedded into other component's yamls
++# The top level here are just test names and do not represent part of the actual configuration.
++
++invalid/matchtype:
++  match_type: "invalid"
+\ No newline at end of file

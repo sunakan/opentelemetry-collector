@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender_test.go b/exporter/exporterhelper/internal/queue_sender_test.go
+index 30b8f2874..2c89d9c2c 100644
+--- a/exporter/exporterhelper/internal/queue_sender_test.go
++++ b/exporter/exporterhelper/internal/queue_sender_test.go
+@@ -317,7 +317,6 @@ func TestQueueRetryWithDisabledQueue(t *testing.T) {
+ 			require.NoError(t, be.Shutdown(context.Background()))
+ 		})
+ 	}
+-
+ }
+ 
+ func TestQueueFailedRequestDropped(t *testing.T) {

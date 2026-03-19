@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_telemetry.go b/component/componenttest/nop_telemetry.go
+index 190ed8171..265b8f0a3 100644
+--- a/component/componenttest/nop_telemetry.go
++++ b/component/componenttest/nop_telemetry.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package componenttest
++package componenttest // import "go.opentelemetry.io/collector/component/componenttest"
+ 
+ import (
+ 	"go.opentelemetry.io/otel/metric"

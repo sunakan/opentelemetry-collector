@@ -1,0 +1,24 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 9416ac9cc..04f1d2788 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -99,6 +99,7 @@ func NewDefaultHTTPClientSettings() HTTPClientSettings {
+ }
+ 
+ // ToClient creates an HTTP client.
++// Deprecated: [v0.55.0] Use ToClientWithHost instead.
+ func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Extension, settings component.TelemetrySettings) (*http.Client, error) {
+ 	tlsCfg, err := hcs.TLSSetting.LoadTLSConfig()
+ 	if err != nil {
+@@ -183,6 +184,11 @@ func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Ext
+ 	}, nil
+ }
+ 
++// ToClientWithHost creates an HTTP client.
++func (hcs *HTTPClientSettings) ToClientWithHost(host component.Host, settings component.TelemetrySettings) (*http.Client, error) {
++	return hcs.ToClient(host.GetExtensions(), settings)
++}
++
+ // Custom RoundTripper that adds headers.
+ type headerRoundTripper struct {
+ 	transport http.RoundTripper

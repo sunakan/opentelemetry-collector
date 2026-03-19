@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+index aaf8a87e4..3026acee7 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -189,7 +189,7 @@ func parseSpanSamplingPriority(span pdata.Span) samplingPriority {
+ 	return decision
+ }
+ 
+-// hash is a murmur3 hash function, see http://en.wikipedia.org/wiki/MurmurHash.
++// hash is a murmur3 hash function, see http://en.wikipedia.org/wiki/MurmurHash
+ func hash(key []byte, seed uint32) (hash uint32) {
+ 	const (
+ 		c1 = 0xcc9e2d51

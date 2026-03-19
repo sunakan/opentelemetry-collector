@@ -1,0 +1,20 @@
+diff --git a/pdata/ptrace/span_kind.go b/pdata/ptrace/span_kind.go
+index 561d82cff..202146fa6 100644
+--- a/pdata/ptrace/span_kind.go
++++ b/pdata/ptrace/span_kind.go
+@@ -5,6 +5,7 @@ package ptrace // import "go.opentelemetry.io/collector/pdata/ptrace"
+ 
+ import (
+ 	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ // SpanKind is the type of span. Can be used to specify additional relationships between spans
+@@ -52,3 +53,7 @@ func (sk SpanKind) String() string {
+ 	}
+ 	return ""
+ }
++
++func (sk SpanKind) marshalJSONStream(dest *json.Stream) {
++	dest.WriteInt32(int32(sk))
++}

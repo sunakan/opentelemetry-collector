@@ -1,0 +1,23 @@
+diff --git a/internal/data/testdata/log.go b/internal/data/testdata/log.go
+index 1eece8d56..3008c8148 100644
+--- a/internal/data/testdata/log.go
++++ b/internal/data/testdata/log.go
+@@ -66,6 +66,18 @@ func generateLogOtlpOneEmptyOneNilResourceLogs() []*otlplogs.ResourceLogs {
+ 	}
+ }
+ 
++func GenerateLogDataOneEmptyOneNilInstrumentationLibrary() pdata.Logs {
++	return pdata.LogsFromInternalRep(internal.LogsFromOtlp(generateLogOtlpOneEmptyOneNilInstrumentationLibrary()))
++
++}
++
++func generateLogOtlpOneEmptyOneNilInstrumentationLibrary() []*otlplogs.ResourceLogs {
++	return []*otlplogs.ResourceLogs{
++		{},
++		{nil, []*otlplogs.InstrumentationLibraryLogs{nil}},
++	}
++}
++
+ func GenerateLogDataNoLogRecords() pdata.Logs {
+ 	ld := GenerateLogDataOneEmptyResourceLogs()
+ 	rs0 := ld.ResourceLogs().At(0)

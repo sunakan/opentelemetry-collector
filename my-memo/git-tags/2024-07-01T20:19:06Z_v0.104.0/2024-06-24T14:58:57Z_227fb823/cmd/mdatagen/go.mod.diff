@@ -1,0 +1,10 @@
+diff --git a/cmd/mdatagen/go.mod b/cmd/mdatagen/go.mod
+index 45649111b..e96e33fbc 100644
+--- a/cmd/mdatagen/go.mod
++++ b/cmd/mdatagen/go.mod
+@@ -87,3 +87,5 @@ retract (
+ 	v0.76.1
+ 	v0.65.0
+ )
++
++replace go.opentelemetry.io/collector/pdata/pprofile => ../../pdata/pprofile

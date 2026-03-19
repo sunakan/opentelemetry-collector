@@ -1,0 +1,13 @@
+diff --git a/internal/data_generator/internal/base_structs.go b/internal/data_generator/internal/base_structs.go
+index a486b2e49..0675d389a 100644
+--- a/internal/data_generator/internal/base_structs.go
++++ b/internal/data_generator/internal/base_structs.go
+@@ -91,7 +91,7 @@ type ${structName} struct {
+ 	orig *${originName}
+ }
+ 
+-// New${structName} creates a new ${structName}.
++// New${structName} creates a new empty ${structName}.
+ func New${structName}() ${structName} {
+ 	return ${structName}{&${originName}{}}
+ }

@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/primitive_slice_structs.go b/internal/cmd/pdatagen/internal/pdata/primitive_slice_structs.go
+index 27aa664ba..0450a1207 100644
+--- a/internal/cmd/pdatagen/internal/pdata/primitive_slice_structs.go
++++ b/internal/cmd/pdatagen/internal/pdata/primitive_slice_structs.go
+@@ -58,6 +58,10 @@ func (iss *primitiveSliceStruct) getHasWrapper() bool {
+ 	return usedByOtherDataTypes(iss.packageName)
+ }
+ 
++func (iss *primitiveSliceStruct) getHasOnlyOrig() bool {
++	return false
++}
++
+ func (iss *primitiveSliceStruct) getElementOriginName() string {
+ 	return upperFirst(iss.itemType)
+ }

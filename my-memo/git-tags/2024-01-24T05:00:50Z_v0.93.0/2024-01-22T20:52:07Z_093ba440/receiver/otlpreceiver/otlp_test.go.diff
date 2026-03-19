@@ -1,0 +1,47 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index a0ca95c55..20e00a382 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -101,10 +101,6 @@ func TestJsonHttp(t *testing.T) {
+ 	require.NoError(t, recv.Start(context.Background(), componenttest.NewNopHost()), "Failed to start trace receiver")
+ 	t.Cleanup(func() { require.NoError(t, recv.Shutdown(context.Background())) })
+ 
+-	// TODO(nilebox): make starting server deterministic
+-	// Wait for the servers to start
+-	<-time.After(10 * time.Millisecond)
+-
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			sink.Reset()
+@@ -140,10 +136,6 @@ func TestHandleInvalidRequests(t *testing.T) {
+ 	require.NoError(t, recv.Start(context.Background(), componenttest.NewNopHost()), "Failed to start trace receiver")
+ 	t.Cleanup(func() { require.NoError(t, recv.Shutdown(context.Background())) })
+ 
+-	// TODO(nilebox): make starting server deterministic
+-	// Wait for the servers to start
+-	<-time.After(10 * time.Millisecond)
+-
+ 	tests := []struct {
+ 		name        string
+ 		uri         string
+@@ -346,10 +338,6 @@ func TestProtoHttp(t *testing.T) {
+ 	require.NoError(t, recv.Start(context.Background(), componenttest.NewNopHost()), "Failed to start trace receiver")
+ 	t.Cleanup(func() { require.NoError(t, recv.Shutdown(context.Background())) })
+ 
+-	// TODO(nilebox): make starting server deterministic
+-	// Wait for the servers to start
+-	<-time.After(10 * time.Millisecond)
+-
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			sink.Reset()
+@@ -433,9 +421,6 @@ func TestOTLPReceiverInvalidContentEncoding(t *testing.T) {
+ 
+ 	url := fmt.Sprintf("http://%s%s", addr, defaultTracesURLPath)
+ 
+-	// Wait for the servers to start
+-	<-time.After(10 * time.Millisecond)
+-
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {
+ 			body, err := test.reqBodyFunc()

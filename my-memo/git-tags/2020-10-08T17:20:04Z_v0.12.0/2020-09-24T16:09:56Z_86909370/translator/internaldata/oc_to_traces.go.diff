@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_traces.go b/translator/internaldata/oc_to_traces.go
+index 081f14ae3..789b81585 100644
+--- a/translator/internaldata/oc_to_traces.go
++++ b/translator/internaldata/oc_to_traces.go
+@@ -28,6 +28,8 @@ import (
+ )
+ 
+ // OCToTraceData converts OC data format to Traces.
++// Deprecated: use pdata.Traces instead. OCToTraceData may be used only by OpenCensus
++// receiver and exporter implementations.
+ func OCToTraceData(td consumerdata.TraceData) pdata.Traces {
+ 	traceData := pdata.NewTraces()
+ 	if td.Node == nil && td.Resource == nil && len(td.Spans) == 0 {

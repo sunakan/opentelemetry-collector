@@ -1,0 +1,32 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-service-section.yaml b/service/internal/configunmarshaler/testdata/invalid-service-section.yaml
+index 6a3b8f927..7dcf713e0 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-service-section.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-service-section.yaml
+@@ -1,11 +1,11 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ extensions:
+-  exampleextension:
++  nop:
+ service:
+   extenstions:
+     - examapleextension
+@@ -14,8 +14,8 @@ service:
+   pipelines:
+     traces:
+       receivers:
+-        - examplereceiver
++        - nop
+       processors:
+-        - exampleprocessor
++        - nop
+       exporters:
+-        - exampleexporter
++        - nop

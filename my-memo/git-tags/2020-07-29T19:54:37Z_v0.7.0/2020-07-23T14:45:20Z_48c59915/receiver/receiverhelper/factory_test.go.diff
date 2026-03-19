@@ -1,0 +1,51 @@
+diff --git a/receiver/receiverhelper/factory_test.go b/receiver/receiverhelper/factory_test.go
+index f97951494..41558ffcb 100644
+--- a/receiver/receiverhelper/factory_test.go
++++ b/receiver/receiverhelper/factory_test.go
+@@ -44,6 +44,9 @@ func TestNewFactory(t *testing.T) {
+ 	assert.Error(t, err)
+ 	_, err = factory.CreateMetricsReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
+ 	assert.Error(t, err)
++	lfactory := factory.(component.LogsReceiverFactory)
++	_, err = lfactory.CreateLogsReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
++	assert.Error(t, err)
+ }
+ 
+ func TestNewFactory_WithConstructors(t *testing.T) {
+@@ -52,16 +55,21 @@ func TestNewFactory_WithConstructors(t *testing.T) {
+ 		defaultConfig,
+ 		WithTraces(createTraceReceiver),
+ 		WithMetrics(createMetricsReceiver),
++		WithLogs(createLogsReceiver),
+ 		WithCustomUnmarshaler(customUnmarshaler))
+ 	assert.EqualValues(t, typeStr, factory.Type())
+ 	assert.EqualValues(t, defaultCfg, factory.CreateDefaultConfig())
+ 	assert.NotNil(t, factory.CustomUnmarshaler())
+-	tr, err := factory.CreateTraceReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
++
++	_, err := factory.CreateTraceReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
++	assert.NoError(t, err)
++
++	_, err = factory.CreateMetricsReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
+ 	assert.NoError(t, err)
+-	assert.EqualValues(t, component.TraceReceiver(nil), tr)
+-	mr, err := factory.CreateMetricsReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
++
++	lfactory := factory.(component.LogsReceiverFactory)
++	_, err = lfactory.CreateLogsReceiver(context.Background(), component.ReceiverCreateParams{}, defaultCfg, nil)
+ 	assert.NoError(t, err)
+-	assert.EqualValues(t, component.MetricsReceiver(nil), mr)
+ }
+ 
+ func defaultConfig() configmodels.Receiver {
+@@ -76,6 +84,10 @@ func createMetricsReceiver(context.Context, component.ReceiverCreateParams, conf
+ 	return nil, nil
+ }
+ 
++func createLogsReceiver(context.Context, component.ReceiverCreateParams, configmodels.Receiver, consumer.LogsConsumer) (component.LogsReceiver, error) {
++	return nil, nil
++}
++
+ func customUnmarshaler(*viper.Viper, interface{}) error {
+ 	return nil
+ }

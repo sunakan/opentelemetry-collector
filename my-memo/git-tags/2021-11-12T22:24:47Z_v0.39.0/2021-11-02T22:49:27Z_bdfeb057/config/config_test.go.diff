@@ -1,0 +1,12 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index 90240e71d..c601372f7 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -259,7 +259,6 @@ func generateConfig() *Config {
+ 			Extensions: []ComponentID{NewComponentID("nop")},
+ 			Pipelines: map[ComponentID]*Pipeline{
+ 				NewComponentID("traces"): {
+-					InputType:  TracesDataType,
+ 					Receivers:  []ComponentID{NewComponentID("nop")},
+ 					Processors: []ComponentID{NewComponentID("nop")},
+ 					Exporters:  []ComponentID{NewComponentID("nop")},

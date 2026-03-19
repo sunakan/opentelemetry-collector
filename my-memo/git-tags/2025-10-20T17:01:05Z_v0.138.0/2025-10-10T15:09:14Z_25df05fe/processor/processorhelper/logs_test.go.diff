@@ -1,0 +1,18 @@
+diff --git a/processor/processorhelper/logs_test.go b/processor/processorhelper/logs_test.go
+index 8b62c68cc..82dbfd666 100644
+--- a/processor/processorhelper/logs_test.go
++++ b/processor/processorhelper/logs_test.go
+@@ -92,11 +92,11 @@ func TestLogsConcurrency(t *testing.T) {
+ 	assert.NoError(t, lp.Start(context.Background(), componenttest.NewNopHost()))
+ 
+ 	var wg sync.WaitGroup
+-	for i := 0; i < 10; i++ {
++	for range 10 {
+ 		wg.Add(1)
+ 		go func() {
+ 			defer wg.Done()
+-			for j := 0; j < 10000; j++ {
++			for range 10000 {
+ 				assert.NoError(t, lp.ConsumeLogs(context.Background(), incomingLogs))
+ 			}
+ 		}()

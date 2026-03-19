@@ -1,0 +1,12 @@
+diff --git a/cmd/pdatagen/internal/log_structs.go b/cmd/pdatagen/internal/log_structs.go
+index 5b599f8c5..56085dd74 100644
+--- a/cmd/pdatagen/internal/log_structs.go
++++ b/cmd/pdatagen/internal/log_structs.go
+@@ -17,6 +17,7 @@ package internal
+ var logFile = &File{
+ 	Name: "log",
+ 	imports: []string{
++		`otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"`,
+ 		`otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"`,
+ 	},
+ 	testImports: []string{

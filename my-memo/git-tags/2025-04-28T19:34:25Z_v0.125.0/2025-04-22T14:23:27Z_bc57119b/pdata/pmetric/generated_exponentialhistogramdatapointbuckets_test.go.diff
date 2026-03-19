@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+index faf6e529f..9914c4b24 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+@@ -21,6 +21,8 @@ func TestExponentialHistogramDataPointBuckets_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewExponentialHistogramDataPointBuckets(), ms)
+ 	assert.Equal(t, generateTestExponentialHistogramDataPointBuckets(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestExponentialHistogramDataPointBuckets(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() {
+ 		ms.MoveTo(newExponentialHistogramDataPointBuckets(&otlpmetrics.ExponentialHistogramDataPoint_Buckets{}, &sharedState))

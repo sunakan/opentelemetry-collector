@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+index ee9089590..28b5f83a0 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportpartialsuccess_test.go
+@@ -21,6 +21,8 @@ func TestExportPartialSuccess_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewExportPartialSuccess(), ms)
+ 	assert.Equal(t, generateTestExportPartialSuccess(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestExportPartialSuccess(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() {
+ 		ms.MoveTo(newExportPartialSuccess(&otlpcollectormetrics.ExportMetricsPartialSuccess{}, &sharedState))

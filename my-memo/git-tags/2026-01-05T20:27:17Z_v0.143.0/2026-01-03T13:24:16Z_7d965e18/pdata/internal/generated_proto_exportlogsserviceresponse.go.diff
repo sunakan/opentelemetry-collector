@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_proto_exportlogsserviceresponse.go b/pdata/internal/generated_proto_exportlogsserviceresponse.go
+index 7b78c7360..5570fe93d 100644
+--- a/pdata/internal/generated_proto_exportlogsserviceresponse.go
++++ b/pdata/internal/generated_proto_exportlogsserviceresponse.go
+@@ -43,9 +43,7 @@ func DeleteExportLogsServiceResponse(orig *ExportLogsServiceResponse, nullable b
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteExportLogsPartialSuccess(&orig.PartialSuccess, false)
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolExportLogsServiceResponse.Put(orig)

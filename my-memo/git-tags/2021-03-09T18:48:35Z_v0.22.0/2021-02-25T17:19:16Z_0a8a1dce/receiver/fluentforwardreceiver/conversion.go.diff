@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/conversion.go b/receiver/fluentforwardreceiver/conversion.go
+index 45fd81471..4a2976ec4 100644
+--- a/receiver/fluentforwardreceiver/conversion.go
++++ b/receiver/fluentforwardreceiver/conversion.go
+@@ -131,7 +131,7 @@ func decodeTimestampToLogRecord(dc *msgp.Reader, lr pdata.LogRecord) error {
+ 		return msgp.WrapError(err, "Time")
+ 	}
+ 
+-	lr.SetTimestamp(pdata.TimestampUnixNano(ts.UnixNano()))
++	lr.SetTimestamp(pdata.TimestampFromTime(ts))
+ 	return nil
+ }
+ 

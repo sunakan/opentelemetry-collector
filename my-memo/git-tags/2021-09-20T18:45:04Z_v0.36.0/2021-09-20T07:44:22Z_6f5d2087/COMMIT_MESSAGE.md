@@ -1,0 +1,20 @@
+commit 6f5d20879f08a8a52ccec05e42289a5093cd465b
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Mon Sep 20 00:44:22 2021 -0700
+
+    Bump golang.org/x/tools from 0.1.5 to 0.1.6 in /internal/tools (#4073)
+    
+    Bumps [golang.org/x/tools](https://github.com/golang/tools) from 0.1.5 to 0.1.6.
+    - [Release notes](https://github.com/golang/tools/releases)
+    - [Commits](https://github.com/golang/tools/compare/v0.1.5...v0.1.6)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: golang.org/x/tools
+      dependency-type: direct:production
+      update-type: version-update:semver-patch
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+    
+    Co-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>

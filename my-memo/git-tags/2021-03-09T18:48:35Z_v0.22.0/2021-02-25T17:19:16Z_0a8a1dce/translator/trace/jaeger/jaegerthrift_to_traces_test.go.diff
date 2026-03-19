@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces_test.go b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+index 9f668ccfd..0b37bf6b2 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces_test.go
+@@ -281,7 +281,7 @@ func generateThriftFollowerSpan() *jaeger.Span {
+ 	}
+ }
+ 
+-func unixNanoToMicroseconds(ns pdata.TimestampUnixNano) int64 {
++func unixNanoToMicroseconds(ns pdata.Timestamp) int64 {
+ 	return int64(ns / 1000)
+ }
+ 

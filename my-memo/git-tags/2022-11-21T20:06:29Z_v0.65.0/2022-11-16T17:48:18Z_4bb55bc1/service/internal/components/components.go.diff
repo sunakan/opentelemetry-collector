@@ -1,0 +1,13 @@
+diff --git a/service/internal/components/components.go b/service/internal/components/components.go
+index 410fffb37..093d05f54 100644
+--- a/service/internal/components/components.go
++++ b/service/internal/components/components.go
+@@ -21,7 +21,7 @@ import (
+ )
+ 
+ // LogStabilityLevel logs the stability level of a component. The log level is set to info for
+-// undefined, unmaintained, deprecated and in development. The log level is set to debug
++// undefined, unmaintained, deprecated and development. The log level is set to debug
+ // for alpha, beta and stable.
+ func LogStabilityLevel(logger *zap.Logger, sl component.StabilityLevel) {
+ 	if sl >= component.StabilityLevelAlpha {

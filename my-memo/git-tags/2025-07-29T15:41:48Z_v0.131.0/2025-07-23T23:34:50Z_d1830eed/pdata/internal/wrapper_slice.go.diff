@@ -1,0 +1,25 @@
+diff --git a/pdata/internal/wrapper_slice.go b/pdata/internal/wrapper_slice.go
+index 5105cc6f3..3d584dc5e 100644
+--- a/pdata/internal/wrapper_slice.go
++++ b/pdata/internal/wrapper_slice.go
+@@ -4,6 +4,8 @@
+ package internal // import "go.opentelemetry.io/collector/pdata/internal"
+ 
+ import (
++	jsoniter "github.com/json-iterator/go"
++
+ 	otlpcommon "go.opentelemetry.io/collector/pdata/internal/data/protogen/common/v1"
+ )
+ 
+@@ -50,3 +52,11 @@ func FillTestSlice(tv Slice) {
+ 		FillTestValue(NewValue(&(*tv.orig)[i], &state))
+ 	}
+ }
++
++func UnmarshalJSONIterSlice(ms Slice, iter *jsoniter.Iterator) {
++	iter.ReadArrayCB(func(iter *jsoniter.Iterator) bool {
++		*ms.orig = append(*ms.orig, otlpcommon.AnyValue{})
++		UnmarshalJSONIterValue(NewValue(&(*ms.orig)[len(*ms.orig)-1], ms.state), iter)
++		return true
++	})
++}

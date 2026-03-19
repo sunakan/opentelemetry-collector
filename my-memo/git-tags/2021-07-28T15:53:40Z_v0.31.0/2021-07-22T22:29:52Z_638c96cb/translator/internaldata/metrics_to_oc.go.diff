@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index 49edd7b23..b43d17f52 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -386,7 +386,7 @@ func doubleExemplarsToOC(bounds []float64, ocBuckets []*ocmetrics.DistributionVa
+ 
+ 	for i := 0; i < exemplars.Len(); i++ {
+ 		exemplar := exemplars.At(i)
+-		val := exemplar.Value()
++		val := exemplar.DoubleVal()
+ 		pos := 0
+ 		for ; pos < len(bounds); pos++ {
+ 			if val > bounds[pos] {

@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogram.go b/pdata/internal/generated_wrapper_exponentialhistogram.go
+index ef71058db..1f4838d74 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogram.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogram.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolExponentialHistogram = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.ExponentialHistogram{}
+-	},
+-}
++var (
++	protoPoolExponentialHistogram = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.ExponentialHistogram{}
++		},
++	}
++)
+ 
+ func NewOrigExponentialHistogram() *otlpmetrics.ExponentialHistogram {
+ 	if !UseProtoPooling.IsEnabled() {

@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index e499b9552..62f1893e5 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -79,7 +79,7 @@ func (e *baseExporter) start(ctx context.Context, host component.Host) (err erro
+ 		grpc.WaitForReady(e.config.ClientConfig.WaitForReady),
+ 	}
+ 
+-	return
++	return err
+ }
+ 
+ func (e *baseExporter) shutdown(context.Context) error {

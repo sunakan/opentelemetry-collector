@@ -1,0 +1,10 @@
+diff --git a/extension/go.mod b/extension/go.mod
+index fb6c22afb..f2ad259a8 100644
+--- a/extension/go.mod
++++ b/extension/go.mod
+@@ -58,3 +58,5 @@ replace go.opentelemetry.io/collector/receiver => ../receiver
+ replace go.opentelemetry.io/collector/semconv => ../semconv
+ 
+ replace go.opentelemetry.io/collector/exporter => ../exporter
++
++replace go.opentelemetry.io/collector/connector => ../connector

@@ -1,0 +1,17 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index c187b8c42..ec262145e 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -195,12 +195,6 @@ func (ocr *Receiver) stop() error {
+ 	ocr.stopOnce.Do(func() {
+ 		err = nil
+ 
+-		if ocr.traceReceiver != nil {
+-			ocr.traceReceiver.Stop()
+-		}
+-
+-		// Currently there is no symmetric stop for metrics receiver.
+-
+ 		if ocr.serverHTTP != nil {
+ 			_ = ocr.serverHTTP.Close()
+ 		}

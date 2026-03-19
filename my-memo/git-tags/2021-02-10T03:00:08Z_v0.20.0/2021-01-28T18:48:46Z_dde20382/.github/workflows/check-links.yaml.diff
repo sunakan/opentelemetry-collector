@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index b2baf53a6..a50cc35a7 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -1,7 +1,7 @@
+ name: check-links
+ on:
+   push:
+-    branches: [master]
++    branches: [ main ]
+   pull_request:
+ 
+ jobs:

@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-pipeline-name-after-slash.yaml b/service/internal/configunmarshaler/testdata/invalid-pipeline-name-after-slash.yaml
+deleted file mode 100644
+index 6df9ffd1e..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-pipeline-name-after-slash.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    metrics/:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

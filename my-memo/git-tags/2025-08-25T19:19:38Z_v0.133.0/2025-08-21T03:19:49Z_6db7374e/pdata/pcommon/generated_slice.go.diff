@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_slice.go b/pdata/pcommon/generated_slice.go
+index c8a5e4e51..505e6bcd5 100644
+--- a/pdata/pcommon/generated_slice.go
++++ b/pdata/pcommon/generated_slice.go
+@@ -124,7 +124,7 @@ func (es Slice) RemoveIf(f func(Value) bool) {
+ 	newLen := 0
+ 	for i := 0; i < len(*es.getOrig()); i++ {
+ 		if f(es.At(i)) {
+-			(*es.getOrig())[i].Reset()
++			internal.DeleteOrigAnyValue(&(*es.getOrig())[i], false)
+ 			continue
+ 		}
+ 		if newLen == i {

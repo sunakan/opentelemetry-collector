@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/factory.go b/processor/resourceprocessor/factory.go
+index bb09985fe..12cf9fbcd 100644
+--- a/processor/resourceprocessor/factory.go
++++ b/processor/resourceprocessor/factory.go
+@@ -29,7 +29,7 @@ const (
+ 	typeStr = "resource"
+ )
+ 
+-var processorCapabilities = component.ProcessorCapabilities{MutatesConsumedData: true}
++var processorCapabilities = consumer.Capabilities{MutatesData: true}
+ 
+ // NewFactory returns a new factory for the Resource processor.
+ func NewFactory() component.ProcessorFactory {

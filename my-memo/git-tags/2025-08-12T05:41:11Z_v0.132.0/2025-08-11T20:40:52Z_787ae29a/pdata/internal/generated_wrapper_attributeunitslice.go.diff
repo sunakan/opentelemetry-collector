@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunitslice.go b/pdata/internal/generated_wrapper_attributeunitslice.go
+index fbdbd9fff..e317e5b59 100644
+--- a/pdata/internal/generated_wrapper_attributeunitslice.go
++++ b/pdata/internal/generated_wrapper_attributeunitslice.go
+@@ -49,19 +49,6 @@ func GenerateOrigTestAttributeUnitSlice() []*otlpprofiles.AttributeUnit {
+ 	return orig
+ }
+ 
+-// MarshalJSONOrigAttributeUnitSlice marshals all properties from the current struct to the destination stream.
+-func MarshalJSONOrigAttributeUnitSlice(orig []*otlpprofiles.AttributeUnit, dest *json.Stream) {
+-	dest.WriteArrayStart()
+-	if len(orig) > 0 {
+-		MarshalJSONOrigAttributeUnit(orig[0], dest)
+-	}
+-	for i := 1; i < len(orig); i++ {
+-		dest.WriteMore()
+-		MarshalJSONOrigAttributeUnit(orig[i], dest)
+-	}
+-	dest.WriteArrayEnd()
+-}
+-
+ // UnmarshalJSONOrigAttributeUnitSlice unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigAttributeUnitSlice(iter *json.Iterator) []*otlpprofiles.AttributeUnit {
+ 	var orig []*otlpprofiles.AttributeUnit

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index ba854c21e..0e2d56fc7 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -86,7 +86,7 @@ func TestExport_ErrorConsumer(t *testing.T) {
+ 	req := testdata.GenerateTracesOneSpan()
+ 	resp, err := traceClient.Export(context.Background(), req)
+ 	assert.EqualError(t, err, "rpc error: code = Unknown desc = my error")
+-	assert.Nil(t, resp)
++	assert.Equal(t, pdatagrpc.TracesResponse{}, resp)
+ }
+ 
+ func makeTraceServiceClient(addr net.Addr) (pdatagrpc.TracesClient, func(), error) {

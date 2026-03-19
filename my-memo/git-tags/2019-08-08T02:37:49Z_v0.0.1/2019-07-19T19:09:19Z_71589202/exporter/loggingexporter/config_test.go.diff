@@ -1,0 +1,12 @@
+diff --git a/exporter/loggingexporter/config_test.go b/exporter/loggingexporter/config_test.go
+index 68f285835..dc319074e 100644
+--- a/exporter/loggingexporter/config_test.go
++++ b/exporter/loggingexporter/config_test.go
+@@ -47,7 +47,6 @@ func TestLoadConfig(t *testing.T) {
+ 			ExporterSettings: configmodels.ExporterSettings{
+ 				NameVal: "logging/2",
+ 				TypeVal: "logging",
+-				Enabled: true,
+ 			},
+ 		})
+ }

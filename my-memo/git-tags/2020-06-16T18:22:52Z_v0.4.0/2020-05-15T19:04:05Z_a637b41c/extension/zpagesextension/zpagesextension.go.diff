@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/zpagesextension.go b/extension/zpagesextension/zpagesextension.go
+index 3a6cf1647..602d368df 100644
+--- a/extension/zpagesextension/zpagesextension.go
++++ b/extension/zpagesextension/zpagesextension.go
+@@ -22,7 +22,7 @@ import (
+ 	"go.opencensus.io/zpages"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
++	"go.opentelemetry.io/collector/component"
+ )
+ 
+ type zpagesExtension struct {

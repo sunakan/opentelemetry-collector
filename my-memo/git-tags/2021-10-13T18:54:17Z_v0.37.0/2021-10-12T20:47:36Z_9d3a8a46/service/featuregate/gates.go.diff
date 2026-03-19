@@ -1,0 +1,13 @@
+diff --git a/service/featuregate/gates.go b/service/featuregate/gates.go
+index 79aaadc22..47d14f934 100644
+--- a/service/featuregate/gates.go
++++ b/service/featuregate/gates.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package featuregate
++package featuregate // import "go.opentelemetry.io/collector/service/featuregate"
+ 
+ import (
+ 	"fmt"

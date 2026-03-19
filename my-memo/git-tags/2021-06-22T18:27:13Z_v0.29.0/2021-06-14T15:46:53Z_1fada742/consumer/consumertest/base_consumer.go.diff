@@ -1,0 +1,12 @@
+diff --git a/consumer/consumertest/base_consumer.go b/consumer/consumertest/base_consumer.go
+index 02b5b827a..420b205d9 100644
+--- a/consumer/consumertest/base_consumer.go
++++ b/consumer/consumertest/base_consumer.go
+@@ -20,6 +20,7 @@ import (
+ 
+ type nonMutatingConsumer struct{}
+ 
++// Capabilities returns the base consumer capabilities.
+ func (bc nonMutatingConsumer) Capabilities() consumer.Capabilities {
+ 	return consumer.Capabilities{MutatesData: false}
+ }

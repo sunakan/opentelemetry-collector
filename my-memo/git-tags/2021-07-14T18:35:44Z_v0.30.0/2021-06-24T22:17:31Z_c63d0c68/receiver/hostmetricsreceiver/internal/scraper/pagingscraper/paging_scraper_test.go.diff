@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_test.go
+index d7615c471..2620f64fa 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/pagingscraper/paging_scraper_test.go
+@@ -24,7 +24,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ )

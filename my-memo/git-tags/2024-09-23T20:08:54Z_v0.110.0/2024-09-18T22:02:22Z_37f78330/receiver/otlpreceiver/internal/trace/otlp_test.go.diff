@@ -1,0 +1,31 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index c57347184..3df87c317 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -44,7 +44,7 @@ func TestExport_EmptyRequest(t *testing.T) {
+ 	traceSink := new(consumertest.TracesSink)
+ 	traceClient := makeTraceServiceClient(t, traceSink)
+ 	resp, err := traceClient.Export(context.Background(), ptraceotlp.NewExportRequest())
+-	assert.NoError(t, err, "Failed to export trace: %v", err)
++	require.NoError(t, err, "Failed to export trace: %v", err)
+ 	assert.NotNil(t, resp, "The response is missing")
+ }
+ 
+@@ -54,7 +54,7 @@ func TestExport_NonPermanentErrorConsumer(t *testing.T) {
+ 
+ 	traceClient := makeTraceServiceClient(t, consumertest.NewErr(errors.New("my error")))
+ 	resp, err := traceClient.Export(context.Background(), req)
+-	assert.EqualError(t, err, "rpc error: code = Unavailable desc = my error")
++	require.EqualError(t, err, "rpc error: code = Unavailable desc = my error")
+ 	assert.IsType(t, status.Error(codes.Unknown, ""), err)
+ 	assert.Equal(t, ptraceotlp.ExportResponse{}, resp)
+ }
+@@ -64,7 +64,7 @@ func TestExport_PermanentErrorConsumer(t *testing.T) {
+ 
+ 	traceClient := makeTraceServiceClient(t, consumertest.NewErr(consumererror.NewPermanent(errors.New("my error"))))
+ 	resp, err := traceClient.Export(context.Background(), req)
+-	assert.EqualError(t, err, "rpc error: code = Internal desc = Permanent error: my error")
++	require.EqualError(t, err, "rpc error: code = Internal desc = Permanent error: my error")
+ 	assert.IsType(t, status.Error(codes.Unknown, ""), err)
+ 	assert.Equal(t, ptraceotlp.ExportResponse{}, resp)
+ }

@@ -1,0 +1,15 @@
+diff --git a/Makefile b/Makefile
+index d4b0595ee..ecb6d92b8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -212,6 +212,10 @@ binaries-windows_amd64:
+ 	docker build -t otelcol-fpm internal/buildscripts/packaging/fpm
+ 	docker run --rm -v $(CURDIR):/repo -e PACKAGE=$* -e VERSION=$(VERSION) -e ARCH=$(ARCH) otelcol-fpm
+ 
++.PHONY: genmdata
++genmdata:
++	$(MAKE) for-all CMD="go generate ./..."
++
+ # Definitions for ProtoBuf generation.
+ 
+ # The source directory for OTLP ProtoBufs.

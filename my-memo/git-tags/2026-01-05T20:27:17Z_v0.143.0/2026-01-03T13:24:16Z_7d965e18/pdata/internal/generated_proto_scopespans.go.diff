@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopespans.go b/pdata/internal/generated_proto_scopespans.go
+index c6a5540c7..73c373034 100644
+--- a/pdata/internal/generated_proto_scopespans.go
++++ b/pdata/internal/generated_proto_scopespans.go
+@@ -45,7 +45,6 @@ func DeleteScopeSpans(orig *ScopeSpans, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteInstrumentationScope(&orig.Scope, false)
+ 	for i := range orig.Spans {
+ 		DeleteSpan(orig.Spans[i], true)

@@ -1,0 +1,13 @@
+diff --git a/model/semconv/v1.6.1/schema.go b/model/semconv/v1.6.1/schema.go
+index 2bb65ae61..d46f43d7e 100644
+--- a/model/semconv/v1.6.1/schema.go
++++ b/model/semconv/v1.6.1/schema.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package semconv
++package semconv // import "go.opentelemetry.io/collector/model/semconv/v1.6.1"
+ 
+ // SchemaURL is the schema URL that matches the version of the semantic conventions
+ // that this package defines. Conventions packages starting from v1.4.0 must declare

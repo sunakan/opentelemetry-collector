@@ -1,0 +1,20 @@
+diff --git a/exporter/prometheusexporter/factory.go b/exporter/prometheusexporter/factory.go
+index 35f1b1aff..beb490a57 100644
+--- a/exporter/prometheusexporter/factory.go
++++ b/exporter/prometheusexporter/factory.go
+@@ -20,6 +20,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ )
+ 
+@@ -61,6 +62,7 @@ func createMetricsExporter(
+ 		cfg,
+ 		params.Logger,
+ 		prometheus.ConsumeMetrics,
++		exporterhelper.WithCapabilities(consumer.Capabilities{MutatesData: false}),
+ 		exporterhelper.WithStart(prometheus.Start),
+ 		exporterhelper.WithShutdown(prometheus.Shutdown),
+ 		exporterhelper.WithResourceToTelemetryConversion(pcfg.ResourceToTelemetrySettings),

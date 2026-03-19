@@ -1,0 +1,38 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_message_value.go b/internal/cmd/pdatagen/internal/one_of_message_value.go
+index 475a5e0ab..8158a999e 100644
+--- a/internal/cmd/pdatagen/internal/one_of_message_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_message_value.go
+@@ -71,10 +71,15 @@ const oneOfMessageUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName
+ 
+ type OneOfMessageValue struct {
+ 	fieldName              string
++	protoID                uint32
+ 	originFieldPackageName string
+ 	returnMessage          *messageStruct
+ }
+ 
++func (omv *OneOfMessageValue) GetOriginFieldName() string {
++	return omv.fieldName
++}
++
+ func (omv *OneOfMessageValue) GenerateAccessors(ms *messageStruct, of *OneOfField) string {
+ 	t := template.Must(templateNew("oneOfMessageAccessorsTemplate").Parse(oneOfMessageAccessorsTemplate))
+ 	return executeTemplate(t, omv.templateFields(ms, of))
+@@ -110,6 +115,17 @@ func (omv *OneOfMessageValue) GenerateUnmarshalJSON(ms *messageStruct, of *OneOf
+ 	return executeTemplate(t, omv.templateFields(ms, of))
+ }
+ 
++func (omv *OneOfMessageValue) GenerateSizeProto(ms *messageStruct, of *OneOfField) string {
++	pf := &ProtoField{
++		Type:        ProtoTypeMessage,
++		ID:          omv.protoID,
++		Name:        of.originFieldName + ".(*" + ms.originFullName + "_" + omv.fieldName + ")" + "." + omv.fieldName,
++		MessageName: omv.returnMessage.getOriginName(),
++		Nullable:    true,
++	}
++	return pf.genSizeProto()
++}
++
+ func (omv *OneOfMessageValue) templateFields(ms *messageStruct, of *OneOfField) map[string]any {
+ 	return map[string]any{
+ 		"fieldName":               omv.fieldName,

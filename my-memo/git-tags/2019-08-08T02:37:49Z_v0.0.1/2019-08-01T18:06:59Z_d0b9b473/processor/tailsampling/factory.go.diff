@@ -1,0 +1,30 @@
+diff --git a/processor/tailsampling/factory.go b/processor/tailsampling/factory.go
+index 5a88a9dca..34313b32b 100644
+--- a/processor/tailsampling/factory.go
++++ b/processor/tailsampling/factory.go
+@@ -23,7 +23,6 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+-	"github.com/open-telemetry/opentelemetry-service/service/builder"
+ )
+ 
+ const (
+@@ -42,7 +41,7 @@ func (f *Factory) Type() string {
+ 
+ // CreateDefaultConfig creates the default configuration for processor.
+ func (f *Factory) CreateDefaultConfig() configmodels.Processor {
+-	return &builder.TailBasedCfg{
++	return &Config{
+ 		DecisionWait: 30 * time.Second,
+ 		NumTraces:    50000,
+ 	}
+@@ -54,7 +53,7 @@ func (f *Factory) CreateTraceProcessor(
+ 	nextConsumer consumer.TraceConsumer,
+ 	cfg configmodels.Processor,
+ ) (processor.TraceProcessor, error) {
+-	tCfg := cfg.(*builder.TailBasedCfg)
++	tCfg := cfg.(*Config)
+ 	return NewTraceProcessor(logger, nextConsumer, *tCfg)
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_extension.go b/component/componenttest/nop_extension.go
+index 2b95cdb02..62e0ca9c8 100644
+--- a/component/componenttest/nop_extension.go
++++ b/component/componenttest/nop_extension.go
+@@ -31,7 +31,7 @@ type nopExtensionFactory struct{}
+ 
+ var nopExtensionFactoryInstance = &nopExtensionFactory{}
+ 
+-// NewNopExtensionFactory returns a component.ExtensionFactory that constructs nop exporters.
++// NewNopExtensionFactory returns a component.ExtensionFactory that constructs nop extensions.
+ func NewNopExtensionFactory() component.ExtensionFactory {
+ 	return nopExtensionFactoryInstance
+ }

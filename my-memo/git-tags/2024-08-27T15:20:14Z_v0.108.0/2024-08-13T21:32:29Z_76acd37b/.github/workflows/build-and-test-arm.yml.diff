@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-arm.yml b/.github/workflows/build-and-test-arm.yml
+index 5f1e9887c..4e6ecf9dc 100644
+--- a/.github/workflows/build-and-test-arm.yml
++++ b/.github/workflows/build-and-test-arm.yml
+@@ -31,7 +31,7 @@ jobs:
+       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+       - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+         with:
+-          go-version: "~1.22.4"
++          go-version: "~1.22.6"
+           cache: false
+       - name: Cache Go
+         id: go-cache

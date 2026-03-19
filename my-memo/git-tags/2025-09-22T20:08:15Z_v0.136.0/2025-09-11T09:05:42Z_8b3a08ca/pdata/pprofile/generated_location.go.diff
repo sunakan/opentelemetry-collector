@@ -1,0 +1,50 @@
+diff --git a/pdata/pprofile/generated_location.go b/pdata/pprofile/generated_location.go
+index 3d0189254..a53c58009 100644
+--- a/pdata/pprofile/generated_location.go
++++ b/pdata/pprofile/generated_location.go
+@@ -51,25 +51,13 @@ func (ms Location) MoveTo(dest Location) {
+ 
+ // MappingIndex returns the mappingindex associated with this Location.
+ func (ms Location) MappingIndex() int32 {
+-	return ms.orig.GetMappingIndex()
+-}
+-
+-// HasMappingIndex returns true if the Location contains a
+-// MappingIndex value otherwise.
+-func (ms Location) HasMappingIndex() bool {
+-	return ms.orig.MappingIndex_ != nil
++	return ms.orig.MappingIndex
+ }
+ 
+ // SetMappingIndex replaces the mappingindex associated with this Location.
+ func (ms Location) SetMappingIndex(v int32) {
+ 	ms.state.AssertMutable()
+-	ms.orig.MappingIndex_ = &otlpprofiles.Location_MappingIndex{MappingIndex: v}
+-}
+-
+-// RemoveMappingIndex removes the mappingindex associated with this Location.
+-func (ms Location) RemoveMappingIndex() {
+-	ms.state.AssertMutable()
+-	ms.orig.MappingIndex_ = nil
++	ms.orig.MappingIndex = v
+ }
+ 
+ // Address returns the address associated with this Location.
+@@ -88,17 +76,6 @@ func (ms Location) Line() LineSlice {
+ 	return newLineSlice(&ms.orig.Line, ms.state)
+ }
+ 
+-// IsFolded returns the isfolded associated with this Location.
+-func (ms Location) IsFolded() bool {
+-	return ms.orig.IsFolded
+-}
+-
+-// SetIsFolded replaces the isfolded associated with this Location.
+-func (ms Location) SetIsFolded(v bool) {
+-	ms.state.AssertMutable()
+-	ms.orig.IsFolded = v
+-}
+-
+ // AttributeIndices returns the AttributeIndices associated with this Location.
+ func (ms Location) AttributeIndices() pcommon.Int32Slice {
+ 	return pcommon.Int32Slice(internal.NewInt32Slice(&ms.orig.AttributeIndices, ms.state))

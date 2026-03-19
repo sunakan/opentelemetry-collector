@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/factory_test.go b/receiver/fluentforwardreceiver/factory_test.go
+index dc129651f..8e60c8962 100644
+--- a/receiver/fluentforwardreceiver/factory_test.go
++++ b/receiver/fluentforwardreceiver/factory_test.go
+@@ -36,7 +36,7 @@ func TestCreateDefaultConfig(t *testing.T) {
+ }
+ 
+ func TestCreateReceiver(t *testing.T) {
+-	factory := NewFactory().(component.LogsReceiverFactory)
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)
+ 	cfg.ListenAddress = "localhost:0" // Endpoint is required, not going to be used here.
+ 

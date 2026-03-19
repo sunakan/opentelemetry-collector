@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl b/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
+index 170ad0872..55c1579e6 100644
+--- a/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
+@@ -15,7 +15,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
+ type mockMeter struct {

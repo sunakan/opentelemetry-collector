@@ -1,0 +1,13 @@
+diff --git a/model/pdata/common.go b/model/pdata/common.go
+index 421df4851..c295da1b2 100644
+--- a/model/pdata/common.go
++++ b/model/pdata/common.go
+@@ -826,6 +826,8 @@ func (am AttributeMap) AsRaw() map[string]interface{} {
+ 			rawMap[k] = v.DoubleVal()
+ 		case AttributeValueTypeBool:
+ 			rawMap[k] = v.BoolVal()
++		case AttributeValueTypeBytes:
++			rawMap[k] = v.BytesVal()
+ 		case AttributeValueTypeEmpty:
+ 			rawMap[k] = nil
+ 		case AttributeValueTypeMap:

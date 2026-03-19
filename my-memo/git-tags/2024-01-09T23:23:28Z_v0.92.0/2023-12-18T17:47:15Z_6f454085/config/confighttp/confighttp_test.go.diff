@@ -1,0 +1,46 @@
+diff --git a/config/confighttp/confighttp_test.go b/config/confighttp/confighttp_test.go
+index 3d3bc6d8b..3597965eb 100644
+--- a/config/confighttp/confighttp_test.go
++++ b/config/confighttp/confighttp_test.go
+@@ -706,9 +706,6 @@ func TestHttpReception(t *testing.T) {
+ 				_ = s.Serve(ln)
+ 			}()
+ 
+-			// Wait for the servers to start
+-			<-time.After(10 * time.Millisecond)
+-
+ 			prefix := "https://"
+ 			expectedProto := "HTTP/2.0"
+ 			if tt.tlsClientCreds.Insecure {
+@@ -821,10 +818,6 @@ func TestHttpCors(t *testing.T) {
+ 				_ = s.Serve(ln)
+ 			}()
+ 
+-			// TODO: make starting server deterministic
+-			// Wait for the servers to start
+-			<-time.After(10 * time.Millisecond)
+-
+ 			url := fmt.Sprintf("http://%s", ln.Addr().String())
+ 
+ 			expectedStatus := http.StatusNoContent
+@@ -941,10 +934,6 @@ func TestHttpServerHeaders(t *testing.T) {
+ 				_ = s.Serve(ln)
+ 			}()
+ 
+-			// TODO: make starting server deterministic
+-			// Wait for the servers to start
+-			<-time.After(10 * time.Millisecond)
+-
+ 			url := fmt.Sprintf("http://%s", ln.Addr().String())
+ 
+ 			// Verify allowed domain gets responses that allow CORS.
+@@ -1346,9 +1335,6 @@ func BenchmarkHttpRequest(b *testing.B) {
+ 		_ = s.Close()
+ 	}()
+ 
+-	// Wait for the servers to start
+-	<-time.After(10 * time.Millisecond)
+-
+ 	for _, bb := range tests {
+ 		hcs := &HTTPClientSettings{
+ 			Endpoint:   "https://" + ln.Addr().String(),

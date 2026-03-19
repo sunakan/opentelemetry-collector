@@ -1,0 +1,15 @@
+diff --git a/receiver/otlpreceiver/factory_test.go b/receiver/otlpreceiver/factory_test.go
+index 6603837da..3c416c007 100644
+--- a/receiver/otlpreceiver/factory_test.go
++++ b/receiver/otlpreceiver/factory_test.go
+@@ -40,8 +40,8 @@ func TestCreateDefaultConfig(t *testing.T) {
+ func TestCreateSameReceiver(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)
+-	GetOrInsertDefault(t, &cfg.GRPC).NetAddr.Endpoint = testutil.GetAvailableLocalAddress(t)
+-	GetOrInsertDefault(t, &cfg.HTTP).ServerConfig.Endpoint = testutil.GetAvailableLocalAddress(t)
++	cfg.GRPC.GetOrInsertDefault().NetAddr.Endpoint = testutil.GetAvailableLocalAddress(t)
++	cfg.HTTP.GetOrInsertDefault().ServerConfig.Endpoint = testutil.GetAvailableLocalAddress(t)
+ 
+ 	core, observer := observer.New(zapcore.DebugLevel)
+ 	attrs := attribute.NewSet(

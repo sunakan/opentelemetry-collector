@@ -1,0 +1,33 @@
+diff --git a/internal/testcomponents/example_receiver.go b/internal/testcomponents/example_receiver.go
+index 3c574a69b..ec9789e37 100644
+--- a/internal/testcomponents/example_receiver.go
++++ b/internal/testcomponents/example_receiver.go
+@@ -21,7 +21,6 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/receiver/receiverhelper"
+ )
+ 
+ // ExampleReceiver is for testing purposes. We are defining an example config and factory
+@@ -36,15 +35,15 @@ type ExampleReceiver struct {
+ 	ExtraListSetting []string          `mapstructure:"extra_list"`
+ }
+ 
+-var receiverType = config.Type("examplereceiver")
++const receiverType = config.Type("examplereceiver")
+ 
+ // ExampleReceiverFactory is factory for ExampleReceiver.
+-var ExampleReceiverFactory = receiverhelper.NewFactory(
++var ExampleReceiverFactory = component.NewReceiverFactory(
+ 	receiverType,
+ 	createReceiverDefaultConfig,
+-	receiverhelper.WithTraces(createTracesReceiver),
+-	receiverhelper.WithMetrics(createMetricsReceiver),
+-	receiverhelper.WithLogs(createLogsReceiver))
++	component.WithTracesReceiver(createTracesReceiver),
++	component.WithMetricsReceiver(createMetricsReceiver),
++	component.WithLogsReceiver(createLogsReceiver))
+ 
+ func createReceiverDefaultConfig() config.Receiver {
+ 	return &ExampleReceiver{

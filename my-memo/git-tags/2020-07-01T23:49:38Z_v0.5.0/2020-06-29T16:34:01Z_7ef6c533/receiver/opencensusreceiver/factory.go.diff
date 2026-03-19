@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index 390d1a66a..20c8b2394 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -53,6 +53,8 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 		},
+ 		GRPCServerSettings: configgrpc.GRPCServerSettings{
+ 			Endpoint: "0.0.0.0:55678",
++			// We almost write 0 bytes, so no need to tune WriteBufferSize.
++			ReadBufferSize: 512 * 1024,
+ 		},
+ 		Transport: "tcp",
+ 	}

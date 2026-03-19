@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/internal/command_test.go b/cmd/mdatagen/internal/command_test.go
+index be9901072..dd9c1ced4 100644
+--- a/cmd/mdatagen/internal/command_test.go
++++ b/cmd/mdatagen/internal/command_test.go
+@@ -145,6 +145,12 @@ func TestRunContents(t *testing.T) {
+ 			wantReadmeGenerated:        true,
+ 			wantComponentTestGenerated: true,
+ 		},
++		{
++			yml:                        "with_tests_profiles_connector.yaml",
++			wantStatusGenerated:        true,
++			wantReadmeGenerated:        true,
++			wantComponentTestGenerated: true,
++		},
+ 		{
+ 			yml:                        "with_goleak_ignores.yaml",
+ 			wantStatusGenerated:        true,

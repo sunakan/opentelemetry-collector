@@ -1,0 +1,13 @@
+diff --git a/internal/testutil/testutil.go b/internal/testutil/testutil.go
+index 6b8ac9d40..33d1ce08f 100644
+--- a/internal/testutil/testutil.go
++++ b/internal/testutil/testutil.go
+@@ -75,7 +75,7 @@ func GetAvailablePort(t *testing.T) uint16 {
+ 		}
+ 	}
+ 
+-	portInt, err := strconv.Atoi(port)
++	portInt, err := strconv.ParseUint(port, 10, 16)
+ 	require.NoError(t, err)
+ 
+ 	return uint16(portInt)

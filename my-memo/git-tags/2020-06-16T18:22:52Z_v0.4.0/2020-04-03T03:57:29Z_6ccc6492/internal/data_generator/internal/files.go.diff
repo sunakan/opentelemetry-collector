@@ -1,0 +1,19 @@
+diff --git a/internal/data_generator/internal/files.go b/internal/data_generator/internal/files.go
+index ac5687a3a..1329f00fe 100644
+--- a/internal/data_generator/internal/files.go
++++ b/internal/data_generator/internal/files.go
+@@ -82,8 +82,12 @@ func (f *File) GenerateTestFile() string {
+ 	sb.WriteString(newLine + newLine)
+ 	// Add imports
+ 	sb.WriteString("import (" + newLine)
+-	for _, i := range f.testImports {
+-		sb.WriteString("\t" + i + newLine)
++	for _, imp := range f.testImports {
++		if imp != "" {
++			sb.WriteString("\t" + imp + newLine)
++		} else {
++			sb.WriteString(newLine)
++		}
+ 	}
+ 	sb.WriteString(")")
+ 	// Write all tests

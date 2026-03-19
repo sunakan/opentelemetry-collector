@@ -1,0 +1,24 @@
+diff --git a/vendor/github.com/philhofer/fwd/writer_unsafe.go b/vendor/github.com/philhofer/fwd/writer_unsafe.go
+deleted file mode 100644
+index a0bf453b3..000000000
+--- a/vendor/github.com/philhofer/fwd/writer_unsafe.go
++++ /dev/null
+@@ -1,18 +0,0 @@
+-// +build !appengine
+-
+-package fwd
+-
+-import (
+-	"reflect"
+-	"unsafe"
+-)
+-
+-// unsafe cast string as []byte
+-func unsafestr(b string) []byte {
+-	l := len(b)
+-	return *(*[]byte)(unsafe.Pointer(&reflect.SliceHeader{
+-		Len:  l,
+-		Cap:  l,
+-		Data: (*reflect.StringHeader)(unsafe.Pointer(&b)).Data,
+-	}))
+-}

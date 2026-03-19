@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/testdata/invalid_type_attr.yaml b/cmd/mdatagen/testdata/invalid_type_attr.yaml
+index ed951be6d..47eb3f1cf 100644
+--- a/cmd/mdatagen/testdata/invalid_type_attr.yaml
++++ b/cmd/mdatagen/testdata/invalid_type_attr.yaml
+@@ -18,7 +18,7 @@ metrics:
+   metric:
+     enabled: true
+     description: Metric.
+-    unit: 1
++    unit: "1"
+     gauge:
+       value_type: double
+     attributes: [used_attr]

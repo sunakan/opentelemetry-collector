@@ -1,0 +1,14 @@
+diff --git a/pdata/xpdata/entity/generated_entityrefslice.go b/pdata/xpdata/entity/generated_entityrefslice.go
+index 0e7f92f0d..ea5b09aec 100644
+--- a/pdata/xpdata/entity/generated_entityrefslice.go
++++ b/pdata/xpdata/entity/generated_entityrefslice.go
+@@ -31,8 +31,7 @@ func newEntityRefSlice(orig *[]*otlpcommon.EntityRef, state *internal.State) Ent
+ // Can use "EnsureCapacity" to initialize with a given capacity.
+ func NewEntityRefSlice() EntityRefSlice {
+ 	orig := []*otlpcommon.EntityRef(nil)
+-	state := internal.StateMutable
+-	return newEntityRefSlice(&orig, &state)
++	return newEntityRefSlice(&orig, internal.NewState())
+ }
+ 
+ // Len returns the number of elements in the slice.

@@ -1,0 +1,16 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 88ce28e6d..f031b1553 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -2,11 +2,7 @@ name: check-links
+ on:
+   push:
+     branches: [ main ]
+-    paths-ignore:
+-      - 'cmd/builder/**'
+   pull_request:
+-    paths-ignore:
+-      - 'cmd/builder/**'
+ 
+ concurrency:
+   group: ${{ github.workflow }}-${{ github.head_ref }}

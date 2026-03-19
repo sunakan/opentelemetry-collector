@@ -1,0 +1,28 @@
+diff --git a/service/testdata/otelcol-validprop.yaml b/service/testdata/otelcol-validprop.yaml
+deleted file mode 100644
+index 5c611333c..000000000
+--- a/service/testdata/otelcol-validprop.yaml
++++ /dev/null
+@@ -1,22 +0,0 @@
+-receivers:
+-  nop:
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    traces:
+-      propagators:
+-        - "b3"
+-        - "tracecontext"
+-    metrics:
+-      address: localhost:8888
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

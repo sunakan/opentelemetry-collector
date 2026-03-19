@@ -1,0 +1,14 @@
+diff --git a/consumer/consumererror/permanent.go b/consumer/consumererror/permanent.go
+index d02e72a42..4b2fe49de 100644
+--- a/consumer/consumererror/permanent.go
++++ b/consumer/consumererror/permanent.go
+@@ -12,9 +12,6 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package consumererror provides wrappers to easily classify errors. This allows
+-// appropriate action by error handlers without the need to know each individual
+-// error type/instance.
+ package consumererror
+ 
+ import "errors"

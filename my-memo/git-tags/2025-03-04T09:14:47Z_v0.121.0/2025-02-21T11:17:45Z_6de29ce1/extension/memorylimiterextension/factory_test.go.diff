@@ -1,0 +1,13 @@
+diff --git a/extension/memorylimiterextension/factory_test.go b/extension/memorylimiterextension/factory_test.go
+index a8364eaaa..2e8b87441 100644
+--- a/extension/memorylimiterextension/factory_test.go
++++ b/extension/memorylimiterextension/factory_test.go
+@@ -38,7 +38,7 @@ func TestCreate(t *testing.T) {
+ 	pCfg.MemorySpikeLimitMiB = 1907
+ 	pCfg.CheckInterval = 100 * time.Millisecond
+ 
+-	set := extensiontest.NewNopSettingsWithType(factory.Type())
++	set := extensiontest.NewNopSettings(factory.Type())
+ 	set.ID = component.NewID(factory.Type())
+ 
+ 	tp, err := factory.Create(context.Background(), set, cfg)

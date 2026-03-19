@@ -1,0 +1,22 @@
+diff --git a/testbed/testbed/data_providers.go b/testbed/testbed/data_providers.go
+index 6ea63afe9..288083158 100644
+--- a/testbed/testbed/data_providers.go
++++ b/testbed/testbed/data_providers.go
+@@ -102,7 +102,7 @@ func (dp *PerfTestDataProvider) GenerateTracesOld() ([]*tracepb.Span, bool) {
+ 				},
+ 			},
+ 			StartTime: timeToTimestamp(startTime),
+-			EndTime:   timeToTimestamp(startTime.Add(time.Duration(time.Millisecond))),
++			EndTime:   timeToTimestamp(startTime.Add(time.Millisecond)),
+ 		}
+ 
+ 		// Append attributes.
+@@ -130,7 +130,7 @@ func (dp *PerfTestDataProvider) GenerateTraces() (pdata.Traces, bool) {
+ 	for i := 0; i < dp.options.ItemsPerBatch; i++ {
+ 
+ 		startTime := time.Now()
+-		endTime := startTime.Add(time.Duration(time.Millisecond))
++		endTime := startTime.Add(time.Millisecond)
+ 
+ 		spanID := dp.dataItemsGenerated.Inc()
+ 

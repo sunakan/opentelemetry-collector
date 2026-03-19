@@ -1,0 +1,13 @@
+diff --git a/builder/internal/scaffold/gomod.go b/builder/internal/scaffold/gomod.go
+index 275f5c92a..46765c30b 100644
+--- a/builder/internal/scaffold/gomod.go
++++ b/builder/internal/scaffold/gomod.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package scaffold
++package scaffold // import "go.opentelemetry.io/collector/builder/internal/scaffold"
+ 
+ const Gomod = `
+ module {{.Distribution.Module}}

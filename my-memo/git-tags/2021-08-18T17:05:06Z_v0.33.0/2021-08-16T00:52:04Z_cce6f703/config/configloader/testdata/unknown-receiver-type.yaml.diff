@@ -1,0 +1,21 @@
+diff --git a/config/configloader/testdata/unknown-receiver-type.yaml b/config/configloader/testdata/unknown-receiver-type.yaml
+deleted file mode 100644
+index 75c777f2b..000000000
+--- a/config/configloader/testdata/unknown-receiver-type.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  nosuchreceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers:
+-        - examplereceiver
+-      exporters:
+-        - exampleexporter
+-      processors:
+-        - exampleprocessor

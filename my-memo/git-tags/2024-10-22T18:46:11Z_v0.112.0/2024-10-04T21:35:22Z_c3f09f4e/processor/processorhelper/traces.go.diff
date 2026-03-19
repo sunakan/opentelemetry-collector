@@ -1,0 +1,12 @@
+diff --git a/processor/processorhelper/traces.go b/processor/processorhelper/traces.go
+index 492634541..3cebc3ab9 100644
+--- a/processor/processorhelper/traces.go
++++ b/processor/processorhelper/traces.go
+@@ -55,6 +55,7 @@ func NewTraces(
+ 		td, errFunc = tracesFunc(ctx, td)
+ 		span.AddEvent("End processing.", eventOptions)
+ 		if errFunc != nil {
++			obs.recordInOut(ctx, spansIn, 0)
+ 			if errors.Is(errFunc, ErrSkipProcessingData) {
+ 				return nil
+ 			}

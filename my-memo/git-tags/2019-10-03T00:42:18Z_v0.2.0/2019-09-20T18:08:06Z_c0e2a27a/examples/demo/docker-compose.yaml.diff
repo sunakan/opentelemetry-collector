@@ -1,0 +1,13 @@
+diff --git a/examples/demo/docker-compose.yaml b/examples/demo/docker-compose.yaml
+index ec79bc0d9..ec27f484f 100644
+--- a/examples/demo/docker-compose.yaml
++++ b/examples/demo/docker-compose.yaml
+@@ -25,7 +25,7 @@ services:
+       - "1888:1888"   # pprof extension
+       - "8888:8888"   # Prometheus metrics
+       - "8889:8889"   # Prometheus exporter metrics
+-      - "13133:13133" # health-check extension
++      - "13133:13133" # health_check extension
+       - "55678"       # OpenCensus receiver
+       - "55680:55679" # zpages extension
+     depends_on:

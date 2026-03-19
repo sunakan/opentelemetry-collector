@@ -1,0 +1,38 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message.go.tmpl b/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+index 015d9e31c..7d5e61184 100644
+--- a/internal/cmd/pdatagen/internal/templates/message.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message.go.tmpl
+@@ -58,16 +58,6 @@ func (ms {{ .structName }}) MoveTo(dest {{ .structName }}) {
+ 	*ms.{{ .origAccessor }} = {{ .originName }}{}
+ }
+ 
+-{{ if .isCommon -}}
+-func (ms {{ .structName }}) getOrig() *{{ .originName }} {
+-	return internal.GetOrig{{ .structName }}(internal.{{ .structName }}(ms))
+-}
+-
+-func (ms {{ .structName }}) getState() *internal.State {
+-	return internal.Get{{ .structName }}State(internal.{{ .structName }}(ms))
+-}
+-{{- end }}
+-
+ {{ range .fields -}}
+ {{ .GenerateAccessors $.messageStruct }}
+ {{ end }}
+@@ -82,7 +72,15 @@ func (ms {{ .structName }}) CopyTo(dest {{ .structName }}) {
+ 	{{- end }}
+ }
+ 
+-{{ if not .isCommon -}}
++{{ if .isCommon -}}
++func (ms {{ .structName }}) getOrig() *{{ .originName }} {
++	return internal.GetOrig{{ .structName }}(internal.{{ .structName }}(ms))
++}
++
++func (ms {{ .structName }}) getState() *internal.State {
++	return internal.Get{{ .structName }}State(internal.{{ .structName }}(ms))
++}
++{{- else }}
+ func copyOrig{{ .structName }}(dest, src *{{ .originName }}) {
+ 	{{- range .fields }}
+ 	{{ .GenerateCopyOrig $.messageStruct }}

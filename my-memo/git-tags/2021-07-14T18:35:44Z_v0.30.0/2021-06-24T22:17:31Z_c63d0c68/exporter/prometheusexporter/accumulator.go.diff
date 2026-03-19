@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/accumulator.go b/exporter/prometheusexporter/accumulator.go
+index 3652d05f3..bddc33988 100644
+--- a/exporter/prometheusexporter/accumulator.go
++++ b/exporter/prometheusexporter/accumulator.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type accumulatedValue struct {

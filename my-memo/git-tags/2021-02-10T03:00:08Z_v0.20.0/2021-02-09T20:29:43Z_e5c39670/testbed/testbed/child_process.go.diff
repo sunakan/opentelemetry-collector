@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index 18e93bf18..c310ed30b 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -425,6 +425,10 @@ func (cp *ChildProcess) fetchCPUUsage() {
+ 	// Calculate elapsed and process CPU time deltas in seconds
+ 	deltaElapsedTime := now.Sub(cp.lastElapsedTime).Seconds()
+ 	deltaCPUTime := times.Total() - cp.lastProcessTimes.Total()
++	if deltaCPUTime < 0 {
++		// We sometimes get negative difference when the process is terminated.
++		deltaCPUTime = 0
++	}
+ 
+ 	cp.lastProcessTimes = times
+ 	cp.lastElapsedTime = now

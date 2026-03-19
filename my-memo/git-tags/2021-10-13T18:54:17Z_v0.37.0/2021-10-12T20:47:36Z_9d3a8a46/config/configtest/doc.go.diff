@@ -1,0 +1,10 @@
+diff --git a/config/configtest/doc.go b/config/configtest/doc.go
+index a76c6c8e7..0a4a33211 100644
+--- a/config/configtest/doc.go
++++ b/config/configtest/doc.go
+@@ -14,4 +14,4 @@
+ 
+ // Package configtest loads the configuration to test packages
+ // implementing the config package interfaces.
+-package configtest
++package configtest // import "go.opentelemetry.io/collector/config/configtest"

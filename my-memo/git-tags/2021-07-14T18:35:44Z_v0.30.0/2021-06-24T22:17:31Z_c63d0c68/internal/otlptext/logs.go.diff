@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/logs.go b/internal/otlptext/logs.go
+index 789a4a73f..1aa33b134 100644
+--- a/internal/otlptext/logs.go
++++ b/internal/otlptext/logs.go
+@@ -15,7 +15,7 @@
+ package otlptext
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // NewTextLogsMarshaler returns a serializer.LogsMarshaler to encode to OTLP json bytes.

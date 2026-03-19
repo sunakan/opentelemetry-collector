@@ -1,0 +1,13 @@
+diff --git a/config/configtest/configtest.go b/config/configtest/configtest.go
+index 98ea800a6..c88aeebae 100644
+--- a/config/configtest/configtest.go
++++ b/config/configtest/configtest.go
+@@ -26,7 +26,7 @@ import (
+ 
+ // LoadConfigFile loads a config from file.
+ func LoadConfigFile(t *testing.T, fileName string, factories component.Factories) (*config.Config, error) {
+-	// Read yaml config from file
++	// Read yaml config from file.
+ 	cp, err := config.NewParserFromFile(fileName)
+ 	require.NoError(t, err)
+ 	// Load the config from viper using the given factories.

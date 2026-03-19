@@ -1,0 +1,13 @@
+diff --git a/exporter/exporter.go b/exporter/exporter.go
+index 16c961f24..992077c31 100644
+--- a/exporter/exporter.go
++++ b/exporter/exporter.go
+@@ -169,7 +169,7 @@ func (e *Exporter) deleteClient() {
+ func debugPrintf(msg string, arg ...interface{}) {
+ 	if debug {
+ 		if len(arg) > 0 {
+-			fmt.Printf(msg, arg)
++			fmt.Printf(msg, arg...)
+ 		} else {
+ 			fmt.Printf(msg)
+ 		}

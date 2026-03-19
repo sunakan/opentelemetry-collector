@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metadata.yaml b/exporter/exporterhelper/metadata.yaml
+index 1560331c1..26b06a375 100644
+--- a/exporter/exporterhelper/metadata.yaml
++++ b/exporter/exporterhelper/metadata.yaml
+@@ -1,7 +1,8 @@
+ type: exporterhelper
+ 
+ status:
+-  class: pkg
++  class: exporter
++  not_component: true
+   stability:
+     beta: [traces, metrics, logs]
+   distributions: [core, contrib]

@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index d959b3cb4..8b8d0e8d8 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -185,7 +185,7 @@ func EndTraceDataReceiveOp(
+ 	)
+ }
+ 
+-// StartMetricsReceiveOp is called when a \request is received from a client.
++// StartMetricsReceiveOp is called when a request is received from a client.
+ // The returned context should be used in other calls to the obsreport functions
+ // dealing with the same receive operation.
+ func StartMetricsReceiveOp(

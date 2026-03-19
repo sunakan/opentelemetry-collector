@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/README.md b/config/confighttp/README.md
+index beb28028b..a0227c240 100644
+--- a/config/confighttp/README.md
++++ b/config/confighttp/README.md
+@@ -39,7 +39,7 @@ Example:
+ 
+ ```yaml
+ exporter:
+-  otlp:
++  otlphttp:
+     endpoint: otelcol2:55690
+     auth:
+       authenticator: some-authenticator-extension

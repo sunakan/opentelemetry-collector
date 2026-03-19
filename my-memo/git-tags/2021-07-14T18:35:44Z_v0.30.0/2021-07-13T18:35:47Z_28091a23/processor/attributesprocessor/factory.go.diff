@@ -1,0 +1,21 @@
+diff --git a/processor/attributesprocessor/factory.go b/processor/attributesprocessor/factory.go
+index ef4aa835f..9f90d4d9f 100644
+--- a/processor/attributesprocessor/factory.go
++++ b/processor/attributesprocessor/factory.go
+@@ -75,7 +75,7 @@ func createTracesProcessor(
+ 	return processorhelper.NewTracesProcessor(
+ 		cfg,
+ 		nextConsumer,
+-		newSpanAttributesProcessor(attrProc, include, exclude),
++		newSpanAttributesProcessor(attrProc, include, exclude).processTraces,
+ 		processorhelper.WithCapabilities(processorCapabilities))
+ }
+ 
+@@ -105,6 +105,6 @@ func createLogProcessor(
+ 	return processorhelper.NewLogsProcessor(
+ 		cfg,
+ 		nextConsumer,
+-		newLogAttributesProcessor(attrProc, include, exclude),
++		newLogAttributesProcessor(attrProc, include, exclude).processLogs,
+ 		processorhelper.WithCapabilities(processorCapabilities))
+ }

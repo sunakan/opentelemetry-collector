@@ -1,0 +1,11 @@
+diff --git a/service/internal/testcomponents/example_connector.go b/service/internal/testcomponents/example_connector.go
+index 93ee9ace3..4d1cc5ac6 100644
+--- a/service/internal/testcomponents/example_connector.go
++++ b/service/internal/testcomponents/example_connector.go
+@@ -113,5 +113,5 @@ type ExampleConnector struct {
+ }
+ 
+ func (c *ExampleConnector) Capabilities() consumer.Capabilities {
+-	return consumer.Capabilities{MutatesData: true}
++	return consumer.Capabilities{MutatesData: false}
+ }

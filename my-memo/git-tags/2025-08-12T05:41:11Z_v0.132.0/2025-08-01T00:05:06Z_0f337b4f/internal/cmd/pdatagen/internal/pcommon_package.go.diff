@@ -1,0 +1,17 @@
+diff --git a/internal/cmd/pdatagen/internal/pcommon_package.go b/internal/cmd/pdatagen/internal/pcommon_package.go
+index 19fc260a7..80b9a7db3 100644
+--- a/internal/cmd/pdatagen/internal/pcommon_package.go
++++ b/internal/cmd/pdatagen/internal/pcommon_package.go
+@@ -175,9 +175,9 @@ var resource = &messageStruct{
+ 		&SliceField{
+ 			// Hide accessors for this field from 1.x public API since the proto field is experimental.
+ 			// It's available via the xpdata/entity.ResourceEntityRefs.
+-			hideAccessors:   true,
+-			originFieldName: "EntityRefs",
+-			returnSlice:     entityRefSlice,
++			hideAccessors: true,
++			fieldName:     "EntityRefs",
++			returnSlice:   entityRefSlice,
+ 		},
+ 	},
+ }

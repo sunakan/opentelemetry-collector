@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/ptraceotlp/response.go b/pdata/ptrace/ptraceotlp/response.go
+index ac125b6fd..74fb5d372 100644
+--- a/pdata/ptrace/ptraceotlp/response.go
++++ b/pdata/ptrace/ptraceotlp/response.go
+@@ -56,8 +56,8 @@ func (ms ExportResponse) UnmarshalJSON(data []byte) error {
+ }
+ 
+ // PartialSuccess returns the ExportLogsPartialSuccess associated with this ExportResponse.
+-func (ms ExportResponse) PartialSuccess() ExportTracePartialSuccess {
+-	return ExportTracePartialSuccess(internal.NewExportTracePartialSuccess(&ms.orig.PartialSuccess))
++func (ms ExportResponse) PartialSuccess() ExportPartialSuccess {
++	return ExportPartialSuccess(internal.NewTracesExportPartialSuccess(&ms.orig.PartialSuccess))
+ }
+ 
+ // Deprecated: [v0.63.0] use ExportResponse.

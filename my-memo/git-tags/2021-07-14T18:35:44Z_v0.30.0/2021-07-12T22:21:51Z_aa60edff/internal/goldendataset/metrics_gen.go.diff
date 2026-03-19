@@ -1,0 +1,17 @@
+diff --git a/internal/goldendataset/metrics_gen.go b/internal/goldendataset/metrics_gen.go
+index 62e32a7fc..1b09a5e60 100644
+--- a/internal/goldendataset/metrics_gen.go
++++ b/internal/goldendataset/metrics_gen.go
+@@ -129,9 +129,9 @@ func (g *metricGenerator) populateMetrics(cfg MetricsCfg, ilm pdata.Instrumentat
+ 			sum.SetIsMonotonic(cfg.IsMonotonicSum)
+ 			sum.SetAggregationTemporality(pdata.AggregationTemporalityCumulative)
+ 			populateIntPoints(cfg, sum.DataPoints())
+-		case pdata.MetricDataTypeDoubleSum:
+-			metric.SetDataType(pdata.MetricDataTypeDoubleSum)
+-			sum := metric.DoubleSum()
++		case pdata.MetricDataTypeSum:
++			metric.SetDataType(pdata.MetricDataTypeSum)
++			sum := metric.Sum()
+ 			sum.SetIsMonotonic(cfg.IsMonotonicSum)
+ 			sum.SetAggregationTemporality(pdata.AggregationTemporalityCumulative)
+ 			populateDoublePoints(cfg, sum.DataPoints())

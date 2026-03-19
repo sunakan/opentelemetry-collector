@@ -1,0 +1,22 @@
+diff --git a/otelcol/otelcoltest/config_test.go b/otelcol/otelcoltest/config_test.go
+index 71502de53..ba259ddc6 100644
+--- a/otelcol/otelcoltest/config_test.go
++++ b/otelcol/otelcoltest/config_test.go
+@@ -16,7 +16,7 @@ import (
+ 
+ func TestLoadConfig(t *testing.T) {
+ 	factories, err := NopFactories()
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 
+ 	cfg, err := LoadConfig(filepath.Join("testdata", "config.yaml"), factories)
+ 	require.NoError(t, err)
+@@ -61,7 +61,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ func TestLoadConfigAndValidate(t *testing.T) {
+ 	factories, err := NopFactories()
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 
+ 	cfgValidate, errValidate := LoadConfigAndValidate(filepath.Join("testdata", "config.yaml"), factories)
+ 	require.NoError(t, errValidate)

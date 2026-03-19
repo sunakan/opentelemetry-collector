@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/stale-pr.yaml b/.github/workflows/stale-pr.yaml
+index bf05e8d31..4a66ebdb3 100644
+--- a/.github/workflows/stale-pr.yaml
++++ b/.github/workflows/stale-pr.yaml
+@@ -12,5 +12,7 @@ jobs:
+           repo-token: ${{ secrets.GITHUB_TOKEN }}
+           stale-pr-message: 'This PR was marked stale due to lack of activity. It will be closed in 7 days.'
+           close-pr-message: 'Closed as inactive. Feel free to reopen if this PR is still being worked on.'
+-          days-before-stale: 7
+-          days-before-close: 7
+\ No newline at end of file
++          days-before-pr-stale: 7
++          days-before-issue-stale: 730
++          days-before-pr-close: 7
++          days-before-issue-close: 30

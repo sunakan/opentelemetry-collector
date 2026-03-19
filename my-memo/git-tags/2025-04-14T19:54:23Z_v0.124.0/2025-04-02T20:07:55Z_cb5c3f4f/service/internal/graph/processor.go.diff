@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/processor.go b/service/internal/graph/processor.go
+index f22f870f0..21acd185d 100644
+--- a/service/internal/graph/processor.go
++++ b/service/internal/graph/processor.go
+@@ -49,7 +49,7 @@ func (n *processorNode) buildComponent(ctx context.Context,
+ ) error {
+ 	set := processor.Settings{ID: n.componentID, TelemetrySettings: tel, BuildInfo: info}
+ 	if telemetry.NewPipelineTelemetryGate.IsEnabled() {
+-		set.TelemetrySettings = telemetry.WithAttributeSet(set.TelemetrySettings, *n.Attributes.Set())
++		set.TelemetrySettings = telemetry.WithAttributeSet(set.TelemetrySettings, *n.Set())
+ 	}
+ 	var err error
+ 	switch n.pipelineID.Signal() {

@@ -1,0 +1,17 @@
+diff --git a/internal/memorylimiter/iruntime/total_memory_other.go b/internal/memorylimiter/iruntime/total_memory_other.go
+new file mode 100644
+index 000000000..6213dc4f0
+--- /dev/null
++++ b/internal/memorylimiter/iruntime/total_memory_other.go
+@@ -0,0 +1,11 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:build !linux
++
++package iruntime // import "go.opentelemetry.io/collector/internal/memorylimiter/iruntime"
++
++// TotalMemory returns total available memory for non-linux platforms.
++func TotalMemory() (uint64, error) {
++	return readMemInfo()
++}

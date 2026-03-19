@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_numberdatapointslice.go b/pdata/pmetric/generated_numberdatapointslice.go
+index 7a2d74ee3..433d21acb 100644
+--- a/pdata/pmetric/generated_numberdatapointslice.go
++++ b/pdata/pmetric/generated_numberdatapointslice.go
+@@ -99,7 +99,7 @@ func (es NumberDataPointSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added NumberDataPoint.
+ func (es NumberDataPointSlice) AppendEmpty() NumberDataPoint {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrNumberDataPoint())
++	*es.orig = append(*es.orig, internal.NewOrigNumberDataPoint())
+ 	return es.At(es.Len() - 1)
+ }
+ 

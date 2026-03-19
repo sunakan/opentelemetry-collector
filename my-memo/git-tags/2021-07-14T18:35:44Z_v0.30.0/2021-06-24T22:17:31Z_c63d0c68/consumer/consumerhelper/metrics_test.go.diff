@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerhelper/metrics_test.go b/consumer/consumerhelper/metrics_test.go
+index fd3d58c80..c74544f7e 100644
+--- a/consumer/consumerhelper/metrics_test.go
++++ b/consumer/consumerhelper/metrics_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestDefaultMetrics(t *testing.T) {

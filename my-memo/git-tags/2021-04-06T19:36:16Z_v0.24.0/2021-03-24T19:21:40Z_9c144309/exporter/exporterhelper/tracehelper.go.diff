@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index ef18f8dee..42b2e5bf6 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -93,7 +93,11 @@ func NewTraceExporter(
+ 	be := newBaseExporter(cfg, logger, options...)
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &tracesExporterWithObservability{
+-			obsrep:     obsreport.NewExporter(configtelemetry.GetMetricsLevelFlagValue(), cfg.Name()),
++			obsrep: obsreport.NewExporter(
++				obsreport.ExporterSettings{
++					Level:        configtelemetry.GetMetricsLevelFlagValue(),
++					ExporterName: cfg.Name(),
++				}),
+ 			nextSender: nextSender,
+ 		}
+ 	})

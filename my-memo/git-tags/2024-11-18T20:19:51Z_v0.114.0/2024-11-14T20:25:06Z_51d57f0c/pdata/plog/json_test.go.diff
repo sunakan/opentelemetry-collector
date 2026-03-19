@@ -1,0 +1,24 @@
+diff --git a/pdata/plog/json_test.go b/pdata/plog/json_test.go
+index 6e1162311..160e5b790 100644
+--- a/pdata/plog/json_test.go
++++ b/pdata/plog/json_test.go
+@@ -123,8 +123,7 @@ func TestUnmarshalJsoniterLogWrongTraceID(t *testing.T) {
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))
+ 	defer jsoniter.ConfigFastest.ReturnIterator(iter)
+ 	NewLogRecord().unmarshalJsoniter(iter)
+-	require.Error(t, iter.Error)
+-	assert.Contains(t, iter.Error.Error(), "parse trace_id")
++	require.ErrorContains(t, iter.Error, "parse trace_id")
+ }
+ 
+ func TestUnmarshalJsoniterLogWrongSpanID(t *testing.T) {
+@@ -132,8 +131,7 @@ func TestUnmarshalJsoniterLogWrongSpanID(t *testing.T) {
+ 	iter := jsoniter.ConfigFastest.BorrowIterator([]byte(jsonStr))
+ 	defer jsoniter.ConfigFastest.ReturnIterator(iter)
+ 	NewLogRecord().unmarshalJsoniter(iter)
+-	require.Error(t, iter.Error)
+-	assert.Contains(t, iter.Error.Error(), "parse span_id")
++	require.ErrorContains(t, iter.Error, "parse span_id")
+ }
+ 
+ func BenchmarkJSONUnmarshal(b *testing.B) {

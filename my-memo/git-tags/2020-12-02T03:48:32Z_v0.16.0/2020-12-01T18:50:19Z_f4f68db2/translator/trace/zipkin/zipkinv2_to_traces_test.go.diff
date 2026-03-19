@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces_test.go b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+index 50737b86b..eb81a5286 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces_test.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+@@ -105,10 +105,8 @@ func generateTraceSingleSpanNoResourceOrInstrLibrary() pdata.Traces {
+ 	td := pdata.NewTraces()
+ 	td.ResourceSpans().Resize(1)
+ 	rs := td.ResourceSpans().At(0)
+-	rs.InitEmpty()
+ 	rs.InstrumentationLibrarySpans().Resize(1)
+ 	ils := rs.InstrumentationLibrarySpans().At(0)
+-	ils.InitEmpty()
+ 	ils.Spans().Resize(1)
+ 	span := ils.Spans().At(0)
+ 	span.SetTraceID(

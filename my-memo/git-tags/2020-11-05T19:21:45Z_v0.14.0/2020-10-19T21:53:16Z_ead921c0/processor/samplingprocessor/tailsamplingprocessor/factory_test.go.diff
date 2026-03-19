@@ -1,0 +1,22 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/factory_test.go b/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
+index 144837315..d3cbc6d50 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/factory_test.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+-	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/consumer/consumertest"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+@@ -46,7 +46,7 @@ func TestCreateProcessor(t *testing.T) {
+ 	}
+ 
+ 	params := component.ProcessorCreateParams{Logger: zap.NewNop()}
+-	tp, err := factory.CreateTraceProcessor(context.Background(), params, cfg, exportertest.NewNopTraceExporter())
++	tp, err := factory.CreateTraceProcessor(context.Background(), params, cfg, consumertest.NewTracesNop())
+ 	assert.NotNil(t, tp)
+ 	assert.NoError(t, err, "cannot create trace processor")
+ }

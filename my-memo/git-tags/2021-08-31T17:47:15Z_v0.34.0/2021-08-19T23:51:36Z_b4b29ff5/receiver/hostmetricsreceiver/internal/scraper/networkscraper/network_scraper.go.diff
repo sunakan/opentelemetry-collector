@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
+index 68892c690..a859817c7 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
+@@ -99,7 +99,7 @@ func (s *scraper) scrape(_ context.Context) (pdata.MetricSlice, error) {
+ }
+ 
+ func (s *scraper) scrapeAndAppendNetworkCounterMetrics(metrics pdata.MetricSlice, startTime pdata.Timestamp) error {
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 
+ 	// get total stats only
+ 	ioCounters, err := s.ioCounters( /*perNetworkInterfaceController=*/ true)
+@@ -176,7 +176,7 @@ func initializeNetworkDataPoint(dataPoint pdata.NumberDataPoint, startTime, now
+ }
+ 
+ func (s *scraper) scrapeAndAppendNetworkConnectionsMetric(metrics pdata.MetricSlice) error {
+-	now := pdata.TimestampFromTime(time.Now())
++	now := pdata.NewTimestampFromTime(time.Now())
+ 
+ 	connections, err := s.connections("tcp")
+ 	if err != nil {

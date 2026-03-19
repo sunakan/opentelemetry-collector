@@ -1,0 +1,40 @@
+diff --git a/internal/buildscripts/check-test-files.sh b/internal/buildscripts/check-test-files.sh
+index 30ef6a8b8..a41f2c82e 100755
+--- a/internal/buildscripts/check-test-files.sh
++++ b/internal/buildscripts/check-test-files.sh
+@@ -1,5 +1,19 @@
+ #!/bin/bash
+ 
++# Copyright The OpenTelemetry Authors
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#       http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
+ set -euo pipefail
+ 
+ COLOR_FIXME=$(printf "\033[31mFIXME\033[0m")
+@@ -14,7 +28,7 @@ for dir in $*; do
+     fi
+     if [ -e ${dir}/.nocover ]; then
+       reason=$(cat ${dir}/.nocover)
+-      if [ "${reason}" == "" ]; then 
++      if [ "${reason}" == "" ]; then
+         echo "error: ${dir}/.nocover must specify reason" >&2
+         exit 1
+       fi
+@@ -36,4 +50,4 @@ if [ -n "${NO_TEST_FILE_DIRS}" ]; then
+   echo "error: at least one *_test.go file must be in all directories with go files so that they are counted for code coverage" >&2
+   echo "       if no tests are possible for a package (e.g. it only defines types), create empty_test.go" >&2
+   exit 1
+-fi
+\ No newline at end of file
++fi

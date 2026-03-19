@@ -1,0 +1,12 @@
+diff --git a/exporter/opencensusexporter/config_test.go b/exporter/opencensusexporter/config_test.go
+index 335443a88..ac22069ae 100644
+--- a/exporter/opencensusexporter/config_test.go
++++ b/exporter/opencensusexporter/config_test.go
+@@ -47,7 +47,6 @@ func TestLoadConfig(t *testing.T) {
+ 			ExporterSettings: configmodels.ExporterSettings{
+ 				NameVal: "opencensus/2",
+ 				TypeVal: "opencensus",
+-				Enabled: true,
+ 			},
+ 			Headers: map[string]string{
+ 				"can you have a . here?": "F0000000-0000-0000-0000-000000000000",

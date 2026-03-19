@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto.go b/translator/trace/jaeger/traces_to_jaegerproto.go
+index 2293ee70e..c7fbd3a93 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto.go
+@@ -419,7 +419,7 @@ func getTagFromStatusCode(statusCode pdata.StatusCode) (model.KeyValue, bool) {
+ }
+ 
+ func getErrorTagFromStatusCode(statusCode pdata.StatusCode) (model.KeyValue, bool) {
+-	if statusCode == pdata.StatusCode(otlptrace.Status_Ok) {
++	if statusCode == pdata.StatusCode(otlptrace.Status_STATUS_CODE_OK) {
+ 		return model.KeyValue{}, false
+ 	}
+ 	return model.KeyValue{

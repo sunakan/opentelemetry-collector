@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index 02c348134..811370cc5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -180,6 +180,7 @@ ocb:
+ genpdata:
+ 	cd internal/cmd/pdatagen && $(GOCMD) run main.go -C $(SRC_ROOT)
+ 	$(MAKE) -C pdata fmt
++	cd pdata && $(GO_TOOL) betteralign --generated_files --apply ./... || true
+ 
+ DOCKERCMD ?= docker
+ DOCKER_PROTOBUF ?= otel/build-protobuf:0.23.0

@@ -1,0 +1,12 @@
+diff --git a/processor/probabilisticsamplerprocessor/factory.go b/processor/probabilisticsamplerprocessor/factory.go
+index 740aedefe..2fed7832c 100644
+--- a/processor/probabilisticsamplerprocessor/factory.go
++++ b/processor/probabilisticsamplerprocessor/factory.go
+@@ -49,6 +49,5 @@ func createTracesProcessor(
+ 	cfg config.Processor,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesProcessor, error) {
+-	oCfg := cfg.(*Config)
+-	return newTracesProcessor(nextConsumer, *oCfg)
++	return newTracesProcessor(nextConsumer, cfg.(*Config))
+ }

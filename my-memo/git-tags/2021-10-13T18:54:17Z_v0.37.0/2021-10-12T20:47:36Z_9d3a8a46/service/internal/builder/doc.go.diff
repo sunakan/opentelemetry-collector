@@ -1,0 +1,10 @@
+diff --git a/service/internal/builder/doc.go b/service/internal/builder/doc.go
+index c5bd42597..d5aa04b14 100644
+--- a/service/internal/builder/doc.go
++++ b/service/internal/builder/doc.go
+@@ -14,4 +14,4 @@
+ 
+ // Package builder handles the options to build the OpenTelemetry collector
+ // pipeline.
+-package builder
++package builder // import "go.opentelemetry.io/collector/service/internal/builder"

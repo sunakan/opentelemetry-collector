@@ -1,0 +1,17 @@
+diff --git a/service/zpages.go b/service/zpages.go
+index c38e3911b..09ed126b7 100644
+--- a/service/zpages.go
++++ b/service/zpages.go
+@@ -75,9 +75,9 @@ func getFeaturesTableData() zpages.FeatureGateTableData {
+ 			ID:             g.GetID(),
+ 			Enabled:        g.IsEnabled(),
+ 			Description:    g.GetDescription(),
+-			ReferenceURL:   g.GetReferenceURL(),
+-			Stage:          g.GetStage().String(),
+-			RemovalVersion: g.GetRemovalVersion(),
++			ReferenceURL:   g.ReferenceURL(),
++			Stage:          g.Stage().String(),
++			RemovalVersion: g.RemovalVersion(),
+ 		})
+ 	}
+ 

@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/doc.go b/receiver/prometheusreceiver/doc.go
+index cc269dc54..f90c46918 100644
+--- a/receiver/prometheusreceiver/doc.go
++++ b/receiver/prometheusreceiver/doc.go
+@@ -12,6 +12,5 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// Package prometheusreceiver has the logic for scraping Prometheus metrics from
+-// already instrumented applications and then passing them onto a metricsink instance.
++// Package prometheusreceiver autodiscovers and scrapes Prometheus metrics handlers, often served at /metrics.
+ package prometheusreceiver

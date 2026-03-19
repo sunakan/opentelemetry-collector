@@ -1,0 +1,32 @@
+diff --git a/service/builder/receivers_builder_test.go b/service/builder/receivers_builder_test.go
+index e9cb9f85a..27839d674 100644
+--- a/service/builder/receivers_builder_test.go
++++ b/service/builder/receivers_builder_test.go
+@@ -31,7 +31,6 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/pdatautil"
+ 	"go.opentelemetry.io/collector/internal/data/testdata"
+ 	"go.opentelemetry.io/collector/processor/attributesprocessor"
+-	"go.opentelemetry.io/collector/processor/processortest"
+ 	"go.opentelemetry.io/collector/receiver/zipkinreceiver"
+ )
+ 
+@@ -327,9 +326,6 @@ func TestReceiversBuilder_ErrorOnNilReceiver(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	npf := &processortest.NopProcessorFactory{}
+-	factories.Processors[npf.Type()] = npf
+-
+ 	bf := &badReceiverFactory{}
+ 	factories.Receivers[bf.Type()] = bf
+ 
+@@ -390,9 +386,6 @@ func TestReceiversBuilder_InternalToOcTraceConverter(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 
+-	npf := &processortest.NopProcessorFactory{}
+-	factories.Processors[npf.Type()] = npf
+-
+ 	newStyleReceiver := &newStyleReceiverFactory{}
+ 	factories.Receivers[newStyleReceiver.Type()] = newStyleReceiver
+ 

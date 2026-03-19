@@ -1,0 +1,21 @@
+diff --git a/service/collector.go b/service/collector.go
+index 81c9db35d..3c393d9e3 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -199,6 +199,7 @@ func (col *Collector) setupConfigurationComponents(ctx context.Context) error {
+ 			Logger:         col.logger,
+ 			TracerProvider: col.tracerProvider,
+ 			MeterProvider:  col.meterProvider,
++			MetricsLevel:   col.cfgW.cfg.Telemetry.Metrics.Level,
+ 		},
+ 		ZPagesSpanProcessor: col.zPagesSpanProcessor,
+ 		AsyncErrorChannel:   col.asyncErrorChannel,
+@@ -234,7 +235,7 @@ func (col *Collector) Run(ctx context.Context) error {
+ 		return err
+ 	}
+ 
+-	if err := collectorTelemetry.init(col.asyncErrorChannel, getBallastSize(col.service), col.logger); err != nil {
++	if err := collectorTelemetry.init(col); err != nil {
+ 		return err
+ 	}
+ 

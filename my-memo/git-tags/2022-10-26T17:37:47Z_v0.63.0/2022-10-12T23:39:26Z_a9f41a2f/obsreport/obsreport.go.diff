@@ -1,0 +1,17 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index eddc68c10..6a69d1ab0 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -19,6 +19,12 @@ import (
+ 	"go.opentelemetry.io/otel/trace"
+ )
+ 
++const (
++	scopeName = "go.opentelemetry.io/collector/obsreport"
++
++	nameSep = "/"
++)
++
+ func recordError(span trace.Span, err error) {
+ 	if err != nil {
+ 		span.SetStatus(codes.Error, err.Error())

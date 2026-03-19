@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+index 895d5a53c..d58e0d083 100644
+--- a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+@@ -198,9 +198,7 @@ func (qb *partitionBatcher) Start(context.Context, component.Host) error {
+ 		return nil
+ 	}
+ 	qb.timer = time.NewTimer(qb.cfg.FlushTimeout)
+-	qb.stopWG.Add(1)
+-	go func() {
+-		defer qb.stopWG.Done()
++	qb.stopWG.Go(func() {
+ 		for {
+ 			select {
+ 			case <-qb.shutdownCh:
+@@ -209,7 +207,7 @@ func (qb *partitionBatcher) Start(context.Context, component.Host) error {
+ 				qb.flushCurrentBatchIfNecessary()
+ 			}
+ 		}
+-	}()
++	})
+ 	return nil
+ }
+ 

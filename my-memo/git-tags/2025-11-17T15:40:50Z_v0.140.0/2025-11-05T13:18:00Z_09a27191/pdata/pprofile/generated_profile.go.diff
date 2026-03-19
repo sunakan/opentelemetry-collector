@@ -1,0 +1,29 @@
+diff --git a/pdata/pprofile/generated_profile.go b/pdata/pprofile/generated_profile.go
+index 87c3c1128..786002381 100644
+--- a/pdata/pprofile/generated_profile.go
++++ b/pdata/pprofile/generated_profile.go
+@@ -53,9 +53,9 @@ func (ms Profile) SampleType() ValueType {
+ 	return newValueType(&ms.orig.SampleType, ms.state)
+ }
+ 
+-// Sample returns the Sample associated with this Profile.
+-func (ms Profile) Sample() SampleSlice {
+-	return newSampleSlice(&ms.orig.Sample, ms.state)
++// Samples returns the Samples associated with this Profile.
++func (ms Profile) Samples() SampleSlice {
++	return newSampleSlice(&ms.orig.Samples, ms.state)
+ }
+ 
+ // Time returns the time associated with this Profile.
+@@ -96,11 +96,6 @@ func (ms Profile) SetPeriod(v int64) {
+ 	ms.orig.Period = v
+ }
+ 
+-// CommentStrindices returns the CommentStrindices associated with this Profile.
+-func (ms Profile) CommentStrindices() pcommon.Int32Slice {
+-	return pcommon.Int32Slice(internal.NewInt32SliceWrapper(&ms.orig.CommentStrindices, ms.state))
+-}
+-
+ // ProfileID returns the profileid associated with this Profile.
+ func (ms Profile) ProfileID() ProfileID {
+ 	return ProfileID(ms.orig.ProfileId)

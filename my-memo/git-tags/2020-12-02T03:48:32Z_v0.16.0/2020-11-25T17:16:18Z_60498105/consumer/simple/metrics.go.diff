@@ -1,0 +1,12 @@
+diff --git a/consumer/simple/metrics.go b/consumer/simple/metrics.go
+index 14cc8cab0..dff11e54a 100644
+--- a/consumer/simple/metrics.go
++++ b/consumer/simple/metrics.go
+@@ -189,7 +189,6 @@ func (mb *Metrics) getMetricsSlice() pdata.MetricSlice {
+ 	ilm.InitEmpty()
+ 
+ 	il := ilm.InstrumentationLibrary()
+-	il.InitEmpty()
+ 	il.SetName(mb.InstrumentationLibraryName)
+ 	il.SetVersion(mb.InstrumentationLibraryVersion)
+ 

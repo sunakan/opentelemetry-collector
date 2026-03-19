@@ -1,0 +1,20 @@
+diff --git a/component/extension.go b/component/extension.go
+index 7904eae29..33a54a83b 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -99,15 +99,6 @@ func (ef *extensionFactory) ExtensionStability() StabilityLevel {
+ 	return ef.extensionStability
+ }
+ 
+-// Deprecated: [v0.59.0] use NewExtensionFactory.
+-func NewExtensionFactoryWithStabilityLevel(
+-	cfgType config.Type,
+-	createDefaultConfig ExtensionCreateDefaultConfigFunc,
+-	createServiceExtension CreateExtensionFunc,
+-	sl StabilityLevel) ExtensionFactory {
+-	return NewExtensionFactory(cfgType, createDefaultConfig, createServiceExtension, sl)
+-}
+-
+ // NewExtensionFactory returns a new ExtensionFactory  based on this configuration.
+ func NewExtensionFactory(
+ 	cfgType config.Type,

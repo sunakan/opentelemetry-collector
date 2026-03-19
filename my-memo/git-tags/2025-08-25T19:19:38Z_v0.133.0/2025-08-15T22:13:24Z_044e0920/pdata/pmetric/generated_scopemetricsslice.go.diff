@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_scopemetricsslice.go b/pdata/pmetric/generated_scopemetricsslice.go
+index 863424b36..04f494b5d 100644
+--- a/pdata/pmetric/generated_scopemetricsslice.go
++++ b/pdata/pmetric/generated_scopemetricsslice.go
+@@ -99,7 +99,7 @@ func (es ScopeMetricsSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ScopeMetrics.
+ func (es ScopeMetricsSlice) AppendEmpty() ScopeMetrics {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpmetrics.ScopeMetrics{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrScopeMetrics())
+ 	return es.At(es.Len() - 1)
+ }
+ 

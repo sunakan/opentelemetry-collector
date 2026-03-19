@@ -1,0 +1,18 @@
+diff --git a/model/pdata/logs.go b/model/pdata/logs.go
+index 212097f18..75982879c 100644
+--- a/model/pdata/logs.go
++++ b/model/pdata/logs.go
+@@ -65,6 +65,13 @@ func (ld Logs) InternalRep() internal.LogsWrapper {
+ 	return internal.LogsFromOtlp(ld.orig)
+ }
+ 
++// MoveTo moves all properties from the current struct to dest
++// resetting the current instance to its zero value.
++func (ld Logs) MoveTo(dest Logs) {
++	*dest.orig = *ld.orig
++	*ld.orig = otlplogs.LogsData{}
++}
++
+ // Clone returns a copy of Logs.
+ func (ld Logs) Clone() Logs {
+ 	cloneLd := NewLogs()

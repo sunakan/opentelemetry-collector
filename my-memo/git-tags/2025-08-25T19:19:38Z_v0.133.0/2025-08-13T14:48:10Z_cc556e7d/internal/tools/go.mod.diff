@@ -1,0 +1,14 @@
+diff --git a/internal/tools/go.mod b/internal/tools/go.mod
+index 1b9e558cf..45b8bbe1b 100644
+--- a/internal/tools/go.mod
++++ b/internal/tools/go.mod
+@@ -1,8 +1,6 @@
+ module go.opentelemetry.io/collector/internal/tools
+ 
+-go 1.24
+-
+-toolchain go1.24.0
++go 1.25
+ 
+ require (
+ 	github.com/a8m/envsubst v1.4.3

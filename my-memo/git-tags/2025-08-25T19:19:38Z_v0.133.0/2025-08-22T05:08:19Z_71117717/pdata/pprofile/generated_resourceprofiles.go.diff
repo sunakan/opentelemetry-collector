@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_resourceprofiles.go b/pdata/pprofile/generated_resourceprofiles.go
+index 205eda0f8..8762dfd00 100644
+--- a/pdata/pprofile/generated_resourceprofiles.go
++++ b/pdata/pprofile/generated_resourceprofiles.go
+@@ -45,8 +45,8 @@ func (ms ResourceProfiles) MoveTo(dest ResourceProfiles) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpprofiles.ResourceProfiles{}
++	internal.DeleteOrigResourceProfiles(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // Resource returns the resource associated with this ResourceProfiles.

@@ -1,0 +1,25 @@
+diff --git a/component/config.go b/component/config.go
+index a72d8a25f..3fb147b78 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -33,14 +33,14 @@ type DataType = Type
+ 
+ // Currently supported data types. Add new data types here when new types are supported in the future.
+ const (
+-	// TracesDataType is the data type tag for traces.
+-	TracesDataType DataType = "traces"
++	// DataTypeTraces is the data type tag for traces.
++	DataTypeTraces DataType = "traces"
+ 
+-	// MetricsDataType is the data type tag for metrics.
+-	MetricsDataType DataType = "metrics"
++	// DataTypeMetrics is the data type tag for metrics.
++	DataTypeMetrics DataType = "metrics"
+ 
+-	// LogsDataType is the data type tag for logs.
+-	LogsDataType DataType = "logs"
++	// DataTypeLogs is the data type tag for logs.
++	DataTypeLogs DataType = "logs"
+ )
+ 
+ func unmarshal(componentSection *confmap.Conf, intoCfg interface{}) error {

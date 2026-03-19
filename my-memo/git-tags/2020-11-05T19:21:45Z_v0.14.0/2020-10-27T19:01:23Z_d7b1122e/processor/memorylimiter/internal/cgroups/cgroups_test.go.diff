@@ -1,0 +1,22 @@
+diff --git a/processor/memorylimiter/internal/cgroups/cgroups_test.go b/processor/memorylimiter/internal/cgroups/cgroups_test.go
+index 5e1824e4e..8f81db70a 100644
+--- a/processor/memorylimiter/internal/cgroups/cgroups_test.go
++++ b/processor/memorylimiter/internal/cgroups/cgroups_test.go
+@@ -65,7 +65,7 @@ func TestNewCGroups(t *testing.T) {
+ 
+ 	for _, tt := range testTable {
+ 		cgroup, exists := cgroups[tt.subsys]
+-		assert.Equal(t, true, exists, "%q expected to present in `cgroups`", tt.subsys)
++		assert.True(t, exists, "%q expected to present in `cgroups`", tt.subsys)
+ 		assert.Equal(t, tt.path, cgroup.path, "%q expected for `cgroups[%q].path`, got %q", tt.path, tt.subsys, cgroup.path)
+ 	}
+ }
+@@ -117,7 +117,7 @@ func TestCGroupsCPUQuota(t *testing.T) {
+ 
+ 	quota, defined, err := cgroups.MemoryQuota()
+ 	assert.Equal(t, int64(-1), quota, "nonexistent")
+-	assert.Equal(t, false, defined, "nonexistent")
++	assert.False(t, defined, "nonexistent")
+ 	assert.NoError(t, err, "nonexistent")
+ 
+ 	for _, tt := range testTable {

@@ -1,0 +1,16 @@
+diff --git a/pdata/pcommon/map_test.go b/pdata/pcommon/map_test.go
+index 1ec51e0db..757939920 100644
+--- a/pdata/pcommon/map_test.go
++++ b/pdata/pcommon/map_test.go
+@@ -721,10 +721,9 @@ func BenchmarkMapEqual(b *testing.B) {
+ 	cmp := NewMap()
+ 	cmp.PutStr("hello", "world")
+ 
+-	b.ResetTimer()
+ 	b.ReportAllocs()
+ 
+-	for n := 0; n < b.N; n++ {
++	for b.Loop() {
+ 		_ = m.Equal(cmp)
+ 	}
+ }

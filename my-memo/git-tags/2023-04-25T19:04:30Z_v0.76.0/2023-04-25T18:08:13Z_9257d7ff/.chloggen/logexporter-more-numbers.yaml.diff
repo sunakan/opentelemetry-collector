@@ -1,0 +1,24 @@
+diff --git a/.chloggen/logexporter-more-numbers.yaml b/.chloggen/logexporter-more-numbers.yaml
+deleted file mode 100755
+index d93525855..000000000
+--- a/.chloggen/logexporter-more-numbers.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: enhancement
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: loggingexporter
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Show more counters in not detailed verbosity
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7461]
+-
+-subtext: |
+-  The logging exporter now shows more counters when the verbosity is not detailed. The following numbers are added:
+-  - Number of resource logs
+-  - Number of resource spans
+-  - Number of resource metrics
+-  - Number of data points

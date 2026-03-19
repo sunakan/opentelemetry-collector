@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusexporter/collector.go b/exporter/prometheusexporter/collector.go
+index 921042180..8a0a500a5 100644
+--- a/exporter/prometheusexporter/collector.go
++++ b/exporter/prometheusexporter/collector.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/prometheus/client_golang/prometheus"
+ 	"go.uber.org/zap"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type collector struct {

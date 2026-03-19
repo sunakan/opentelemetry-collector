@@ -1,0 +1,12 @@
+diff --git a/internal/cmd/pdatagen/internal/base_slices.go b/internal/cmd/pdatagen/internal/base_slices.go
+index ce3da31d3..28f978c68 100644
+--- a/internal/cmd/pdatagen/internal/base_slices.go
++++ b/internal/cmd/pdatagen/internal/base_slices.go
+@@ -98,6 +98,7 @@ func (ss *sliceOfValues) templateFields(packageInfo *PackageInfo) map[string]any
+ 	state := stateAccessor(ss.packageName)
+ 	return map[string]any{
+ 		"type":               "sliceOfValues",
++		"isCommon":           usedByOtherDataTypes(ss.packageName),
+ 		"structName":         ss.getName(),
+ 		"elementName":        ss.element.getName(),
+ 		"originName":         ss.element.originFullName,

@@ -1,0 +1,12 @@
+diff --git a/consumer/consumerprofiles/profiles_test.go b/consumer/consumerprofiles/profiles_test.go
+index a9abead7b..7c2d62ff6 100644
+--- a/consumer/consumerprofiles/profiles_test.go
++++ b/consumer/consumerprofiles/profiles_test.go
+@@ -1,6 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++// Deprecated: [0.115.0] This package is deprecated. Use "go.opentelemetry.io/collector/consumer/xconsumer" instead.
+ package consumerprofiles
+ 
+ import (

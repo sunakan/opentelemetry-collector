@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/README.md b/exporter/opencensusexporter/README.md
+index 10dad1d21..7e60ebc9d 100644
+--- a/exporter/opencensusexporter/README.md
++++ b/exporter/opencensusexporter/README.md
+@@ -28,7 +28,7 @@ Example:
+ ```yaml
+ exporters:
+   opencensus:
+-    endpoint: localhost:14250
++    endpoint: 0.0.0.0:14250
+     reconnection_delay: 60s
+     secure: false
+ ```

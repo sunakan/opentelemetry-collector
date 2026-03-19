@@ -1,0 +1,14 @@
+diff --git a/.github/CODEOWNERS b/.github/CODEOWNERS
+index 8844af4ce..713f33dfe 100644
+--- a/.github/CODEOWNERS
++++ b/.github/CODEOWNERS
+@@ -36,7 +36,8 @@ exporter/otlpexporter/                   @open-telemetry/collector-approvers
+ exporter/otlphttpexporter/               @open-telemetry/collector-approvers
+ exporter/xexporter/                      @open-telemetry/collector-approvers @mx-psi @dmathieu
+ extension/memorylimiterextension/        @open-telemetry/collector-approvers
+-extension/xextension/                    @open-telemetry/collector-approvers @swiatekm
++extension/xextension/                    @open-telemetry/collector-approvers
++extension/xextension/storage/            @open-telemetry/collector-approvers @swiatekm
+ extension/zpagesextension/               @open-telemetry/collector-approvers
+ pdata/                                   @open-telemetry/collector-approvers @BogdanDrutu @dmitryax
+ pdata/pprofile/                          @open-telemetry/collector-approvers @mx-psi @dmathieu

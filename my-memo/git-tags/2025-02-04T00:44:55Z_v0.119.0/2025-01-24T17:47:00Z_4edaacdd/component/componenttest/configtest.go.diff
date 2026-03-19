@@ -1,0 +1,14 @@
+diff --git a/component/componenttest/configtest.go b/component/componenttest/configtest.go
+index 8d1f1d157..6023f2ff0 100644
+--- a/component/componenttest/configtest.go
++++ b/component/componenttest/configtest.go
+@@ -122,6 +122,9 @@ func checkStructFieldTags(f reflect.StructField) error {
+ 	default:
+ 		fieldTag := tagParts[0]
+ 		if !configFieldTagRegExp.MatchString(fieldTag) {
++			if f.Name == "AdditionalProperties" {
++				return nil
++			}
+ 			return fmt.Errorf(
+ 				"field %q has config tag %q which doesn't satisfy %q",
+ 				f.Name,

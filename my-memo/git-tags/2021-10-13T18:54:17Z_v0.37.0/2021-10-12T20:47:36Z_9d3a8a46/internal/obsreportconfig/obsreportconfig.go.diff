@@ -1,0 +1,13 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index dbad5efca..bc833ddac 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package obsreportconfig
++package obsreportconfig // import "go.opentelemetry.io/collector/internal/obsreportconfig"
+ 
+ import (
+ 	"go.opencensus.io/stats"

@@ -1,0 +1,11 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+index 5abb81a4d..c0d989170 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+@@ -75,5 +75,5 @@ func initializeLoadMetric(metric pdata.Metric, metricDescriptor metadata.MetricI
+ 	metricDescriptor.Init(metric)
+ 	dp := metric.Gauge().DataPoints().AppendEmpty()
+ 	dp.SetTimestamp(now)
+-	dp.SetValue(value)
++	dp.SetDoubleVal(value)
+ }

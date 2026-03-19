@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusremotewriteexporter/factory.go b/exporter/prometheusremotewriteexporter/factory.go
+index 8cc715304..eca235894 100644
+--- a/exporter/prometheusremotewriteexporter/factory.go
++++ b/exporter/prometheusremotewriteexporter/factory.go
+@@ -29,6 +29,7 @@ const (
+ 	typeStr = "prometheusremotewrite"
+ )
+ 
++// NewFactory creates a new Prometheus Remote Write exporter.
+ func NewFactory() component.ExporterFactory {
+ 	return exporterhelper.NewFactory(
+ 		typeStr,

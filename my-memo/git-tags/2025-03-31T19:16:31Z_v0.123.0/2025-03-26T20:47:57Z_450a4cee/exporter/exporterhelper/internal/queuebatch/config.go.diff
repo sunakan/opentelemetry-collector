@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/config.go b/exporter/exporterhelper/internal/queuebatch/config.go
+index 6aba3c2a4..fa0e2e66d 100644
+--- a/exporter/exporterhelper/internal/queuebatch/config.go
++++ b/exporter/exporterhelper/internal/queuebatch/config.go
+@@ -79,10 +79,10 @@ type BatchConfig struct {
+ 	FlushTimeout time.Duration `mapstructure:"flush_timeout"`
+ 
+ 	// MinSize defines the configuration for the minimum size of a batch.
+-	MinSize int `mapstructure:"min_size"`
++	MinSize int64 `mapstructure:"min_size"`
+ 
+ 	// MaxSize defines the configuration for the maximum size of a batch.
+-	MaxSize int `mapstructure:"max_size"`
++	MaxSize int64 `mapstructure:"max_size"`
+ }
+ 
+ func (cfg *BatchConfig) Validate() error {

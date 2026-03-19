@@ -1,0 +1,21 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index f43d8fd0c..66fbdcf53 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -160,6 +160,16 @@ func (bp *batchProcessor) processItem(item interface{}) {
+ 				}()
+ 			}
+ 		}
++		if td, ok := item.(pdata.Metrics); ok {
++			itemCount := bp.batch.itemCount()
++			if itemCount+uint32(td.MetricCount()) > bp.sendBatchMaxSize {
++				tdRemainSize := splitMetrics(int(bp.sendBatchSize-itemCount), td)
++				item = tdRemainSize
++				go func() {
++					bp.newItem <- td
++				}()
++			}
++		}
+ 	}
+ 
+ 	bp.batch.add(item)

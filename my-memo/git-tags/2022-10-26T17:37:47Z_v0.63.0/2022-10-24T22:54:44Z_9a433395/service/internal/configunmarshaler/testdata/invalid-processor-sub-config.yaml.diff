@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml
+deleted file mode 100644
+index 0596ab333..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-sub-config.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-    tests
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]

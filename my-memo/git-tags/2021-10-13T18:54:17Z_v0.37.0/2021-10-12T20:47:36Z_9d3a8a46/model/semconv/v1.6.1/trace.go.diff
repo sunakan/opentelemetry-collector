@@ -1,0 +1,13 @@
+diff --git a/model/semconv/v1.6.1/trace.go b/model/semconv/v1.6.1/trace.go
+index c1858c52b..8e2972d4c 100644
+--- a/model/semconv/v1.6.1/trace.go
++++ b/model/semconv/v1.6.1/trace.go
+@@ -14,7 +14,7 @@
+ 
+ // Code generated from semantic convention specification. DO NOT EDIT.
+ 
+-package semconv
++package semconv // import "go.opentelemetry.io/collector/model/semconv/v1.6.1"
+ 
+ // Span attributes used by AWS Lambda (in addition to general `faas` attributes).
+ const (

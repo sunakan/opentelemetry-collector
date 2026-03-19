@@ -1,0 +1,14 @@
+diff --git a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_02.json b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_02.json
+index 7c9f44f3e..17efb5cb0 100644
+--- a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_02.json
++++ b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_02.json
+@@ -38,6 +38,9 @@
+               "refType": "FOLLOWS_FROM",
+               "traceIdLow": 5951113872249657919,
+               "spanId": 6866147
++            },
++            {
++              "refType": "FOLLOWS_FROM"
+             }
+           ],
+           "startTime": 1485467191639875,

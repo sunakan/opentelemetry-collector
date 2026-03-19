@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/metricdata.go b/cmd/mdatagen/metricdata.go
+index 2acf4b77b..4749e03e6 100644
+--- a/cmd/mdatagen/metricdata.go
++++ b/cmd/mdatagen/metricdata.go
+@@ -223,7 +223,8 @@ type histogram struct {
+ 	Mono                   `mapstructure:",squash"`
+ 	MetricValueType        `mapstructure:"value_type"`
+ 	MetricInputType        `mapstructure:",squash"`
+-	Async                  bool `mapstructure:"async,omitempty"`
++	Async                  bool      `mapstructure:"async,omitempty"`
++	Boundaries             []float64 `mapstructure:"bucket_boundaries"`
+ }
+ 
+ func (d histogram) Type() string {

@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/README.md b/receiver/hostmetricsreceiver/README.md
+index 1a9a17f08..b70343140 100644
+--- a/receiver/hostmetricsreceiver/README.md
++++ b/receiver/hostmetricsreceiver/README.md
+@@ -11,7 +11,7 @@ hostmetrics:
+   default_collection_interval: 10s
+   scrapers:
+     cpu:
+-      report_per_process: true
++      report_per_cpu: true
+     memory:
+     disk:
+ ```

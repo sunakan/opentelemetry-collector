@@ -1,0 +1,14 @@
+diff --git a/processor/processor_test.go b/processor/processor_test.go
+index f22ae1e76..ea131f442 100644
+--- a/processor/processor_test.go
++++ b/processor/processor_test.go
+@@ -79,8 +79,7 @@ func TestMakeFactoryMap(t *testing.T) {
+ 		},
+ 	}
+ 
+-	for i := range testCases {
+-		tt := testCases[i]
++	for _, tt := range testCases {
+ 		t.Run(tt.name, func(t *testing.T) {
+ 			out, err := MakeFactoryMap(tt.in...)
+ 			if tt.out == nil {

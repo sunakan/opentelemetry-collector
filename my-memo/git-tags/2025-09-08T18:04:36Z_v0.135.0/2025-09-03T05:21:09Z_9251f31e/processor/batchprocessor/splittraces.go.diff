@@ -1,0 +1,11 @@
+diff --git a/processor/batchprocessor/splittraces.go b/processor/batchprocessor/splittraces.go
+index 59f0fa204..23dcbf7d1 100644
+--- a/processor/batchprocessor/splittraces.go
++++ b/processor/batchprocessor/splittraces.go
+@@ -69,5 +69,5 @@ func resourceSC(rs ptrace.ResourceSpans) (count int) {
+ 	for k := 0; k < rs.ScopeSpans().Len(); k++ {
+ 		count += rs.ScopeSpans().At(k).Spans().Len()
+ 	}
+-	return
++	return count
+ }

@@ -1,0 +1,30 @@
+diff --git a/internal/data_generator/internal/resource_structs.go b/internal/data_generator/internal/resource_structs.go
+index eda24a7e2..3c191c191 100644
+--- a/internal/data_generator/internal/resource_structs.go
++++ b/internal/data_generator/internal/resource_structs.go
+@@ -19,6 +19,12 @@ var resourceFile = &File{
+ 	imports: []string{
+ 		`otlpresource "github.com/open-telemetry/opentelemetry-proto/gen/go/resource/v1"`,
+ 	},
++	testImports: []string{
++		`"testing"`,
++		``,
++		`otlpresource "github.com/open-telemetry/opentelemetry-proto/gen/go/resource/v1"`,
++		`"github.com/stretchr/testify/assert"`,
++	},
+ 	structs: []baseStruct{
+ 		resource,
+ 	},
+@@ -29,11 +35,7 @@ var resource = &messageStruct{
+ 	description:    "// Resource information.",
+ 	originFullName: "otlpresource.Resource",
+ 	fields: []baseField{
+-		&sliceField{
+-			fieldMame:       "Attributes",
+-			originFieldName: "Attributes",
+-			returnSlice:     attributeMap,
+-		},
++		attributes,
+ 	},
+ }
+ 

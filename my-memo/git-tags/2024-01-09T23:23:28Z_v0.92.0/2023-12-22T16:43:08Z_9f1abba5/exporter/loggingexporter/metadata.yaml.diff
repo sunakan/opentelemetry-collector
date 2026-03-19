@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/metadata.yaml b/exporter/loggingexporter/metadata.yaml
+new file mode 100644
+index 000000000..165fa39f1
+--- /dev/null
++++ b/exporter/loggingexporter/metadata.yaml
+@@ -0,0 +1,7 @@
++type: logging
++
++status:
++  class: exporter
++  stability:
++    deprecated: [traces, metrics, logs]
++  distributions: [core, contrib]

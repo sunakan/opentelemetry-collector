@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/factory.go b/processor/memorylimiter/factory.go
+index 5fe0e6023..2bc85e2b9 100644
+--- a/processor/memorylimiter/factory.go
++++ b/processor/memorylimiter/factory.go
+@@ -34,7 +34,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

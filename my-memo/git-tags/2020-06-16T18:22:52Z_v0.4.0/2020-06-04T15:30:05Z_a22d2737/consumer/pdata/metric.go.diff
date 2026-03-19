@@ -1,0 +1,15 @@
+diff --git a/consumer/pdata/metric.go b/consumer/pdata/metric.go
+index 71f0ac288..1783586f0 100644
+--- a/consumer/pdata/metric.go
++++ b/consumer/pdata/metric.go
+@@ -31,6 +31,10 @@ const (
+ 	MetricTypeSummary             = MetricType(otlpmetrics.MetricDescriptor_SUMMARY)
+ )
+ 
++func (mt MetricType) String() string {
++	return otlpmetrics.MetricDescriptor_Type(mt).String()
++}
++
+ // InternalNewMetricsResourceSlice is a helper
+ func InternalNewMetricsResourceSlice(orig *[]*otlpmetrics.ResourceMetrics) ResourceMetricsSlice {
+ 	return newResourceMetricsSlice(orig)

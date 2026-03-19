@@ -1,0 +1,13 @@
+diff --git a/translator/trace/oc_to_otlp_test.go b/translator/trace/oc_to_otlp_test.go
+index 6a6334de7..1811c4bb4 100644
+--- a/translator/trace/oc_to_otlp_test.go
++++ b/translator/trace/oc_to_otlp_test.go
+@@ -538,7 +538,7 @@ func TestOcToOtlp(t *testing.T) {
+ 
+ 	for _, test := range tests {
+ 		t.Run(test.name, func(t *testing.T) {
+-			got := ocToOtlp(test.oc)
++			got := OCToOTLP(test.oc)
+ 			assert.EqualValues(t, test.otlp, got)
+ 		})
+ 	}

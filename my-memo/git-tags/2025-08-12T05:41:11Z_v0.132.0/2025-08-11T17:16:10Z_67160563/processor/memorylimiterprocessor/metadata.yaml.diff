@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/metadata.yaml b/processor/memorylimiterprocessor/metadata.yaml
+index af1385799..2b73072a2 100644
+--- a/processor/memorylimiterprocessor/metadata.yaml
++++ b/processor/memorylimiterprocessor/metadata.yaml
+@@ -14,8 +14,6 @@ tests:
+     check_interval: 5s
+     limit_mib: 400
+     spike_limit_mib: 50
+-  # TODO: https://github.com/open-telemetry/opentelemetry-collector/issues/9687
+-  skip_shutdown: true
+ 
+ telemetry:
+   metrics:

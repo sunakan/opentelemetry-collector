@@ -1,0 +1,12 @@
+diff --git a/service/builder/builder.go b/service/builder/builder.go
+index 207cedc05..619bdbf6c 100644
+--- a/service/builder/builder.go
++++ b/service/builder/builder.go
+@@ -28,6 +28,7 @@ const (
+ 	kindLogReceiver  = "receiver"
+ 	kindLogProcessor = "processor"
+ 	kindLogExporter  = "exporter"
++	kindLogExtension = "extension"
+ 	typeLogKey       = "component_type"
+ 	nameLogKey       = "component_name"
+ )

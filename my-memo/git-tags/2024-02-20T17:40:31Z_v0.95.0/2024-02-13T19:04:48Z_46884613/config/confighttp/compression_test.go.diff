@@ -1,0 +1,22 @@
+diff --git a/config/confighttp/compression_test.go b/config/confighttp/compression_test.go
+index 96a31f2b2..30c7b483e 100644
+--- a/config/confighttp/compression_test.go
++++ b/config/confighttp/compression_test.go
+@@ -309,7 +309,7 @@ func (*copyFailBody) Close() error {
+ }
+ 
+ func TestHTTPContentCompressionCopyError(t *testing.T) {
+-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+ 		w.WriteHeader(http.StatusOK)
+ 	}))
+ 	t.Cleanup(server.Close)
+@@ -333,7 +333,7 @@ func (*closeFailBody) Close() error {
+ }
+ 
+ func TestHTTPContentCompressionRequestBodyCloseError(t *testing.T) {
+-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
++	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+ 		w.WriteHeader(http.StatusOK)
+ 	}))
+ 	t.Cleanup(server.Close)

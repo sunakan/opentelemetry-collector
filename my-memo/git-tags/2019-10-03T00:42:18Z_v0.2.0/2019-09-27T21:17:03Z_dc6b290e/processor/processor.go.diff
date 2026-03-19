@@ -1,0 +1,13 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 0333ff61c..f3d058dc3 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -16,7 +16,7 @@
+ package processor
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/consumer"
++	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ )
+ 
+ // TraceProcessor composes TraceConsumer with some additional processor-specific functions.

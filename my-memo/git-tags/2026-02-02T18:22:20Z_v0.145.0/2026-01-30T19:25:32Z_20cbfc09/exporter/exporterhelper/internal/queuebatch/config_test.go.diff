@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/config_test.go b/exporter/exporterhelper/internal/queuebatch/config_test.go
+index b43bb5aa0..a94ff6a7d 100644
+--- a/exporter/exporterhelper/internal/queuebatch/config_test.go
++++ b/exporter/exporterhelper/internal/queuebatch/config_test.go
+@@ -169,7 +169,7 @@ func TestUnmarshal(t *testing.T) {
+ 			require.NoError(t, err)
+ 
+ 			cfg := newBaseCfg()
+-			err = cfg.Unmarshal(cm)
++			err = cm.Unmarshal(&cfg)
+ 			if tt.expectedErr != "" {
+ 				assert.ErrorContains(t, err, tt.expectedErr)
+ 				return

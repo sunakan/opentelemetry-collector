@@ -1,0 +1,14 @@
+diff --git a/pdata/pprofile/generated_mappingslice.go b/pdata/pprofile/generated_mappingslice.go
+index 348cfb87d..2dd3a8ffe 100644
+--- a/pdata/pprofile/generated_mappingslice.go
++++ b/pdata/pprofile/generated_mappingslice.go
+@@ -149,6 +149,9 @@ func (es MappingSlice) RemoveIf(f func(Mapping) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es MappingSlice) CopyTo(dest MappingSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigMappingSlice(*dest.orig, *es.orig)
+ }
+ 

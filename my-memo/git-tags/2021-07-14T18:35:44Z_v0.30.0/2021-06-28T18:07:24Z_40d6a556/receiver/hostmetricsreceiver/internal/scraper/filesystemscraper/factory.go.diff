@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
+index e2d7dd324..8bed81033 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/factory.go
+@@ -49,7 +49,7 @@ func (f *Factory) CreateMetricsScraper(
+ 	ctx context.Context,
+ 	_ *zap.Logger,
+ 	config internal.Config,
+-) (scraperhelper.MetricsScraper, error) {
++) (scraperhelper.Scraper, error) {
+ 	cfg := config.(*Config)
+ 	s, err := newFileSystemScraper(ctx, cfg)
+ 	if err != nil {

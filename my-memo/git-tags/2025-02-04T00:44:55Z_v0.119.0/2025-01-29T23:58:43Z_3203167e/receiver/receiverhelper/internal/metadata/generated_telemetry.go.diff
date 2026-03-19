@@ -1,0 +1,37 @@
+diff --git a/receiver/receiverhelper/internal/metadata/generated_telemetry.go b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+index 6607f8f54..e3db30b50 100644
+--- a/receiver/receiverhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+@@ -4,6 +4,7 @@ package metadata
+ 
+ import (
+ 	"errors"
++	"sync"
+ 
+ 	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/trace"
+@@ -23,6 +24,8 @@ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ // as defined in metadata and user config.
+ type TelemetryBuilder struct {
+ 	meter                        metric.Meter
++	mu                           sync.Mutex
++	registrations                []metric.Registration
+ 	ReceiverAcceptedLogRecords   metric.Int64Counter
+ 	ReceiverAcceptedMetricPoints metric.Int64Counter
+ 	ReceiverAcceptedSpans        metric.Int64Counter
+@@ -42,6 +45,15 @@ func (tbof telemetryBuilderOptionFunc) apply(mb *TelemetryBuilder) {
+ 	tbof(mb)
+ }
+ 
++// Shutdown unregister all registered callbacks for async instruments.
++func (builder *TelemetryBuilder) Shutdown() {
++	builder.mu.Lock()
++	defer builder.mu.Unlock()
++	for _, reg := range builder.registrations {
++		reg.Unregister()
++	}
++}
++
+ // NewTelemetryBuilder provides a struct with methods to update all internal telemetry
+ // for a component
+ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...TelemetryBuilderOption) (*TelemetryBuilder, error) {

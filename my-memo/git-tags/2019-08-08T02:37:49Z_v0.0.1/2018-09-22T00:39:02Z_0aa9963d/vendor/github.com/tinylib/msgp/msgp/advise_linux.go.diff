@@ -1,0 +1,30 @@
+diff --git a/vendor/github.com/tinylib/msgp/msgp/advise_linux.go b/vendor/github.com/tinylib/msgp/msgp/advise_linux.go
+deleted file mode 100644
+index 6c6bb37a5..000000000
+--- a/vendor/github.com/tinylib/msgp/msgp/advise_linux.go
++++ /dev/null
+@@ -1,24 +0,0 @@
+-// +build linux,!appengine
+-
+-package msgp
+-
+-import (
+-	"os"
+-	"syscall"
+-)
+-
+-func adviseRead(mem []byte) {
+-	syscall.Madvise(mem, syscall.MADV_SEQUENTIAL|syscall.MADV_WILLNEED)
+-}
+-
+-func adviseWrite(mem []byte) {
+-	syscall.Madvise(mem, syscall.MADV_SEQUENTIAL)
+-}
+-
+-func fallocate(f *os.File, sz int64) error {
+-	err := syscall.Fallocate(int(f.Fd()), 0, 0, sz)
+-	if err == syscall.ENOTSUP {
+-		return f.Truncate(sz)
+-	}
+-	return err
+-}

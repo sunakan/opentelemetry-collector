@@ -1,0 +1,22 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index 96149855c..6b1c68b5a 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -28,7 +28,7 @@ import (
+ 	"golang.org/x/sys/windows/svc"
+ 	"golang.org/x/sys/windows/svc/eventlog"
+ 
+-	"go.opentelemetry.io/collector/service/parserprovider"
++	"go.opentelemetry.io/collector/config/configmapprovider"
+ )
+ 
+ type WindowsService struct {
+@@ -133,7 +133,7 @@ func openEventLog(serviceName string) (*eventlog.Log, error) {
+ 
+ func newWithWindowsEventLogCore(set CollectorSettings, elog *eventlog.Log) (*Collector, error) {
+ 	if set.ConfigMapProvider == nil {
+-		set.ConfigMapProvider = parserprovider.NewDefaultMapProvider(getConfigFlag(), getSetFlag())
++		set.ConfigMapProvider = configmapprovider.NewDefaultMapProvider(getConfigFlag(), getSetFlag())
+ 	}
+ 	set.LoggingOptions = append(
+ 		set.LoggingOptions,

@@ -1,0 +1,13 @@
+diff --git a/confmap/provider.go b/confmap/provider.go
+index ab3e9a18a..cf22f53a3 100644
+--- a/confmap/provider.go
++++ b/confmap/provider.go
+@@ -9,7 +9,7 @@ import (
+ 	"time"
+ 
+ 	"go.uber.org/zap"
+-	yaml "go.yaml.in/yaml/v3"
++	"go.yaml.in/yaml/v3"
+ )
+ 
+ // ProviderSettings are the settings to initialize a Provider.

@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/factory.go b/processor/filterprocessor/factory.go
+index 54d3d750a..aab029938 100644
+--- a/processor/filterprocessor/factory.go
++++ b/processor/filterprocessor/factory.go
+@@ -33,7 +33,7 @@ func NewFactory() component.ProcessorFactory {
+ 	return processorhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		processorhelper.WithMetricsProcessor(createMetricsProcessor))
++		processorhelper.WithMetrics(createMetricsProcessor))
+ }
+ 
+ func createDefaultConfig() configmodels.Processor {

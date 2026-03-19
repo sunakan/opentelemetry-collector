@@ -1,0 +1,16 @@
+diff --git a/receiver/scraperhelper/scrapercontroller.go b/receiver/scraperhelper/scrapercontroller.go
+index c8e37e393..bd44c30e9 100644
+--- a/receiver/scraperhelper/scrapercontroller.go
++++ b/receiver/scraperhelper/scrapercontroller.go
+@@ -30,11 +30,6 @@ func (of scraperControllerOptionFunc) apply(e *controller) {
+ 	of(e)
+ }
+ 
+-// Deprecated: [v0.114.0] use AddScraperWithType.
+-func AddScraper(scraper Scraper) ScraperControllerOption {
+-	return AddScraperWithType(scraper.ID().Type(), scraper)
+-}
+-
+ // AddScraperWithType configures the provided scrape function to be called
+ // with the specified options, and at the specified collection interval.
+ //

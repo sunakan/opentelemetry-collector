@@ -1,0 +1,24 @@
+diff --git a/exporter/otlphttpexporter/config_test.go b/exporter/otlphttpexporter/config_test.go
+index 10a706d6e..9e9b9d25d 100644
+--- a/exporter/otlphttpexporter/config_test.go
++++ b/exporter/otlphttpexporter/config_test.go
+@@ -14,6 +14,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/config/configopaque"
++	"go.opentelemetry.io/collector/config/configoptional"
+ 	"go.opentelemetry.io/collector/config/configretry"
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/confmap"
+@@ -57,6 +58,11 @@ func TestUnmarshalConfig(t *testing.T) {
+ 				Sizer:        exporterhelper.RequestSizerTypeRequests,
+ 				NumConsumers: 2,
+ 				QueueSize:    10,
++				Batch: configoptional.Default(exporterhelper.BatchConfig{
++					Sizer:        exporterhelper.RequestSizerTypeItems,
++					FlushTimeout: 200 * time.Millisecond,
++					MinSize:      8192,
++				}),
+ 			},
+ 			Encoding: EncodingProto,
+ 			ClientConfig: confighttp.ClientConfig{

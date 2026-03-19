@@ -1,0 +1,30 @@
+diff --git a/vendor/golang.org/x/net/http2/errors_test.go b/vendor/golang.org/x/net/http2/errors_test.go
+new file mode 100644
+index 000000000..da5c58c31
+--- /dev/null
++++ b/vendor/golang.org/x/net/http2/errors_test.go
+@@ -0,0 +1,24 @@
++// Copyright 2014 The Go Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style
++// license that can be found in the LICENSE file.
++
++package http2
++
++import "testing"
++
++func TestErrCodeString(t *testing.T) {
++	tests := []struct {
++		err  ErrCode
++		want string
++	}{
++		{ErrCodeProtocol, "PROTOCOL_ERROR"},
++		{0xd, "HTTP_1_1_REQUIRED"},
++		{0xf, "unknown error code 0xf"},
++	}
++	for i, tt := range tests {
++		got := tt.err.String()
++		if got != tt.want {
++			t.Errorf("%d. Error = %q; want %q", i, got, tt.want)
++		}
++	}
++}

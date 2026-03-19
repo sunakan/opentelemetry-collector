@@ -1,0 +1,12 @@
+diff --git a/testbed/go.mod b/testbed/go.mod
+index 5b6f0f800..960827737 100644
+--- a/testbed/go.mod
++++ b/testbed/go.mod
+@@ -11,6 +11,7 @@ require (
+ 	github.com/spf13/viper v1.4.1-0.20190911140308-99520c81d86e
+ 	github.com/stretchr/testify v1.4.0
+ 	go.opencensus.io v0.22.1
++	go.uber.org/zap v1.10.0
+ )
+ 
+ replace github.com/open-telemetry/opentelemetry-collector => ../

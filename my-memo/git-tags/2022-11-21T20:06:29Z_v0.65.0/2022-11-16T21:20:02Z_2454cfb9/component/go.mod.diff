@@ -1,0 +1,21 @@
+diff --git a/component/go.mod b/component/go.mod
+index 59f88eecc..f40900416 100644
+--- a/component/go.mod
++++ b/component/go.mod
+@@ -5,6 +5,7 @@ go 1.18
+ require (
+ 	github.com/stretchr/testify v1.8.1
+ 	go.opentelemetry.io/collector v0.64.1
++	go.opentelemetry.io/collector/consumer v0.0.0-00010101000000-000000000000
+ 	go.opentelemetry.io/collector/pdata v0.64.1
+ 	go.opentelemetry.io/otel/metric v0.33.0
+ 	go.opentelemetry.io/otel/trace v1.11.1
+@@ -37,6 +38,8 @@ require (
+ 
+ replace go.opentelemetry.io/collector => ../
+ 
++replace go.opentelemetry.io/collector/consumer => ../consumer
++
+ replace go.opentelemetry.io/collector/pdata => ../pdata
+ 
+ replace go.opentelemetry.io/collector/semconv => ../semconv

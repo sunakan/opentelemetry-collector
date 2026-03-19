@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder.go b/service/internal/builder/pipelines_builder.go
+index f9725b366..27ab3cc25 100644
+--- a/service/internal/builder/pipelines_builder.go
++++ b/service/internal/builder/pipelines_builder.go
+@@ -150,7 +150,7 @@ func (pb *pipelinesBuilder) buildPipeline(ctx context.Context, pipelineCfg *conf
+ 		// it becomes the next for the previous one (previous in the pipeline,
+ 		// which we will build in the next loop iteration).
+ 		var err error
+-		componentLogger := pb.logger.With(zap.String(kindLogKey, kindLogsProcessor), zap.String(typeLogKey, string(procCfg.Type())), zap.String(nameLogKey, procCfg.Name()))
++		componentLogger := pb.logger.With(zap.String(zapKindKey, zapKindProcessor), zap.String(zapNameKey, procCfg.Name()))
+ 		creationParams := component.ProcessorCreateParams{
+ 			Logger:               componentLogger,
+ 			ApplicationStartInfo: pb.appInfo,

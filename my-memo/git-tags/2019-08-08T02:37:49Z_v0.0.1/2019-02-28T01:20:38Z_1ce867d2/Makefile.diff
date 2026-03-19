@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 511cdbb16..2260e9970 100644
+--- a/Makefile
++++ b/Makefile
+@@ -48,7 +48,7 @@ lint:
+ 
+ .PHONY: install-tools
+ install-tools:
+-	go get -u golang.org/x/lint/golint
++	go get golang.org/x/lint/golint
+ 
+ .PHONY: agent
+ agent:

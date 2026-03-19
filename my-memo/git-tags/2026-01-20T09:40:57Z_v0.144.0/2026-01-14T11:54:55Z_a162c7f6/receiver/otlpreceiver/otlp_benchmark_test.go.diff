@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_benchmark_test.go b/receiver/otlpreceiver/otlp_benchmark_test.go
+index e970a4cf5..4218bb359 100644
+--- a/receiver/otlpreceiver/otlp_benchmark_test.go
++++ b/receiver/otlpreceiver/otlp_benchmark_test.go
+@@ -71,7 +71,7 @@ func BenchmarkGRPCLogsSequential(b *testing.B) {
+ func BenchmarkHTTPProtoLogsSequential(b *testing.B) {
+ 	endpoint := testutil.GetAvailableLocalAddress(b)
+ 	cfg := createDefaultConfig().(*Config)
+-	cfg.HTTP.GetOrInsertDefault().ServerConfig.Endpoint = endpoint
++	cfg.HTTP.GetOrInsertDefault().ServerConfig.NetAddr.Endpoint = endpoint
+ 	var sink consumertest.LogsSink
+ 	startLogsReceiver(b, cfg, &sink)
+ 

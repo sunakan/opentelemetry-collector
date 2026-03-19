@@ -1,0 +1,23 @@
+diff --git a/receiver/hostmetricsreceiver/testdata/config.yaml b/receiver/hostmetricsreceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..6fdb43f56
+--- /dev/null
++++ b/receiver/hostmetricsreceiver/testdata/config.yaml
+@@ -0,0 +1,17 @@
++receivers:
++  hostmetrics:
++    scrape_interval: 10s
++    scrapers:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [hostmetrics]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

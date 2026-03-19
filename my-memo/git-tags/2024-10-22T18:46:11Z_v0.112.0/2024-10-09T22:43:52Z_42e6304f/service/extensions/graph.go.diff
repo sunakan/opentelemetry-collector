@@ -1,0 +1,11 @@
+diff --git a/service/extensions/graph.go b/service/extensions/graph.go
+index f8bdde048..3d3fa4d2b 100644
+--- a/service/extensions/graph.go
++++ b/service/extensions/graph.go
+@@ -73,5 +73,5 @@ func cycleErr(err error, cycles [][]graph.Node) error {
+ 		names = append(names, node.extID.String())
+ 	}
+ 	cycleStr := "[" + strings.Join(names, " -> ") + "]"
+-	return fmt.Errorf("unable to order extenions by dependencies, cycle found %s: %w", cycleStr, err)
++	return fmt.Errorf("unable to order extensions by dependencies, cycle found %s: %w", cycleStr, err)
+ }

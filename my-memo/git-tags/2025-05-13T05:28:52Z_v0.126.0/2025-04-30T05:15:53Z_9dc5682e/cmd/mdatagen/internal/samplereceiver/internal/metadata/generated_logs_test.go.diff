@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
+index 5c53f6616..2d43c57d2 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
+@@ -19,7 +19,7 @@ func TestLogsBuilderAppendLogRecord(t *testing.T) {
+ 	observedZapCore, _ := observer.New(zap.WarnLevel)
+ 	settings := receivertest.NewNopSettings(receivertest.NopType)
+ 	settings.Logger = zap.New(observedZapCore)
+-	lb := NewLogsBuilder(settings)
++	lb := NewLogsBuilder(loadLogsBuilderConfig(t, "all_set"), settings)
+ 
+ 	rb := lb.NewResourceBuilder()
+ 	rb.SetMapResourceAttr(map[string]any{"key1": "map.resource.attr-val1", "key2": "map.resource.attr-val2"})

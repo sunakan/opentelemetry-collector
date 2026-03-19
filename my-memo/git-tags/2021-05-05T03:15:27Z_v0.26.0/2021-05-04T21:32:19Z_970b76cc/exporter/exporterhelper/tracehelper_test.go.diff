@@ -1,0 +1,19 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index 9e9333d12..414ab5eaa 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -34,12 +34,12 @@ import (
+ )
+ 
+ const (
+-	fakeTracesExporterName  = "fake_traces_exporter/with_name"
+ 	fakeTraceParentSpanName = "fake_trace_parent_span_name"
+ )
+ 
+ var (
+-	fakeTracesExporterConfig = config.NewExporterSettings(config.MustIDFromString(fakeTracesExporterName))
++	fakeTracesExporterName   = config.MustIDFromString("fake_traces_exporter/with_name")
++	fakeTracesExporterConfig = config.NewExporterSettings(fakeTracesExporterName)
+ )
+ 
+ func TestTracesRequest(t *testing.T) {

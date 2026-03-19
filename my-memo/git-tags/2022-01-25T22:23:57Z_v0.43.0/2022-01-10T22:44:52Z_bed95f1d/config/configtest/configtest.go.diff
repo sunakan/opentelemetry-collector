@@ -1,0 +1,30 @@
+diff --git a/config/configtest/configtest.go b/config/configtest/configtest.go
+index 14455e72e..c8fe09dd1 100644
+--- a/config/configtest/configtest.go
++++ b/config/configtest/configtest.go
+@@ -23,25 +23,13 @@ import (
+ 
+ 	"go.uber.org/multierr"
+ 
+-	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configmapprovider"
+-	"go.opentelemetry.io/collector/service/servicetest"
+ )
+ 
+ // The regular expression for valid config field tag.
+ var configFieldTagRegExp = regexp.MustCompile("^[a-z0-9][a-z0-9_]*$")
+ 
+-// Deprecated: use servicetest.LoadConfig
+-func LoadConfig(fileName string, factories component.Factories) (*config.Config, error) {
+-	return servicetest.LoadConfig(fileName, factories)
+-}
+-
+-// Deprecated: use servicetest.LoadConfigAndValidate
+-func LoadConfigAndValidate(fileName string, factories component.Factories) (*config.Config, error) {
+-	return servicetest.LoadConfigAndValidate(fileName, factories)
+-}
+-
+ // LoadConfigMap loads a config.Map from file, and does NOT validate the configuration.
+ func LoadConfigMap(fileName string) (*config.Map, error) {
+ 	ret, err := configmapprovider.NewFile(fileName).Retrieve(context.Background(), nil)

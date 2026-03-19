@@ -1,0 +1,11 @@
+diff --git a/Makefile b/Makefile
+index 2a4d766ff..a27ed4f41 100644
+--- a/Makefile
++++ b/Makefile
+@@ -361,5 +361,5 @@ multimod-verify: install-tools
+ 
+ .PHONY: multimod-prerelease
+ multimod-prerelease: install-tools
+-	multimod prerelease -v ./versions.yaml -m collector-base
++	multimod prerelease -v ./versions.yaml -m collector-core
+ 	$(MAKE) gotidy

@@ -1,0 +1,10 @@
+diff --git a/.chloggen/14569.yaml b/.chloggen/14569.yaml
+deleted file mode 100644
+index 2ca5d37dc..000000000
+--- a/.chloggen/14569.yaml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-change_type: bug_fix
+-component: cmd/mdatagen
+-note: Reset aggDataPoints during metric init to avoid index out of range panic across emit cycles when reaggregation is enabled.
+-issues: [14569]

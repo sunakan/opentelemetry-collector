@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/factory.go b/exporter/kafkaexporter/factory.go
+index 07618f049..a75ba24be 100644
+--- a/exporter/kafkaexporter/factory.go
++++ b/exporter/kafkaexporter/factory.go
+@@ -71,7 +71,7 @@ func NewFactory(options ...FactoryOption) component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings: config.NewExporterSettings(typeStr),
++		ExporterSettings: config.NewExporterSettings(config.NewID(typeStr)),
+ 		TimeoutSettings:  exporterhelper.DefaultTimeoutSettings(),
+ 		RetrySettings:    exporterhelper.DefaultRetrySettings(),
+ 		QueueSettings:    exporterhelper.DefaultQueueSettings(),

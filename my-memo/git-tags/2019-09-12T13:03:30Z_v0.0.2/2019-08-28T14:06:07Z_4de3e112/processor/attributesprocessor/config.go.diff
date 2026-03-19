@@ -1,0 +1,15 @@
+diff --git a/processor/attributesprocessor/config.go b/processor/attributesprocessor/config.go
+index 3106244c2..06b9c8591 100644
+--- a/processor/attributesprocessor/config.go
++++ b/processor/attributesprocessor/config.go
+@@ -14,7 +14,9 @@
+ 
+ package attributesprocessor
+ 
+-import "github.com/open-telemetry/opentelemetry-service/config/configmodels"
++import (
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++)
+ 
+ // Config specifies the set of attributes to be inserted, updated, upserted and deleted.
+ // This processor handles all forms of modifications to attributes within a span.

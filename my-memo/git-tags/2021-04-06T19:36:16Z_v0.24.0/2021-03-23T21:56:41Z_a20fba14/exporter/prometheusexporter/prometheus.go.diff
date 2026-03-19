@@ -1,0 +1,12 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index 3ececfc62..33a0a0897 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -101,6 +101,6 @@ func (pe *prometheusExporter) ConsumeMetrics(ctx context.Context, md pdata.Metri
+ 	return nil
+ }
+ 
+-func (pe *prometheusExporter) Shutdown(ctx context.Context) error {
++func (pe *prometheusExporter) Shutdown(_ context.Context) error {
+ 	return pe.shutdownFunc()
+ }

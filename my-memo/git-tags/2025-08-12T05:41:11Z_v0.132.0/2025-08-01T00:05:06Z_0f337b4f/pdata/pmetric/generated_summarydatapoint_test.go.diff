@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/generated_summarydatapoint_test.go b/pdata/pmetric/generated_summarydatapoint_test.go
+index 63fb4906f..5ac19d708 100644
+--- a/pdata/pmetric/generated_summarydatapoint_test.go
++++ b/pdata/pmetric/generated_summarydatapoint_test.go
+@@ -131,6 +131,6 @@ func fillTestSummaryDataPoint(tv SummaryDataPoint) {
+ 	tv.orig.TimeUnixNano = 1234567890
+ 	tv.orig.Count = uint64(17)
+ 	tv.orig.Sum = float64(17.13)
+-	fillTestSummaryDataPointValueAtQuantileSlice(newSummaryDataPointValueAtQuantileSlice(&tv.orig.QuantileValues, tv.state))
++	fillTestSummaryDataPointValueAtQuantileSlice(tv.QuantileValues())
+ 	tv.orig.Flags = 1
+ }

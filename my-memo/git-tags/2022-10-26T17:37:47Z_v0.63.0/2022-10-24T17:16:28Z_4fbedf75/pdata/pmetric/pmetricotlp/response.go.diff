@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/pmetricotlp/response.go b/pdata/pmetric/pmetricotlp/response.go
+index e5cb5cdf4..7bec33f65 100644
+--- a/pdata/pmetric/pmetricotlp/response.go
++++ b/pdata/pmetric/pmetricotlp/response.go
+@@ -56,8 +56,8 @@ func (ms ExportResponse) UnmarshalJSON(data []byte) error {
+ }
+ 
+ // PartialSuccess returns the ExportLogsPartialSuccess associated with this ExportResponse.
+-func (ms ExportResponse) PartialSuccess() ExportMetricsPartialSuccess {
+-	return ExportMetricsPartialSuccess(internal.NewExportMetricsPartialSuccess(&ms.orig.PartialSuccess))
++func (ms ExportResponse) PartialSuccess() ExportPartialSuccess {
++	return ExportPartialSuccess(internal.NewMetricsExportPartialSuccess(&ms.orig.PartialSuccess))
+ }
+ 
+ // Deprecated: [v0.63.0] use ExportResponse.

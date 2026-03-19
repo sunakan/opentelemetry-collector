@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 4f8a44bd1..5821f84c8 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -158,7 +158,7 @@ func GetModules(cfg *Config) error {
+ 		return nil
+ 	}
+ 
+-	if _, err := runGoCommand(cfg, "mod", "tidy", "-compat=1.24"); err != nil {
++	if _, err := runGoCommand(cfg, "mod", "tidy", "-compat=1.25"); err != nil {
+ 		return fmt.Errorf("failed to update go.mod: %w", err)
+ 	}
+ 

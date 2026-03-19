@@ -1,0 +1,13 @@
+diff --git a/service/host.go b/service/host.go
+index 456665a83..e566917da 100644
+--- a/service/host.go
++++ b/service/host.go
+@@ -31,7 +31,7 @@ type serviceHost struct {
+ 	builtExporters  builder.Exporters
+ 	builtReceivers  builder.Receivers
+ 	builtPipelines  builder.BuiltPipelines
+-	builtExtensions extensions.Extensions
++	builtExtensions *extensions.BuiltExtensions
+ }
+ 
+ // ReportFatalError is used to report to the host that the receiver encountered

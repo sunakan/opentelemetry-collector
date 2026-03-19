@@ -1,0 +1,19 @@
+diff --git a/connector/logs_router_test.go b/connector/logs_router_test.go
+index 09edba760..dd59ce5a5 100644
+--- a/connector/logs_router_test.go
++++ b/connector/logs_router_test.go
+@@ -28,10 +28,10 @@ func (mts *mutatingLogsSink) Capabilities() consumer.Capabilities {
+ }
+ 
+ func TestLogsRouterMultiplexing(t *testing.T) {
+-	var max = 20
+-	for numIDs := 1; numIDs < max; numIDs++ {
+-		for numCons := 1; numCons < max; numCons++ {
+-			for numLogs := 1; numLogs < max; numLogs++ {
++	var num = 20
++	for numIDs := 1; numIDs < num; numIDs++ {
++		for numCons := 1; numCons < num; numCons++ {
++			for numLogs := 1; numLogs < num; numLogs++ {
+ 				t.Run(
+ 					fmt.Sprintf("%d-ids/%d-cons/%d-logs", numIDs, numCons, numLogs),
+ 					fuzzLogs(numIDs, numCons, numLogs),

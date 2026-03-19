@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/config_test.go b/processor/resourceprocessor/config_test.go
+index 1f59bb6fd..45b980251 100644
+--- a/processor/resourceprocessor/config_test.go
++++ b/processor/resourceprocessor/config_test.go
+@@ -42,7 +42,7 @@ func TestLoadConfig(t *testing.T) {
+ 			NameVal: "resource",
+ 		},
+ 		AttributesActions: []processorhelper.ActionKeyValue{
+-			{Key: "cloud.zone", Value: "zone-1", Action: processorhelper.UPSERT},
++			{Key: "cloud.availability_zone", Value: "zone-1", Action: processorhelper.UPSERT},
+ 			{Key: "k8s.cluster.name", FromAttribute: "k8s-cluster", Action: processorhelper.INSERT},
+ 			{Key: "redundant-attribute", Action: processorhelper.DELETE},
+ 		},

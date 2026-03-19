@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index cadb164cf..c5e4c106b 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -494,7 +494,7 @@ func (hss *ServerConfig) ToServer(ctx context.Context, host component.Host, sett
+ 
+ 	if hss.Auth.HasValue() {
+ 		auth := hss.Auth.Get()
+-		server, err := auth.GetServerAuthenticator(context.Background(), host.GetExtensions())
++		server, err := auth.GetServerAuthenticator(ctx, host.GetExtensions())
+ 		if err != nil {
+ 			return nil, err
+ 		}

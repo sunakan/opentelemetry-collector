@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 45203d76c..3c183efbe 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -41,7 +41,7 @@ func (te *traceExporter) ConsumeTraceData(ctx context.Context, td consumerdata.T
+ 	return err
+ }
+ 
+-func (te *traceExporter) TraceExportFormat() string {
++func (te *traceExporter) Name() string {
+ 	return te.exporterName
+ }
+ 

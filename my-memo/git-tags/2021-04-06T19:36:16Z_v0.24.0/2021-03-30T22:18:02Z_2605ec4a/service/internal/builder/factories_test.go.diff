@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/factories_test.go b/service/internal/builder/factories_test.go
+index c8ed32696..f25a375fe 100644
+--- a/service/internal/builder/factories_test.go
++++ b/service/internal/builder/factories_test.go
+@@ -18,7 +18,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenttest"
++	componenttest "go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+ 	"go.opentelemetry.io/collector/extension/extensionhelper"

@@ -1,0 +1,13 @@
+diff --git a/versions.yaml b/versions.yaml
+index ae1542aba..00b2c2aca 100644
+--- a/versions.yaml
++++ b/versions.yaml
+@@ -21,7 +21,7 @@ module-sets:
+       - go.opentelemetry.io/collector/config/confignet
+       - go.opentelemetry.io/collector/config/configopaque
+       # - go.opentelemetry.io/collector/config/configtelemetry
+-      # - go.opentelemetry.io/collector/config/configtls
++      - go.opentelemetry.io/collector/config/configtls
+       - go.opentelemetry.io/collector/connector
+       - go.opentelemetry.io/collector/connector/forwardconnector
+       - go.opentelemetry.io/collector/consumer

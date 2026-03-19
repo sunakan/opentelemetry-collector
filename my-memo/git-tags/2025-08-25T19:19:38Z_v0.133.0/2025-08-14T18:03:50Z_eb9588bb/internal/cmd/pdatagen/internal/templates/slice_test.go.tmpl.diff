@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl b/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+index aa09bc089..2a204da1d 100644
+--- a/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/slice_test.go.tmpl
+@@ -121,9 +121,9 @@ func Test{{ .structName }}_RemoveIf(t *testing.T) {
+ 	pos := 0
+ 	filtered.RemoveIf(func(el {{ .elementName }}) bool {
+ 		pos++
+-		return pos%3 == 0
++		return pos%2 == 1
+ 	})
+-	assert.Equal(t, 5, filtered.Len())
++	assert.Equal(t, 2, filtered.Len())
+ }
+ 
+ func Test{{ .structName }}_RemoveIfAll(t *testing.T) {

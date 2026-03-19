@@ -1,0 +1,15 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index 8b9a1eb1c..9fbf78fde 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -50,8 +50,8 @@ func newPrometheusExporter(config *Config, logger *zap.Logger) (*prometheusExpor
+ 	}
+ 
+ 	obsrep := obsreport.NewExporter(obsreport.ExporterSettings{
+-		Level:        configtelemetry.GetMetricsLevelFlagValue(),
+-		ExporterName: config.ID().String(),
++		Level:      configtelemetry.GetMetricsLevelFlagValue(),
++		ExporterID: config.ID(),
+ 	})
+ 
+ 	collector := newCollector(config, logger)

@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/queued_retry_test.go b/exporter/exporterhelper/queued_retry_test.go
+index eb4e72e93..1fcd7c9ac 100644
+--- a/exporter/exporterhelper/queued_retry_test.go
++++ b/exporter/exporterhelper/queued_retry_test.go
+@@ -368,6 +368,18 @@ func TestNoCancellationContext(t *testing.T) {
+ 	assert.True(t, d.IsZero())
+ }
+ 
++func TestQueueSettings_Validate(t *testing.T) {
++	qCfg := DefaultQueueSettings()
++	assert.NoError(t, qCfg.Validate())
++
++	qCfg.QueueSize = 0
++	assert.EqualError(t, qCfg.Validate(), "queue size must be positive")
++
++	// Confirm Validate doesn't return error with invalid config when feature is disabled
++	qCfg.Enabled = false
++	assert.NoError(t, qCfg.Validate())
++}
++
+ type mockErrorRequest struct {
+ 	baseRequest
+ }

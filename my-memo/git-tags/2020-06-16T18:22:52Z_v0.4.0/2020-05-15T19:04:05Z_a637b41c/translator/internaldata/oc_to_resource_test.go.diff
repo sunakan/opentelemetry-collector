@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/oc_to_resource_test.go b/translator/internaldata/oc_to_resource_test.go
+index 1888f6d0e..d50a1a1d3 100644
+--- a/translator/internaldata/oc_to_resource_test.go
++++ b/translator/internaldata/oc_to_resource_test.go
+@@ -24,8 +24,8 @@ import (
+ 	"github.com/golang/protobuf/proto"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/translator/conventions"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 
+ func TestOcNodeResourceToInternal(t *testing.T) {

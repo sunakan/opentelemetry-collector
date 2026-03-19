@@ -1,0 +1,14 @@
+diff --git a/confmap/provider/httpprovider/go.mod b/confmap/provider/httpprovider/go.mod
+index 4f7001e4e..bccb458f3 100644
+--- a/confmap/provider/httpprovider/go.mod
++++ b/confmap/provider/httpprovider/go.mod
+@@ -1,6 +1,8 @@
+ module go.opentelemetry.io/collector/confmap/provider/httpprovider
+ 
+-go 1.20
++go 1.21
++
++toolchain go1.21.6
+ 
+ require (
+ 	github.com/stretchr/testify v1.8.4

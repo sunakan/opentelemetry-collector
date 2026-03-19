@@ -1,0 +1,30 @@
+diff --git a/internal/cgroups/cgroup_test.go b/internal/cgroups/cgroup_test.go
+index 968ac863a..96530f18a 100644
+--- a/internal/cgroups/cgroup_test.go
++++ b/internal/cgroups/cgroup_test.go
+@@ -40,12 +40,10 @@
+ package cgroups
+ 
+ import (
+-	"fmt"
+ 	"path/filepath"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+-	"github.com/stretchr/testify/require"
+ )
+ 
+ func TestCGroupParamPath(t *testing.T) {
+@@ -143,12 +141,3 @@ func TestCGroupReadInt(t *testing.T) {
+ 		}
+ 	}
+ }
+-
+-func TestCGroupMemory(t *testing.T) {
+-	process, err := NewCGroupsForCurrentProcess()
+-	require.NoError(t, err)
+-	quota, b, err := process.MemoryQuota()
+-	require.True(t, b)
+-	require.NoError(t, err)
+-	fmt.Println(quota)
+-}

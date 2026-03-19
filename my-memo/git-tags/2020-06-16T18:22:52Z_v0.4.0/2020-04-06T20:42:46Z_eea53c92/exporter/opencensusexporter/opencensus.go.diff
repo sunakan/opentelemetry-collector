@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/opencensus.go b/exporter/opencensusexporter/opencensus.go
+index 580ee7fe6..7f2477bba 100644
+--- a/exporter/opencensusexporter/opencensus.go
++++ b/exporter/opencensusexporter/opencensus.go
+@@ -119,7 +119,7 @@ func NewMetricsExporter(logger *zap.Logger, config configmodels.Exporter, opts .
+ 	return oexp, nil
+ }
+ 
+-func (oce *ocAgentExporter) Shutdown() error {
++func (oce *ocAgentExporter) Shutdown(context.Context) error {
+ 	wg := &sync.WaitGroup{}
+ 	var errors []error
+ 	var errorsMu sync.Mutex

@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/pprofile_package.go b/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
+index 8b958f39d..4f1078ce6 100644
+--- a/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
++++ b/internal/cmd/pdatagen/internal/pdata/pprofile_package.go
+@@ -502,7 +502,7 @@ var location = &messageStruct{
+ 		},
+ 		&SliceField{
+ 			fieldName:   "AttributeIndices",
+-			protoID:     5,
++			protoID:     4,
+ 			protoType:   proto.TypeInt32,
+ 			returnSlice: int32Slice,
+ 		},
+@@ -585,7 +585,7 @@ var stack = &messageStruct{
+ 	fields: []Field{
+ 		&SliceField{
+ 			fieldName:   "LocationIndices",
+-			protoID:     3,
++			protoID:     1,
+ 			protoType:   proto.TypeInt32,
+ 			returnSlice: int32Slice,
+ 		},

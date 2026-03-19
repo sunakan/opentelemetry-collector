@@ -1,0 +1,11 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index 5e1b883f2..78e5eb902 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -117,5 +117,5 @@ func Components() (
+ 		Exporters:  exporters,
+ 	}
+ 
+-	return factories, consumererror.CombineErrors(errs)
++	return factories, consumererror.Combine(errs)
+ }

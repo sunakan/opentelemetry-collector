@@ -1,0 +1,15 @@
+diff --git a/pdata/ptrace/generated_spanevent.go b/pdata/ptrace/generated_spanevent.go
+index a35c88ae9..54b5ad697 100644
+--- a/pdata/ptrace/generated_spanevent.go
++++ b/pdata/ptrace/generated_spanevent.go
+@@ -43,6 +43,10 @@ func NewSpanEvent() SpanEvent {
+ func (ms SpanEvent) MoveTo(dest SpanEvent) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlptrace.Span_Event{}
+ }

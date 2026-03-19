@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index 6aeac2dcd..39cf084c6 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -41,7 +41,7 @@ func createDefaultConfig() component.Config {
+ 			Timeout:  30 * time.Second,
+ 			Headers:  map[string]configopaque.String{},
+ 			// Default to gzip compression
+-			Compression: configcompression.Gzip,
++			Compression: configcompression.TypeGzip,
+ 			// We almost read 0 bytes, so no need to tune ReadBufferSize.
+ 			WriteBufferSize: 512 * 1024,
+ 		},

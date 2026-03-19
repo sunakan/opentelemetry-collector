@@ -1,0 +1,31 @@
+diff --git a/cmd/mdatagen/loader.go b/cmd/mdatagen/loader.go
+index 90fd65718..d6a72f429 100644
+--- a/cmd/mdatagen/loader.go
++++ b/cmd/mdatagen/loader.go
+@@ -201,11 +201,22 @@ func (a attribute) TestValue() string {
+ 	return ""
+ }
+ 
++type ignore struct {
++	Top []string `mapstructure:"top"`
++	Any []string `mapstructure:"any"`
++}
++
++type goLeak struct {
++	Skip   bool   `mapstructure:"skip"`
++	Ignore ignore `mapstructure:"ignore"`
++}
++
+ type tests struct {
+-	Config              any  `mapstructure:"config"`
+-	SkipLifecycle       bool `mapstructure:"skip_lifecycle"`
+-	SkipShutdown        bool `mapstructure:"skip_shutdown"`
+-	ExpectConsumerError bool `mapstructure:"expect_consumer_error"`
++	Config              any    `mapstructure:"config"`
++	SkipLifecycle       bool   `mapstructure:"skip_lifecycle"`
++	SkipShutdown        bool   `mapstructure:"skip_shutdown"`
++	GoLeak              goLeak `mapstructure:"goleak"`
++	ExpectConsumerError bool   `mapstructure:"expect_consumer_error"`
+ }
+ 
+ type metadata struct {

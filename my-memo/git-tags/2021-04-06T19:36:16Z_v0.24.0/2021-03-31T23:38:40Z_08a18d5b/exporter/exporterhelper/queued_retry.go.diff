@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/queued_retry.go b/exporter/exporterhelper/queued_retry.go
+index 80b0b05d5..106122182 100644
+--- a/exporter/exporterhelper/queued_retry.go
++++ b/exporter/exporterhelper/queued_retry.go
+@@ -181,6 +181,7 @@ type throttleRetry struct {
+ 	delay time.Duration
+ }
+ 
++// NewThrottleRetry creates a new throttle retry error.
+ func NewThrottleRetry(err error, delay time.Duration) error {
+ 	return &throttleRetry{
+ 		error: err,

@@ -1,0 +1,13 @@
+diff --git a/consumer/consumerhelper/traces.go b/consumer/consumerhelper/traces.go
+index fd85f3ead..4756fdfed 100644
+--- a/consumer/consumerhelper/traces.go
++++ b/consumer/consumerhelper/traces.go
+@@ -18,7 +18,7 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // ConsumeTracesFunc is a helper function that is similar to ConsumeTraces.

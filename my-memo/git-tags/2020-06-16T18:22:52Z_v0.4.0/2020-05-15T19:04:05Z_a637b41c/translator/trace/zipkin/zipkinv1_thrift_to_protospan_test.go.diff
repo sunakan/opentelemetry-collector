@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+index ab292dfdd..6bb097ea5 100644
+--- a/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_thrift_to_protospan_test.go
+@@ -26,7 +26,7 @@ import (
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/zipkincore"
+ 
+-	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
++	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+ func TestZipkinThriftFallbackToLocalComponent(t *testing.T) {

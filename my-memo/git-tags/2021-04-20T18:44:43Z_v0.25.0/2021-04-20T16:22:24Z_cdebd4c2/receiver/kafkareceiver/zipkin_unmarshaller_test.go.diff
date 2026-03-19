@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/zipkin_unmarshaller_test.go b/receiver/kafkareceiver/zipkin_unmarshaller_test.go
+index ed9476720..469f58590 100644
+--- a/receiver/kafkareceiver/zipkin_unmarshaller_test.go
++++ b/receiver/kafkareceiver/zipkin_unmarshaller_test.go
+@@ -64,7 +64,7 @@ func TestUnmarshallZipkin(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	tests := []struct {
+-		unmarshaller Unmarshaller
++		unmarshaller TracesUnmarshaller
+ 		encoding     string
+ 		bytes        []byte
+ 		expected     pdata.Traces

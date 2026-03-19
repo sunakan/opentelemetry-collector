@@ -1,0 +1,17 @@
+diff --git a/examples/demo/otel-agent-config.yaml b/examples/demo/otel-agent-config.yaml
+index 0ba91305b..340a349ec 100644
+--- a/examples/demo/otel-agent-config.yaml
++++ b/examples/demo/otel-agent-config.yaml
+@@ -1,12 +1,10 @@
+ receivers:
+   opencensus:
+-    endpoint: 0.0.0.0:55678
+   zipkin:
+     endpoint: :9411
+   jaeger:
+     protocols:
+       thrift_http:
+-        endpoint: "0.0.0.0:14268"
+ 
+ 
+ exporters:

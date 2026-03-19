@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/metric_test.go b/testbed/tests/metric_test.go
+index 1bca588cb..17eb07e6f 100644
+--- a/testbed/tests/metric_test.go
++++ b/testbed/tests/metric_test.go
+@@ -57,7 +57,7 @@ func TestMetric10kDPS(t *testing.T) {
+ 			testbed.NewOCMetricDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
+ 			testbed.NewOCDataReceiver(testbed.GetAvailablePort(t)),
+ 			testbed.ResourceSpec{
+-				ExpectedMaxCPU: 70,
++				ExpectedMaxCPU: 85,
+ 				ExpectedMaxRAM: 60,
+ 			},
+ 		},

@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config.go
+index 4668abbc7..8fede9dd0 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_config.go
+@@ -33,6 +33,7 @@ type MetricsConfig struct {
+ 	MetricInputType          MetricConfig `mapstructure:"metric.input_type"`
+ 	OptionalMetric           MetricConfig `mapstructure:"optional.metric"`
+ 	OptionalMetricEmptyUnit  MetricConfig `mapstructure:"optional.metric.empty_unit"`
++	SystemCPUTime            MetricConfig `mapstructure:"system.cpu.time"`
+ }
+ 
+ func DefaultMetricsConfig() MetricsConfig {
+@@ -52,6 +53,9 @@ func DefaultMetricsConfig() MetricsConfig {
+ 		OptionalMetricEmptyUnit: MetricConfig{
+ 			Enabled: false,
+ 		},
++		SystemCPUTime: MetricConfig{
++			Enabled: true,
++		},
+ 	}
+ }
+ 

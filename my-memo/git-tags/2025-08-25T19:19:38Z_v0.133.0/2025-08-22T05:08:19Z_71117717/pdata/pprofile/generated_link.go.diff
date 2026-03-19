@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_link.go b/pdata/pprofile/generated_link.go
+index 40b4d83a3..8b2ae094f 100644
+--- a/pdata/pprofile/generated_link.go
++++ b/pdata/pprofile/generated_link.go
+@@ -46,8 +46,8 @@ func (ms Link) MoveTo(dest Link) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpprofiles.Link{}
++	internal.DeleteOrigLink(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // TraceID returns the traceid associated with this Link.

@@ -1,0 +1,15 @@
+diff --git a/pdata/pcommon/generated_resource.go b/pdata/pcommon/generated_resource.go
+index 6a5182a29..66cd5156d 100644
+--- a/pdata/pcommon/generated_resource.go
++++ b/pdata/pcommon/generated_resource.go
+@@ -41,8 +41,8 @@ func (ms Resource) MoveTo(dest Resource) {
+ 	if ms.getOrig() == dest.getOrig() {
+ 		return
+ 	}
+-	*dest.getOrig() = *ms.getOrig()
+-	*ms.getOrig() = otlpresource.Resource{}
++	internal.DeleteOrigResource(dest.getOrig(), false)
++	*dest.getOrig(), *ms.getOrig() = *ms.getOrig(), *dest.getOrig()
+ }
+ 
+ // Attributes returns the Attributes associated with this Resource.

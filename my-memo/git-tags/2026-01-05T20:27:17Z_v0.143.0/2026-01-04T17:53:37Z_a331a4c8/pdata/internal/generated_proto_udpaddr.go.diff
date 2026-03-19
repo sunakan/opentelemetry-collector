@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_proto_udpaddr.go b/pdata/internal/generated_proto_udpaddr.go
+index 13e512a39..dd2883de5 100644
+--- a/pdata/internal/generated_proto_udpaddr.go
++++ b/pdata/internal/generated_proto_udpaddr.go
+@@ -15,9 +15,9 @@ import (
+ )
+ 
+ type UDPAddr struct {
++	Zone string
+ 	IP   []byte
+ 	Port int64
+-	Zone string
+ }
+ 
+ var (

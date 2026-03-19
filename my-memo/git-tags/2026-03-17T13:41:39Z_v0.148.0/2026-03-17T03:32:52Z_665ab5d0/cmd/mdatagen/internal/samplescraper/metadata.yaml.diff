@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index 0bdb29e24..f88c07cb3 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -25,7 +25,7 @@ config:
+   type: object
+   description: Configuration for the Sample Scraper.
+   allOf:
+-    - $ref: go.opentelemetry.io/collector/scraper/scraperhelper.controller_config
++    - $ref: /scraper/scraperhelper.controller_config
+   $defs:
+   properties:
+     targets:

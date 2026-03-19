@@ -1,0 +1,22 @@
+diff --git a/consumer/pdata/metric.go b/consumer/pdata/metric.go
+index 1bcdb7e31..8775e3217 100644
+--- a/consumer/pdata/metric.go
++++ b/consumer/pdata/metric.go
+@@ -20,7 +20,7 @@ import (
+ 	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ )
+ 
+-type AggregationTemporality otlpmetrics.AggregationTemporality
++type AggregationTemporality int32
+ 
+ const (
+ 	AggregationTemporalityUnspecified = AggregationTemporality(otlpmetrics.AggregationTemporality_AGGREGATION_TEMPORALITY_UNSPECIFIED)
+@@ -146,7 +146,7 @@ func (md Metrics) MetricAndDataPointCount() (metricCount int, dataPointCount int
+ }
+ 
+ // MetricDataType specifies the type of data in a Metric.
+-type MetricDataType int
++type MetricDataType int32
+ 
+ const (
+ 	MetricDataTypeNone MetricDataType = iota

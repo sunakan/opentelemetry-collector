@@ -1,0 +1,23 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index 8f4fdec4b..1de31c4ea 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -29,6 +29,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumererror"
++	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/observability"
+ 	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ 	spandatatranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace/spandata"
+@@ -127,6 +128,10 @@ func (ze *zipkinExporter) Name() string {
+ 	return ze.defaultServiceName
+ }
+ 
++func (ze *zipkinExporter) Start(host exporter.Host) error {
++	return nil
++}
++
+ func (ze *zipkinExporter) Shutdown() error {
+ 	ze.mu.Lock()
+ 	defer ze.mu.Unlock()

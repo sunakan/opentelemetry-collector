@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/files.go b/pdata/internal/cmd/pdatagen/internal/files.go
+index e07396c74..075cbd88c 100644
+--- a/pdata/internal/cmd/pdatagen/internal/files.go
++++ b/pdata/internal/cmd/pdatagen/internal/files.go
+@@ -38,6 +38,7 @@ var AllFiles = []*File{
+ 	commonFile,
+ 	metricsFile,
+ 	resourceFile,
++	immutableSliceFile,
+ 	traceFile,
+ 	logFile,
+ }
+@@ -45,6 +46,7 @@ var AllFiles = []*File{
+ // File represents the struct for one generated file.
+ type File struct {
+ 	Name        string
++	IsCommon    bool
+ 	imports     []string
+ 	testImports []string
+ 	// Can be any of sliceOfPtrs, sliceOfValues, messageValueStruct, or messagePtrStruct
+@@ -128,10 +130,6 @@ func (f *File) GenerateAliasFile(packageName string) string {
+ 	return sb.String()
+ }
+ 
+-func (f *File) IsCommon() bool {
+-	return f.Name == "resource" || f.Name == "common"
+-}
+-
+ func generateHeader(sb *strings.Builder, packageName string) {
+ 	sb.WriteString(header)
+ 	sb.WriteString(newLine + newLine)

@@ -1,0 +1,14 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+index 1b2a84aef..819e783b3 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointslice.go
+@@ -149,6 +149,9 @@ func (es ExponentialHistogramDataPointSlice) RemoveIf(f func(ExponentialHistogra
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es ExponentialHistogramDataPointSlice) CopyTo(dest ExponentialHistogramDataPointSlice) {
+ 	dest.state.AssertMutable()
++	if es.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = internal.CopyOrigExponentialHistogramDataPointSlice(*dest.orig, *es.orig)
+ }
+ 

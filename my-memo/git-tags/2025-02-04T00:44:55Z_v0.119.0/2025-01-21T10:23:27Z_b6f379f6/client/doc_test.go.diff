@@ -1,0 +1,13 @@
+diff --git a/client/doc_test.go b/client/doc_test.go
+index 4ba7474ba..0ed2fa2f0 100644
+--- a/client/doc_test.go
++++ b/client/doc_test.go
+@@ -35,7 +35,7 @@ func Example_receiver() {
+ 
+ 	// Extract the client information based on your original context and set it
+ 	// to Addr
+-	// nolint
++	//nolint:govet
+ 	cl.Addr = &net.IPAddr{
+ 		IP: net.IPv4(1, 2, 3, 4),
+ 	}

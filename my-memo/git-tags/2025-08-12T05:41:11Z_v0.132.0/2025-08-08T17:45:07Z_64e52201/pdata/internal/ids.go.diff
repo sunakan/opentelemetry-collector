@@ -1,0 +1,26 @@
+diff --git a/pdata/internal/ids.go b/pdata/internal/ids.go
+new file mode 100644
+index 000000000..d7656a8c9
+--- /dev/null
++++ b/pdata/internal/ids.go
+@@ -0,0 +1,20 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package internal // import "go.opentelemetry.io/collector/pdata/internal"
++
++import (
++	"go.opentelemetry.io/collector/pdata/internal/data"
++)
++
++func SizeProtoOrigTraceID(id *data.TraceID) int {
++	return id.Size()
++}
++
++func SizeProtoOrigSpanID(id *data.SpanID) int {
++	return id.Size()
++}
++
++func SizeProtoOrigProfileID(id *data.ProfileID) int {
++	return id.Size()
++}

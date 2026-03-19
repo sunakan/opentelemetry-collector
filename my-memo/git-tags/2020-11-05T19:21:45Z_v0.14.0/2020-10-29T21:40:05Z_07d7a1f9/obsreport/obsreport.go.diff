@@ -1,0 +1,19 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index 99381d154..6b83bd247 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -121,6 +121,14 @@ func AllViews() (views []*view.View) {
+ 	}
+ 	views = append(views, genViews(measures, tagKeys, view.Sum())...)
+ 
++	// Scraper views.
++	measures = []*stats.Int64Measure{
++		mScraperScrapedMetricPoints,
++		mScraperErroredMetricPoints,
++	}
++	tagKeys = []tag.Key{tagKeyReceiver, tagKeyScraper}
++	views = append(views, genViews(measures, tagKeys, view.Sum())...)
++
+ 	// Exporter views.
+ 	measures = []*stats.Int64Measure{
+ 		mExporterSentSpans,

@@ -1,0 +1,13 @@
+diff --git a/otelcol/unmarshaler_test.go b/otelcol/unmarshaler_test.go
+index 18fd5f631..4810b5e5b 100644
+--- a/otelcol/unmarshaler_test.go
++++ b/otelcol/unmarshaler_test.go
+@@ -128,7 +128,7 @@ func TestPipelineConfigUnmarshalError(t *testing.T) {
+ 					},
+ 				},
+ 			}),
+-			expectError: "'[traces].receivers[0]' has invalid keys: nop",
++			expectError: "'[traces].receivers': source data must be an array or slice, got map",
+ 		},
+ 	}
+ 

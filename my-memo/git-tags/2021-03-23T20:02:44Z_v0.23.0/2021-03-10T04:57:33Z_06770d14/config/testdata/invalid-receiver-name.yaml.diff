@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-receiver-name.yaml b/config/testdata/invalid-receiver-name.yaml
+index ee71200b9..7e9eaa19a 100644
+--- a/config/testdata/invalid-receiver-name.yaml
++++ b/config/testdata/invalid-receiver-name.yaml
+@@ -1,5 +1,5 @@
+ receivers:
+-  multireceiver:
++  examplereceiver:
+ exporters:
+   exampleexporter:
+ processors:
+@@ -7,6 +7,6 @@ processors:
+ service:
+   pipelines:
+     traces:
+-      receivers: [1,2,3]
++      receivers: [nosuchreceiver]
+       exporters: [exampleexporter]
+       processors: [exampleprocessor]

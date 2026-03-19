@@ -1,0 +1,21 @@
+diff --git a/receiver/nopreceiver/go.mod b/receiver/nopreceiver/go.mod
+index 14a57e113..52b093ae9 100644
+--- a/receiver/nopreceiver/go.mod
++++ b/receiver/nopreceiver/go.mod
+@@ -9,6 +9,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer v0.112.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.112.0
+ 	go.opentelemetry.io/collector/receiver v0.112.0
++	go.opentelemetry.io/collector/receiver/receivertest v0.112.0
+ 	go.uber.org/goleak v1.3.0
+ )
+ 
+@@ -73,6 +74,8 @@ replace go.opentelemetry.io/collector/consumer/consumertest => ../../consumer/co
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../receiverprofiles
+ 
++replace go.opentelemetry.io/collector/receiver/receivertest => ../receivertest
++
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror

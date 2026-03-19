@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/internal/cfggen/namespace.go b/cmd/mdatagen/internal/cfggen/namespace.go
+index 1fade19ed..a49ba8b0f 100644
+--- a/cmd/mdatagen/internal/cfggen/namespace.go
++++ b/cmd/mdatagen/internal/cfggen/namespace.go
+@@ -188,3 +188,10 @@ func (r *Ref) String() string {
+ func (r *Ref) CacheKey() string {
+ 	return r.String()
+ }
++
++func LocalizeRef(refPath, importRootPath string) string {
++	if importRootPath == "" || !strings.HasPrefix(refPath, importRootPath+"/") {
++		return refPath
++	}
++	return strings.TrimPrefix(refPath, importRootPath)
++}

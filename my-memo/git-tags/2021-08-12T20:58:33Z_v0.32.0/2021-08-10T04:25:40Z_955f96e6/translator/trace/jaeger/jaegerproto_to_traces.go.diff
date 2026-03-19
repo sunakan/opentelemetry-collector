@@ -1,0 +1,21 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces.go b/translator/trace/jaeger/jaegerproto_to_traces.go
+index 301b4e8cc..c93c56e33 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces.go
+@@ -22,7 +22,6 @@ import (
+ 	"strconv"
+ 
+ 	"github.com/jaegertracing/jaeger/model"
+-	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+ 	"go.opentelemetry.io/collector/internal/idutils"
+ 	"go.opentelemetry.io/collector/internal/occonventions"
+@@ -31,7 +30,7 @@ import (
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 
+-var blankJaegerProtoSpan = new(jaeger.Span)
++var blankJaegerProtoSpan = new(model.Span)
+ 
+ // ProtoBatchesToInternalTraces converts multiple Jaeger proto batches to internal traces
+ func ProtoBatchesToInternalTraces(batches []*model.Batch) pdata.Traces {

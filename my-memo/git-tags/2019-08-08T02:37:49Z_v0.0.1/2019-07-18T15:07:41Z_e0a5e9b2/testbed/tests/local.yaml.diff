@@ -1,0 +1,7 @@
+diff --git a/testbed/tests/local.yaml b/testbed/tests/local.yaml
+index 4ef2ec7de..b713ca793 100644
+--- a/testbed/tests/local.yaml
++++ b/testbed/tests/local.yaml
+@@ -1 +1 @@
+-agent: ../../bin/otelsvc_{{.GOOS}}
++agent: ../../bin/{{.GOOS}}/otelsvc

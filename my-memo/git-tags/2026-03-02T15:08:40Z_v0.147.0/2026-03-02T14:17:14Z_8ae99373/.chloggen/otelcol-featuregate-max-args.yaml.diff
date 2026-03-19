@@ -1,0 +1,10 @@
+diff --git a/.chloggen/otelcol-featuregate-max-args.yaml b/.chloggen/otelcol-featuregate-max-args.yaml
+deleted file mode 100644
+index 744cf560e..000000000
+--- a/.chloggen/otelcol-featuregate-max-args.yaml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-change_type: bug_fix
+-component: pkg/otelcol
+-note: The featuregate subcommand now rejects extra positional arguments instead of silently ignoring them.
+-issues: [14554]

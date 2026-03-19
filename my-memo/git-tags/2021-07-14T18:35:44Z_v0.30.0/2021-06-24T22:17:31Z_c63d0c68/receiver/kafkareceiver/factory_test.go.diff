@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/factory_test.go b/receiver/kafkareceiver/factory_test.go
+index 431e60964..0c1ba86a7 100644
+--- a/receiver/kafkareceiver/factory_test.go
++++ b/receiver/kafkareceiver/factory_test.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {

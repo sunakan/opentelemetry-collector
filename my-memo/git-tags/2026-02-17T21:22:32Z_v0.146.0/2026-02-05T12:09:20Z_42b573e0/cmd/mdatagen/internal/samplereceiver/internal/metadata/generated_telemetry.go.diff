@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+index a210d8dbf..2432c77f3 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_telemetry.go
+@@ -106,7 +106,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...Teleme
+ 	var err, errs error
+ 	builder.BatchSizeTriggerSend, err = builder.meter.Int64Counter(
+ 		"otelcol_batch_size_trigger_send",
+-		metric.WithDescription("Number of times the batch was sent due to a size trigger [Deprecated since v0.110.0]"),
++		metric.WithDescription("Number of times the batch was sent due to a size trigger [Deprecated]"),
+ 		metric.WithUnit("{times}"),
+ 	)
+ 	errs = errors.Join(errs, err)

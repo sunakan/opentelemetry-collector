@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_status.go b/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_status.go
+index 0f4ac454c..29450fb75 100644
+--- a/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_status.go
++++ b/cmd/mdatagen/internal/sampleconnector/internal/metadata/generated_status.go
+@@ -12,5 +12,6 @@ var (
+ )
+ 
+ const (
+-	MetricsToMetricsStability = component.StabilityLevelDevelopment
++	MetricsToMetricsStability   = component.StabilityLevelDevelopment
++	ProfilesToProfilesStability = component.StabilityLevelDevelopment
+ )

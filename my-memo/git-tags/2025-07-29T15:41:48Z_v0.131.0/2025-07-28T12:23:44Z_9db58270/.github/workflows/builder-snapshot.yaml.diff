@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/builder-snapshot.yaml b/.github/workflows/builder-snapshot.yaml
+index 3456a6272..f732f981b 100644
+--- a/.github/workflows/builder-snapshot.yaml
++++ b/.github/workflows/builder-snapshot.yaml
+@@ -14,7 +14,7 @@ permissions:
+ 
+ env:
+   # renovate: datasource=github-tags depName=goreleaser-pro packageName=goreleaser/goreleaser-pro
+-  GORELEASER_PRO_VERSION: v2.7.0
++  GORELEASER_PRO_VERSION: v2.11.1
+ 
+ jobs:
+   snapshot:

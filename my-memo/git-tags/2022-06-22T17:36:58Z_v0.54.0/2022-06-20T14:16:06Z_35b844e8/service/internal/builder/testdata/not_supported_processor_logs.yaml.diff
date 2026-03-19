@@ -1,0 +1,19 @@
+diff --git a/service/internal/builder/testdata/not_supported_processor_logs.yaml b/service/internal/builder/testdata/not_supported_processor_logs.yaml
+deleted file mode 100644
+index bf8ce8301..000000000
+--- a/service/internal/builder/testdata/not_supported_processor_logs.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-processors:
+-  bf:
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    logs:
+-      receivers: [examplereceiver]
+-      processors: [bf]
+-      exporters: [exampleexporter]

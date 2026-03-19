@@ -1,0 +1,18 @@
+diff --git a/config/testdata/pipeline-must-have-receiver-traces.yaml b/config/testdata/pipeline-must-have-receiver-traces.yaml
+new file mode 100644
+index 000000000..718f73639
+--- /dev/null
++++ b/config/testdata/pipeline-must-have-receiver-traces.yaml
+@@ -0,0 +1,12 @@
++receivers:
++  examplereceiver:
++    extra: "not present in the service pipeline"
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

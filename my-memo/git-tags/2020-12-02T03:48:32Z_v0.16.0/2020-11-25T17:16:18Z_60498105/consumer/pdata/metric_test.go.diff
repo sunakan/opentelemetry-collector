@@ -1,0 +1,15 @@
+diff --git a/consumer/pdata/metric_test.go b/consumer/pdata/metric_test.go
+index 8d93505c5..cceac7743 100644
+--- a/consumer/pdata/metric_test.go
++++ b/consumer/pdata/metric_test.go
+@@ -882,8 +882,8 @@ func generateTestProtoResource() otlpresource.Resource {
+ 	}
+ }
+ 
+-func generateTestProtoInstrumentationLibrary() *otlpcommon.InstrumentationLibrary {
+-	return &otlpcommon.InstrumentationLibrary{
++func generateTestProtoInstrumentationLibrary() otlpcommon.InstrumentationLibrary {
++	return otlpcommon.InstrumentationLibrary{
+ 		Name:    "test",
+ 		Version: "",
+ 	}

@@ -1,0 +1,17 @@
+diff --git a/exporter/exporterhelper/internal/queue/fg.go b/exporter/exporterhelper/internal/queue/fg.go
+index 0e6a8210e..a2fa3fef8 100644
+--- a/exporter/exporterhelper/internal/queue/fg.go
++++ b/exporter/exporterhelper/internal/queue/fg.go
+@@ -13,9 +13,9 @@ var PersistRequestContextFeatureGate = featuregate.GlobalRegistry().MustRegister
+ 	featuregate.WithRegisterDescription("controls whether context should be stored alongside requests in the persistent queue"),
+ )
+ 
+-// assign the feature gate to separate variables to make it possible to override the behavior in tests
++// assign the feature gate to separate functions to make it possible to override the behavior in tests
+ // on write and read paths separately.
+ var (
+-	PersistRequestContextOnRead  = PersistRequestContextFeatureGate.IsEnabled()
+-	PersistRequestContextOnWrite = PersistRequestContextFeatureGate.IsEnabled()
++	PersistRequestContextOnRead  = PersistRequestContextFeatureGate.IsEnabled
++	PersistRequestContextOnWrite = PersistRequestContextFeatureGate.IsEnabled
+ )

@@ -1,0 +1,17 @@
+diff --git a/service/application.go b/service/application.go
+index 1766d4621..63066eb09 100644
+--- a/service/application.go
++++ b/service/application.go
+@@ -115,11 +115,7 @@ func New(params Parameters) (*Application, error) {
+ 				return fmt.Errorf("failed to get logger: %w", err)
+ 			}
+ 
+-			if err := app.execute(context.Background()); err != nil {
+-				return err
+-			}
+-
+-			return nil
++			return app.execute(context.Background())
+ 		},
+ 	}
+ 

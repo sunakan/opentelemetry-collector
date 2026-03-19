@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 4c38d3015..3f70b64bf 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -33,7 +33,7 @@ import (
+ 
+ const headerContentEncoding = "Content-Encoding"
+ const defaultMaxRequestBodySize = 20 * 1024 * 1024 // 20MiB
+-var defaultCompressionAlgorithms = []string{"", "gzip", "zstd", "zlib", "snappy", "deflate"}
++var defaultCompressionAlgorithms = []string{"", "gzip", "zstd", "zlib", "snappy", "deflate", "lz4"}
+ 
+ // ClientConfig defines settings for creating an HTTP client.
+ type ClientConfig struct {

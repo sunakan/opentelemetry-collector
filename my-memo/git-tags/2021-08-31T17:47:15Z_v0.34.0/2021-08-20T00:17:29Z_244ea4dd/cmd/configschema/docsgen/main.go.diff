@@ -1,0 +1,13 @@
+diff --git a/cmd/configschema/docsgen/main.go b/cmd/configschema/docsgen/main.go
+index 3547f0a26..41ab4415d 100644
+--- a/cmd/configschema/docsgen/main.go
++++ b/cmd/configschema/docsgen/main.go
+@@ -15,7 +15,7 @@
+ package main
+ 
+ import (
+-	"go.opentelemetry.io/collector/cmd/configschema/configschema"
++	"go.opentelemetry.io/collector/cmd/configschema"
+ 	"go.opentelemetry.io/collector/cmd/configschema/docsgen/docsgen"
+ 	"go.opentelemetry.io/collector/service/defaultcomponents"
+ )

@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index 6468595fd..ec3add189 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -181,7 +181,7 @@ func testPipeline(t *testing.T, pipelineName string, exporterIDs []config.Compon
+ 	factories, err := testcomponents.ExampleComponents()
+ 	assert.NoError(t, err)
+ 	cfg, err := configtest.LoadConfigAndValidate("testdata/pipelines_builder.yaml", factories)
+-	// Load the config
++	// Unmarshal the config
+ 	require.Nil(t, err)
+ 
+ 	// BuildProcessors the pipeline

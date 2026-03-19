@@ -1,0 +1,19 @@
+diff --git a/config/testdata/invalid-exporter-sub-config.yaml b/config/testdata/invalid-exporter-sub-config.yaml
+new file mode 100644
+index 000000000..ac4264869
+--- /dev/null
++++ b/config/testdata/invalid-exporter-sub-config.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++    tests
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [multireceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

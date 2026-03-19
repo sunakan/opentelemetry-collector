@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_byteslice.go b/pdata/internal/generated_wrapper_byteslice.go
+index a4c6dbddc..89fc8550c 100644
+--- a/pdata/internal/generated_wrapper_byteslice.go
++++ b/pdata/internal/generated_wrapper_byteslice.go
+@@ -29,11 +29,6 @@ func NewByteSlice(orig *[]byte, state *State) ByteSlice {
+ 	return ByteSlice{orig: orig, state: state}
+ }
+ 
+-func CopyOrigByteSlice(dst, src []byte) []byte {
+-	dst = dst[:0]
+-	return append(dst, src...)
+-}
+-
+ func FillTestByteSlice(ms ByteSlice) {
+ 	*ms.orig = []byte{1, 2, 3}
+ }
+@@ -61,3 +56,7 @@ func UnmarshalJSONIterByteSlice(ms ByteSlice, iter *json.Iterator) {
+ 	}
+ 	*ms.orig = (*ms.orig)[:n]
+ }
++
++func CopyOrigByteSlice(dst, src []byte) []byte {
++	return append(dst[:0], src...)
++}

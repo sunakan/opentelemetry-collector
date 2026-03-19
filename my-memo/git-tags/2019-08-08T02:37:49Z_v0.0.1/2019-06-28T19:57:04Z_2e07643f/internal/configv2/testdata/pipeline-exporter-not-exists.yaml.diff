@@ -1,0 +1,16 @@
+diff --git a/internal/configv2/testdata/pipeline-exporter-not-exists.yaml b/internal/configv2/testdata/pipeline-exporter-not-exists.yaml
+deleted file mode 100644
+index 84e06474c..000000000
+--- a/internal/configv2/testdata/pipeline-exporter-not-exists.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:
+-  metrics:
+-    receivers: [multireceiver]
+-    exporters: [nosuchexporter]

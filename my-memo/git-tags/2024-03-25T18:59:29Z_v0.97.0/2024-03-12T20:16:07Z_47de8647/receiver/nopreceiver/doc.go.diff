@@ -1,0 +1,13 @@
+diff --git a/receiver/nopreceiver/doc.go b/receiver/nopreceiver/doc.go
+new file mode 100644
+index 000000000..597f9ac3e
+--- /dev/null
++++ b/receiver/nopreceiver/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++// Package nopreceiver serves as a placeholder receiver.
++package nopreceiver // import "go.opentelemetry.io/collector/receiver/nopreceiver"

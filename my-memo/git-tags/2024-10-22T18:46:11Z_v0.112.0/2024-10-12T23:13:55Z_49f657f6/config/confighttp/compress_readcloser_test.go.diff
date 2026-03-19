@@ -1,0 +1,12 @@
+diff --git a/config/confighttp/compress_readcloser_test.go b/config/confighttp/compress_readcloser_test.go
+index fd97a15e2..70f9f6fcc 100644
+--- a/config/confighttp/compress_readcloser_test.go
++++ b/config/confighttp/compress_readcloser_test.go
+@@ -53,7 +53,6 @@ func TestCompressReadCloser(t *testing.T) {
+ 			errVal: "failed to close reader",
+ 		},
+ 	} {
+-		tc := tc
+ 		t.Run(tc.name, func(t *testing.T) {
+ 			t.Parallel()
+ 

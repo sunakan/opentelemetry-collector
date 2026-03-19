@@ -1,0 +1,37 @@
+diff --git a/processor/resourceprocessor/resource_processor_test.go b/processor/resourceprocessor/resource_processor_test.go
+index 9eb1b2792..ea046ddb1 100644
+--- a/processor/resourceprocessor/resource_processor_test.go
++++ b/processor/resourceprocessor/resource_processor_test.go
+@@ -29,13 +29,8 @@ import (
+ )
+ 
+ var (
+-	processorSettings = config.ProcessorSettings{
+-		TypeVal: "resource",
+-		NameVal: "resource",
+-	}
+-
+ 	cfg = &Config{
+-		ProcessorSettings: processorSettings,
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 		AttributesActions: []processorhelper.ActionKeyValue{
+ 			{Key: "cloud.availability_zone", Value: "zone-1", Action: processorhelper.UPSERT},
+ 			{Key: "k8s.cluster.name", FromAttribute: "k8s-cluster", Action: processorhelper.INSERT},
+@@ -84,7 +79,7 @@ func TestResourceProcessorAttributesUpsert(t *testing.T) {
+ 		{
+ 			name: "config_attributes_replacement",
+ 			config: &Config{
+-				ProcessorSettings: processorSettings,
++				ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 				AttributesActions: []processorhelper.ActionKeyValue{
+ 					{Key: "k8s.cluster.name", FromAttribute: "k8s-cluster", Action: processorhelper.INSERT},
+ 					{Key: "k8s-cluster", Action: processorhelper.DELETE},
+@@ -146,7 +141,7 @@ func TestResourceProcessorError(t *testing.T) {
+ 	ttn := &testTraceConsumer{}
+ 
+ 	badCfg := &Config{
+-		ProcessorSettings: processorSettings,
++		ProcessorSettings: config.NewProcessorSettings(typeStr),
+ 		AttributesActions: nil,
+ 	}
+ 

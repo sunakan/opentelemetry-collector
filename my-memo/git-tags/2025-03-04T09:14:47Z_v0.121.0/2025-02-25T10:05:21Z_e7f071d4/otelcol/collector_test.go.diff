@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector_test.go b/otelcol/collector_test.go
+index d9559074c..3896e3743 100644
+--- a/otelcol/collector_test.go
++++ b/otelcol/collector_test.go
+@@ -312,7 +312,7 @@ func TestCollectorStartInvalidConfig(t *testing.T) {
+ 		ConfigProviderSettings: newDefaultConfigProviderSettings(t, []string{filepath.Join("testdata", "otelcol-invalid.yaml")}),
+ 	})
+ 	require.NoError(t, err)
+-	assert.Error(t, col.Run(context.Background()))
++	assert.EqualError(t, col.Run(context.Background()), "invalid configuration: service::pipelines::traces: references processor \"invalid\" which is not configured")
+ }
+ 
+ func TestNewCollectorInvalidConfigProviderSettings(t *testing.T) {

@@ -1,0 +1,17 @@
+diff --git a/processor/batchprocessor/factory.go b/processor/batchprocessor/factory.go
+index 118346f14..8316b928e 100644
+--- a/processor/batchprocessor/factory.go
++++ b/processor/batchprocessor/factory.go
+@@ -36,9 +36,9 @@ func NewFactory() component.ProcessorFactory {
+ 	return component.NewProcessorFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		component.WithTracesProcessorAndStabilityLevel(createTracesProcessor, component.StabilityLevelStable),
+-		component.WithMetricsProcessorAndStabilityLevel(createMetricsProcessor, component.StabilityLevelStable),
+-		component.WithLogsProcessorAndStabilityLevel(createLogsProcessor, component.StabilityLevelStable))
++		component.WithTracesProcessor(createTracesProcessor, component.StabilityLevelStable),
++		component.WithMetricsProcessor(createMetricsProcessor, component.StabilityLevelStable),
++		component.WithLogsProcessor(createLogsProcessor, component.StabilityLevelStable))
+ }
+ 
+ func createDefaultConfig() config.Processor {

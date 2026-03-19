@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles_test.go b/exporter/exporterhelper/xexporterhelper/profiles_test.go
+index 0e1eee1ce..52ab76f7b 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles_test.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles_test.go
+@@ -50,7 +50,7 @@ func TestProfilesRequest(t *testing.T) {
+ 	lr := newProfilesRequest(testdata.GenerateProfiles(1))
+ 
+ 	profileErr := xconsumererror.NewProfiles(errors.New("some error"), pprofile.NewProfiles())
+-	assert.EqualValues(
++	assert.Equal(
+ 		t,
+ 		newProfilesRequest(pprofile.NewProfiles()),
+ 		lr.(exporterhelper.RequestErrorHandler).OnError(profileErr),

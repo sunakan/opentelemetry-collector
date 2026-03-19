@@ -1,0 +1,391 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 29461869d..831e8edfd 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -34,9 +34,6 @@ import (
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+-	"go.opentelemetry.io/collector/internal"
+-	otlpcollectormetrics "go.opentelemetry.io/collector/internal/data/protogen/collector/metrics/v1"
+-	otlp "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+@@ -281,238 +278,37 @@ func Test_PushMetrics(t *testing.T) {
+ 	// success cases
+ 	intSumBatch := testdata.GenerateMetricsManyMetricsSameResource(10)
+ 
+-	doubleSumMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validDoubleSum],
+-							validMetrics2[validDoubleSum],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	doubleSumBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(doubleSumMetric))
+-
+-	intGaugeMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validIntGauge],
+-							validMetrics2[validIntGauge],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	intGaugeBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(intGaugeMetric))
+-
+-	doubleGaugeMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validDoubleGauge],
+-							validMetrics2[validDoubleGauge],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	doubleGaugeBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(doubleGaugeMetric))
+-
+-	intHistogramMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validIntHistogram],
+-							validMetrics2[validIntHistogram],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	intHistogramBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(intHistogramMetric))
+-
+-	doubleHistogramMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validDoubleHistogram],
+-							validMetrics2[validDoubleHistogram],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	doubleHistogramBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(doubleHistogramMetric))
+-
+-	doubleSummaryMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics1[validDoubleSummary],
+-							validMetrics2[validDoubleSummary],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	doubleSummaryBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(doubleSummaryMetric))
++	doubleSumBatch := getMetricsFromMetricList(validMetrics1[validDoubleSum], validMetrics2[validDoubleSum])
++
++	intGaugeBatch := getMetricsFromMetricList(validMetrics1[validIntGauge], validMetrics2[validIntGauge])
++
++	doubleGaugeBatch := getMetricsFromMetricList(validMetrics1[validDoubleGauge], validMetrics2[validDoubleGauge])
++
++	intHistogramBatch := getMetricsFromMetricList(validMetrics1[validIntHistogram], validMetrics2[validIntHistogram])
++
++	histogramBatch := getMetricsFromMetricList(validMetrics1[validHistogram], validMetrics2[validHistogram])
++
++	summaryBatch := getMetricsFromMetricList(validMetrics1[validSummary], validMetrics2[validSummary])
+ 
+ 	// len(BucketCount) > len(ExplicitBounds)
+-	unmatchedBoundBucketIntHistMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics2[unmatchedBoundBucketIntHist],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	unmatchedBoundBucketIntHistBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(unmatchedBoundBucketIntHistMetric))
+-
+-	unmatchedBoundBucketDoubleHistMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							validMetrics2[unmatchedBoundBucketDoubleHist],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	unmatchedBoundBucketDoubleHistBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(unmatchedBoundBucketDoubleHistMetric))
++	unmatchedBoundBucketIntHistBatch := getMetricsFromMetricList(validMetrics2[unmatchedBoundBucketIntHist])
++
++	unmatchedBoundBucketHistBatch := getMetricsFromMetricList(validMetrics2[unmatchedBoundBucketHist])
+ 
+ 	// fail cases
+-	nilDataPointIntGaugeMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointIntGauge],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointIntGaugeBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointIntGaugeMetric))
+-
+-	nilDataPointDoubleGaugeMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointDoubleGauge],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointDoubleGaugeBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointDoubleGaugeMetric))
+-
+-	nilDataPointIntSumMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointIntSum],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointIntSumBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointIntSumMetric))
+-
+-	nilDataPointDoubleSumMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointDoubleSum],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointDoubleSumBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointDoubleSumMetric))
+-
+-	nilDataPointIntHistogramMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointIntHistogram],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointIntHistogramBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointIntHistogramMetric))
+-
+-	nilDataPointDoubleHistogramMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointDoubleHistogram],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointDoubleHistogramBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointDoubleHistogramMetric))
+-
+-	nilDataPointDoubleSummaryMetric := &otlpcollectormetrics.ExportMetricsServiceRequest{
+-		ResourceMetrics: []*otlp.ResourceMetrics{
+-			{
+-				InstrumentationLibraryMetrics: []*otlp.InstrumentationLibraryMetrics{
+-					{
+-						Metrics: []*otlp.Metric{
+-							errorMetrics[nilDataPointDoubleSummary],
+-						},
+-					},
+-				},
+-			},
+-		},
+-	}
+-	nilDataPointDoubleSummaryBatch := pdata.MetricsFromInternalRep(internal.MetricsFromOtlp(nilDataPointDoubleSummaryMetric))
++	emptyIntGaugeBatch := getMetricsFromMetricList(invalidMetrics[emptyIntGauge])
++
++	emptyDoubleGaugeBatch := getMetricsFromMetricList(invalidMetrics[emptyDoubleGauge])
++
++	emptyCumulativeIntSumBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeIntSum])
++
++	emptyCumulativeDoubleSumBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeDoubleSum])
++
++	emptyCumulativeIntHistogramBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeIntHistogram])
++
++	emptyCumulativeHistogramBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeHistogram])
++
++	emptyCumulativeSummaryBatch := getMetricsFromMetricList(invalidMetrics[emptySummary])
+ 
+ 	checkFunc := func(t *testing.T, r *http.Request, expected int) {
+ 		body, err := ioutil.ReadAll(r.Body)
+@@ -590,16 +386,16 @@ func Test_PushMetrics(t *testing.T) {
+ 			false,
+ 		},
+ 		{
+-			"doubleHistogram_case",
+-			&doubleHistogramBatch,
++			"histogram_case",
++			&histogramBatch,
+ 			checkFunc,
+ 			12,
+ 			http.StatusAccepted,
+ 			false,
+ 		},
+ 		{
+-			"doubleSummary_case",
+-			&doubleSummaryBatch,
++			"summary_case",
++			&summaryBatch,
+ 			checkFunc,
+ 			10,
+ 			http.StatusAccepted,
+@@ -614,8 +410,8 @@ func Test_PushMetrics(t *testing.T) {
+ 			false,
+ 		},
+ 		{
+-			"unmatchedBoundBucketDoubleHist_case",
+-			&unmatchedBoundBucketDoubleHistBatch,
++			"unmatchedBoundBucketHist_case",
++			&unmatchedBoundBucketHistBatch,
+ 			checkFunc,
+ 			5,
+ 			http.StatusAccepted,
+@@ -623,63 +419,63 @@ func Test_PushMetrics(t *testing.T) {
+ 		},
+ 		{
+ 			"5xx_case",
+-			&unmatchedBoundBucketDoubleHistBatch,
++			&unmatchedBoundBucketHistBatch,
+ 			checkFunc,
+ 			5,
+ 			http.StatusServiceUnavailable,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointDoubleGauge_case",
+-			&nilDataPointDoubleGaugeBatch,
++			"emptyDoubleGauge_case",
++			&emptyDoubleGaugeBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointIntGauge_case",
+-			&nilDataPointIntGaugeBatch,
++			"emptyIntGauge_case",
++			&emptyIntGaugeBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointDoubleSum_case",
+-			&nilDataPointDoubleSumBatch,
++			"emptyCumulativeDoubleSum_case",
++			&emptyCumulativeDoubleSumBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointIntSum_case",
+-			&nilDataPointIntSumBatch,
++			"emptyCumulativeIntSum_case",
++			&emptyCumulativeIntSumBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointDoubleHistogram_case",
+-			&nilDataPointDoubleHistogramBatch,
++			"emptyCumulativeHistogram_case",
++			&emptyCumulativeHistogramBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointIntHistogram_case",
+-			&nilDataPointIntHistogramBatch,
++			"emptyCumulativeIntHistogram_case",
++			&emptyCumulativeIntHistogramBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+ 		{
+-			"nilDataPointDoubleSummary_case",
+-			&nilDataPointDoubleSummaryBatch,
++			"emptyCumulativeSummary_case",
++			&emptyCumulativeSummaryBatch,
+ 			checkFunc,
+ 			0,
+ 			http.StatusAccepted,

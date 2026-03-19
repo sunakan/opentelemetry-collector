@@ -1,0 +1,16 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
+index f2bc63761..f84326644 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/message_internal.go.tmpl
+@@ -63,6 +63,11 @@ func DeleteOrig{{ .originName }}(orig *{{ .originFullName }}, nullable bool) {
+ }
+ 
+ func CopyOrig{{ .originName }}(dest, src *{{ .originFullName }}) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++    }
++
+ 	{{- range .fields }}
+ 	{{ .GenerateCopyOrig $.messageStruct }}
+ 	{{- end }}

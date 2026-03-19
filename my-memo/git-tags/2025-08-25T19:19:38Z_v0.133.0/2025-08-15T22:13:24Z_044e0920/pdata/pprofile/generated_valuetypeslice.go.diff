@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_valuetypeslice.go b/pdata/pprofile/generated_valuetypeslice.go
+index 99c910e66..31f24100d 100644
+--- a/pdata/pprofile/generated_valuetypeslice.go
++++ b/pdata/pprofile/generated_valuetypeslice.go
+@@ -99,7 +99,7 @@ func (es ValueTypeSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ValueType.
+ func (es ValueTypeSlice) AppendEmpty() ValueType {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, &otlpprofiles.ValueType{})
++	*es.orig = append(*es.orig, internal.NewOrigPtrValueType())
+ 	return es.At(es.Len() - 1)
+ }
+ 

@@ -1,0 +1,22 @@
+diff --git a/confmap/confmap.go b/confmap/confmap.go
+index c7c89df28..f22d3f3f2 100644
+--- a/confmap/confmap.go
++++ b/confmap/confmap.go
+@@ -17,7 +17,7 @@ import (
+ 	"github.com/knadh/koanf/v2"
+ 
+ 	encoder "go.opentelemetry.io/collector/confmap/internal/mapstructure"
+-	"go.opentelemetry.io/collector/internal/featuregates"
++	"go.opentelemetry.io/collector/internal/globalgates"
+ )
+ 
+ const (
+@@ -157,7 +157,7 @@ func decodeConfig(m *Conf, result any, errorUnused bool, skipTopLevelUnmarshaler
+ 		ErrorUnused:      errorUnused,
+ 		Result:           result,
+ 		TagName:          "mapstructure",
+-		WeaklyTypedInput: !featuregates.StrictlyTypedInputGate.IsEnabled(),
++		WeaklyTypedInput: !globalgates.StrictlyTypedInputGate.IsEnabled(),
+ 		MatchName:        caseSensitiveMatchName,
+ 		DecodeHook: mapstructure.ComposeDecodeHookFunc(
+ 			expandNilStructPointersHookFunc(),

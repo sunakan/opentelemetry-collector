@@ -1,0 +1,13 @@
+diff --git a/internal/internalconsumertest/err_or_sink_consumer.go b/internal/internalconsumertest/err_or_sink_consumer.go
+index ddb2ca5cb..fb5f8914b 100644
+--- a/internal/internalconsumertest/err_or_sink_consumer.go
++++ b/internal/internalconsumertest/err_or_sink_consumer.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package internalconsumertest
++package internalconsumertest // import "go.opentelemetry.io/collector/internal/internalconsumertest"
+ 
+ import (
+ 	"context"

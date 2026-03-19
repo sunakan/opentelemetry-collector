@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/queue_sender.go b/exporter/exporterhelper/internal/queue_sender.go
+index acf82a04e..50b3c7634 100644
+--- a/exporter/exporterhelper/internal/queue_sender.go
++++ b/exporter/exporterhelper/internal/queue_sender.go
+@@ -14,6 +14,7 @@ import (
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/batcher"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/queuebatch"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/request"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/sender"
+ 	"go.opentelemetry.io/collector/exporter/exporterqueue"
+ 	"go.opentelemetry.io/collector/featuregate"
+ )
+@@ -36,7 +37,7 @@ func NewQueueSender(
+ 	qCfg exporterqueue.Config,
+ 	bCfg exporterbatcher.Config,
+ 	exportFailureMessage string,
+-	next Sender[request.Request],
++	next sender.Sender[request.Request],
+ ) (*QueueSender, error) {
+ 	exportFunc := func(ctx context.Context, req request.Request) error {
+ 		// Have to read the number of items before sending the request since the request can

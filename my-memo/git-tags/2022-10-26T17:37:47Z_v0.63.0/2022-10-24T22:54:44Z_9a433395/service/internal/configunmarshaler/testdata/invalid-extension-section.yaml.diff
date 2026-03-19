@@ -1,0 +1,27 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-extension-section.yaml b/service/internal/configunmarshaler/testdata/invalid-extension-section.yaml
+deleted file mode 100644
+index ddec54a01..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-extension-section.yaml
++++ /dev/null
+@@ -1,21 +0,0 @@
+-receivers:
+-  nop:
+-processors:
+-  nop:
+-exporters:
+-  nop:
+-extensions:
+-  nop:
+-    unknown_section:
+-      a_num: 2
+-service:
+-  extensions:
+-    - examapleextension
+-  pipelines:
+-    traces:
+-      receivers:
+-        - nop
+-      processors:
+-        - nop
+-      exporters:
+-        - nop

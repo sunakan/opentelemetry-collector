@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/opencensus.go b/exporter/opencensusexporter/opencensus.go
+index 881977a29..04ae1832f 100644
+--- a/exporter/opencensusexporter/opencensus.go
++++ b/exporter/opencensusexporter/opencensus.go
+@@ -66,7 +66,7 @@ const (
+ 	errAlreadyStopped
+ )
+ 
+-func (oce *ocagentExporter) stop() error {
++func (oce *ocagentExporter) Shutdown() error {
+ 	wg := &sync.WaitGroup{}
+ 	var errors []error
+ 	var errorsMu sync.Mutex

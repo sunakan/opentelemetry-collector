@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 3a689803d..cfeff8240 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -12,7 +12,7 @@ require (
+ 	go.opentelemetry.io/collector/pdata v1.0.0-rc7
+ 	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f
+ 	google.golang.org/grpc v1.53.0
+-	google.golang.org/protobuf v1.29.0
++	google.golang.org/protobuf v1.29.1
+ )
+ 
+ require (

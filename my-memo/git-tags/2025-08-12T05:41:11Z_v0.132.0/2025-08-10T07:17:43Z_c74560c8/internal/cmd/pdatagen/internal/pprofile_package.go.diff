@@ -1,0 +1,23 @@
+diff --git a/internal/cmd/pdatagen/internal/pprofile_package.go b/internal/cmd/pdatagen/internal/pprofile_package.go
+index c0cf42ed8..37815ff8a 100644
+--- a/internal/cmd/pdatagen/internal/pprofile_package.go
++++ b/internal/cmd/pdatagen/internal/pprofile_package.go
+@@ -8,7 +8,9 @@ var pprofile = &Package{
+ 		name: "pprofile",
+ 		path: "pprofile",
+ 		imports: []string{
++			`"encoding/binary"`,
+ 			`"iter"`,
++			`"math"`,
+ 			`"sort"`,
+ 			``,
+ 			`"go.opentelemetry.io/collector/pdata/internal"`,
+@@ -438,7 +440,7 @@ var mapping = &messageStruct{
+ 		},
+ 		&SliceField{
+ 			fieldName:   "AttributeIndices",
+-			protoID:     15,
++			protoID:     5,
+ 			protoType:   ProtoTypeInt32,
+ 			returnSlice: int32Slice,
+ 		},

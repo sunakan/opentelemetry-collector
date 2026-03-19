@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+index 44f9d251d..37439921c 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+@@ -48,7 +48,7 @@ func MarshalJSONOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDa
+ 
+ // UnmarshalJSONOrigSummaryDataPointValueAtQuantile unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDataPoint_ValueAtQuantile, iter *json.Iterator) {
+-	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
++	for f := iter.ReadObject(); f != ""; f = iter.ReadObject() {
+ 		switch f {
+ 		case "quantile":
+ 			orig.Quantile = iter.ReadFloat64()
+@@ -57,8 +57,7 @@ func UnmarshalJSONOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.Summary
+ 		default:
+ 			iter.Skip()
+ 		}
+-		return true
+-	})
++	}
+ }
+ 
+ func SizeProtoOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDataPoint_ValueAtQuantile) int {

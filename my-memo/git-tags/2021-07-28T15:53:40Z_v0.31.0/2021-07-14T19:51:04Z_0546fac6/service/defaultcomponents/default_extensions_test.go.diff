@@ -1,0 +1,26 @@
+diff --git a/service/defaultcomponents/default_extensions_test.go b/service/defaultcomponents/default_extensions_test.go
+index e489877f9..084537479 100644
+--- a/service/defaultcomponents/default_extensions_test.go
++++ b/service/defaultcomponents/default_extensions_test.go
+@@ -24,6 +24,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/extension/ballastextension"
+ 	"go.opentelemetry.io/collector/extension/bearertokenauthextension"
+ 	"go.opentelemetry.io/collector/extension/healthcheckextension"
+ 	"go.opentelemetry.io/collector/extension/pprofextension"
+@@ -74,6 +75,13 @@ func TestDefaultExtensions(t *testing.T) {
+ 				return cfg
+ 			},
+ 		},
++		{
++			extension: "memory_ballast",
++			getConfigFn: func() config.Extension {
++				cfg := extFactories["memory_ballast"].CreateDefaultConfig().(*ballastextension.Config)
++				return cfg
++			},
++		},
+ 	}
+ 
+ 	// we have one more extension that we can't test here: the OIDC Auth extension requires

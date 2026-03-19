@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterspan/filterspan_test.go b/internal/processor/filterspan/filterspan_test.go
+index fa43200f7..0f46e7068 100644
+--- a/internal/processor/filterspan/filterspan_test.go
++++ b/internal/processor/filterspan/filterspan_test.go
+@@ -51,7 +51,7 @@ func TestSpan_validateMatchesConfiguration_InvalidConfig(t *testing.T) {
+ 		{
+ 			name: "invalid_match_type",
+ 			property: MatchProperties{
+-				Config:   *createConfig(filterset.MatchType("wrong_match_type")),
++				Config:   *createConfig("wrong_match_type"),
+ 				Services: []string{"abc"},
+ 			},
+ 			errorString: "error creating service name filters: unrecognized match_type: 'wrong_match_type', valid types are: [regexp strict]",

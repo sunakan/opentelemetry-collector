@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filtermetric/filtermetric.go b/internal/processor/filtermetric/filtermetric.go
+index ec9c176cc..6983aeb7b 100644
+--- a/internal/processor/filtermetric/filtermetric.go
++++ b/internal/processor/filtermetric/filtermetric.go
+@@ -15,7 +15,7 @@
+ package filtermetric
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ type Matcher interface {

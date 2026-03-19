@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index 6f5f39f3d..e510bae3d 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -71,7 +71,7 @@ type traceExporter struct {
+ // NewTracesExporter creates an exporter.Traces that records observability metrics and wraps every request with a Span.
+ func NewTracesExporter(
+ 	ctx context.Context,
+-	set exporter.CreateSettings,
++	set exporter.Settings,
+ 	cfg component.Config,
+ 	pusher consumer.ConsumeTracesFunc,
+ 	options ...Option,
+@@ -106,7 +106,7 @@ func requestFromTraces(pusher consumer.ConsumeTracesFunc) RequestFromTracesFunc
+ // until https://github.com/open-telemetry/opentelemetry-collector/issues/8122 is resolved.
+ func NewTracesRequestExporter(
+ 	_ context.Context,
+-	set exporter.CreateSettings,
++	set exporter.Settings,
+ 	converter RequestFromTracesFunc,
+ 	options ...Option,
+ ) (exporter.Traces, error) {

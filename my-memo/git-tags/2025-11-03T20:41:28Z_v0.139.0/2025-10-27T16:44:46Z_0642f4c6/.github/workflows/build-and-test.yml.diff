@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 3e8d7f5ad..651ba7f6b 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -173,7 +173,7 @@ jobs:
+       - name: Run Unit Tests
+         run: |
+           make -j4 gotest-with-junit
+-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
++      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+         with:
+           name: test-results-${{ runner.os }}-${{ matrix.runner }}-${{ matrix.go-version }}
+           path: internal/tools/testresults/

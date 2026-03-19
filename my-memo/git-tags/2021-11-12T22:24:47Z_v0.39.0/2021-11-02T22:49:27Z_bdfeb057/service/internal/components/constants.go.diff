@@ -1,0 +1,11 @@
+diff --git a/service/internal/components/constants.go b/service/internal/components/constants.go
+index 52c730bcb..5d580d5fc 100644
+--- a/service/internal/components/constants.go
++++ b/service/internal/components/constants.go
+@@ -20,5 +20,6 @@ const (
+ 	ZapKindProcessor   = "processor"
+ 	ZapKindLogExporter = "exporter"
+ 	ZapKindExtension   = "extension"
++	ZapKindPipeline    = "pipeline"
+ 	ZapNameKey         = "name"
+ )

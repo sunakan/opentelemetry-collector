@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/databuffer_test.go b/internal/otlptext/databuffer_test.go
+index 9e49c1948..3873f1aeb 100644
+--- a/internal/otlptext/databuffer_test.go
++++ b/internal/otlptext/databuffer_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestNestedArraySerializesCorrectly(t *testing.T) {

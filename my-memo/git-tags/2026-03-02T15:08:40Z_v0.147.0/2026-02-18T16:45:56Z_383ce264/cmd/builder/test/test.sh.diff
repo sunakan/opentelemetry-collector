@@ -1,0 +1,14 @@
+diff --git a/cmd/builder/test/test.sh b/cmd/builder/test/test.sh
+index 59e771cca..9fecc2d3c 100755
+--- a/cmd/builder/test/test.sh
++++ b/cmd/builder/test/test.sh
+@@ -124,6 +124,9 @@ test_init() {
+       return
+   fi
+ 
++  go tool -modfile "${WORKSPACE_DIR}/internal/tools/go.mod" envsubst \
++     -o "${out}/manifest.yaml" -i <(cat "${out}/manifest.yaml" "$replaces")
++
+   cd "${out}" || exit 1
+   make run > "${out}/otelcol.log" 2>&1 &
+   pid=$!

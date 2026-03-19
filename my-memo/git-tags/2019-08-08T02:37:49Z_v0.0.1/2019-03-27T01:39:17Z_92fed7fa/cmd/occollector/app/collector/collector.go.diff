@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/collector/collector.go b/cmd/occollector/app/collector/collector.go
+index 1ea76733b..2477baf6e 100644
+--- a/cmd/occollector/app/collector/collector.go
++++ b/cmd/occollector/app/collector/collector.go
+@@ -89,7 +89,7 @@ func (app *Application) execute() {
+ 	var closeFns []func()
+ 	app.processor, closeFns = startProcessor(app.v, app.logger)
+ 
+-	app.receivers = createReceivers(app.v, app.logger, app.processor)
++	app.receivers = createReceivers(app.v, app.logger, app.processor, asyncErrorChannel)
+ 
+ 	err = initTelemetry(asyncErrorChannel, app.v, app.logger)
+ 	if err != nil {

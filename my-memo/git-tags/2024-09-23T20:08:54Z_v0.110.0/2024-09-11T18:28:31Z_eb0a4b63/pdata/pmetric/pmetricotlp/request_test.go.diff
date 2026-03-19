@@ -1,0 +1,16 @@
+diff --git a/pdata/pmetric/pmetricotlp/request_test.go b/pdata/pmetric/pmetricotlp/request_test.go
+index 7b8ca7fcc..e125ef5fe 100644
+--- a/pdata/pmetric/pmetricotlp/request_test.go
++++ b/pdata/pmetric/pmetricotlp/request_test.go
+@@ -35,9 +35,9 @@ var metricsRequestJSON = []byte(`
+ 
+ func TestRequestToPData(t *testing.T) {
+ 	tr := NewExportRequest()
+-	assert.Equal(t, tr.Metrics().MetricCount(), 0)
++	assert.Equal(t, 0, tr.Metrics().MetricCount())
+ 	tr.Metrics().ResourceMetrics().AppendEmpty().ScopeMetrics().AppendEmpty().Metrics().AppendEmpty()
+-	assert.Equal(t, tr.Metrics().MetricCount(), 1)
++	assert.Equal(t, 1, tr.Metrics().MetricCount())
+ }
+ 
+ func TestRequestJSON(t *testing.T) {

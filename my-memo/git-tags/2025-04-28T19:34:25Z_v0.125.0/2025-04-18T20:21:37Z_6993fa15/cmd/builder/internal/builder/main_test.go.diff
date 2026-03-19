@@ -1,0 +1,21 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 0d49d538b..0d6cf0d52 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -47,6 +47,7 @@ var replaceModules = []string{
+ 	"/config/configcompression",
+ 	"/config/configgrpc",
+ 	"/config/confighttp",
++	"/config/configmiddleware",
+ 	"/config/confignet",
+ 	"/config/configopaque",
+ 	"/config/configretry",
+@@ -79,6 +80,8 @@ var replaceModules = []string{
+ 	"/extension/extensionauth",
+ 	"/extension/extensionauth/extensionauthtest",
+ 	"/extension/extensioncapabilities",
++	"/extension/extensionmiddleware",
++	"/extension/extensionmiddleware/extensionmiddlewaretest",
+ 	"/extension/extensiontest",
+ 	"/extension/zpagesextension",
+ 	"/extension/xextension",

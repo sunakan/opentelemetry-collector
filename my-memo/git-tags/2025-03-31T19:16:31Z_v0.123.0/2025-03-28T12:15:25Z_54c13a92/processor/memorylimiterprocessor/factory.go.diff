@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/factory.go b/processor/memorylimiterprocessor/factory.go
+index 59c95cec9..ba913b8e8 100644
+--- a/processor/memorylimiterprocessor/factory.go
++++ b/processor/memorylimiterprocessor/factory.go
+@@ -135,7 +135,7 @@ func (f *factory) getMemoryLimiter(set processor.Settings, cfg component.Config)
+ 		return memLimiter, nil
+ 	}
+ 
+-	set.Logger = telemetry.LoggerWithout(
++	set.TelemetrySettings = telemetry.WithoutAttributes(
+ 		set.TelemetrySettings,
+ 		componentattribute.SignalKey,
+ 		componentattribute.PipelineIDKey,

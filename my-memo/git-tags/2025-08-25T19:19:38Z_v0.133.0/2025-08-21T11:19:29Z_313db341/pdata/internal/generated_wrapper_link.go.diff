@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_link.go b/pdata/internal/generated_wrapper_link.go
+index c215ae4e6..2487a9fe3 100644
+--- a/pdata/internal/generated_wrapper_link.go
++++ b/pdata/internal/generated_wrapper_link.go
+@@ -49,6 +49,10 @@ func DeleteOrigLink(orig *otlpprofiles.Link, nullable bool) {
+ }
+ 
+ func CopyOrigLink(dest, src *otlpprofiles.Link) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.TraceId = src.TraceId
+ 	dest.SpanId = src.SpanId
+ }

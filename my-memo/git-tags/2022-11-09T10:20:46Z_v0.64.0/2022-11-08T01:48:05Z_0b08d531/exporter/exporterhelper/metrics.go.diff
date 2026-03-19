@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 0d6bc13f9..40b5ea8e0 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -99,7 +99,7 @@ func NewMetricsExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be := newBaseExporter(cfg, set, bs, component.MetricsDataType, newMetricsRequestUnmarshalerFunc(pusher))
++	be := newBaseExporter(cfg, set, bs, component.DataTypeMetrics, newMetricsRequestUnmarshalerFunc(pusher))
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &metricsSenderWithObservability{
+ 			obsrep:     be.obsrep,

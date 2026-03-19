@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 30bdee953..1bf359d6d 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -2,6 +2,10 @@
+ 
+ ## Unreleased
+ 
++## 🛑 Breaking changes 🛑
++
++- Remove `config.NewConfigMapFrom[File|Buffer]`, add testonly version (#4502)
++
+ ## 🧰 Bug fixes 🧰
+ 
+ - Fix handling of corrupted records by persistent buffer (experimental) (#4475)

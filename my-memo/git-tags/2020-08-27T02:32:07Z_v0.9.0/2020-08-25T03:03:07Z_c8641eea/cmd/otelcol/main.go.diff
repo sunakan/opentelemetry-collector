@@ -1,0 +1,21 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index 1cfc85b61..8cd3b5171 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -20,6 +20,7 @@ import (
+ 	"fmt"
+ 	"log"
+ 
++	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/internal/version"
+ 	"go.opentelemetry.io/collector/service"
+ 	"go.opentelemetry.io/collector/service/defaultcomponents"
+@@ -31,7 +32,7 @@ func main() {
+ 		log.Fatalf("failed to build default components: %v", err)
+ 	}
+ 
+-	info := service.ApplicationStartInfo{
++	info := component.ApplicationStartInfo{
+ 		ExeName:  "otelcol",
+ 		LongName: "OpenTelemetry Collector",
+ 		Version:  version.Version,

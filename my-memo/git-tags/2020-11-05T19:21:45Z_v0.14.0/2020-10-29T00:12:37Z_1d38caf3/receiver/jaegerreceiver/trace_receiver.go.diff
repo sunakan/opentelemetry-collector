@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 3d30fcfb2..8dfd37add 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -117,7 +117,7 @@ var (
+ 	}
+ )
+ 
+-// newJaegerReceiver creates a TraceReceiver that receives traffic as a Jaeger collector, and
++// newJaegerReceiver creates a TracesReceiver that receives traffic as a Jaeger collector, and
+ // also as a Jaeger agent.
+ func newJaegerReceiver(
+ 	instanceName string,

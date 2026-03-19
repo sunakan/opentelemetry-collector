@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index 058732311..b548b5b4e 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -70,7 +70,7 @@ func (ze *zipkinExporter) start(_ context.Context, _ component.Host) (err error)
+ 	return
+ }
+ 
+-func (ze *zipkinExporter) pushTraceData(ctx context.Context, td pdata.Traces) error {
++func (ze *zipkinExporter) pushTraces(ctx context.Context, td pdata.Traces) error {
+ 	tbatch, err := zipkin.InternalTracesToZipkinSpans(td)
+ 	if err != nil {
+ 		return consumererror.Permanent(fmt.Errorf("failed to push trace data via Zipkin exporter: %w", err))

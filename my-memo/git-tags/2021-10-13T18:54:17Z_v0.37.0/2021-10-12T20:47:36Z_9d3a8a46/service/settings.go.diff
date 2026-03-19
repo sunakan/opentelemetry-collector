@@ -1,0 +1,13 @@
+diff --git a/service/settings.go b/service/settings.go
+index bd1b41a11..cca64ed62 100644
+--- a/service/settings.go
++++ b/service/settings.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package service
++package service // import "go.opentelemetry.io/collector/service"
+ 
+ import (
+ 	"go.opentelemetry.io/contrib/zpages"

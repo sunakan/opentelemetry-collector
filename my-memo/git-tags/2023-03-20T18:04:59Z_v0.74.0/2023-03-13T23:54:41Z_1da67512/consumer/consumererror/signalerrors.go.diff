@@ -1,0 +1,37 @@
+diff --git a/consumer/consumererror/signalerrors.go b/consumer/consumererror/signalerrors.go
+index 20914105f..53df88da1 100644
+--- a/consumer/consumererror/signalerrors.go
++++ b/consumer/consumererror/signalerrors.go
+@@ -51,11 +51,6 @@ func NewTraces(err error, data ptrace.Traces) error {
+ 	}
+ }
+ 
+-// Deprecated: [v0.73.0] Use `Data` instead.
+-func (err Traces) GetTraces() ptrace.Traces {
+-	return err.Data()
+-}
+-
+ // Logs is an error that may carry associated Log data for a subset of received data
+ // that failed to be processed or sent.
+ type Logs struct {
+@@ -72,11 +67,6 @@ func NewLogs(err error, data plog.Logs) error {
+ 	}
+ }
+ 
+-// Deprecated: [v0.73.0] Use `Data` instead.
+-func (err Logs) GetLogs() plog.Logs {
+-	return err.Data()
+-}
+-
+ // Metrics is an error that may carry associated Metrics data for a subset of received data
+ // that failed to be processed or sent.
+ type Metrics struct {
+@@ -92,8 +82,3 @@ func NewMetrics(err error, data pmetric.Metrics) error {
+ 		},
+ 	}
+ }
+-
+-// Deprecated: [v0.73.0] Use `Data` instead.
+-func (err Metrics) GetMetrics() pmetric.Metrics {
+-	return err.Data()
+-}

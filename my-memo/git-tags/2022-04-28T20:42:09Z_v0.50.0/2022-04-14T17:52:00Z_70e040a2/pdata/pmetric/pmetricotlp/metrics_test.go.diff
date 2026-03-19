@@ -1,0 +1,18 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics_test.go b/pdata/pmetric/pmetricotlp/metrics_test.go
+index fb7c9ba77..f372f4855 100644
+--- a/pdata/pmetric/pmetricotlp/metrics_test.go
++++ b/pdata/pmetric/pmetricotlp/metrics_test.go
+@@ -110,6 +110,13 @@ var metricsTransitionData = [][]byte{
+ 		}`),
+ }
+ 
++func TestRequestToPData(t *testing.T) {
++	tr := NewRequest()
++	assert.Equal(t, tr.Metrics().MetricCount(), 0)
++	tr.Metrics().ResourceMetrics().AppendEmpty().ScopeMetrics().AppendEmpty().Metrics().AppendEmpty()
++	assert.Equal(t, tr.Metrics().MetricCount(), 1)
++}
++
+ func TestRequestJSON(t *testing.T) {
+ 	mr := NewRequest()
+ 	assert.NoError(t, mr.UnmarshalJSON(metricsRequestJSON))

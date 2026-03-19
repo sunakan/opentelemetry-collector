@@ -1,0 +1,16 @@
+diff --git a/translator/conventions/v1.5.0/nonstandard.go b/translator/conventions/v1.5.0/nonstandard.go
+index 1895bb9e2..1580edbe8 100644
+--- a/translator/conventions/v1.5.0/nonstandard.go
++++ b/translator/conventions/v1.5.0/nonstandard.go
+@@ -19,6 +19,11 @@ const (
+ 	InstrumentationLibraryVersion = "otel.library.version"
+ )
+ 
++const (
++	OtelStatusCode        = "otel.status_code"
++	OtelStatusDescription = "otel.status_description"
++)
++
+ const (
+ 	AttributeMessageType    = "message.type"
+ 	AttributeHTTPStatusText = "http.status_text"

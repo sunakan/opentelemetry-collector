@@ -1,0 +1,14 @@
+diff --git a/internal/processor/filtermetric/name_matcher.go b/internal/processor/filtermetric/name_matcher.go
+index 41b994078..3daa1bf84 100644
+--- a/internal/processor/filtermetric/name_matcher.go
++++ b/internal/processor/filtermetric/name_matcher.go
+@@ -15,8 +15,8 @@
+ package filtermetric
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // nameMatcher matches metrics by metric properties against prespecified values for each property.

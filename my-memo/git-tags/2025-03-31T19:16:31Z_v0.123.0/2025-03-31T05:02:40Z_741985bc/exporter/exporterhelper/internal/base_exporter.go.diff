@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/base_exporter.go b/exporter/exporterhelper/internal/base_exporter.go
+index 8700ac590..f5db90545 100644
+--- a/exporter/exporterhelper/internal/base_exporter.go
++++ b/exporter/exporterhelper/internal/base_exporter.go
+@@ -83,7 +83,7 @@ func NewBaseExporter(set exporter.Settings, signal pipeline.Signal, pusher sende
+ 		return nil, err
+ 	}
+ 
+-	if be.batcherCfg.Enabled {
++	if be.batcherCfg.Enabled || be.queueCfg.Batch != nil {
+ 		// Batcher mutates the data.
+ 		be.ConsumerOptions = append(be.ConsumerOptions, consumer.WithCapabilities(consumer.Capabilities{MutatesData: true}))
+ 	}

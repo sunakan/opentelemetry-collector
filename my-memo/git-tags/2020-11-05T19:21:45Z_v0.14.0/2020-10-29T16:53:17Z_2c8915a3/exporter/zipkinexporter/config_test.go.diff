@@ -1,0 +1,12 @@
+diff --git a/exporter/zipkinexporter/config_test.go b/exporter/zipkinexporter/config_test.go
+index 4a8ae67c7..c242ac336 100644
+--- a/exporter/zipkinexporter/config_test.go
++++ b/exporter/zipkinexporter/config_test.go
+@@ -77,6 +77,6 @@ func TestLoadConfig(t *testing.T) {
+ 		DefaultServiceName: "test_name",
+ 	}, e1)
+ 	params := component.ExporterCreateParams{Logger: zap.NewNop()}
+-	_, err = factory.CreateTraceExporter(context.Background(), params, e1)
++	_, err = factory.CreateTracesExporter(context.Background(), params, e1)
+ 	require.NoError(t, err)
+ }

@@ -1,0 +1,41 @@
+diff --git a/exporter/exporterhelper/internal/queue/obs_queue.go b/exporter/exporterhelper/internal/queue/obs_queue.go
+index 1a0776511..8cad69620 100644
+--- a/exporter/exporterhelper/internal/queue/obs_queue.go
++++ b/exporter/exporterhelper/internal/queue/obs_queue.go
+@@ -26,10 +26,12 @@ const (
+ // obsQueue is a helper to add observability to a queue.
+ type obsQueue[T request.Request] struct {
+ 	Queue[T]
+-	tb                *metadata.TelemetryBuilder
+-	metricAttr        metric.MeasurementOption
+-	enqueueFailedInst metric.Int64Counter
+-	tracer            trace.Tracer
++	tb                      *metadata.TelemetryBuilder
++	metricAttr              metric.MeasurementOption
++	enqueueFailedInst       metric.Int64Counter
++	queueBatchSizeInst      metric.Int64Histogram
++	queueBatchSizeBytesInst metric.Int64Histogram
++	tracer                  trace.Tracer
+ }
+ 
+ func newObsQueue[T request.Request](set Settings[T], delegate Queue[T]) (Queue[T], error) {
+@@ -74,6 +76,9 @@ func newObsQueue[T request.Request](set Settings[T], delegate Queue[T]) (Queue[T
+ 		or.enqueueFailedInst = tb.ExporterEnqueueFailedLogRecords
+ 	}
+ 
++	or.queueBatchSizeInst = tb.ExporterQueueBatchSendSize
++	or.queueBatchSizeBytesInst = tb.ExporterQueueBatchSendSizeBytes
++
+ 	return or, nil
+ }
+ 
+@@ -87,6 +92,9 @@ func (or *obsQueue[T]) Offer(ctx context.Context, req T) error {
+ 	// be modified by the downstream components like the batcher.
+ 	numItems := req.ItemsCount()
+ 
++	or.queueBatchSizeInst.Record(ctx, int64(numItems), or.metricAttr)
++	or.queueBatchSizeBytesInst.Record(ctx, int64(req.BytesSize()), or.metricAttr)
++
+ 	ctx, span := or.tracer.Start(ctx, "exporter/enqueue")
+ 	err := or.Queue.Offer(ctx, req)
+ 	span.End()

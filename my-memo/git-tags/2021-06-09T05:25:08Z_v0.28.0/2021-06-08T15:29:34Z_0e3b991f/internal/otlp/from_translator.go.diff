@@ -1,0 +1,29 @@
+diff --git a/internal/otlp/from_translator.go b/internal/otlp/from_translator.go
+index c47679310..c193487d0 100644
+--- a/internal/otlp/from_translator.go
++++ b/internal/otlp/from_translator.go
+@@ -17,23 +17,11 @@ package otlp
+ import (
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal"
+-	"go.opentelemetry.io/collector/internal/model"
+ )
+ 
+ type fromTranslator struct{}
+ 
+-// NewFromTracesTranslator returns a model.FromTracesTranslator to convert from pdata to OTLP data model.
+-func NewFromTracesTranslator() model.FromTracesTranslator {
+-	return &fromTranslator{}
+-}
+-
+-// NewFromMetricsTranslator returns a model.FromMetricsTranslator to convert from pdata to OTLP data model.
+-func NewFromMetricsTranslator() model.FromMetricsTranslator {
+-	return &fromTranslator{}
+-}
+-
+-// NewFromLogsTranslator returns a model.FromLogsTranslator to convert from pdata to OTLP data model.
+-func NewFromLogsTranslator() model.FromLogsTranslator {
++func newFromTranslator() *fromTranslator {
+ 	return &fromTranslator{}
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/splittraces.go b/processor/batchprocessor/splittraces.go
+index 1e62a957f..46ff7f933 100644
+--- a/processor/batchprocessor/splittraces.go
++++ b/processor/batchprocessor/splittraces.go
+@@ -15,7 +15,7 @@
+ package batchprocessor
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // splitTraces removes spans from the input trace and returns a new trace of the specified size.

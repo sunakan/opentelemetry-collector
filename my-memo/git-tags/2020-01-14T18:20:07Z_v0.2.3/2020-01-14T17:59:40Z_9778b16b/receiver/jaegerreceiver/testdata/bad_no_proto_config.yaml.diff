@@ -1,0 +1,22 @@
+diff --git a/receiver/jaegerreceiver/testdata/bad_no_proto_config.yaml b/receiver/jaegerreceiver/testdata/bad_no_proto_config.yaml
+new file mode 100644
+index 000000000..b213ac632
+--- /dev/null
++++ b/receiver/jaegerreceiver/testdata/bad_no_proto_config.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  jaeger:
++    protocols:
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++     receivers: [jaeger]
++     processors: [exampleprocessor]
++     exporters: [exampleexporter]

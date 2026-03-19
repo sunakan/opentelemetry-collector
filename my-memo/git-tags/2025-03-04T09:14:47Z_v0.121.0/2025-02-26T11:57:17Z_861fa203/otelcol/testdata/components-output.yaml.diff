@@ -1,0 +1,10 @@
+diff --git a/otelcol/testdata/components-output.yaml b/otelcol/testdata/components-output.yaml
+index 6459e69cd..94e1797f3 100644
+--- a/otelcol/testdata/components-output.yaml
++++ b/otelcol/testdata/components-output.yaml
+@@ -44,3 +44,5 @@ extensions:
+ providers:
+     - scheme: nop
+       module: go.opentelemetry.io/collector/confmap/provider/testprovider v1.2.3
++converters:
++    - module: go.opentelemetry.io/collector/converter/testconverter v1.2.3

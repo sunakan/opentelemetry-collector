@@ -1,0 +1,14 @@
+diff --git a/component/componenttest/docs_test.go b/component/componenttest/docs_test.go
+index bc5a8ef85..8bb7ba493 100644
+--- a/component/componenttest/docs_test.go
++++ b/component/componenttest/docs_test.go
+@@ -23,6 +23,9 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
++// TODO: This file will be deleted after the checkdoc tool
++// is imported in contrib repo
++
+ func TestIsComponentImport(t *testing.T) {
+ 	type args struct {
+ 		importStr             string

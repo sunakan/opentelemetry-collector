@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/extensions_builder_test.go b/service/internal/builder/extensions_builder_test.go
+index 02326f547..9e053b1b3 100644
+--- a/service/internal/builder/extensions_builder_test.go
++++ b/service/internal/builder/extensions_builder_test.go
+@@ -115,7 +115,7 @@ func TestService_setupExtensions(t *testing.T) {
+ 
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
+-			ext, err := BuildExtensions(componenttest.NewNopTelemetrySettings(), component.DefaultBuildInfo(), tt.config, tt.factories.Extensions)
++			ext, err := BuildExtensions(componenttest.NewNopTelemetrySettings(), component.NewDefaultBuildInfo(), tt.config, tt.factories.Extensions)
+ 
+ 			assert.Error(t, err)
+ 			assert.EqualError(t, err, tt.wantErrMsg)

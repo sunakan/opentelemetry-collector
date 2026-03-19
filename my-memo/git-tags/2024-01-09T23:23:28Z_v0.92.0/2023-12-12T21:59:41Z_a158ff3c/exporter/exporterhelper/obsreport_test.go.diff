@@ -1,0 +1,26 @@
+diff --git a/exporter/exporterhelper/obsreport_test.go b/exporter/exporterhelper/obsreport_test.go
+index 8424c7f78..b4c2e54d7 100644
+--- a/exporter/exporterhelper/obsreport_test.go
++++ b/exporter/exporterhelper/obsreport_test.go
+@@ -11,6 +11,8 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/exporter"
++	"go.opentelemetry.io/collector/featuregate"
++	"go.opentelemetry.io/collector/internal/obsreportconfig"
+ 	"go.opentelemetry.io/collector/obsreport/obsreporttest"
+ )
+ 
+@@ -26,6 +28,12 @@ func TestExportEnqueueFailure(t *testing.T) {
+ 	})
+ 	require.NoError(t, err)
+ 
++	originalValue := obsreportconfig.UseOtelForInternalMetricsfeatureGate.IsEnabled()
++	require.NoError(t, featuregate.GlobalRegistry().Set(obsreportconfig.UseOtelForInternalMetricsfeatureGate.ID(), false))
++	defer func() {
++		require.NoError(t, featuregate.GlobalRegistry().Set(obsreportconfig.UseOtelForInternalMetricsfeatureGate.ID(), originalValue))
++	}()
++
+ 	logRecords := int64(7)
+ 	obsrep.recordEnqueueFailureWithOC(context.Background(), component.DataTypeLogs, logRecords)
+ 	require.NoError(t, tt.CheckExporterEnqueueFailedLogs(logRecords))

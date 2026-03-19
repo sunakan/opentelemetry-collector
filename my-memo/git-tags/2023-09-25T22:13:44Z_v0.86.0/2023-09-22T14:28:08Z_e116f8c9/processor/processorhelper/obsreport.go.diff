@@ -1,0 +1,16 @@
+diff --git a/processor/processorhelper/obsreport.go b/processor/processorhelper/obsreport.go
+index 64eb4cedc..66b53eb0f 100644
+--- a/processor/processorhelper/obsreport.go
++++ b/processor/processorhelper/obsreport.go
+@@ -24,10 +24,7 @@ import (
+ )
+ 
+ var (
+-	processorName  = "processor"
+-	scopeName      = "go.opentelemetry.io/collector/obsreport"
+-	nameSep        = "/"
+-	processorScope = scopeName + nameSep + processorName
++	processorScope = obsmetrics.Scope + obsmetrics.NameSep + obsmetrics.ProcessorKey
+ )
+ 
+ // BuildCustomMetricName is used to be build a metric name following

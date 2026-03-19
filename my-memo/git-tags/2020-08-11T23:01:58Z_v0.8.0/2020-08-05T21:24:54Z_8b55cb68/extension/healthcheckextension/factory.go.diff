@@ -1,0 +1,13 @@
+diff --git a/extension/healthcheckextension/factory.go b/extension/healthcheckextension/factory.go
+index 2e1c52469..1ca07a402 100644
+--- a/extension/healthcheckextension/factory.go
++++ b/extension/healthcheckextension/factory.go
+@@ -63,7 +63,7 @@ func (f *Factory) CreateExtension(_ context.Context, params component.ExtensionC
+ 		return nil, errors.New("only a single instance can be created per process")
+ 	}
+ 
+-	return newServer(*config, params.Logger)
++	return newServer(*config, params.Logger), nil
+ }
+ 
+ // See comment in CreateExtension how these are used.

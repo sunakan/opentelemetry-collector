@@ -1,0 +1,24 @@
+diff --git a/pdata/plog/generated_logrecord_test.go b/pdata/plog/generated_logrecord_test.go
+index e5ac03fa9..c7a6f8039 100644
+--- a/pdata/plog/generated_logrecord_test.go
++++ b/pdata/plog/generated_logrecord_test.go
+@@ -27,8 +27,8 @@ func TestLogRecord_MoveTo(t *testing.T) {
+ 	assert.Equal(t, generateTestLogRecord(), dest)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.MoveTo(newLogRecord(internal.NewOrigPtrLogRecord(), sharedState)) })
+-	assert.Panics(t, func() { newLogRecord(internal.NewOrigPtrLogRecord(), sharedState).MoveTo(dest) })
++	assert.Panics(t, func() { ms.MoveTo(newLogRecord(internal.NewOrigLogRecord(), sharedState)) })
++	assert.Panics(t, func() { newLogRecord(internal.NewOrigLogRecord(), sharedState).MoveTo(dest) })
+ }
+ 
+ func TestLogRecord_CopyTo(t *testing.T) {
+@@ -41,7 +41,7 @@ func TestLogRecord_CopyTo(t *testing.T) {
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.NewState()
+ 	sharedState.MarkReadOnly()
+-	assert.Panics(t, func() { ms.CopyTo(newLogRecord(internal.NewOrigPtrLogRecord(), sharedState)) })
++	assert.Panics(t, func() { ms.CopyTo(newLogRecord(internal.NewOrigLogRecord(), sharedState)) })
+ }
+ 
+ func TestLogRecord_Timestamp(t *testing.T) {

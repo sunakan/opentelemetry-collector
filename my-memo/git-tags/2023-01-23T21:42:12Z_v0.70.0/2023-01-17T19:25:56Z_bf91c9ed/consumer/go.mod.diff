@@ -1,0 +1,10 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 59bc962c1..5c96539ca 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -40,3 +40,5 @@ replace go.opentelemetry.io/collector/component => ../component
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
+ 
+ replace go.opentelemetry.io/collector/confmap => ../confmap
++
++retract v0.69.0 // Release failed, use v0.69.1

@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index 6a4552db2..686025517 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -44,7 +44,7 @@ type Config struct {
+ }
+ 
+ var _ config.Receiver = (*Config)(nil)
+-var _ config.Unmarshallable = (*Config)(nil)
++var _ confmap.Unmarshaler = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

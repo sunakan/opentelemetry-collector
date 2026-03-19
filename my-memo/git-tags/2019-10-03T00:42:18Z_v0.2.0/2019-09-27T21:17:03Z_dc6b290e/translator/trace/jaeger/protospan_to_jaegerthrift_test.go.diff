@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerthrift_test.go b/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
+index 0d2e6b851..83e20d992 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
++++ b/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
+@@ -28,8 +28,8 @@ import (
+ 	"github.com/google/go-cmp/cmp"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ func TestThriftInvalidOCProtoIDs(t *testing.T) {

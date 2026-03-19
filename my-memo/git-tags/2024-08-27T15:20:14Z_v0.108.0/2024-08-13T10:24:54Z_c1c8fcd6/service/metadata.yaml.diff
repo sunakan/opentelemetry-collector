@@ -1,0 +1,17 @@
+diff --git a/service/metadata.yaml b/service/metadata.yaml
+index 886f71549..2119d4636 100644
+--- a/service/metadata.yaml
++++ b/service/metadata.yaml
+@@ -6,12 +6,6 @@ status:
+     development: [traces, metrics, logs]
+   distributions: [core, contrib]
+ 
+-tests:
+-  goleak:
+-    ignore:
+-      top:
+-        - "go.opentelemetry.io/collector/service/internal/proctelemetry.InitPrometheusServer.func1"
+-
+ telemetry:
+   metrics:
+     process_uptime:

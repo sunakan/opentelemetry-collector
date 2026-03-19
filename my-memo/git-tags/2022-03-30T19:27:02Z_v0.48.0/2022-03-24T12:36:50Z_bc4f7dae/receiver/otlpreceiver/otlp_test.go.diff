@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index 5514cdae4..30a23eb0b 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -69,7 +69,7 @@ var traceJSON = []byte(`
+ 			  }
+ 			]
+ 		  },
+-		  "instrumentation_library_spans": [
++		  "scope_spans": [
+ 			{
+ 			  "spans": [
+ 				{

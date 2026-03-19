@@ -1,0 +1,17 @@
+diff --git a/.chloggen/rmvalidate.yaml b/.chloggen/rmvalidate.yaml
+deleted file mode 100755
+index 5160d9b7e..000000000
+--- a/.chloggen/rmvalidate.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: breaking
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: component
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Remove `Validate()` from component.*Config interfaces and make it optional interface
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [6544]

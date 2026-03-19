@@ -1,0 +1,74 @@
+diff --git a/exporter/prometheusremotewriteexporter/exporter_test.go b/exporter/prometheusremotewriteexporter/exporter_test.go
+index 723099f46..723d9d618 100644
+--- a/exporter/prometheusremotewriteexporter/exporter_test.go
++++ b/exporter/prometheusremotewriteexporter/exporter_test.go
+@@ -363,15 +363,11 @@ func Test_PushMetrics(t *testing.T) {
+ 
+ 	doubleGaugeBatch := getMetricsFromMetricList(validMetrics1[validDoubleGauge], validMetrics2[validDoubleGauge])
+ 
+-	intHistogramBatch := getMetricsFromMetricList(validMetrics1[validIntHistogram], validMetrics2[validIntHistogram])
+-
+ 	histogramBatch := getMetricsFromMetricList(validMetrics1[validHistogram], validMetrics2[validHistogram])
+ 
+ 	summaryBatch := getMetricsFromMetricList(validMetrics1[validSummary], validMetrics2[validSummary])
+ 
+ 	// len(BucketCount) > len(ExplicitBounds)
+-	unmatchedBoundBucketIntHistBatch := getMetricsFromMetricList(validMetrics2[unmatchedBoundBucketIntHist])
+-
+ 	unmatchedBoundBucketHistBatch := getMetricsFromMetricList(validMetrics2[unmatchedBoundBucketHist])
+ 
+ 	// fail cases
+@@ -383,8 +379,6 @@ func Test_PushMetrics(t *testing.T) {
+ 
+ 	emptyCumulativeSumBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeSum])
+ 
+-	emptyCumulativeIntHistogramBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeIntHistogram])
+-
+ 	emptyCumulativeHistogramBatch := getMetricsFromMetricList(invalidMetrics[emptyCumulativeHistogram])
+ 
+ 	emptyCumulativeSummaryBatch := getMetricsFromMetricList(invalidMetrics[emptySummary])
+@@ -456,14 +450,6 @@ func Test_PushMetrics(t *testing.T) {
+ 			http.StatusAccepted,
+ 			false,
+ 		},
+-		{
+-			"intHistogram_case",
+-			&intHistogramBatch,
+-			checkFunc,
+-			12,
+-			http.StatusAccepted,
+-			false,
+-		},
+ 		{
+ 			"histogram_case",
+ 			&histogramBatch,
+@@ -480,14 +466,6 @@ func Test_PushMetrics(t *testing.T) {
+ 			http.StatusAccepted,
+ 			false,
+ 		},
+-		{
+-			"unmatchedBoundBucketIntHist_case",
+-			&unmatchedBoundBucketIntHistBatch,
+-			checkFunc,
+-			5,
+-			http.StatusAccepted,
+-			false,
+-		},
+ 		{
+ 			"unmatchedBoundBucketHist_case",
+ 			&unmatchedBoundBucketHistBatch,
+@@ -544,14 +522,6 @@ func Test_PushMetrics(t *testing.T) {
+ 			http.StatusAccepted,
+ 			true,
+ 		},
+-		{
+-			"emptyCumulativeIntHistogram_case",
+-			&emptyCumulativeIntHistogramBatch,
+-			checkFunc,
+-			0,
+-			http.StatusAccepted,
+-			true,
+-		},
+ 		{
+ 			"emptyCumulativeSummary_case",
+ 			&emptyCumulativeSummaryBatch,

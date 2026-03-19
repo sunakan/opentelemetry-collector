@@ -1,0 +1,12 @@
+diff --git a/.chloggen/rename-dev-stability-level.yaml b/.chloggen/rename-dev-stability-level.yaml
+new file mode 100755
+index 000000000..69a7a29d1
+--- /dev/null
++++ b/.chloggen/rename-dev-stability-level.yaml
+@@ -0,0 +1,6 @@
++change_type: deprecation
++component: component
++note: Deprecate `StabilityLevelInDevelopment` enum const in favor of `StabilityLevelDevelopment`.
++issues: [6561]
++subtext: |-
++  Also rename all mentions of "In development" stability level to "Development".

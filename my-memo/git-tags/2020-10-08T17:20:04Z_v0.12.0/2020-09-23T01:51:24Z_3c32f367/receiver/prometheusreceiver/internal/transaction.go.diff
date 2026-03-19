@@ -1,0 +1,29 @@
+diff --git a/receiver/prometheusreceiver/internal/transaction.go b/receiver/prometheusreceiver/internal/transaction.go
+index 1ca72b0e5..487f671cc 100644
+--- a/receiver/prometheusreceiver/internal/transaction.go
++++ b/receiver/prometheusreceiver/internal/transaction.go
+@@ -27,9 +27,6 @@ import (
+ 	"github.com/prometheus/common/model"
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/storage"
+-	"go.opencensus.io/plugin/ochttp"
+-	"go.opencensus.io/stats"
+-	"go.opencensus.io/tag"
+ 	"go.uber.org/zap"
+ 	"google.golang.org/protobuf/types/known/timestamppb"
+ 
+@@ -159,14 +156,6 @@ func (tr *transaction) Commit() error {
+ 		return err
+ 	}
+ 
+-	if tr.metricBuilder.hasInternalMetric {
+-		m := ochttp.ClientRoundtripLatency.M(tr.metricBuilder.scrapeLatencyMs)
+-		stats.RecordWithTags(tr.ctx, []tag.Mutator{
+-			tag.Upsert(ochttp.KeyClientStatus, tr.metricBuilder.scrapeStatus),
+-		}, m)
+-
+-	}
+-
+ 	if tr.useStartTimeMetric {
+ 		// AdjustStartTime - startTime has to be non-zero in this case.
+ 		if tr.metricBuilder.startTime == 0.0 {

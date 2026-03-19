@@ -1,0 +1,10 @@
+diff --git a/connector/forwardconnector/go.mod b/connector/forwardconnector/go.mod
+index 46dbf5eda..70367ef47 100644
+--- a/connector/forwardconnector/go.mod
++++ b/connector/forwardconnector/go.mod
+@@ -54,3 +54,5 @@ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
++
++retract v0.69.0 // Release failed, use v0.69.1

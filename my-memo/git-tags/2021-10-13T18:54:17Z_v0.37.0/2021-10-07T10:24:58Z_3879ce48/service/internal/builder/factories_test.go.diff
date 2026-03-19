@@ -1,0 +1,53 @@
+diff --git a/service/internal/builder/factories_test.go b/service/internal/builder/factories_test.go
+index 7961c5cb5..f293c6ad6 100644
+--- a/service/internal/builder/factories_test.go
++++ b/service/internal/builder/factories_test.go
+@@ -15,12 +15,9 @@
+ package builder
+ 
+ import (
+-	"context"
+-
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/exporter/exporterhelper"
+-	"go.opentelemetry.io/collector/extension/extensionhelper"
+ 	"go.opentelemetry.io/collector/internal/testcomponents"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ 	"go.opentelemetry.io/collector/receiver/receiverhelper"
+@@ -30,15 +27,11 @@ func createTestFactories() component.Factories {
+ 	exampleReceiverFactory := testcomponents.ExampleReceiverFactory
+ 	exampleProcessorFactory := testcomponents.ExampleProcessorFactory
+ 	exampleExporterFactory := testcomponents.ExampleExporterFactory
+-	badExtensionFactory := newBadExtensionFactory()
+ 	badReceiverFactory := newBadReceiverFactory()
+ 	badProcessorFactory := newBadProcessorFactory()
+ 	badExporterFactory := newBadExporterFactory()
+ 
+ 	factories := component.Factories{
+-		Extensions: map[config.Type]component.ExtensionFactory{
+-			badExtensionFactory.Type(): badExtensionFactory,
+-		},
+ 		Receivers: map[config.Type]component.ReceiverFactory{
+ 			exampleReceiverFactory.Type(): exampleReceiverFactory,
+ 			badReceiverFactory.Type():     badReceiverFactory,
+@@ -85,19 +78,3 @@ func newBadExporterFactory() component.ExporterFactory {
+ 		}
+ 	})
+ }
+-
+-func newBadExtensionFactory() component.ExtensionFactory {
+-	return extensionhelper.NewFactory(
+-		"bf",
+-		func() config.Extension {
+-			return &struct {
+-				config.ExtensionSettings `mapstructure:",squash"` // squash ensures fields are correctly decoded in embedded struct
+-			}{
+-				ExtensionSettings: config.NewExtensionSettings(config.NewComponentID("bf")),
+-			}
+-		},
+-		func(ctx context.Context, set component.ExtensionCreateSettings, extension config.Extension) (component.Extension, error) {
+-			return nil, nil
+-		},
+-	)
+-}

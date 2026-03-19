@@ -1,0 +1,13 @@
+diff --git a/README.md b/README.md
+index 477572229..b54aa32dc 100644
+--- a/README.md
++++ b/README.md
+@@ -165,7 +165,7 @@ exporters:
+     topic: "opencensus-spans"
+ 
+   stackdriver:
+-    project: "your-project-id"
++    project: "my-project-id" # optional, defaults to agent project if run on GCP
+     enable_tracing: true
+ 
+   zipkin:

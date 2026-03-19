@@ -1,0 +1,17 @@
+diff --git a/cmd/occollector/app/collector/testdata/otelsvc-config.yaml b/cmd/occollector/app/collector/testdata/otelsvc-config.yaml
+index a28a771ef..33dd4d409 100644
+--- a/cmd/occollector/app/collector/testdata/otelsvc-config.yaml
++++ b/cmd/occollector/app/collector/testdata/otelsvc-config.yaml
+@@ -10,9 +10,11 @@ exporters:
+ processors:
+   attributes:
+     enabled: true
++  queued-retry:
++    enabled: true
+ 
+ pipelines:
+   traces:
+     receivers: [jaeger]
+-    processors: [attributes]
++    processors: [attributes, queued-retry]
+     exporters: [opencensus]

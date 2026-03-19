@@ -1,0 +1,13 @@
+diff --git a/internal/obsreportconfig/obsreportconfig.go b/internal/obsreportconfig/obsreportconfig.go
+index a7d72876b..6636e9464 100644
+--- a/internal/obsreportconfig/obsreportconfig.go
++++ b/internal/obsreportconfig/obsreportconfig.go
+@@ -39,7 +39,7 @@ func init() {
+ func RegisterInternalMetricFeatureGate(registry *featuregate.Registry) {
+ 	registry.MustRegisterID(
+ 		UseOtelForInternalMetricsfeatureGateID,
+-		featuregate.Alpha,
++		featuregate.StageAlpha,
+ 		featuregate.WithRegisterDescription("controls whether the collector uses OpenTelemetry for internal metrics"),
+ 	)
+ }

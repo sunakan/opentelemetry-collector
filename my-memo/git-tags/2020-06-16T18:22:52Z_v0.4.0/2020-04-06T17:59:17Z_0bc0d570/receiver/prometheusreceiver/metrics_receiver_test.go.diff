@@ -1,0 +1,24 @@
+diff --git a/receiver/prometheusreceiver/metrics_receiver_test.go b/receiver/prometheusreceiver/metrics_receiver_test.go
+index 29394da1d..6812f1758 100644
+--- a/receiver/prometheusreceiver/metrics_receiver_test.go
++++ b/receiver/prometheusreceiver/metrics_receiver_test.go
+@@ -15,6 +15,7 @@
+ package prometheusreceiver
+ 
+ import (
++	"context"
+ 	"fmt"
+ 	"log"
+ 	"net"
+@@ -1037,9 +1038,9 @@ func testEndToEnd(t *testing.T, targets []*testData, useStartTimeMetric bool) {
+ 	rcvr := newPrometheusReceiver(logger, &Config{PrometheusConfig: cfg, UseStartTimeMetric: useStartTimeMetric}, cms)
+ 
+ 	mh := component.NewMockHost()
+-	err = rcvr.Start(mh)
++	err = rcvr.Start(context.Background(), mh)
+ 	require.Nilf(t, err, "Failed to invoke Start: %v", err)
+-	defer rcvr.Shutdown()
++	defer rcvr.Shutdown(context.Background())
+ 
+ 	// wait for all provided data to be scraped
+ 	mp.wg.Wait()

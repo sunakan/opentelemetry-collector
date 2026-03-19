@@ -1,0 +1,18 @@
+diff --git a/component/componentprofiles/go.mod b/component/componentprofiles/go.mod
+index 7d1f8fa61..f9e30e97f 100644
+--- a/component/componentprofiles/go.mod
++++ b/component/componentprofiles/go.mod
+@@ -2,11 +2,11 @@ module go.opentelemetry.io/collector/component/componentprofiles
+ 
+ go 1.21.0
+ 
+-require go.opentelemetry.io/collector/component v0.105.0
++require go.opentelemetry.io/collector/component v0.106.0
+ 
+ require (
+ 	github.com/gogo/protobuf v1.3.2 // indirect
+-	go.opentelemetry.io/collector/config/configtelemetry v0.105.0 // indirect
++	go.opentelemetry.io/collector/config/configtelemetry v0.106.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.12.0 // indirect
+ 	go.opentelemetry.io/otel v1.28.0 // indirect
+ 	go.opentelemetry.io/otel/metric v1.28.0 // indirect

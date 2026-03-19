@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/check_links_config.json b/.github/workflows/check_links_config.json
+index 82ca9c0c3..84c68f6fd 100644
+--- a/.github/workflows/check_links_config.json
++++ b/.github/workflows/check_links_config.json
+@@ -8,6 +8,9 @@
+         },
+         {
+             "pattern": "http(s)?://example.com"
++        },
++        {
++            "pattern": "#warnings"
+         }
+     ],
+     "aliveStatusCodes": [429, 200],

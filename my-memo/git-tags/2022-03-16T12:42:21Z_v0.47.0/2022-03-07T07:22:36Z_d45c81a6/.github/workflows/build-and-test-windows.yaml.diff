@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 62d867373..b8cb5b99e 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -13,7 +13,7 @@ jobs:
+       - name: Checkout Repo
+         uses: actions/checkout@v3
+       - name: Setup Go
+-        uses: actions/setup-go@v2.2.0
++        uses: actions/setup-go@v3
+         with:
+           go-version: 1.17
+       - name: Setup Go Environment

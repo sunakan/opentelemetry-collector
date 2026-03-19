@@ -1,0 +1,17 @@
+diff --git a/config/configmapprovider/expand.go b/config/configmapprovider/expand.go
+index 29bb29657..943428f3e 100644
+--- a/config/configmapprovider/expand.go
++++ b/config/configmapprovider/expand.go
+@@ -43,6 +43,12 @@ func expandStringValues(value interface{}) interface{} {
+ 			nslice = append(nslice, expandStringValues(vint))
+ 		}
+ 		return nslice
++	case map[string]interface{}:
++		nmap := map[string]interface{}{}
++		for mk, mv := range v {
++			nmap[mk] = expandStringValues(mv)
++		}
++		return nmap
+ 	default:
+ 		return v
+ 	}

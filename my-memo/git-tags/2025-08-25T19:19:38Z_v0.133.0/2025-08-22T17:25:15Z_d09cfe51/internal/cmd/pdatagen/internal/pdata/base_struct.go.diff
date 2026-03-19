@@ -1,0 +1,37 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/base_struct.go b/internal/cmd/pdatagen/internal/pdata/base_struct.go
+index a1b27fb9e..f04095b50 100644
+--- a/internal/cmd/pdatagen/internal/pdata/base_struct.go
++++ b/internal/cmd/pdatagen/internal/pdata/base_struct.go
+@@ -13,6 +13,7 @@ type baseStruct interface {
+ 	getOriginName() string
+ 	getOriginFullName() string
+ 	getHasWrapper() bool
++	getHasOnlyOrig() bool
+ 	generate(packageInfo *PackageInfo) []byte
+ 	generateTests(packageInfo *PackageInfo) []byte
+ 	generateInternal(packageInfo *PackageInfo) []byte
+@@ -28,6 +29,7 @@ type messageStruct struct {
+ 	originFullName string
+ 	fields         []Field
+ 	hasWrapper     bool
++	hasOnlyOrig    bool
+ }
+ 
+ func (ms *messageStruct) getName() string {
+@@ -75,9 +77,16 @@ func (ms *messageStruct) getHasWrapper() bool {
+ 	if ms.hasWrapper {
+ 		return true
+ 	}
++	if ms.hasOnlyOrig {
++		return false
++	}
+ 	return usedByOtherDataTypes(ms.packageName)
+ }
+ 
++func (ms *messageStruct) getHasOnlyOrig() bool {
++	return ms.hasOnlyOrig
++}
++
+ func (ms *messageStruct) getOriginName() string {
+ 	return proto.ExtractNameFromFull(ms.originFullName)
+ }

@@ -1,0 +1,21 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 2a05684a3..41724bd87 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -38,7 +38,6 @@ import (
+ 	"github.com/jaegertracing/jaeger/proto-gen/api_v2"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/baggage"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+-	jaegerThrift "github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/sampling"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/zipkincore"
+ 	"github.com/uber/jaeger-lib/metrics"
+@@ -460,7 +459,7 @@ func (jr *jReceiver) startAgent(_ component.Host) error {
+ }
+ 
+ func (jr *jReceiver) buildProcessor(address string, factory apacheThrift.TProtocolFactory) (processors.Processor, error) {
+-	handler := jaegerThrift.NewAgentProcessor(jr)
++	handler := jaeger.NewAgentProcessor(jr)
+ 	transport, err := thriftudp.NewTUDPServerTransport(address)
+ 	if err != nil {
+ 		return nil, err

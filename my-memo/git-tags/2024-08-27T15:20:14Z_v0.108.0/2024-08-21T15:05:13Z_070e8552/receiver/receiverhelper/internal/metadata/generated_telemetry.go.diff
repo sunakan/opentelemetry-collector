@@ -1,0 +1,15 @@
+diff --git a/receiver/receiverhelper/internal/metadata/generated_telemetry.go b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+index 8e0b5a845..441610315 100644
+--- a/receiver/receiverhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+@@ -17,6 +17,10 @@ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/receiver/receiverhelper")
+ }
+ 
++func LeveledMeter(settings component.TelemetrySettings, level configtelemetry.Level) metric.Meter {
++	return settings.LeveledMeterProvider(level).Meter("go.opentelemetry.io/collector/receiver/receiverhelper")
++}
++
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ 	return settings.TracerProvider.Tracer("go.opentelemetry.io/collector/receiver/receiverhelper")
+ }

@@ -1,0 +1,15 @@
+diff --git a/pipeline/signal.go b/pipeline/signal.go
+index 77376c999..f28a29542 100644
+--- a/pipeline/signal.go
++++ b/pipeline/signal.go
+@@ -16,7 +16,7 @@ type Signal = globalsignal.Signal
+ var ErrSignalNotSupported = errors.New("telemetry type is not supported")
+ 
+ var (
+-	SignalTraces  = globalsignal.MustNewSignal("traces")
+-	SignalMetrics = globalsignal.MustNewSignal("metrics")
+-	SignalLogs    = globalsignal.MustNewSignal("logs")
++	SignalTraces  = globalsignal.SignalTraces
++	SignalMetrics = globalsignal.SignalMetrics
++	SignalLogs    = globalsignal.SignalLogs
+ )

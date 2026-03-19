@@ -1,0 +1,16 @@
+diff --git a/testbed/correctness/traces/correctness_test.go b/testbed/correctness/traces/correctness_test.go
+index d87c2a8bf..aad6e86d9 100644
+--- a/testbed/correctness/traces/correctness_test.go
++++ b/testbed/correctness/traces/correctness_test.go
+@@ -78,10 +78,10 @@ func testWithTracingGoldenDataset(
+ 		runner,
+ 		validator,
+ 		correctnessResults,
++		testbed.WithResourceLimits(resourceSpec),
+ 	)
+ 	defer tc.Stop()
+ 
+-	tc.SetResourceLimits(resourceSpec)
+ 	tc.EnableRecording()
+ 	tc.StartBackend()
+ 	tc.StartAgent("--metrics-level=NONE")

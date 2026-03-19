@@ -1,0 +1,66 @@
+diff --git a/examples/demotrace/docker-compose.yaml b/examples/demotrace/docker-compose.yaml
+deleted file mode 100644
+index 9a09f5035..000000000
+--- a/examples/demotrace/docker-compose.yaml
++++ /dev/null
+@@ -1,60 +0,0 @@
+-version: "2"
+-services:
+-
+-  # Jaeger
+-  jaeger-all-in-one:
+-    image: jaegertracing/all-in-one:latest
+-    ports:
+-      - "16686:16686"
+-      - "14268"
+-      - "14250"
+-
+-  # Zipkin
+-  zipkin-all-in-one:
+-    image: openzipkin/zipkin:2.11.12
+-    ports:
+-      - "9411:9411"
+-
+-  # Collector
+-  otel-collector:
+-    image: otelsvc:latest
+-    command: ["--config=/etc/otel-collector-config.yaml", "--http-pprof-port=1777"]
+-    volumes:
+-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+-    ports:
+-      - "55678"
+-      - "55680:55679"
+-      - "1777:1777"
+-      - "8888:8888" # Prometheus metrics
+-    depends_on:
+-      - jaeger-all-in-one
+-      - zipkin-all-in-one
+-
+-  # Agent
+-  otel-agent:
+-    image: otelsvc:latest
+-    command: ["--config=/etc/otel-agent-config.yaml", "--http-pprof-port=1888"]
+-    volumes:
+-      - ./otel-agent-config.yaml:/etc/otel-agent-config.yaml
+-    ports:
+-      - "14268"
+-      - "55678"
+-      - "55679:55679"
+-    depends_on:
+-      - otel-collector
+-
+-  # Synthetic load generator
+-  synthetic-load-generator:
+-    image: omnition/synthetic-load-generator:1.0.25
+-    environment:
+-      - JAEGER_COLLECTOR_URL=http://otel-agent:14268
+-    depends_on:
+-      - otel-agent
+-
+-  prometheus:
+-    container_name: prometheus
+-    image: prom/prometheus:latest
+-    volumes:
+-      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+-    ports:
+-      - "9090:9090"

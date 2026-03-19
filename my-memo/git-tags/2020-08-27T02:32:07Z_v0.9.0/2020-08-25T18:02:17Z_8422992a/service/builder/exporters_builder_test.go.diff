@@ -1,0 +1,16 @@
+diff --git a/service/builder/exporters_builder_test.go b/service/builder/exporters_builder_test.go
+index f8ef14e60..2d3a9c385 100644
+--- a/service/builder/exporters_builder_test.go
++++ b/service/builder/exporters_builder_test.go
+@@ -222,6 +222,11 @@ func TestExportersBuilder_ErrorOnNilExporter(t *testing.T) {
+ 			InputType: configmodels.MetricsDataType,
+ 			Exporters: []string{string(bf.Type())},
+ 		},
++		{
++			Name:      "logs",
++			InputType: configmodels.LogsDataType,
++			Exporters: []string{string(bf.Type())},
++		},
+ 	}
+ 
+ 	for _, pipeline := range pipelines {

@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/cgroup_test.go b/internal/cgroups/cgroup_test.go
+index 96530f18a..8a4b9b844 100644
+--- a/internal/cgroups/cgroup_test.go
++++ b/internal/cgroups/cgroup_test.go
+@@ -98,7 +98,7 @@ func TestCGroupReadInt(t *testing.T) {
+ 	testTable := []struct {
+ 		name            string
+ 		paramName       string
+-		expectedValue   int
++		expectedValue   int64
+ 		shouldHaveError bool
+ 	}{
+ 		{

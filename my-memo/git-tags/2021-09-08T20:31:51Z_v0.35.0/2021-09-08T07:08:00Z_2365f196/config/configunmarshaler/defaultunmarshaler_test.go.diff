@@ -1,0 +1,13 @@
+diff --git a/config/configunmarshaler/defaultunmarshaler_test.go b/config/configunmarshaler/defaultunmarshaler_test.go
+index 2ab58f051..71955b89f 100644
+--- a/config/configunmarshaler/defaultunmarshaler_test.go
++++ b/config/configunmarshaler/defaultunmarshaler_test.go
+@@ -459,7 +459,7 @@ func loadConfigFile(t *testing.T, fileName string, factories component.Factories
+ 	v, err := configparser.NewParserFromFile(fileName)
+ 	require.NoError(t, err)
+ 
+-	// Unmarshal the config from the configparser.Parser using the given factories.
++	// Unmarshal the config from the configparser.ConfigMap using the given factories.
+ 	return NewDefault().Unmarshal(v, factories)
+ }
+ 

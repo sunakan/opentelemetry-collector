@@ -1,0 +1,31 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index e44900d7a..31f8d4d40 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -134,7 +134,17 @@ linters-settings:
+             - "!**/*_test.go"
+ 
+   testifylint:
+-    enable-all: true   
++    enable-all: true
++
++  thelper:
++    test:
++      begin: false
++    benchmark:
++      begin: false
++    tb:
++      begin: false
++    fuzz:
++      begin: false
+ 
+ linters:
+   enable:
+@@ -153,6 +163,7 @@ linters:
+     - staticcheck
+     - tenv
+     - testifylint
++    - thelper
+     - unconvert
+     - unused
+     - unparam

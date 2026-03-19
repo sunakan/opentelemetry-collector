@@ -1,0 +1,13 @@
+diff --git a/service/zpages.go b/service/zpages.go
+index 928e239d8..c9f8a355d 100644
+--- a/service/zpages.go
++++ b/service/zpages.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package service
++package service // import "go.opentelemetry.io/collector/service"
+ 
+ import (
+ 	"net/http"

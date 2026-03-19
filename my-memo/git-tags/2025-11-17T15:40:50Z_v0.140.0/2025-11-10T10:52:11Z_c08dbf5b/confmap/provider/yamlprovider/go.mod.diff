@@ -1,0 +1,10 @@
+diff --git a/confmap/provider/yamlprovider/go.mod b/confmap/provider/yamlprovider/go.mod
+index eec0c67c1..0d6b03786 100644
+--- a/confmap/provider/yamlprovider/go.mod
++++ b/confmap/provider/yamlprovider/go.mod
+@@ -29,3 +29,5 @@ require (
+ replace go.opentelemetry.io/collector/confmap => ../../
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../../internal/testutil

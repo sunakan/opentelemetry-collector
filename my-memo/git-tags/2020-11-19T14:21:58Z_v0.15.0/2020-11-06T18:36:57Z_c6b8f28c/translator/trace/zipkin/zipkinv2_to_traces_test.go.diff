@@ -1,0 +1,12 @@
+diff --git a/translator/trace/zipkin/zipkinv2_to_traces_test.go b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+index 6a64891d0..ad9335f40 100644
+--- a/translator/trace/zipkin/zipkinv2_to_traces_test.go
++++ b/translator/trace/zipkin/zipkinv2_to_traces_test.go
+@@ -126,7 +126,6 @@ func generateTraceSingleSpanMinmalResource() pdata.Traces {
+ 	td := generateTraceSingleSpanNoResourceOrInstrLibrary()
+ 	rs := td.ResourceSpans().At(0)
+ 	rsc := rs.Resource()
+-	rsc.InitEmpty()
+ 	rsc.Attributes().InitEmptyWithCapacity(1)
+ 	rsc.Attributes().UpsertString(conventions.AttributeServiceName, "SoleAttr")
+ 	return td

@@ -1,0 +1,21 @@
+diff --git a/confmap/internal/e2e/types_test.go b/confmap/internal/e2e/types_test.go
+index c96847f9c..be099ee9b 100644
+--- a/confmap/internal/e2e/types_test.go
++++ b/confmap/internal/e2e/types_test.go
+@@ -383,6 +383,16 @@ func TestStrictTypeCasting(t *testing.T) {
+ 			targetField: TargetFieldSlice,
+ 			expected:    []any{"filelog", "windowseventlog/application"},
+ 		},
++		{
++			value:       `[filelog,windowseventlog/application]`,
++			targetField: TargetFieldString,
++			expected:    "[filelog,windowseventlog/application]",
++		},
++		{
++			value:       `[filelog,windowseventlog/application]`,
++			targetField: TargetFieldInlineString,
++			expected:    "inline field with [filelog,windowseventlog/application] expansion",
++		},
+ 	}
+ 
+ 	previousValue := globalgates.StrictlyTypedInputGate.IsEnabled()

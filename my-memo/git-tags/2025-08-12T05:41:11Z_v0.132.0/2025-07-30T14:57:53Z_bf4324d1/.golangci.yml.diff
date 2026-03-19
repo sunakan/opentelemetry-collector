@@ -1,0 +1,23 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 4c522a786..fe7dc0b07 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -8,6 +8,10 @@ formatters:
+       # simplify code: gofmt with `-s` option, true by default
+       simplify: true
+ 
++    gofumpt:
++      # Choose whether to use the extra rules
++      extra-rules: true
++
+     goimports:
+       # put imports beginning with prefix after 3rd-party packages;
+       # it's a comma-separated list of prefixes
+@@ -88,7 +92,6 @@ linters:
+         - filepathJoin
+         - hugeParam
+         - importShadow
+-        - paramTypeCombine
+         - rangeValCopy
+         - unnamedResult
+         - whyNoLint

@@ -1,0 +1,21 @@
+diff --git a/service/unmarshaler.go b/service/unmarshaler.go
+index 52f85b41c..c1c78d19a 100644
+--- a/service/unmarshaler.go
++++ b/service/unmarshaler.go
+@@ -45,9 +45,13 @@ func unmarshal(v *confmap.Conf, factories component.Factories) (*configSettings,
+ 		Service: ConfigService{
+ 			Telemetry: telemetry.Config{
+ 				Logs: telemetry.LogsConfig{
+-					Level:             zapcore.InfoLevel,
+-					Development:       false,
+-					Encoding:          "console",
++					Level:       zapcore.InfoLevel,
++					Development: false,
++					Encoding:    "console",
++					Sampling: &telemetry.LogsSamplingConfig{
++						Initial:    100,
++						Thereafter: 100,
++					},
+ 					OutputPaths:       []string{"stderr"},
+ 					ErrorOutputPaths:  []string{"stderr"},
+ 					DisableCaller:     false,

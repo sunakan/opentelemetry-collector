@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 9073fdc1c..18449eb6e 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -146,6 +146,7 @@ linters-settings:
+       - name: time-naming
+       # warns when an exported function or method returns a value of an un-exported type.
+       - name: unexported-return
++      - name: unnecessary-stmt
+       # spots and proposes to remove unreachable code. also helps to spot errors
+       - name: unreachable-code
+       # Functions or methods with unused parameters can be a symptom of an unfinished refactoring or a bug.

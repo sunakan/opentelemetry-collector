@@ -1,0 +1,26 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/json_marshal.go b/internal/cmd/pdatagen/internal/proto/json_marshal.go
+index 12bdd17c1..d2ef34b0f 100644
+--- a/internal/cmd/pdatagen/internal/proto/json_marshal.go
++++ b/internal/cmd/pdatagen/internal/proto/json_marshal.go
+@@ -52,10 +52,10 @@ const marshalJSONMessage = `{{ if .repeated -}}
+ 	if len(orig.{{ .fieldName }}) > 0 {
+ 		dest.WriteObjectField("{{ .jsonTag }}")
+ 		dest.WriteArrayStart()
+-		MarshalJSON{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }}[0], dest)
++		orig.{{ .fieldName }}[0].MarshalJSON(dest)
+ 		for i := 1; i < len(orig.{{ .fieldName }}); i++ {
+ 			dest.WriteMore()
+-			MarshalJSON{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }}[i], dest)
++			orig.{{ .fieldName }}[i].MarshalJSON(dest)
+ 		}
+ 		dest.WriteArrayEnd()
+ 	}
+@@ -64,7 +64,7 @@ const marshalJSONMessage = `{{ if .repeated -}}
+ 	if orig.{{ .fieldName }} != nil {
+ {{ end -}}
+ 	dest.WriteObjectField("{{ .jsonTag }}")
+-	MarshalJSON{{ .origName }}({{ if not .nullable }}&{{ end }}orig.{{ .fieldName }}, dest)
++	orig.{{ .fieldName }}.MarshalJSON(dest)
+ {{- if .nullable -}}
+ 	}
+ {{- end }}{{- end }}`

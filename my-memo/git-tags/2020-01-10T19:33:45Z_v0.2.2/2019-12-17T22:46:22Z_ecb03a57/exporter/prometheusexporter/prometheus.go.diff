@@ -1,0 +1,15 @@
+diff --git a/exporter/prometheusexporter/prometheus.go b/exporter/prometheusexporter/prometheus.go
+index cdb30cb66..0ed323738 100644
+--- a/exporter/prometheusexporter/prometheus.go
++++ b/exporter/prometheusexporter/prometheus.go
+@@ -49,10 +49,6 @@ func (pe *prometheusExporter) ConsumeMetricsData(ctx context.Context, md consume
+ 	return nil
+ }
+ 
+-func (pe *prometheusExporter) Name() string {
+-	return pe.name
+-}
+-
+ // Shutdown stops the exporter and is invoked during shutdown.
+ func (pe *prometheusExporter) Shutdown() error {
+ 	return pe.shutdown()

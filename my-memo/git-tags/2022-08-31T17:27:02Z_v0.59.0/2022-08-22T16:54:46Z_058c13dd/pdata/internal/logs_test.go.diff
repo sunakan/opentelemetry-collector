@@ -1,0 +1,22 @@
+diff --git a/pdata/internal/logs_test.go b/pdata/internal/logs_test.go
+index 9277d78ff..c0a5d8316 100644
+--- a/pdata/internal/logs_test.go
++++ b/pdata/internal/logs_test.go
+@@ -133,14 +133,17 @@ func TestLogsClone(t *testing.T) {
+ func TestLogRecordFlags(t *testing.T) {
+ 	flags := generateTestLogRecordFlags()
+ 	assert.True(t, flags.IsSampled())
++	assert.Equal(t, uint32(1), flags.AsRaw())
+ 
+ 	flags.SetIsSampled(false)
+ 	flags.SetIsSampled(false)
+ 	assert.False(t, flags.IsSampled())
++	assert.Equal(t, uint32(0), flags.AsRaw())
+ 
+ 	flags.SetIsSampled(true)
+ 	flags.SetIsSampled(true)
+ 	assert.True(t, flags.IsSampled())
++	assert.Equal(t, uint32(1), flags.AsRaw())
+ 
+ 	moveFlags := NewLogRecordFlags()
+ 	assert.False(t, moveFlags.IsSampled())

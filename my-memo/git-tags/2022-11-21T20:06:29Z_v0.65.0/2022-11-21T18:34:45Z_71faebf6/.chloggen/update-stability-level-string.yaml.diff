@@ -1,0 +1,14 @@
+diff --git a/.chloggen/update-stability-level-string.yaml b/.chloggen/update-stability-level-string.yaml
+deleted file mode 100755
+index 0fb659a24..000000000
+--- a/.chloggen/update-stability-level-string.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-change_type: breaking
+-component: component
+-note: Update values returned by `StabilityLevel.String` method.
+-issues: [6490]
+-subtext: |
+-  - All returned strings are capitalized.
+-  - "Undefined" is returned only for `StabilityLevelUndefined`.
+-  - "" is returned for integers that are out of StabilityLevel enum range.

@@ -1,0 +1,18 @@
+diff --git a/vendor/gopkg.in/yaml.v2/suite_test.go b/vendor/gopkg.in/yaml.v2/suite_test.go
+new file mode 100644
+index 000000000..c5cf1ed4f
+--- /dev/null
++++ b/vendor/gopkg.in/yaml.v2/suite_test.go
+@@ -0,0 +1,12 @@
++package yaml_test
++
++import (
++	. "gopkg.in/check.v1"
++	"testing"
++)
++
++func Test(t *testing.T) { TestingT(t) }
++
++type S struct{}
++
++var _ = Suite(&S{})

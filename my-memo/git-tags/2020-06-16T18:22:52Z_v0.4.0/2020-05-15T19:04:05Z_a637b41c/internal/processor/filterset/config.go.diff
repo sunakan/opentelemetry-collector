@@ -1,0 +1,15 @@
+diff --git a/internal/processor/filterset/config.go b/internal/processor/filterset/config.go
+index d5f4b5d79..e40021dfd 100644
+--- a/internal/processor/filterset/config.go
++++ b/internal/processor/filterset/config.go
+@@ -17,8 +17,8 @@ package filterset
+ import (
+ 	"fmt"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterset/regexp"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/processor/filterset/strict"
++	"go.opentelemetry.io/collector/internal/processor/filterset/regexp"
++	"go.opentelemetry.io/collector/internal/processor/filterset/strict"
+ )
+ 
+ // MatchType describes the type of pattern matching a FilterSet uses to filter strings.

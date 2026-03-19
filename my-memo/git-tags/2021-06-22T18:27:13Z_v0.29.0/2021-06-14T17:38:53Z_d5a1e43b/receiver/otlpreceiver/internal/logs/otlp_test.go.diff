@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/logs/otlp_test.go b/receiver/otlpreceiver/internal/logs/otlp_test.go
+index b85054f89..7ad55aa03 100644
+--- a/receiver/otlpreceiver/internal/logs/otlp_test.go
++++ b/receiver/otlpreceiver/internal/logs/otlp_test.go
+@@ -84,7 +84,7 @@ func TestExport_ErrorConsumer(t *testing.T) {
+ 
+ 	resp, err := logClient.Export(context.Background(), req)
+ 	assert.EqualError(t, err, "rpc error: code = Unknown desc = my error")
+-	assert.Nil(t, resp)
++	assert.Equal(t, pdatagrpc.LogsResponse{}, resp)
+ }
+ 
+ func makeLogsServiceClient(addr net.Addr) (pdatagrpc.LogsClient, func(), error) {

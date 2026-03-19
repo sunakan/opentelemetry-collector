@@ -1,0 +1,13 @@
+diff --git a/otelcol/command.go b/otelcol/command.go
+index a129b9f1d..802ff2716 100644
+--- a/otelcol/command.go
++++ b/otelcol/command.go
+@@ -3,6 +3,8 @@
+ 
+ package otelcol // import "go.opentelemetry.io/collector/otelcol"
+ 
++//go:generate mdatagen metadata.yaml
++
+ import (
+ 	"errors"
+ 	"flag"

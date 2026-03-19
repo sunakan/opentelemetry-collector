@@ -1,0 +1,21 @@
+diff --git a/config/testdata/pipeline-processor-not-exists.yaml b/config/testdata/pipeline-processor-not-exists.yaml
+deleted file mode 100644
+index cb18a9db3..000000000
+--- a/config/testdata/pipeline-processor-not-exists.yaml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers:
+-        - examplereceiver
+-      processors:
+-        - nosuchprocessor
+-      exporters:
+-        - exampleexporter

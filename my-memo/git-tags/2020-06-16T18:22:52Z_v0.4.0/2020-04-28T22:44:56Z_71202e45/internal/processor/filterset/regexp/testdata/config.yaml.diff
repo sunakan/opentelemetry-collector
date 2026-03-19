@@ -1,0 +1,17 @@
+diff --git a/internal/processor/filterset/regexp/testdata/config.yaml b/internal/processor/filterset/regexp/testdata/config.yaml
+new file mode 100644
+index 000000000..8d838cbe4
+--- /dev/null
++++ b/internal/processor/filterset/regexp/testdata/config.yaml
+@@ -0,0 +1,10 @@
++# Yaml form of the configuration for regexp FilterSets
++# This configuration can be embedded into other component's yamls
++# The top level here are just test names and do not represent part of the actual configuration.
++
++regexp/default:
++regexp/cachedisabledwithsize:
++  cacheenabled: false
++  cachemaxnumentries: 10
++regexp/cacheenablednosize:
++  cacheenabled: true
+\ No newline at end of file

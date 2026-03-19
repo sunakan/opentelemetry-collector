@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/pmetricotlp/generated_exportresponse_test.go b/pdata/pmetric/pmetricotlp/generated_exportresponse_test.go
+index a55bd002f..4be9e213d 100644
+--- a/pdata/pmetric/pmetricotlp/generated_exportresponse_test.go
++++ b/pdata/pmetric/pmetricotlp/generated_exportresponse_test.go
+@@ -49,6 +49,5 @@ func TestExportResponse_PartialSuccess(t *testing.T) {
+ }
+ 
+ func generateTestExportResponse() ExportResponse {
+-	ms := newExportResponse(internal.GenTestExportMetricsServiceResponse(), internal.NewState())
+-	return ms
++	return newExportResponse(internal.GenTestExportMetricsServiceResponse(), internal.NewState())
+ }

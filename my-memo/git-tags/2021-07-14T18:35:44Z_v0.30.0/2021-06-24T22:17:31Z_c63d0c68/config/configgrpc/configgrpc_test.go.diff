@@ -1,0 +1,14 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index 9bd868856..b474190f1 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -32,8 +32,8 @@ import (
+ 	"go.opentelemetry.io/collector/config/configauth"
+ 	"go.opentelemetry.io/collector/config/confignet"
+ 	"go.opentelemetry.io/collector/config/configtls"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/pdatagrpc"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestDefaultGrpcClientSettings(t *testing.T) {

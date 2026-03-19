@@ -1,0 +1,23 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 9a28e0d2f..d9b097582 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -31,6 +31,7 @@ CROSSLINK   := $(TOOLS_BIN_DIR)/crosslink
+ GO_ACC      := $(TOOLS_BIN_DIR)/go-acc
+ GOCOVMERGE  := $(TOOLS_BIN_DIR)/gocovmerge
+ GOIMPORTS   := $(TOOLS_BIN_DIR)/goimports
++GOVULNCHECK := $(TOOLS_BIN_DIR)/govulncheck
+ LINT        := $(TOOLS_BIN_DIR)/golangci-lint
+ IMPI        := $(TOOLS_BIN_DIR)/impi
+ MISSPELL    := $(TOOLS_BIN_DIR)/misspell 
+@@ -65,6 +66,10 @@ tidy:
+ lint: $(LINT)
+ 	$(LINT) run
+ 
++.PHONY: govulncheck
++govulncheck: $(GOVULNCHECK)
++	$(GOVULNCHECK) ./...
++
+ .PHONY: generate
+ generate:
+ 	$(GOCMD) generate ./...

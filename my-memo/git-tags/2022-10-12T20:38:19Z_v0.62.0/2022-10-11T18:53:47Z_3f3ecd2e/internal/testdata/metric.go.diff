@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/metric.go b/internal/testdata/metric.go
+index 85a9464b0..ce682d47d 100644
+--- a/internal/testdata/metric.go
++++ b/internal/testdata/metric.go
+@@ -71,7 +71,7 @@ func GenerateMetricsAllTypesEmpty() pmetric.Metrics {
+ 
+ func GenerateMetricsMetricTypeInvalid() pmetric.Metrics {
+ 	md := generateMetricsOneEmptyInstrumentationScope()
+-	initMetric(md.ResourceMetrics().At(0).ScopeMetrics().At(0).Metrics().AppendEmpty(), TestSumIntMetricName, pmetric.MetricTypeNone)
++	initMetric(md.ResourceMetrics().At(0).ScopeMetrics().At(0).Metrics().AppendEmpty(), TestSumIntMetricName, pmetric.MetricTypeEmpty)
+ 	return md
+ }
+ 

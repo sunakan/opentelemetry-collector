@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/factory_test.go b/receiver/receiverhelper/factory_test.go
+index ab8dc32a4..ce624d7a3 100644
+--- a/receiver/receiverhelper/factory_test.go
++++ b/receiver/receiverhelper/factory_test.go
+@@ -79,7 +79,7 @@ func defaultConfig() configmodels.Receiver {
+ 	return defaultCfg
+ }
+ 
+-func createTraceReceiver(context.Context, component.ReceiverCreateParams, configmodels.Receiver, consumer.TraceConsumer) (component.TraceReceiver, error) {
++func createTraceReceiver(context.Context, component.ReceiverCreateParams, configmodels.Receiver, consumer.TracesConsumer) (component.TraceReceiver, error) {
+ 	return nil, nil
+ }
+ 

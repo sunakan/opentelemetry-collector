@@ -1,0 +1,15 @@
+diff --git a/exporter/jaeger/jaegerthrifthttpexporter/config_test.go b/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
+index b65c43c44..07d94768c 100644
+--- a/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
++++ b/exporter/jaeger/jaegerthrifthttpexporter/config_test.go
+@@ -23,8 +23,8 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config"
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

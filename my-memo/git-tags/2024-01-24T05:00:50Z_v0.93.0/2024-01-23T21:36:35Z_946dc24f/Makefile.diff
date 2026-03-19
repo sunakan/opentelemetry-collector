@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 6cd76420e..b48274da2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -448,7 +448,7 @@ checklinks:
+ .PHONY: crosslink
+ crosslink: $(CROSSLINK)
+ 	@echo "Executing crosslink"
+-	$(CROSSLINK) --root=$(shell pwd) --prune --skip cmd/mdatagen/go.mod
++	$(CROSSLINK) --root=$(shell pwd) --prune
+ 
+ FILENAME?=$(shell git branch --show-current)
+ .PHONY: chlog-new

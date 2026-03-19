@@ -1,0 +1,23 @@
+diff --git a/cmd/pdatagen/internal/metrics_structs.go b/cmd/pdatagen/internal/metrics_structs.go
+index fa84a14cf..6fbcab0d3 100644
+--- a/cmd/pdatagen/internal/metrics_structs.go
++++ b/cmd/pdatagen/internal/metrics_structs.go
+@@ -118,6 +118,7 @@ var metric = &messageStruct{
+ 			defaultVal:      `""`,
+ 			testVal:         `"1"`,
+ 		},
++		oneofDataField,
+ 	},
+ }
+ 
+@@ -419,3 +420,10 @@ var aggregationTemporalityField = &primitiveTypedField{
+ 	defaultVal:      "AggregationTemporalityUnspecified",
+ 	testVal:         "AggregationTemporalityCumulative",
+ }
++
++var oneofDataField = &oneofField{
++	copyFuncName:    "copyData",
++	originFieldName: "Data",
++	testVal:         "&otlpmetrics.Metric_IntGauge{}",
++	fillTestName:    "IntGauge",
++}

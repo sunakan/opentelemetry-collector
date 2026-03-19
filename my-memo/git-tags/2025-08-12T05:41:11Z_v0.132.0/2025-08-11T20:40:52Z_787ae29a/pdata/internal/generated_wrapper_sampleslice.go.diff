@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_sampleslice.go b/pdata/internal/generated_wrapper_sampleslice.go
+index fbee9b3ae..88600756e 100644
+--- a/pdata/internal/generated_wrapper_sampleslice.go
++++ b/pdata/internal/generated_wrapper_sampleslice.go
+@@ -49,19 +49,6 @@ func GenerateOrigTestSampleSlice() []*otlpprofiles.Sample {
+ 	return orig
+ }
+ 
+-// MarshalJSONOrigSampleSlice marshals all properties from the current struct to the destination stream.
+-func MarshalJSONOrigSampleSlice(orig []*otlpprofiles.Sample, dest *json.Stream) {
+-	dest.WriteArrayStart()
+-	if len(orig) > 0 {
+-		MarshalJSONOrigSample(orig[0], dest)
+-	}
+-	for i := 1; i < len(orig); i++ {
+-		dest.WriteMore()
+-		MarshalJSONOrigSample(orig[i], dest)
+-	}
+-	dest.WriteArrayEnd()
+-}
+-
+ // UnmarshalJSONOrigSampleSlice unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigSampleSlice(iter *json.Iterator) []*otlpprofiles.Sample {
+ 	var orig []*otlpprofiles.Sample

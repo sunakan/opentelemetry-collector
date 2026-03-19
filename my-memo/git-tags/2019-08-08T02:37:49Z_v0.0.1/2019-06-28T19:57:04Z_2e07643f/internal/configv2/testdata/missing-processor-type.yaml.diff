@@ -1,0 +1,15 @@
+diff --git a/internal/configv2/testdata/missing-processor-type.yaml b/internal/configv2/testdata/missing-processor-type.yaml
+deleted file mode 100644
+index e083c5579..000000000
+--- a/internal/configv2/testdata/missing-processor-type.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  /exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [somereceiver]

@@ -1,0 +1,21 @@
+diff --git a/testbed/tests/testdata/agent-config.yaml b/testbed/tests/testdata/agent-config.yaml
+index ea1a66337..78ba48880 100644
+--- a/testbed/tests/testdata/agent-config.yaml
++++ b/testbed/tests/testdata/agent-config.yaml
+@@ -4,16 +4,13 @@ receivers:
+     protocols:
+       thrift-http:
+         endpoint: "*:14268"
+-        enabled: true
+ 
+ exporters:
+   opencensus:
+     endpoint: "127.0.0.1:56565"
+-    enabled: true
+ 
+ processors:
+   add-attributes:
+-    enabled: true
+ 
+ pipelines:
+   traces:

@@ -1,0 +1,37 @@
+diff --git a/scraper/scraperhelper/internal/metadata/generated_telemetry.go b/scraper/scraperhelper/internal/metadata/generated_telemetry.go
+index fcdb6b402..035ff8fe8 100644
+--- a/scraper/scraperhelper/internal/metadata/generated_telemetry.go
++++ b/scraper/scraperhelper/internal/metadata/generated_telemetry.go
+@@ -4,6 +4,7 @@ package metadata
+ 
+ import (
+ 	"errors"
++	"sync"
+ 
+ 	"go.opentelemetry.io/otel/metric"
+ 	"go.opentelemetry.io/otel/trace"
+@@ -23,6 +24,8 @@ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ // as defined in metadata and user config.
+ type TelemetryBuilder struct {
+ 	meter                      metric.Meter
++	mu                         sync.Mutex
++	registrations              []metric.Registration
+ 	ScraperErroredLogRecords   metric.Int64Counter
+ 	ScraperErroredMetricPoints metric.Int64Counter
+ 	ScraperScrapedLogRecords   metric.Int64Counter
+@@ -40,6 +43,15 @@ func (tbof telemetryBuilderOptionFunc) apply(mb *TelemetryBuilder) {
+ 	tbof(mb)
+ }
+ 
++// Shutdown unregister all registered callbacks for async instruments.
++func (builder *TelemetryBuilder) Shutdown() {
++	builder.mu.Lock()
++	defer builder.mu.Unlock()
++	for _, reg := range builder.registrations {
++		reg.Unregister()
++	}
++}
++
+ // NewTelemetryBuilder provides a struct with methods to update all internal telemetry
+ // for a component
+ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...TelemetryBuilderOption) (*TelemetryBuilder, error) {

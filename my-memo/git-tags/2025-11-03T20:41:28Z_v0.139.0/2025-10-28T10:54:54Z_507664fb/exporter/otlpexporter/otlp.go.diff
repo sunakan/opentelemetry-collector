@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 62f1893e5..ce042f85c 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -71,7 +71,7 @@ func (e *baseExporter) start(ctx context.Context, host component.Host) (err erro
+ 	e.logExporter = plogotlp.NewGRPCClient(e.clientConn)
+ 	e.profileExporter = pprofileotlp.NewGRPCClient(e.clientConn)
+ 	headers := map[string]string{}
+-	for k, v := range e.config.ClientConfig.Headers {
++	for k, v := range e.config.ClientConfig.Headers.Iter {
+ 		headers[k] = string(v)
+ 	}
+ 	e.metadata = metadata.New(headers)

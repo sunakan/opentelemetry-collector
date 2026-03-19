@@ -1,0 +1,28 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+index 9f4d7155f..473bd0739 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+@@ -31,7 +31,6 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+-	"github.com/open-telemetry/opentelemetry-collector/translator/trace/spandata"
+ )
+ 
+ func Test_hexIDToOCID(t *testing.T) {
+@@ -859,13 +858,9 @@ func TestSpanKindTranslation(t *testing.T) {
+ 				assert.EqualValues(t, expected, ocSpan.Attributes.AttributeMap[tracetranslator.TagSpanKind])
+ 			}
+ 
+-			// Translate to OCSpanData.
+-			sd, err := spandata.ProtoSpanToOCSpanData(ocSpan, nil)
+-			assert.NoError(t, err)
+-			assert.EqualValues(t, test.ocKind, sd.SpanKind)
+-
+ 			// Translate to Zipkin V2 (which is used for internal representation by Zipkin exporter).
+-			zSpanTranslated := OCSpanDataToZipkin(nil, sd, "")
++			zSpanTranslated, err := OCSpanProtoToZipkin(nil, nil, ocSpan, "")
++			assert.NoError(t, err)
+ 			assert.EqualValues(t, test.zipkinV2Kind, zSpanTranslated.Kind)
+ 		})
+ 	}

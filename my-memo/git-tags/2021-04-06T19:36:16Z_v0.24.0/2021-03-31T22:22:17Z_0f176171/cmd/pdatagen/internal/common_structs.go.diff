@@ -1,0 +1,22 @@
+diff --git a/cmd/pdatagen/internal/common_structs.go b/cmd/pdatagen/internal/common_structs.go
+index 315b2c251..7442caa7a 100644
+--- a/cmd/pdatagen/internal/common_structs.go
++++ b/cmd/pdatagen/internal/common_structs.go
+@@ -73,7 +73,7 @@ var instrumentationLibraryField = &messageValueField{
+ }
+ 
+ var startTimeField = &primitiveTypedField{
+-	fieldName:       "StartTime",
++	fieldName:       "StartTimestamp",
+ 	originFieldName: "StartTimeUnixNano",
+ 	returnType:      "Timestamp",
+ 	rawType:         "uint64",
+@@ -91,7 +91,7 @@ var timeField = &primitiveTypedField{
+ }
+ 
+ var endTimeField = &primitiveTypedField{
+-	fieldName:       "EndTime",
++	fieldName:       "EndTimestamp",
+ 	originFieldName: "EndTimeUnixNano",
+ 	returnType:      "Timestamp",
+ 	rawType:         "uint64",

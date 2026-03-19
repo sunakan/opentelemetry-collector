@@ -1,0 +1,19 @@
+diff --git a/config/configunmarshaler/testdata/unknown-pipeline-type.yaml b/config/configunmarshaler/testdata/unknown-pipeline-type.yaml
+deleted file mode 100644
+index 7c88405a9..000000000
+--- a/config/configunmarshaler/testdata/unknown-pipeline-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-processors:
+-  exampleprocessor:
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    wrongdatatype:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

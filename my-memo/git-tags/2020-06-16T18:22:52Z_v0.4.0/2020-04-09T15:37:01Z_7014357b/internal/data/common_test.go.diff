@@ -1,0 +1,13 @@
+diff --git a/internal/data/common_test.go b/internal/data/common_test.go
+index e4e1199f3..92e2a6099 100644
+--- a/internal/data/common_test.go
++++ b/internal/data/common_test.go
+@@ -435,7 +435,7 @@ func BenchmarkSetValue(b *testing.B) {
+ 
+ 	b.ResetTimer()
+ 	for n := 0; n < b.N; n++ {
+-		av.SetValue(c)
++		av.CopyFrom(c)
+ 	}
+ 	if av.IntVal() != 123 {
+ 		b.Fail()

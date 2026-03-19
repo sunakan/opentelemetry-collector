@@ -1,0 +1,37 @@
+diff --git a/exporter/exporterhelper/common.go b/exporter/exporterhelper/common.go
+index 71c204553..6ef4f8f6d 100644
+--- a/exporter/exporterhelper/common.go
++++ b/exporter/exporterhelper/common.go
+@@ -79,7 +79,6 @@ type baseSettings struct {
+ 	TimeoutSettings
+ 	QueueSettings
+ 	RetrySettings
+-	ResourceToTelemetrySettings
+ }
+ 
+ // fromOptions returns the internal options starting from the default and applying all configured options.
+@@ -90,8 +89,7 @@ func fromOptions(options ...Option) *baseSettings {
+ 		// TODO: Enable queuing by default (call DefaultQueueSettings)
+ 		QueueSettings: QueueSettings{Enabled: false},
+ 		// TODO: Enable retry by default (call DefaultRetrySettings)
+-		RetrySettings:               RetrySettings{Enabled: false},
+-		ResourceToTelemetrySettings: defaultResourceToTelemetrySettings(),
++		RetrySettings: RetrySettings{Enabled: false},
+ 	}
+ 
+ 	for _, op := range options {
+@@ -153,14 +151,6 @@ func WithCapabilities(capabilities consumer.Capabilities) Option {
+ 	}
+ }
+ 
+-// WithResourceToTelemetryConversion overrides the default ResourceToTelemetrySettings for an exporter.
+-// The default ResourceToTelemetrySettings is to disable resource attributes to metric labels conversion.
+-func WithResourceToTelemetryConversion(resourceToTelemetrySettings ResourceToTelemetrySettings) Option {
+-	return func(o *baseSettings) {
+-		o.ResourceToTelemetrySettings = resourceToTelemetrySettings
+-	}
+-}
+-
+ // baseExporter contains common fields between different exporter types.
+ type baseExporter struct {
+ 	component.Component

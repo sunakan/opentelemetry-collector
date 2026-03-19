@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index f54366678..fb49136b2 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -55,8 +55,7 @@ func (req *metricsRequest) export(ctx context.Context) error {
+ }
+ 
+ func (req *metricsRequest) count() int {
+-	_, numPoints := req.md.MetricAndDataPointCount()
+-	return numPoints
++	return req.md.DataPointCount()
+ }
+ 
+ type metricsExporter struct {

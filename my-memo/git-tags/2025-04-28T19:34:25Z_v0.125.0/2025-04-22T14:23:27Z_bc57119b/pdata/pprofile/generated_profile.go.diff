@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_profile.go b/pdata/pprofile/generated_profile.go
+index 48d11af1e..45b987ce4 100644
+--- a/pdata/pprofile/generated_profile.go
++++ b/pdata/pprofile/generated_profile.go
+@@ -43,6 +43,10 @@ func NewProfile() Profile {
+ func (ms Profile) MoveTo(dest Profile) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpprofiles.Profile{}
+ }

@@ -1,0 +1,20 @@
+diff --git a/pdata/internal/generated_wrapper_stringslice.go b/pdata/internal/generated_wrapper_stringslice.go
+index 27a78466e..d922f65d8 100644
+--- a/pdata/internal/generated_wrapper_stringslice.go
++++ b/pdata/internal/generated_wrapper_stringslice.go
+@@ -24,14 +24,10 @@ func NewStringSliceWrapper(orig *[]string, state *State) StringSliceWrapper {
+ }
+ 
+ func GenTestStringSliceWrapper() StringSliceWrapper {
+-	orig := GenTestStringSlice()
++	orig := []string{"a", "b", "c"}
+ 	return NewStringSliceWrapper(&orig, NewState())
+ }
+ 
+-func CopyStringSlice(dst, src []string) []string {
+-	return append(dst[:0], src...)
+-}
+-
+ func GenTestStringSlice() []string {
+ 	return []string{"a", "b", "c"}
+ }

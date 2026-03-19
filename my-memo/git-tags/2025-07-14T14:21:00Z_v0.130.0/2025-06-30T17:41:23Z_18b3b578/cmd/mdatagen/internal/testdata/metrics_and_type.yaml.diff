@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/testdata/metrics_and_type.yaml b/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
+index 2306a08b3..951f93f7d 100644
+--- a/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
++++ b/cmd/mdatagen/internal/testdata/metrics_and_type.yaml
+@@ -3,7 +3,6 @@ type: metricreceiver
+ status:
+   class: receiver
+   stability:
+-    development: [logs]
+     beta: [traces]
+     stable: [metrics]
+   distributions: [contrib]

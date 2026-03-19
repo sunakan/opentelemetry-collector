@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/otlp.go b/exporter/otlpexporter/otlp.go
+index 6519e4ce2..796aefe47 100644
+--- a/exporter/otlpexporter/otlp.go
++++ b/exporter/otlpexporter/otlp.go
+@@ -64,7 +64,7 @@ func NewTraceExporter(logger *zap.Logger, config configmodels.Exporter) (compone
+ 	if err != nil {
+ 		return nil, err
+ 	}
+-	oexp, err := exporterhelper.NewTraceExporter(
++	oexp, err := exporterhelper.NewTraceExporterOld(
+ 		config,
+ 		oce.pushTraceData,
+ 		exporterhelper.WithShutdown(oce.Shutdown))

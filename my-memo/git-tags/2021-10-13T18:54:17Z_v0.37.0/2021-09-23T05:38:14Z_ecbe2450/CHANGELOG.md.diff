@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 91c788e30..a68c793ab 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -18,6 +18,7 @@
+ - Remove squash on `configtls.TLSClientSetting` and move TLS client configs under `tls` (#4063)
+ - Rename TLS server config `*configtls.TLSServerSetting` from `tls_settings` to `tls` (#4063)
+ - Split `service.Collector` from the `cobra.Command` (#4074)
++- Rename `memorylimiter` to `memorylimiterprocessor` (#4064)
+ 
+ ## 💡 Enhancements 💡
+ 

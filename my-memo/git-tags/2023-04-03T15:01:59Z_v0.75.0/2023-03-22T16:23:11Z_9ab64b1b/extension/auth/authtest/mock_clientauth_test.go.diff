@@ -1,0 +1,13 @@
+diff --git a/extension/auth/authtest/mock_clientauth_test.go b/extension/auth/authtest/mock_clientauth_test.go
+index ca84281c7..0b88eb5d8 100644
+--- a/extension/auth/authtest/mock_clientauth_test.go
++++ b/extension/auth/authtest/mock_clientauth_test.go
+@@ -39,7 +39,7 @@ func TestNilStartAndShutdown(t *testing.T) {
+ 
+ type customRoundTripper struct{}
+ 
+-func (c *customRoundTripper) RoundTrip(request *http.Request) (*http.Response, error) {
++func (c *customRoundTripper) RoundTrip(_ *http.Request) (*http.Response, error) {
+ 	return nil, nil
+ }
+ 

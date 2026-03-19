@@ -1,0 +1,50 @@
+diff --git a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
+index e34c4eceb..1726f12f6 100644
+--- a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
++++ b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest_test.go
+@@ -21,12 +21,15 @@ func TestSetupTelemetry(t *testing.T) {
+ 	defer tb.Shutdown()
+ 	tb.ReceiverAcceptedLogRecords.Add(context.Background(), 1)
+ 	tb.ReceiverAcceptedMetricPoints.Add(context.Background(), 1)
++	tb.ReceiverAcceptedProfileSamples.Add(context.Background(), 1)
+ 	tb.ReceiverAcceptedSpans.Add(context.Background(), 1)
+ 	tb.ReceiverFailedLogRecords.Add(context.Background(), 1)
+ 	tb.ReceiverFailedMetricPoints.Add(context.Background(), 1)
++	tb.ReceiverFailedProfileSamples.Add(context.Background(), 1)
+ 	tb.ReceiverFailedSpans.Add(context.Background(), 1)
+ 	tb.ReceiverRefusedLogRecords.Add(context.Background(), 1)
+ 	tb.ReceiverRefusedMetricPoints.Add(context.Background(), 1)
++	tb.ReceiverRefusedProfileSamples.Add(context.Background(), 1)
+ 	tb.ReceiverRefusedSpans.Add(context.Background(), 1)
+ 	tb.ReceiverRequests.Add(context.Background(), 1)
+ 	AssertEqualReceiverAcceptedLogRecords(t, testTel,
+@@ -35,6 +38,9 @@ func TestSetupTelemetry(t *testing.T) {
+ 	AssertEqualReceiverAcceptedMetricPoints(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())
++	AssertEqualReceiverAcceptedProfileSamples(t, testTel,
++		[]metricdata.DataPoint[int64]{{Value: 1}},
++		metricdatatest.IgnoreTimestamp())
+ 	AssertEqualReceiverAcceptedSpans(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())
+@@ -44,6 +50,9 @@ func TestSetupTelemetry(t *testing.T) {
+ 	AssertEqualReceiverFailedMetricPoints(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())
++	AssertEqualReceiverFailedProfileSamples(t, testTel,
++		[]metricdata.DataPoint[int64]{{Value: 1}},
++		metricdatatest.IgnoreTimestamp())
+ 	AssertEqualReceiverFailedSpans(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())
+@@ -53,6 +62,9 @@ func TestSetupTelemetry(t *testing.T) {
+ 	AssertEqualReceiverRefusedMetricPoints(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())
++	AssertEqualReceiverRefusedProfileSamples(t, testTel,
++		[]metricdata.DataPoint[int64]{{Value: 1}},
++		metricdatatest.IgnoreTimestamp())
+ 	AssertEqualReceiverRefusedSpans(t, testTel,
+ 		[]metricdata.DataPoint[int64]{{Value: 1}},
+ 		metricdatatest.IgnoreTimestamp())

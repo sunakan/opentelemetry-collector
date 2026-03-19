@@ -1,0 +1,24 @@
+diff --git a/cmd/builder/.goreleaser.yml b/cmd/builder/.goreleaser.yml
+index ee05a0b2e..f9143f8b2 100644
+--- a/cmd/builder/.goreleaser.yml
++++ b/cmd/builder/.goreleaser.yml
+@@ -1,6 +1,9 @@
+ before:
+   hooks:
+     - go mod download
++monorepo:
++  tag_prefix: cmd/builder/
++  dir: cmd/builder
+ builds:
+   - flags:
+       - -trimpath
+@@ -26,8 +29,4 @@ checksum:
+ snapshot:
+   name_template: "{{ .Tag }}-next"
+ changelog:
+-  sort: asc
+-  filters:
+-    exclude:
+-      - "^docs:"
+-      - "^test:"
++  skip: true

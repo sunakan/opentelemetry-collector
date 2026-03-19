@@ -1,0 +1,19 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_others.go
+index 9464b3802..204f66f4b 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/cpuscraper/cpu_scraper_others.go
+@@ -24,9 +24,9 @@ import (
+ 
+ const cpuStatesLen = 4
+ 
+-func appendCPUStateTimes(ddps pdata.DoubleDataPointSlice, startIdx int, startTime pdata.TimestampUnixNano, cpuTime cpu.TimesStat) {
+-	initializeCPUSecondsDataPoint(ddps.At(startIdx+0), startTime, cpuTime.CPU, userStateLabelValue, cpuTime.User)
+-	initializeCPUSecondsDataPoint(ddps.At(startIdx+1), startTime, cpuTime.CPU, systemStateLabelValue, cpuTime.System)
+-	initializeCPUSecondsDataPoint(ddps.At(startIdx+2), startTime, cpuTime.CPU, idleStateLabelValue, cpuTime.Idle)
+-	initializeCPUSecondsDataPoint(ddps.At(startIdx+3), startTime, cpuTime.CPU, interruptStateLabelValue, cpuTime.Irq)
++func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startIdx int, startTime pdata.TimestampUnixNano, cpuTime cpu.TimesStat) {
++	initializeCPUTimeDataPoint(ddps.At(startIdx+0), startTime, cpuTime.CPU, userStateLabelValue, cpuTime.User)
++	initializeCPUTimeDataPoint(ddps.At(startIdx+1), startTime, cpuTime.CPU, systemStateLabelValue, cpuTime.System)
++	initializeCPUTimeDataPoint(ddps.At(startIdx+2), startTime, cpuTime.CPU, idleStateLabelValue, cpuTime.Idle)
++	initializeCPUTimeDataPoint(ddps.At(startIdx+3), startTime, cpuTime.CPU, interruptStateLabelValue, cpuTime.Irq)
+ }

@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index 8972f4fb6..e9643d094 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -15,7 +15,7 @@
+ package jaegerreceiver
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+ // Config defines configuration for Jaeger receiver.

@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 60da78d52..182f4409a 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -124,7 +124,7 @@ func newJaegerReceiver(
+ 	config *configuration,
+ 	nextConsumer consumer.TraceConsumer,
+ 	params component.ReceiverCreateParams,
+-) (component.TraceReceiver, error) {
++) (*jReceiver, error) {
+ 	return &jReceiver{
+ 		config:       config,
+ 		nextConsumer: nextConsumer,

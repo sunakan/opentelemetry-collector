@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/testdata/config_invalid_unknown_field.yaml b/service/telemetry/testdata/config_invalid_unknown_field.yaml
+deleted file mode 100644
+index 4feeb7eb2..000000000
+--- a/service/telemetry/testdata/config_invalid_unknown_field.yaml
++++ /dev/null
+@@ -1,5 +0,0 @@
+-metrics:
+-  unknown: basic
+-  views:
+-    - selector: {}
+-      stream: {}

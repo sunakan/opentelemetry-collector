@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterqueue/sized_queue.go b/exporter/exporterqueue/sized_queue.go
+index a9b58241c..2c15b6e48 100644
+--- a/exporter/exporterqueue/sized_queue.go
++++ b/exporter/exporterqueue/sized_queue.go
+@@ -127,12 +127,12 @@ func (sq *sizedQueue[T]) Shutdown(context.Context) error {
+ 	return nil
+ }
+ 
+-func (sq *sizedQueue[T]) Size() int {
++func (sq *sizedQueue[T]) Size() int64 {
+ 	sq.mu.Lock()
+ 	defer sq.mu.Unlock()
+-	return int(sq.size)
++	return sq.size
+ }
+ 
+-func (sq *sizedQueue[T]) Capacity() int {
+-	return int(sq.cap)
++func (sq *sizedQueue[T]) Capacity() int64 {
++	return sq.cap
+ }

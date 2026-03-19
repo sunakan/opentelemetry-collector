@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 598e60ff7..1df7ef5c8 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -86,7 +86,7 @@ func TestDefaultComponents(t *testing.T) {
+ 	}
+ 
+ 	factories, err := Components()
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 	assert.Equal(t, expectedExtensions, factories.Extensions)
+ 	assert.Equal(t, expectedReceivers, factories.Receivers)
+ 	assert.Equal(t, expectedProcessors, factories.Processors)

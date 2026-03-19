@@ -1,0 +1,13 @@
+diff --git a/connector/connector.go b/connector/connector.go
+index 9c9f113b6..e7c11d95b 100644
+--- a/connector/connector.go
++++ b/connector/connector.go
+@@ -69,6 +69,8 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo component.BuildInfo
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Factory is a factory interface for connectors.

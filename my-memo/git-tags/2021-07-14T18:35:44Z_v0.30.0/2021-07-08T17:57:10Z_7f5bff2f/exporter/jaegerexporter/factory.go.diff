@@ -1,0 +1,11 @@
+diff --git a/exporter/jaegerexporter/factory.go b/exporter/jaegerexporter/factory.go
+index 6c93712f5..3bc8e00ac 100644
+--- a/exporter/jaegerexporter/factory.go
++++ b/exporter/jaegerexporter/factory.go
+@@ -64,5 +64,5 @@ func createTracesExporter(
+ 			expCfg.ID().String())
+ 	}
+ 
+-	return newTracesExporter(expCfg, set.Logger)
++	return newTracesExporter(expCfg, set)
+ }

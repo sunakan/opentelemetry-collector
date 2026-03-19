@@ -1,0 +1,21 @@
+diff --git a/pdata/pprofile/generated_lineslice_test.go b/pdata/pprofile/generated_lineslice_test.go
+index 40f24afd7..b3f831662 100644
+--- a/pdata/pprofile/generated_lineslice_test.go
++++ b/pdata/pprofile/generated_lineslice_test.go
+@@ -27,7 +27,7 @@ func TestLineSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		(*es.orig)[i] = internal.GenTestOrigLine()
++		(*es.orig)[i] = internal.GenTestLine()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())
+@@ -162,6 +162,6 @@ func TestLineSlice_Sort(t *testing.T) {
+ 
+ func generateTestLineSlice() LineSlice {
+ 	ms := NewLineSlice()
+-	*ms.orig = internal.GenerateOrigTestLineSlice()
++	*ms.orig = internal.GenTestLineSlice()
+ 	return ms
+ }

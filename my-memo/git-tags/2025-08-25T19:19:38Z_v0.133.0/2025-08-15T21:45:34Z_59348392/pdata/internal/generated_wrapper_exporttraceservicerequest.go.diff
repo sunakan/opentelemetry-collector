@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_exporttraceservicerequest.go b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+index 8f71d7031..35ff5eb57 100644
+--- a/pdata/internal/generated_wrapper_exporttraceservicerequest.go
++++ b/pdata/internal/generated_wrapper_exporttraceservicerequest.go
+@@ -32,9 +32,9 @@ func NewTraces(orig *otlpcollectortrace.ExportTraceServiceRequest, state *State)
+ }
+ 
+ func GenerateTestTraces() Traces {
+-	orig := otlpcollectortrace.ExportTraceServiceRequest{}
+-	FillOrigTestExportTraceServiceRequest(&orig)
+-	return NewTraces(&orig, NewState())
++	orig := NewOrigPtrExportTraceServiceRequest()
++	FillOrigTestExportTraceServiceRequest(orig)
++	return NewTraces(orig, NewState())
+ }
+ 
+ func NewOrigExportTraceServiceRequest() otlpcollectortrace.ExportTraceServiceRequest {

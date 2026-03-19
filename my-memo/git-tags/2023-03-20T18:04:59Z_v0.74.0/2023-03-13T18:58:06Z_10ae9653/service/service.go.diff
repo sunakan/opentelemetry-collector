@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index a30adf6fd..442610a97 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -188,7 +188,7 @@ func (srv *Service) initExtensionsAndPipeline(ctx context.Context, set Settings,
+ 		return fmt.Errorf("failed to build extensions: %w", err)
+ 	}
+ 
+-	pSet := pipelinesSettings{
++	pSet := graphSettings{
+ 		Telemetry:        srv.telemetrySettings,
+ 		BuildInfo:        srv.buildInfo,
+ 		ReceiverBuilder:  set.Receivers,

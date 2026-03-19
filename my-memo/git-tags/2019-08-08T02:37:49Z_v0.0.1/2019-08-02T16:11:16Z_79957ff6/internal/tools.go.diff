@@ -1,0 +1,10 @@
+diff --git a/internal/tools.go b/internal/tools.go
+index e4138a633..4b1106988 100644
+--- a/internal/tools.go
++++ b/internal/tools.go
+@@ -28,4 +28,5 @@ import (
+ 	_ "github.com/jstemmer/go-junit-report"
+ 	_ "golang.org/x/lint/golint"
+ 	_ "golang.org/x/tools/cmd/goimports"
++	_ "honnef.co/go/tools/cmd/staticcheck"
+ )

@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_logrecord.go b/pdata/internal/generated_wrapper_logrecord.go
+index ab1d0519c..278784679 100644
+--- a/pdata/internal/generated_wrapper_logrecord.go
++++ b/pdata/internal/generated_wrapper_logrecord.go
+@@ -216,7 +216,7 @@ func MarshalProtoOrigLogRecord(orig *otlplogs.LogRecord, buf []byte) int {
+ 	pos--
+ 	buf[pos] = 0x2a
+ 
+-	for i := range orig.Attributes {
++	for i := len(orig.Attributes) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigKeyValue(&orig.Attributes[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 1b6b5c723..9f4842214 100644
+--- a/Makefile
++++ b/Makefile
+@@ -99,7 +99,7 @@ lint:
+ 
+ .PHONY: goimports
+ goimports:
+-	@IMPORTSOUT=`$(GOIMPORTS) -d . 2>&1`; \
++	@IMPORTSOUT=`$(GOIMPORTS) -local github.com/open-telemetry/opentelemetry-service -d . 2>&1`; \
+ 	if [ "$$IMPORTSOUT" ]; then \
+ 		echo "$(GOIMPORTS) FAILED => fix the following goimports errors:\n"; \
+ 		echo "$$IMPORTSOUT\n"; \

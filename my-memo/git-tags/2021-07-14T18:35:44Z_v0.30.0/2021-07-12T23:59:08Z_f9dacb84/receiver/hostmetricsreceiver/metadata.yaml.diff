@@ -1,0 +1,27 @@
+diff --git a/receiver/hostmetricsreceiver/metadata.yaml b/receiver/hostmetricsreceiver/metadata.yaml
+index 31be0862c..3b1b60ea5 100644
+--- a/receiver/hostmetricsreceiver/metadata.yaml
++++ b/receiver/hostmetricsreceiver/metadata.yaml
+@@ -153,19 +153,19 @@ metrics:
+     description: Average CPU Load over 1 minute.
+     unit: 1
+     data:
+-      type: double gauge
++      type: gauge
+ 
+   system.cpu.load_average.5m:
+     description: Average CPU Load over 5 minutes.
+     unit: 1
+     data:
+-      type: double gauge
++      type: gauge
+ 
+   system.cpu.load_average.15m:
+     description: Average CPU Load over 15 minutes.
+     unit: 1
+     data:
+-      type: double gauge
++      type: gauge
+ 
+   system.disk.io:
+     description: Disk bytes transferred.

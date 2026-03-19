@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/go.mod b/connector/forwardconnector/go.mod
+index 4fbb3fc9d..7e78e38f9 100644
+--- a/connector/forwardconnector/go.mod
++++ b/connector/forwardconnector/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/connector/forwardconnector
+ go 1.19
+ 
+ require (
+-	github.com/stretchr/testify v1.8.1
++	github.com/stretchr/testify v1.8.2
+ 	go.opentelemetry.io/collector v0.72.0
+ 	go.opentelemetry.io/collector/component v0.72.0
+ 	go.opentelemetry.io/collector/consumer v0.72.0

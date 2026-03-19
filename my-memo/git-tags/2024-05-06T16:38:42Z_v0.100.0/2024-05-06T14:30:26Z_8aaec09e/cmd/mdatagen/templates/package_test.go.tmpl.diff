@@ -1,0 +1,15 @@
+diff --git a/cmd/mdatagen/templates/package_test.go.tmpl b/cmd/mdatagen/templates/package_test.go.tmpl
+index bbb4878c5..d0c8f8237 100644
+--- a/cmd/mdatagen/templates/package_test.go.tmpl
++++ b/cmd/mdatagen/templates/package_test.go.tmpl
+@@ -5,7 +5,9 @@ package {{ .Package }}
+ import (
+ 	"testing"
+ 
+-	"go.uber.org/goleak"
++    {{- if not .Tests.GoLeak.Skip }}
++    "go.uber.org/goleak"
++    {{- end }}
+ )
+ 
+ func TestMain(m *testing.M) {

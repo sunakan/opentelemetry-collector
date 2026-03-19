@@ -1,0 +1,12 @@
+diff --git a/.github/CODEOWNERS b/.github/CODEOWNERS
+index 4461dba12..171fc5399 100644
+--- a/.github/CODEOWNERS
++++ b/.github/CODEOWNERS
+@@ -21,6 +21,7 @@
+ cmd/builder/                                 @open-telemetry/collector-approvers
+ cmd/mdatagen/                                @open-telemetry/collector-approvers @dmitryax
+ cmd/mdatagen/internal/sampleconnector/       @open-telemetry/collector-approvers
++cmd/mdatagen/internal/samplefactoryreceiver/ @open-telemetry/collector-approvers @dmitryax
+ cmd/mdatagen/internal/sampleprocessor/       @open-telemetry/collector-approvers
+ cmd/mdatagen/internal/samplereceiver/        @open-telemetry/collector-approvers @dmitryax
+ cmd/mdatagen/internal/samplescraper/         @open-telemetry/collector-approvers @dmitryax

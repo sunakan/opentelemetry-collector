@@ -1,0 +1,13 @@
+diff --git a/internal/cgroups/cgroups.go b/internal/cgroups/cgroups.go
+index 8eb3c1834..5784e479e 100644
+--- a/internal/cgroups/cgroups.go
++++ b/internal/cgroups/cgroups.go
+@@ -37,7 +37,7 @@
+ //go:build linux
+ // +build linux
+ 
+-package cgroups
++package cgroups // import "go.opentelemetry.io/collector/internal/cgroups"
+ 
+ const (
+ 	// _cgroupFSType is the Linux CGroup file system type used in

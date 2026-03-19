@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/consume_contract_test.go b/internal/e2e/consume_contract_test.go
+index ad0ac7509..c9d8fa9c1 100644
+--- a/internal/e2e/consume_contract_test.go
++++ b/internal/e2e/consume_contract_test.go
+@@ -24,7 +24,7 @@ func testExporterConfig(endpoint string) component.Config {
+ 	return &otlpexporter.Config{
+ 		QueueConfig: exporterhelper.QueueSettings{Enabled: false},
+ 		RetryConfig: retryConfig,
+-		GRPCClientSettings: configgrpc.GRPCClientSettings{
++		ClientConfig: configgrpc.ClientConfig{
+ 			Endpoint: endpoint,
+ 			TLSSetting: configtls.TLSClientSetting{
+ 				Insecure: true,

@@ -1,0 +1,13 @@
+diff --git a/exporter/internal/queue/persistent_queue.go b/exporter/internal/queue/persistent_queue.go
+index 07b0d1fb6..7dd646c6e 100644
+--- a/exporter/internal/queue/persistent_queue.go
++++ b/exporter/internal/queue/persistent_queue.go
+@@ -89,7 +89,7 @@ type PersistentQueueSettings[T any] struct {
+ 	StorageID        component.ID
+ 	Marshaler        func(req T) ([]byte, error)
+ 	Unmarshaler      func([]byte) (T, error)
+-	ExporterSettings exporter.CreateSettings
++	ExporterSettings exporter.Settings
+ }
+ 
+ // NewPersistentQueue creates a new queue backed by file storage; name and signal must be a unique combination that identifies the queue storage

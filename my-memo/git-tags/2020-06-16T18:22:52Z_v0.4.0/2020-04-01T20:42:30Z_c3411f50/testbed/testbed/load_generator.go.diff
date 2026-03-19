@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/load_generator.go b/testbed/testbed/load_generator.go
+index 267a5938d..623d9c97d 100644
+--- a/testbed/testbed/load_generator.go
++++ b/testbed/testbed/load_generator.go
+@@ -134,7 +134,7 @@ func (lg *LoadGenerator) generate() {
+ 	// Indicate that generation is done at the end
+ 	defer lg.stopWait.Done()
+ 
+-	if lg.options.DataItemsPerSecond <= 0 {
++	if lg.options.DataItemsPerSecond == 0 {
+ 		return
+ 	}
+ 

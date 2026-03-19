@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/obs_queue.go b/exporter/exporterhelper/internal/queuebatch/obs_queue.go
+index 166ddd086..ac87b316b 100644
+--- a/exporter/exporterhelper/internal/queuebatch/obs_queue.go
++++ b/exporter/exporterhelper/internal/queuebatch/obs_queue.go
+@@ -30,7 +30,7 @@ type obsQueue[T request.Request] struct {
+ 	enqueueFailedInst metric.Int64Counter
+ }
+ 
+-func newObsQueue[T request.Request](set QueueSettings[T], delegate Queue[T]) (Queue[T], error) {
++func newObsQueue[T request.Request](set Settings[T], delegate Queue[T]) (Queue[T], error) {
+ 	tb, err := metadata.NewTelemetryBuilder(set.Telemetry)
+ 	if err != nil {
+ 		return nil, err

@@ -1,0 +1,10 @@
+diff --git a/consumer/consumererror/go.mod b/consumer/consumererror/go.mod
+index b9f3f487b..f5436de78 100644
+--- a/consumer/consumererror/go.mod
++++ b/consumer/consumererror/go.mod
+@@ -33,3 +33,5 @@ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory.go b/exporter/otlpexporter/factory.go
+index 234d0698b..19fbaac45 100644
+--- a/exporter/otlpexporter/factory.go
++++ b/exporter/otlpexporter/factory.go
+@@ -41,7 +41,7 @@ func NewFactory() component.ExporterFactory {
+ func createDefaultConfig() configmodels.Exporter {
+ 	// TODO: Enable the queued settings.
+ 	qs := exporterhelper.CreateDefaultQueueSettings()
+-	qs.Disabled = true
++	qs.Enabled = false
+ 	return &Config{
+ 		ExporterSettings: configmodels.ExporterSettings{
+ 			TypeVal: typeStr,

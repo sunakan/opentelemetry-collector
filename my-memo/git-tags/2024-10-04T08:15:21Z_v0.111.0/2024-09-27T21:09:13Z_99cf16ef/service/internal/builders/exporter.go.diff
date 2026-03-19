@@ -1,0 +1,30 @@
+diff --git a/service/internal/builders/exporter.go b/service/internal/builders/exporter.go
+index 61ec2a45d..ae318f17a 100644
+--- a/service/internal/builders/exporter.go
++++ b/service/internal/builders/exporter.go
+@@ -11,6 +11,7 @@ import (
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/exporter/exporterprofiles"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
++	"go.opentelemetry.io/collector/pipeline"
+ )
+ 
+ // ExporterBuilder is a helper struct that given a set of Configs and Factories helps with creating exporters.
+@@ -79,11 +80,16 @@ func (b *ExporterBuilder) CreateProfiles(ctx context.Context, set exporter.Setti
+ 		return nil, fmt.Errorf("exporter %q is not configured", set.ID)
+ 	}
+ 
+-	f, existsFactory := b.factories[set.ID.Type()]
++	expFact, existsFactory := b.factories[set.ID.Type()]
+ 	if !existsFactory {
+ 		return nil, fmt.Errorf("exporter factory not available for: %q", set.ID)
+ 	}
+ 
++	f, ok := expFact.(exporterprofiles.Factory)
++	if !ok {
++		return nil, pipeline.ErrSignalNotSupported
++	}
++
+ 	logStabilityLevel(set.Logger, f.ProfilesExporterStability())
+ 	return f.CreateProfilesExporter(ctx, set, cfg)
+ }

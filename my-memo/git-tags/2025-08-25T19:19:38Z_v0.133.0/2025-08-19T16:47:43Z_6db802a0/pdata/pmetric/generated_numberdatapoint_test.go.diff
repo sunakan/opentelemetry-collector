@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_numberdatapoint_test.go b/pdata/pmetric/generated_numberdatapoint_test.go
+index 781bd530f..1cfe45e05 100644
+--- a/pdata/pmetric/generated_numberdatapoint_test.go
++++ b/pdata/pmetric/generated_numberdatapoint_test.go
+@@ -111,7 +111,6 @@ func TestNumberDataPoint_Flags(t *testing.T) {
+ }
+ 
+ func generateTestNumberDataPoint() NumberDataPoint {
+-	ms := NewNumberDataPoint()
+-	internal.FillOrigTestNumberDataPoint(ms.orig)
++	ms := newNumberDataPoint(internal.GenTestOrigNumberDataPoint(), internal.NewState())
+ 	return ms
+ }

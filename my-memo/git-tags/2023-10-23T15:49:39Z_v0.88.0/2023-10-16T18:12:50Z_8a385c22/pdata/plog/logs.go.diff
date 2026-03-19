@@ -1,0 +1,25 @@
+diff --git a/pdata/plog/logs.go b/pdata/plog/logs.go
+index a6187fbc0..490526090 100644
+--- a/pdata/plog/logs.go
++++ b/pdata/plog/logs.go
+@@ -21,11 +21,20 @@ func (ms Logs) getOrig() *otlpcollectorlog.ExportLogsServiceRequest {
+ 	return internal.GetOrigLogs(internal.Logs(ms))
+ }
+ 
++func (ms Logs) getState() *internal.State {
++	return internal.GetLogsState(internal.Logs(ms))
++}
++
+ // NewLogs creates a new Logs struct.
+ func NewLogs() Logs {
+ 	return newLogs(&otlpcollectorlog.ExportLogsServiceRequest{})
+ }
+ 
++// IsReadOnly returns true if this Logs instance is read-only.
++func (ms Logs) IsReadOnly() bool {
++	return *ms.getState() == internal.StateReadOnly
++}
++
+ // CopyTo copies the Logs instance overriding the destination.
+ func (ms Logs) CopyTo(dest Logs) {
+ 	ms.ResourceLogs().CopyTo(dest.ResourceLogs())

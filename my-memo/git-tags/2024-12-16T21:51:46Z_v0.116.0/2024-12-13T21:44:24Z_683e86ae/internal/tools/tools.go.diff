@@ -1,0 +1,12 @@
+diff --git a/internal/tools/tools.go b/internal/tools/tools.go
+index 06f143c37..d619b9580 100644
+--- a/internal/tools/tools.go
++++ b/internal/tools/tools.go
+@@ -25,6 +25,7 @@ import (
+ 	_ "golang.org/x/exp/cmd/apidiff"
+ 	_ "golang.org/x/tools/cmd/goimports"
+ 	_ "golang.org/x/vuln/cmd/govulncheck"
++	_ "mvdan.cc/gofumpt"
+ 
+ 	_ "go.opentelemetry.io/collector/internal/tools/semconvkit"
+ )

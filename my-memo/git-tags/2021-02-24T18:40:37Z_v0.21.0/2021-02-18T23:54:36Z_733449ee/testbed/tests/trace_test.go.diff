@@ -1,0 +1,45 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index d41f4535d..0d3d1ac98 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -66,7 +66,7 @@ func TestTrace10kSPS(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			"OTLP",
++			"OTLP-gRPC",
+ 			testbed.NewOTLPTraceDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
+ 			testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)),
+ 			testbed.ResourceSpec{
+@@ -74,6 +74,15 @@ func TestTrace10kSPS(t *testing.T) {
+ 				ExpectedMaxRAM: 70,
+ 			},
+ 		},
++		{
++			"OTLP-gRPC-gzip",
++			testbed.NewOTLPTraceDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
++			testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)).WithCompression("gzip"),
++			testbed.ResourceSpec{
++				ExpectedMaxCPU: 30,
++				ExpectedMaxRAM: 100,
++			},
++		},
+ 		{
+ 			"OTLP-HTTP",
+ 			testbed.NewOTLPHTTPTraceDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
+@@ -83,6 +92,15 @@ func TestTrace10kSPS(t *testing.T) {
+ 				ExpectedMaxRAM: 100,
+ 			},
+ 		},
++		{
++			"OTLP-HTTP-gzip",
++			testbed.NewOTLPHTTPTraceDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),
++			testbed.NewOTLPHTTPDataReceiver(testbed.GetAvailablePort(t)).WithCompression("gzip"),
++			testbed.ResourceSpec{
++				ExpectedMaxCPU: 25,
++				ExpectedMaxRAM: 100,
++			},
++		},
+ 		{
+ 			"Zipkin",
+ 			testbed.NewZipkinDataSender(testbed.DefaultHost, testbed.GetAvailablePort(t)),

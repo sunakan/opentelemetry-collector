@@ -1,0 +1,15 @@
+diff --git a/pdata/pprofile/generated_functionslice.go b/pdata/pprofile/generated_functionslice.go
+index cf4af9f7f..14d93c1f2 100644
+--- a/pdata/pprofile/generated_functionslice.go
++++ b/pdata/pprofile/generated_functionslice.go
+@@ -109,6 +109,10 @@ func (es FunctionSlice) AppendEmpty() Function {
+ func (es FunctionSlice) MoveAndAppendTo(dest FunctionSlice) {
+ 	es.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if es.orig == dest.orig {
++		return
++	}
+ 	if *dest.orig == nil {
+ 		// We can simply move the entire vector and avoid any allocations.
+ 		*dest.orig = *es.orig

@@ -1,0 +1,19 @@
+diff --git a/processor/nodebatcherprocessor/testdata/config.yaml b/processor/nodebatcherprocessor/testdata/config.yaml
+index 2d469b595..8ab2f0cc7 100644
+--- a/processor/nodebatcherprocessor/testdata/config.yaml
++++ b/processor/nodebatcherprocessor/testdata/config.yaml
+@@ -13,8 +13,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [batch/2]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [batch/2]
++      exporters: [exampleexporter]

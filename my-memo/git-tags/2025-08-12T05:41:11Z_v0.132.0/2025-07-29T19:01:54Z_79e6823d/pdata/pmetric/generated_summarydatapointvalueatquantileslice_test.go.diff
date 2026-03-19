@@ -1,0 +1,34 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go b/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
+index 900b31e10..a04ef9ea8 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantileslice_test.go
+@@ -51,16 +51,25 @@ func TestSummaryDataPointValueAtQuantileSliceReadOnly(t *testing.T) {
+ 
+ func TestSummaryDataPointValueAtQuantileSlice_CopyTo(t *testing.T) {
+ 	dest := NewSummaryDataPointValueAtQuantileSlice()
+-	// Test CopyTo to empty
++	// Test CopyTo empty
+ 	NewSummaryDataPointValueAtQuantileSlice().CopyTo(dest)
+ 	assert.Equal(t, NewSummaryDataPointValueAtQuantileSlice(), dest)
+ 
+-	// Test CopyTo larger slice
+-	generateTestSummaryDataPointValueAtQuantileSlice().CopyTo(dest)
++	// Test CopyTo larger slice and EnsureCapacity
++	src := generateTestSummaryDataPointValueAtQuantileSlice()
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestSummaryDataPointValueAtQuantileSlice(), dest)
+ 
+ 	// Test CopyTo same size slice
+-	generateTestSummaryDataPointValueAtQuantileSlice().CopyTo(dest)
++	src.CopyTo(dest)
++	assert.Equal(t, generateTestSummaryDataPointValueAtQuantileSlice(), dest)
++}
++
++func TestSummaryDataPointValueAtQuantileSlice_CopyToAndEnsureCapacity(t *testing.T) {
++	dest := NewSummaryDataPointValueAtQuantileSlice()
++	src := generateTestSummaryDataPointValueAtQuantileSlice()
++	dest.EnsureCapacity(src.Len())
++	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestSummaryDataPointValueAtQuantileSlice(), dest)
+ }
+ 

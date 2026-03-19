@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/resource_to_label.go b/exporter/exporterhelper/resource_to_label.go
+index 0c4b6bd8e..d1af9c357 100644
+--- a/exporter/exporterhelper/resource_to_label.go
++++ b/exporter/exporterhelper/resource_to_label.go
+@@ -15,7 +15,7 @@
+ package exporterhelper
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

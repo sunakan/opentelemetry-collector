@@ -1,0 +1,22 @@
+diff --git a/service/builder/testdata/bad_receiver_factory.yaml b/service/builder/testdata/bad_receiver_factory.yaml
+new file mode 100644
+index 000000000..1f3bd0507
+--- /dev/null
++++ b/service/builder/testdata/bad_receiver_factory.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  bf: # this is the bad receiver factory
++processors:
++  nop:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    traces:
++      receivers: [bf]
++      processors: [nop] # trace pipeline requires a processor
++      exporters: [exampleexporter]
++    metrics:
++      receivers: [bf]
++      exporters: [exampleexporter]

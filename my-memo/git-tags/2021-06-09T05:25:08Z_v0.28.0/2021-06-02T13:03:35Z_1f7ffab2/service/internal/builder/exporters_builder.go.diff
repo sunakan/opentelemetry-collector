@@ -1,0 +1,30 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index cd1223749..6925ee555 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -232,7 +232,7 @@ func (eb *exportersBuilder) buildExporter(
+ 		return exporter, nil
+ 	}
+ 
+-	creationParams := component.ExporterCreateParams{
++	set := component.ExporterCreateSettings{
+ 		Logger:    logger,
+ 		BuildInfo: buildInfo,
+ 	}
+@@ -242,13 +242,13 @@ func (eb *exportersBuilder) buildExporter(
+ 	for dataType, requirement := range inputDataTypes {
+ 		switch dataType {
+ 		case config.TracesDataType:
+-			createdExporter, err = factory.CreateTracesExporter(ctx, creationParams, cfg)
++			createdExporter, err = factory.CreateTracesExporter(ctx, set, cfg)
+ 
+ 		case config.MetricsDataType:
+-			createdExporter, err = factory.CreateMetricsExporter(ctx, creationParams, cfg)
++			createdExporter, err = factory.CreateMetricsExporter(ctx, set, cfg)
+ 
+ 		case config.LogsDataType:
+-			createdExporter, err = factory.CreateLogsExporter(ctx, creationParams, cfg)
++			createdExporter, err = factory.CreateLogsExporter(ctx, set, cfg)
+ 
+ 		default:
+ 			// Could not create because this exporter does not support this data type.

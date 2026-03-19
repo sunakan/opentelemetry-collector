@@ -1,0 +1,13 @@
+diff --git a/internal/e2e/status_test.go b/internal/e2e/status_test.go
+index 78ba605a1..a87a59807 100644
+--- a/internal/e2e/status_test.go
++++ b/internal/e2e/status_test.go
+@@ -101,7 +101,7 @@ func Test_ComponentStatusReporting_SharedInstance(t *testing.T) {
+ 				Level: configtelemetry.LevelNone,
+ 			},
+ 		},
+-		PipelinesWithPipelineID: pipelines.ConfigWithPipelineID{
++		Pipelines: pipelines.Config{
+ 			pipeline.MustNewID("traces"): {
+ 				Receivers: []component.ID{component.NewID(component.MustNewType("test"))},
+ 				Exporters: []component.ID{component.NewID(nopType)},

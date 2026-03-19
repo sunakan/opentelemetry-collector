@@ -1,0 +1,13 @@
+diff --git a/.github/ISSUE_TEMPLATE/feature_request.yaml b/.github/ISSUE_TEMPLATE/feature_request.yaml
+index 5f1f302d0..edcdab0fa 100644
+--- a/.github/ISSUE_TEMPLATE/feature_request.yaml
++++ b/.github/ISSUE_TEMPLATE/feature_request.yaml
+@@ -46,7 +46,7 @@ body:
+       - exporter/exporterhelper/internal/queuebatch
+       - exporter/exporterhelper/xexporterhelper
+       - exporter/nop
+-      - exporter/otlp
++      - exporter/otlp_grpc
+       - exporter/otlp_http
+       - exporter/x
+       - extension/memorylimiter

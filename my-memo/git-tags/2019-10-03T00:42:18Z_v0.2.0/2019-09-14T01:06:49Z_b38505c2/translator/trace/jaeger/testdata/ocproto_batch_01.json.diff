@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/testdata/ocproto_batch_01.json b/translator/trace/jaeger/testdata/ocproto_batch_01.json
+index 6010f8a16..cb4e53b40 100644
+--- a/translator/trace/jaeger/testdata/ocproto_batch_01.json
++++ b/translator/trace/jaeger/testdata/ocproto_batch_01.json
+@@ -40,7 +40,7 @@
+             "http.url": {
+               "Value": {
+                 "StringValue": {
+-                  "value": "http://127.0.0.1:15598/client_transactions"
++                  "value": "http://localhost:15598/client_transactions"
+                 }
+               }
+             },

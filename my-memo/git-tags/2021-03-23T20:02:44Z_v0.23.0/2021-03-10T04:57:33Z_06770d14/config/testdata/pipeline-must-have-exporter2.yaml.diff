@@ -1,0 +1,17 @@
+diff --git a/config/testdata/pipeline-must-have-exporter2.yaml b/config/testdata/pipeline-must-have-exporter2.yaml
+deleted file mode 100644
+index 375216afe..000000000
+--- a/config/testdata/pipeline-must-have-exporter2.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-    extra: "not present in the service pipeline"
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    metrics:
+-      receivers: [multireceiver]

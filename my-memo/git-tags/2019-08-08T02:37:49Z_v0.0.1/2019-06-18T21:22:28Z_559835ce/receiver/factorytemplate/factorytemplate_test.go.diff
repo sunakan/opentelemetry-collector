@@ -1,0 +1,23 @@
+diff --git a/receiver/factorytemplate/factorytemplate_test.go b/receiver/factorytemplate/factorytemplate_test.go
+index bae33f146..75cf6b765 100644
+--- a/receiver/factorytemplate/factorytemplate_test.go
++++ b/receiver/factorytemplate/factorytemplate_test.go
+@@ -1,4 +1,4 @@
+-// Copyright 2019, OpenCensus Authors
++// Copyright 2019, OpenTelemetry Authors
+ //
+ // Licensed under the Apache License, Version 2.0 (the "License");
+ // you may not use this file except in compliance with the License.
+@@ -26,9 +26,9 @@ import (
+ 	"go.uber.org/zap"
+ 	yaml "gopkg.in/yaml.v2"
+ 
+-	"github.com/census-instrumentation/opencensus-service/consumer"
+-	"github.com/census-instrumentation/opencensus-service/exporter/exportertest"
+-	"github.com/census-instrumentation/opencensus-service/receiver"
++	"github.com/open-telemetry/opentelemetry-service/consumer"
++	"github.com/open-telemetry/opentelemetry-service/exporter/exportertest"
++	"github.com/open-telemetry/opentelemetry-service/receiver"
+ )
+ 
+ func TestNewTraceReceiverFactory(t *testing.T) {

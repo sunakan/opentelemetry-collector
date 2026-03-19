@@ -1,0 +1,22 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index e44080cc9..0bc2e2ac8 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -4,6 +4,17 @@
+ 
+ ### 🛑 Breaking changes 🛑
+ 
++- Remove deprecated component stability helpers (#5802):
++  - `component.WithTracesExporterAndStabilityLevel`
++  - `component.WithMetricsExporterAndStabilityLevel`
++  - `component.WithLogsExporterAndStabilityLevel`
++  - `component.WithTracesReceiverAndStabilityLevel`
++  - `component.WithMetricsReceiverAndStabilityLevel`
++  - `component.WithLogsReceiverAndStabilityLevel`
++  - `component.WithTracesProcessorAndStabilityLevel`
++  - `component.WithMetricsProcessorAndStabilityLevel`
++  - `component.WithLogsProcessorAndStabilityLevel`
++
+ ### 🚩 Deprecations 🚩
+ 
+ ### 💡 Enhancements 💡

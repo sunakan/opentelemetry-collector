@@ -1,0 +1,12 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index d109376c8..b818936b5 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -151,6 +151,7 @@ func (ocr *Receiver) StopTraceReception(ctx context.Context) error {
+ 	// StopTraceReception is a noop currently.
+ 	// TODO: (@odeke-em) investigate whether or not gRPC
+ 	// provides a way to stop specific services.
++	ocr.traceReceiver.Stop()
+ 	return nil
+ }
+ 

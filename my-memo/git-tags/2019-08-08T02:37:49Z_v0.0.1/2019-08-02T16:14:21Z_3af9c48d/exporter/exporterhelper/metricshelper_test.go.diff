@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metricshelper_test.go b/exporter/exporterhelper/metricshelper_test.go
+index 22c0faceb..3627d1f3f 100644
+--- a/exporter/exporterhelper/metricshelper_test.go
++++ b/exporter/exporterhelper/metricshelper_test.go
+@@ -26,8 +26,8 @@ import (
+ )
+ 
+ func TestMetricsExporter_InvalidName(t *testing.T) {
+-	if _, err := NewMetricsExporter("", newPushMetricsData(0, nil)); err != errEmptyExporterFormat {
+-		t.Fatalf("NewMetricsExporter returns: Want %v Got %v", errEmptyExporterFormat, err)
++	if _, err := NewMetricsExporter("", newPushMetricsData(0, nil)); err != errEmptyExporterName {
++		t.Fatalf("NewMetricsExporter returns: Want %v Got %v", errEmptyExporterName, err)
+ 	}
+ }
+ 

@@ -1,0 +1,15 @@
+diff --git a/processor/filterprocessor/expr_test.go b/processor/filterprocessor/expr_test.go
+index 9ad2b18a3..2f7f99c60 100644
+--- a/processor/filterprocessor/expr_test.go
++++ b/processor/filterprocessor/expr_test.go
+@@ -130,8 +130,8 @@ func testFilter(t *testing.T, mdType pdata.MetricDataType) {
+ }
+ 
+ func assertFiltered(t *testing.T, lm pdata.StringMap) {
+-	lm.ForEach(func(k string, v pdata.StringValue) {
+-		if k == filteredLblKey && v.Value() == filteredLblVal {
++	lm.ForEach(func(k string, v string) {
++		if k == filteredLblKey && v == filteredLblVal {
+ 			assert.Fail(t, "found metric that should have been filtered out")
+ 		}
+ 	})

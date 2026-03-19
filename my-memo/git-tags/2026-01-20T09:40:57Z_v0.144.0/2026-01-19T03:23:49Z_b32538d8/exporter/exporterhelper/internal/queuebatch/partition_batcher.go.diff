@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+index 323ea27f1..895d5a53c 100644
+--- a/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/partition_batcher.go
+@@ -136,7 +136,7 @@ func (qb *partitionBatcher) Consume(ctx context.Context, req request.Request, do
+ 		numRefs++
+ 	}
+ 	if numRefs > 1 {
+-		done = newRefCountDone(done, int64(len(reqList)))
++		done = newRefCountDone(done, int64(numRefs))
+ 		if mergeSplitErr != nil {
+ 			done.OnDone(mergeSplitErr)
+ 		}

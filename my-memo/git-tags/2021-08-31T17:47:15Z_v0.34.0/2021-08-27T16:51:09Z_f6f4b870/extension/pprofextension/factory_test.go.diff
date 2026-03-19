@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/factory_test.go b/extension/pprofextension/factory_test.go
+index d5dacc969..700f6cd62 100644
+--- a/extension/pprofextension/factory_test.go
++++ b/extension/pprofextension/factory_test.go
+@@ -25,7 +25,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configcheck"
+ 	"go.opentelemetry.io/collector/config/confignet"
+-	"go.opentelemetry.io/collector/testutil"
++	"go.opentelemetry.io/collector/internal/testutil"
+ )
+ 
+ func TestFactory_CreateDefaultConfig(t *testing.T) {

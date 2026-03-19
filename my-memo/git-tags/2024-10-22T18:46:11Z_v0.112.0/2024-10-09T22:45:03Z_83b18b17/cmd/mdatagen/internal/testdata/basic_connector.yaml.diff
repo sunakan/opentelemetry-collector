@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/basic_connector.yaml b/cmd/mdatagen/internal/testdata/basic_connector.yaml
+new file mode 100644
+index 000000000..b485572ea
+--- /dev/null
++++ b/cmd/mdatagen/internal/testdata/basic_connector.yaml
+@@ -0,0 +1,6 @@
++type: test
++
++status:
++  class: connector
++  stability:
++    beta: [traces_to_traces]
+\ No newline at end of file

@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/error_waiting_host.go b/component/componenttest/error_waiting_host.go
+index 04727a3e2..df92f7016 100644
+--- a/component/componenttest/error_waiting_host.go
++++ b/component/componenttest/error_waiting_host.go
+@@ -17,8 +17,8 @@ package componenttest
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ // ErrorWaitingHost mocks an component.Host for test purposes.

@@ -1,0 +1,13 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 8bdd45315..4ce306106 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -89,7 +89,7 @@ func (hcs *HTTPClientSettings) ToClient() (*http.Client, error) {
+ 	}, nil
+ }
+ 
+-// Custom RoundTripper that add headers
++// Custom RoundTripper that add headers.
+ type headerRoundTripper struct {
+ 	transport http.RoundTripper
+ 	headers   map[string]string

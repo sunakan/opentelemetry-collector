@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/go-benchmarks.yml b/.github/workflows/go-benchmarks.yml
+index 7f98fb839..86627979f 100644
+--- a/.github/workflows/go-benchmarks.yml
++++ b/.github/workflows/go-benchmarks.yml
+@@ -1,10 +1,6 @@
+ name: CodSpeed Benchmarks
+ 
+ on:
+-  push:
+-    branches:
+-      - "main"
+-  pull_request:
+   workflow_dispatch:
+ 
+ jobs:

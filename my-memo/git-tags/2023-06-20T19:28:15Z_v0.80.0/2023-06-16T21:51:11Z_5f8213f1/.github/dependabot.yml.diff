@@ -1,0 +1,16 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index 57712120f..e11c63398 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -27,6 +27,11 @@ updates:
+     schedule:
+       interval: "weekly"
+       day: "wednesday"
++  - package-ecosystem: "gomod"
++    directory: "/config/configauth"
++    schedule:
++      interval: "weekly"
++      day: "wednesday"
+   - package-ecosystem: "gomod"
+     directory: "/config/configcompression"
+     schedule:

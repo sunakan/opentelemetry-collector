@@ -1,0 +1,101 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index dde546fa9..fd0181aa8 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -47,7 +47,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/client"
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -83,9 +82,6 @@ type jReceiver struct {
+ 	nextConsumer consumer.Traces
+ 	instanceName string
+ 
+-	startOnce sync.Once
+-	stopOnce  sync.Once
+-
+ 	config *configuration
+ 
+ 	grpc            *grpc.Server
+@@ -189,51 +185,42 @@ func (jr *jReceiver) Start(_ context.Context, host component.Host) error {
+ 	jr.mu.Lock()
+ 	defer jr.mu.Unlock()
+ 
+-	var err = componenterror.ErrAlreadyStarted
+-	jr.startOnce.Do(func() {
+-		if err = jr.startAgent(host); err != nil && err != componenterror.ErrAlreadyStarted {
+-			return
+-		}
++	if err := jr.startAgent(host); err != nil {
++		return err
++	}
+ 
+-		if err = jr.startCollector(host); err != nil && err != componenterror.ErrAlreadyStarted {
+-			return
+-		}
++	if err := jr.startCollector(host); err != nil {
++		return err
++	}
+ 
+-		err = nil
+-	})
+-	return err
++	return nil
+ }
+ 
+ func (jr *jReceiver) Shutdown(context.Context) error {
+-	var err = componenterror.ErrAlreadyStopped
+-	jr.stopOnce.Do(func() {
+-		jr.mu.Lock()
+-		defer jr.mu.Unlock()
+-		var errs []error
+-
+-		if jr.agentServer != nil {
+-			if aerr := jr.agentServer.Close(); aerr != nil {
+-				errs = append(errs, aerr)
+-			}
+-		}
+-		for _, processor := range jr.agentProcessors {
+-			processor.Stop()
+-		}
++	jr.mu.Lock()
++	defer jr.mu.Unlock()
++	var errs []error
+ 
+-		if jr.collectorServer != nil {
+-			if cerr := jr.collectorServer.Close(); cerr != nil {
+-				errs = append(errs, cerr)
+-			}
+-		}
+-		if jr.grpc != nil {
+-			jr.grpc.Stop()
++	if jr.agentServer != nil {
++		if aerr := jr.agentServer.Close(); aerr != nil {
++			errs = append(errs, aerr)
+ 		}
++	}
++	for _, processor := range jr.agentProcessors {
++		processor.Stop()
++	}
+ 
+-		jr.goroutines.Wait()
+-		err = consumererror.Combine(errs)
+-	})
++	if jr.collectorServer != nil {
++		if cerr := jr.collectorServer.Close(); cerr != nil {
++			errs = append(errs, cerr)
++		}
++	}
++	if jr.grpc != nil {
++		jr.grpc.Stop()
++	}
+ 
+-	return err
++	jr.goroutines.Wait()
++	return consumererror.Combine(errs)
+ }
+ 
+ func consumeTraces(ctx context.Context, batch *jaeger.Batch, consumer consumer.Traces) (int, error) {

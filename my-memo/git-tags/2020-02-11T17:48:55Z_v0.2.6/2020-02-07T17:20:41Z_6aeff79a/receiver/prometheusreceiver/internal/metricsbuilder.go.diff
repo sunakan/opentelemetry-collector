@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/internal/metricsbuilder.go b/receiver/prometheusreceiver/internal/metricsbuilder.go
+index d500fa44c..311d6d291 100644
+--- a/receiver/prometheusreceiver/internal/metricsbuilder.go
++++ b/receiver/prometheusreceiver/internal/metricsbuilder.go
+@@ -105,7 +105,6 @@ func (b *metricBuilder) AddDataPoint(ls labels.Labels, t int64, v float64) error
+ 		return nil
+ 	} else if b.useStartTimeMetric && metricName == startTimeMetricName {
+ 		b.startTime = v
+-		return nil
+ 	}
+ 
+ 	b.hasData = true

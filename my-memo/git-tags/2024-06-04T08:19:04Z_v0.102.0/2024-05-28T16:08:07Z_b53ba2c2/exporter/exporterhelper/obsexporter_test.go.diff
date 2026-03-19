@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterhelper/obsexporter_test.go b/exporter/exporterhelper/obsexporter_test.go
+index f6f46ccba..63da5fcf8 100644
+--- a/exporter/exporterhelper/obsexporter_test.go
++++ b/exporter/exporterhelper/obsexporter_test.go
+@@ -237,11 +237,9 @@ type testParams struct {
+ }
+ 
+ func testTelemetry(t *testing.T, id component.ID, testFunc func(t *testing.T, tt componenttest.TestTelemetry)) {
+-	t.Run("WithOTel", func(t *testing.T) {
+-		tt, err := componenttest.SetupTelemetry(id)
+-		require.NoError(t, err)
+-		t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
++	tt, err := componenttest.SetupTelemetry(id)
++	require.NoError(t, err)
++	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-		testFunc(t, tt)
+-	})
++	testFunc(t, tt)
+ }

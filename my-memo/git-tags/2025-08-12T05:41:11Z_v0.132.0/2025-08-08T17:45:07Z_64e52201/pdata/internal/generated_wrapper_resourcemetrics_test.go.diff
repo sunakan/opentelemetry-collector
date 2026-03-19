@@ -1,0 +1,31 @@
+diff --git a/pdata/internal/generated_wrapper_resourcemetrics_test.go b/pdata/internal/generated_wrapper_resourcemetrics_test.go
+index 7a9f7acf1..368a3942b 100644
+--- a/pdata/internal/generated_wrapper_resourcemetrics_test.go
++++ b/pdata/internal/generated_wrapper_resourcemetrics_test.go
+@@ -46,3 +46,26 @@ func TestMarshalAndUnmarshalJSONOrigResourceMetrics(t *testing.T) {
+ 
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalProtoOrigResourceMetrics(t *testing.T) {
++	src := &otlpmetrics.ResourceMetrics{}
++	FillOrigTestResourceMetrics(src)
++	buf, err := MarshalProtoOrigResourceMetrics(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigResourceMetrics(src))
++
++	dest := &otlpmetrics.ResourceMetrics{}
++	require.NoError(t, UnmarshalProtoOrigResourceMetrics(dest, buf))
++	assert.Equal(t, src, dest)
++}
++
++func TestMarshalAndUnmarshalProtoOrigEmptyResourceMetrics(t *testing.T) {
++	src := &otlpmetrics.ResourceMetrics{}
++	buf, err := MarshalProtoOrigResourceMetrics(src)
++	require.NoError(t, err)
++	assert.Equal(t, len(buf), SizeProtoOrigResourceMetrics(src))
++
++	dest := &otlpmetrics.ResourceMetrics{}
++	require.NoError(t, UnmarshalProtoOrigResourceMetrics(dest, buf))
++	assert.Equal(t, src, dest)
++}

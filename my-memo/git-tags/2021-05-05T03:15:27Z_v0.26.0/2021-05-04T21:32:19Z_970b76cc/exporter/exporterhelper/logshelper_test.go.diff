@@ -1,0 +1,20 @@
+diff --git a/exporter/exporterhelper/logshelper_test.go b/exporter/exporterhelper/logshelper_test.go
+index 560d13966..334694be0 100644
+--- a/exporter/exporterhelper/logshelper_test.go
++++ b/exporter/exporterhelper/logshelper_test.go
+@@ -33,12 +33,13 @@ import (
+ )
+ 
+ const (
+-	fakeLogsExporterName   = "fake_logs_exporter/with_name"
+ 	fakeLogsParentSpanName = "fake_logs_parent_span_name"
+ )
+ 
++var fakeLogsExporterName = config.MustIDFromString("fake_logs_exporter/with_name")
++
+ var (
+-	fakeLogsExporterConfig = config.NewExporterSettings(config.MustIDFromString(fakeLogsExporterName))
++	fakeLogsExporterConfig = config.NewExporterSettings(fakeLogsExporterName)
+ )
+ 
+ func TestLogsRequest(t *testing.T) {

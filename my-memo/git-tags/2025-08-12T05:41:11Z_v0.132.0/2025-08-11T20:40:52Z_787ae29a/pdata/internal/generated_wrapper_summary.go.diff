@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_summary.go b/pdata/internal/generated_wrapper_summary.go
+index 1eba1cf5f..1fc1f3233 100644
+--- a/pdata/internal/generated_wrapper_summary.go
++++ b/pdata/internal/generated_wrapper_summary.go
+@@ -25,7 +25,13 @@ func MarshalJSONOrigSummary(orig *otlpmetrics.Summary, dest *json.Stream) {
+ 	dest.WriteObjectStart()
+ 	if len(orig.DataPoints) > 0 {
+ 		dest.WriteObjectField("dataPoints")
+-		MarshalJSONOrigSummaryDataPointSlice(orig.DataPoints, dest)
++		dest.WriteArrayStart()
++		MarshalJSONOrigSummaryDataPoint(orig.DataPoints[0], dest)
++		for i := 1; i < len(orig.DataPoints); i++ {
++			dest.WriteMore()
++			MarshalJSONOrigSummaryDataPoint(orig.DataPoints[i], dest)
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	dest.WriteObjectEnd()
+ }

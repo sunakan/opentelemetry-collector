@@ -1,0 +1,15 @@
+diff --git a/cmd/occollector/app/builder/testdata/oc_keepalive_config.yaml b/cmd/occollector/app/builder/testdata/oc_keepalive_config.yaml
+deleted file mode 100644
+index 043bc0733..000000000
+--- a/cmd/occollector/app/builder/testdata/oc_keepalive_config.yaml
++++ /dev/null
+@@ -1,9 +0,0 @@
+-receivers:
+-  opencensus:
+-    keepalive:
+-      server-parameters:
+-        time: 30s
+-        timeout: 5s
+-      enforcement-policy:
+-        min-time: 10s
+-        permit-without-stream: true

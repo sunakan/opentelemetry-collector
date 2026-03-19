@@ -1,0 +1,13 @@
+diff --git a/otelcol/internal/configunmarshaler/configs_test.go b/otelcol/internal/configunmarshaler/configs_test.go
+index ce1dc8432..fa6bf455c 100644
+--- a/otelcol/internal/configunmarshaler/configs_test.go
++++ b/otelcol/internal/configunmarshaler/configs_test.go
+@@ -128,7 +128,7 @@ func TestUnmarshalError(t *testing.T) {
+ 					conf: confmap.NewFromStringMap(map[string]any{
+ 						"nop": "tests",
+ 					}),
+-					expectedError: "'[nop]' expected a map, got 'string'",
++					expectedError: "'[nop]' expected type 'map[string]interface {}', got unconvertible type 'string'",
+ 				},
+ 			}
+ 

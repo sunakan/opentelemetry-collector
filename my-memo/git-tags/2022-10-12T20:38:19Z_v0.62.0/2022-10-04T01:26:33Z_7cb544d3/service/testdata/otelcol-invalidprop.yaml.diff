@@ -1,0 +1,13 @@
+diff --git a/service/testdata/otelcol-invalidprop.yaml b/service/testdata/otelcol-invalidprop.yaml
+index 1e37edc42..c84fbdbd0 100644
+--- a/service/testdata/otelcol-invalidprop.yaml
++++ b/service/testdata/otelcol-invalidprop.yaml
+@@ -13,6 +13,8 @@ service:
+       propagators:
+       - "unknown"
+       - "tracecontext"
++    metrics:
++      address: localhost:8888
+   pipelines:
+     traces:
+       receivers: [nop]

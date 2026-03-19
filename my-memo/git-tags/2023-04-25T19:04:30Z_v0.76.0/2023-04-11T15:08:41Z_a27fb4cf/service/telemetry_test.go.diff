@@ -1,0 +1,21 @@
+diff --git a/service/telemetry_test.go b/service/telemetry_test.go
+index e7fb2b7c4..440d2e690 100644
+--- a/service/telemetry_test.go
++++ b/service/telemetry_test.go
+@@ -117,13 +117,9 @@ func TestTelemetryInit(t *testing.T) {
+ 			name:    "UseOpenTelemetryForInternalMetrics",
+ 			useOtel: true,
+ 			expectedMetrics: map[string]metricValue{
+-				metricPrefix + ocPrefix + counterName: {
+-					value: 13,
+-					labels: map[string]string{
+-						"service_name":        "otelcol",
+-						"service_version":     "latest",
+-						"service_instance_id": testInstanceID,
+-					},
++				metricPrefix + ocPrefix + counterName + "_total": {
++					value:  13,
++					labels: map[string]string{},
+ 				},
+ 				metricPrefix + otelPrefix + counterName + "_total": {
+ 					value:  13,

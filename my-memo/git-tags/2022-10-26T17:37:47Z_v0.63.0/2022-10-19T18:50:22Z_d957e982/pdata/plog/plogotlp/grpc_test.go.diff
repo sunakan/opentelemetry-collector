@@ -1,0 +1,22 @@
+diff --git a/pdata/plog/plogotlp/grpc_test.go b/pdata/plog/plogotlp/grpc_test.go
+index c146339aa..0e14cfd0c 100644
+--- a/pdata/plog/plogotlp/grpc_test.go
++++ b/pdata/plog/plogotlp/grpc_test.go
+@@ -58,7 +58,7 @@ func TestGrpc(t *testing.T) {
+ 		assert.NoError(t, cc.Close())
+ 	})
+ 
+-	logClient := NewClient(cc)
++	logClient := NewGRPCClient(cc)
+ 
+ 	resp, err := logClient.Export(context.Background(), generateLogsRequest())
+ 	assert.NoError(t, err)
+@@ -91,7 +91,7 @@ func TestGrpcError(t *testing.T) {
+ 		assert.NoError(t, cc.Close())
+ 	})
+ 
+-	logClient := NewClient(cc)
++	logClient := NewGRPCClient(cc)
+ 	resp, err := logClient.Export(context.Background(), generateLogsRequest())
+ 	require.Error(t, err)
+ 	st, okSt := status.FromError(err)

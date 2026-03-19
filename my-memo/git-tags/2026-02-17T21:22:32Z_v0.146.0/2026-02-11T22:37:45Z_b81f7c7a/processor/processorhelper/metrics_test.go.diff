@@ -1,0 +1,20 @@
+diff --git a/processor/processorhelper/metrics_test.go b/processor/processorhelper/metrics_test.go
+index 19d018d62..2da25a537 100644
+--- a/processor/processorhelper/metrics_test.go
++++ b/processor/processorhelper/metrics_test.go
+@@ -91,13 +91,11 @@ func TestMetricsConcurrency(t *testing.T) {
+ 
+ 	var wg sync.WaitGroup
+ 	for range 10 {
+-		wg.Add(1)
+-		go func() {
+-			defer wg.Done()
++		wg.Go(func() {
+ 			for range 10000 {
+ 				assert.NoError(t, mp.ConsumeMetrics(context.Background(), incomingMetrics))
+ 			}
+-		}()
++		})
+ 	}
+ 	wg.Wait()
+ 	assert.NoError(t, mp.Shutdown(context.Background()))

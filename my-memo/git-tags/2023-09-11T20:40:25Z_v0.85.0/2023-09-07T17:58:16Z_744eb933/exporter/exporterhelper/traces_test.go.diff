@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces_test.go b/exporter/exporterhelper/traces_test.go
+index 3774a6015..214587fb2 100644
+--- a/exporter/exporterhelper/traces_test.go
++++ b/exporter/exporterhelper/traces_test.go
+@@ -161,7 +161,7 @@ func TestTracesExporter_WithPersistentQueue(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	host := &mockHost{ext: map[component.ID]component.Component{
+-		storageID: internal.NewMockStorageExtension(),
++		storageID: internal.NewMockStorageExtension(nil),
+ 	}}
+ 	require.NoError(t, te.Start(context.Background(), host))
+ 	t.Cleanup(func() { require.NoError(t, te.Shutdown(context.Background())) })

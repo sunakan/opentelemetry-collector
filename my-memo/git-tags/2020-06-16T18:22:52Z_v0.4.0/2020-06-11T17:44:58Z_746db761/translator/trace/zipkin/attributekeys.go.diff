@@ -1,0 +1,10 @@
+diff --git a/translator/trace/zipkin/attributekeys.go b/translator/trace/zipkin/attributekeys.go
+index 5c13932b8..412423108 100644
+--- a/translator/trace/zipkin/attributekeys.go
++++ b/translator/trace/zipkin/attributekeys.go
+@@ -25,4 +25,5 @@ const (
+ 	RemoteEndpointIPv6        = "zipkin.remoteEndpoint.ipv6"
+ 	RemoteEndpointPort        = "zipkin.remoteEndpoint.port"
+ 	RemoteEndpointServiceName = "zipkin.remoteEndpoint.serviceName"
++	StartTimeAbsent           = "otel.zipkin.absentField.startTime"
+ )

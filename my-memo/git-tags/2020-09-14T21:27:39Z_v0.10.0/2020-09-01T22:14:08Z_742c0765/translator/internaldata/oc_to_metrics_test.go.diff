@@ -1,0 +1,31 @@
+diff --git a/translator/internaldata/oc_to_metrics_test.go b/translator/internaldata/oc_to_metrics_test.go
+index 74eda4992..626d1149b 100644
+--- a/translator/internaldata/oc_to_metrics_test.go
++++ b/translator/internaldata/oc_to_metrics_test.go
+@@ -191,7 +191,7 @@ func BenchmarkMetricIntOCToMetrics(b *testing.B) {
+ 
+ 	b.ResetTimer()
+ 	for n := 0; n < b.N; n++ {
+-		OCToMetricData(ocMetric)
++		OCToMetrics(ocMetric)
+ 	}
+ }
+ 
+@@ -207,7 +207,7 @@ func BenchmarkMetricDoubleOCToMetrics(b *testing.B) {
+ 
+ 	b.ResetTimer()
+ 	for n := 0; n < b.N; n++ {
+-		OCToMetricData(ocMetric)
++		OCToMetrics(ocMetric)
+ 	}
+ }
+ 
+@@ -223,7 +223,7 @@ func BenchmarkMetricHistogramOCToMetrics(b *testing.B) {
+ 
+ 	b.ResetTimer()
+ 	for n := 0; n < b.N; n++ {
+-		OCToMetricData(ocMetric)
++		OCToMetrics(ocMetric)
+ 	}
+ }
+ 

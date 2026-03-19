@@ -1,0 +1,15 @@
+diff --git a/processor/batchprocessor/generated_component_telemetry_test.go b/processor/batchprocessor/generated_component_telemetry_test.go
+index 425cd854d..640256a9a 100644
+--- a/processor/batchprocessor/generated_component_telemetry_test.go
++++ b/processor/batchprocessor/generated_component_telemetry_test.go
+@@ -21,8 +21,8 @@ type componentTestTelemetry struct {
+ 	meterProvider *sdkmetric.MeterProvider
+ }
+ 
+-func (tt *componentTestTelemetry) NewCreateSettings() processor.CreateSettings {
+-	settings := processortest.NewNopCreateSettings()
++func (tt *componentTestTelemetry) NewSettings() processor.Settings {
++	settings := processortest.NewNopSettings()
+ 	settings.MeterProvider = tt.meterProvider
+ 	settings.ID = component.NewID(component.MustNewType("batch"))
+ 

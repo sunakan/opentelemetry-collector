@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/generator_commons.go b/internal/goldendataset/generator_commons.go
+index cedbed141..c1bf9ee89 100644
+--- a/internal/goldendataset/generator_commons.go
++++ b/internal/goldendataset/generator_commons.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/spf13/cast"
+ 
+ 	"go.opentelemetry.io/collector/internal/data"
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
+ )
+ 
+ func convertMapToAttributeKeyValues(attrsMap map[string]interface{}) []otlpcommon.KeyValue {

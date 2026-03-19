@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/factory.go b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+index b87041516..0a9d50306 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/factory.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+@@ -54,7 +54,7 @@ func (f *Factory) CreateTraceProcessor(
+ 	cfg configmodels.Processor,
+ ) (component.TraceProcessorOld, error) {
+ 	tCfg := cfg.(*Config)
+-	return NewTraceProcessor(logger, nextConsumer, *tCfg)
++	return newTraceProcessor(logger, nextConsumer, *tCfg)
+ }
+ 
+ // CreateMetricsProcessor creates a metrics processor based on this config.

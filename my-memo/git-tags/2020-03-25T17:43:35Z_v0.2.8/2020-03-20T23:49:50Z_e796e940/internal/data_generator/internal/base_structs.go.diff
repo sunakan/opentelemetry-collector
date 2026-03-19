@@ -1,0 +1,13 @@
+diff --git a/internal/data_generator/internal/base_structs.go b/internal/data_generator/internal/base_structs.go
+index 0fb993f0a..a486b2e49 100644
+--- a/internal/data_generator/internal/base_structs.go
++++ b/internal/data_generator/internal/base_structs.go
+@@ -79,7 +79,7 @@ func (es ${structName}) Resize(from, to int) {
+ 	*es.orig = (*es.orig)[from:to]
+ }`
+ 
+-const messageTemplate = `// ${structName} ${description}.
++const messageTemplate = `${description}
+ //
+ // This is a reference type, if passsed by value and callee modifies it the
+ // caller will see the modification.

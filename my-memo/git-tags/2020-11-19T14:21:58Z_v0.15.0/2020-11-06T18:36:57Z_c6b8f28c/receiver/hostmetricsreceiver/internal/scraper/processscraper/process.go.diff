@@ -1,0 +1,12 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
+index cef76ef96..d432a7611 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process.go
+@@ -48,7 +48,6 @@ type commandMetadata struct {
+ }
+ 
+ func (m *processMetadata) initializeResource(resource pdata.Resource) {
+-	resource.InitEmpty()
+ 	attr := resource.Attributes()
+ 	attr.InitEmptyWithCapacity(6)
+ 	m.insertPid(attr)

@@ -1,0 +1,18 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/default_batcher.go b/exporter/exporterhelper/internal/queuebatch/default_batcher.go
+index adf7e117d..061e7570d 100644
+--- a/exporter/exporterhelper/internal/queuebatch/default_batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/default_batcher.go
+@@ -21,10 +21,10 @@ type batch struct {
+ 	done multiDone
+ }
+ 
+-type batcherSettings[K any] struct {
++type batcherSettings[T any] struct {
+ 	sizerType  request.SizerType
+-	sizer      request.Sizer[K]
+-	next       sender.SendFunc[K]
++	sizer      request.Sizer[T]
++	next       sender.SendFunc[T]
+ 	maxWorkers int
+ }
+ 

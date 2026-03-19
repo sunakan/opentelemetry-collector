@@ -1,0 +1,9 @@
+diff --git a/receiver/otlpreceiver/testdata/only_http_empty_map.yaml b/receiver/otlpreceiver/testdata/only_http_empty_map.yaml
+new file mode 100644
+index 000000000..d3313f4f0
+--- /dev/null
++++ b/receiver/otlpreceiver/testdata/only_http_empty_map.yaml
+@@ -0,0 +1,3 @@
++# The following entry initializes the default OTLP receiver with only http support by setting it explicitly to an empty map.
++protocols:
++  http: {}

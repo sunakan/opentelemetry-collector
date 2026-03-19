@@ -1,0 +1,25 @@
+diff --git a/receiver/vmmetricsreceiver/testdata/config.yaml b/receiver/vmmetricsreceiver/testdata/config.yaml
+new file mode 100644
+index 000000000..35a39afac
+--- /dev/null
++++ b/receiver/vmmetricsreceiver/testdata/config.yaml
+@@ -0,0 +1,19 @@
++receivers:
++  vmmetrics:
++  vmmetrics/customname:
++    scrape_interval: 5s
++    mount_point: /mountpoint
++    process_mount_point: /proc
++    metric_prefix: testmetric
++
++processors:
++  exampleprocessor:
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [vmmetrics]
++    processors: [exampleprocessor]
++    exporters: [exampleexporter]

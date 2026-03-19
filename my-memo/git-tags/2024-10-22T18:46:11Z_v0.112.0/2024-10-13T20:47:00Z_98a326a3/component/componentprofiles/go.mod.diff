@@ -1,0 +1,13 @@
+diff --git a/component/componentprofiles/go.mod b/component/componentprofiles/go.mod
+deleted file mode 100644
+index 2f7410b0d..000000000
+--- a/component/componentprofiles/go.mod
++++ /dev/null
+@@ -1,7 +0,0 @@
+-module go.opentelemetry.io/collector/component/componentprofiles
+-
+-go 1.22.0
+-
+-require go.opentelemetry.io/collector/internal/globalsignal v0.111.0
+-
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal

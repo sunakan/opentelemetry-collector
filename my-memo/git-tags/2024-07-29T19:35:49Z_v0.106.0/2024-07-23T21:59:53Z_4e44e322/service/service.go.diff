@@ -1,0 +1,29 @@
+diff --git a/service/service.go b/service/service.go
+index 99747db9a..8b57bd12c 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -159,7 +159,7 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 
+ 	if cfg.Telemetry.Metrics.Level != configtelemetry.LevelNone && cfg.Telemetry.Metrics.Address != "" {
+ 		// The process telemetry initialization requires the ballast size, which is available after the extensions are initialized.
+-		if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings, getBallastSize(srv.host)); err != nil {
++		if err = proctelemetry.RegisterProcessMetrics(srv.telemetrySettings); err != nil {
+ 			return nil, fmt.Errorf("failed to register process metrics: %w", err)
+ 		}
+ 	}
+@@ -316,15 +316,6 @@ func (srv *Service) Logger() *zap.Logger {
+ 	return srv.telemetrySettings.Logger
+ }
+ 
+-func getBallastSize(host component.Host) uint64 {
+-	for _, ext := range host.GetExtensions() {
+-		if bExt, ok := ext.(interface{ GetBallastSize() uint64 }); ok {
+-			return bExt.GetBallastSize()
+-		}
+-	}
+-	return 0
+-}
+-
+ func pdataFromSdk(res *sdkresource.Resource) pcommon.Resource {
+ 	// pcommon.NewResource is the best way to generate a new resource currently and is safe to use outside of tests.
+ 	// Because the resource is signal agnostic, and we need a net new resource, not an existing one, this is the only

@@ -1,0 +1,19 @@
+diff --git a/processor/tailsamplingprocessor/config_test.go b/processor/tailsamplingprocessor/config_test.go
+index 622fe1527..37e9c1726 100644
+--- a/processor/tailsamplingprocessor/config_test.go
++++ b/processor/tailsamplingprocessor/config_test.go
+@@ -37,11 +37,11 @@ func TestLoadConfig(t *testing.T) {
+ 	require.Nil(t, err)
+ 	require.NotNil(t, cfg)
+ 
+-	assert.Equal(t, cfg.Processors["tail-sampling"],
++	assert.Equal(t, cfg.Processors["tail_sampling"],
+ 		&Config{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+-				TypeVal: "tail-sampling",
+-				NameVal: "tail-sampling",
++				TypeVal: "tail_sampling",
++				NameVal: "tail_sampling",
+ 			},
+ 			DecisionWait:            10 * time.Second,
+ 			NumTraces:               100,

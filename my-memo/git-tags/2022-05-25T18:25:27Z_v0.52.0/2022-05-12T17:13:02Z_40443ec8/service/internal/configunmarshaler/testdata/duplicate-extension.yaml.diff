@@ -1,0 +1,9 @@
+diff --git a/service/internal/configunmarshaler/testdata/duplicate-extension.yaml b/service/internal/configunmarshaler/testdata/duplicate-extension.yaml
+new file mode 100644
+index 000000000..1b8706c20
+--- /dev/null
++++ b/service/internal/configunmarshaler/testdata/duplicate-extension.yaml
+@@ -0,0 +1,3 @@
++extensions:
++  exampleextension /ext :
++  exampleextension/ ext:

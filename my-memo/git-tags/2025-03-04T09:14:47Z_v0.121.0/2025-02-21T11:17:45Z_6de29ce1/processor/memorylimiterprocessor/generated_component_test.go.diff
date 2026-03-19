@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiterprocessor/generated_component_test.go b/processor/memorylimiterprocessor/generated_component_test.go
+index 712f46eba..042f372e4 100644
+--- a/processor/memorylimiterprocessor/generated_component_test.go
++++ b/processor/memorylimiterprocessor/generated_component_test.go
+@@ -70,7 +70,7 @@ func TestComponentLifecycle(t *testing.T) {
+ 
+ 	for _, tt := range tests {
+ 		t.Run(tt.name+"-lifecycle", func(t *testing.T) {
+-			c, err := tt.createFn(context.Background(), processortest.NewNopSettingsWithType(typ), cfg)
++			c, err := tt.createFn(context.Background(), processortest.NewNopSettings(typ), cfg)
+ 			require.NoError(t, err)
+ 			host := componenttest.NewNopHost()
+ 			err = c.Start(context.Background(), host)

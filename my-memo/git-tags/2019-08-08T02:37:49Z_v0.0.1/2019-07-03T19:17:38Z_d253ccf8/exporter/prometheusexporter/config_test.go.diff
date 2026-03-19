@@ -1,0 +1,21 @@
+diff --git a/exporter/prometheusexporter/config_test.go b/exporter/prometheusexporter/config_test.go
+index b6b12c638..8daa82e15 100644
+--- a/exporter/prometheusexporter/config_test.go
++++ b/exporter/prometheusexporter/config_test.go
+@@ -22,14 +22,14 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/configv2"
+-	"github.com/open-telemetry/opentelemetry-service/factories"
++	"github.com/open-telemetry/opentelemetry-service/exporter"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
+ )
+ 
+ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factory := factories.GetExporterFactory(typeStr)
++	factory := exporter.GetExporterFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

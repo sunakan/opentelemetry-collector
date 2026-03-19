@@ -1,0 +1,11 @@
+diff --git a/exporter/debugexporter/metadata.yaml b/exporter/debugexporter/metadata.yaml
+index 4c60b9589..2c9f9093c 100644
+--- a/exporter/debugexporter/metadata.yaml
++++ b/exporter/debugexporter/metadata.yaml
+@@ -4,5 +4,5 @@ status:
+   class: exporter
+   stability:
+     development: [traces, metrics, logs]
+-  distributions: [core, contrib]
++  distributions: [core, contrib, k8s]
+   warnings: [Unstable Output Format]

@@ -1,0 +1,29 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+deleted file mode 100644
+index 7d4beacba..000000000
+--- a/obsreport/obsreport_receiver.go
++++ /dev/null
+@@ -1,23 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package obsreport // import "go.opentelemetry.io/collector/obsreport"
+-
+-import "go.opentelemetry.io/collector/receiver/receiverhelper"
+-
+-// Receiver is a helper to add observability to a receiver.
+-//
+-// Deprecated: [0.86.0] Use receiverhelper.ObsReport instead.
+-type Receiver = receiverhelper.ObsReport
+-
+-// ReceiverSettings are settings for creating an Receiver.
+-//
+-// Deprecated: [0.86.0] Use receiverhelper.ObsReportSettings instead.
+-type ReceiverSettings = receiverhelper.ObsReportSettings
+-
+-// NewReceiver creates a new Receiver.
+-//
+-// Deprecated: [0.86.0] Use receiverhelper.NewObsReport instead.
+-func NewReceiver(cfg ReceiverSettings) (*Receiver, error) {
+-	return receiverhelper.NewObsReport(cfg)
+-}

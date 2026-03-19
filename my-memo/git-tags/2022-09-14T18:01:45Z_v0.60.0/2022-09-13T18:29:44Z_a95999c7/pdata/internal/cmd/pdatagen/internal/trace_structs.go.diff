@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/trace_structs.go b/pdata/internal/cmd/pdatagen/internal/trace_structs.go
+index 12e808e4a..af3f93321 100644
+--- a/pdata/internal/cmd/pdatagen/internal/trace_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/trace_structs.go
+@@ -213,15 +213,10 @@ var spanStatus = &messageValueStruct{
+ 	},
+ }
+ 
+-var traceStateField = &primitiveTypedField{
+-	fieldName:       "TraceState",
++var traceStateField = &messageValueField{
++	fieldName:       "TraceStateStruct",
+ 	originFieldName: "TraceState",
+-	returnType: &primitiveType{
+-		structName: "TraceState",
+-		rawType:    "string",
+-		defaultVal: `""`,
+-		testVal:    `"congo=congos"`,
+-	},
++	returnMessage:   traceState,
+ }
+ 
+ var droppedAttributesCount = &primitiveField{

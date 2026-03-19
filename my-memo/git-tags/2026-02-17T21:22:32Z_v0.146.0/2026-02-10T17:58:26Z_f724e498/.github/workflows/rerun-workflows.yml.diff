@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/rerun-workflows.yml b/.github/workflows/rerun-workflows.yml
+index ec9d3526d..c5a7ca2fd 100644
+--- a/.github/workflows/rerun-workflows.yml
++++ b/.github/workflows/rerun-workflows.yml
+@@ -14,7 +14,7 @@ jobs:
+       checks: read
+     runs-on: ubuntu-24.04
+     steps:
+-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
++      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+       - name: Run rerun-failed-workflows.sh
+         run: ./.github/workflows/scripts/rerun-failed-workflows.sh
+         env:

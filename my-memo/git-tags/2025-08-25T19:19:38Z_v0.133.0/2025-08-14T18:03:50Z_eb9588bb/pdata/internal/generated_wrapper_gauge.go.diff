@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_gauge.go b/pdata/internal/generated_wrapper_gauge.go
+index cd9400f72..90b5aeb10 100644
+--- a/pdata/internal/generated_wrapper_gauge.go
++++ b/pdata/internal/generated_wrapper_gauge.go
+@@ -74,7 +74,7 @@ func MarshalProtoOrigGauge(orig *otlpmetrics.Gauge, buf []byte) int {
+ 	pos := len(buf)
+ 	var l int
+ 	_ = l
+-	for i := range orig.DataPoints {
++	for i := len(orig.DataPoints) - 1; i >= 0; i-- {
+ 		l = MarshalProtoOrigNumberDataPoint(orig.DataPoints[i], buf[:pos])
+ 		pos -= l
+ 		pos = proto.EncodeVarint(buf, pos, uint64(l))

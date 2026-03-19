@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice.go b/pdata/ptrace/generated_spanlinkslice.go
+index 5a543c375..164038b8b 100644
+--- a/pdata/ptrace/generated_spanlinkslice.go
++++ b/pdata/ptrace/generated_spanlinkslice.go
+@@ -119,7 +119,6 @@ func (es SpanLinkSlice) RemoveIf(f func(SpanLink) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

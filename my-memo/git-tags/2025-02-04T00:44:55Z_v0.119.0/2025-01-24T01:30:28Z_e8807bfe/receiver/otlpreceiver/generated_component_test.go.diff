@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/generated_component_test.go b/receiver/otlpreceiver/generated_component_test.go
+index bd2395ffd..7d843411f 100644
+--- a/receiver/otlpreceiver/generated_component_test.go
++++ b/receiver/otlpreceiver/generated_component_test.go
+@@ -28,8 +28,8 @@ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 
+ 	tests := []struct {
+-		name     string
+ 		createFn func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error)
++		name     string
+ 	}{
+ 
+ 		{

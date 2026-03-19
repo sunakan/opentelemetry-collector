@@ -1,0 +1,21 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index bb0744151..e26e69c75 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -119,6 +119,7 @@ require (
+ 	go.opentelemetry.io/collector/pdata/testdata v0.122.1 // indirect
+ 	go.opentelemetry.io/collector/pipeline v0.122.1 // indirect
+ 	go.opentelemetry.io/collector/pipeline/xpipeline v0.122.1 // indirect
++	go.opentelemetry.io/collector/processor/processorhelper v0.0.0-00010101000000-000000000000 // indirect
+ 	go.opentelemetry.io/collector/processor/processorhelper/xprocessorhelper v0.122.1 // indirect
+ 	go.opentelemetry.io/collector/processor/processortest v0.122.1 // indirect
+ 	go.opentelemetry.io/collector/processor/xprocessor v0.122.1 // indirect
+@@ -292,6 +293,8 @@ replace go.opentelemetry.io/collector/processor/xprocessor => ../../processor/xp
+ 
+ replace go.opentelemetry.io/collector/processor/processorhelper/xprocessorhelper => ../../processor/processorhelper/xprocessorhelper
+ 
++replace go.opentelemetry.io/collector/processor/processorhelper => ../../processor/processorhelper
++
+ replace go.opentelemetry.io/collector/receiver => ../../receiver
+ 
+ replace go.opentelemetry.io/collector/receiver/nopreceiver => ../../receiver/nopreceiver

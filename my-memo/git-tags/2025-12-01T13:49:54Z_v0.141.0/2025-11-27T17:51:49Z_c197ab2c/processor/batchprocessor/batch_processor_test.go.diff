@@ -1,0 +1,31 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index 15f1f73cd..58fbe7970 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -716,7 +716,7 @@ func BenchmarkTraceSizeSpanCount(b *testing.B) {
+ 	}
+ }
+ 
+-func BenchmarkBatchMetricProcessor(b *testing.B) {
++func BenchmarkBatchMetricProcessor2k(b *testing.B) {
+ 	b.StopTimer()
+ 	cfg := &Config{
+ 		Timeout:       100 * time.Millisecond,
+@@ -725,7 +725,7 @@ func BenchmarkBatchMetricProcessor(b *testing.B) {
+ 	runMetricsProcessorBenchmark(b, cfg)
+ }
+ 
+-func BenchmarkMultiBatchMetricProcessor(b *testing.B) {
++func BenchmarkMultiBatchMetricProcessor2k(b *testing.B) {
+ 	b.StopTimer()
+ 	cfg := &Config{
+ 		Timeout:       100 * time.Millisecond,
+@@ -742,7 +742,7 @@ func runMetricsProcessorBenchmark(b *testing.B, cfg *Config) {
+ 	require.NoError(b, err)
+ 	require.NoError(b, metrics.Start(ctx, componenttest.NewNopHost()))
+ 
+-	const metricsPerRequest = 1000
++	const metricsPerRequest = 150_000
+ 	b.StartTimer()
+ 	b.RunParallel(func(pb *testing.PB) {
+ 		for pb.Next() {

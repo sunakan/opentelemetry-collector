@@ -1,0 +1,20 @@
+diff --git a/service/builder/testdata/bad_processor_factory.yaml b/service/builder/testdata/bad_processor_factory.yaml
+index b0a148a63..0a1deac5c 100644
+--- a/service/builder/testdata/bad_processor_factory.yaml
++++ b/service/builder/testdata/bad_processor_factory.yaml
+@@ -3,6 +3,7 @@ receivers:
+ processors:
+   bf/traces: # this is the bad processor factory
+   bf/metrics:
++  bf/logs:
+ exporters:
+   exampleexporter:
+ 
+@@ -16,3 +17,7 @@ service:
+       receivers: [examplereceiver]
+       processors: [bf/metrics]
+       exporters: [exampleexporter]
++    logs:
++      receivers: [examplereceiver]
++      processors: [bf/logs]
++      exporters: [exampleexporter]

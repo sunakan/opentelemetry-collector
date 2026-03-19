@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/jaeger_unmarshaler.go b/receiver/kafkareceiver/jaeger_unmarshaler.go
+index 1a9c566a6..b593e5604 100644
+--- a/receiver/kafkareceiver/jaeger_unmarshaler.go
++++ b/receiver/kafkareceiver/jaeger_unmarshaler.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/gogo/protobuf/jsonpb"
+ 	jaegerproto "github.com/jaegertracing/jaeger/model"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	jaegertranslator "go.opentelemetry.io/collector/translator/trace/jaeger"
+ )
+ 

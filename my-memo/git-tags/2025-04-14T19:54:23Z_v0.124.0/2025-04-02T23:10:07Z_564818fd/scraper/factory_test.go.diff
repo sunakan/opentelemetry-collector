@@ -1,0 +1,22 @@
+diff --git a/scraper/factory_test.go b/scraper/factory_test.go
+index 58adbb845..f6b81134a 100644
+--- a/scraper/factory_test.go
++++ b/scraper/factory_test.go
+@@ -29,7 +29,7 @@ func TestNewFactory(t *testing.T) {
+ 	f := NewFactory(
+ 		testType,
+ 		func() component.Config { return &defaultCfg })
+-	assert.EqualValues(t, testType, f.Type())
++	assert.Equal(t, testType, f.Type())
+ 	assert.EqualValues(t, &defaultCfg, f.CreateDefaultConfig())
+ 	_, err := f.CreateLogs(context.Background(), nopSettings(), &defaultCfg)
+ 	require.ErrorIs(t, err, pipeline.ErrSignalNotSupported)
+@@ -45,7 +45,7 @@ func TestNewFactoryWithOptions(t *testing.T) {
+ 		func() component.Config { return &defaultCfg },
+ 		WithLogs(createLogs, component.StabilityLevelAlpha),
+ 		WithMetrics(createMetrics, component.StabilityLevelAlpha))
+-	assert.EqualValues(t, testType, f.Type())
++	assert.Equal(t, testType, f.Type())
+ 	assert.EqualValues(t, &defaultCfg, f.CreateDefaultConfig())
+ 
+ 	assert.Equal(t, component.StabilityLevelAlpha, f.LogsStability())

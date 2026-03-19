@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterqueue/doc.go b/exporter/exporterqueue/doc.go
+new file mode 100644
+index 000000000..bb98ffb53
+--- /dev/null
++++ b/exporter/exporterqueue/doc.go
+@@ -0,0 +1,7 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++//go:generate mdatagen metadata.yaml
++
++// Package exporterqueue provides helper functions for exporter's queue.
++package exporterqueue // import "go.opentelemetry.io/collector/exporter/exporterqueue"

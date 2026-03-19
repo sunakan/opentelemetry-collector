@@ -1,0 +1,22 @@
+diff --git a/config/configparser/testdata/duplicate-pipeline.yaml b/config/configparser/testdata/duplicate-pipeline.yaml
+new file mode 100644
+index 000000000..671991a79
+--- /dev/null
++++ b/config/configparser/testdata/duplicate-pipeline.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces/default:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]
++    traces/ default:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

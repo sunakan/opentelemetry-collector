@@ -1,0 +1,12 @@
+diff --git a/exporter/xexporter/metadata.yaml b/exporter/xexporter/metadata.yaml
+index b6ad091ac..2ae29e370 100644
+--- a/exporter/xexporter/metadata.yaml
++++ b/exporter/xexporter/metadata.yaml
+@@ -2,6 +2,7 @@ type: xexporter
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: pkg
+   codeowners:
+     active:

@@ -1,0 +1,15 @@
+diff --git a/receiver/vmmetricsreceiver/config.go b/receiver/vmmetricsreceiver/config.go
+index fed32fef5..b01defd96 100644
+--- a/receiver/vmmetricsreceiver/config.go
++++ b/receiver/vmmetricsreceiver/config.go
+@@ -20,8 +20,8 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ )
+ 
+-// ConfigV2 defines configuration for VMMetrics receiver.
+-type ConfigV2 struct {
++// Config defines configuration for VMMetrics receiver.
++type Config struct {
+ 	configmodels.ReceiverSettings `mapstructure:",squash"`
+ 	ScrapeInterval                time.Duration `mapstructure:"scrape_interval"`
+ 	MountPoint                    string        `mapstructure:"mount_point"`

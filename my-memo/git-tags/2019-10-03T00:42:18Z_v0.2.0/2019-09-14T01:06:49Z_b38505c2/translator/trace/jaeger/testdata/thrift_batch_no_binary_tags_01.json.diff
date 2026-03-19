@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
+index 181d66ff3..79509b21a 100644
+--- a/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
++++ b/translator/trace/jaeger/testdata/thrift_batch_no_binary_tags_01.json
+@@ -71,7 +71,7 @@
+         {
+           "key": "http.url",
+           "vType": "STRING",
+-          "vStr": "http://127.0.0.1:15598/client_transactions"
++          "vStr": "http://localhost:15598/client_transactions"
+         },
+         {
+           "key": "span.kind",

@@ -1,0 +1,13 @@
+diff --git a/receiver/fluentforwardreceiver/parse_test.go b/receiver/fluentforwardreceiver/parse_test.go
+index 04afcd39b..f8092558d 100644
+--- a/receiver/fluentforwardreceiver/parse_test.go
++++ b/receiver/fluentforwardreceiver/parse_test.go
+@@ -30,7 +30,7 @@ func parseHexDump(name string) []byte {
+ 	}
+ 
+ 	path := filepath.Join(dir, name+".hexdump")
+-	dump, err := ioutil.ReadFile(path)
++	dump, err := ioutil.ReadFile(filepath.Clean(path))
+ 	if err != nil {
+ 		panic("failed to read hex dump file " + path + ": " + err.Error())
+ 	}

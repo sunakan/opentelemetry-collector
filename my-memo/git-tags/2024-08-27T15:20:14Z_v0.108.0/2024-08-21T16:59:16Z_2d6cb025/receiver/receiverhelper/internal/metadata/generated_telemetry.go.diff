@@ -1,0 +1,12 @@
+diff --git a/receiver/receiverhelper/internal/metadata/generated_telemetry.go b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+index 441610315..b0e676d19 100644
+--- a/receiver/receiverhelper/internal/metadata/generated_telemetry.go
++++ b/receiver/receiverhelper/internal/metadata/generated_telemetry.go
+@@ -13,6 +13,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ )
+ 
++// Deprecated: [v0.108.0] use LeveledMeter instead.
+ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("go.opentelemetry.io/collector/receiver/receiverhelper")
+ }

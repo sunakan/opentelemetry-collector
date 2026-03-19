@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/factory.go b/receiver/hostmetricsreceiver/factory.go
+index 6f59c1ab0..09fe3c02d 100644
+--- a/receiver/hostmetricsreceiver/factory.go
++++ b/receiver/hostmetricsreceiver/factory.go
+@@ -68,7 +68,7 @@ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		receiverhelper.WithMetricsReceiver(createMetricsReceiver),
++		receiverhelper.WithMetrics(createMetricsReceiver),
+ 		receiverhelper.WithCustomUnmarshaler(customUnmarshaler))
+ }
+ 

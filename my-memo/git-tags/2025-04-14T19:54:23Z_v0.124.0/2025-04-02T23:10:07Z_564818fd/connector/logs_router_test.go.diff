@@ -1,0 +1,13 @@
+diff --git a/connector/logs_router_test.go b/connector/logs_router_test.go
+index 4b9c0c53e..fade4f864 100644
+--- a/connector/logs_router_test.go
++++ b/connector/logs_router_test.go
+@@ -98,7 +98,7 @@ func fuzzLogs(numIDs, numCons, numLogs int) func(*testing.T) {
+ 				}
+ 				assert.Len(t, logs, expected[id])
+ 				for n := 0; n < len(logs); n++ {
+-					assert.EqualValues(t, ld, logs[n])
++					assert.Equal(t, ld, logs[n])
+ 				}
+ 			}
+ 		}

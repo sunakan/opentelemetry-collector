@@ -1,0 +1,12 @@
+diff --git a/config/configtest/configtest_test.go b/config/configtest/configtest_test.go
+index e672b1c95..5d3e17fe1 100644
+--- a/config/configtest/configtest_test.go
++++ b/config/configtest/configtest_test.go
+@@ -59,7 +59,6 @@ func TestLoadConfig(t *testing.T) {
+ 	require.Len(t, cfg.Service.Pipelines, 1)
+ 	assert.Equal(t,
+ 		&config.Pipeline{
+-			InputType:  config.TracesDataType,
+ 			Receivers:  []config.ComponentID{config.NewComponentID("nop")},
+ 			Processors: []config.ComponentID{config.NewComponentID("nop")},
+ 			Exporters:  []config.ComponentID{config.NewComponentID("nop")},

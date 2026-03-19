@@ -1,0 +1,22 @@
+diff --git a/scraper/scraperhelper/xscraperhelper/internal/metadatatest/generated_telemetrytest.go b/scraper/scraperhelper/xscraperhelper/internal/metadatatest/generated_telemetrytest.go
+index 55e46c580..dd5f3aca2 100644
+--- a/scraper/scraperhelper/xscraperhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/scraper/scraperhelper/xscraperhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -16,7 +16,7 @@ func AssertEqualScraperErroredProfileRecords(t *testing.T, tt *componenttest.Tel
+ 	want := metricdata.Metrics{
+ 		Name:        "otelcol_scraper_errored_profile_records",
+ 		Description: "Number of profile records that were unable to be scraped. [Alpha]",
+-		Unit:        "{datapoints}",
++		Unit:        "{datapoint}",
+ 		Data: metricdata.Sum[int64]{
+ 			Temporality: metricdata.CumulativeTemporality,
+ 			IsMonotonic: true,
+@@ -32,7 +32,7 @@ func AssertEqualScraperScrapedProfileRecords(t *testing.T, tt *componenttest.Tel
+ 	want := metricdata.Metrics{
+ 		Name:        "otelcol_scraper_scraped_profile_records",
+ 		Description: "Number of profile records successfully scraped. [Alpha]",
+-		Unit:        "{datapoints}",
++		Unit:        "{datapoint}",
+ 		Data: metricdata.Sum[int64]{
+ 			Temporality: metricdata.CumulativeTemporality,
+ 			IsMonotonic: true,

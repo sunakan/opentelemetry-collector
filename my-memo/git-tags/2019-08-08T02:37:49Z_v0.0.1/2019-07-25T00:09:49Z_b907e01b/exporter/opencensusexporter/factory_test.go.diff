@@ -1,0 +1,17 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index ef97a399f..08cbecf6b 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -164,7 +164,11 @@ func TestCreateTraceExporter(t *testing.T) {
+ 				assert.NotNil(t, stopFunc)
+ 
+ 				err = stopFunc()
+-				assert.Nil(t, err)
++				if err != nil {
++					// Since the endpoint of opencensus exporter doesn't actually exist,
++					// exporter may already stop because it cannot connect.
++					assert.Equal(t, err.Error(), "rpc error: code = Canceled desc = grpc: the client connection is closing")
++				}
+ 			}
+ 		})
+ 	}

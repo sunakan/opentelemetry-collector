@@ -1,0 +1,24 @@
+diff --git a/pdata/pmetric/generated_resourcemetrics_test.go b/pdata/pmetric/generated_resourcemetrics_test.go
+index 507baf6a9..c3c5ce259 100644
+--- a/pdata/pmetric/generated_resourcemetrics_test.go
++++ b/pdata/pmetric/generated_resourcemetrics_test.go
+@@ -46,8 +46,8 @@ func TestResourceMetrics_CopyTo(t *testing.T) {
+ func TestResourceMetrics_Resource(t *testing.T) {
+ 	ms := NewResourceMetrics()
+ 	assert.Equal(t, pcommon.NewResource(), ms.Resource())
+-	internal.FillOrigTestResource(&ms.orig.Resource)
+-	assert.Equal(t, pcommon.Resource(internal.GenerateTestResource()), ms.Resource())
++	ms.orig.Resource = *internal.GenTestOrigResource()
++	assert.Equal(t, pcommon.Resource(internal.NewResource(internal.GenTestOrigResource(), ms.state)), ms.Resource())
+ }
+ 
+ func TestResourceMetrics_ScopeMetrics(t *testing.T) {
+@@ -68,7 +68,6 @@ func TestResourceMetrics_SchemaUrl(t *testing.T) {
+ }
+ 
+ func generateTestResourceMetrics() ResourceMetrics {
+-	ms := NewResourceMetrics()
+-	internal.FillOrigTestResourceMetrics(ms.orig)
++	ms := newResourceMetrics(internal.GenTestOrigResourceMetrics(), internal.NewState())
+ 	return ms
+ }

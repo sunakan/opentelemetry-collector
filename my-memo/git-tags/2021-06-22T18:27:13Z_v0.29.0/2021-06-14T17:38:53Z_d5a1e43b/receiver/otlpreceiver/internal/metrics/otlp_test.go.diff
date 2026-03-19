@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index defabab9f..8675b3d4a 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -93,7 +93,7 @@ func TestExport_ErrorConsumer(t *testing.T) {
+ 
+ 	resp, err := metricsClient.Export(context.Background(), req)
+ 	assert.EqualError(t, err, "rpc error: code = Unknown desc = my error")
+-	assert.Nil(t, resp)
++	assert.Equal(t, pdatagrpc.MetricsResponse{}, resp)
+ }
+ 
+ func makeMetricsServiceClient(addr net.Addr) (pdatagrpc.MetricsClient, func(), error) {

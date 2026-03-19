@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index a24a57b4f..2b227cc2f 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -37,8 +37,6 @@ func TestLoadConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)
+ 
+-	// The receiver `jaeger/disabled` and `jaeger` don't count because disabled receivers
+-	// are excluded from the final list.
+ 	assert.Equal(t, len(cfg.Receivers), 4)
+ 
+ 	r1 := cfg.Receivers["jaeger/customname"].(*Config)

@@ -1,0 +1,13 @@
+diff --git a/internal/memorylimiter/memorylimiter.go b/internal/memorylimiter/memorylimiter.go
+index db9379512..53371b8b8 100644
+--- a/internal/memorylimiter/memorylimiter.go
++++ b/internal/memorylimiter/memorylimiter.go
+@@ -15,7 +15,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/internal/iruntime"
++	"go.opentelemetry.io/collector/internal/memorylimiter/iruntime"
+ )
+ 
+ const (

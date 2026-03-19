@@ -1,0 +1,15 @@
+diff --git a/configv2/testdata/missing-receiver-type.yaml b/configv2/testdata/missing-receiver-type.yaml
+new file mode 100644
+index 000000000..c2d7d1f87
+--- /dev/null
++++ b/configv2/testdata/missing-receiver-type.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  /myreceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  traces:
++    receivers: [somereceiver]

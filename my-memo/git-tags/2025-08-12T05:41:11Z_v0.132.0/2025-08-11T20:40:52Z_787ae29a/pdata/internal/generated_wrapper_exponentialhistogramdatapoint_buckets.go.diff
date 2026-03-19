@@ -1,0 +1,19 @@
+diff --git a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+index 2d3488926..ac108cee7 100644
+--- a/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
++++ b/pdata/internal/generated_wrapper_exponentialhistogramdatapoint_buckets.go
+@@ -31,7 +31,13 @@ func MarshalJSONOrigExponentialHistogramDataPoint_Buckets(orig *otlpmetrics.Expo
+ 	}
+ 	if len(orig.BucketCounts) > 0 {
+ 		dest.WriteObjectField("bucketCounts")
+-		MarshalJSONOrigUint64Slice(orig.BucketCounts, dest)
++		dest.WriteArrayStart()
++		dest.WriteUint64(orig.BucketCounts[0])
++		for i := 1; i < len(orig.BucketCounts); i++ {
++			dest.WriteMore()
++			dest.WriteUint64(orig.BucketCounts[i])
++		}
++		dest.WriteArrayEnd()
+ 	}
+ 	dest.WriteObjectEnd()
+ }

@@ -1,0 +1,31 @@
+diff --git a/pdata/pcommon/map.go b/pdata/pcommon/map.go
+index 0b7b2fd44..9617a9876 100644
+--- a/pdata/pcommon/map.go
++++ b/pdata/pcommon/map.go
+@@ -290,3 +290,26 @@ func (m Map) FromRaw(rawMap map[string]any) error {
+ 	*m.getOrig() = origs
+ 	return errs
+ }
++
++// Equal checks equality with another Map
++func (m Map) Equal(val Map) bool {
++	if m.Len() != val.Len() {
++		return false
++	}
++
++	fullEqual := true
++
++	m.Range(func(k string, v Value) bool {
++		vv, ok := val.Get(k)
++		if !ok {
++			fullEqual = false
++			return fullEqual
++		}
++
++		if !v.Equal(vv) {
++			fullEqual = false
++		}
++		return fullEqual
++	})
++	return fullEqual
++}

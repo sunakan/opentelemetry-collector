@@ -1,0 +1,16 @@
+diff --git a/component/componenttest/example_factories.go b/component/componenttest/example_factories.go
+index 48f8cb969..29a035ef1 100644
+--- a/component/componenttest/example_factories.go
++++ b/component/componenttest/example_factories.go
+@@ -316,11 +316,6 @@ func (exp *ExampleExporterConsumer) ConsumeLogs(_ context.Context, ld pdata.Logs
+ 	return nil
+ }
+ 
+-// Name returns the name of the exporter.
+-func (exp *ExampleExporterConsumer) Name() string {
+-	return "exampleexporter"
+-}
+-
+ // Shutdown is invoked during shutdown.
+ func (exp *ExampleExporterConsumer) Shutdown(context.Context) error {
+ 	exp.ExporterShutdown = true

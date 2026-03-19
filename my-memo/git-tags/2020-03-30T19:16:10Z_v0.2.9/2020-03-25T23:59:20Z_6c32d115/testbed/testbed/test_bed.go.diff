@@ -1,0 +1,18 @@
+diff --git a/testbed/testbed/test_bed.go b/testbed/testbed/test_bed.go
+index a4c04fbd5..9e9715e05 100644
+--- a/testbed/testbed/test_bed.go
++++ b/testbed/testbed/test_bed.go
+@@ -76,9 +76,11 @@ func LoadConfig() error {
+ 	}
+ 
+ 	templateVars := struct {
+-		GOOS string
++		GOOS   string
++		GOARCH string
+ 	}{
+-		GOOS: runtime.GOOS,
++		GOOS:   runtime.GOOS,
++		GOARCH: runtime.GOARCH,
+ 	}
+ 	var buf bytes.Buffer
+ 	if err := cfgTemplate.Execute(&buf, templateVars); err != nil {

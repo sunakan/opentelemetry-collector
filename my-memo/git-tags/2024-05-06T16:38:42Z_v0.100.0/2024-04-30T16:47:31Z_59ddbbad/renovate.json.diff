@@ -1,0 +1,17 @@
+diff --git a/renovate.json b/renovate.json
+index b6e956574..bcbc26dd1 100644
+--- a/renovate.json
++++ b/renovate.json
+@@ -35,8 +35,10 @@
+       },
+       {
+         "matchManagers": ["gomod"],
+-        "matchSourceUrlPrefixes": ["https://go.opentelemetry.io/contrib"],
+-        "groupName": "All go.opentelemetry.io/contrib packages"
++        "matchSourceUrls": [
++          "https://github.com/open-telemetry/opentelemetry-go-contrib"
++        ],
++        "groupName": "All opentelemetry-go-contrib packages"
+       },
+       {
+         "matchManagers": ["gomod"],

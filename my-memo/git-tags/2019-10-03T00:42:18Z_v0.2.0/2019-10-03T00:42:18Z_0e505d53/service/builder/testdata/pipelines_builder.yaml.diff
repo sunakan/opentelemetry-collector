@@ -1,0 +1,49 @@
+diff --git a/service/builder/testdata/pipelines_builder.yaml b/service/builder/testdata/pipelines_builder.yaml
+index f4464ac54..b303bb9bd 100644
+--- a/service/builder/testdata/pipelines_builder.yaml
++++ b/service/builder/testdata/pipelines_builder.yaml
+@@ -15,25 +15,26 @@ exporters:
+   exampleexporter:
+   exampleexporter/2:
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver, examplereceiver/multi]
+-    processors: [attributes]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver, examplereceiver/multi]
++      processors: [attributes]
++      exporters: [exampleexporter]
+ 
+-  traces/2:
+-    receivers: [examplereceiver/2, examplereceiver/multi]
+-    processors: [attributes]
+-    exporters: [exampleexporter, exampleexporter/2]
++    traces/2:
++      receivers: [examplereceiver/2, examplereceiver/multi]
++      processors: [attributes]
++      exporters: [exampleexporter, exampleexporter/2]
+ 
+-  metrics:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
++    metrics:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
+ 
+-  metrics/2:
+-    receivers: [examplereceiver/3]
+-    exporters: [exampleexporter]
++    metrics/2:
++      receivers: [examplereceiver/3]
++      exporters: [exampleexporter]
+ 
+-  metrics/3:
+-    receivers: [examplereceiver/3]
+-    exporters: [exampleexporter/2]
++    metrics/3:
++      receivers: [examplereceiver/3]
++      exporters: [exampleexporter/2]

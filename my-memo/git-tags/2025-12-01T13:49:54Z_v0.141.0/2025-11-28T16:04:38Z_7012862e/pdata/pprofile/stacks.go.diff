@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/stacks.go b/pdata/pprofile/stacks.go
+index 762429d79..895f2fc4e 100644
+--- a/pdata/pprofile/stacks.go
++++ b/pdata/pprofile/stacks.go
+@@ -18,7 +18,7 @@ func SetStack(table StackSlice, st Stack) (int32, error) {
+ 			if j > math.MaxInt32 {
+ 				return 0, errTooManyStackTableEntries
+ 			}
+-			return int32(j), nil //nolint:gosec // G115 overflow checked
++			return int32(j), nil
+ 		}
+ 	}
+ 
+@@ -27,5 +27,5 @@ func SetStack(table StackSlice, st Stack) (int32, error) {
+ 	}
+ 
+ 	st.CopyTo(table.AppendEmpty())
+-	return int32(table.Len() - 1), nil //nolint:gosec // G115 overflow checked
++	return int32(table.Len() - 1), nil
+ }

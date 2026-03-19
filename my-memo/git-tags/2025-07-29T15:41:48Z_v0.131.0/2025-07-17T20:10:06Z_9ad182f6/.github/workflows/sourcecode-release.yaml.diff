@@ -1,0 +1,14 @@
+diff --git a/.github/workflows/sourcecode-release.yaml b/.github/workflows/sourcecode-release.yaml
+index 3b346a101..c4119632c 100644
+--- a/.github/workflows/sourcecode-release.yaml
++++ b/.github/workflows/sourcecode-release.yaml
+@@ -5,6 +5,9 @@ on:
+     tags:
+       - "v*"
+ 
++permissions:
++  contents: read
++
+ jobs:
+   goreleaser:
+     runs-on: ubuntu-latest

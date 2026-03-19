@@ -1,0 +1,16 @@
+diff --git a/examples/demotrace/otel-collector-config.yaml b/examples/demotrace/otel-collector-config.yaml
+index a394a3486..c359fcb3f 100644
+--- a/examples/demotrace/otel-collector-config.yaml
++++ b/examples/demotrace/otel-collector-config.yaml
+@@ -4,11 +4,9 @@ log-level: DEBUG
+ receivers:
+   opencensus:
+     endpoint: 0.0.0.0:55678
+-    enabled: true
+ 
+ exporters:
+   logging:
+-    enabled: true
+ 
+ # TODO: enable zipkin exporter when it is implemented in otelsvc
+ #  zipkin:

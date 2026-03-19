@@ -1,0 +1,18 @@
+diff --git a/confmap/metadata.yaml b/confmap/metadata.yaml
+index 9dbaf048e..d25001509 100644
+--- a/confmap/metadata.yaml
++++ b/confmap/metadata.yaml
+@@ -1,8 +1,11 @@
+-type: nop
++type: confmap
++github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
+   codeowners:
+     active:
+       - mx-psi
+       - evan-bradley
+-  class: confmap
++  class: pkg
++  stability:
++    stable: [logs, metrics, traces]

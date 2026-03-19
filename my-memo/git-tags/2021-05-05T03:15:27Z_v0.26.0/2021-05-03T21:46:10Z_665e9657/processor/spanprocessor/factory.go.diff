@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/factory.go b/processor/spanprocessor/factory.go
+index c7ebd3ca6..5a8d943a5 100644
+--- a/processor/spanprocessor/factory.go
++++ b/processor/spanprocessor/factory.go
+@@ -47,7 +47,7 @@ func NewFactory() component.ProcessorFactory {
+ 
+ func createDefaultConfig() config.Processor {
+ 	return &Config{
+-		ProcessorSettings: config.NewProcessorSettings(typeStr),
++		ProcessorSettings: config.NewProcessorSettings(config.NewID(typeStr)),
+ 	}
+ }
+ 

@@ -1,0 +1,23 @@
+diff --git a/pdata/ptrace/generated_scopespans.go b/pdata/ptrace/generated_scopespans.go
+index 27622280e..7b9a0c79a 100644
+--- a/pdata/ptrace/generated_scopespans.go
++++ b/pdata/ptrace/generated_scopespans.go
+@@ -75,7 +75,7 @@ func (ms ScopeSpans) Spans() SpanSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ScopeSpans) CopyTo(dest ScopeSpans) {
+ 	dest.state.AssertMutable()
+-	copyOrigScopeSpans(dest.orig, ms.orig)
++	internal.CopyOrigScopeSpans(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -110,9 +110,3 @@ func (ms ScopeSpans) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigScopeSpans(dest, src *otlptrace.ScopeSpans) {
+-	internal.CopyOrigInstrumentationScope(&dest.Scope, &src.Scope)
+-	dest.SchemaUrl = src.SchemaUrl
+-	dest.Spans = copyOrigSpanSlice(dest.Spans, src.Spans)
+-}

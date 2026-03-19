@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 4c488c6bb..ef00031b8 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -227,7 +227,7 @@ func TestUnmarshalConfigInvalidSignalPath(t *testing.T) {
+ 			require.NoError(t, err)
+ 			factory := NewFactory()
+ 			cfg := factory.CreateDefaultConfig()
+-			assert.EqualError(t, cm.Unmarshal(&cfg), "invalid HTTP URL path set for signal: parse \":invalid\": missing protocol scheme")
++			assert.ErrorContains(t, cm.Unmarshal(&cfg), "invalid HTTP URL path set for signal: parse \":invalid\": missing protocol scheme")
+ 		})
+ 	}
+ }

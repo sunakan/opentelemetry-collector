@@ -1,0 +1,18 @@
+diff --git a/examples/demo/otel-agent-config.yaml b/examples/demo/otel-agent-config.yaml
+index 7df79e517..8c20b5425 100644
+--- a/examples/demo/otel-agent-config.yaml
++++ b/examples/demo/otel-agent-config.yaml
+@@ -29,3 +29,13 @@ pipelines:
+   metrics:
+     receivers: [opencensus]
+     exporters: [logging,opencensus]
++
++extensions:
++  pprof:
++    endpoint: :1777
++  zpages:
++    endpoint: :55679
++
++service:
++  extensions: [pprof, zpages]
++

@@ -1,0 +1,13 @@
+diff --git a/obsreport/obsreport_receiver.go b/obsreport/obsreport_receiver.go
+index 4c278e69e..f3e57b061 100644
+--- a/obsreport/obsreport_receiver.go
++++ b/obsreport/obsreport_receiver.go
+@@ -29,7 +29,7 @@ import (
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+ )
+ 
+-// Receiver is a helper to add obersvability to a component.Receiver.
++// Receiver is a helper to add observability to a component.Receiver.
+ type Receiver struct {
+ 	spanNamePrefix string
+ 	transport      string

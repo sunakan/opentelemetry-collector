@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summarydatapointslice_test.go b/pdata/pmetric/generated_summarydatapointslice_test.go
+index 84c380213..3fe04001b 100644
+--- a/pdata/pmetric/generated_summarydatapointslice_test.go
++++ b/pdata/pmetric/generated_summarydatapointslice_test.go
+@@ -52,6 +52,8 @@ func TestSummaryDataPointSlice_CopyTo(t *testing.T) {
+ 	src := generateTestSummaryDataPointSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestSummaryDataPointSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestSummaryDataPointSlice(), dest)
+ }
+ 
+ func TestSummaryDataPointSlice_EnsureCapacity(t *testing.T) {

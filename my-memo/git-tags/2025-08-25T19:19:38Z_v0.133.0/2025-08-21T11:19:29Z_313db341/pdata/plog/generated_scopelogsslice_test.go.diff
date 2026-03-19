@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_scopelogsslice_test.go b/pdata/plog/generated_scopelogsslice_test.go
+index aa34f5630..60caa9039 100644
+--- a/pdata/plog/generated_scopelogsslice_test.go
++++ b/pdata/plog/generated_scopelogsslice_test.go
+@@ -52,6 +52,8 @@ func TestScopeLogsSlice_CopyTo(t *testing.T) {
+ 	src := generateTestScopeLogsSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestScopeLogsSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestScopeLogsSlice(), dest)
+ }
+ 
+ func TestScopeLogsSlice_EnsureCapacity(t *testing.T) {

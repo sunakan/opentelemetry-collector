@@ -1,0 +1,24 @@
+diff --git a/consumer/consumerdata/consumerdata.go b/consumer/consumerdata/consumerdata.go
+index 6859dc1e9..e1a61138e 100644
+--- a/consumer/consumerdata/consumerdata.go
++++ b/consumer/consumerdata/consumerdata.go
+@@ -41,13 +41,17 @@ type TraceData struct {
+ // OTLPTraceData is a struct that groups proto spans with a resource. This is the
+ // newer version of TraceData, using OTLP-based representation.
+ type OTLPTraceData struct {
+-	ResourceSpanList []*otlptrace.ResourceSpans
++	resourceSpanList []*otlptrace.ResourceSpans
++}
++
++func NewOTLPTraceData(resourceSpanList []*otlptrace.ResourceSpans) OTLPTraceData {
++	return OTLPTraceData{resourceSpanList}
+ }
+ 
+ // SpanCount calculates the total number of spans.
+ func (td OTLPTraceData) SpanCount() int {
+ 	spanCount := 0
+-	for _, rsl := range td.ResourceSpanList {
++	for _, rsl := range td.resourceSpanList {
+ 		spanCount += len(rsl.Spans)
+ 	}
+ 	return spanCount

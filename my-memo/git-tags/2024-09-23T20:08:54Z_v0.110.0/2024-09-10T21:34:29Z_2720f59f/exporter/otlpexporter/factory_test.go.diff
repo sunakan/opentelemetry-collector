@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 622fcdabc..1882f78f9 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -43,7 +43,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ 
+ 	set := exportertest.NewNopSettings()
+ 	oexp, err := factory.CreateMetricsExporter(context.Background(), set, cfg)
+-	require.Nil(t, err)
++	require.NoError(t, err)
+ 	require.NotNil(t, oexp)
+ }
+ 
+@@ -194,6 +194,6 @@ func TestCreateLogsExporter(t *testing.T) {
+ 
+ 	set := exportertest.NewNopSettings()
+ 	oexp, err := factory.CreateLogsExporter(context.Background(), set, cfg)
+-	require.Nil(t, err)
++	require.NoError(t, err)
+ 	require.NotNil(t, oexp)
+ }

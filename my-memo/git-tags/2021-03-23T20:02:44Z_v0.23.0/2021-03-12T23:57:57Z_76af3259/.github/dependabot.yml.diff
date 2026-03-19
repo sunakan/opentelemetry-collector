@@ -1,0 +1,15 @@
+diff --git a/.github/dependabot.yml b/.github/dependabot.yml
+index fff965b1b..b01406662 100644
+--- a/.github/dependabot.yml
++++ b/.github/dependabot.yml
+@@ -14,10 +14,6 @@ updates:
+     directory: "/cmd/mdatagen"
+     schedule:
+       interval: "weekly"
+-  - package-ecosystem: "gomod"
+-    directory: "/cmd/schemagen"
+-    schedule:
+-      interval: "weekly"
+   - package-ecosystem: "gomod"
+     directory: "/examples/demo/app"
+     schedule:

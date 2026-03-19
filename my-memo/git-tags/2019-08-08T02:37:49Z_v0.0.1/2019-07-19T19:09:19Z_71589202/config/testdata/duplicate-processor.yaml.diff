@@ -1,0 +1,12 @@
+diff --git a/config/testdata/duplicate-processor.yaml b/config/testdata/duplicate-processor.yaml
+index f33b1a8ac..91abbe7f3 100644
+--- a/config/testdata/duplicate-processor.yaml
++++ b/config/testdata/duplicate-processor.yaml
+@@ -4,7 +4,6 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor/       abc:
+-    enabled: true
+   exampleprocessor/abc:
+ pipelines:
+   traces:

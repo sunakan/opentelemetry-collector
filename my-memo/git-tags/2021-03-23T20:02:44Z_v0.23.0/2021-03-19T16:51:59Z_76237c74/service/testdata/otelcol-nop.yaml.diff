@@ -1,0 +1,33 @@
+diff --git a/service/testdata/otelcol-nop.yaml b/service/testdata/otelcol-nop.yaml
+new file mode 100644
+index 000000000..b4f799a78
+--- /dev/null
++++ b/service/testdata/otelcol-nop.yaml
+@@ -0,0 +1,27 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  nop:
++
++extensions:
++  nop:
++
++service:
++  extensions: [nop]
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]
++    metrics:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]
++    logs:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

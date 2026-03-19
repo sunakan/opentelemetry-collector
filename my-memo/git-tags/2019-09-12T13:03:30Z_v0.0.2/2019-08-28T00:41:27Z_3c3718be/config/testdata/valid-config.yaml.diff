@@ -1,0 +1,18 @@
+diff --git a/config/testdata/valid-config.yaml b/config/testdata/valid-config.yaml
+index e9356a983..2976ec3dc 100644
+--- a/config/testdata/valid-config.yaml
++++ b/config/testdata/valid-config.yaml
+@@ -23,3 +23,13 @@ pipelines:
+     receivers: [examplereceiver, examplereceiver/disabled]
+     processors: [exampleprocessor, exampleprocessor/disabled]
+     exporters: [exampleexporter/disabled, exampleexporter]
++
++extensions:
++  exampleextension/0:
++  exampleextension/disabled:
++    disabled: true
++  exampleextension/1:
++    extra: "some string"
++
++service:
++  extensions: [exampleextension/0, exampleextension/disabled, exampleextension/1]

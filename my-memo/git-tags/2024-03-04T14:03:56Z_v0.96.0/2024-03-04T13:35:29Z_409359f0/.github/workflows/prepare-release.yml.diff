@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/prepare-release.yml b/.github/workflows/prepare-release.yml
+index a44568d2e..6ff746ec0 100644
+--- a/.github/workflows/prepare-release.yml
++++ b/.github/workflows/prepare-release.yml
+@@ -51,7 +51,7 @@ jobs:
+   # Releasing opentelemetry-collector
+   prepare-release:
+     needs: 
+-      - validate-version
++      - validate-versions
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1

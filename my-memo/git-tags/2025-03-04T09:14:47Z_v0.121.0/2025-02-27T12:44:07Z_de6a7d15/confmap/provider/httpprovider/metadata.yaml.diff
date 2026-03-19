@@ -1,0 +1,14 @@
+diff --git a/confmap/provider/httpprovider/metadata.yaml b/confmap/provider/httpprovider/metadata.yaml
+new file mode 100644
+index 000000000..fd59d3db2
+--- /dev/null
++++ b/confmap/provider/httpprovider/metadata.yaml
+@@ -0,0 +1,8 @@
++type: http
++github_project: open-telemetry/opentelemetry-collector
++
++status:
++  class: provider
++  stability:
++    stable: [provider]
++  distributions: [core, contrib, k8s]

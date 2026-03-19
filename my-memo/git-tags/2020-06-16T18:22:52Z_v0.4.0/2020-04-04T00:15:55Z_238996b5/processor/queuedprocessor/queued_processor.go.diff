@@ -1,0 +1,13 @@
+diff --git a/processor/queuedprocessor/queued_processor.go b/processor/queuedprocessor/queued_processor.go
+index b84e1332e..21b0bb65e 100644
+--- a/processor/queuedprocessor/queued_processor.go
++++ b/processor/queuedprocessor/queued_processor.go
+@@ -71,7 +71,7 @@ func newQueuedSpanProcessor(logger *zap.Logger, sender consumer.TraceConsumerOld
+ // Start is invoked during service startup.
+ func (sp *queuedSpanProcessor) Start(host component.Host) error {
+ 	// emit 0's so that the metric is present and reported, rather than absent
+-	ctx := obsreport.ProcessorContext(host.Context(), sp.name)
++	ctx := obsreport.ProcessorContext(context.Background(), sp.name)
+ 	stats.Record(
+ 		ctx,
+ 		processor.StatTraceBatchesDroppedCount.M(int64(0)),

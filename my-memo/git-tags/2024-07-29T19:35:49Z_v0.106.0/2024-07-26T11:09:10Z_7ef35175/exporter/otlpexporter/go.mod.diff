@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 191e4bb06..97ce861a9 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -54,6 +54,7 @@ require (
+ 	github.com/prometheus/client_model v0.6.1 // indirect
+ 	github.com/prometheus/common v0.55.0 // indirect
+ 	github.com/prometheus/procfs v0.15.1 // indirect
++	go.opentelemetry.io/collector/client v0.105.0 // indirect
+ 	go.opentelemetry.io/collector/config/confignet v0.105.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.105.0 // indirect
+ 	go.opentelemetry.io/collector/config/internal v0.105.0 // indirect
+@@ -130,6 +131,8 @@ replace go.opentelemetry.io/collector/receiver => ../../receiver
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
++replace go.opentelemetry.io/collector/client => ../../client
++
+ retract (
+ 	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1

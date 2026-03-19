@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index 281b13778..7273bd5c4 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -27,7 +27,7 @@ import (
+ func NewNopReceiverCreateSettings() component.ReceiverCreateSettings {
+ 	return component.ReceiverCreateSettings{
+ 		TelemetrySettings: NewNopTelemetrySettings(),
+-		BuildInfo:         component.DefaultBuildInfo(),
++		BuildInfo:         component.NewDefaultBuildInfo(),
+ 	}
+ }
+ 

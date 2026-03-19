@@ -1,0 +1,10 @@
+diff --git a/config/configcompression/compressiontype.go b/config/configcompression/compressiontype.go
+index fd4fd87cf..f5b47f9ca 100644
+--- a/config/configcompression/compressiontype.go
++++ b/config/configcompression/compressiontype.go
+@@ -39,5 +39,4 @@ func (ct *Type) UnmarshalText(in []byte) error {
+ 		return nil
+ 	}
+ 	return fmt.Errorf("unsupported compression type %q", typ)
+-
+ }

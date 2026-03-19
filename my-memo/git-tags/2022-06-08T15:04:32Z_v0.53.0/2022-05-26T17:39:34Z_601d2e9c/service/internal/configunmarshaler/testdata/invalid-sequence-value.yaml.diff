@@ -1,0 +1,25 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-sequence-value.yaml b/service/internal/configunmarshaler/testdata/invalid-sequence-value.yaml
+index 7f7a0a385..b537378db 100644
+--- a/service/internal/configunmarshaler/testdata/invalid-sequence-value.yaml
++++ b/service/internal/configunmarshaler/testdata/invalid-sequence-value.yaml
+@@ -1,14 +1,14 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ service:
+   pipelines:
+     traces:
+       receivers:
+-        examplereceiver:
++        nop:
+           some: config
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]
++      exporters: [nop]
++      processors: [nop]

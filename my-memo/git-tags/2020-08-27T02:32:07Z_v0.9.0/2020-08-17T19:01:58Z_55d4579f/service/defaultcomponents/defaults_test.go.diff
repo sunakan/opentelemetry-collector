@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 8757dd0cc..a9174c012 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -40,6 +40,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"otlp",
+ 		"hostmetrics",
+ 		"fluentforward",
++		"kafka",
+ 	}
+ 	expectedProcessors := []configmodels.Type{
+ 		"attributes",

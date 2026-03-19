@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queue/persistent_queue.go b/exporter/exporterhelper/internal/queue/persistent_queue.go
+index a4ddf2e33..4fcb074b6 100644
+--- a/exporter/exporterhelper/internal/queue/persistent_queue.go
++++ b/exporter/exporterhelper/internal/queue/persistent_queue.go
+@@ -141,7 +141,6 @@ func (pq *persistentQueue[T]) internalSize() int64 {
+ }
+ 
+ func (pq *persistentQueue[T]) requestSize() int64 {
+-	//nolint:gosec
+ 	return int64(pq.metadata.WriteIndex-pq.metadata.ReadIndex) + int64(len(pq.metadata.CurrentlyDispatchedItems))
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/traces/correctness_test.go b/testbed/correctness/traces/correctness_test.go
+index 1b57bf7ab..d87c2a8bf 100644
+--- a/testbed/correctness/traces/correctness_test.go
++++ b/testbed/correctness/traces/correctness_test.go
+@@ -65,7 +65,7 @@ func testWithTracingGoldenDataset(
+ 	factories, err := defaultcomponents.Components()
+ 	require.NoError(t, err, "default components resulted in: %v", err)
+ 	runner := testbed.NewInProcessCollector(factories)
+-	validator := testbed.NewCorrectTestValidator(dataProvider)
++	validator := testbed.NewCorrectTestValidator(sender.ProtocolName(), receiver.ProtocolName(), dataProvider)
+ 	config := correctness.CreateConfigYaml(sender, receiver, processors, "traces")
+ 	configCleanup, cfgErr := runner.PrepareConfig(config)
+ 	require.NoError(t, cfgErr, "collector configuration resulted in: %v", cfgErr)

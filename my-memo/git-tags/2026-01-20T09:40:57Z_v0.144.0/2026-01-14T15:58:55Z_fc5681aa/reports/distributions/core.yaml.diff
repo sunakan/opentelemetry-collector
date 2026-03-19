@@ -1,0 +1,13 @@
+diff --git a/reports/distributions/core.yaml b/reports/distributions/core.yaml
+index 45fcc90a5..5be08be3e 100644
+--- a/reports/distributions/core.yaml
++++ b/reports/distributions/core.yaml
+@@ -7,7 +7,7 @@ components:
+     exporter:
+         - debug
+         - nop
+-        - otlp
++        - otlp_grpc
+         - otlp_http
+     extension:
+         - zpages

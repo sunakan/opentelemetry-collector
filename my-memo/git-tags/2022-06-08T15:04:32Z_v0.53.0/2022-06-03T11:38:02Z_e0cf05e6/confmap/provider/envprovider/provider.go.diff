@@ -1,0 +1,12 @@
+diff --git a/confmap/provider/envprovider/provider.go b/confmap/provider/envprovider/provider.go
+index 5579aec27..15e59d3c0 100644
+--- a/confmap/provider/envprovider/provider.go
++++ b/confmap/provider/envprovider/provider.go
+@@ -40,6 +40,7 @@ func (emp *provider) Retrieve(_ context.Context, uri string, _ confmap.WatcherFu
+ 	if !strings.HasPrefix(uri, schemeName+":") {
+ 		return confmap.Retrieved{}, fmt.Errorf("%q uri is not supported by %q provider", uri, schemeName)
+ 	}
++
+ 	return internal.NewRetrievedFromYAML([]byte(os.Getenv(uri[len(schemeName)+1:])))
+ }
+ 

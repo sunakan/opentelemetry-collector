@@ -1,0 +1,23 @@
+diff --git a/Makefile b/Makefile
+index 11bb523df..511cdbb16 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,7 @@
+ ALL_SRC := $(shell find . -type f -name '*.go' -not -path "./vendor/*")
+ 
+ GOTEST_OPT?=-v -race -timeout 30s
++GOTEST_OPT_WITH_COVERAGE = $(GOTEST_OPT) -coverprofile=coverage.txt -covermode=atomic
+ GOTEST=go test
+ GOFMT=gofmt
+ GOLINT=golint
+@@ -23,6 +24,10 @@ default_goal: fmt lint test
+ test:
+ 	$(GOTEST) $(GOTEST_OPT) ./...
+ 
++.PHONY: test-with-coverage
++test-with-coverage:
++	$(GOTEST) $(GOTEST_OPT_WITH_COVERAGE) ./...
++
+ .PHONY: fmt
+ fmt:
+ 	@FMTOUT=`$(GOFMT) -s -l $(ALL_SRC) 2>&1`; \

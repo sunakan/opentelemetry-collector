@@ -1,0 +1,23 @@
+diff --git a/processor/memorylimiterprocessor/factory_test.go b/processor/memorylimiterprocessor/factory_test.go
+index d82456027..dba8615da 100644
+--- a/processor/memorylimiterprocessor/factory_test.go
++++ b/processor/memorylimiterprocessor/factory_test.go
+@@ -68,11 +68,17 @@ func TestCreateProcessor(t *testing.T) {
+ 	lp, err := factory.CreateLogs(context.Background(), set, cfg, consumertest.NewNop())
+ 	require.NoError(t, err)
+ 	assert.NotNil(t, lp)
+-	assert.NoError(t, lp.Start(context.Background(), componenttest.NewNopHost()))
++	require.NoError(t, lp.Start(context.Background(), componenttest.NewNopHost()))
++
++	pp, err := factory.CreateProfiles(context.Background(), set, cfg, consumertest.NewNop())
++	require.NoError(t, err)
++	assert.NotNil(t, pp)
++	assert.NoError(t, pp.Start(context.Background(), componenttest.NewNopHost()))
+ 
+ 	assert.NoError(t, lp.Shutdown(context.Background()))
+ 	assert.NoError(t, tp.Shutdown(context.Background()))
+ 	assert.NoError(t, mp.Shutdown(context.Background()))
++	assert.NoError(t, pp.Shutdown(context.Background()))
+ 	// verify that no monitoring routine is running
+ 	require.ErrorIs(t, tp.Shutdown(context.Background()), memorylimiter.ErrShutdownNotStarted)
+ 

@@ -1,0 +1,30 @@
+diff --git a/exporter/jaegerexporter/factory_test.go b/exporter/jaegerexporter/factory_test.go
+index a37dac5d1..42646dcea 100644
+--- a/exporter/jaegerexporter/factory_test.go
++++ b/exporter/jaegerexporter/factory_test.go
+@@ -27,14 +27,14 @@ import (
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+-	factory := Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.NotNil(t, cfg, "failed to create default config")
+ 	assert.NoError(t, configcheck.ValidateConfig(cfg))
+ }
+ 
+ func TestCreateMetricsExporter(t *testing.T) {
+-	factory := Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 
+ 	params := component.ExporterCreateParams{Logger: zap.NewNop()}
+@@ -43,7 +43,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ }
+ 
+ func TestCreateInstanceViaFactory(t *testing.T) {
+-	factory := Factory{}
++	factory := NewFactory()
+ 
+ 	cfg := factory.CreateDefaultConfig()
+ 

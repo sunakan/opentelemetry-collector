@@ -1,0 +1,22 @@
+diff --git a/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml b/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml
+new file mode 100644
+index 000000000..0859a71cf
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/invalid-extension-sub-config.yaml
+@@ -0,0 +1,16 @@
++extensions:
++  exampleextension:
++    tests
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++service:
++  extensions: [exampleextension]
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

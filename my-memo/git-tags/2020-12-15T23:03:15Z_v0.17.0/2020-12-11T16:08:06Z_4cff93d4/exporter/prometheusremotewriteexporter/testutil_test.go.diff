@@ -1,0 +1,15 @@
+diff --git a/exporter/prometheusremotewriteexporter/testutil_test.go b/exporter/prometheusremotewriteexporter/testutil_test.go
+index fd5f13aee..62ddf2e4f 100644
+--- a/exporter/prometheusremotewriteexporter/testutil_test.go
++++ b/exporter/prometheusremotewriteexporter/testutil_test.go
+@@ -571,10 +571,8 @@ func getQuantiles(bounds []float64, values []float64) []*otlp.DoubleSummaryDataP
+ 
+ func getTimeseriesMap(timeseries []*prompb.TimeSeries) map[string]*prompb.TimeSeries {
+ 	tsMap := make(map[string]*prompb.TimeSeries)
+-
+ 	for i, v := range timeseries {
+ 		tsMap[fmt.Sprintf("%s%d", "timeseries_name", i)] = v
+ 	}
+-
+ 	return tsMap
+ }

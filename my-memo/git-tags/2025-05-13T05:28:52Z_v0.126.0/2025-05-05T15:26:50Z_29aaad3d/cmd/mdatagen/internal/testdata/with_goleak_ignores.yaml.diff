@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/testdata/with_goleak_ignores.yaml b/cmd/mdatagen/internal/testdata/with_goleak_ignores.yaml
+index 18ee688ea..f8699e350 100644
+--- a/cmd/mdatagen/internal/testdata/with_goleak_ignores.yaml
++++ b/cmd/mdatagen/internal/testdata/with_goleak_ignores.yaml
+@@ -1,6 +1,7 @@
+ type: foobar
+ 
+ status:
++  disable_codecov_badge: true
+   class: connector
+   stability:
+     beta: [traces_to_metrics, traces_to_traces, traces_to_logs, metrics_to_logs, metrics_to_metrics, metrics_to_traces, logs_to_logs, logs_to_metrics, logs_to_traces]
+@@ -11,4 +12,4 @@ tests:
+       top:
+         - "testfunc1"
+       any:
+-        - "testfunc2"
+\ No newline at end of file
++        - "testfunc2"

@@ -1,0 +1,23 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index 289528645..7a62d9bdf 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -22,6 +22,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/obsreport"
+@@ -66,6 +67,10 @@ type logsExporter struct {
+ 	pusher PushLogs
+ }
+ 
++func (lexp *logsExporter) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ func (lexp *logsExporter) ConsumeLogs(ctx context.Context, ld pdata.Logs) error {
+ 	return lexp.sender.send(newLogsRequest(ctx, ld, lexp.pusher))
+ }

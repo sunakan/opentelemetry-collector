@@ -1,0 +1,15 @@
+diff --git a/translator/trace/zipkinv2/from_translator_test.go b/translator/trace/zipkinv2/from_translator_test.go
+index 6ab1c99b9..514b9a4df 100644
+--- a/translator/trace/zipkinv2/from_translator_test.go
++++ b/translator/trace/zipkinv2/from_translator_test.go
+@@ -21,9 +21,9 @@ import (
+ 	zipkinmodel "github.com/openzipkin/zipkin-go/model"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/goldendataset"
+ 	"go.opentelemetry.io/collector/internal/testdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestInternalTracesToZipkinSpans(t *testing.T) {

@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/retry_sender.go b/exporter/exporterhelper/retry_sender.go
+index 6215a314d..31baad459 100644
+--- a/exporter/exporterhelper/retry_sender.go
++++ b/exporter/exporterhelper/retry_sender.go
+@@ -115,8 +115,7 @@ func (rs *retrySender) send(ctx context.Context, req Request) error {
+ 		}
+ 
+ 		throttleErr := throttleRetry{}
+-		isThrottle := errors.As(err, &throttleErr)
+-		if isThrottle {
++		if errors.As(err, &throttleErr) {
+ 			backoffDelay = max(backoffDelay, throttleErr.delay)
+ 		}
+ 

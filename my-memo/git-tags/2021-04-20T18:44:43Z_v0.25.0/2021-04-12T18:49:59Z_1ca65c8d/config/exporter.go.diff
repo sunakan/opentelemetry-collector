@@ -1,0 +1,24 @@
+diff --git a/config/exporter.go b/config/exporter.go
+index 80e2672df..b5a3840aa 100644
+--- a/config/exporter.go
++++ b/config/exporter.go
+@@ -15,8 +15,10 @@
+ package config
+ 
+ // Exporter is the configuration of an exporter.
++// Embedded validatable will force each exporter to implement Validate() function
+ type Exporter interface {
+ 	NamedEntity
++	validatable
+ }
+ 
+ // Exporters is a map of names to Exporters.
+@@ -51,3 +53,8 @@ func (es *ExporterSettings) SetName(name string) {
+ func (es *ExporterSettings) Type() Type {
+ 	return es.TypeVal
+ }
++
++// Validate validates the configuration and returns an error if invalid.
++func (es *ExporterSettings) Validate() error {
++	return nil
++}

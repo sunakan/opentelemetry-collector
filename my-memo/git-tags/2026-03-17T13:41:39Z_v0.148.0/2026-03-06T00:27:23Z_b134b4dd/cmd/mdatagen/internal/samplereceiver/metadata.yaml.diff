@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metadata.yaml b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+index 4c925f5dd..7283a774c 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metadata.yaml
++++ b/cmd/mdatagen/internal/samplereceiver/metadata.yaml
+@@ -37,6 +37,8 @@ status:
+ 
+ config:
+   type: object
++  allOf:
++    - $ref: ./internal/metadata.metrics_builder_config
+   properties:
+     endpoint:
+       description: The endpoint to scrape metrics from.

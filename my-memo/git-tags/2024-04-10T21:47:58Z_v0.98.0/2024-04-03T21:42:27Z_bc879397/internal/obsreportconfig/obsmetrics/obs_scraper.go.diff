@@ -1,0 +1,14 @@
+diff --git a/internal/obsreportconfig/obsmetrics/obs_scraper.go b/internal/obsreportconfig/obsmetrics/obs_scraper.go
+index 7e2b73d12..4254891f3 100644
+--- a/internal/obsreportconfig/obsmetrics/obs_scraper.go
++++ b/internal/obsreportconfig/obsmetrics/obs_scraper.go
+@@ -16,6 +16,7 @@ const (
+ )
+ 
+ const (
+-	ScraperPrefix                 = ScraperKey + NameSep
+-	ScraperMetricsOperationSuffix = NameSep + "MetricsScraped"
++	ScraperPrefix                 = ScraperKey + SpanNameSep
++	ScraperMetricPrefix           = ScraperKey + MetricNameSep
++	ScraperMetricsOperationSuffix = SpanNameSep + "MetricsScraped"
+ )

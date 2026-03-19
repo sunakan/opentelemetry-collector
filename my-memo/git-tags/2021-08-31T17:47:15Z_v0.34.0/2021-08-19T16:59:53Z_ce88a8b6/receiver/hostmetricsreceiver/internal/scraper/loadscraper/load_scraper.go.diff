@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+index c0d989170..27c62439f 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/loadscraper/load_scraper.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/model/pdata"
+-	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/scraper/loadscraper/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"
+ )
+ 

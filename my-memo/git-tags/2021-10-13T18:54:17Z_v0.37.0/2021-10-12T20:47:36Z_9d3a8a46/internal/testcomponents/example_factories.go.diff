@@ -1,0 +1,13 @@
+diff --git a/internal/testcomponents/example_factories.go b/internal/testcomponents/example_factories.go
+index 6d478223a..e10105a41 100644
+--- a/internal/testcomponents/example_factories.go
++++ b/internal/testcomponents/example_factories.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package testcomponents
++package testcomponents // import "go.opentelemetry.io/collector/internal/testcomponents"
+ 
+ import (
+ 	"go.opentelemetry.io/collector/component"

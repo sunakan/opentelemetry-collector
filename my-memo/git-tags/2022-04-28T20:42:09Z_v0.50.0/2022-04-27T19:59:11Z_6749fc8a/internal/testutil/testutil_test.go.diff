@@ -1,0 +1,31 @@
+diff --git a/internal/testutil/testutil_test.go b/internal/testutil/testutil_test.go
+index c9f4252df..40fd000b0 100644
+--- a/internal/testutil/testutil_test.go
++++ b/internal/testutil/testutil_test.go
+@@ -16,7 +16,6 @@ package testutil
+ 
+ import (
+ 	"net"
+-	"strconv"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -24,17 +23,8 @@ import (
+ )
+ 
+ func TestGetAvailableLocalAddress(t *testing.T) {
+-	testEndpointAvailable(t, GetAvailableLocalAddress(t))
+-}
+-
+-func TestGetAvailablePort(t *testing.T) {
+-	portStr := strconv.Itoa(int(GetAvailablePort(t)))
+-	require.NotEqual(t, "", portStr)
+-
+-	testEndpointAvailable(t, "localhost:"+portStr)
+-}
++	endpoint := GetAvailableLocalAddress(t)
+ 
+-func testEndpointAvailable(t *testing.T, endpoint string) {
+ 	// Endpoint should be free.
+ 	ln0, err := net.Listen("tcp", endpoint)
+ 	require.NoError(t, err)

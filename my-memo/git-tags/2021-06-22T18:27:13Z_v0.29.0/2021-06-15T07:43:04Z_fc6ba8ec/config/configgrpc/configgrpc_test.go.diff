@@ -1,0 +1,15 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index d3599a5f6..9bd868856 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -525,8 +525,8 @@ func TestReceiveOnUnixDomainSocket(t *testing.T) {
+ 
+ type grpcTraceServer struct{}
+ 
+-func (gts *grpcTraceServer) Export(context.Context, pdata.Traces) (interface{}, error) {
+-	return nil, nil
++func (gts *grpcTraceServer) Export(context.Context, pdata.Traces) (pdatagrpc.TracesResponse, error) {
++	return pdatagrpc.NewTracesResponse(), nil
+ }
+ 
+ // tempSocketName provides a temporary Unix socket name for testing.

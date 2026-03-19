@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_histogram.go b/pdata/pmetric/generated_histogram.go
+index 950fb1312..79e5665ae 100644
+--- a/pdata/pmetric/generated_histogram.go
++++ b/pdata/pmetric/generated_histogram.go
+@@ -41,6 +41,10 @@ func NewHistogram() Histogram {
+ func (ms Histogram) MoveTo(dest Histogram) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpmetrics.Histogram{}
+ }

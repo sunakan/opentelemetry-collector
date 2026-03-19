@@ -1,0 +1,20 @@
+diff --git a/model/pdata/logs_test.go b/model/pdata/logs_test.go
+index 9cbb9bfd9..929e6d32d 100644
+--- a/model/pdata/logs_test.go
++++ b/model/pdata/logs_test.go
+@@ -115,6 +115,15 @@ func TestResourceLogsWireCompatibility(t *testing.T) {
+ 	assert.EqualValues(t, logs.orig, &gogoprotoRS2)
+ }
+ 
++func TestLogsMoveTo(t *testing.T) {
++	logs := NewLogs()
++	fillTestResourceLogsSlice(logs.ResourceLogs())
++	dest := NewLogs()
++	logs.MoveTo(dest)
++	assert.EqualValues(t, NewLogs(), logs)
++	assert.EqualValues(t, generateTestResourceLogsSlice(), dest.ResourceLogs())
++}
++
+ func TestLogsClone(t *testing.T) {
+ 	logs := NewLogs()
+ 	fillTestResourceLogsSlice(logs.ResourceLogs())

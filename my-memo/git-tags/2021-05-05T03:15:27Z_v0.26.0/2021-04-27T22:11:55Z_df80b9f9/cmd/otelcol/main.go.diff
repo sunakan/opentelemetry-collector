@@ -1,0 +1,12 @@
+diff --git a/cmd/otelcol/main.go b/cmd/otelcol/main.go
+index a13798b9e..543af8395 100644
+--- a/cmd/otelcol/main.go
++++ b/cmd/otelcol/main.go
+@@ -35,7 +35,6 @@ func main() {
+ 	info := component.ApplicationStartInfo{
+ 		ExeName: "otelcol",
+ 		Version: version.Version,
+-		GitHash: version.GitHash,
+ 	}
+ 
+ 	if err := run(service.Parameters{ApplicationStartInfo: info, Factories: factories}); err != nil {

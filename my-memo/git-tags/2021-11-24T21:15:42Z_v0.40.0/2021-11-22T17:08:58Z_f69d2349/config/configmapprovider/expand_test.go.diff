@@ -1,0 +1,37 @@
+diff --git a/config/configmapprovider/expand_test.go b/config/configmapprovider/expand_test.go
+index b74362533..4d682335b 100644
+--- a/config/configmapprovider/expand_test.go
++++ b/config/configmapprovider/expand_test.go
+@@ -16,6 +16,7 @@ package configmapprovider
+ 
+ import (
+ 	"context"
++	"errors"
+ 	"os"
+ 	"path"
+ 	"testing"
+@@ -26,6 +27,24 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
++func TestBaseRetrieveFailsOnRetrieve(t *testing.T) {
++	retErr := errors.New("test error")
++	exp := NewExpand(&mockProvider{retrieveErr: retErr})
++	defer exp.Shutdown(context.Background())
++	_, err := exp.Retrieve(context.Background(), nil)
++	require.Error(t, err)
++	require.ErrorIs(t, err, retErr)
++}
++
++func TestBaseRetrieveFailsOnGet(t *testing.T) {
++	getErr := errors.New("test error")
++	exp := NewExpand(&mockProvider{retrieved: &mockRetrieved{getErr: getErr}})
++	defer exp.Shutdown(context.Background())
++	_, err := exp.Retrieve(context.Background(), nil)
++	require.Error(t, err)
++	require.ErrorIs(t, err, getErr)
++}
++
+ func TestExpand(t *testing.T) {
+ 	var testCases = []struct {
+ 		name string // test case name (also file name containing config yaml)

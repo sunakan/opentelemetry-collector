@@ -1,0 +1,12 @@
+diff --git a/internal/e2e/go.mod b/internal/e2e/go.mod
+index 1c5f525a9..e846474c0 100644
+--- a/internal/e2e/go.mod
++++ b/internal/e2e/go.mod
+@@ -249,3 +249,7 @@ replace go.opentelemetry.io/collector/extension/auth/authtest => ../../extension
+ replace go.opentelemetry.io/collector/extension/xextension => ../../extension/xextension
+ 
+ replace go.opentelemetry.io/collector/otelcol => ../../otelcol
++
++replace go.opentelemetry.io/collector/confmap/provider/yamlprovider => ../../confmap/provider/yamlprovider
++
++replace go.opentelemetry.io/collector/confmap/provider/fileprovider => ../../confmap/provider/fileprovider

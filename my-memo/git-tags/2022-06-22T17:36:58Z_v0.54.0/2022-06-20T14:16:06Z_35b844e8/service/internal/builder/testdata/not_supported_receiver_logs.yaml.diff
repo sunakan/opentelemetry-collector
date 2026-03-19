@@ -1,0 +1,16 @@
+diff --git a/service/internal/builder/testdata/not_supported_receiver_logs.yaml b/service/internal/builder/testdata/not_supported_receiver_logs.yaml
+deleted file mode 100644
+index e4ac06f49..000000000
+--- a/service/internal/builder/testdata/not_supported_receiver_logs.yaml
++++ /dev/null
+@@ -1,10 +0,0 @@
+-receivers:
+-  bf: # this is the bad receiver factory
+-exporters:
+-  exampleexporter:
+-
+-service:
+-  pipelines:
+-    logs:
+-      receivers: [bf]
+-      exporters: [exampleexporter]

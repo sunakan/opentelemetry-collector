@@ -1,0 +1,21 @@
+diff --git a/obsreport/obsreport_exporter.go b/obsreport/obsreport_exporter.go
+index 46c8cd4da..5ddb2fcc4 100644
+--- a/obsreport/obsreport_exporter.go
++++ b/obsreport/obsreport_exporter.go
+@@ -29,6 +29,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/featuregate"
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig"
+ 	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+@@ -61,7 +62,7 @@ type Exporter struct {
+ // ExporterSettings are settings for creating an Exporter.
+ type ExporterSettings struct {
+ 	ExporterID             component.ID
+-	ExporterCreateSettings component.ExporterCreateSettings
++	ExporterCreateSettings exporter.CreateSettings
+ }
+ 
+ // NewExporter creates a new Exporter.

@@ -1,0 +1,16 @@
+diff --git a/connector/forwardconnector/internal/metadata/generated_status.go b/connector/forwardconnector/internal/metadata/generated_status.go
+index 87699068c..983b6ab67 100644
+--- a/connector/forwardconnector/internal/metadata/generated_status.go
++++ b/connector/forwardconnector/internal/metadata/generated_status.go
+@@ -12,7 +12,8 @@ var (
+ )
+ 
+ const (
+-	TracesToTracesStability   = component.StabilityLevelBeta
+-	MetricsToMetricsStability = component.StabilityLevelBeta
+-	LogsToLogsStability       = component.StabilityLevelBeta
++	ProfilesToProfilesStability = component.StabilityLevelDevelopment
++	TracesToTracesStability     = component.StabilityLevelBeta
++	MetricsToMetricsStability   = component.StabilityLevelBeta
++	LogsToLogsStability         = component.StabilityLevelBeta
+ )

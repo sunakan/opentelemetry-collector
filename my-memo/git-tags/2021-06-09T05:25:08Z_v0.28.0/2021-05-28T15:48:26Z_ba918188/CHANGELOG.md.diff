@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 437f403d5..007f97677 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -8,6 +8,7 @@
+ - Introduce `AppSettings` instead of `Parameters` (#3163)
+ - Remove unused testutil.TempSocketName (#3291)
+ - Move BigEndian helper functions in `tracetranslator` to an internal package.(#3298)
++- Rename `configtest.LoadConfigFile` to `configtest.LoadConfigAndValidate` (#3306)
+ 
+ ## 💡 Enhancements 💡
+ 

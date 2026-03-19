@@ -1,0 +1,15 @@
+diff --git a/demos/trace/oc-agent-config.yaml b/demos/trace/oc-agent-config.yaml
+new file mode 100644
+index 000000000..cd6d4371a
+--- /dev/null
++++ b/demos/trace/oc-agent-config.yaml
+@@ -0,0 +1,9 @@
++receivers:
++  opencensus:
++    address: ":55678"
++  jaeger:
++    collector_http_port: 14268
++
++exporters:
++  opencensus:
++    endpoint: "oc-collector:55678"

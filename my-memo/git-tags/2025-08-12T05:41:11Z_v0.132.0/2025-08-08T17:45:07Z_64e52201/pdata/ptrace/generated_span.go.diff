@@ -1,0 +1,40 @@
+diff --git a/pdata/ptrace/generated_span.go b/pdata/ptrace/generated_span.go
+index fec519b65..2a471186d 100644
+--- a/pdata/ptrace/generated_span.go
++++ b/pdata/ptrace/generated_span.go
+@@ -90,17 +90,6 @@ func (ms Span) SetParentSpanID(v pcommon.SpanID) {
+ 	ms.orig.ParentSpanId = data.SpanID(v)
+ }
+ 
+-// Name returns the name associated with this Span.
+-func (ms Span) Name() string {
+-	return ms.orig.Name
+-}
+-
+-// SetName replaces the name associated with this Span.
+-func (ms Span) SetName(v string) {
+-	ms.state.AssertMutable()
+-	ms.orig.Name = v
+-}
+-
+ // Flags returns the flags associated with this Span.
+ func (ms Span) Flags() uint32 {
+ 	return ms.orig.Flags
+@@ -112,6 +101,17 @@ func (ms Span) SetFlags(v uint32) {
+ 	ms.orig.Flags = v
+ }
+ 
++// Name returns the name associated with this Span.
++func (ms Span) Name() string {
++	return ms.orig.Name
++}
++
++// SetName replaces the name associated with this Span.
++func (ms Span) SetName(v string) {
++	ms.state.AssertMutable()
++	ms.orig.Name = v
++}
++
+ // Kind returns the kind associated with this Span.
+ func (ms Span) Kind() SpanKind {
+ 	return SpanKind(ms.orig.Kind)

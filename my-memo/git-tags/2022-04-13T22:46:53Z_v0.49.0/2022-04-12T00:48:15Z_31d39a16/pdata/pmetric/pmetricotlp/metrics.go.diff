@@ -1,0 +1,12 @@
+diff --git a/pdata/pmetric/pmetricotlp/metrics.go b/pdata/pmetric/pmetricotlp/metrics.go
+index 5d9b3021d..c0a758d19 100644
+--- a/pdata/pmetric/pmetricotlp/metrics.go
++++ b/pdata/pmetric/pmetricotlp/metrics.go
+@@ -155,6 +155,7 @@ type rawMetricsServer struct {
+ }
+ 
+ func (s rawMetricsServer) Export(ctx context.Context, request *otlpcollectormetrics.ExportMetricsServiceRequest) (*otlpcollectormetrics.ExportMetricsServiceResponse, error) {
++	otlp.InstrumentationLibraryMetricsToScope(request.ResourceMetrics)
+ 	rsp, err := s.srv.Export(ctx, Request{orig: request})
+ 	return rsp.orig, err
+ }

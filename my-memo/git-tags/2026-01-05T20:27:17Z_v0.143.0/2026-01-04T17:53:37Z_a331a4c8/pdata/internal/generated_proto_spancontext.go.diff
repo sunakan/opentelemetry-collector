@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_proto_spancontext.go b/pdata/internal/generated_proto_spancontext.go
+index 3b8185f0f..2861cf117 100644
+--- a/pdata/internal/generated_proto_spancontext.go
++++ b/pdata/internal/generated_proto_spancontext.go
+@@ -16,10 +16,10 @@ import (
+ )
+ 
+ type SpanContext struct {
++	TraceState string
++	TraceFlags uint32
+ 	TraceID    TraceID
+ 	SpanID     SpanID
+-	TraceFlags uint32
+-	TraceState string
+ 	Remote     bool
+ }
+ 

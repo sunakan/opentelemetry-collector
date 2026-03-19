@@ -1,0 +1,24 @@
+diff --git a/config/configtest/configtest_test.go b/config/configtest/configtest_test.go
+index b644d8430..f08a7d968 100644
+--- a/config/configtest/configtest_test.go
++++ b/config/configtest/configtest_test.go
+@@ -33,8 +33,8 @@ func TestLoadConfigFile(t *testing.T) {
+ 
+ 	// Verify extensions.
+ 	require.Len(t, cfg.Extensions, 2)
+-	assert.Contains(t, cfg.Extensions, "nop")
+-	assert.Contains(t, cfg.Extensions, "nop/myextension")
++	assert.Contains(t, cfg.Extensions, config.NewID("nop"))
++	assert.Contains(t, cfg.Extensions, config.NewIDWithName("nop", "myextension"))
+ 
+ 	// Verify receivers
+ 	require.Len(t, cfg.Receivers, 2)
+@@ -53,7 +53,7 @@ func TestLoadConfigFile(t *testing.T) {
+ 
+ 	// Verify service.
+ 	require.Len(t, cfg.Service.Extensions, 1)
+-	assert.Contains(t, cfg.Service.Extensions, "nop")
++	assert.Contains(t, cfg.Service.Extensions, config.NewID("nop"))
+ 	require.Len(t, cfg.Service.Pipelines, 1)
+ 	assert.Equal(t,
+ 		&config.Pipeline{

@@ -1,0 +1,21 @@
+diff --git a/service/testdata/otelcol-invalid.yaml b/service/testdata/otelcol-invalid.yaml
+new file mode 100644
+index 000000000..d6cab5765
+--- /dev/null
++++ b/service/testdata/otelcol-invalid.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  nop:
++
++processors:
++  nop:
++
++exporters:
++  nop:
++
++service:
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [invalid]
++      exporters: [nop]

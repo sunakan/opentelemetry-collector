@@ -1,0 +1,19 @@
+diff --git a/config/testdata/metric-pipeline-cannot-have-processors.yaml b/config/testdata/metric-pipeline-cannot-have-processors.yaml
+index 5ad00b987..28c865a1b 100644
+--- a/config/testdata/metric-pipeline-cannot-have-processors.yaml
++++ b/config/testdata/metric-pipeline-cannot-have-processors.yaml
+@@ -4,8 +4,9 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  metrics:
+-    receivers: [multireceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]
++service:
++  pipelines:
++    metrics:
++      receivers: [multireceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

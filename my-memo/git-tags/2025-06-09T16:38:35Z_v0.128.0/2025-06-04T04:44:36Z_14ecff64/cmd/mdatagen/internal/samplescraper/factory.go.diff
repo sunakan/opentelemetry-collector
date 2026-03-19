@@ -1,0 +1,30 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/factory.go b/cmd/mdatagen/internal/samplescraper/factory.go
+index c2de9aa52..b27b912ef 100644
+--- a/cmd/mdatagen/internal/samplescraper/factory.go
++++ b/cmd/mdatagen/internal/samplescraper/factory.go
+@@ -8,6 +8,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/cmd/mdatagen/internal/samplescraper/internal/metadata"
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/pdata/plog"
+ 	"go.opentelemetry.io/collector/pdata/pmetric"
+ 	"go.opentelemetry.io/collector/scraper"
+ )
+@@ -17,7 +18,8 @@ func NewFactory() scraper.Factory {
+ 	return scraper.NewFactory(
+ 		metadata.Type,
+ 		func() component.Config { return &struct{}{} },
+-		scraper.WithMetrics(createMetrics, metadata.MetricsStability))
++		scraper.WithMetrics(createMetrics, metadata.MetricsStability),
++		scraper.WithLogs(createLogs, metadata.LogsStability))
+ }
+ 
+ func createMetrics(context.Context, scraper.Settings, component.Config) (scraper.Metrics, error) {
+@@ -25,3 +27,7 @@ func createMetrics(context.Context, scraper.Settings, component.Config) (scraper
+ 		return pmetric.NewMetrics(), nil
+ 	})
+ }
++
++func createLogs(context.Context, scraper.Settings, component.Config) (scraper.Logs, error) {
++	return scraper.NewLogs(func(context.Context) (plog.Logs, error) { return plog.Logs{}, nil })
++}

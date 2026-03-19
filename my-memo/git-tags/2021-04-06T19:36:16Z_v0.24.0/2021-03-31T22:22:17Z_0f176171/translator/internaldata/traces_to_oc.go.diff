@@ -1,0 +1,15 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index 0e0151854..84716624c 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -87,8 +87,8 @@ func spanToOC(span pdata.Span) *octrace.Span {
+ 		ParentSpanId:            spanIDToOC(span.ParentSpanID()),
+ 		Name:                    stringToTruncatableString(span.Name()),
+ 		Kind:                    spanKindToOC(span.Kind()),
+-		StartTime:               timestampAsTimestampPb(span.StartTime()),
+-		EndTime:                 timestampAsTimestampPb(span.EndTime()),
++		StartTime:               timestampAsTimestampPb(span.StartTimestamp()),
++		EndTime:                 timestampAsTimestampPb(span.EndTimestamp()),
+ 		Attributes:              attributes,
+ 		TimeEvents:              eventsToOC(span.Events(), span.DroppedEventsCount()),
+ 		Links:                   linksToOC(span.Links(), span.DroppedLinksCount()),

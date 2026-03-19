@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_uint64slice.go b/pdata/internal/generated_wrapper_uint64slice.go
+index 7c72e2ddf..7aa29d1db 100644
+--- a/pdata/internal/generated_wrapper_uint64slice.go
++++ b/pdata/internal/generated_wrapper_uint64slice.go
+@@ -28,12 +28,14 @@ func CopyOrigUInt64Slice(dst, src []uint64) []uint64 {
+ 	return append(dst, src...)
+ }
+ 
+-func FillTestUInt64Slice(tv UInt64Slice) {
++func FillTestUInt64Slice(ms UInt64Slice) {
++	*ms.orig = []uint64{1, 2, 3}
+ }
+ 
+ func GenerateTestUInt64Slice() UInt64Slice {
++	orig := []uint64(nil)
+ 	state := StateMutable
+-	var orig []uint64 = nil
+-
+-	return UInt64Slice{&orig, &state}
++	ms := NewUInt64Slice(&orig, &state)
++	FillTestUInt64Slice(ms)
++	return ms
+ }

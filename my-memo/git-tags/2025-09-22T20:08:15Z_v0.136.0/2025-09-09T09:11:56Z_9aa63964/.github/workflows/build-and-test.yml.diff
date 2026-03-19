@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 89608f06e..fdda7b064 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -225,7 +225,7 @@ jobs:
+       - name: Run Unit Tests With Coverage
+         run: make gotest-with-cover
+       - name: Upload coverage report
+-        uses: codecov/codecov-action@fdcc8476540edceab3de004e990f80d881c6cc00 # 5.5.0
++        uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # 5.5.1
+         env:
+           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+ 

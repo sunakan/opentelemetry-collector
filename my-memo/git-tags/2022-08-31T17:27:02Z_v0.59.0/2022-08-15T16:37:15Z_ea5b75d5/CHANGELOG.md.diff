@@ -1,0 +1,13 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 07d2ffd69..1e9db4010 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,8 @@
+ 
+ ### 🚩 Deprecations 🚩
+ 
++- Deprecates `LogRecord.Flags()` and `LogRecord.SetFlags()` in favor of `LogRecord.FlagsStruct()`. (#5866)
++
+ ### 💡 Enhancements 💡
+ 
+ ### 🧰 Bug fixes 🧰

@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/templates/readme.md.tmpl b/cmd/mdatagen/templates/readme.md.tmpl
+index 268ff5888..3ead446b9 100644
+--- a/cmd/mdatagen/templates/readme.md.tmpl
++++ b/cmd/mdatagen/templates/readme.md.tmpl
+@@ -11,6 +11,9 @@
+ {{- $idx = inc $idx }}
+ {{- end }}
+ {{- end}}
++{{- if .Status.UnsupportedPlatforms }}
++| Unsupported Platforms | {{ stringsJoin .Status.UnsupportedPlatforms ", " }} |
++{{- end }}
+ {{- if and (ne $class "cmd") (ne $class "pkg")  }}
+ | Distributions | [{{ stringsJoin .Status.SortedDistributions "], [" }}] |
+ {{- end }}

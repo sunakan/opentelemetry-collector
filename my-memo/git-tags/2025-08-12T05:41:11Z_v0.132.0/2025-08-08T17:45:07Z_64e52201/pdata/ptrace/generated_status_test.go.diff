@@ -1,0 +1,34 @@
+diff --git a/pdata/ptrace/generated_status_test.go b/pdata/ptrace/generated_status_test.go
+index c551c8e4f..767d71fd3 100644
+--- a/pdata/ptrace/generated_status_test.go
++++ b/pdata/ptrace/generated_status_test.go
+@@ -40,14 +40,6 @@ func TestStatus_CopyTo(t *testing.T) {
+ 	assert.Panics(t, func() { ms.CopyTo(newStatus(&otlptrace.Status{}, &sharedState)) })
+ }
+ 
+-func TestStatus_Code(t *testing.T) {
+-	ms := NewStatus()
+-	assert.Equal(t, StatusCode(0), ms.Code())
+-	testValCode := StatusCode(1)
+-	ms.SetCode(testValCode)
+-	assert.Equal(t, testValCode, ms.Code())
+-}
+-
+ func TestStatus_Message(t *testing.T) {
+ 	ms := NewStatus()
+ 	assert.Empty(t, ms.Message())
+@@ -57,6 +49,14 @@ func TestStatus_Message(t *testing.T) {
+ 	assert.Panics(t, func() { newStatus(&otlptrace.Status{}, &sharedState).SetMessage("test_message") })
+ }
+ 
++func TestStatus_Code(t *testing.T) {
++	ms := NewStatus()
++	assert.Equal(t, StatusCode(otlptrace.Status_StatusCode(0)), ms.Code())
++	testValCode := StatusCode(otlptrace.Status_StatusCode(1))
++	ms.SetCode(testValCode)
++	assert.Equal(t, testValCode, ms.Code())
++}
++
+ func generateTestStatus() Status {
+ 	ms := NewStatus()
+ 	internal.FillOrigTestStatus(ms.orig)

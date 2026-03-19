@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/command.go b/cmd/mdatagen/internal/command.go
+index 7c1ca6e50..35b0afe05 100644
+--- a/cmd/mdatagen/internal/command.go
++++ b/cmd/mdatagen/internal/command.go
+@@ -162,7 +162,7 @@ func run(ymlPath string) error {
+ 		toGenerate[filepath.Join(tmplDir, "documentation.md.tmpl")] = filepath.Join(ymlDir, "documentation.md")
+ 	}
+ 
+-	if len(md.Metrics) > 0 || len(md.ResourceAttributes) > 0 {
++	if len(md.Metrics) > 0 || len(md.Events) > 0 || len(md.ResourceAttributes) > 0 {
+ 		testdataDir := filepath.Join(codeDir, "testdata")
+ 		if err = os.MkdirAll(filepath.Join(codeDir, "testdata"), 0o700); err != nil {
+ 			return fmt.Errorf("unable to create output directory %q: %w", testdataDir, err)

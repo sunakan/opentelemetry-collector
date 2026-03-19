@@ -1,0 +1,17 @@
+diff --git a/exporter/otlphttpexporter/internal/metadata/generated_status.go b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+index f6f8933d6..8917eb822 100644
+--- a/exporter/otlphttpexporter/internal/metadata/generated_status.go
++++ b/exporter/otlphttpexporter/internal/metadata/generated_status.go
+@@ -9,8 +9,11 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ )
+ 
++var (
++	Type = component.MustNewType("otlphttp")
++)
++
+ const (
+-	Type             = "otlphttp"
+ 	LogsStability    = component.StabilityLevelBeta
+ 	TracesStability  = component.StabilityLevelStable
+ 	MetricsStability = component.StabilityLevelStable

@@ -1,0 +1,19 @@
+diff --git a/service/defaultcomponents/defaults.go b/service/defaultcomponents/defaults.go
+index ef5caff09..c0f8c9f28 100644
+--- a/service/defaultcomponents/defaults.go
++++ b/service/defaultcomponents/defaults.go
+@@ -57,10 +57,10 @@ func Components() (
+ 	var errs []error
+ 
+ 	extensions, err := component.MakeExtensionFactoryMap(
+-		&healthcheckextension.Factory{},
+-		&pprofextension.Factory{},
+-		&zpagesextension.Factory{},
+-		&fluentbitextension.Factory{},
++		healthcheckextension.NewFactory(),
++		pprofextension.NewFactory(),
++		zpagesextension.NewFactory(),
++		fluentbitextension.NewFactory(),
+ 	)
+ 	if err != nil {
+ 		errs = append(errs, err)

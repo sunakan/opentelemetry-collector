@@ -1,0 +1,12 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 8072d1a22..293ca7858 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -25,5 +25,5 @@ jobs:
+             ~\go\pkg\mod
+             ~\AppData\Local\go-build
+           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+-      - name: Run Unit tests
+-        run: go test ./...
++      - name: Run Unit Tests
++        run: make gotest

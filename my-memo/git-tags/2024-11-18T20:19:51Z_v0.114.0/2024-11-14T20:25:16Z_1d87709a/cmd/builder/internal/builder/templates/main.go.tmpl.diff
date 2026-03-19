@@ -1,0 +1,34 @@
+diff --git a/cmd/builder/internal/builder/templates/main.go.tmpl b/cmd/builder/internal/builder/templates/main.go.tmpl
+index 61bf580dd..6fee9501e 100644
+--- a/cmd/builder/internal/builder/templates/main.go.tmpl
++++ b/cmd/builder/internal/builder/templates/main.go.tmpl
+@@ -8,10 +8,10 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/confmap"
+-	{{- range .Converters}}
++	{{- range .ConfmapConverters}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}	
+-	{{- range .Providers}}
++	{{- range .ConfmapProviders}}
+ 	{{.Name}} "{{.Import}}"
+ 	{{- end}}
+ 	"go.opentelemetry.io/collector/otelcol"
+@@ -30,13 +30,13 @@ func main() {
+ 		ConfigProviderSettings: otelcol.ConfigProviderSettings{
+ 			ResolverSettings: confmap.ResolverSettings{
+ 				ProviderFactories: []confmap.ProviderFactory{
+-					{{- range .Providers}}
++					{{- range .ConfmapProviders}}
+ 					{{.Name}}.NewFactory(),
+ 					{{- end}}
+ 				},
+-				{{- if .Converters }}
++				{{- if .ConfmapConverters }}
+ 				ConverterFactories: []confmap.ConverterFactory{
+-					{{- range .Converters}}
++					{{- range .ConfmapConverters}}
+ 					{{.Name}}.NewFactory(),
+ 					{{- end}}
+ 				},

@@ -1,0 +1,14 @@
+diff --git a/receiver/receiver.go b/receiver/receiver.go
+index a90a49174..f2aa1fe2c 100644
+--- a/receiver/receiver.go
++++ b/receiver/receiver.go
+@@ -48,6 +48,9 @@ type Settings struct {
+ 
+ 	// BuildInfo can be used by components for informational purposes.
+ 	BuildInfo component.BuildInfo
++
++	// prevent unkeyed literal initialization
++	_ struct{}
+ }
+ 
+ // Factory is a factory interface for receivers.

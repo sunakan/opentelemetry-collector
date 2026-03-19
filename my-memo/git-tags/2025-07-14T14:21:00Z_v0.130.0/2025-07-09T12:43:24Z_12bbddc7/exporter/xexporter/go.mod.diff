@@ -1,0 +1,12 @@
+diff --git a/exporter/xexporter/go.mod b/exporter/xexporter/go.mod
+index 4d6ec138f..381ec35a4 100644
+--- a/exporter/xexporter/go.mod
++++ b/exporter/xexporter/go.mod
+@@ -90,3 +90,7 @@ replace go.opentelemetry.io/collector/internal/telemetry => ../../internal/telem
+ replace go.opentelemetry.io/collector/client => ../../client
+ 
+ replace go.opentelemetry.io/collector/pdata/xpdata => ../../pdata/xpdata
++
++replace go.opentelemetry.io/collector/config/configoptional => ../../config/configoptional
++
++replace go.opentelemetry.io/collector/confmap => ../../confmap

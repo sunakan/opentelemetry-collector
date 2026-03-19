@@ -1,0 +1,14 @@
+diff --git a/confmap/converter/expandconverter/go.mod b/confmap/converter/expandconverter/go.mod
+index c47196459..c0adbe438 100644
+--- a/confmap/converter/expandconverter/go.mod
++++ b/confmap/converter/expandconverter/go.mod
+@@ -1,6 +1,8 @@
+ module go.opentelemetry.io/collector/confmap/converter/expandconverter
+ 
+-go 1.20
++go 1.21
++
++toolchain go1.21.6
+ 
+ require (
+ 	github.com/stretchr/testify v1.8.4

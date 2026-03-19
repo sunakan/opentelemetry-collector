@@ -1,0 +1,17 @@
+diff --git a/vendor/github.com/DataDog/datadog-go/.travis.yml b/vendor/github.com/DataDog/datadog-go/.travis.yml
+deleted file mode 100644
+index 73556a1cd..000000000
+--- a/vendor/github.com/DataDog/datadog-go/.travis.yml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-language: go
+-
+-go:
+-  - 1.5
+-  - 1.6
+-  - 1.7
+-  - 1.8
+-  - 1.9
+-
+-script:
+- - go test -race -v ./...

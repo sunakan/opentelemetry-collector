@@ -1,0 +1,10 @@
+diff --git a/config/configgrpc/go.mod b/config/configgrpc/go.mod
+index e3d4f4e06..17b4ee9a5 100644
+--- a/config/configgrpc/go.mod
++++ b/config/configgrpc/go.mod
+@@ -118,3 +118,5 @@ replace go.opentelemetry.io/collector/component => ../../component
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
+ 
+ replace go.opentelemetry.io/collector/consumer => ../../consumer
++
++replace go.opentelemetry.io/collector/service => ../../service

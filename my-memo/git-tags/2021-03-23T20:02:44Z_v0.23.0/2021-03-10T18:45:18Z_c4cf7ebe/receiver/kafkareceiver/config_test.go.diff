@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/config_test.go b/receiver/kafkareceiver/config_test.go
+index 7e044ef42..ca9ef1ac5 100644
+--- a/receiver/kafkareceiver/config_test.go
++++ b/receiver/kafkareceiver/config_test.go
+@@ -30,7 +30,7 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factories, err := componenttest.ExampleComponents()
++	factories, err := componenttest.NopFactories()
+ 	assert.NoError(t, err)
+ 
+ 	factory := NewFactory()

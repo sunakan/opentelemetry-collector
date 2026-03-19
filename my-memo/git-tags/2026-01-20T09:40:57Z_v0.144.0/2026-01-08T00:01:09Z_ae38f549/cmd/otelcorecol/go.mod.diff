@@ -1,0 +1,21 @@
+diff --git a/cmd/otelcorecol/go.mod b/cmd/otelcorecol/go.mod
+index d24e0a8e0..2341e79a9 100644
+--- a/cmd/otelcorecol/go.mod
++++ b/cmd/otelcorecol/go.mod
+@@ -116,6 +116,7 @@ require (
+ 	go.opentelemetry.io/collector/extension/extensiontest v0.143.0 // indirect
+ 	go.opentelemetry.io/collector/extension/xextension v0.143.0 // indirect
+ 	go.opentelemetry.io/collector/featuregate v1.49.0 // indirect
++	go.opentelemetry.io/collector/internal/componentalias v0.0.0-00010101000000-000000000000 // indirect
+ 	go.opentelemetry.io/collector/internal/fanoutconsumer v0.143.0 // indirect
+ 	go.opentelemetry.io/collector/internal/memorylimiter v0.143.0 // indirect
+ 	go.opentelemetry.io/collector/internal/sharedcomponent v0.143.0 // indirect
+@@ -279,6 +280,8 @@ replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extensi
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
++replace go.opentelemetry.io/collector/internal/componentalias => ../../internal/componentalias
++
+ replace go.opentelemetry.io/collector/internal/memorylimiter => ../../internal/memorylimiter
+ 
+ replace go.opentelemetry.io/collector/internal/fanoutconsumer => ../../internal/fanoutconsumer

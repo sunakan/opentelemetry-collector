@@ -1,0 +1,12 @@
+diff --git a/service/service.go b/service/service.go
+index b0ec6f8bd..f5a084606 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -140,6 +140,7 @@ func (app *Application) setupHealthCheck() {
+ 	}
+ }
+ 
++// TODO(ccaraman): Move ZPage configuration to be apart of global config/config.go
+ func (app *Application) setupZPages() {
+ 	app.logger.Info("Setting up zPages...")
+ 	zpagesPort := app.v.GetInt(zpagesserver.ZPagesHTTPPort)

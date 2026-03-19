@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder_test.go b/service/internal/builder/pipelines_builder_test.go
+index 22dd00300..c8aa97669 100644
+--- a/service/internal/builder/pipelines_builder_test.go
++++ b/service/internal/builder/pipelines_builder_test.go
+@@ -150,7 +150,7 @@ func TestBuildPipelines_BuildVarious(t *testing.T) {
+ 			// First check that there are no logs in the exporters yet.
+ 			var exporterConsumers []*testcomponents.ExampleExporterConsumer
+ 			for _, exporter := range exporters {
+-				expConsumer := exporter.getLogExporter().(*testcomponents.ExampleExporterConsumer)
++				expConsumer := exporter.getLogsExporter().(*testcomponents.ExampleExporterConsumer)
+ 				exporterConsumers = append(exporterConsumers, expConsumer)
+ 				require.Equal(t, len(expConsumer.Logs), 0)
+ 			}

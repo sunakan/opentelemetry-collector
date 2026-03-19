@@ -1,0 +1,13 @@
+diff --git a/service/host.go b/service/host.go
+index 6b9e9eec4..f43a55d17 100644
+--- a/service/host.go
++++ b/service/host.go
+@@ -17,7 +17,7 @@ package service // import "go.opentelemetry.io/collector/service"
+ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/service/internal/extensions"
++	"go.opentelemetry.io/collector/service/extensions"
+ 	"go.opentelemetry.io/collector/service/internal/pipelines"
+ )
+ 

@@ -1,0 +1,13 @@
+diff --git a/service/parserprovider/setflag_test.go b/service/parserprovider/setflag_test.go
+index 2318fb175..0abbfb564 100644
+--- a/service/parserprovider/setflag_test.go
++++ b/service/parserprovider/setflag_test.go
+@@ -61,7 +61,7 @@ func TestSetFlags_empty(t *testing.T) {
+ type emptyProvider struct{}
+ 
+ func (el *emptyProvider) Get(context.Context) (*configparser.ConfigMap, error) {
+-	return configparser.NewParser(), nil
++	return configparser.NewConfigMap(), nil
+ }
+ 
+ func (el *emptyProvider) Close(context.Context) error {

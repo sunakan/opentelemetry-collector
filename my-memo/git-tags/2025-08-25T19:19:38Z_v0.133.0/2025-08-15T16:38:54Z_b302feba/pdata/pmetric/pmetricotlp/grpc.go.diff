@@ -1,0 +1,23 @@
+diff --git a/pdata/pmetric/pmetricotlp/grpc.go b/pdata/pmetric/pmetricotlp/grpc.go
+index 98d864d73..7b767b872 100644
+--- a/pdata/pmetric/pmetricotlp/grpc.go
++++ b/pdata/pmetric/pmetricotlp/grpc.go
+@@ -43,8 +43,7 @@ func (c *grpcClient) Export(ctx context.Context, request ExportRequest, opts ...
+ 	if err != nil {
+ 		return ExportResponse{}, err
+ 	}
+-	state := internal.StateMutable
+-	return ExportResponse{orig: rsp, state: &state}, err
++	return ExportResponse{orig: rsp, state: internal.NewState()}, err
+ }
+ 
+ func (c *grpcClient) unexported() {}
+@@ -84,7 +83,6 @@ type rawMetricsServer struct {
+ 
+ func (s rawMetricsServer) Export(ctx context.Context, request *otlpcollectormetrics.ExportMetricsServiceRequest) (*otlpcollectormetrics.ExportMetricsServiceResponse, error) {
+ 	otlp.MigrateMetrics(request.ResourceMetrics)
+-	state := internal.StateMutable
+-	rsp, err := s.srv.Export(ctx, ExportRequest{orig: request, state: &state})
++	rsp, err := s.srv.Export(ctx, ExportRequest{orig: request, state: internal.NewState()})
+ 	return rsp.orig, err
+ }

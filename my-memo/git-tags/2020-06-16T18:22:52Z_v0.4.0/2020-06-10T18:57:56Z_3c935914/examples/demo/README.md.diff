@@ -1,0 +1,17 @@
+diff --git a/examples/demo/README.md b/examples/demo/README.md
+index 6a8e74a16..a218ba3da 100644
+--- a/examples/demo/README.md
++++ b/examples/demo/README.md
+@@ -23,9 +23,9 @@ docker-compose up -d
+ 
+ The demo exposes the following backends:
+ 
+-- Jaeger at http://localhost:16686
+-- Zipkin at http://localhost:9411
+-- Prometheus at http://localhost:9090 
++- Jaeger at http://0.0.0.0:16686
++- Zipkin at http://0.0.0.0:9411
++- Prometheus at http://0.0.0.0:9090 
+ 
+ Notes:
+ 

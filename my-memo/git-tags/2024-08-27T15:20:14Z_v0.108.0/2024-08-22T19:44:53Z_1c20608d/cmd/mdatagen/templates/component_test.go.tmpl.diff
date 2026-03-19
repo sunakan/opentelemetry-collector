@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/templates/component_test.go.tmpl b/cmd/mdatagen/templates/component_test.go.tmpl
+index c2d052bf6..be75cb1ba 100644
+--- a/cmd/mdatagen/templates/component_test.go.tmpl
++++ b/cmd/mdatagen/templates/component_test.go.tmpl
+@@ -20,8 +20,8 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	{{- end }}
+ 	"go.opentelemetry.io/collector/component/componenttest"
+-	"go.opentelemetry.io/collector/confmap/confmaptest"
+ 	{{- if not (and .Tests.SkipLifecycle .Tests.SkipShutdown) }}
++	"go.opentelemetry.io/collector/confmap/confmaptest"
+ 	{{- if isExporter }}
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"

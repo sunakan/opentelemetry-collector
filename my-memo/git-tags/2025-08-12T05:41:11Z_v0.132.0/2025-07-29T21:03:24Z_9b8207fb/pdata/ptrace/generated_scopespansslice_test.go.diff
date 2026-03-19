@@ -1,0 +1,19 @@
+diff --git a/pdata/ptrace/generated_scopespansslice_test.go b/pdata/ptrace/generated_scopespansslice_test.go
+index b762955ea..5d29a67b1 100644
+--- a/pdata/ptrace/generated_scopespansslice_test.go
++++ b/pdata/ptrace/generated_scopespansslice_test.go
+@@ -141,6 +141,14 @@ func TestScopeSpansSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestScopeSpansSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestScopeSpansSlice()
++	got.RemoveIf(func(el ScopeSpans) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestScopeSpansSliceAll(t *testing.T) {
+ 	ms := generateTestScopeSpansSlice()
+ 	assert.NotEmpty(t, ms.Len())

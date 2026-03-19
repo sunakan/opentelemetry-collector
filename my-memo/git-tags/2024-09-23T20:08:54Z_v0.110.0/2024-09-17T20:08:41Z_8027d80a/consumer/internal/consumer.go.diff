@@ -1,0 +1,30 @@
+diff --git a/consumer/internal/consumer.go b/consumer/internal/consumer.go
+index 1f2b5683b..45c90dd43 100644
+--- a/consumer/internal/consumer.go
++++ b/consumer/internal/consumer.go
+@@ -22,7 +22,15 @@ type BaseImpl struct {
+ }
+ 
+ // Option to construct new consumers.
+-type Option func(*BaseImpl)
++type Option interface {
++	apply(*BaseImpl)
++}
++
++type OptionFunc func(*BaseImpl)
++
++func (of OptionFunc) apply(e *BaseImpl) {
++	of(e)
++}
+ 
+ // Capabilities returns the capabilities of the component
+ func (bs BaseImpl) Capabilities() Capabilities {
+@@ -35,7 +43,7 @@ func NewBaseImpl(options ...Option) *BaseImpl {
+ 	}
+ 
+ 	for _, op := range options {
+-		op(bs)
++		op.apply(bs)
+ 	}
+ 
+ 	return bs

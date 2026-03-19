@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/.goreleaser.yml b/cmd/builder/.goreleaser.yml
+index 89984f02c..f555f592e 100644
+--- a/cmd/builder/.goreleaser.yml
++++ b/cmd/builder/.goreleaser.yml
+@@ -22,6 +22,11 @@ builds:
+     goarm:
+       - 6
+       - 7
++    binary: ocb
++release:
++  github:
++    owner: open-telemetry
++    name: opentelemetry-collector
+ archives:
+   - format: binary
+ checksum:

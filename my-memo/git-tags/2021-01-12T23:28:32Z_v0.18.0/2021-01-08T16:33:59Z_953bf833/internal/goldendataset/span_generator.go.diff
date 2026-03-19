@@ -1,0 +1,15 @@
+diff --git a/internal/goldendataset/span_generator.go b/internal/goldendataset/span_generator.go
+index 5c2557e07..a22f32aa9 100644
+--- a/internal/goldendataset/span_generator.go
++++ b/internal/goldendataset/span_generator.go
+@@ -20,8 +20,8 @@ import (
+ 	"time"
+ 
+ 	"go.opentelemetry.io/collector/internal/data"
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/common/v1"
+-	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
++	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

@@ -1,0 +1,13 @@
+diff --git a/internal/data/metric.go b/internal/data/metric.go
+index c2bc8d58c..945b94fbc 100644
+--- a/internal/data/metric.go
++++ b/internal/data/metric.go
+@@ -15,7 +15,7 @@
+ package data
+ 
+ import (
+-	"github.com/golang/protobuf/proto" //lint:ignore SA1019 golang/protobuf/proto is deprecated
++	"github.com/gogo/protobuf/proto"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"

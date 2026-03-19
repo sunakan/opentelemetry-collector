@@ -1,0 +1,14 @@
+diff --git a/service/defaultcomponents/default_receivers_test.go b/service/defaultcomponents/default_receivers_test.go
+index b1001c7b7..95b37db3f 100644
+--- a/service/defaultcomponents/default_receivers_test.go
++++ b/service/defaultcomponents/default_receivers_test.go
+@@ -75,8 +75,7 @@ func TestDefaultReceivers(t *testing.T) {
+ 			},
+ 		},
+ 		{
+-			receiver:     "zipkin",
+-			skipLifecyle: true, // TODO: Upcoming PR to fix zipkin lifecycle.
++			receiver: "zipkin",
+ 		},
+ 	}
+ 

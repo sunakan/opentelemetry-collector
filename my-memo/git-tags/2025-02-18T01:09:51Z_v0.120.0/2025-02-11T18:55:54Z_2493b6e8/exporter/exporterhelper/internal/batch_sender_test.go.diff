@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/internal/batch_sender_test.go b/exporter/exporterhelper/internal/batch_sender_test.go
+index 2c4dfc731..f3cccdf05 100644
+--- a/exporter/exporterhelper/internal/batch_sender_test.go
++++ b/exporter/exporterhelper/internal/batch_sender_test.go
+@@ -16,8 +16,8 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/exporter/exporterbatcher"
++	"go.opentelemetry.io/collector/exporter/exporterhelper/internal/requesttest"
+ 	"go.opentelemetry.io/collector/exporter/exporterqueue"
+-	"go.opentelemetry.io/collector/exporter/internal/requesttest"
+ )
+ 
+ func TestBatchSender_Merge(t *testing.T) {

@@ -1,0 +1,13 @@
+diff --git a/docs/rfcs/optional-config-type.md b/docs/rfcs/optional-config-type.md
+index 485b9daae..507752931 100644
+--- a/docs/rfcs/optional-config-type.md
++++ b/docs/rfcs/optional-config-type.md
+@@ -59,7 +59,7 @@ func Some[T any](value T) Optional[T] {
+ 	return Optional[T]{value: value, hasValue: true}
+ }
+ 
+-func None[T any](value T) Optional[T] {
++func None[T any]() Optional[T] {
+ 	return Optional[T]{}
+ }
+ 

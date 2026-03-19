@@ -1,0 +1,15 @@
+diff --git a/connector/logs_router_test.go b/connector/logs_router_test.go
+index a4074762a..a8af2fc41 100644
+--- a/connector/logs_router_test.go
++++ b/connector/logs_router_test.go
+@@ -119,8 +119,8 @@ func TestLogsRouterConsumers(t *testing.T) {
+ 	assert.Len(t, rcs, 2)
+ 	assert.ElementsMatch(t, []component.ID{fooID, barID}, rcs)
+ 
+-	assert.Len(t, foo.AllLogs(), 0)
+-	assert.Len(t, bar.AllLogs(), 0)
++	assert.Empty(t, foo.AllLogs())
++	assert.Empty(t, bar.AllLogs())
+ 
+ 	both, err := r.Consumer(fooID, barID)
+ 	assert.NotNil(t, both)

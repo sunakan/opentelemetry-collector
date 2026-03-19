@@ -1,0 +1,40 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index b667b01db..a24a57b4f 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -57,11 +57,6 @@ func TestLoadConfig(t *testing.T) {
+ 						Endpoint: ":3456",
+ 					},
+ 				},
+-				"thrift_tchannel": {
+-					ReceiverSettings: configmodels.ReceiverSettings{
+-						Endpoint: "0.0.0.0:123",
+-					},
+-				},
+ 				"thrift_compact": {
+ 					ReceiverSettings: configmodels.ReceiverSettings{
+ 						Endpoint: "0.0.0.0:456",
+@@ -96,11 +91,6 @@ func TestLoadConfig(t *testing.T) {
+ 						Endpoint: defaultHTTPBindEndpoint,
+ 					},
+ 				},
+-				"thrift_tchannel": {
+-					ReceiverSettings: configmodels.ReceiverSettings{
+-						Endpoint: defaultTChannelBindEndpoint,
+-					},
+-				},
+ 				"thrift_compact": {
+ 					ReceiverSettings: configmodels.ReceiverSettings{
+ 						Endpoint: defaultThriftCompactBindEndpoint,
+@@ -154,11 +144,6 @@ func TestLoadConfig(t *testing.T) {
+ 						Endpoint: ":3456",
+ 					},
+ 				},
+-				"thrift_tchannel": {
+-					ReceiverSettings: configmodels.ReceiverSettings{
+-						Endpoint: "0.0.0.0:123",
+-					},
+-				},
+ 			},
+ 		})
+ }

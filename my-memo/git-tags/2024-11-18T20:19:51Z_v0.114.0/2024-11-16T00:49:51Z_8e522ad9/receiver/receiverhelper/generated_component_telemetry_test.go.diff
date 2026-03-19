@@ -1,0 +1,21 @@
+diff --git a/receiver/receiverhelper/generated_component_telemetry_test.go b/receiver/receiverhelper/generated_component_telemetry_test.go
+index d7ca234a1..0f49a1f7a 100644
+--- a/receiver/receiverhelper/generated_component_telemetry_test.go
++++ b/receiver/receiverhelper/generated_component_telemetry_test.go
+@@ -26,14 +26,15 @@ type componentTestTelemetry struct {
+ 
+ func (tt *componentTestTelemetry) NewSettings() receiver.Settings {
+ 	set := receivertest.NewNopSettings()
+-	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	set.ID = component.NewID(component.MustNewType("receiverhelper"))
++	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	return set
+ }
+ 
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

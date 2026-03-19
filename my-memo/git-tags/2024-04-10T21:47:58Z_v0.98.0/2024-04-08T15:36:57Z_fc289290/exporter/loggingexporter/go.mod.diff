@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/go.mod b/exporter/loggingexporter/go.mod
+index d6248293e..3b4f060c1 100644
+--- a/exporter/loggingexporter/go.mod
++++ b/exporter/loggingexporter/go.mod
+@@ -75,6 +75,8 @@ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
+ 
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ 
++replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
++
+ replace go.opentelemetry.io/collector/receiver => ../../receiver
+ 
+ retract (

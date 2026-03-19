@@ -1,0 +1,13 @@
+diff --git a/extension/ballastextension/factory.go b/extension/ballastextension/factory.go
+index 730950da7..36d6004c9 100644
+--- a/extension/ballastextension/factory.go
++++ b/extension/ballastextension/factory.go
+@@ -17,7 +17,7 @@ import (
+ // memHandler returns the total memory of the target host/vm
+ var memHandler = iruntime.TotalMemory
+ 
+-// NewFactory creates a factory for FluentBit extension.
++// NewFactory creates a factory for ballast extension.
+ func NewFactory() extension.Factory {
+ 	return extension.NewFactory(metadata.Type, createDefaultConfig, createExtension, metadata.ExtensionStability)
+ }

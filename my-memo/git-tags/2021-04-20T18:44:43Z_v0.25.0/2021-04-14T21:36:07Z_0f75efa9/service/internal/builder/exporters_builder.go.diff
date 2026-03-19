@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/exporters_builder.go b/service/internal/builder/exporters_builder.go
+index b0df7f832..3488c2f97 100644
+--- a/service/internal/builder/exporters_builder.go
++++ b/service/internal/builder/exporters_builder.go
+@@ -59,7 +59,7 @@ func (bexp *builtExporter) Shutdown(ctx context.Context) error {
+ 	return consumererror.Combine(errors)
+ }
+ 
+-func (bexp *builtExporter) getTraceExporter() component.TracesExporter {
++func (bexp *builtExporter) getTracesExporter() component.TracesExporter {
+ 	exp := bexp.expByDataType[config.TracesDataType]
+ 	if exp == nil {
+ 		return nil

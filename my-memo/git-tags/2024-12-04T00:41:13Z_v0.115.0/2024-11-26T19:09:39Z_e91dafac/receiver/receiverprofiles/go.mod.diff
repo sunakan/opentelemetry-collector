@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverprofiles/go.mod b/receiver/receiverprofiles/go.mod
+index 5fb8ee072..b9971ad70 100644
+--- a/receiver/receiverprofiles/go.mod
++++ b/receiver/receiverprofiles/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/receiver/receiverprofiles
+ go 1.22.0
+ 
+ require (
+-	github.com/stretchr/testify v1.9.0
++	github.com/stretchr/testify v1.10.0
+ 	go.opentelemetry.io/collector/component v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.114.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.114.0

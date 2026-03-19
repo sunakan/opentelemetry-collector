@@ -1,0 +1,47 @@
+diff --git a/processor/batchprocessor/batch_processor.go b/processor/batchprocessor/batch_processor.go
+index 11be58bea..40896dbb9 100644
+--- a/processor/batchprocessor/batch_processor.go
++++ b/processor/batchprocessor/batch_processor.go
+@@ -64,9 +64,6 @@ type batch interface {
+ 	// itemCount returns the size of the current batch
+ 	itemCount() int
+ 
+-	// size returns the size in bytes of the current batch
+-	size() int
+-
+ 	// add item to the current batch
+ 	add(item interface{})
+ }
+@@ -269,10 +266,6 @@ func (bt *batchTraces) itemCount() int {
+ 	return bt.spanCount
+ }
+ 
+-func (bt *batchTraces) size() int {
+-	return bt.sizer.TracesSize(bt.traceData)
+-}
+-
+ type batchMetrics struct {
+ 	nextConsumer   consumer.Metrics
+ 	metricData     pmetric.Metrics
+@@ -308,10 +301,6 @@ func (bm *batchMetrics) itemCount() int {
+ 	return bm.dataPointCount
+ }
+ 
+-func (bm *batchMetrics) size() int {
+-	return bm.sizer.MetricsSize(bm.metricData)
+-}
+-
+ func (bm *batchMetrics) add(item interface{}) {
+ 	md := item.(pmetric.Metrics)
+ 
+@@ -358,10 +347,6 @@ func (bl *batchLogs) itemCount() int {
+ 	return bl.logCount
+ }
+ 
+-func (bl *batchLogs) size() int {
+-	return bl.sizer.LogsSize(bl.logData)
+-}
+-
+ func (bl *batchLogs) add(item interface{}) {
+ 	ld := item.(plog.Logs)
+ 

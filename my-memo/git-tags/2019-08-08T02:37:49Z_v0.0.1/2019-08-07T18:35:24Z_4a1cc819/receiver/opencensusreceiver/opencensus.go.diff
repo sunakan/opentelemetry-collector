@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index 5685f7b17..53e237d9b 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -67,6 +67,9 @@ var (
+ 	errAlreadyStopped = errors.New("already stopped")
+ )
+ 
++var _ receiver.MetricsReceiver = (*Receiver)(nil)
++var _ receiver.TraceReceiver = (*Receiver)(nil)
++
+ const source string = "OpenCensus"
+ 
+ // New just creates the OpenCensus receiver services. It is the caller's

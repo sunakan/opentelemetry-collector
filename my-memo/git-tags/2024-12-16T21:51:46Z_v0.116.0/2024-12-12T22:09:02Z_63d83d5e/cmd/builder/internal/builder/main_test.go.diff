@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 4f0b5e769..04aabf367 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -62,7 +62,7 @@ var replaceModules = []string{
+ 	"/consumer",
+ 	"/consumer/consumererror",
+ 	"/consumer/consumererror/consumererrorprofiles",
+-	"/consumer/consumerprofiles",
++	"/consumer/xconsumer",
+ 	"/consumer/consumertest",
+ 	"/connector",
+ 	"/connector/connectortest",

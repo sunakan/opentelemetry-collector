@@ -1,0 +1,12 @@
+diff --git a/.codecov.yml b/.codecov.yml
+index cc96af52d..692852819 100644
+--- a/.codecov.yml
++++ b/.codecov.yml
+@@ -19,5 +19,5 @@ coverage:
+ 
+ ignore:
+   - "**/*/metadata/generated_metrics.go"
+-  - "internal/data/opentelemetry-proto-gen/**/*"
++  - "internal/data/protogen/**/*"
+   - "testbed/**/*"
+\ No newline at end of file

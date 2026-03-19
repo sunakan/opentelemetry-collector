@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/testdata/config_invalid_deprecated_address.yaml b/service/telemetry/testdata/config_invalid_deprecated_address.yaml
+new file mode 100644
+index 000000000..fd81b91ad
+--- /dev/null
++++ b/service/telemetry/testdata/config_invalid_deprecated_address.yaml
+@@ -0,0 +1,5 @@
++logs:
++  level: "info"
++metrics:
++  level: "basic"
++  address: "1212:212121:2121"

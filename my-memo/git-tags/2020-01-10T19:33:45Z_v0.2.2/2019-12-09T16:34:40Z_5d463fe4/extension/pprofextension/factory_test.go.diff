@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/factory_test.go b/extension/pprofextension/factory_test.go
+index 3617a3bfc..387283d71 100644
+--- a/extension/pprofextension/factory_test.go
++++ b/extension/pprofextension/factory_test.go
+@@ -24,7 +24,7 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configcheck"
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ )
+ 
+ func TestFactory_Type(t *testing.T) {

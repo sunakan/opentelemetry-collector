@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/pprofextension.go b/extension/pprofextension/pprofextension.go
+index 4ac7584ac..e823aa3de 100644
+--- a/extension/pprofextension/pprofextension.go
++++ b/extension/pprofextension/pprofextension.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
++	"go.opentelemetry.io/collector/component"
+ )
+ 
+ type pprofExtension struct {

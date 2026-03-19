@@ -1,0 +1,13 @@
+diff --git a/consumer/pdata/generated_metrics.go b/consumer/pdata/generated_metrics.go
+index 5aa528023..ccf6dee02 100644
+--- a/consumer/pdata/generated_metrics.go
++++ b/consumer/pdata/generated_metrics.go
+@@ -18,7 +18,7 @@
+ package pdata
+ 
+ import (
+-	otlpmetrics "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
++	otlpmetrics "go.opentelemetry.io/collector/internal/data/protogen/metrics/v1"
+ )
+ 
+ // ResourceMetricsSlice logically represents a slice of ResourceMetrics.

@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/generated_gauge_test.go b/pdata/pmetric/generated_gauge_test.go
+index 32506ac1b..a6cb1db21 100644
+--- a/pdata/pmetric/generated_gauge_test.go
++++ b/pdata/pmetric/generated_gauge_test.go
+@@ -76,5 +76,5 @@ func generateTestGauge() Gauge {
+ }
+ 
+ func fillTestGauge(tv Gauge) {
+-	fillTestNumberDataPointSlice(newNumberDataPointSlice(&tv.orig.DataPoints, tv.state))
++	fillTestNumberDataPointSlice(tv.DataPoints())
+ }

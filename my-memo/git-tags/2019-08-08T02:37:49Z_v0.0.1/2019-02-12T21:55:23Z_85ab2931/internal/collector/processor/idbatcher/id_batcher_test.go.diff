@@ -1,0 +1,28 @@
+diff --git a/internal/collector/processor/idbatcher/id_batcher_test.go b/internal/collector/processor/idbatcher/id_batcher_test.go
+index 92e598efb..5d55d7c9c 100644
+--- a/internal/collector/processor/idbatcher/id_batcher_test.go
++++ b/internal/collector/processor/idbatcher/id_batcher_test.go
+@@ -68,10 +68,12 @@ func BenchmarkConcurrentEnqueue(b *testing.B) {
+ 	ticker := time.NewTicker(100 * time.Millisecond)
+ 	defer ticker.Stop()
+ 	var ticked int32
++	var received int32
+ 	go func() {
+ 		for range ticker.C {
+-			batcher.CloseCurrentAndTakeFirstBatch()
++			batch, _ := batcher.CloseCurrentAndTakeFirstBatch()
+ 			atomic.AddInt32(&ticked, 1)
++			atomic.AddInt32(&received, int32(len(batch)))
+ 		}
+ 	}()
+ 
+@@ -82,9 +84,6 @@ func BenchmarkConcurrentEnqueue(b *testing.B) {
+ 			batcher.AddToCurrentBatch(ids[0])
+ 		}
+ 	})
+-
+-	closedBatches := atomic.LoadInt32(&ticked)
+-	b.Logf("Closed %d batches", closedBatches)
+ }
+ 
+ func concurrencyTest(t *testing.T, numBatches, newBatchesInitialCapacity, batchChannelSize uint64) {

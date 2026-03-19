@@ -1,0 +1,13 @@
+diff --git a/processor/resourceprocessor/factory.go b/processor/resourceprocessor/factory.go
+index ed245020f..ff442e92a 100644
+--- a/processor/resourceprocessor/factory.go
++++ b/processor/resourceprocessor/factory.go
+@@ -32,7 +32,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the Option config created by this factory.
+-func (Factory) Type() string {
++func (Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go b/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
+index 004484e50..c250326a6 100644
+--- a/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
++++ b/internal/cmd/pdatagen/internal/pdata/one_of_primitive_value.go
+@@ -19,7 +19,7 @@ func (ms {{ .structName }}) {{ .accessorFieldName }}() {{ .returnType }} {
+ func (ms {{ .structName }}) Set{{ .accessorFieldName }}(v {{ .returnType }}) {
+ 	ms.state.AssertMutable()
+ 	var ov *internal.{{ .originStructType }}
+-	if !internal.UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		ov = &internal.{{ .originStructType }}{}
+ 	} else {
+ 		ov = internal.ProtoPool{{ .oneOfName }}.Get().(*internal.{{ .originStructType }})

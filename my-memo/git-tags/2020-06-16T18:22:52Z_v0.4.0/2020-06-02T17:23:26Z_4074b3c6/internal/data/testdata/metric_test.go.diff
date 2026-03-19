@@ -1,0 +1,14 @@
+diff --git a/internal/data/testdata/metric_test.go b/internal/data/testdata/metric_test.go
+index a16583617..7aef14f01 100644
+--- a/internal/data/testdata/metric_test.go
++++ b/internal/data/testdata/metric_test.go
+@@ -137,3 +137,9 @@ func TestToFromOtlpMetricsWithNils(t *testing.T) {
+ 	assert.False(t, ilss.Metrics().At(0).IsNil())
+ 	assert.True(t, ilss.Metrics().At(1).IsNil())
+ }
++
++func TestGenerateMetricDataManyMetricsSameResource(t *testing.T) {
++	md := GenerateMetricDataManyMetricsSameResource(100)
++	assert.EqualValues(t, 1, md.ResourceMetrics().Len())
++	assert.EqualValues(t, 100, md.MetricCount())
++}

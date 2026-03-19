@@ -1,0 +1,18 @@
+diff --git a/pdata/plog/generated_logs_test.go b/pdata/plog/generated_logs_test.go
+index bcbe9eb70..b64e4e46f 100644
+--- a/pdata/plog/generated_logs_test.go
++++ b/pdata/plog/generated_logs_test.go
+@@ -44,11 +44,10 @@ func TestLogs_CopyTo(t *testing.T) {
+ func TestLogs_ResourceLogs(t *testing.T) {
+ 	ms := NewLogs()
+ 	assert.Equal(t, NewResourceLogsSlice(), ms.ResourceLogs())
+-	ms.getOrig().ResourceLogs = internal.GenTestResourceLogsSlice()
++	ms.getOrig().ResourceLogs = internal.GenTestResourceLogsPtrSlice()
+ 	assert.Equal(t, generateTestResourceLogsSlice(), ms.ResourceLogs())
+ }
+ 
+ func generateTestLogs() Logs {
+-	ms := newLogs(internal.GenTestExportLogsServiceRequest(), internal.NewState())
+-	return ms
++	return newLogs(internal.GenTestExportLogsServiceRequest(), internal.NewState())
+ }

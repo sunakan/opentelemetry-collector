@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/internal/metadata.go b/receiver/prometheusreceiver/internal/metadata.go
+index ba362e8f7..09529d04b 100644
+--- a/receiver/prometheusreceiver/internal/metadata.go
++++ b/receiver/prometheusreceiver/internal/metadata.go
+@@ -16,6 +16,7 @@ package internal
+ 
+ import (
+ 	"errors"
++
+ 	"github.com/prometheus/common/model"
+ 	"github.com/prometheus/prometheus/pkg/labels"
+ 	"github.com/prometheus/prometheus/scrape"

@@ -1,0 +1,15 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index 1417f354a..bca64e5f5 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -38,10 +38,6 @@ func createDefaultConfig() component.Config {
+ 	clientConfig.Compression = configcompression.TypeGzip
+ 	// We almost read 0 bytes, so no need to tune ReadBufferSize.
+ 	clientConfig.WriteBufferSize = 512 * 1024
+-	clientConfig.MaxIdleConns = nil
+-	clientConfig.MaxIdleConnsPerHost = nil
+-	clientConfig.MaxConnsPerHost = nil
+-	clientConfig.IdleConnTimeout = nil
+ 
+ 	return &Config{
+ 		RetryConfig:  configretry.NewDefaultBackOffConfig(),

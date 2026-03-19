@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/factory.go b/receiver/opencensusreceiver/factory.go
+index 98c29f091..85287fce0 100644
+--- a/receiver/opencensusreceiver/factory.go
++++ b/receiver/opencensusreceiver/factory.go
+@@ -49,7 +49,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 		ReceiverSettings: configmodels.ReceiverSettings{
+ 			TypeVal:  typeStr,
+ 			NameVal:  typeStr,
+-			Endpoint: "localhost:55678",
++			Endpoint: "0.0.0.0:55678",
+ 		},
+ 		Transport: "tcp",
+ 	}

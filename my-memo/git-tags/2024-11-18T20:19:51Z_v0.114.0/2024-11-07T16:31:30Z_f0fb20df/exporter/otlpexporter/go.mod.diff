@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 05eb041d3..ad808d03d 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -6,6 +6,7 @@ require (
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector v0.113.0
+ 	go.opentelemetry.io/collector/component v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/config/configauth v0.113.0
+ 	go.opentelemetry.io/collector/config/configcompression v1.19.0
+ 	go.opentelemetry.io/collector/config/configgrpc v0.113.0
+@@ -80,6 +81,8 @@ require (
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression
+ 
+ replace go.opentelemetry.io/collector/config/configauth => ../../config/configauth

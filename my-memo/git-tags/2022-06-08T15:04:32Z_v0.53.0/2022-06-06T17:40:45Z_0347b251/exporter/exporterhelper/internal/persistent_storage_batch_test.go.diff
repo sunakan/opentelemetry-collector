@@ -1,0 +1,21 @@
+diff --git a/exporter/exporterhelper/internal/persistent_storage_batch_test.go b/exporter/exporterhelper/internal/persistent_storage_batch_test.go
+index 74dfdb320..9a7aef221 100644
+--- a/exporter/exporterhelper/internal/persistent_storage_batch_test.go
++++ b/exporter/exporterhelper/internal/persistent_storage_batch_test.go
+@@ -19,15 +19,13 @@ package internal
+ 
+ import (
+ 	"context"
+-	"os"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+ func TestPersistentStorageBatch_Operations(t *testing.T) {
+-	path := createTemporaryDirectory()
+-	defer os.RemoveAll(path)
++	path := t.TempDir()
+ 
+ 	ext := createStorageExtension(path)
+ 	client := createTestClient(ext)

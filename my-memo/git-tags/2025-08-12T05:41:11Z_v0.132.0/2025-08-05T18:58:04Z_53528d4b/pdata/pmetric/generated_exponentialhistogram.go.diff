@@ -1,0 +1,22 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogram.go b/pdata/pmetric/generated_exponentialhistogram.go
+index bd29060ad..1362caa22 100644
+--- a/pdata/pmetric/generated_exponentialhistogram.go
++++ b/pdata/pmetric/generated_exponentialhistogram.go
+@@ -70,7 +70,7 @@ func (ms ExponentialHistogram) DataPoints() ExponentialHistogramDataPointSlice {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ExponentialHistogram) CopyTo(dest ExponentialHistogram) {
+ 	dest.state.AssertMutable()
+-	copyOrigExponentialHistogram(dest.orig, ms.orig)
++	internal.CopyOrigExponentialHistogram(dest.orig, ms.orig)
+ }
+ 
+ // marshalJSONStream marshals all properties from the current struct to the destination stream.
+@@ -101,8 +101,3 @@ func (ms ExponentialHistogram) unmarshalJSONIter(iter *json.Iterator) {
+ 		return true
+ 	})
+ }
+-
+-func copyOrigExponentialHistogram(dest, src *otlpmetrics.ExponentialHistogram) {
+-	dest.AggregationTemporality = src.AggregationTemporality
+-	dest.DataPoints = copyOrigExponentialHistogramDataPointSlice(dest.DataPoints, src.DataPoints)
+-}

@@ -1,0 +1,23 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index ed1b66c7f..7ef3ad9b3 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -15,14 +15,14 @@
+ package jaegerreceiver
+ 
+ import (
+-	"github.com/open-telemetry/opentelemetry-service/pkg/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/models"
+ )
+ 
+ // ConfigV2 defines configuration for Jaeger receiver.
+ type ConfigV2 struct {
+-	TypeVal   string                                    `mapstructure:"-"`
+-	NameVal   string                                    `mapstructure:"-"`
+-	Protocols map[string]*configmodels.ReceiverSettings `mapstructure:"protocols"`
++	TypeVal   string                              `mapstructure:"-"`
++	NameVal   string                              `mapstructure:"-"`
++	Protocols map[string]*models.ReceiverSettings `mapstructure:"protocols"`
+ }
+ 
+ // Name gets the receiver name.

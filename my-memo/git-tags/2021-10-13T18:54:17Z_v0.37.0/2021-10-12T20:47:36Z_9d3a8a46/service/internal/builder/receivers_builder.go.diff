@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 38dbd171c..4c15e92ba 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package builder
++package builder // import "go.opentelemetry.io/collector/service/internal/builder"
+ 
+ import (
+ 	"context"

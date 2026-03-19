@@ -1,0 +1,21 @@
+diff --git a/cmd/schemagen/schemagen/cli_all_test.go b/cmd/schemagen/schemagen/cli_all_test.go
+index f41483c33..e8a59c6b3 100644
+--- a/cmd/schemagen/schemagen/cli_all_test.go
++++ b/cmd/schemagen/schemagen/cli_all_test.go
+@@ -17,6 +17,7 @@ package schemagen
+ import (
+ 	"io/ioutil"
+ 	"path"
++	"path/filepath"
+ 	"reflect"
+ 	"testing"
+ 
+@@ -39,7 +40,7 @@ func TestCreateAllSchemaFiles(t *testing.T) {
+ 	fileInfos, err := ioutil.ReadDir(tempDir)
+ 	require.NoError(t, err)
+ 	require.NotNil(t, fileInfos)
+-	file, err := ioutil.ReadFile(path.Join(tempDir, "otlpexporter.Config.yaml"))
++	file, err := ioutil.ReadFile(filepath.Clean(path.Join(tempDir, "otlpexporter.Config.yaml")))
+ 	require.NoError(t, err)
+ 	fld := field{}
+ 	err = yaml.Unmarshal(file, &fld)

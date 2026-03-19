@@ -1,0 +1,16 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 30710ee5e..065a4a717 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -186,11 +186,6 @@ linters:
+ 
+     testifylint:
+       disable:
+-        - empty # FIXME
+-        - equal-values # FIXME
+-        - error-is-as # FIXME
+-        - formatter # FIXME
+-        - len # FIXME
+         - useless-assert # FIXME when golangci-lint > 2.0.2
+       enable-all: true
+ 

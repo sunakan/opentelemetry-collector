@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_summary.go b/pdata/pmetric/generated_summary.go
+index 73688b8a9..e247537dc 100644
+--- a/pdata/pmetric/generated_summary.go
++++ b/pdata/pmetric/generated_summary.go
+@@ -44,8 +44,8 @@ func (ms Summary) MoveTo(dest Summary) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpmetrics.Summary{}
++	internal.DeleteOrigSummary(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // DataPoints returns the DataPoints associated with this Summary.

@@ -1,0 +1,13 @@
+diff --git a/service/collector.go b/service/collector.go
+index a7e76ea57..ace363a84 100644
+--- a/service/collector.go
++++ b/service/collector.go
+@@ -92,6 +92,8 @@ func New(set CollectorSettings) (*Collector, error) {
+ 	state := atomic.Value{}
+ 	state.Store(Starting)
+ 	return &Collector{
++		logger: zap.NewNop(), // Set a Nop logger as a place holder until a logger is created based on configuration
++
+ 		set:   set,
+ 		state: state,
+ 	}, nil

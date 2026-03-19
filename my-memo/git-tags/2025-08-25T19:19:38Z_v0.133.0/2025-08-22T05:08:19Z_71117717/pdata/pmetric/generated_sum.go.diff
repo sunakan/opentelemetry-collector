@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_sum.go b/pdata/pmetric/generated_sum.go
+index 38d69f249..0f5b7f113 100644
+--- a/pdata/pmetric/generated_sum.go
++++ b/pdata/pmetric/generated_sum.go
+@@ -44,8 +44,8 @@ func (ms Sum) MoveTo(dest Sum) {
+ 	if ms.orig == dest.orig {
+ 		return
+ 	}
+-	*dest.orig = *ms.orig
+-	*ms.orig = otlpmetrics.Sum{}
++	internal.DeleteOrigSum(dest.orig, false)
++	*dest.orig, *ms.orig = *ms.orig, *dest.orig
+ }
+ 
+ // DataPoints returns the DataPoints associated with this Sum.

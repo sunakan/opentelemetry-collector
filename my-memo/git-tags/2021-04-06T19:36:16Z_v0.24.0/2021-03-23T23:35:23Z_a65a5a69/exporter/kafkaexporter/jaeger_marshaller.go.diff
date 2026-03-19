@@ -1,0 +1,13 @@
+diff --git a/exporter/kafkaexporter/jaeger_marshaller.go b/exporter/kafkaexporter/jaeger_marshaller.go
+index 473bafc91..56eb44da4 100644
+--- a/exporter/kafkaexporter/jaeger_marshaller.go
++++ b/exporter/kafkaexporter/jaeger_marshaller.go
+@@ -50,7 +50,7 @@ func (j jaegerMarshaller) Marshal(traces pdata.Traces) ([]Message, error) {
+ 			messages = append(messages, Message{Value: bts})
+ 		}
+ 	}
+-	return messages, consumererror.CombineErrors(errs)
++	return messages, consumererror.Combine(errs)
+ }
+ 
+ func (j jaegerMarshaller) Encoding() string {

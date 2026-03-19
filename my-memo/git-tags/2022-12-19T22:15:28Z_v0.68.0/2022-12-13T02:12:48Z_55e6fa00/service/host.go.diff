@@ -1,0 +1,13 @@
+diff --git a/service/host.go b/service/host.go
+index 9e7d4b0e5..9cddf33cf 100644
+--- a/service/host.go
++++ b/service/host.go
+@@ -23,7 +23,7 @@ var _ component.Host = (*serviceHost)(nil)
+ 
+ type serviceHost struct {
+ 	asyncErrorChannel chan error
+-	factories         component.Factories
++	factories         Factories
+ 	buildInfo         component.BuildInfo
+ 
+ 	pipelines  *builtPipelines

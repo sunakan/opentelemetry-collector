@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/pdata_unmarshaler_test.go b/receiver/kafkareceiver/pdata_unmarshaler_test.go
+index 3d5ebde89..aebaf9b2c 100644
+--- a/receiver/kafkareceiver/pdata_unmarshaler_test.go
++++ b/receiver/kafkareceiver/pdata_unmarshaler_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ )
+ 
+ func TestNewPdataTracesUnmarshaler(t *testing.T) {

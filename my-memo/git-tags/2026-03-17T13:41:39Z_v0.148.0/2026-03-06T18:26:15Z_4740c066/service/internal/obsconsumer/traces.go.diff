@@ -1,0 +1,21 @@
+diff --git a/service/internal/obsconsumer/traces.go b/service/internal/obsconsumer/traces.go
+index 0fd89dd33..49d9136e3 100644
+--- a/service/internal/obsconsumer/traces.go
++++ b/service/internal/obsconsumer/traces.go
+@@ -12,6 +12,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/internal/telemetry"
+ 	"go.opentelemetry.io/collector/pdata/ptrace"
++	"go.opentelemetry.io/collector/service/internal/metadata"
+ )
+ 
+ var (
+@@ -20,7 +21,7 @@ var (
+ )
+ 
+ func NewTraces(cons consumer.Traces, set Settings, opts ...Option) consumer.Traces {
+-	if !telemetry.NewPipelineTelemetryGate.IsEnabled() {
++	if !metadata.TelemetryNewPipelineTelemetryFeatureGate.IsEnabled() {
+ 		return cons
+ 	}
+ 

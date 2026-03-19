@@ -1,0 +1,13 @@
+diff --git a/exporter/zipkinexporter/zipkin.go b/exporter/zipkinexporter/zipkin.go
+index d4ee8e361..654e957ac 100644
+--- a/exporter/zipkinexporter/zipkin.go
++++ b/exporter/zipkinexporter/zipkin.go
+@@ -216,7 +216,7 @@ func (ze *zipkinExporter) ConsumeTraceData(ctx context.Context, td consumerdata.
+ 	}
+ 
+ 	// And finally record metrics on the number of exported spans.
+-	observability.RecordTraceExporterMetrics(observability.ContextWithExporterName(ctx, "zipkin"), len(td.Spans), len(td.Spans)-goodSpans)
++	observability.RecordMetricsForTraceExporter(observability.ContextWithExporterName(ctx, "zipkin"), len(td.Spans), len(td.Spans)-goodSpans)
+ 
+ 	return nil
+ }

@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index bdff9707b..748506add 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -295,8 +295,6 @@ type ZipkinDataReceiver struct {
+ 
+ var _ DataReceiver = (*ZipkinDataReceiver)(nil)
+ 
+-const DefaultZipkinAddressPort = 9411
+-
+ func NewZipkinDataReceiver(port int) *ZipkinDataReceiver {
+ 	return &ZipkinDataReceiver{DataReceiverBase: DataReceiverBase{Port: port}}
+ }

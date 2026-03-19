@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+index ede6cced9..ddb3e743c 100644
+--- a/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportmetricsservicerequest.go
+@@ -34,8 +34,7 @@ func NewMetrics(orig *otlpcollectormetrics.ExportMetricsServiceRequest, state *S
+ func GenerateTestMetrics() Metrics {
+ 	orig := otlpcollectormetrics.ExportMetricsServiceRequest{}
+ 	FillOrigTestExportMetricsServiceRequest(&orig)
+-	state := StateMutable
+-	return NewMetrics(&orig, &state)
++	return NewMetrics(&orig, NewState())
+ }
+ 
+ func NewOrigExportMetricsServiceRequest() otlpcollectormetrics.ExportMetricsServiceRequest {

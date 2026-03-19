@@ -1,0 +1,13 @@
+diff --git a/receiver/kafkareceiver/otlp_unmarshaller.go b/receiver/kafkareceiver/otlp_unmarshaller.go
+index a6dd53f53..d798f5476 100644
+--- a/receiver/kafkareceiver/otlp_unmarshaller.go
++++ b/receiver/kafkareceiver/otlp_unmarshaller.go
+@@ -21,7 +21,7 @@ import (
+ type otlpTracesPbUnmarshaller struct {
+ }
+ 
+-var _ Unmarshaller = (*otlpTracesPbUnmarshaller)(nil)
++var _ TracesUnmarshaller = (*otlpTracesPbUnmarshaller)(nil)
+ 
+ func (p *otlpTracesPbUnmarshaller) Unmarshal(bytes []byte) (pdata.Traces, error) {
+ 	return pdata.TracesFromOtlpProtoBytes(bytes)

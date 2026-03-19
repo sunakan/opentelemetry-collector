@@ -1,0 +1,15 @@
+diff --git a/cmd/otelcorecol/builder-config.yaml b/cmd/otelcorecol/builder-config.yaml
+index d6457b3be..b5a726e37 100644
+--- a/cmd/otelcorecol/builder-config.yaml
++++ b/cmd/otelcorecol/builder-config.yaml
+@@ -32,8 +32,8 @@ connectors:
+   - gomod: go.opentelemetry.io/collector/connector/forwardconnector v0.109.0
+ 
+ providers:
+-  - gomod: go.opentelemetry.io/collector/confmap/provider/envprovider v0.109.0
+-  - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v0.109.0
++  - gomod: go.opentelemetry.io/collector/confmap/provider/envprovider v1.15.0
++  - gomod: go.opentelemetry.io/collector/confmap/provider/fileprovider v1.15.0
+   - gomod: go.opentelemetry.io/collector/confmap/provider/httpprovider v0.109.0
+   - gomod: go.opentelemetry.io/collector/confmap/provider/httpsprovider v0.109.0
+   - gomod: go.opentelemetry.io/collector/confmap/provider/yamlprovider v0.109.0

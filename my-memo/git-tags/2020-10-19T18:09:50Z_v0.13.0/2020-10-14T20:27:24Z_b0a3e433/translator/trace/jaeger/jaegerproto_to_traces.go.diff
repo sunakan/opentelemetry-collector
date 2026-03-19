@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/jaegerproto_to_traces.go b/translator/trace/jaeger/jaegerproto_to_traces.go
+index 260e5fbfe..ba6f183b5 100644
+--- a/translator/trace/jaeger/jaegerproto_to_traces.go
++++ b/translator/trace/jaeger/jaegerproto_to_traces.go
+@@ -175,8 +175,8 @@ func jSpanToInternal(span *model.Span) (pdata.Span, instrumentationLibrary) {
+ 	dest.SetTraceID(tracetranslator.UInt64ToTraceID(span.TraceID.High, span.TraceID.Low))
+ 	dest.SetSpanID(tracetranslator.UInt64ToSpanID(uint64(span.SpanID)))
+ 	dest.SetName(span.OperationName)
+-	dest.SetStartTime(pdata.TimestampUnixNano(uint64(span.StartTime.UnixNano())))
+-	dest.SetEndTime(pdata.TimestampUnixNano(uint64(span.StartTime.Add(span.Duration).UnixNano())))
++	dest.SetStartTime(pdata.TimeToUnixNano(span.StartTime))
++	dest.SetEndTime(pdata.TimeToUnixNano(span.StartTime.Add(span.Duration)))
+ 
+ 	parentSpanID := span.ParentSpanID()
+ 	if parentSpanID != model.SpanID(0) {

@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml b/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml
+deleted file mode 100644
+index 58973cc9d..000000000
+--- a/service/internal/configunmarshaler/testdata/invalid-processor-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop:
+-  /custom:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      processors: [nop]
+-      exporters: [nop]

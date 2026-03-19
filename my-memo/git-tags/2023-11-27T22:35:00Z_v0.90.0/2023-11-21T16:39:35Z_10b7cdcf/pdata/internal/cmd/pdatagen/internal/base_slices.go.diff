@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/base_slices.go b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+index cc3671796..d219fdc81 100644
+--- a/pdata/internal/cmd/pdatagen/internal/base_slices.go
++++ b/pdata/internal/cmd/pdatagen/internal/base_slices.go
+@@ -112,7 +112,6 @@ func (es {{ .structName }}) RemoveIf(f func({{ .elementName }}) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

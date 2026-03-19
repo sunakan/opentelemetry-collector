@@ -1,0 +1,13 @@
+diff --git a/internal/testutils/testutils.go b/internal/testutils/testutils.go
+index 9f572d66e..00d174bde 100644
+--- a/internal/testutils/testutils.go
++++ b/internal/testutils/testutils.go
+@@ -39,7 +39,7 @@ func GenerateNormalizedJSON(j string) string {
+ // provided that there is no race by some other code to grab the same port
+ // immediately.
+ func GetAvailableLocalAddress(t *testing.T) string {
+-	ln, err := net.Listen("tcp", ":0")
++	ln, err := net.Listen("tcp", "localhost:0")
+ 	if err != nil {
+ 		t.Fatalf("failed to get a free local port: %v", err)
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/builder/internal/scaffold/components.go b/builder/internal/scaffold/components.go
+index 4173576ee..8a2c6436f 100644
+--- a/builder/internal/scaffold/components.go
++++ b/builder/internal/scaffold/components.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package scaffold
++package scaffold // import "go.opentelemetry.io/collector/builder/internal/scaffold"
+ 
+ const Components = `
+ // Copyright 2020 OpenTelemetry Authors

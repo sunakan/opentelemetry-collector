@@ -1,0 +1,13 @@
+diff --git a/service/internal/obsconsumer/traces.go b/service/internal/obsconsumer/traces.go
+index 2b7482b23..4c988a6f5 100644
+--- a/service/internal/obsconsumer/traces.go
++++ b/service/internal/obsconsumer/traces.go
+@@ -19,7 +19,7 @@ var (
+ 	tracesMarshaler                 = &ptrace.ProtoMarshaler{}
+ )
+ 
+-func NewTraces(cons consumer.Traces, itemCounter metric.Int64Counter, sizeCounter metric.Int64Counter, opts ...Option) consumer.Traces {
++func NewTraces(cons consumer.Traces, itemCounter, sizeCounter metric.Int64Counter, opts ...Option) consumer.Traces {
+ 	if !telemetry.NewPipelineTelemetryGate.IsEnabled() {
+ 		return cons
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/pipeline/pipeline_test.go b/pipeline/pipeline_test.go
+index 917273810..8f897260f 100644
+--- a/pipeline/pipeline_test.go
++++ b/pipeline/pipeline_test.go
+@@ -10,7 +10,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/internal/globalsignal"
++	"go.opentelemetry.io/collector/pipeline/internal/globalsignal"
+ )
+ 
+ func Test_NewID(t *testing.T) {

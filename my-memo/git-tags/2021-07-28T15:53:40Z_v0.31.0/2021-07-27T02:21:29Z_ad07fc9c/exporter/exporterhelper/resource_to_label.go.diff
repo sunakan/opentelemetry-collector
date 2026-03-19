@@ -1,0 +1,30 @@
+diff --git a/exporter/exporterhelper/resource_to_label.go b/exporter/exporterhelper/resource_to_label.go
+index 6fbc01693..d2457c110 100644
+--- a/exporter/exporterhelper/resource_to_label.go
++++ b/exporter/exporterhelper/resource_to_label.go
+@@ -71,12 +71,8 @@ func extractLabelsFromResource(resource *pdata.Resource) pdata.StringMap {
+ // addLabelsToMetric adds additional labels to the given metric
+ func addLabelsToMetric(metric *pdata.Metric, labelMap pdata.StringMap) {
+ 	switch metric.DataType() {
+-	case pdata.MetricDataTypeIntGauge:
+-		addLabelsToIntDataPoints(metric.IntGauge().DataPoints(), labelMap)
+ 	case pdata.MetricDataTypeGauge:
+ 		addLabelsToNumberDataPoints(metric.Gauge().DataPoints(), labelMap)
+-	case pdata.MetricDataTypeIntSum:
+-		addLabelsToIntDataPoints(metric.IntSum().DataPoints(), labelMap)
+ 	case pdata.MetricDataTypeSum:
+ 		addLabelsToNumberDataPoints(metric.Sum().DataPoints(), labelMap)
+ 	case pdata.MetricDataTypeHistogram:
+@@ -84,12 +80,6 @@ func addLabelsToMetric(metric *pdata.Metric, labelMap pdata.StringMap) {
+ 	}
+ }
+ 
+-func addLabelsToIntDataPoints(ps pdata.IntDataPointSlice, newLabelMap pdata.StringMap) {
+-	for i := 0; i < ps.Len(); i++ {
+-		joinStringMaps(newLabelMap, ps.At(i).LabelsMap())
+-	}
+-}
+-
+ func addLabelsToNumberDataPoints(ps pdata.NumberDataPointSlice, newLabelMap pdata.StringMap) {
+ 	for i := 0; i < ps.Len(); i++ {
+ 		joinStringMaps(newLabelMap, ps.At(i).LabelsMap())

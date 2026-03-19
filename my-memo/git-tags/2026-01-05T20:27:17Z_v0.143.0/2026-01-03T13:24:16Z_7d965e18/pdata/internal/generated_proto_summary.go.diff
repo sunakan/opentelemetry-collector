@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_proto_summary.go b/pdata/internal/generated_proto_summary.go
+index 8d40bd166..5523e5af8 100644
+--- a/pdata/internal/generated_proto_summary.go
++++ b/pdata/internal/generated_proto_summary.go
+@@ -43,11 +43,9 @@ func DeleteSummary(orig *Summary, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.DataPoints {
+ 		DeleteSummaryDataPoint(orig.DataPoints[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolSummary.Put(orig)

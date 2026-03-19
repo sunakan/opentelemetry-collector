@@ -1,0 +1,12 @@
+diff --git a/service/telemetry/metrics_test.go b/service/telemetry/metrics_test.go
+index 4d0595e50..09ee86164 100644
+--- a/service/telemetry/metrics_test.go
++++ b/service/telemetry/metrics_test.go
+@@ -182,7 +182,6 @@ func TestTelemetryInit(t *testing.T) {
+ 				require.InDelta(t, metricValue.value, mf.Metric[0].Counter.GetValue(), 0.01, "value for metric %q was different than expected", metricName)
+ 			}
+ 		})
+-
+ 	}
+ }
+ 

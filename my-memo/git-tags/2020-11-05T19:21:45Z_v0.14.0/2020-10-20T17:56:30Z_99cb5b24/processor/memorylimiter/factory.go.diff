@@ -1,0 +1,13 @@
+diff --git a/processor/memorylimiter/factory.go b/processor/memorylimiter/factory.go
+index 798d72fcc..b9fe3109e 100644
+--- a/processor/memorylimiter/factory.go
++++ b/processor/memorylimiter/factory.go
+@@ -55,7 +55,7 @@ func createTraceProcessor(
+ 	_ context.Context,
+ 	params component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceProcessor, error) {
+ 	ml, err := newMemoryLimiter(params.Logger, cfg.(*Config))
+ 	if err != nil {

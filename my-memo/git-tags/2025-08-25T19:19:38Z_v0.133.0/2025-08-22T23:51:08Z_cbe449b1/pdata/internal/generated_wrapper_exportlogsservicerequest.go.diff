@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogsservicerequest.go b/pdata/internal/generated_wrapper_exportlogsservicerequest.go
+index 0e3fff227..090e82363 100644
+--- a/pdata/internal/generated_wrapper_exportlogsservicerequest.go
++++ b/pdata/internal/generated_wrapper_exportlogsservicerequest.go
+@@ -32,11 +32,13 @@ func NewLogs(orig *otlpcollectorlogs.ExportLogsServiceRequest, state *State) Log
+ 	return Logs{orig: orig, state: state}
+ }
+ 
+-var protoPoolExportLogsServiceRequest = sync.Pool{
+-	New: func() any {
+-		return &otlpcollectorlogs.ExportLogsServiceRequest{}
+-	},
+-}
++var (
++	protoPoolExportLogsServiceRequest = sync.Pool{
++		New: func() any {
++			return &otlpcollectorlogs.ExportLogsServiceRequest{}
++		},
++	}
++)
+ 
+ func NewOrigExportLogsServiceRequest() *otlpcollectorlogs.ExportLogsServiceRequest {
+ 	if !UseProtoPooling.IsEnabled() {

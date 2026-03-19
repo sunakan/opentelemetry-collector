@@ -1,0 +1,12 @@
+diff --git a/confmap/converter/expandconverter/expand.go b/confmap/converter/expandconverter/expand.go
+index e603ca9ce..2c4af6134 100644
+--- a/confmap/converter/expandconverter/expand.go
++++ b/confmap/converter/expandconverter/expand.go
+@@ -85,6 +85,7 @@ func (c converter) expandEnv(s string) (string, error) {
+ 		// - $FOO will be substituted with env var FOO
+ 		// - $$FOO will be replaced with $FOO
+ 		// - $$$FOO will be replaced with $ + substituted env var FOO
++		// TODO: Move the escaping of $$ out from the expand converter to the resolver.
+ 		if str == "$" {
+ 			return "$"
+ 		}

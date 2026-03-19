@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index aa4ca2a08..280eae108 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -126,6 +126,10 @@ func (req *metricsRequest) setCachedSize(count int) {
+ 	req.cachedSize = count
+ }
+ 
++func (req *metricsRequest) BytesSize() int {
++	return metricsMarshaler.MetricsSize(req.md)
++}
++
+ type metricsExporter struct {
+ 	*internal.BaseExporter
+ 	consumer.Metrics

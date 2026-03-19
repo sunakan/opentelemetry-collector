@@ -1,0 +1,13 @@
+diff --git a/exporter/README.md b/exporter/README.md
+index 20c90c804..331e72649 100644
+--- a/exporter/README.md
++++ b/exporter/README.md
+@@ -86,7 +86,7 @@ Exports traces and/or metrics to the console via zap.Logger
+ * `loglevel`: the log level of the logging export (debug|info|warn|error). Default is `info`.
+ 
+ ## <a name="opencensus"></a>OpenCensus
+-Exports traces and/or metrics to another OTel-Svc endpoint via gRPC.
++Exports traces and/or metrics to another Collector via gRPC using OpenCensus format.
+ 
+ ### <a name="opencensus-configuration"></a>Configuration
+ 

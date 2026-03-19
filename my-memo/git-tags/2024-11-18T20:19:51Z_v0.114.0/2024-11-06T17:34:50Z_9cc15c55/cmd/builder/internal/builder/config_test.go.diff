@@ -1,0 +1,66 @@
+diff --git a/cmd/builder/internal/builder/config_test.go b/cmd/builder/internal/builder/config_test.go
+index 62123dc2a..f27da4df5 100644
+--- a/cmd/builder/internal/builder/config_test.go
++++ b/cmd/builder/internal/builder/config_test.go
+@@ -36,12 +36,27 @@ func TestParseModules(t *testing.T) {
+ 	assert.Equal(t, "repo", cfg.Extensions[0].Name)
+ }
+ 
++func TestInvalidConverter(t *testing.T) {
++	// Create a Config instance with invalid Converters
++	config := &Config{
++		Converters: []Module{
++			{
++				Path: "./invalid/module/path", // Invalid module path to trigger an error
++			},
++		},
++	}
++
++	// Call the method and expect an error
++	err := config.ParseModules()
++	require.Error(t, err, "expected an error when parsing invalid modules")
++}
++
+ func TestRelativePath(t *testing.T) {
+ 	// prepare
+ 	cfg := Config{
+ 		Extensions: []Module{{
+ 			GoMod: "some-module",
+-			Path:  "./some-module",
++			Path:  "./templates",
+ 		}},
+ 	}
+ 
+@@ -116,7 +131,7 @@ func TestMissingModule(t *testing.T) {
+ 			cfg: Config{
+ 				Logger: zap.NewNop(),
+ 				Exporters: []Module{{
+-					Import: "invali",
++					Import: "invalid",
+ 				}},
+ 			},
+ 			err: errMissingGoMod,
+@@ -139,6 +154,15 @@ func TestMissingModule(t *testing.T) {
+ 			},
+ 			err: errMissingGoMod,
+ 		},
++		{
++			cfg: Config{
++				Logger: zap.NewNop(),
++				Converters: []Module{{
++					Import: "invalid",
++				}},
++			},
++			err: errMissingGoMod,
++		},
+ 	}
+ 
+ 	for _, test := range configurations {
+@@ -235,6 +259,7 @@ func TestSkipsNilFieldValidation(t *testing.T) {
+ 	cfg, err := NewDefaultConfig()
+ 	require.NoError(t, err)
+ 	cfg.Providers = nil
++	cfg.Converters = nil
+ 	assert.NoError(t, cfg.Validate())
+ }
+ 

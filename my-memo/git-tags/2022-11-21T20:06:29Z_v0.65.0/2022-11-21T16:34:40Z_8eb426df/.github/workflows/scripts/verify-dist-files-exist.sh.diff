@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/scripts/verify-dist-files-exist.sh b/.github/workflows/scripts/verify-dist-files-exist.sh
+index 588cb7200..71c22b782 100755
+--- a/.github/workflows/scripts/verify-dist-files-exist.sh
++++ b/.github/workflows/scripts/verify-dist-files-exist.sh
+@@ -11,8 +11,8 @@ do
+     if [[ ! -f $f ]]
+     then
+         echo "$f does not exist."
+-        echo "::set-output name=passed::false"
++        echo "passed=false" >> $GITHUB_OUTPUT
+         exit 0 
+     fi
+ done
+-echo "::set-output name=passed::true"
++echo "passed=true" >> $GITHUB_OUTPUT

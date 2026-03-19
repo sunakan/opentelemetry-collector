@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/testdata/config.yaml b/exporter/otlpexporter/testdata/config.yaml
+index 83ee90af5..737fabdef 100644
+--- a/exporter/otlpexporter/testdata/config.yaml
++++ b/exporter/otlpexporter/testdata/config.yaml
+@@ -21,6 +21,7 @@ exporters:
+       time: 20s
+       timeout: 30s
+       permit_without_stream: true
++    balancer_name: "round_robin"
+ 
+ service:
+   pipelines:

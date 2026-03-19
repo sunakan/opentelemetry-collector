@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+index 3191974f9..71936a240 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_test.go
+@@ -29,8 +29,8 @@ func TestComponentLifecycle(t *testing.T) {
+ 	factory := NewFactory()
+ 
+ 	tests := []struct {
+-		name     string
+ 		createFn func(ctx context.Context, set receiver.Settings, cfg component.Config) (component.Component, error)
++		name     string
+ 	}{
+ 
+ 		{

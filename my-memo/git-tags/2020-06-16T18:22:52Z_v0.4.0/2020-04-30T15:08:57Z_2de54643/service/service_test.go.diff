@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index e179cf1d2..9dbf6f118 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -50,7 +50,7 @@ func TestApplication_Start(t *testing.T) {
+ 	metricsPort := testutils.GetAvailablePort(t)
+ 	app.rootCmd.SetArgs([]string{
+ 		"--config=testdata/otelcol-config.yaml",
+-		"--metrics-port=" + strconv.FormatUint(uint64(metricsPort), 10),
++		"--metrics-addr=localhost:" + strconv.FormatUint(uint64(metricsPort), 10),
+ 		"--metrics-prefix=" + testPrefix,
+ 		"--add-instance-id=true",
+ 	})

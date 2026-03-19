@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index 53d1b7b51..715a2a084 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -41,6 +41,7 @@ func NewQueueBatch(
+ 		partitioner: set.Partitioner,
+ 		next:        next,
+ 		maxWorkers:  cfg.NumConsumers,
++		logger:      set.Telemetry.Logger,
+ 	})
+ 	if err != nil {
+ 		return nil, err

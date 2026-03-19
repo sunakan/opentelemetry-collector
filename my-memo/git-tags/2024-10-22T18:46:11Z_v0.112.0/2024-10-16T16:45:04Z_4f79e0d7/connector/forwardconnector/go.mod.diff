@@ -1,0 +1,21 @@
+diff --git a/connector/forwardconnector/go.mod b/connector/forwardconnector/go.mod
+index 540bd6af3..5fdd198cc 100644
+--- a/connector/forwardconnector/go.mod
++++ b/connector/forwardconnector/go.mod
+@@ -7,6 +7,7 @@ require (
+ 	go.opentelemetry.io/collector/component v0.111.0
+ 	go.opentelemetry.io/collector/confmap v1.17.0
+ 	go.opentelemetry.io/collector/connector v0.111.0
++	go.opentelemetry.io/collector/connector/connectortest v0.111.0
+ 	go.opentelemetry.io/collector/consumer v0.111.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.111.0
+ 	go.opentelemetry.io/collector/pdata v1.17.0
+@@ -58,6 +59,8 @@ replace go.opentelemetry.io/collector/component => ../../component
+ 
+ replace go.opentelemetry.io/collector/connector => ../
+ 
++replace go.opentelemetry.io/collector/connector/connectortest => ../connectortest
++
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ 
+ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata

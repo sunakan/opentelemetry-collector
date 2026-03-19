@@ -1,0 +1,19 @@
+diff --git a/otelcol/go.mod b/otelcol/go.mod
+index 3e0289204..55480116e 100644
+--- a/otelcol/go.mod
++++ b/otelcol/go.mod
+@@ -124,8 +124,6 @@ require (
+ 	gopkg.in/yaml.v3 v3.0.1 // indirect
+ )
+ 
+-replace go.opentelemetry.io/collector => ../
+-
+ replace go.opentelemetry.io/collector/service => ../service
+ 
+ replace go.opentelemetry.io/collector/service/telemetry/telemetrytest => ../service/telemetry/telemetrytest
+@@ -233,3 +231,5 @@ replace go.opentelemetry.io/collector/config/configoptional => ../config/configo
+ replace go.opentelemetry.io/collector/pdata/xpdata => ../pdata/xpdata
+ 
+ replace go.opentelemetry.io/collector/exporter/exporterhelper => ../exporter/exporterhelper
++
++replace go.opentelemetry.io/collector/internal/testutil => ../internal/testutil

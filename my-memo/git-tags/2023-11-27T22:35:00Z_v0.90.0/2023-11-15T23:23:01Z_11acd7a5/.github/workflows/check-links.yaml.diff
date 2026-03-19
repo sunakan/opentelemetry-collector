@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/check-links.yaml b/.github/workflows/check-links.yaml
+index 39bfb0901..88ce28e6d 100644
+--- a/.github/workflows/check-links.yaml
++++ b/.github/workflows/check-links.yaml
+@@ -1,7 +1,7 @@
+ name: check-links
+ on:
+   push:
+-    branches: [ main, 'renovatebot/**' ]
++    branches: [ main ]
+     paths-ignore:
+       - 'cmd/builder/**'
+   pull_request:

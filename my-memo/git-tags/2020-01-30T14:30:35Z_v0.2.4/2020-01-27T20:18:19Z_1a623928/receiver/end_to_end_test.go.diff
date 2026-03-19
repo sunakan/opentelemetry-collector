@@ -1,0 +1,13 @@
+diff --git a/receiver/end_to_end_test.go b/receiver/end_to_end_test.go
+index 1bbeaad71..99c780019 100644
+--- a/receiver/end_to_end_test.go
++++ b/receiver/end_to_end_test.go
+@@ -38,7 +38,7 @@ func Example_endToEnd() {
+ 		log.Fatalf("Failed to create logging exporter: %v", err)
+ 	}
+ 
+-	tr, err := opencensusreceiver.New("localhost:55678", lte, nil)
++	tr, err := opencensusreceiver.New("tcp", "localhost:55678", lte, nil)
+ 	if err != nil {
+ 		log.Fatalf("Failed to create trace receiver: %v", err)
+ 	}

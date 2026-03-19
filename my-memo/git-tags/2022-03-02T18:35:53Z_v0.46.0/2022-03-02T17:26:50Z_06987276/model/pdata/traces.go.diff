@@ -1,0 +1,18 @@
+diff --git a/model/pdata/traces.go b/model/pdata/traces.go
+index 2cc3fc7fa..30196cd3a 100644
+--- a/model/pdata/traces.go
++++ b/model/pdata/traces.go
+@@ -63,6 +63,13 @@ func (td Traces) InternalRep() internal.TracesWrapper {
+ 	return internal.TracesFromOtlp(td.orig)
+ }
+ 
++// MoveTo moves all properties from the current struct to dest
++// resetting the current instance to its zero value.
++func (td Traces) MoveTo(dest Traces) {
++	*dest.orig = *td.orig
++	*td.orig = otlptrace.TracesData{}
++}
++
+ // Clone returns a copy of Traces.
+ func (td Traces) Clone() Traces {
+ 	cloneTd := NewTraces()

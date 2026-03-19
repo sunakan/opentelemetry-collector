@@ -1,0 +1,19 @@
+diff --git a/pdata/pprofile/generated_valuetypeslice_test.go b/pdata/pprofile/generated_valuetypeslice_test.go
+index 2bb0245e1..6f9e70fa2 100644
+--- a/pdata/pprofile/generated_valuetypeslice_test.go
++++ b/pdata/pprofile/generated_valuetypeslice_test.go
+@@ -141,6 +141,14 @@ func TestValueTypeSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestValueTypeSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestValueTypeSlice()
++	got.RemoveIf(func(el ValueType) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestValueTypeSliceAll(t *testing.T) {
+ 	ms := generateTestValueTypeSlice()
+ 	assert.NotEmpty(t, ms.Len())

@@ -1,0 +1,19 @@
+diff --git a/config/configloader/testdata/invalid-processor-type.yaml b/config/configloader/testdata/invalid-processor-type.yaml
+deleted file mode 100644
+index 69d87aac4..000000000
+--- a/config/configloader/testdata/invalid-processor-type.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-  /custom:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]

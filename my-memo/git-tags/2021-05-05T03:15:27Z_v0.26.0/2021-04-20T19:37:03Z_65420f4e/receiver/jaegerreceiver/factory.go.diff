@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index ff58781fc..c7636a93f 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -121,6 +121,8 @@ func createTracesReceiver(
+ 		if err != nil {
+ 			return nil, fmt.Errorf("unable to extract port for ThriftHTTP: %w", err)
+ 		}
++
++		config.CollectorHTTPSettings = *rCfg.ThriftHTTP
+ 	}
+ 
+ 	if rCfg.Protocols.ThriftBinary != nil {

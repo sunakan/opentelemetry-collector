@@ -1,0 +1,21 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 449f37f45..c7fb6b05f 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -46,7 +46,6 @@ require (
+ 	github.com/mostynb/go-grpc-compression v1.2.3 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/collector/client v1.16.0 // indirect
+-	go.opentelemetry.io/collector/component/componentprofiles v0.110.0 // indirect
+ 	go.opentelemetry.io/collector/config/confignet v1.16.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.110.0 // indirect
+ 	go.opentelemetry.io/collector/config/internal v0.110.0 // indirect
+@@ -128,8 +127,6 @@ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+ replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal
+ 
+-replace go.opentelemetry.io/collector/component/componentprofiles => ../../component/componentprofiles
+-
+ replace go.opentelemetry.io/collector => ../..
+ 
+ replace go.opentelemetry.io/collector/component/componentstatus => ../../component/componentstatus

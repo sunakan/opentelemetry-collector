@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index 97a0b25a7..1b188092f 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -111,7 +111,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, tc consumer.Traces) (net.Addr, func(
+ 		}
+ 	}
+ 
+-	r := New(config.NewIDWithName("otlp", "trace"), tc)
++	r := New(config.NewComponentIDWithName("otlp", "trace"), tc)
+ 	require.NoError(t, err)
+ 
+ 	// Now run it as a gRPC server

@@ -1,0 +1,22 @@
+diff --git a/cmd/mdatagen/loader_test.go b/cmd/mdatagen/loader_test.go
+index 3cb037ada..aafacc8f2 100644
+--- a/cmd/mdatagen/loader_test.go
++++ b/cmd/mdatagen/loader_test.go
+@@ -214,7 +214,7 @@ func Test_loadMetadata(t *testing.T) {
+ 						},
+ 					},
+ 				},
+-				ScopeName:       "otelcol",
++				ScopeName:       "go.opentelemetry.io/collector",
+ 				ShortFolderName: ".",
+ 			},
+ 		},
+@@ -223,7 +223,7 @@ func Test_loadMetadata(t *testing.T) {
+ 			want: metadata{
+ 				Type:            "subcomponent",
+ 				Parent:          "parentComponent",
+-				ScopeName:       "otelcol",
++				ScopeName:       "go.opentelemetry.io/collector",
+ 				ShortFolderName: "testdata",
+ 			},
+ 		},

@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus.go b/receiver/opencensusreceiver/octrace/opencensus.go
+index 97e894852..400e36de5 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/octrace/opencensus.go
+@@ -132,7 +132,7 @@ func (ocr *Receiver) Export(tes agenttracepb.TraceService_ExportServer) error {
+ 
+ 		ocr.messageChan <- &traceDataWithCtx{data: td, ctx: ctxWithReceiverName}
+ 
+-		observability.RecordTraceReceiverMetrics(ctxWithReceiverName, len(td.Spans), 0)
++		observability.RecordMetricsForTraceReceiver(ctxWithReceiverName, len(td.Spans), 0)
+ 
+ 		recv, err = tes.Recv()
+ 		if err != nil {

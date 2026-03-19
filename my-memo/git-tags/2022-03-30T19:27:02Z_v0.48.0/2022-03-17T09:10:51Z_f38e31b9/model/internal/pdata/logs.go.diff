@@ -1,0 +1,24 @@
+diff --git a/model/internal/pdata/logs.go b/model/internal/pdata/logs.go
+index 03d63d8c4..2f8e7942f 100644
+--- a/model/internal/pdata/logs.go
++++ b/model/internal/pdata/logs.go
+@@ -15,7 +15,6 @@
+ package pdata // import "go.opentelemetry.io/collector/model/internal/pdata"
+ 
+ import (
+-	"go.opentelemetry.io/collector/model/internal"
+ 	otlplogs "go.opentelemetry.io/collector/model/internal/data/protogen/logs/v1"
+ )
+ 
+@@ -51,11 +50,6 @@ func NewLogs() Logs {
+ 	return Logs{orig: &otlplogs.LogsData{}}
+ }
+ 
+-// Deprecated: [v0.47.0] will be removed soon, only used internally.
+-func (ld Logs) InternalRep() internal.LogsWrapper {
+-	return internal.LogsWrapper{}
+-}
+-
+ // MoveTo moves all properties from the current struct to dest
+ // resetting the current instance to its zero value.
+ func (ld Logs) MoveTo(dest Logs) {

@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index e51b99aca..29f9d658d 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -153,7 +153,7 @@ jobs:
+     needs: [setup-environment]
+     strategy:
+       fail-fast: false
+-      matrix: ${{ fromJson(needs.loadtestpre.outputs.matrix) }}
++      matrix: ${{ fromJson(needs.setup-environment.outputs.matrix) }}
+     steps:
+       - name: Checkout Repo
+         uses: actions/checkout@v2

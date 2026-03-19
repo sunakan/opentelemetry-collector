@@ -1,0 +1,13 @@
+diff --git a/extension/extensiontest/statuswatcher_extension.go b/extension/extensiontest/statuswatcher_extension.go
+index e501353dc..eee0db941 100644
+--- a/extension/extensiontest/statuswatcher_extension.go
++++ b/extension/extensiontest/statuswatcher_extension.go
+@@ -24,7 +24,7 @@ func NewStatusWatcherExtensionFactory(
+ 	onStatusChanged func(source *component.InstanceID, event *component.StatusEvent),
+ ) extension.Factory {
+ 	return extension.NewFactory(
+-		"statuswatcher",
++		component.MustNewType("statuswatcher"),
+ 		func() component.Config {
+ 			return &struct{}{}
+ 		},

@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/factory_test.go b/receiver/receiverhelper/factory_test.go
+index f8230acc8..aba3d006e 100644
+--- a/receiver/receiverhelper/factory_test.go
++++ b/receiver/receiverhelper/factory_test.go
+@@ -28,7 +28,7 @@ import (
+ 
+ const typeStr = "test"
+ 
+-var defaultCfg = config.NewReceiverSettings(config.NewID(typeStr))
++var defaultCfg = config.NewReceiverSettings(config.NewComponentID(typeStr))
+ 
+ func TestNewFactory(t *testing.T) {
+ 	factory := NewFactory(

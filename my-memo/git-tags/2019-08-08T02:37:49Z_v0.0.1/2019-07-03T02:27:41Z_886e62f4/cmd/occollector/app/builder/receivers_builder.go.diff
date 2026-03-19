@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/receivers_builder.go b/cmd/occollector/app/builder/receivers_builder.go
+index ae97d1922..eea094971 100644
+--- a/cmd/occollector/app/builder/receivers_builder.go
++++ b/cmd/occollector/app/builder/receivers_builder.go
+@@ -203,7 +203,7 @@ func (rb *ReceiversBuilder) attachReceiverToPipelines(
+ 				dataType.GetString(),
+ 				dataType.GetString())
+ 		}
+-		return fmt.Errorf("cannot create receiver %s", config.Name())
++		return fmt.Errorf("cannot create receiver %s: %s", config.Name(), err.Error())
+ 	}
+ 
+ 	rb.logger.Info("Receiver is enabled.",

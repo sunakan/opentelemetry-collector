@@ -1,0 +1,13 @@
+diff --git a/component/exporter_test.go b/component/exporter_test.go
+index 143d7bc30..39f68e4b7 100644
+--- a/component/exporter_test.go
++++ b/component/exporter_test.go
+@@ -48,7 +48,7 @@ func (f *TestExporterFactory) CreateMetricsExporter(context.Context, ExporterCre
+ 	return nil, componenterror.ErrDataTypeIsNotSupported
+ }
+ 
+-// CreateMetricsExporter creates a logs exporter based on this config.
++// CreateLogsExporter creates a logs exporter based on this config.
+ func (f *TestExporterFactory) CreateLogsExporter(context.Context, ExporterCreateParams, config.Exporter) (LogsExporter, error) {
+ 	return nil, componenterror.ErrDataTypeIsNotSupported
+ }

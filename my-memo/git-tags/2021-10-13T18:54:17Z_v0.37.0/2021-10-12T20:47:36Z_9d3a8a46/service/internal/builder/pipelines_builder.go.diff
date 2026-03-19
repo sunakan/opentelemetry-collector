@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/pipelines_builder.go b/service/internal/builder/pipelines_builder.go
+index 0ee9e1eed..9c40a5294 100644
+--- a/service/internal/builder/pipelines_builder.go
++++ b/service/internal/builder/pipelines_builder.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package builder
++package builder // import "go.opentelemetry.io/collector/service/internal/builder"
+ 
+ import (
+ 	"context"

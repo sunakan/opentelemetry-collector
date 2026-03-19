@@ -1,0 +1,14 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index d854985c7..1a76d062e 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -218,8 +218,7 @@ func (mc *MockMetricConsumer) Capabilities() consumer.Capabilities {
+ }
+ 
+ func (mc *MockMetricConsumer) ConsumeMetrics(_ context.Context, md pdata.Metrics) error {
+-	_, dataPoints := md.MetricAndDataPointCount()
+-	mc.numMetricsReceived.Add(uint64(dataPoints))
++	mc.numMetricsReceived.Add(uint64(md.DataPointCount()))
+ 	mc.backend.ConsumeMetric(md)
+ 	return nil
+ }

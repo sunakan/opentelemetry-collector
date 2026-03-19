@@ -1,0 +1,22 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
+index 26b8b687f..7fba78877 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/networkscraper/network_scraper.go
+@@ -26,7 +26,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal"
+-	"go.opentelemetry.io/collector/receiver/receiverhelper"
++	"go.opentelemetry.io/collector/receiver/scraperhelper"
+ )
+ 
+ const (
+@@ -97,7 +97,7 @@ func (s *scraper) Scrape(_ context.Context) (pdata.MetricSlice, error) {
+ 		errors = append(errors, err)
+ 	}
+ 
+-	return metrics, receiverhelper.CombineScrapeErrors(errors)
++	return metrics, scraperhelper.CombineScrapeErrors(errors)
+ }
+ 
+ func (s *scraper) scrapeAndAppendNetworkCounterMetrics(metrics pdata.MetricSlice, startTime pdata.TimestampUnixNano) error {

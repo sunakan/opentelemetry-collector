@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_sample.go b/pdata/pprofile/generated_sample.go
+index 37f767b5b..52f1ccbed 100644
+--- a/pdata/pprofile/generated_sample.go
++++ b/pdata/pprofile/generated_sample.go
+@@ -87,7 +87,7 @@ func (ms Sample) LinkIndex() int32 {
+ }
+ 
+ // HasLinkIndex returns true if the Sample contains a
+-// LinkIndex value, false otherwise.
++// LinkIndex value otherwise.
+ func (ms Sample) HasLinkIndex() bool {
+ 	return ms.orig.LinkIndex_ != nil
+ }

@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index bfd45adab..824d73585 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -107,9 +107,9 @@ var replaceModules = []string{
+ 	"/service",
+ }
+ 
+-func newTestConfig(t testing.TB) *Config {
++func newTestConfig(tb testing.TB) *Config {
+ 	cfg, err := NewDefaultConfig()
+-	require.NoError(t, err)
++	require.NoError(tb, err)
+ 	cfg.downloadModules.wait = 0
+ 	cfg.downloadModules.numRetries = 1
+ 	return cfg

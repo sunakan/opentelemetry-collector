@@ -1,0 +1,34 @@
+diff --git a/pdata/plog/generated_logrecordslice.go b/pdata/plog/generated_logrecordslice.go
+index a900b4e1c..771233711 100644
+--- a/pdata/plog/generated_logrecordslice.go
++++ b/pdata/plog/generated_logrecordslice.go
+@@ -7,6 +7,7 @@
+ package plog
+ 
+ import (
++	"iter"
+ 	"sort"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -56,6 +57,21 @@ func (es LogRecordSlice) At(i int) LogRecord {
+ 	return newLogRecord((*es.orig)[i], es.state)
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++//
++//	for i, v := range es.All() {
++//	    ... // Do something with index-value pair
++//	}
++func (es LogRecordSlice) All() iter.Seq2[int, LogRecord] {
++	return func(yield func(int, LogRecord) bool) {
++		for i := 0; i < es.Len(); i++ {
++			if !yield(i, es.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // EnsureCapacity is an operation that ensures the slice has at least the specified capacity.
+ // 1. If the newCap <= cap then no change in capacity.
+ // 2. If the newCap > cap then the slice capacity will be expanded to equal newCap.

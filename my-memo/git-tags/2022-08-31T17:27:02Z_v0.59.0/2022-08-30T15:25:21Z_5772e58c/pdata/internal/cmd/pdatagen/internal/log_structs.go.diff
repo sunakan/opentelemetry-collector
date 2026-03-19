@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/cmd/pdatagen/internal/log_structs.go b/pdata/internal/cmd/pdatagen/internal/log_structs.go
+index 5a8d9935d..df3781cb4 100644
+--- a/pdata/internal/cmd/pdatagen/internal/log_structs.go
++++ b/pdata/internal/cmd/pdatagen/internal/log_structs.go
+@@ -104,12 +104,14 @@ var logRecord = &messageValueStruct{
+ 		},
+ 		traceIDField,
+ 		spanIDField,
+-		&messageValueField{
++		&primitiveTypedField{
+ 			fieldName:       "FlagsStruct",
+ 			originFieldName: "Flags",
+-			returnMessage: &messageValueStruct{
+-				structName:     "LogRecordFlags",
+-				originFullName: "uint32",
++			returnType: &primitiveType{
++				structName: "LogRecordFlags",
++				rawType:    "uint32",
++				defaultVal: "0",
++				testVal:    "1",
+ 			},
+ 		},
+ 		&primitiveField{

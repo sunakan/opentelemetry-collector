@@ -1,0 +1,24 @@
+diff --git a/pipeline/signal.go b/pipeline/signal.go
+new file mode 100644
+index 000000000..eaa2c75b3
+--- /dev/null
++++ b/pipeline/signal.go
+@@ -0,0 +1,18 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package pipeline // import "go.opentelemetry.io/collector/pipeline"
++
++import (
++	"go.opentelemetry.io/collector/internal/globalsignal"
++)
++
++// Signal represents the signals supported by the collector. We currently support
++// collecting metrics, traces and logs, this can expand in the future.
++type Signal = globalsignal.Signal
++
++var (
++	SignalTraces  = globalsignal.MustNewSignal("traces")
++	SignalMetrics = globalsignal.MustNewSignal("metrics")
++	SignalLogs    = globalsignal.MustNewSignal("logs")
++)

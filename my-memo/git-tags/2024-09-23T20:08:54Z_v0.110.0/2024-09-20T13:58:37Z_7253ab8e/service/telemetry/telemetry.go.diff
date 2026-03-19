@@ -1,0 +1,17 @@
+diff --git a/service/telemetry/telemetry.go b/service/telemetry/telemetry.go
+deleted file mode 100644
+index 8ca293329..000000000
+--- a/service/telemetry/telemetry.go
++++ /dev/null
+@@ -1,11 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package telemetry // import "go.opentelemetry.io/collector/service/telemetry"
+-
+-import (
+-	"go.opentelemetry.io/collector/service/telemetry/internal"
+-)
+-
+-// Settings holds configuration for building Telemetry.
+-type Settings = internal.Settings

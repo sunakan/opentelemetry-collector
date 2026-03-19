@@ -1,0 +1,13 @@
+diff --git a/exporter/exportertest/sink_exporter_test.go b/exporter/exportertest/sink_exporter_test.go
+index ebe92c340..c5207a604 100644
+--- a/exporter/exportertest/sink_exporter_test.go
++++ b/exporter/exportertest/sink_exporter_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+ func TestSinkTraceExporter(t *testing.T) {

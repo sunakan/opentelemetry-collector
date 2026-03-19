@@ -1,0 +1,24 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+index cc26b46f3..2548cb302 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/probabilisticsampler.go
+@@ -20,6 +20,7 @@ import (
+ 
+ 	tracepb "github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/oterr"
+@@ -112,6 +113,11 @@ func (tsp *tracesamplerprocessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
+ 
++// Start is invoked during service startup.
++func (tsp *tracesamplerprocessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (tsp *tracesamplerprocessor) Shutdown() error {
+ 	return nil

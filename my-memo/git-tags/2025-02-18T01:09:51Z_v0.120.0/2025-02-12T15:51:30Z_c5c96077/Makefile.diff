@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+index 97c806bfa..2cb6833e8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -444,6 +444,7 @@ builder-integration-test: $(ENVSUBST)
+ mdatagen-test:
+ 	cd cmd/mdatagen && $(GOCMD) install .
+ 	cd cmd/mdatagen && $(GOCMD) generate ./...
++	cd cmd/mdatagen && $(MAKE) fmt
+ 	cd cmd/mdatagen && $(GOCMD) test ./...
+ 
+ .PHONY: generate-gh-issue-templates

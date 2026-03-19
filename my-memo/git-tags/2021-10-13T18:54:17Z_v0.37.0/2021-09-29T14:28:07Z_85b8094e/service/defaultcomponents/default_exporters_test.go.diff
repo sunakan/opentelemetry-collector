@@ -1,0 +1,13 @@
+diff --git a/service/defaultcomponents/default_exporters_test.go b/service/defaultcomponents/default_exporters_test.go
+index 81f3d7bef..623d8b2d5 100644
+--- a/service/defaultcomponents/default_exporters_test.go
++++ b/service/defaultcomponents/default_exporters_test.go
+@@ -75,7 +75,7 @@ func TestDefaultExporters(t *testing.T) {
+ 			factory, ok := expFactories[tt.exporter]
+ 			require.True(t, ok)
+ 			assert.Equal(t, tt.exporter, factory.Type())
+-			assert.Equal(t, config.NewID(tt.exporter), factory.CreateDefaultConfig().ID())
++			assert.Equal(t, config.NewComponentID(tt.exporter), factory.CreateDefaultConfig().ID())
+ 
+ 			if tt.skipLifecycle {
+ 				t.Log("Skipping lifecycle test", tt.exporter)

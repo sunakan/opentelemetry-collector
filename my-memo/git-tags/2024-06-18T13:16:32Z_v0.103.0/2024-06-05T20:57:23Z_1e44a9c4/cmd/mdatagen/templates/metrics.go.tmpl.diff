@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/templates/metrics.go.tmpl b/cmd/mdatagen/templates/metrics.go.tmpl
+index 14428451c..a084d847e 100644
+--- a/cmd/mdatagen/templates/metrics.go.tmpl
++++ b/cmd/mdatagen/templates/metrics.go.tmpl
+@@ -154,7 +154,7 @@ func WithStartTime(startTime pcommon.Timestamp) metricBuilderOption {
+ 	}
+ }
+ 
+-func NewMetricsBuilder(mbc MetricsBuilderConfig, settings receiver.CreateSettings, options ...metricBuilderOption) *MetricsBuilder {
++func NewMetricsBuilder(mbc MetricsBuilderConfig, settings receiver.Settings, options ...metricBuilderOption) *MetricsBuilder {
+ 	{{- range $name, $metric := .Metrics }}
+ 	{{- if $metric.Warnings.IfEnabled }}
+ 	if mbc.Metrics.{{ $name.Render }}.Enabled {

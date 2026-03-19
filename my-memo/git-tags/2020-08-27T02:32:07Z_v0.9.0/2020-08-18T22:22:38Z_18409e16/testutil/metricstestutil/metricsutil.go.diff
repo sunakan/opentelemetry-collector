@@ -1,0 +1,15 @@
+diff --git a/testutil/metricstestutil/metricsutil.go b/testutil/metricstestutil/metricsutil.go
+index 674ebc8d4..0f971d539 100644
+--- a/testutil/metricstestutil/metricsutil.go
++++ b/testutil/metricstestutil/metricsutil.go
+@@ -18,8 +18,8 @@ import (
+ 	"time"
+ 
+ 	metricspb "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
+-	timestamppb "github.com/golang/protobuf/ptypes/timestamp"
+-	wrapperspb "github.com/golang/protobuf/ptypes/wrappers"
++	"google.golang.org/protobuf/types/known/timestamppb"
++	"google.golang.org/protobuf/types/known/wrapperspb"
+ )
+ 
+ // Gauge creates a gauge metric.

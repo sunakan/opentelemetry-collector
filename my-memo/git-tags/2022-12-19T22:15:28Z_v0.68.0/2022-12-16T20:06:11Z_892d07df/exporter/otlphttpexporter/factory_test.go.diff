@@ -1,0 +1,21 @@
+diff --git a/exporter/otlphttpexporter/factory_test.go b/exporter/otlphttpexporter/factory_test.go
+index d453684a0..1f6588931 100644
+--- a/exporter/otlphttpexporter/factory_test.go
++++ b/exporter/otlphttpexporter/factory_test.go
+@@ -26,6 +26,7 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config/configcompression"
+ 	"go.opentelemetry.io/collector/config/confighttp"
++	"go.opentelemetry.io/collector/config/configopaque"
+ 	"go.opentelemetry.io/collector/config/configtls"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/internal/testutil"
+@@ -93,7 +94,7 @@ func TestCreateTracesExporter(t *testing.T) {
+ 			config: Config{
+ 				HTTPClientSettings: confighttp.HTTPClientSettings{
+ 					Endpoint: endpoint,
+-					Headers: map[string]string{
++					Headers: map[string]configopaque.String{
+ 						"hdr1": "val1",
+ 						"hdr2": "val2",
+ 					},

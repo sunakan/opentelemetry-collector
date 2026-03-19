@@ -1,0 +1,18 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 5e4f39e72..79418d5c5 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -213,6 +213,13 @@ func TestVersioning(t *testing.T) {
+ 	}
+ 	for _, tt := range tests {
+ 		t.Run(tt.name, func(t *testing.T) {
++			// X25519 curves are not supported when GODEBUG=fips140=only is set, so we
++			// detect if it is and conditionally also add the tlsmklem=0 flag to disable
++			// these curves. See: https://pkg.go.dev/crypto/tls#Config.CurvePreferences
++			if strings.Contains(os.Getenv("GODEBUG"), "fips140=only") {
++				t.Setenv("GODEBUG", os.Getenv("GODEBUG")+",tlsmlkem=0")
++			}
++
+ 			cfg := tt.cfgBuilder()
+ 			require.NoError(t, cfg.Validate())
+ 			require.NoError(t, cfg.ParseModules())

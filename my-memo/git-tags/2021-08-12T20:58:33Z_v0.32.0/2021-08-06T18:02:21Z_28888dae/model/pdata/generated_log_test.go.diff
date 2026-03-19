@@ -1,0 +1,50 @@
+diff --git a/model/pdata/generated_log_test.go b/model/pdata/generated_log_test.go
+index 7b4c8a3e5..7b09fec02 100644
+--- a/model/pdata/generated_log_test.go
++++ b/model/pdata/generated_log_test.go
+@@ -147,6 +147,14 @@ func TestResourceLogs_Resource(t *testing.T) {
+ 	assert.EqualValues(t, generateTestResource(), ms.Resource())
+ }
+ 
++func TestResourceLogs_SchemaUrl(t *testing.T) {
++	ms := NewResourceLogs()
++	assert.EqualValues(t, "", ms.SchemaUrl())
++	testValSchemaUrl := "https://opentelemetry.io/schemas/1.5.0"
++	ms.SetSchemaUrl(testValSchemaUrl)
++	assert.EqualValues(t, testValSchemaUrl, ms.SchemaUrl())
++}
++
+ func TestResourceLogs_InstrumentationLibraryLogs(t *testing.T) {
+ 	ms := NewResourceLogs()
+ 	assert.EqualValues(t, NewInstrumentationLibraryLogsSlice(), ms.InstrumentationLibraryLogs())
+@@ -277,6 +285,14 @@ func TestInstrumentationLibraryLogs_InstrumentationLibrary(t *testing.T) {
+ 	assert.EqualValues(t, generateTestInstrumentationLibrary(), ms.InstrumentationLibrary())
+ }
+ 
++func TestInstrumentationLibraryLogs_SchemaUrl(t *testing.T) {
++	ms := NewInstrumentationLibraryLogs()
++	assert.EqualValues(t, "", ms.SchemaUrl())
++	testValSchemaUrl := "https://opentelemetry.io/schemas/1.5.0"
++	ms.SetSchemaUrl(testValSchemaUrl)
++	assert.EqualValues(t, testValSchemaUrl, ms.SchemaUrl())
++}
++
+ func TestInstrumentationLibraryLogs_Logs(t *testing.T) {
+ 	ms := NewInstrumentationLibraryLogs()
+ 	assert.EqualValues(t, NewLogSlice(), ms.Logs())
+@@ -501,6 +517,7 @@ func generateTestResourceLogs() ResourceLogs {
+ 
+ func fillTestResourceLogs(tv ResourceLogs) {
+ 	fillTestResource(tv.Resource())
++	tv.SetSchemaUrl("https://opentelemetry.io/schemas/1.5.0")
+ 	fillTestInstrumentationLibraryLogsSlice(tv.InstrumentationLibraryLogs())
+ }
+ 
+@@ -526,6 +543,7 @@ func generateTestInstrumentationLibraryLogs() InstrumentationLibraryLogs {
+ 
+ func fillTestInstrumentationLibraryLogs(tv InstrumentationLibraryLogs) {
+ 	fillTestInstrumentationLibrary(tv.InstrumentationLibrary())
++	tv.SetSchemaUrl("https://opentelemetry.io/schemas/1.5.0")
+ 	fillTestLogSlice(tv.Logs())
+ }
+ 

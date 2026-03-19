@@ -1,0 +1,21 @@
+diff --git a/receiver/receivertest/go.mod b/receiver/receivertest/go.mod
+index 6bceb4eb3..bee34d9ad 100644
+--- a/receiver/receivertest/go.mod
++++ b/receiver/receivertest/go.mod
+@@ -6,6 +6,7 @@ require (
+ 	github.com/google/uuid v1.6.0
+ 	github.com/stretchr/testify v1.9.0
+ 	go.opentelemetry.io/collector/component v0.113.0
++	go.opentelemetry.io/collector/component/componenttest v0.113.0
+ 	go.opentelemetry.io/collector/consumer v0.113.0
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.113.0
+ 	go.opentelemetry.io/collector/consumer/consumerprofiles v0.113.0
+@@ -52,6 +53,8 @@ replace go.opentelemetry.io/collector/pdata/testdata => ../../pdata/testdata
+ 
+ replace go.opentelemetry.io/collector/component => ../../component
+ 
++replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
++
+ replace go.opentelemetry.io/collector/config/configtelemetry => ../../config/configtelemetry
+ 
+ replace go.opentelemetry.io/collector/receiver/receiverprofiles => ../receiverprofiles

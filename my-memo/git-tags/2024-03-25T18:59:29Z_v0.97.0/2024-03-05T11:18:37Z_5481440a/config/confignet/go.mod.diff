@@ -1,0 +1,13 @@
+diff --git a/config/confignet/go.mod b/config/confignet/go.mod
+index cbd4d7026..4d1f2b481 100644
+--- a/config/confignet/go.mod
++++ b/config/confignet/go.mod
+@@ -3,7 +3,7 @@ module go.opentelemetry.io/collector/config/confignet
+ go 1.21
+ 
+ require (
+-	github.com/stretchr/testify v1.8.4
++	github.com/stretchr/testify v1.9.0
+ 	go.uber.org/goleak v1.3.0
+ )
+ 

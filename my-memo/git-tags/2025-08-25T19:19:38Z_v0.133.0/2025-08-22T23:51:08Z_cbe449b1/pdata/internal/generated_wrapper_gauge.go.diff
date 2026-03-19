@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_gauge.go b/pdata/internal/generated_wrapper_gauge.go
+index 182ff55ec..7fd96f464 100644
+--- a/pdata/internal/generated_wrapper_gauge.go
++++ b/pdata/internal/generated_wrapper_gauge.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolGauge = sync.Pool{
+-	New: func() any {
+-		return &otlpmetrics.Gauge{}
+-	},
+-}
++var (
++	protoPoolGauge = sync.Pool{
++		New: func() any {
++			return &otlpmetrics.Gauge{}
++		},
++	}
++)
+ 
+ func NewOrigGauge() *otlpmetrics.Gauge {
+ 	if !UseProtoPooling.IsEnabled() {

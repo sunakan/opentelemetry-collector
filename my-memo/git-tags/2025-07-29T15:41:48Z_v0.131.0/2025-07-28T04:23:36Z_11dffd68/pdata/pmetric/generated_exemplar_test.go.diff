@@ -1,0 +1,20 @@
+diff --git a/pdata/pmetric/generated_exemplar_test.go b/pdata/pmetric/generated_exemplar_test.go
+index 37d939fd8..fa53ff8aa 100644
+--- a/pdata/pmetric/generated_exemplar_test.go
++++ b/pdata/pmetric/generated_exemplar_test.go
+@@ -49,13 +49,13 @@ func TestExemplar_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	defer json.ReturnStream(stream)
+ 	src := generateTestExemplar()
+ 	src.marshalJSONStream(stream)
+-	require.NoError(t, stream.Error)
++	require.NoError(t, stream.Error())
+ 
+ 	iter := json.BorrowIterator(stream.Buffer())
+ 	defer json.ReturnIterator(iter)
+ 	dest := NewExemplar()
+ 	dest.unmarshalJSONIter(iter)
+-	require.NoError(t, iter.Error)
++	require.NoError(t, iter.Error())
+ 
+ 	assert.Equal(t, src, dest)
+ }

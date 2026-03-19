@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index bb39b357c..d37287d64 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -351,6 +351,7 @@ func TestSingleScrapePerInterval(t *testing.T) {
+ 	require.NoError(t, err)
+ 
+ 	require.NoError(t, receiver.Start(context.Background(), componenttest.NewNopHost()))
++	defer func() { require.NoError(t, receiver.Shutdown(context.Background())) }()
+ 
+ 	tickerCh <- time.Now()
+ 

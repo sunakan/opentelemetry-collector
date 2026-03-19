@@ -1,0 +1,12 @@
+diff --git a/cmd/otelcol/main_windows.go b/cmd/otelcol/main_windows.go
+index db4106bdb..fa88a4d8c 100644
+--- a/cmd/otelcol/main_windows.go
++++ b/cmd/otelcol/main_windows.go
+@@ -12,6 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
++//go:build windows
+ // +build windows
+ 
+ package main

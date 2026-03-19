@@ -1,0 +1,12 @@
+diff --git a/internal/processor/filtermetric/filtermetric_test.go b/internal/processor/filtermetric/filtermetric_test.go
+index 768956037..cdc82af17 100644
+--- a/internal/processor/filtermetric/filtermetric_test.go
++++ b/internal/processor/filtermetric/filtermetric_test.go
+@@ -44,7 +44,6 @@ var (
+ 
+ func createMetric(name string) pdata.Metric {
+ 	metric := pdata.NewMetric()
+-	metric.InitEmpty()
+ 	metric.SetName(name)
+ 	return metric
+ }

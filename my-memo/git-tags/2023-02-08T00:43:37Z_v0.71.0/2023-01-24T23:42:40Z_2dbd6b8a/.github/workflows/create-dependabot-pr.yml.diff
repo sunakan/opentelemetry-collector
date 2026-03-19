@@ -1,0 +1,10 @@
+diff --git a/.github/workflows/create-dependabot-pr.yml b/.github/workflows/create-dependabot-pr.yml
+index 52d4005e0..30df67bb1 100644
+--- a/.github/workflows/create-dependabot-pr.yml
++++ b/.github/workflows/create-dependabot-pr.yml
+@@ -15,4 +15,4 @@ jobs:
+       - name: Run dependabot-pr.sh
+         run: ./.github/workflows/scripts/dependabot-pr.sh
+         env:
+-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
++          GITHUB_TOKEN: ${{ secrets.OPENTELEMETRYBOT_GITHUB_TOKEN }}

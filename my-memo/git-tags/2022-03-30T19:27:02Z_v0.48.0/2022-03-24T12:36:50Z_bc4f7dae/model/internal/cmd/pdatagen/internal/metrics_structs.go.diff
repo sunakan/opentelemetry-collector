@@ -1,0 +1,45 @@
+diff --git a/model/internal/cmd/pdatagen/internal/metrics_structs.go b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+index 05916e3c0..21a3104fb 100644
+--- a/model/internal/cmd/pdatagen/internal/metrics_structs.go
++++ b/model/internal/cmd/pdatagen/internal/metrics_structs.go
+@@ -70,7 +70,7 @@ var resourceMetrics = &messageValueStruct{
+ 		schemaURLField,
+ 		&sliceField{
+ 			fieldName:       "InstrumentationLibraryMetrics",
+-			originFieldName: "InstrumentationLibraryMetrics",
++			originFieldName: "ScopeMetrics",
+ 			returnSlice:     instrumentationLibraryMetricsSlice,
+ 		},
+ 	},
+@@ -84,7 +84,7 @@ var instrumentationLibraryMetricsSlice = &sliceOfPtrs{
+ var instrumentationLibraryMetrics = &messageValueStruct{
+ 	structName:     "InstrumentationLibraryMetrics",
+ 	description:    "// InstrumentationLibraryMetrics is a collection of metrics from a LibraryInstrumentation.",
+-	originFullName: "otlpmetrics.InstrumentationLibraryMetrics",
++	originFullName: "otlpmetrics.ScopeMetrics",
+ 	fields: []baseField{
+ 		instrumentationLibraryField,
+ 		schemaURLField,
+@@ -284,7 +284,7 @@ var histogramDataPoint = &messageValueStruct{
+ 		startTimeField,
+ 		timeField,
+ 		countField,
+-		doubleSumField,
++		optionalDoubleSumField,
+ 		bucketCountsField,
+ 		explicitBoundsField,
+ 		exemplarsField,
+@@ -524,3 +524,13 @@ var dataPointFlagsField = &primitiveTypedField{
+ 	defaultVal:      "MetricDataPointFlagsNone",
+ 	testVal:         "MetricDataPointFlagsNone",
+ }
++
++var optionalDoubleSumField = &optionalPrimitiveValue{
++	fieldName:        "Sum",
++	fieldType:        "Double",
++	originFieldName:  "Sum",
++	originTypePrefix: "otlpmetrics.HistogramDataPoint_",
++	returnType:       "float64",
++	defaultVal:       "float64(0.0)",
++	testVal:          "float64(17.13)",
++}

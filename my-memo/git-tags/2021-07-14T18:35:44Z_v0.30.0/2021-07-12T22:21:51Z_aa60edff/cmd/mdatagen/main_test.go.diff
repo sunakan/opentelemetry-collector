@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/main_test.go b/cmd/mdatagen/main_test.go
+index e656712c6..d4e18d667 100644
+--- a/cmd/mdatagen/main_test.go
++++ b/cmd/mdatagen/main_test.go
+@@ -31,7 +31,7 @@ metrics:
+     description: Total CPU seconds broken down by different states.
+     unit: s
+     data:
+-      type: double sum
++      type: sum
+       aggregation: cumulative
+     labels: []
+ `

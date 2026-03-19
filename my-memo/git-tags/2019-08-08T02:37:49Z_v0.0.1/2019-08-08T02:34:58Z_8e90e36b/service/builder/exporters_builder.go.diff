@@ -1,0 +1,12 @@
+diff --git a/service/builder/exporters_builder.go b/service/builder/exporters_builder.go
+index d135c8b0b..4a5922ff2 100644
+--- a/service/builder/exporters_builder.go
++++ b/service/builder/exporters_builder.go
+@@ -172,6 +172,7 @@ func (eb *ExportersBuilder) buildExporter(
+ 		// if there are no pipelines associated with the exporter.
+ 		eb.logger.Warn("Exporter " + config.Name() +
+ 			" is not associated with any pipeline and will not export data.")
++		exporter.stop = func() error { return nil }
+ 		return exporter, nil
+ 	}
+ 

@@ -1,0 +1,35 @@
+diff --git a/internal/configv2/example_factories.go b/internal/configv2/example_factories.go
+index bfb40ccf2..148f897d0 100644
+--- a/internal/configv2/example_factories.go
++++ b/internal/configv2/example_factories.go
+@@ -20,6 +20,7 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/consumer"
+ 	"github.com/census-instrumentation/opencensus-service/internal/configmodels"
+ 	"github.com/census-instrumentation/opencensus-service/internal/factories"
++	"github.com/census-instrumentation/opencensus-service/processor"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+ )
+ 
+@@ -192,6 +193,22 @@ func (f *ExampleProcessorFactory) CreateDefaultConfig() configmodels.Processor {
+ 	}
+ }
+ 
++// CreateTraceProcessor creates a trace processor based on this config.
++func (f *ExampleProcessorFactory) CreateTraceProcessor(
++	nextConsumer consumer.TraceConsumer,
++	cfg configmodels.Processor,
++) (processor.TraceProcessor, error) {
++	return nil, factories.ErrDataTypeIsNotSupported
++}
++
++// CreateMetricsProcessor creates a metrics processor based on this config.
++func (f *ExampleProcessorFactory) CreateMetricsProcessor(
++	nextConsumer consumer.MetricsConsumer,
++	cfg configmodels.Processor,
++) (processor.MetricsProcessor, error) {
++	return nil, factories.ErrDataTypeIsNotSupported
++}
++
+ // RegisterTestFactories registers example factories. This is only used by tests.
+ func RegisterTestFactories() error {
+ 	_ = factories.RegisterReceiverFactory(&ExampleReceiverFactory{})

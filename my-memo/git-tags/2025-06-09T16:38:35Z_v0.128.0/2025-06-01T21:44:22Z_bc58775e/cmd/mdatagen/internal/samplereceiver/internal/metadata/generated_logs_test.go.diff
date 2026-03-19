@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
+index 591824fc6..c15013fb0 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs_test.go
+@@ -181,7 +181,7 @@ func TestLogsBuilder(t *testing.T) {
+ 			res := rb.Emit()
+ 			logs := lb.Emit(WithLogsResource(res))
+ 
+-			if tt.expectEmpty {
++			if tt.expectEmpty || ((tt.name == "default" || tt.name == "filter_set_include") && defaultEventsCount == 0) {
+ 				assert.Equal(t, 0, logs.ResourceLogs().Len())
+ 				return
+ 			}

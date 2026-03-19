@@ -1,0 +1,35 @@
+diff --git a/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest_test.go b/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest_test.go
+index 8e87e88ac..f64cfab6b 100644
+--- a/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest_test.go
++++ b/processor/memorylimiterprocessor/internal/metadatatest/generated_telemetrytest_test.go
+@@ -101,5 +101,30 @@ func TestSetupTelemetry(t *testing.T) {
+ 			},
+ 		},
+ 	}, metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorAcceptedLogRecords(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorAcceptedMetricPoints(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorAcceptedSpans(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorRefusedLogRecords(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorRefusedMetricPoints(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
++	AssertEqualProcessorRefusedSpans(t, testTel.Telemetry,
++		[]metricdata.DataPoint[int64]{{}},
++		metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreValue())
++
+ 	require.NoError(t, testTel.Shutdown(context.Background()))
+ }

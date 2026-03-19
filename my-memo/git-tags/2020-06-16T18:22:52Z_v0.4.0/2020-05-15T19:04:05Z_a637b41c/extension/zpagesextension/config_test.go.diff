@@ -1,0 +1,15 @@
+diff --git a/extension/zpagesextension/config_test.go b/extension/zpagesextension/config_test.go
+index e9a96f45a..67cbc38bb 100644
+--- a/extension/zpagesextension/config_test.go
++++ b/extension/zpagesextension/config_test.go
+@@ -21,8 +21,8 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/config"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/config"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ func TestLoadConfig(t *testing.T) {

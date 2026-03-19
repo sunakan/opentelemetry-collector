@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/exporters_builder_test.go b/cmd/occollector/app/builder/exporters_builder_test.go
+index c9d02f788..0855b0060 100644
+--- a/cmd/occollector/app/builder/exporters_builder_test.go
++++ b/cmd/occollector/app/builder/exporters_builder_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/exporter/opencensusexporter"
+ )
+ 

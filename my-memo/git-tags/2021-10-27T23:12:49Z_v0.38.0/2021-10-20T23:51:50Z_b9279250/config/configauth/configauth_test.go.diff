@@ -1,0 +1,28 @@
+diff --git a/config/configauth/configauth_test.go b/config/configauth/configauth_test.go
+index 7751d13b5..11a58531b 100644
+--- a/config/configauth/configauth_test.go
++++ b/config/configauth/configauth_test.go
+@@ -32,11 +32,7 @@ func TestGetAuthenticator(t *testing.T) {
+ 		config.NewComponentID("mock"): &MockAuthenticator{},
+ 	}
+ 
+-	// test
+-	componentID, err := config.NewComponentIDFromString(cfg.AuthenticatorName)
+-	assert.NoError(t, err)
+-
+-	authenticator, err := GetServerAuthenticator(ext, componentID)
++	authenticator, err := cfg.GetServerAuthenticator(ext)
+ 
+ 	// verify
+ 	assert.NoError(t, err)
+@@ -61,9 +57,7 @@ func TestGetAuthenticatorFails(t *testing.T) {
+ 	}
+ 	for _, tC := range testCases {
+ 		t.Run(tC.desc, func(t *testing.T) {
+-			componentID, err := config.NewComponentIDFromString(tC.cfg.AuthenticatorName)
+-			assert.NoError(t, err)
+-			authenticator, err := GetServerAuthenticator(tC.ext, componentID)
++			authenticator, err := tC.cfg.GetServerAuthenticator(tC.ext)
+ 			assert.ErrorIs(t, err, tC.expected)
+ 			assert.Nil(t, authenticator)
+ 		})

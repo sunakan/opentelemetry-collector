@@ -1,0 +1,15 @@
+diff --git a/service/telemetry/config_test.go b/service/telemetry/config_test.go
+index 4c03c2f35..495da22d4 100644
+--- a/service/telemetry/config_test.go
++++ b/service/telemetry/config_test.go
+@@ -51,8 +51,8 @@ func TestConfigValidate(t *testing.T) {
+ 						Readers: []config.MetricReader{
+ 							{
+ 								Pull: &config.PullMetricReader{Exporter: config.PullMetricExporter{Prometheus: &config.Prometheus{
+-									Host: newPtr("127.0.0.1"),
+-									Port: newPtr(3333),
++									Host: ptr("127.0.0.1"),
++									Port: ptr(3333),
+ 								}}},
+ 							},
+ 						},

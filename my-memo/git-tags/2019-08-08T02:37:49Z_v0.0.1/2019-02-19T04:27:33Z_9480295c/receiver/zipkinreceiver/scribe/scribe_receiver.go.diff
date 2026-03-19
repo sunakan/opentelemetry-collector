@@ -1,0 +1,22 @@
+diff --git a/receiver/zipkinreceiver/scribe/scribe_receiver.go b/receiver/zipkinreceiver/scribe/scribe_receiver.go
+index b96edf42c..a3962ca17 100644
+--- a/receiver/zipkinreceiver/scribe/scribe_receiver.go
++++ b/receiver/zipkinreceiver/scribe/scribe_receiver.go
+@@ -29,7 +29,7 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/data"
+ 	"github.com/census-instrumentation/opencensus-service/internal"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+-	"github.com/census-instrumentation/opencensus-service/translator/trace"
++	zipkintranslator "github.com/census-instrumentation/opencensus-service/translator/trace/zipkin"
+ )
+ 
+ var (
+@@ -153,7 +153,7 @@ func (sc *scribeCollector) Log(messages []*scribe.LogEntry) (r scribe.ResultCode
+ 		return scribe.ResultCode_OK, nil
+ 	}
+ 
+-	ocBatches, err := tracetranslator.ZipkinV1ThriftBatchToOCProto(zSpans)
++	ocBatches, err := zipkintranslator.V1ThriftBatchToOCProto(zSpans)
+ 	if err != nil {
+ 		return scribe.ResultCode_OK, err
+ 	}

@@ -1,0 +1,32 @@
+diff --git a/testbed/tests/trace_test.go b/testbed/tests/trace_test.go
+index 82ab1e981..4fac7e309 100644
+--- a/testbed/tests/trace_test.go
++++ b/testbed/tests/trace_test.go
+@@ -65,6 +65,15 @@ func TestTrace10kSPS(t *testing.T) {
+ 				ExpectedMaxRAM: 84,
+ 			},
+ 		},
++		{
++			"OTLP",
++			testbed.NewOTLPTraceDataSender(testbed.GetAvailablePort(t)),
++			testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)),
++			testbed.ResourceSpec{
++				ExpectedMaxCPU: 55,
++				ExpectedMaxRAM: 84,
++			},
++		},
+ 	}
+ 
+ 	for _, test := range tests {
+@@ -285,6 +294,11 @@ func TestTraceAttributesProcessor(t *testing.T) {
+ 			testbed.NewJaegerThriftDataSender(testbed.GetAvailablePort(t)),
+ 			testbed.NewJaegerDataReceiver(testbed.GetAvailablePort(t)),
+ 		},
++		{
++			"OTLP",
++			testbed.NewOTLPTraceDataSender(testbed.GetAvailablePort(t)),
++			testbed.NewOTLPDataReceiver(testbed.GetAvailablePort(t)),
++		},
+ 	}
+ 
+ 	for _, test := range tests {

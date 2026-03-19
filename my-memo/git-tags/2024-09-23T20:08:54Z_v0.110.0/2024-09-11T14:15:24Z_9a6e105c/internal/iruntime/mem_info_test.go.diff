@@ -1,0 +1,11 @@
+diff --git a/internal/iruntime/mem_info_test.go b/internal/iruntime/mem_info_test.go
+index 863fbe140..57d0d857e 100644
+--- a/internal/iruntime/mem_info_test.go
++++ b/internal/iruntime/mem_info_test.go
+@@ -12,5 +12,5 @@ import (
+ func TestReadMemInfo(t *testing.T) {
+ 	vmStat, err := readMemInfo()
+ 	assert.NoError(t, err)
+-	assert.True(t, vmStat > 0)
++	assert.Positive(t, vmStat)
+ }

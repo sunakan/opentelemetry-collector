@@ -1,0 +1,15 @@
+diff --git a/internal/data/trace.go b/internal/data/trace.go
+index 61b60f377..6d0932735 100644
+--- a/internal/data/trace.go
++++ b/internal/data/trace.go
+@@ -80,10 +80,6 @@ func (td TraceData) ResourceSpans() ResourceSpansSlice {
+ 	return newResourceSpansSlice(td.orig)
+ }
+ 
+-func (td TraceData) SetResourceSpans(v ResourceSpansSlice) {
+-	*td.orig = *v.orig
+-}
+-
+ type TraceID []byte
+ 
+ func (t TraceID) Bytes() []byte {

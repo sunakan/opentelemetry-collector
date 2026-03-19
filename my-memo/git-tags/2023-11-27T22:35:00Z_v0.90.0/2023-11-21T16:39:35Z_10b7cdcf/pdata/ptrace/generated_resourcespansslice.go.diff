@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/generated_resourcespansslice.go b/pdata/ptrace/generated_resourcespansslice.go
+index e9185f732..da79ef4a3 100644
+--- a/pdata/ptrace/generated_resourcespansslice.go
++++ b/pdata/ptrace/generated_resourcespansslice.go
+@@ -119,7 +119,6 @@ func (es ResourceSpansSlice) RemoveIf(f func(ResourceSpans) bool) {
+ 		(*es.orig)[newLen] = (*es.orig)[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.orig = (*es.orig)[:newLen]
+ }
+ 

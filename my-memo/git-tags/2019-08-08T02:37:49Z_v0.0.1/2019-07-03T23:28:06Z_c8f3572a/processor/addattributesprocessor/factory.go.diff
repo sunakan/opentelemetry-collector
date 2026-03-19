@@ -1,0 +1,19 @@
+diff --git a/processor/addattributesprocessor/factory.go b/processor/addattributesprocessor/factory.go
+index abedbc584..8a846b680 100644
+--- a/processor/addattributesprocessor/factory.go
++++ b/processor/addattributesprocessor/factory.go
+@@ -17,6 +17,7 @@ package addattributesprocessor
+ import (
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+@@ -65,5 +66,5 @@ func (f *processorFactory) CreateMetricsProcessor(
+ 	nextConsumer consumer.MetricsConsumer,
+ 	cfg models.Processor,
+ ) (processor.MetricsProcessor, error) {
+-	return nil, models.ErrDataTypeIsNotSupported
++	return nil, configerror.ErrDataTypeIsNotSupported
+ }

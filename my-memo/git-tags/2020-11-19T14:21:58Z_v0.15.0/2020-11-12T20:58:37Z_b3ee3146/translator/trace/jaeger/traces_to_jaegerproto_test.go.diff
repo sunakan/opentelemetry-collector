@@ -1,0 +1,16 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto_test.go b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+index f97efd771..4d0e8b54d 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto_test.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto_test.go
+@@ -74,7 +74,10 @@ func TestGetErrorTagFromStatusCode(t *testing.T) {
+ 		VType: model.ValueType_BOOL,
+ 	}
+ 
+-	_, ok := getErrorTagFromStatusCode(pdata.StatusCodeOk)
++	_, ok := getErrorTagFromStatusCode(pdata.StatusCodeUnset)
++	assert.False(t, ok)
++
++	_, ok = getErrorTagFromStatusCode(pdata.StatusCodeOk)
+ 	assert.False(t, ok)
+ 
+ 	got, ok := getErrorTagFromStatusCode(pdata.StatusCodeError)

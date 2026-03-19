@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkinv1/thrift_test.go b/translator/trace/zipkinv1/thrift_test.go
+index 8d2dba0d8..9a7a39bd8 100644
+--- a/translator/trace/zipkinv1/thrift_test.go
++++ b/translator/trace/zipkinv1/thrift_test.go
+@@ -30,7 +30,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"google.golang.org/protobuf/testing/protocmp"
+ 
+-	"go.opentelemetry.io/collector/translator/conventions"
++	conventions "go.opentelemetry.io/collector/translator/conventions/v1.5.0"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

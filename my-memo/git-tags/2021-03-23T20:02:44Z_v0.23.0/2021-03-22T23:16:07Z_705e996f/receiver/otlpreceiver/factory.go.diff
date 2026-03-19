@@ -1,0 +1,11 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 75553059d..4cfb7568c 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -195,4 +195,6 @@ func createReceiver(cfg configmodels.Receiver, logger *zap.Logger) (*otlpReceive
+ // We maintain this map because the Factory is asked trace and metric receivers separately
+ // when it gets CreateTracesReceiver() and CreateMetricsReceiver() but they must not
+ // create separate objects, they must use one otlpReceiver object per configuration.
++// When the receiver is shutdown it should be removed from this map so the same configuration
++// can be recreated successfully.
+ var receivers = map[*Config]*otlpReceiver{}

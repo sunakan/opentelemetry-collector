@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_resourceprofilesslice.go b/pdata/pprofile/generated_resourceprofilesslice.go
+index aaa8ea8df..271f69248 100644
+--- a/pdata/pprofile/generated_resourceprofilesslice.go
++++ b/pdata/pprofile/generated_resourceprofilesslice.go
+@@ -99,7 +99,7 @@ func (es ResourceProfilesSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ResourceProfiles.
+ func (es ResourceProfilesSlice) AppendEmpty() ResourceProfiles {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrResourceProfiles())
++	*es.orig = append(*es.orig, internal.NewOrigResourceProfiles())
+ 	return es.At(es.Len() - 1)
+ }
+ 

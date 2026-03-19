@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index c592870ef..c32852fa5 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -21,6 +21,8 @@ func TestSummary_MoveTo(t *testing.T) {
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewSummary(), ms)
+ 	assert.Equal(t, generateTestSummary(), dest)
++	dest.MoveTo(dest)
++	assert.Equal(t, generateTestSummary(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newSummary(&otlpmetrics.Summary{}, &sharedState)) })
+ 	assert.Panics(t, func() { newSummary(&otlpmetrics.Summary{}, &sharedState).MoveTo(dest) })

@@ -1,0 +1,19 @@
+diff --git a/pdata/ptrace/generated_spaneventslice_test.go b/pdata/ptrace/generated_spaneventslice_test.go
+index 841a11852..7d8f7e1d4 100644
+--- a/pdata/ptrace/generated_spaneventslice_test.go
++++ b/pdata/ptrace/generated_spaneventslice_test.go
+@@ -141,6 +141,14 @@ func TestSpanEventSlice_RemoveIf(t *testing.T) {
+ 	assert.Equal(t, 5, filtered.Len())
+ }
+ 
++func TestSpanEventSlice_RemoveIfAll(t *testing.T) {
++	got := generateTestSpanEventSlice()
++	got.RemoveIf(func(el SpanEvent) bool {
++		return true
++	})
++	assert.Equal(t, 0, got.Len())
++}
++
+ func TestSpanEventSliceAll(t *testing.T) {
+ 	ms := generateTestSpanEventSlice()
+ 	assert.NotEmpty(t, ms.Len())

@@ -1,0 +1,13 @@
+diff --git a/service/internal/builders/builders_test/processor_test.go b/service/internal/builders/builders_test/processor_test.go
+index 275ddb227..1e12571eb 100644
+--- a/service/internal/builders/builders_test/processor_test.go
++++ b/service/internal/builders/builders_test/processor_test.go
+@@ -188,7 +188,7 @@ func TestNewNopProcessorBuilder(t *testing.T) {
+ 
+ 	factory := processortest.NewNopFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	set := processortest.NewNopSettingsWithType(factory.Type())
++	set := processortest.NewNopSettings(factory.Type())
+ 	set.ID = component.NewID(builders.NopType)
+ 
+ 	traces, err := factory.CreateTraces(context.Background(), set, cfg, consumertest.NewNop())

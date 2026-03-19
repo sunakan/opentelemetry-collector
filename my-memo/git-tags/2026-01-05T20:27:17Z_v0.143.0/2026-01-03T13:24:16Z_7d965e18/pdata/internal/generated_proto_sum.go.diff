@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_sum.go b/pdata/internal/generated_proto_sum.go
+index c7e8895ba..f419344b5 100644
+--- a/pdata/internal/generated_proto_sum.go
++++ b/pdata/internal/generated_proto_sum.go
+@@ -45,7 +45,6 @@ func DeleteSum(orig *Sum, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	for i := range orig.DataPoints {
+ 		DeleteNumberDataPoint(orig.DataPoints[i], true)
+ 	}

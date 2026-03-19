@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/tracehelper_test.go b/exporter/exporterhelper/tracehelper_test.go
+index 19911b2e7..577632f78 100644
+--- a/exporter/exporterhelper/tracehelper_test.go
++++ b/exporter/exporterhelper/tracehelper_test.go
+@@ -49,8 +49,8 @@ var (
+ func TestTracesRequest(t *testing.T) {
+ 	mr := newTracesRequest(context.Background(), testdata.GenerateTraceDataOneSpan(), nil)
+ 
+-	partialErr := consumererror.PartialTracesError(errors.New("some error"), testdata.GenerateTraceDataEmpty())
+-	assert.EqualValues(t, newTracesRequest(context.Background(), testdata.GenerateTraceDataEmpty(), nil), mr.onPartialError(partialErr.(consumererror.PartialError)))
++	traceErr := consumererror.NewTraces(errors.New("some error"), testdata.GenerateTraceDataEmpty())
++	assert.EqualValues(t, newTracesRequest(context.Background(), testdata.GenerateTraceDataEmpty(), nil), mr.onError(traceErr))
+ }
+ 
+ type testOCTraceExporter struct {

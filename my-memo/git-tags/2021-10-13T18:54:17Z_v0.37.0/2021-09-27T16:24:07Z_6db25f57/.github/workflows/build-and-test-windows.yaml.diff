@@ -1,0 +1,21 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index cdcdb0269..308fd0c3b 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -5,8 +5,6 @@ on:
+     tags:
+       - 'v[0-9]+.[0-9]+.[0-9]+*'
+   pull_request:
+-env:
+-  TEST_RESULTS: testbed/tests/results/junit/results.xml
+ 
+ jobs:
+   windows-unittest:
+@@ -34,7 +32,3 @@ jobs:
+           key: go-pkg-mod-${{ runner.os }}-${{ hashFiles('./go.mod', '**/go.sum') }}
+       - name: Run Unit tests
+         run: go test ./...
+-      - name: GitHub Issue Generator
+-        if: ${{ failure() && github.ref == 'ref/head/main' }}
+-        run: |
+-          go run cmd/issuegenerator/main.go $TEST_RESULTS

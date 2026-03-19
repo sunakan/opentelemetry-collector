@@ -1,0 +1,22 @@
+diff --git a/config/configtest/configtest.go b/config/configtest/configtest.go
+index c0040ccbb..98ea800a6 100644
+--- a/config/configtest/configtest.go
++++ b/config/configtest/configtest.go
+@@ -21,7 +21,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/config/configparser"
++	"go.opentelemetry.io/collector/config/configloader"
+ )
+ 
+ // LoadConfigFile loads a config from file.
+@@ -30,7 +30,7 @@ func LoadConfigFile(t *testing.T, fileName string, factories component.Factories
+ 	cp, err := config.NewParserFromFile(fileName)
+ 	require.NoError(t, err)
+ 	// Load the config from viper using the given factories.
+-	cfg, err := configparser.Load(cp, factories)
++	cfg, err := configloader.Load(cp, factories)
+ 	if err != nil {
+ 		return nil, err
+ 	}

@@ -1,0 +1,22 @@
+diff --git a/processor/xprocessor/processor.go b/processor/xprocessor/processor.go
+index 0b0dff3e9..92262e53a 100644
+--- a/processor/xprocessor/processor.go
++++ b/processor/xprocessor/processor.go
+@@ -10,6 +10,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/xconsumer"
+ 	"go.opentelemetry.io/collector/pipeline"
+ 	"go.opentelemetry.io/collector/processor"
++	"go.opentelemetry.io/collector/processor/internal"
+ )
+ 
+ // Factory is a component.Factory interface for processors.
+@@ -65,6 +66,9 @@ func (f factory) CreateProfiles(ctx context.Context, set processor.Settings, cfg
+ 	if f.createProfilesFunc == nil {
+ 		return nil, pipeline.ErrSignalNotSupported
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesFunc(ctx, set, cfg, next)
+ }
+ 

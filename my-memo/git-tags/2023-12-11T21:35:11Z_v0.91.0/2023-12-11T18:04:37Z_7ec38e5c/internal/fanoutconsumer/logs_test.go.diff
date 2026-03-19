@@ -1,0 +1,22 @@
+diff --git a/internal/fanoutconsumer/logs_test.go b/internal/fanoutconsumer/logs_test.go
+index aedbea28e..472239b34 100644
+--- a/internal/fanoutconsumer/logs_test.go
++++ b/internal/fanoutconsumer/logs_test.go
+@@ -148,7 +148,7 @@ func TestLogsMultiplexingMixLastMutating(t *testing.T) {
+ 	p3 := &mutatingLogsSink{LogsSink: new(consumertest.LogsSink)}
+ 
+ 	lfc := NewLogs([]consumer.Logs{p1, p2, p3})
+-	assert.True(t, lfc.Capabilities().MutatesData)
++	assert.False(t, lfc.Capabilities().MutatesData)
+ 	ld := testdata.GenerateLogs(1)
+ 
+ 	for i := 0; i < 2; i++ {
+@@ -186,7 +186,7 @@ func TestLogsMultiplexingMixLastNonMutating(t *testing.T) {
+ 	p3 := new(consumertest.LogsSink)
+ 
+ 	lfc := NewLogs([]consumer.Logs{p1, p2, p3})
+-	assert.True(t, lfc.Capabilities().MutatesData)
++	assert.False(t, lfc.Capabilities().MutatesData)
+ 	ld := testdata.GenerateLogs(1)
+ 
+ 	for i := 0; i < 2; i++ {

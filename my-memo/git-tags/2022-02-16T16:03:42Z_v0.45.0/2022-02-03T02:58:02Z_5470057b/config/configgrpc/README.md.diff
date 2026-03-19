@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/README.md b/config/configgrpc/README.md
+index 519601e4f..4ee6f541e 100644
+--- a/config/configgrpc/README.md
++++ b/config/configgrpc/README.md
+@@ -16,7 +16,7 @@ configuration. For more information, see [configtls
+ README](../configtls/README.md).
+ 
+ - [`balancer_name`](https://github.com/grpc/grpc-go/blob/master/examples/features/load_balancing/README.md)
+-- `compression` Compression type to use among `gzip`, `snappy` and `zstd`
++- `compression` Compression type to use among `gzip`, `snappy`, `zstd`, and `none`.
+ - `endpoint`: Valid value syntax available [here](https://github.com/grpc/grpc/blob/master/doc/naming.md)
+ - [`tls`](../configtls/README.md)
+ - `headers`: name/value pairs added to the request

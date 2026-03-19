@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
+index 3baf1125e..ad94fdc58 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_metrics.go
+@@ -15,7 +15,7 @@ import (
+ 	conventions "go.opentelemetry.io/collector/semconv/v1.9.0"
+ )
+ 
+-// AttributeEnumAttr specifies the a value enum_attr attribute.
++// AttributeEnumAttr specifies the value enum_attr attribute.
+ type AttributeEnumAttr int
+ 
+ const (

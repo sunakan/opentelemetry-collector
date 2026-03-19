@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterset/config_test.go b/internal/processor/filterset/config_test.go
+index 2cf0492dc..20cad95a6 100644
+--- a/internal/processor/filterset/config_test.go
++++ b/internal/processor/filterset/config_test.go
+@@ -67,7 +67,7 @@ func TestConfig(t *testing.T) {
+ 			assert.Equal(t, expCfg, actualCfg)
+ 
+ 			fs, err := CreateFilterSet([]string{}, &actualCfg)
+-			assert.Nil(t, err)
++			assert.NoError(t, err)
+ 			assert.NotNil(t, fs)
+ 		})
+ 	}

@@ -1,0 +1,31 @@
+diff --git a/exporter/exporterhelper/internal/obs_report_test.go b/exporter/exporterhelper/internal/obs_report_test.go
+index 2032b8bd5..fe64fb9de 100644
+--- a/exporter/exporterhelper/internal/obs_report_test.go
++++ b/exporter/exporterhelper/internal/obs_report_test.go
+@@ -75,7 +75,25 @@ func TestExportTraceDataOp(t *testing.T) {
+ 		}
+ 	}
+ 
+-	require.NoError(t, tt.CheckExporterTraces(int64(sentSpans), int64(failedToSendSpans)))
++	metadatatest.AssertEqualExporterSentSpans(t, tt.Telemetry,
++		[]metricdata.DataPoint[int64]{
++			{
++				Attributes: attribute.NewSet(
++					attribute.String("exporter", exporterID.String())),
++				Value: int64(sentSpans),
++			},
++		}, metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreExemplars())
++
++	if failedToSendSpans > 0 {
++		metadatatest.AssertEqualExporterSendFailedSpans(t, tt.Telemetry,
++			[]metricdata.DataPoint[int64]{
++				{
++					Attributes: attribute.NewSet(
++						attribute.String("exporter", exporterID.String())),
++					Value: int64(failedToSendSpans),
++				},
++			}, metricdatatest.IgnoreTimestamp(), metricdatatest.IgnoreExemplars())
++	}
+ }
+ 
+ func TestExportMetricsOp(t *testing.T) {

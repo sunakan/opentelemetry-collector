@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/common_test.go b/exporter/exporterhelper/common_test.go
+index 9889754e2..75c915fc4 100644
+--- a/exporter/exporterhelper/common_test.go
++++ b/exporter/exporterhelper/common_test.go
+@@ -32,7 +32,7 @@ var (
+ 	}
+ )
+ 
+-func newNoopObsrepSender(_ *obsExporter) requestSender {
++func newNoopObsrepSender(_ *ObsReport) requestSender {
+ 	return &baseRequestSender{}
+ }
+ 

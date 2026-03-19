@@ -1,0 +1,23 @@
+diff --git a/processor/processorhelper/logs.go b/processor/processorhelper/logs.go
+index 290d0aaa3..8d049c1fc 100644
+--- a/processor/processorhelper/logs.go
++++ b/processor/processorhelper/logs.go
+@@ -22,7 +22,6 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenterror"
+-	"go.opentelemetry.io/collector/component/componenthelper"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumerhelper"
+@@ -34,8 +33,8 @@ import (
+ type ProcessLogsFunc func(context.Context, pdata.Logs) (pdata.Logs, error)
+ 
+ type logProcessor struct {
+-	componenthelper.StartFunc
+-	componenthelper.ShutdownFunc
++	component.StartFunc
++	component.ShutdownFunc
+ 	consumer.Logs
+ }
+ 

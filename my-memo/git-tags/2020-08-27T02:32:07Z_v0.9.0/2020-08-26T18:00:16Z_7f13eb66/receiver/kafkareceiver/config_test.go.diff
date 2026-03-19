@@ -1,0 +1,12 @@
+diff --git a/receiver/kafkareceiver/config_test.go b/receiver/kafkareceiver/config_test.go
+index f7679f08c..f627c8e39 100644
+--- a/receiver/kafkareceiver/config_test.go
++++ b/receiver/kafkareceiver/config_test.go
+@@ -45,6 +45,7 @@ func TestLoadConfig(t *testing.T) {
+ 			TypeVal: typeStr,
+ 		},
+ 		Topic:    "spans",
++		Encoding: "otlp_proto",
+ 		Brokers:  []string{"foo:123", "bar:456"},
+ 		ClientID: "otel-collector",
+ 		GroupID:  "otel-collector",

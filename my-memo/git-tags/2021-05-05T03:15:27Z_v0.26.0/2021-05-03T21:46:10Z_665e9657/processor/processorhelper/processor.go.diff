@@ -1,0 +1,31 @@
+diff --git a/processor/processorhelper/processor.go b/processor/processorhelper/processor.go
+index 010700e30..f7a3aa34b 100644
+--- a/processor/processorhelper/processor.go
++++ b/processor/processorhelper/processor.go
+@@ -166,7 +166,7 @@ func NewTracesProcessor(
+ 	}
+ 
+ 	return &tracesProcessor{
+-		baseProcessor: newBaseProcessor(config.Name(), options...),
++		baseProcessor: newBaseProcessor(config.ID().String(), options...),
+ 		processor:     processor,
+ 		nextConsumer:  nextConsumer,
+ 	}, nil
+@@ -210,7 +210,7 @@ func NewMetricsProcessor(
+ 	}
+ 
+ 	return &metricsProcessor{
+-		baseProcessor: newBaseProcessor(config.Name(), options...),
++		baseProcessor: newBaseProcessor(config.ID().String(), options...),
+ 		processor:     processor,
+ 		nextConsumer:  nextConsumer,
+ 	}, nil
+@@ -254,7 +254,7 @@ func NewLogsProcessor(
+ 	}
+ 
+ 	return &logProcessor{
+-		baseProcessor: newBaseProcessor(config.Name(), options...),
++		baseProcessor: newBaseProcessor(config.ID().String(), options...),
+ 		processor:     processor,
+ 		nextConsumer:  nextConsumer,
+ 	}, nil

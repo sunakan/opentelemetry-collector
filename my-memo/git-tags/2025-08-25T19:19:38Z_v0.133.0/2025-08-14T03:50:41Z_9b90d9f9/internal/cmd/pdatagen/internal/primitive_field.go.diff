@@ -1,0 +1,15 @@
+diff --git a/internal/cmd/pdatagen/internal/primitive_field.go b/internal/cmd/pdatagen/internal/primitive_field.go
+index 2149bf987..d3ed00d32 100644
+--- a/internal/cmd/pdatagen/internal/primitive_field.go
++++ b/internal/cmd/pdatagen/internal/primitive_field.go
+@@ -96,6 +96,10 @@ func (pf *PrimitiveField) GenerateMarshalProto(*messageStruct) string {
+ 	return pf.toProtoField().genMarshalProto()
+ }
+ 
++func (pf *PrimitiveField) GenerateUnmarshalProto(*messageStruct) string {
++	return pf.toProtoField().genUnmarshalProto()
++}
++
+ func (pf *PrimitiveField) toProtoField() *ProtoField {
+ 	return &ProtoField{
+ 		Type: pf.protoType,

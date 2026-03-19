@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/resource_processor_test.go b/testbed/tests/resource_processor_test.go
+index 26cebd31b..95b286dcc 100644
+--- a/testbed/tests/resource_processor_test.go
++++ b/testbed/tests/resource_processor_test.go
+@@ -19,7 +19,7 @@ import (
+ 	"path/filepath"
+ 	"testing"
+ 
+-	"github.com/golang/protobuf/jsonpb" //lint:ignore SA1019 golang/protobuf/proto is deprecated
++	"github.com/gogo/protobuf/jsonpb"
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdatautil"

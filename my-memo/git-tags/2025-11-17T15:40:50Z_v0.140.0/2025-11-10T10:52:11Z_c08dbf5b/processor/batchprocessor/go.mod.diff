@@ -1,0 +1,10 @@
+diff --git a/processor/batchprocessor/go.mod b/processor/batchprocessor/go.mod
+index 59fe7764e..23ebb66e7 100644
+--- a/processor/batchprocessor/go.mod
++++ b/processor/batchprocessor/go.mod
+@@ -98,3 +98,5 @@ replace go.opentelemetry.io/collector/processor/processortest => ../processortes
+ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/consumererror
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

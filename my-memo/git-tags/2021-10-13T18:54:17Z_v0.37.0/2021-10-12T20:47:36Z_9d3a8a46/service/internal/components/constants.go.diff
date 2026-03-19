@@ -1,0 +1,13 @@
+diff --git a/service/internal/components/constants.go b/service/internal/components/constants.go
+index 2cce44ed6..52c730bcb 100644
+--- a/service/internal/components/constants.go
++++ b/service/internal/components/constants.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package components
++package components // import "go.opentelemetry.io/collector/service/internal/components"
+ 
+ const (
+ 	ZapKindKey         = "kind"

@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/plogotlp/response_test.go b/pdata/plog/plogotlp/response_test.go
+index 8f1103f10..6642d198d 100644
+--- a/pdata/plog/plogotlp/response_test.go
++++ b/pdata/plog/plogotlp/response_test.go
+@@ -43,7 +43,7 @@ func TestUnmarshalJsoniterExportPartialSuccess(t *testing.T) {
+ 	iter := json.BorrowIterator([]byte(jsonStr))
+ 	defer json.ReturnIterator(iter)
+ 	val := NewExportPartialSuccess()
+-	val.unmarshalJsoniter(iter)
++	val.unmarshalJSONIter(iter)
+ 	require.NoError(t, iter.Error)
+ 	assert.Equal(t, NewExportPartialSuccess(), val)
+ }

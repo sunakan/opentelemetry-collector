@@ -1,0 +1,29 @@
+diff --git a/obsreport/obsreport.go b/obsreport/obsreport.go
+index 04580c8b5..79edae476 100644
+--- a/obsreport/obsreport.go
++++ b/obsreport/obsreport.go
+@@ -15,24 +15,10 @@
+ package obsreport
+ 
+ import (
+-	"strings"
+-
+ 	"go.opentelemetry.io/otel/codes"
+ 	"go.opentelemetry.io/otel/trace"
+-
+-	"go.opentelemetry.io/collector/internal/obsreportconfig/obsmetrics"
+ )
+ 
+-func buildComponentPrefix(componentPrefix, configType string) string {
+-	if !strings.HasSuffix(componentPrefix, obsmetrics.NameSep) {
+-		componentPrefix += obsmetrics.NameSep
+-	}
+-	if configType == "" {
+-		return componentPrefix
+-	}
+-	return componentPrefix + configType + obsmetrics.NameSep
+-}
+-
+ func recordError(span trace.Span, err error) {
+ 	if err != nil {
+ 		span.SetStatus(codes.Error, err.Error())

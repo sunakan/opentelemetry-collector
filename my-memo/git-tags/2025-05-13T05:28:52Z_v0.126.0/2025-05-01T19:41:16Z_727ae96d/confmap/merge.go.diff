@@ -1,0 +1,13 @@
+diff --git a/confmap/merge.go b/confmap/merge.go
+index 3fcfb74e0..e0a4055db 100644
+--- a/confmap/merge.go
++++ b/confmap/merge.go
+@@ -63,7 +63,7 @@ func mergeSlice(src, dest reflect.Value) any {
+ 
+ func isPresent(slice reflect.Value, val reflect.Value) bool {
+ 	for i := 0; i < slice.Len(); i++ {
+-		if slice.Index(i).Equal(val) {
++		if reflect.DeepEqual(val.Interface(), slice.Index(i).Interface()) {
+ 			return true
+ 		}
+ 	}

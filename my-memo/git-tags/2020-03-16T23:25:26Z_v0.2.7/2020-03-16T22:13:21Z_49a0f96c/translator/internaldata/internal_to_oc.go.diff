@@ -1,0 +1,17 @@
+diff --git a/translator/internaldata/internal_to_oc.go b/translator/internaldata/internal_to_oc.go
+index a2c6592f3..26f891132 100644
+--- a/translator/internaldata/internal_to_oc.go
++++ b/translator/internaldata/internal_to_oc.go
+@@ -51,8 +51,10 @@ func InternalToOC(td data.TraceData) []consumerdata.TraceData {
+ 	for _, resourceSpans := range resourceSpansList {
+ 		ocTraceData.Node, ocTraceData.Resource = internalResourceToOC(resourceSpans.Resource())
+ 		ocSpans := make([]*octrace.Span, 0, td.SpanCount())
+-		for _, span := range resourceSpans.Spans() {
+-			ocSpans = append(ocSpans, spanToOC(span))
++		for _, il := range resourceSpans.InstrumentationLibrarySpans() {
++			for _, span := range il.Spans() {
++				ocSpans = append(ocSpans, spanToOC(span))
++			}
+ 		}
+ 		ocTraceData.Spans = ocSpans
+ 		ocResourceSpansList = append(ocResourceSpansList, ocTraceData)

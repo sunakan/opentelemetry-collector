@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_line.go b/pdata/internal/generated_wrapper_line.go
+index ba70f595b..3bf906605 100644
+--- a/pdata/internal/generated_wrapper_line.go
++++ b/pdata/internal/generated_wrapper_line.go
+@@ -28,10 +28,12 @@ func CopyOrigLine(dest, src *otlpprofiles.Line) {
+ 	dest.Column = src.Column
+ }
+ 
+-func FillOrigTestLine(orig *otlpprofiles.Line) {
++func GenTestOrigLine() *otlpprofiles.Line {
++	orig := NewOrigPtrLine()
+ 	orig.FunctionIndex = int32(13)
+ 	orig.Line = int64(13)
+ 	orig.Column = int64(13)
++	return orig
+ }
+ 
+ // MarshalJSONOrig marshals all properties from the current struct to the destination stream.

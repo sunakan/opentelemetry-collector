@@ -1,0 +1,13 @@
+diff --git a/service/application.go b/service/application.go
+index fb6623392..9783a0944 100644
+--- a/service/application.go
++++ b/service/application.go
+@@ -100,7 +100,7 @@ func New(set AppSettings) (*Application, error) {
+ 				return fmt.Errorf("failed to get logger: %w", err)
+ 			}
+ 
+-			return app.execute(context.Background())
++			return app.execute(cmd.Context())
+ 		},
+ 	}
+ 

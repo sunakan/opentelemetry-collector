@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/batcher.go b/exporter/exporterhelper/internal/queuebatch/batcher.go
+index a743c0493..d035057e0 100644
+--- a/exporter/exporterhelper/internal/queuebatch/batcher.go
++++ b/exporter/exporterhelper/internal/queuebatch/batcher.go
+@@ -34,7 +34,7 @@ type batcherSettings[T any] struct {
+ 
+ func NewBatcher(cfg configoptional.Optional[BatchConfig], set batcherSettings[request.Request]) (Batcher[request.Request], error) {
+ 	if !cfg.HasValue() {
+-		return newDisabledBatcher[request.Request](set.next), nil
++		return newDisabledBatcher(set.next), nil
+ 	}
+ 
+ 	sizer := activeSizer(cfg.Get().Sizer, set.itemsSizer, set.bytesSizer)

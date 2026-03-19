@@ -1,0 +1,31 @@
+diff --git a/exporter/opencensusexporter/opencensus_test.go b/exporter/opencensusexporter/opencensus_test.go
+index a421ebeab..6a06ebf84 100644
+--- a/exporter/opencensusexporter/opencensus_test.go
++++ b/exporter/opencensusexporter/opencensus_test.go
+@@ -65,7 +65,7 @@ func TestSendTraces(t *testing.T) {
+ 		assert.NoError(t, exp.Shutdown(context.Background()))
+ 	})
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	assert.NoError(t, exp.ConsumeTraces(context.Background(), td))
+ 	assert.Eventually(t, func() bool {
+ 		return len(sink.AllTraces()) == 1
+@@ -105,7 +105,7 @@ func TestSendTraces_NoBackend(t *testing.T) {
+ 		assert.NoError(t, exp.Shutdown(context.Background()))
+ 	})
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	for i := 0; i < 10000; i++ {
+ 		assert.Error(t, exp.ConsumeTraces(context.Background(), td))
+ 	}
+@@ -127,7 +127,7 @@ func TestSendTraces_AfterStop(t *testing.T) {
+ 	require.NoError(t, exp.Start(context.Background(), host))
+ 	assert.NoError(t, exp.Shutdown(context.Background()))
+ 
+-	td := testdata.GenerateTraceDataOneSpan()
++	td := testdata.GenerateTracesOneSpan()
+ 	assert.Error(t, exp.ConsumeTraces(context.Background(), td))
+ }
+ 

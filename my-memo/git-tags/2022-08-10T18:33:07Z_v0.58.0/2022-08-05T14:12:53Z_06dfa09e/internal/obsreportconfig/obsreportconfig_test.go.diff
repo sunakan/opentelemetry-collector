@@ -1,0 +1,25 @@
+diff --git a/internal/obsreportconfig/obsreportconfig_test.go b/internal/obsreportconfig/obsreportconfig_test.go
+index 91a011b19..627646ce6 100644
+--- a/internal/obsreportconfig/obsreportconfig_test.go
++++ b/internal/obsreportconfig/obsreportconfig_test.go
+@@ -36,17 +36,17 @@ func TestConfigure(t *testing.T) {
+ 		{
+ 			name:      "basic",
+ 			level:     configtelemetry.LevelBasic,
+-			wantViews: allViews().Views,
++			wantViews: allViews(),
+ 		},
+ 		{
+ 			name:      "normal",
+ 			level:     configtelemetry.LevelNormal,
+-			wantViews: allViews().Views,
++			wantViews: allViews(),
+ 		},
+ 		{
+ 			name:      "detailed",
+ 			level:     configtelemetry.LevelDetailed,
+-			wantViews: allViews().Views,
++			wantViews: allViews(),
+ 		},
+ 	}
+ 	for _, tt := range tests {

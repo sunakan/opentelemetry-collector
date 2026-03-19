@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+index 0f68b3d6a..949d69680 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/diskscraper/disk_scraper_windows.go
+@@ -22,8 +22,8 @@ import (
+ 	"github.com/shirou/gopsutil/host"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/metadata"
+ 	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/perfcounters"
+ 	"go.opentelemetry.io/collector/receiver/scrapererror"

@@ -1,0 +1,17 @@
+diff --git a/pkg/configv2/testdata/metric-pipeline-cannot-have-processors.yaml b/pkg/configv2/testdata/metric-pipeline-cannot-have-processors.yaml
+new file mode 100644
+index 000000000..5ad00b987
+--- /dev/null
++++ b/pkg/configv2/testdata/metric-pipeline-cannot-have-processors.yaml
+@@ -0,0 +1,11 @@
++receivers:
++  multireceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++pipelines:
++  metrics:
++    receivers: [multireceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

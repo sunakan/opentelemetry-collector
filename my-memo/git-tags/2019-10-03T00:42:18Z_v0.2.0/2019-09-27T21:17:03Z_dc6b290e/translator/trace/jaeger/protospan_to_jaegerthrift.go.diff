@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerthrift.go b/translator/trace/jaeger/protospan_to_jaegerthrift.go
+index 641ab77a4..c2ea93900 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerthrift.go
++++ b/translator/trace/jaeger/protospan_to_jaegerthrift.go
+@@ -24,8 +24,8 @@ import (
+ 	"github.com/golang/protobuf/ptypes/timestamp"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	tracetranslator "github.com/open-telemetry/opentelemetry-service/translator/trace"
++	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
++	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"
+ )
+ 
+ var (

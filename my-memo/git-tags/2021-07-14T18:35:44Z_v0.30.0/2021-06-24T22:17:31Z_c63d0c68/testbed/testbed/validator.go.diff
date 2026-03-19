@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/validator.go b/testbed/testbed/validator.go
+index 4927b8a0f..9093a4341 100644
+--- a/testbed/testbed/validator.go
++++ b/testbed/testbed/validator.go
+@@ -23,7 +23,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	tracetranslator "go.opentelemetry.io/collector/translator/trace"
+ )
+ 

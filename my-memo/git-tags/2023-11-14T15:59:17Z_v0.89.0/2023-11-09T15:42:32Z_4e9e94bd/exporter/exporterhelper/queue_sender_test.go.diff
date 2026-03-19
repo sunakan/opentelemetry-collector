@@ -1,0 +1,14 @@
+diff --git a/exporter/exporterhelper/queue_sender_test.go b/exporter/exporterhelper/queue_sender_test.go
+index 1b80cc7ea..8e5c13748 100644
+--- a/exporter/exporterhelper/queue_sender_test.go
++++ b/exporter/exporterhelper/queue_sender_test.go
+@@ -87,7 +87,8 @@ func TestQueuedRetry_DoNotPreserveCancellation(t *testing.T) {
+ func TestQueuedRetry_DropOnFull(t *testing.T) {
+ 	qCfg := NewDefaultQueueSettings()
+ 	qCfg.QueueSize = 0
+-	be, err := newBaseExporter(defaultSettings, "", false, nil, nil, newObservabilityConsumerSender, WithQueue(qCfg))
++	qCfg.NumConsumers = 0
++	be, err := newBaseExporter(defaultSettings, "", false, nil, nil, newNoopObsrepSender, WithQueue(qCfg))
+ 	require.NoError(t, err)
+ 	require.NoError(t, be.Start(context.Background(), componenttest.NewNopHost()))
+ 	t.Cleanup(func() {

@@ -1,0 +1,15 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index c830e7666..780ff8583 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -339,9 +339,7 @@ func TestCollectorStartWithOpenTelemetryMetrics(t *testing.T) {
+ 	for _, tc := range ownMetricsTestCases("test version") {
+ 		t.Run(tc.name, func(t *testing.T) {
+ 			colTel := newColTelemetry(featuregate.NewRegistry())
+-			colTel.registry.Apply(map[string]bool{
+-				useOtelForInternalMetricsfeatureGateID: true,
+-			})
++			require.NoError(t, colTel.registry.Apply(map[string]bool{useOtelForInternalMetricsfeatureGateID: true}))
+ 			testCollectorStartHelper(t, colTel, tc)
+ 		})
+ 	}

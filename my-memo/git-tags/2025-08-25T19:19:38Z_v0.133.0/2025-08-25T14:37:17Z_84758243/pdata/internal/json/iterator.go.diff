@@ -1,0 +1,14 @@
+diff --git a/pdata/internal/json/iterator.go b/pdata/internal/json/iterator.go
+index 3cc945c5f..f0367e11d 100644
+--- a/pdata/internal/json/iterator.go
++++ b/pdata/internal/json/iterator.go
+@@ -146,6 +146,9 @@ func (iter *Iterator) ReadString() string {
+ // ReadBytes read base64 encoded bytes from iterator.
+ func (iter *Iterator) ReadBytes() []byte {
+ 	buf := iter.ReadStringAsSlice()
++	if len(buf) == 0 {
++		return nil
++	}
+ 	orig := make([]byte, base64.StdEncoding.DecodedLen(len(buf)))
+ 	n, err := base64.StdEncoding.Decode(orig, buf)
+ 	if err != nil {

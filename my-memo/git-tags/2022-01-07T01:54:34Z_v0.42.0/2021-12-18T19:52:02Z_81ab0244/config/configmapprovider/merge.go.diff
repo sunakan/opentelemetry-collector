@@ -1,0 +1,29 @@
+diff --git a/config/configmapprovider/merge.go b/config/configmapprovider/merge.go
+index 4776d3bfb..34e9e0a08 100644
+--- a/config/configmapprovider/merge.go
++++ b/config/configmapprovider/merge.go
+@@ -50,13 +50,17 @@ func (mp *mergeMapProvider) Retrieve(ctx context.Context, onChange func(*ChangeE
+ 		}
+ 		retrs = append(retrs, retr)
+ 	}
+-	return &simpleRetrieved{confMap: retCfgMap, closeFunc: func(ctxF context.Context) error {
+-		var err error
+-		for _, ret := range retrs {
+-			err = multierr.Append(err, ret.Close(ctxF))
+-		}
+-		return err
+-	}}, nil
++	return NewRetrieved(
++		func(ctx context.Context) (*config.Map, error) {
++			return retCfgMap, nil
++		},
++		WithClose(func(ctxF context.Context) error {
++			var err error
++			for _, ret := range retrs {
++				err = multierr.Append(err, ret.Close(ctxF))
++			}
++			return err
++		}))
+ }
+ 
+ func (mp *mergeMapProvider) Shutdown(ctx context.Context) error {

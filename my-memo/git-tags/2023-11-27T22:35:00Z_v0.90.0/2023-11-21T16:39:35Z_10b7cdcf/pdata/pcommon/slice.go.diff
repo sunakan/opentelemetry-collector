@@ -1,0 +1,12 @@
+diff --git a/pdata/pcommon/slice.go b/pdata/pcommon/slice.go
+index 5352ff44d..7434f467a 100644
+--- a/pdata/pcommon/slice.go
++++ b/pdata/pcommon/slice.go
+@@ -137,7 +137,6 @@ func (es Slice) RemoveIf(f func(Value) bool) {
+ 		(*es.getOrig())[newLen] = (*es.getOrig())[i]
+ 		newLen++
+ 	}
+-	// TODO: Prevent memory leak by erasing truncated values.
+ 	*es.getOrig() = (*es.getOrig())[:newLen]
+ }
+ 

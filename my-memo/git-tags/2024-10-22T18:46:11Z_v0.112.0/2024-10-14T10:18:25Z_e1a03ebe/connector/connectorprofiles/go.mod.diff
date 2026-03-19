@@ -1,0 +1,19 @@
+diff --git a/connector/connectorprofiles/go.mod b/connector/connectorprofiles/go.mod
+index 1a699f44a..c3edb160c 100644
+--- a/connector/connectorprofiles/go.mod
++++ b/connector/connectorprofiles/go.mod
+@@ -24,7 +24,6 @@ require (
+ 	github.com/modern-go/reflect2 v1.0.2 // indirect
+ 	github.com/pmezard/go-difflib v1.0.0 // indirect
+ 	go.opentelemetry.io/collector/config/configtelemetry v0.111.0 // indirect
+-	go.opentelemetry.io/collector/internal/globalsignal v0.111.0 // indirect
+ 	go.opentelemetry.io/collector/pdata v1.17.0 // indirect
+ 	go.opentelemetry.io/otel v1.31.0 // indirect
+ 	go.opentelemetry.io/otel/metric v1.31.0 // indirect
+@@ -66,6 +65,4 @@ replace go.opentelemetry.io/collector/component/componentstatus => ../../compone
+ 
+ replace go.opentelemetry.io/collector/pipeline => ../../pipeline
+ 
+-replace go.opentelemetry.io/collector/internal/globalsignal => ../../internal/globalsignal
+-
+ replace go.opentelemetry.io/collector/pipeline/pipelineprofiles => ../../pipeline/pipelineprofiles

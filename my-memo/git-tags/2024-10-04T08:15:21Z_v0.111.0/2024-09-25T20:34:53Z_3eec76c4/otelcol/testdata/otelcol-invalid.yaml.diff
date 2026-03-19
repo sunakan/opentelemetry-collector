@@ -1,0 +1,18 @@
+diff --git a/otelcol/testdata/otelcol-invalid.yaml b/otelcol/testdata/otelcol-invalid.yaml
+index 133ce74d8..dc48aee78 100644
+--- a/otelcol/testdata/otelcol-invalid.yaml
++++ b/otelcol/testdata/otelcol-invalid.yaml
+@@ -10,7 +10,12 @@ exporters:
+ service:
+   telemetry:
+     metrics:
+-      address: localhost:8888
++      readers:
++        - pull:
++            exporter:
++              prometheus:
++                host: "localhost"
++                port: 8888
+   pipelines:
+     traces:
+       receivers: [nop]

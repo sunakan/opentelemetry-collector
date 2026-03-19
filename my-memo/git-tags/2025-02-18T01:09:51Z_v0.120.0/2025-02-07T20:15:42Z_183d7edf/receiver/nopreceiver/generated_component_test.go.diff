@@ -1,0 +1,16 @@
+diff --git a/receiver/nopreceiver/generated_component_test.go b/receiver/nopreceiver/generated_component_test.go
+index d7a0ae08b..810725193 100644
+--- a/receiver/nopreceiver/generated_component_test.go
++++ b/receiver/nopreceiver/generated_component_test.go
+@@ -16,8 +16,10 @@ import (
+ 	"go.opentelemetry.io/collector/receiver/receivertest"
+ )
+ 
++var typ = component.MustNewType("nop")
++
+ func TestComponentFactoryType(t *testing.T) {
+-	require.Equal(t, "nop", NewFactory().Type().String())
++	require.Equal(t, typ, NewFactory().Type())
+ }
+ 
+ func TestComponentConfigStruct(t *testing.T) {

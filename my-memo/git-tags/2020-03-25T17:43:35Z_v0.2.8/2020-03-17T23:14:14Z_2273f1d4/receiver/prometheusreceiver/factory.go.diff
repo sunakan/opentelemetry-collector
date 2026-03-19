@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 3564b1e69..4b105e957 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -31,7 +31,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+-// This file implements config V2 for Prometheus receiver.
++// This file implements config for Prometheus receiver.
+ 
+ var _ (receiver.Factory) = (*Factory)(nil)
+ 

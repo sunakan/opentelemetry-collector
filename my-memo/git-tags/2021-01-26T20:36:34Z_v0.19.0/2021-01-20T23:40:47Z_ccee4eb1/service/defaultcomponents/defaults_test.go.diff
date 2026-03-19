@@ -1,0 +1,12 @@
+diff --git a/service/defaultcomponents/defaults_test.go b/service/defaultcomponents/defaults_test.go
+index 8284a07ad..715121142 100644
+--- a/service/defaultcomponents/defaults_test.go
++++ b/service/defaultcomponents/defaults_test.go
+@@ -45,7 +45,6 @@ func TestDefaultComponents(t *testing.T) {
+ 	expectedProcessors := []configmodels.Type{
+ 		"attributes",
+ 		"resource",
+-		"queued_retry",
+ 		"batch",
+ 		"memory_limiter",
+ 		"probabilistic_sampler",

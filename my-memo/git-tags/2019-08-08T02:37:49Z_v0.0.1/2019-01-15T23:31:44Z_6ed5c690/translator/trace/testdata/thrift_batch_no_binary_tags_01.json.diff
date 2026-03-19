@@ -1,0 +1,54 @@
+diff --git a/translator/trace/testdata/thrift_batch_no_binary_tags_01.json b/translator/trace/testdata/thrift_batch_no_binary_tags_01.json
+index b1239448d..9643d3dca 100644
+--- a/translator/trace/testdata/thrift_batch_no_binary_tags_01.json
++++ b/translator/trace/testdata/thrift_batch_no_binary_tags_01.json
+@@ -95,6 +95,31 @@
+         }
+       ],
+       "logs": [
++        {
++          "timestamp": 1485467191639874,
++          "fields": [
++            {
++              "key": "message.id",
++              "vLong": 0,
++              "vType": "LONG"
++            },
++            {
++              "key": "message.type",
++              "vStr": "SENT",
++              "vType": "STRING"
++            },
++            {
++              "key": "message.compressed_size",
++              "vLong": 512,
++              "vType": "LONG"
++            },
++            {
++              "key": "message.uncompressed_size",
++              "vLong": 1024,
++              "vType": "LONG"
++            }
++          ]
++        },
+         {
+           "timestamp": 1485467191639875,
+           "fields": [
+@@ -112,10 +137,15 @@
+               "key": "event",
+               "vType": "STRING",
+               "vStr": "nothing"
++            },
++            {
++              "key": "description",
++              "vType": "STRING",
++              "vStr": "annotation description"
+             }
+           ]
+         }
+       ]
+     }
+   ]
+-}
++}
+\ No newline at end of file

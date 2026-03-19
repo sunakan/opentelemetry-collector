@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/queue_batch.go b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+index f78e21402..144049fce 100644
+--- a/exporter/exporterhelper/internal/queuebatch/queue_batch.go
++++ b/exporter/exporterhelper/internal/queuebatch/queue_batch.go
+@@ -60,7 +60,7 @@ func NewQueueBatch(
+ 		cfg.NumConsumers = 1
+ 	}
+ 
+-	q, err := queue.NewQueue[request.Request](queue.Settings[request.Request]{
++	q, err := queue.NewQueue(queue.Settings[request.Request]{
+ 		SizerType:        cfg.Sizer,
+ 		ItemsSizer:       set.ItemsSizer,
+ 		BytesSizer:       set.BytesSizer,

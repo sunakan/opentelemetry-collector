@@ -1,0 +1,12 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index f01b17040..7ff72307a 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -116,7 +116,6 @@ func TestCreateTraceExporter(t *testing.T) {
+ 				GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 					Endpoint: endpoint,
+ 				},
+-				NumWorkers: 3,
+ 			},
+ 		},
+ 		{

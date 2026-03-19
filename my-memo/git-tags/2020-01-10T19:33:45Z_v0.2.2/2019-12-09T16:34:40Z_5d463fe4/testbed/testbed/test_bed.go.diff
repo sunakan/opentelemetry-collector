@@ -1,0 +1,35 @@
+diff --git a/testbed/testbed/test_bed.go b/testbed/testbed/test_bed.go
+index 2e80deaa9..a4c04fbd5 100644
+--- a/testbed/testbed/test_bed.go
++++ b/testbed/testbed/test_bed.go
+@@ -32,6 +32,7 @@ import (
+ 	"path"
+ 	"path/filepath"
+ 	"runtime"
++	"testing"
+ 	"text/template"
+ 
+ 	"github.com/spf13/viper"
+@@ -139,3 +140,22 @@ func Start() error {
+ func SaveResults() {
+ 	results.Save()
+ }
++
++// DoTestMain is intended to be run from TestMain somewhere in the test suit.
++// This enables the testbed.
++func DoTestMain(m *testing.M) {
++	// Load the test bed config first.
++	err := Start()
++
++	if err == ErrSkipTests {
++		// Test bed config is not loaded because the tests are globally skipped.
++		os.Exit(0)
++	}
++
++	res := m.Run()
++
++	SaveResults()
++
++	// Now run all tests.
++	os.Exit(res)
++}

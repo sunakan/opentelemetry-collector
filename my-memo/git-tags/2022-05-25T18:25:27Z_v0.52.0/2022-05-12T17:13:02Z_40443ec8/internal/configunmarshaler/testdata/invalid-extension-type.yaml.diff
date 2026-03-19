@@ -1,0 +1,21 @@
+diff --git a/internal/configunmarshaler/testdata/invalid-extension-type.yaml b/internal/configunmarshaler/testdata/invalid-extension-type.yaml
+deleted file mode 100644
+index 95bca7040..000000000
+--- a/internal/configunmarshaler/testdata/invalid-extension-type.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-extensions:
+-  /custom:
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
+\ No newline at end of file

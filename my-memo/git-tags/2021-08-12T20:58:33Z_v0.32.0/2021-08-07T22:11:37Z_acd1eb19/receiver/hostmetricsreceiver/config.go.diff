@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/config.go b/receiver/hostmetricsreceiver/config.go
+index 7cf61ff84..33e698272 100644
+--- a/receiver/hostmetricsreceiver/config.go
++++ b/receiver/hostmetricsreceiver/config.go
+@@ -37,7 +37,7 @@ type Config struct {
+ }
+ 
+ var _ config.Receiver = (*Config)(nil)
+-var _ config.CustomUnmarshable = (*Config)(nil)
++var _ config.Unmarshallable = (*Config)(nil)
+ 
+ // Validate checks the receiver configuration is valid
+ func (cfg *Config) Validate() error {

@@ -1,0 +1,27 @@
+diff --git a/config/configopaque/opaque.go b/config/configopaque/opaque.go
+index 3e4505d24..f66c2829b 100644
+--- a/config/configopaque/opaque.go
++++ b/config/configopaque/opaque.go
+@@ -5,11 +5,14 @@ package configopaque // import "go.opentelemetry.io/collector/config/configopaqu
+ 
+ import (
+ 	"encoding"
++	"fmt"
+ )
+ 
+ // String alias that is marshaled in an opaque way.
+ type String string
+ 
++var _ fmt.Stringer = String("")
++
+ const maskedString = "[REDACTED]"
+ 
+ var _ encoding.TextMarshaler = String("")
+@@ -18,3 +21,7 @@ var _ encoding.TextMarshaler = String("")
+ func (s String) MarshalText() ([]byte, error) {
+ 	return []byte(maskedString), nil
+ }
++
++func (s String) String() string {
++	return maskedString
++}

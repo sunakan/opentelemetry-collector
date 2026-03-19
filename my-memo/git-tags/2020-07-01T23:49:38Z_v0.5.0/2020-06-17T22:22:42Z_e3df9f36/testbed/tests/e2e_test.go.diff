@@ -1,0 +1,41 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index 123996f1c..76c84877f 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -29,10 +29,16 @@ import (
+ )
+ 
+ func TestIdleMode(t *testing.T) {
++	options := testbed.LoadOptions{DataItemsPerSecond: 10000, ItemsPerBatch: 10}
++	dataProvider := testbed.NewPerfTestDataProvider(options)
+ 	tc := testbed.NewTestCase(
+ 		t,
+-		testbed.NewJaegerGRPCDataSender(testbed.DefaultJaegerPort),
++		dataProvider,
++		testbed.NewJaegerGRPCDataSender(testbed.DefaultHost, testbed.DefaultJaegerPort),
+ 		testbed.NewOCDataReceiver(testbed.DefaultOCPort),
++		&testbed.ChildProcess{},
++		&testbed.PerfTestValidator{},
++		performanceResultsSummary,
+ 	)
+ 	defer tc.Stop()
+ 
+@@ -52,11 +58,17 @@ func TestBallastMemory(t *testing.T) {
+ 		{1000, 100},
+ 	}
+ 
++	options := testbed.LoadOptions{DataItemsPerSecond: 10000, ItemsPerBatch: 10}
++	dataProvider := testbed.NewPerfTestDataProvider(options)
+ 	for _, test := range tests {
+ 		tc := testbed.NewTestCase(
+ 			t,
+-			testbed.NewJaegerGRPCDataSender(testbed.DefaultJaegerPort),
++			dataProvider,
++			testbed.NewJaegerGRPCDataSender(testbed.DefaultHost, testbed.DefaultJaegerPort),
+ 			testbed.NewOCDataReceiver(testbed.DefaultOCPort),
++			&testbed.ChildProcess{},
++			&testbed.PerfTestValidator{},
++			performanceResultsSummary,
+ 			testbed.WithSkipResults(),
+ 		)
+ 		tc.SetResourceLimits(testbed.ResourceSpec{ExpectedMaxRAM: test.maxRSS})

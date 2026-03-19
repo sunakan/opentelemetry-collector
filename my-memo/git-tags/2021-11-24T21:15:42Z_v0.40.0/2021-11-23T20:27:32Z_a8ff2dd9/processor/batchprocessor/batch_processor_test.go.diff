@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/batch_processor_test.go b/processor/batchprocessor/batch_processor_test.go
+index 578baa617..5ccec6955 100644
+--- a/processor/batchprocessor/batch_processor_test.go
++++ b/processor/batchprocessor/batch_processor_test.go
+@@ -549,7 +549,7 @@ func BenchmarkBatchMetricProcessor(b *testing.B) {
+ 	}
+ 	b.StartTimer()
+ 	for n := 0; n < b.N; n++ {
+-		batcher.ConsumeMetrics(ctx, mds[n])
++		require.NoError(b, batcher.ConsumeMetrics(ctx, mds[n]))
+ 	}
+ 	b.StopTimer()
+ 	require.NoError(b, batcher.Shutdown(ctx))

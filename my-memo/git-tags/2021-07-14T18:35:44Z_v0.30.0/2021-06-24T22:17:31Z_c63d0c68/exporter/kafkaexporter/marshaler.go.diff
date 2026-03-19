@@ -1,0 +1,14 @@
+diff --git a/exporter/kafkaexporter/marshaler.go b/exporter/kafkaexporter/marshaler.go
+index e3123ef7f..1906bbe6d 100644
+--- a/exporter/kafkaexporter/marshaler.go
++++ b/exporter/kafkaexporter/marshaler.go
+@@ -17,8 +17,8 @@ package kafkaexporter
+ import (
+ 	"github.com/Shopify/sarama"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // TracesMarshaler marshals traces into Message array.

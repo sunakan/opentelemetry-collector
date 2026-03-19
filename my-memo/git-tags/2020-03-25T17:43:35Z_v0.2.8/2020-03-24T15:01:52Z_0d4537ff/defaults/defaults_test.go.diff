@@ -1,0 +1,20 @@
+diff --git a/defaults/defaults_test.go b/defaults/defaults_test.go
+index 726b8dac5..f1e146b93 100644
+--- a/defaults/defaults_test.go
++++ b/defaults/defaults_test.go
+@@ -28,6 +28,7 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/jaeger/jaegerthrifthttpexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/loggingexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/opencensusexporter"
++	"github.com/open-telemetry/opentelemetry-collector/exporter/otlpexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/prometheusexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/zipkinexporter"
+ 	"github.com/open-telemetry/opentelemetry-collector/extension"
+@@ -82,6 +83,7 @@ func TestDefaultComponents(t *testing.T) {
+ 		"jaeger_grpc":        &jaegergrpcexporter.Factory{},
+ 		"jaeger_thrift_http": &jaegerthrifthttpexporter.Factory{},
+ 		"file":               &fileexporter.Factory{},
++		"otlp":               &otlpexporter.Factory{},
+ 	}
+ 
+ 	factories, err := Components()

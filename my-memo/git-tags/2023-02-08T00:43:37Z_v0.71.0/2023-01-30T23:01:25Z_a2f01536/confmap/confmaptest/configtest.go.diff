@@ -1,0 +1,13 @@
+diff --git a/confmap/confmaptest/configtest.go b/confmap/confmaptest/configtest.go
+index 9647dd7ea..f4cd8ba35 100644
+--- a/confmap/confmaptest/configtest.go
++++ b/confmap/confmaptest/configtest.go
+@@ -33,7 +33,7 @@ func LoadConf(fileName string) (*confmap.Conf, error) {
+ 		return nil, fmt.Errorf("unable to read the file %v: %w", fileName, err)
+ 	}
+ 
+-	var rawConf map[string]interface{}
++	var rawConf map[string]any
+ 	if err = yaml.Unmarshal(content, &rawConf); err != nil {
+ 		return nil, err
+ 	}

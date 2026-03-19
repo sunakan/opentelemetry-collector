@@ -1,0 +1,28 @@
+diff --git a/cmd/builder/test/nocore.otel.yaml b/cmd/builder/test/nocore.otel.yaml
+new file mode 100644
+index 000000000..e0d615cd3
+--- /dev/null
++++ b/cmd/builder/test/nocore.otel.yaml
+@@ -0,0 +1,22 @@
++extensions:
++  zpages:
++
++receivers:
++  otlp:
++    protocols:
++      grpc:
++
++processors:
++
++exporters:
++  logging:
++
++service:
++  extensions: [zpages]
++  pipelines:
++    traces:
++      receivers:
++        - otlp
++      processors: []
++      exporters:
++        - logging

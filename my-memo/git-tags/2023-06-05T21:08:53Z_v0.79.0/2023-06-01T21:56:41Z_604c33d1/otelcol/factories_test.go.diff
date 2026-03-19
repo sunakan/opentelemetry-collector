@@ -1,0 +1,24 @@
+diff --git a/otelcol/factories_test.go b/otelcol/factories_test.go
+index 869a4c01f..645d59c7d 100644
+--- a/otelcol/factories_test.go
++++ b/otelcol/factories_test.go
+@@ -4,6 +4,8 @@
+ package otelcol
+ 
+ import (
++	"go.opentelemetry.io/collector/connector"
++	"go.opentelemetry.io/collector/connector/connectortest"
+ 	"go.opentelemetry.io/collector/exporter"
+ 	"go.opentelemetry.io/collector/exporter/exportertest"
+ 	"go.opentelemetry.io/collector/extension"
+@@ -18,6 +20,10 @@ func nopFactories() (Factories, error) {
+ 	var factories Factories
+ 	var err error
+ 
++	if factories.Connectors, err = connector.MakeFactoryMap(connectortest.NewNopFactory()); err != nil {
++		return Factories{}, err
++	}
++
+ 	if factories.Extensions, err = extension.MakeFactoryMap(extensiontest.NewNopFactory()); err != nil {
+ 		return Factories{}, err
+ 	}

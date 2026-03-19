@@ -1,0 +1,29 @@
+diff --git a/examples/k8s.yaml b/examples/k8s.yaml
+index ab5130a9c..17b896fc4 100644
+--- a/examples/k8s.yaml
++++ b/examples/k8s.yaml
+@@ -23,6 +23,7 @@ data:
+         limit_mib: 400
+         # 25% of limit up to 2G
+         spike_limit_mib: 100
++        check_interval: 5s
+       queued_retry:
+         num_workers: 4
+         queue_size: 100
+@@ -119,6 +120,7 @@ data:
+         limit_mib: 400
+         # 25% of limit up to 2G
+         spike_limit_mib: 100
++        check_interval: 5s
+       queued_retry:
+     extensions:
+       health_check: {}
+@@ -135,7 +137,7 @@ data:
+         traces/1:
+           receivers: [otlp, zipkin]
+           processors: [memory_limiter, batch, queued_retry]
+-          exporters: [otlp, zipkin]
++          exporters: [zipkin]
+         traces/2:
+           receivers: [otlp, jaeger]
+           processors: [memory_limiter, batch, queued_retry]

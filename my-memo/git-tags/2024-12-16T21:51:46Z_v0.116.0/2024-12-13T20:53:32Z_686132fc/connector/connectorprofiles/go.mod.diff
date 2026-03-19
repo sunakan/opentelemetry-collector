@@ -1,0 +1,13 @@
+diff --git a/connector/connectorprofiles/go.mod b/connector/connectorprofiles/go.mod
+index 7d58c4160..17c4d0092 100644
+--- a/connector/connectorprofiles/go.mod
++++ b/connector/connectorprofiles/go.mod
+@@ -8,7 +8,7 @@ require (
+ 	go.opentelemetry.io/collector/connector v0.115.0
+ 	go.opentelemetry.io/collector/consumer v1.21.0
+ 	go.opentelemetry.io/collector/consumer/consumertest v0.115.0
+-	go.opentelemetry.io/collector/consumer/xconsumer v0.115.0
++	go.opentelemetry.io/collector/consumer/xconsumer v0.115.1-0.20241213185000-4593ba7de234
+ 	go.opentelemetry.io/collector/internal/fanoutconsumer v0.115.0
+ 	go.opentelemetry.io/collector/pdata/pprofile v0.115.0
+ 	go.opentelemetry.io/collector/pdata/testdata v0.115.0

@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory_test.go b/processor/attributesprocessor/factory_test.go
+index 536615e2d..4c02093c5 100644
+--- a/processor/attributesprocessor/factory_test.go
++++ b/processor/attributesprocessor/factory_test.go
+@@ -57,7 +57,7 @@ func TestFactory_CreateTraceProcessor(t *testing.T) {
+ 	tp, err := factory.CreateTraceProcessor(
+ 		context.Background(), component.ProcessorCreateParams{}, exportertest.NewNopTraceExporter(), cfg)
+ 	assert.NotNil(t, tp)
+-	assert.Nil(t, err)
++	assert.NoError(t, err)
+ 
+ 	tp, err = factory.CreateTraceProcessor(
+ 		context.Background(), component.ProcessorCreateParams{}, nil, cfg)

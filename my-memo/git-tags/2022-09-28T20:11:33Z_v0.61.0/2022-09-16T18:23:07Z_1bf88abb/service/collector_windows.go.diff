@@ -1,0 +1,13 @@
+diff --git a/service/collector_windows.go b/service/collector_windows.go
+index d1eaf11b3..b4ff8dc52 100644
+--- a/service/collector_windows.go
++++ b/service/collector_windows.go
+@@ -32,7 +32,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/confmap/converter/overwritepropertiesconverter"
+-	"go.opentelemetry.io/collector/service/featuregate"
++	"go.opentelemetry.io/collector/featuregate"
+ )
+ 
+ type windowsService struct {

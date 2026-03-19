@@ -1,0 +1,12 @@
+diff --git a/processor/batchprocessor/metrics.go b/processor/batchprocessor/metrics.go
+index 36ce1b312..d554d262c 100644
+--- a/processor/batchprocessor/metrics.go
++++ b/processor/batchprocessor/metrics.go
+@@ -34,6 +34,7 @@ var (
+ type trigger int
+ 
+ const (
++	typeStr                = "batch"
+ 	triggerTimeout trigger = iota
+ 	triggerBatchSize
+ )

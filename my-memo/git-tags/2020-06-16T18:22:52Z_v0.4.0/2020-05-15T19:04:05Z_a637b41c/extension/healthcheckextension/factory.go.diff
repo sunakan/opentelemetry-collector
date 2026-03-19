@@ -1,0 +1,15 @@
+diff --git a/extension/healthcheckextension/factory.go b/extension/healthcheckextension/factory.go
+index eb09a68e1..a6fb22626 100644
+--- a/extension/healthcheckextension/factory.go
++++ b/extension/healthcheckextension/factory.go
+@@ -19,8 +19,8 @@ import (
+ 	"errors"
+ 	"sync/atomic"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configmodels"
+ )
+ 
+ const (

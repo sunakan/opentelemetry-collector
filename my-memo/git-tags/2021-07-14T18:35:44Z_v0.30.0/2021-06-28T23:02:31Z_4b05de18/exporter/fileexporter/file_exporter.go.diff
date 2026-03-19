@@ -1,0 +1,13 @@
+diff --git a/exporter/fileexporter/file_exporter.go b/exporter/fileexporter/file_exporter.go
+index 65f13184b..77900bf5b 100644
+--- a/exporter/fileexporter/file_exporter.go
++++ b/exporter/fileexporter/file_exporter.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+-	"go.opentelemetry.io/collector/internal/otlp"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 

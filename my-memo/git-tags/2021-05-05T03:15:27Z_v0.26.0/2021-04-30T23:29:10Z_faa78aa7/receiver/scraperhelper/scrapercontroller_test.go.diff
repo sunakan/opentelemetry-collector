@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index 6af76bfb1..fb67088c0 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -210,7 +210,6 @@ func TestScrapeController(t *testing.T) {
+ 			cfg := &defaultCfg
+ 			if test.scraperControllerSettings != nil {
+ 				cfg = test.scraperControllerSettings
+-				cfg.NameVal = "receiver"
+ 			}
+ 
+ 			mr, err := NewScraperControllerReceiver(cfg, zap.NewNop(), nextConsumer, options...)

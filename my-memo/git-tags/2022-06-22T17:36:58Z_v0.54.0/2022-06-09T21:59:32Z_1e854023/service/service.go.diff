@@ -1,0 +1,13 @@
+diff --git a/service/service.go b/service/service.go
+index 59df67611..2199c97a7 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -64,7 +64,7 @@ func newService(set *settings) (*service, error) {
+ 		return nil, fmt.Errorf("failed to get logger: %w", err)
+ 	}
+ 
+-	if srv.host.builtExtensions, err = extensions.Build(srv.telemetry, srv.buildInfo, srv.config, srv.host.factories.Extensions); err != nil {
++	if srv.host.builtExtensions, err = extensions.Build(context.Background(), srv.telemetry, srv.buildInfo, srv.config.Extensions, srv.config.Service.Extensions, srv.host.factories.Extensions); err != nil {
+ 		return nil, fmt.Errorf("cannot build extensions: %w", err)
+ 	}
+ 

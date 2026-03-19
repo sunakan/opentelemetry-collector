@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/internal/metadata/generated_status.go b/receiver/otlpreceiver/internal/metadata/generated_status.go
+index 5fe9771f5..a443be800 100644
+--- a/receiver/otlpreceiver/internal/metadata/generated_status.go
++++ b/receiver/otlpreceiver/internal/metadata/generated_status.go
+@@ -13,7 +13,7 @@ var (
+ 
+ const (
+ 	ProfilesStability = component.StabilityLevelDevelopment
+-	LogsStability     = component.StabilityLevelBeta
+ 	TracesStability   = component.StabilityLevelStable
+ 	MetricsStability  = component.StabilityLevelStable
++	LogsStability     = component.StabilityLevelStable
+ )

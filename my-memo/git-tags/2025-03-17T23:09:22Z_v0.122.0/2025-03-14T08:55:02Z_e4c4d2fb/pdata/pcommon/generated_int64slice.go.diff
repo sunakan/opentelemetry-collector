@@ -1,0 +1,30 @@
+diff --git a/pdata/pcommon/generated_int64slice.go b/pdata/pcommon/generated_int64slice.go
+index a25e34180..a8e5f453b 100644
+--- a/pdata/pcommon/generated_int64slice.go
++++ b/pdata/pcommon/generated_int64slice.go
+@@ -7,6 +7,7 @@
+ package pcommon
+ 
+ import (
++	"iter"
+ 	"slices"
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+@@ -57,6 +58,17 @@ func (ms Int64Slice) At(i int) int64 {
+ 	return (*ms.getOrig())[i]
+ }
+ 
++// All returns an iterator over index-value pairs in the slice.
++func (ms Int64Slice) All() iter.Seq2[int, int64] {
++	return func(yield func(int, int64) bool) {
++		for i := 0; i < ms.Len(); i++ {
++			if !yield(i, ms.At(i)) {
++				return
++			}
++		}
++	}
++}
++
+ // SetAt sets int64 item at particular index.
+ // Equivalent of int64Slice[i] = val
+ func (ms Int64Slice) SetAt(i int, val int64) {

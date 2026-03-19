@@ -1,0 +1,15 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantile.go b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+index b4e1fe08f..667e5610c 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantile.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+@@ -41,6 +41,10 @@ func NewSummaryDataPointValueAtQuantile() SummaryDataPointValueAtQuantile {
+ func (ms SummaryDataPointValueAtQuantile) MoveTo(dest SummaryDataPointValueAtQuantile) {
+ 	ms.state.AssertMutable()
+ 	dest.state.AssertMutable()
++	// If they point to the same data, they are the same, nothing to do.
++	if ms.orig == dest.orig {
++		return
++	}
+ 	*dest.orig = *ms.orig
+ 	*ms.orig = otlpmetrics.SummaryDataPoint_ValueAtQuantile{}
+ }

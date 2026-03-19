@@ -1,0 +1,18 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver.go b/receiver/hostmetricsreceiver/hostmetrics_receiver.go
+index 3c34fae75..e0b2b63f1 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver.go
+@@ -43,7 +43,12 @@ func NewHostMetricsReceiver(
+ 
+ 	scrapers := make([]internal.Scraper, 0)
+ 	for key, cfg := range config.Scrapers {
+-		scraper, err := factories[key].CreateMetricsScraper(ctx, logger, cfg, consumer)
++		factory := factories[key]
++		if factory == nil {
++			return nil, fmt.Errorf("host metrics scraper factory not found for key: %s", key)
++		}
++
++		scraper, err := factory.CreateMetricsScraper(ctx, logger, cfg, consumer)
+ 		if err != nil {
+ 			return nil, fmt.Errorf("cannot create scraper: %s", err.Error())
+ 		}

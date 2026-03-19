@@ -1,0 +1,20 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
+index a3e974738..b13a22116 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_metadata.go
+@@ -40,7 +40,6 @@ const (
+ 
+ var fileSystemUsageDescriptor = func() pdata.Metric {
+ 	metric := pdata.NewMetric()
+-	metric.InitEmpty()
+ 	metric.SetName("system.filesystem.usage")
+ 	metric.SetDescription("Filesystem bytes used.")
+ 	metric.SetUnit("bytes")
+@@ -53,7 +52,6 @@ var fileSystemUsageDescriptor = func() pdata.Metric {
+ 
+ var fileSystemINodesUsageDescriptor = func() pdata.Metric {
+ 	metric := pdata.NewMetric()
+-	metric.InitEmpty()
+ 	metric.SetName("system.filesystem.inodes.usage")
+ 	metric.SetDescription("FileSystem iNodes used.")
+ 	metric.SetUnit("1")

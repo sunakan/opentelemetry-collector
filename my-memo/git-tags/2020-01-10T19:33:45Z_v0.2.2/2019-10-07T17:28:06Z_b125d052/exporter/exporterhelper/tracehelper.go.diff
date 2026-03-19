@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 405a59de8..b379b9d9e 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -37,6 +37,10 @@ type traceExporter struct {
+ 
+ var _ (exporter.TraceExporter) = (*traceExporter)(nil)
+ 
++func (te *traceExporter) Start(host exporter.Host) error {
++	return nil
++}
++
+ func (te *traceExporter) ConsumeTraceData(ctx context.Context, td consumerdata.TraceData) error {
+ 	exporterCtx := observability.ContextWithExporterName(ctx, te.exporterFullName)
+ 	_, err := te.pushTraceData(exporterCtx, td)

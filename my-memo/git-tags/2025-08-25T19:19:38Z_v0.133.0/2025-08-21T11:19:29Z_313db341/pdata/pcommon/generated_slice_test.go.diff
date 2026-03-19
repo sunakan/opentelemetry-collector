@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_slice_test.go b/pdata/pcommon/generated_slice_test.go
+index 1e0a2ceb0..f4f317122 100644
+--- a/pdata/pcommon/generated_slice_test.go
++++ b/pdata/pcommon/generated_slice_test.go
+@@ -51,6 +51,8 @@ func TestSlice_CopyTo(t *testing.T) {
+ 	src := generateTestSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestSlice(), dest)
+ }
+ 
+ func TestSlice_EnsureCapacity(t *testing.T) {

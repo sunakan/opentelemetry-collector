@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 0dbffbb4b..1957c256e 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -91,7 +91,7 @@ func pushTraceDataWithMetrics(next PushTraceData) PushTraceData {
+ 		// TODO: Add retry logic here if we want to support because we need to record special metrics.
+ 		droppedSpans, err := next(ctx, td)
+ 		// TODO: How to record the reason of dropping?
+-		observability.RecordTraceExporterMetrics(ctx, len(td.Spans), droppedSpans)
++		observability.RecordMetricsForTraceExporter(ctx, len(td.Spans), droppedSpans)
+ 		return droppedSpans, err
+ 	}
+ }

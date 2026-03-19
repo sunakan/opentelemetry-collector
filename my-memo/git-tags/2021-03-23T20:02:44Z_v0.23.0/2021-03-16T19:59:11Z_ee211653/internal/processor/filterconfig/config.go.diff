@@ -1,0 +1,14 @@
+diff --git a/internal/processor/filterconfig/config.go b/internal/processor/filterconfig/config.go
+index c18f23bee..e2beb9a02 100644
+--- a/internal/processor/filterconfig/config.go
++++ b/internal/processor/filterconfig/config.go
+@@ -133,9 +133,6 @@ func (mp *MatchProperties) ValidateForLogs() error {
+ 	return nil
+ }
+ 
+-// MatchTypeFieldName is the mapstructure field name for MatchProperties.Attributes field.
+-const AttributesFieldName = "attributes"
+-
+ // Attribute specifies the attribute key and optional value to match against.
+ type Attribute struct {
+ 	// Key specifies the attribute key.

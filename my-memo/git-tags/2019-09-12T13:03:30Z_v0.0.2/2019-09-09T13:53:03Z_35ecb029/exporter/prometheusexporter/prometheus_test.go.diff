@@ -1,0 +1,38 @@
+diff --git a/exporter/prometheusexporter/prometheus_test.go b/exporter/prometheusexporter/prometheus_test.go
+index 7f94a9a0d..568783ce2 100644
+--- a/exporter/prometheusexporter/prometheus_test.go
++++ b/exporter/prometheusexporter/prometheus_test.go
+@@ -27,7 +27,6 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-service/internal/config/viperutils"
+ )
+ 
+ func TestPrometheusExporter(t *testing.T) {
+@@ -70,25 +69,6 @@ func TestPrometheusExporter(t *testing.T) {
+ 	}
+ }
+ 
+-func TestPrometheusExporter_nilDoesntCauseCrash(t *testing.T) {
+-	config := []byte(`
+-prometheus:`)
+-	v, _ := viperutils.ViperFromYAMLBytes([]byte(config))
+-	tes, mes, doneFns, err := PrometheusExportersFromViper(v)
+-	if err != nil {
+-		t.Errorf("Unexpected parse error: %v", err)
+-	}
+-	if len(tes) != 0 {
+-		t.Errorf("Unexpectedly got back %d > 0 trace exporters", len(tes))
+-	}
+-	if len(mes) != 0 {
+-		t.Errorf("Unexpectedly got back %d > 0 metrics exporters", len(mes))
+-	}
+-	for _, doneFn := range doneFns {
+-		doneFn()
+-	}
+-}
+-
+ func TestPrometheusExporter_endToEnd(t *testing.T) {
+ 	config := &Config{
+ 		Namespace: "test",

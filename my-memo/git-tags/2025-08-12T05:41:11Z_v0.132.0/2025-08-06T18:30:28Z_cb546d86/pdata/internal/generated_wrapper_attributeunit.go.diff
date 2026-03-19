@@ -1,0 +1,13 @@
+diff --git a/pdata/internal/generated_wrapper_attributeunit.go b/pdata/internal/generated_wrapper_attributeunit.go
+index 2202dc303..73c815a09 100644
+--- a/pdata/internal/generated_wrapper_attributeunit.go
++++ b/pdata/internal/generated_wrapper_attributeunit.go
+@@ -14,3 +14,8 @@ func CopyOrigAttributeUnit(dest, src *otlpprofiles.AttributeUnit) {
+ 	dest.AttributeKeyStrindex = src.AttributeKeyStrindex
+ 	dest.UnitStrindex = src.UnitStrindex
+ }
++
++func FillOrigTestAttributeUnit(orig *otlpprofiles.AttributeUnit) {
++	orig.AttributeKeyStrindex = int32(13)
++	orig.UnitStrindex = int32(13)
++}

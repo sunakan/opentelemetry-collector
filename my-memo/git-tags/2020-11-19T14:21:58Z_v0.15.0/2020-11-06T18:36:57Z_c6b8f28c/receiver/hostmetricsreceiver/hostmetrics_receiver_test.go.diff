@@ -1,0 +1,14 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+index 8e389a194..8676fdb82 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver_test.go
+@@ -154,8 +154,7 @@ func assertIncludesExpectedMetrics(t *testing.T, got pdata.Metrics) {
+ 		rm := rms.At(i)
+ 		metrics := getMetricSlice(t, rm)
+ 		returnedMetricNames := getReturnedMetricNames(metrics)
+-
+-		if rm.Resource().IsNil() || rm.Resource().Attributes().Len() == 0 {
++		if rm.Resource().Attributes().Len() == 0 {
+ 			appendMapInto(returnedMetrics, returnedMetricNames)
+ 		} else {
+ 			appendMapInto(returnedResourceMetrics, returnedMetricNames)

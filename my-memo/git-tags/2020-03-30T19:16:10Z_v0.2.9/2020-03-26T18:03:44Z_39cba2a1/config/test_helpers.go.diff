@@ -1,0 +1,21 @@
+diff --git a/config/test_helpers.go b/config/test_helpers.go
+index c623eb69d..9962a61ba 100644
+--- a/config/test_helpers.go
++++ b/config/test_helpers.go
+@@ -19,7 +19,6 @@ import (
+ 	"path/filepath"
+ 	"testing"
+ 
+-	"github.com/spf13/viper"
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+@@ -42,7 +41,7 @@ func LoadConfigFile(t *testing.T, fileName string, factories Factories) (*config
+ 	}()
+ 
+ 	// Read yaml config from file
+-	v := viper.New()
++	v := NewViper()
+ 	v.SetConfigType("yaml")
+ 	err = v.ReadConfig(file)
+ 	if err != nil {

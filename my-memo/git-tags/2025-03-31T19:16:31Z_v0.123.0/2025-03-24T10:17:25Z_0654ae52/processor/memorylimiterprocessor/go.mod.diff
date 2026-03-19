@@ -1,0 +1,19 @@
+diff --git a/processor/memorylimiterprocessor/go.mod b/processor/memorylimiterprocessor/go.mod
+index 98849204e..d0e46a424 100644
+--- a/processor/memorylimiterprocessor/go.mod
++++ b/processor/memorylimiterprocessor/go.mod
+@@ -18,6 +18,7 @@ require (
+ 	go.opentelemetry.io/collector/pipeline v0.122.1
+ 	go.opentelemetry.io/collector/pipeline/xpipeline v0.122.1
+ 	go.opentelemetry.io/collector/processor v0.122.1
++	go.opentelemetry.io/collector/processor/processorhelper v0.0.0-00010101000000-000000000000
+ 	go.opentelemetry.io/collector/processor/processorhelper/xprocessorhelper v0.122.1
+ 	go.opentelemetry.io/collector/processor/processortest v0.122.1
+ 	go.opentelemetry.io/collector/processor/xprocessor v0.122.1
+@@ -112,4 +113,6 @@ replace go.opentelemetry.io/collector/consumer/consumererror => ../../consumer/c
+ 
+ replace go.opentelemetry.io/collector/processor/processorhelper/xprocessorhelper => ../processorhelper/xprocessorhelper
+ 
++replace go.opentelemetry.io/collector/processor/processorhelper => ../processorhelper
++
+ replace go.opentelemetry.io/collector/pipeline/xpipeline => ../../pipeline/xpipeline

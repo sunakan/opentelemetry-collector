@@ -1,0 +1,13 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 9073bdd38..1a9b9d877 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -258,7 +258,7 @@ service:
+       processors: [batch]
+       exporters: [otlp]
+ `
+-	return configparser.NewParserFromBuffer(strings.NewReader(configStr))
++	return configparser.NewConfigMapFromBuffer(strings.NewReader(configStr))
+ }
+ 
+ func (*minimalParserLoader) Close(context.Context) error {

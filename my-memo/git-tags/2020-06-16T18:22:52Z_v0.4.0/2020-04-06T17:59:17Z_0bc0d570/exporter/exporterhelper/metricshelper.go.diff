@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index 2d9400cdd..fc7aca71b 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -33,7 +33,7 @@ type metricsExporter struct {
+ 	shutdown         Shutdown
+ }
+ 
+-func (me *metricsExporter) Start(host component.Host) error {
++func (me *metricsExporter) Start(ctx context.Context, host component.Host) error {
+ 	return nil
+ }
+ 
+@@ -44,7 +44,7 @@ func (me *metricsExporter) ConsumeMetricsData(ctx context.Context, md consumerda
+ }
+ 
+ // Shutdown stops the exporter and is invoked during shutdown.
+-func (me *metricsExporter) Shutdown() error {
++func (me *metricsExporter) Shutdown(context.Context) error {
+ 	return me.shutdown()
+ }
+ 

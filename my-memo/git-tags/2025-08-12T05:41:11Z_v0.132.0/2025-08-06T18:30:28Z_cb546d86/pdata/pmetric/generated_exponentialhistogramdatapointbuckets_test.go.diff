@@ -1,0 +1,26 @@
+diff --git a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+index d5da345ea..a06025f7f 100644
+--- a/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
++++ b/pdata/pmetric/generated_exponentialhistogramdatapointbuckets_test.go
+@@ -83,17 +83,12 @@ func TestExponentialHistogramDataPointBuckets_Offset(t *testing.T) {
+ func TestExponentialHistogramDataPointBuckets_BucketCounts(t *testing.T) {
+ 	ms := NewExponentialHistogramDataPointBuckets()
+ 	assert.Equal(t, pcommon.NewUInt64Slice(), ms.BucketCounts())
+-	internal.FillTestUInt64Slice(internal.UInt64Slice(ms.BucketCounts()))
++	ms.orig.BucketCounts = internal.GenerateOrigTestUint64Slice()
+ 	assert.Equal(t, pcommon.UInt64Slice(internal.GenerateTestUInt64Slice()), ms.BucketCounts())
+ }
+ 
+ func generateTestExponentialHistogramDataPointBuckets() ExponentialHistogramDataPointBuckets {
+-	tv := NewExponentialHistogramDataPointBuckets()
+-	fillTestExponentialHistogramDataPointBuckets(tv)
+-	return tv
+-}
+-
+-func fillTestExponentialHistogramDataPointBuckets(tv ExponentialHistogramDataPointBuckets) {
+-	tv.orig.Offset = int32(13)
+-	internal.FillTestUInt64Slice(internal.NewUInt64Slice(&tv.orig.BucketCounts, tv.state))
++	ms := NewExponentialHistogramDataPointBuckets()
++	internal.FillOrigTestExponentialHistogramDataPoint_Buckets(ms.orig)
++	return ms
+ }

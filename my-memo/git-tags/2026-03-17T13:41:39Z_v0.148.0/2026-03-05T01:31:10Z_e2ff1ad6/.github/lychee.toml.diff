@@ -1,0 +1,16 @@
+diff --git a/.github/lychee.toml b/.github/lychee.toml
+index a228cd084..9a1a7952b 100644
+--- a/.github/lychee.toml
++++ b/.github/lychee.toml
+@@ -1,11 +1,6 @@
+-include-fragments = true
+-
+ accept = ["200..=299", "429"]
+ 
+ exclude  = [
+     "^http(s)?://localhost",
+     "^http(s)?://example.com"
+ ]
+-
+-# better to be safe and avoid failures
+-max-retries = 6

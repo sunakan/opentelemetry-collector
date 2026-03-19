@@ -1,0 +1,13 @@
+diff --git a/service/internal/configunmarshaler/processors_test.go b/service/internal/configunmarshaler/processors_test.go
+index 702f39220..cc2682fa0 100644
+--- a/service/internal/configunmarshaler/processors_test.go
++++ b/service/internal/configunmarshaler/processors_test.go
+@@ -37,7 +37,7 @@ func TestProcessorsUnmarshal(t *testing.T) {
+ 	require.NoError(t, procs.Unmarshal(conf))
+ 
+ 	cfgWithName := factories.Processors["nop"].CreateDefaultConfig()
+-	cfgWithName.SetIDName("myprocessor")
++	cfgWithName.SetIDName("myprocessor") //nolint:staticcheck
+ 	assert.Equal(t, map[component.ID]component.Config{
+ 		component.NewID("nop"):                        factories.Processors["nop"].CreateDefaultConfig(),
+ 		component.NewIDWithName("nop", "myprocessor"): cfgWithName,

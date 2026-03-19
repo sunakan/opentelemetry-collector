@@ -1,0 +1,22 @@
+diff --git a/internal/collector/processor/queued/config_test.go b/internal/collector/processor/queued/config_test.go
+index 055f61367..63ab97a71 100644
+--- a/internal/collector/processor/queued/config_test.go
++++ b/internal/collector/processor/queued/config_test.go
+@@ -23,7 +23,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"github.com/open-telemetry/opentelemetry-service/configv2"
+-	"github.com/open-telemetry/opentelemetry-service/models"
++	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/processor"
+ )
+ 
+@@ -44,7 +44,7 @@ func TestLoadConfig(t *testing.T) {
+ 	p1 := config.Processors["queued-retry/2"]
+ 	assert.Equal(t, p1,
+ 		&ConfigV2{
+-			ProcessorSettings: models.ProcessorSettings{
++			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: "queued-retry",
+ 				NameVal: "queued-retry/2",
+ 			},

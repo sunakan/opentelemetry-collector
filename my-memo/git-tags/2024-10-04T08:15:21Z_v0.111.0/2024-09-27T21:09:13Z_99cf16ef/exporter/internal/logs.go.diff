@@ -1,0 +1,21 @@
+diff --git a/exporter/internal/logs.go b/exporter/internal/logs.go
+deleted file mode 100644
+index 999ed02e4..000000000
+--- a/exporter/internal/logs.go
++++ /dev/null
+@@ -1,15 +0,0 @@
+-// Copyright The OpenTelemetry Authors
+-// SPDX-License-Identifier: Apache-2.0
+-
+-package internal // import "go.opentelemetry.io/collector/exporter/internal"
+-
+-import (
+-	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer"
+-)
+-
+-// Logs is an exporter that can consume logs.
+-type Logs interface {
+-	component.Component
+-	consumer.Logs
+-}

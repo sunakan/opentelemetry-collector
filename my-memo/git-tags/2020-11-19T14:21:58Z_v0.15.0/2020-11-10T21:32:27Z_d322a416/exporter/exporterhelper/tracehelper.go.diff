@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 43afcf402..23a9804f0 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -111,6 +111,6 @@ func (tewo *tracesExporterWithObservability) send(req request) (int, error) {
+ 	// TODO: this is not ideal: it should come from the next function itself.
+ 	// 	temporarily loading it from internal format. Once full switch is done
+ 	// 	to new metrics will remove this.
+-	obsreport.EndTraceDataExportOp(req.context(), req.count(), droppedSpans, err)
++	obsreport.EndTraceDataExportOp(req.context(), req.count(), err)
+ 	return droppedSpans, err
+ }

@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/internal/normal/profiles.go b/exporter/debugexporter/internal/normal/profiles.go
+index 43bc11aff..b131e9c39 100644
+--- a/exporter/debugexporter/internal/normal/profiles.go
++++ b/exporter/debugexporter/internal/normal/profiles.go
+@@ -33,7 +33,7 @@ func (normalProfilesMarshaler) MarshalProfiles(pd pprofile.Profiles) ([]byte, er
+ 				buffer.WriteString(profile.ProfileID().String())
+ 
+ 				buffer.WriteString(" samples=")
+-				buffer.WriteString(strconv.Itoa(profile.Profile().Sample().Len()))
++				buffer.WriteString(strconv.Itoa(profile.Sample().Len()))
+ 
+ 				if profile.Attributes().Len() > 0 {
+ 					profileAttributes := writeAttributes(profile.Attributes())

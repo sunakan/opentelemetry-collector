@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/lint.go b/cmd/mdatagen/internal/lint.go
+index 5dfcfb4e0..b4b2f2f3c 100644
+--- a/cmd/mdatagen/internal/lint.go
++++ b/cmd/mdatagen/internal/lint.go
+@@ -19,7 +19,7 @@ func FormatIdentifier(s string, exported bool) (string, error) {
+ 	// Convert various characters to . for strings.Title to operate on.
+ 	replace := strings.NewReplacer("_", ".", "-", ".", "<", ".", ">", ".", "/", ".", ":", ".")
+ 	str := replace.Replace(s)
+-	str = strings.Title(str) // nolint SA1019
++	str = strings.Title(str) //nolint:staticcheck // SA1019
+ 	str = strings.ReplaceAll(str, ".", "")
+ 
+ 	var word string

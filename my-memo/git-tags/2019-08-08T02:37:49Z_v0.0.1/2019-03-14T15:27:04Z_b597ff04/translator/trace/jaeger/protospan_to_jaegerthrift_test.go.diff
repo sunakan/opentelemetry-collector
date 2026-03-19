@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/protospan_to_jaegerthrift_test.go b/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
+index b9a3212d3..a799258bc 100644
+--- a/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
++++ b/translator/trace/jaeger/protospan_to_jaegerthrift_test.go
+@@ -92,7 +92,7 @@ func TestInvalidOCProtoIDs(t *testing.T) {
+ 	}
+ }
+ 
+-func TestNilOCProtoNode(t *testing.T) {
++func TestNilOCProtoNodeToJaegerThrift(t *testing.T) {
+ 	nilNodeBatch := data.TraceData{
+ 		Spans: []*tracepb.Span{
+ 			{

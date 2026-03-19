@@ -1,0 +1,15 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index 1a76d062e..99d354334 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -223,8 +223,8 @@ func (mc *MockMetricConsumer) ConsumeMetrics(_ context.Context, md pdata.Metrics
+ 	return nil
+ }
+ 
+-func (tc *MockTraceConsumer) MockConsumeTraceData(spansCount int) error {
+-	tc.numSpansReceived.Add(uint64(spansCount))
++func (tc *MockTraceConsumer) MockConsumeTraceData(spanCount int) error {
++	tc.numSpansReceived.Add(uint64(spanCount))
+ 	return nil
+ }
+ 

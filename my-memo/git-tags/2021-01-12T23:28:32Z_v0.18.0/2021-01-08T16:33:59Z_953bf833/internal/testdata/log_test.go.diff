@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/log_test.go b/internal/testdata/log_test.go
+index 2ceb87ede..7c213b521 100644
+--- a/internal/testdata/log_test.go
++++ b/internal/testdata/log_test.go
+@@ -21,7 +21,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal"
+-	otlplogs "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/logs/v1"
++	otlplogs "go.opentelemetry.io/collector/internal/data/protogen/logs/v1"
+ )
+ 
+ type logTestCase struct {

@@ -1,0 +1,13 @@
+diff --git a/receiver/factory.go b/receiver/factory.go
+index 6c6231a41..f22db6a0e 100644
+--- a/receiver/factory.go
++++ b/receiver/factory.go
+@@ -34,7 +34,7 @@ type Factory interface {
+ 	CreateDefaultConfig() configmodels.Receiver
+ 
+ 	// CustomUnmarshaler returns a custom unmarshaler for the configuration or nil if
+-	// there is no need for custom unmarshaling. This is typically used if viper.Unmarshal()
++	// there is no need for custom unmarshaling. This is typically used if viper.UnmarshalExact()
+ 	// is not sufficient to unmarshal correctly.
+ 	CustomUnmarshaler() CustomUnmarshaler
+ 

@@ -1,0 +1,17 @@
+diff --git a/pdata/plog/plogotlp/request_test.go b/pdata/plog/plogotlp/request_test.go
+index 5520d1ef0..4bea3ac65 100644
+--- a/pdata/plog/plogotlp/request_test.go
++++ b/pdata/plog/plogotlp/request_test.go
+@@ -12,8 +12,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ json.Unmarshaler = ExportRequest{}
+-var _ json.Marshaler = ExportRequest{}
++var (
++	_ json.Unmarshaler = ExportRequest{}
++	_ json.Marshaler   = ExportRequest{}
++)
+ 
+ var logsRequestJSON = []byte(`
+ 	{

@@ -1,0 +1,28 @@
+diff --git a/featuregate/gate.go b/featuregate/gate.go
+index 7259ba3d7..09b65ea12 100644
+--- a/featuregate/gate.go
++++ b/featuregate/gate.go
+@@ -25,11 +25,6 @@ type Gate struct {
+ 	enabled        bool
+ }
+ 
+-// Deprecated: [v0.65.0] use ID.
+-func (g *Gate) GetID() string {
+-	return g.ID()
+-}
+-
+ // ID returns the id of the Gate.
+ func (g *Gate) ID() string {
+ 	return g.id
+@@ -40,11 +35,6 @@ func (g *Gate) IsEnabled() bool {
+ 	return g.enabled
+ }
+ 
+-// Deprecated: [v0.65.0] use Description.
+-func (g *Gate) GetDescription() string {
+-	return g.Description()
+-}
+-
+ // Description returns the description for the Gate.
+ func (g *Gate) Description() string {
+ 	return g.description

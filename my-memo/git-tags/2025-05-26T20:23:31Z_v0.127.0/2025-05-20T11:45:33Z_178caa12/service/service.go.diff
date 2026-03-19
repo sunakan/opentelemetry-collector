@@ -1,0 +1,25 @@
+diff --git a/service/service.go b/service/service.go
+index 3bfca587a..8914bbcd5 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -531,6 +531,20 @@ func configureViews(level configtelemetry.Level) []config.View {
+ 			InstrumentName: ptr("otelcol_processor_batch_batch_send_size_bytes"),
+ 		}))
+ 	}
++
++	// Internal graph metrics
++	graphScope := ptr("go.opentelemetry.io/collector/service")
++	if level < configtelemetry.LevelDetailed {
++		views = append(views, dropViewOption(&config.ViewSelector{
++			MeterName:      graphScope,
++			InstrumentName: ptr("otelcol.*.consumed.size"),
++		}))
++		views = append(views, dropViewOption(&config.ViewSelector{
++			MeterName:      graphScope,
++			InstrumentName: ptr("otelcol.*.produced.size"),
++		}))
++	}
++
+ 	return views
+ }
+ 

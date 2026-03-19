@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/ocastore.go b/receiver/prometheusreceiver/internal/ocastore.go
+index d0a8d9187..55e1f5371 100644
+--- a/receiver/prometheusreceiver/internal/ocastore.go
++++ b/receiver/prometheusreceiver/internal/ocastore.go
+@@ -82,7 +82,7 @@ func (o *ocaStore) SetScrapeManager(scrapeManager *scrape.Manager) {
+ 	}
+ }
+ 
+-func (o *ocaStore) Appender() storage.Appender {
++func (o *ocaStore) Appender(context.Context) storage.Appender {
+ 	state := atomic.LoadInt32(&o.running)
+ 	if state == runningStateReady {
+ 		return newTransaction(o.ctx, o.jobsMap, o.useStartTimeMetric, o.startTimeMetricRegex, o.receiverName, o.mc, o.sink, o.logger)

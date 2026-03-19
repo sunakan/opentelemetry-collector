@@ -1,0 +1,18 @@
+diff --git a/model/pdata/metrics.go b/model/pdata/metrics.go
+index 39e253d2b..a7637a7a6 100644
+--- a/model/pdata/metrics.go
++++ b/model/pdata/metrics.go
+@@ -252,13 +252,3 @@ func (mdt MetricValueType) String() string {
+ 	}
+ 	return ""
+ }
+-
+-// Deprecated: [v0.45.0] Use ValueType instead.
+-func (ms NumberDataPoint) Type() MetricValueType {
+-	return ms.ValueType()
+-}
+-
+-// Deprecated: [v0.45.0] Use ValueType instead.
+-func (ms Exemplar) Type() MetricValueType {
+-	return ms.ValueType()
+-}

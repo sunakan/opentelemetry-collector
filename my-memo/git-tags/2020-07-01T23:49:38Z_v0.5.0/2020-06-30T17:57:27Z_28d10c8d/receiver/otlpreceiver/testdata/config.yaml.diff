@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/testdata/config.yaml b/receiver/otlpreceiver/testdata/config.yaml
+index 30aeded35..990cb2cbf 100644
+--- a/receiver/otlpreceiver/testdata/config.yaml
++++ b/receiver/otlpreceiver/testdata/config.yaml
+@@ -54,7 +54,7 @@ receivers:
+   otlp/tlscredentials:
+     protocols:
+       grpc:
+-        tls_credentials:
++        tls_settings:
+           cert_file: test.crt
+           key_file: test.key
+       http:

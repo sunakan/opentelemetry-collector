@@ -1,0 +1,16 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index 2cfca1a14..16865ed5a 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -130,7 +130,10 @@ func TestReception(t *testing.T) {
+ 	port := testutil.GetAvailablePort(t)
+ 	// 1. Create the Jaeger receiver aka "server"
+ 	config := &configuration{
+-		CollectorHTTPPort: int(port), // that's the only one used by this test
++		CollectorHTTPPort: int(port),
++		CollectorHTTPSettings: confighttp.HTTPServerSettings{
++			Endpoint: fmt.Sprintf(":%d", port),
++		},
+ 	}
+ 	sink := new(consumertest.TracesSink)
+ 

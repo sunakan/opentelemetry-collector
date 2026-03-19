@@ -1,0 +1,13 @@
+diff --git a/internal/processor/filterset/strict/strictfilterset.go b/internal/processor/filterset/strict/strictfilterset.go
+index ebe912b82..459f55866 100644
+--- a/internal/processor/filterset/strict/strictfilterset.go
++++ b/internal/processor/filterset/strict/strictfilterset.go
+@@ -33,7 +33,7 @@ func NewFilterSet(filters []string) (*FilterSet, error) {
+ 	return fs, nil
+ }
+ 
+-// Matches returns true if the given string matches any of the FitlerSet's filters.
++// Matches returns true if the given string matches any of the FilterSet's filters.
+ func (sfs *FilterSet) Matches(toMatch string) bool {
+ 	_, ok := sfs.filters[toMatch]
+ 	return ok

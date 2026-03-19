@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_traces.go b/translator/trace/zipkin/zipkinv1_to_traces.go
+index c37b831f7..88ef5c18c 100644
+--- a/translator/trace/zipkin/zipkinv1_to_traces.go
++++ b/translator/trace/zipkin/zipkinv1_to_traces.go
+@@ -22,7 +22,7 @@ import (
+ func V1JSONBatchToInternalTraces(blob []byte) (pdata.Traces, error) {
+ 	traces := pdata.NewTraces()
+ 
+-	ocTraces, err := V1JSONBatchToOCProto(blob)
++	ocTraces, err := v1JSONBatchToOCProto(blob)
+ 	if err != nil {
+ 		return traces, err
+ 	}

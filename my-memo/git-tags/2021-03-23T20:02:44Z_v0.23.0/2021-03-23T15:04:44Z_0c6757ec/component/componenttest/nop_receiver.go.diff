@@ -1,0 +1,31 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index a98e65f29..869afa88b 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -50,7 +50,7 @@ func (f *nopReceiverFactory) CreateTracesReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,
+ 	_ configmodels.Receiver,
+-	_ consumer.TracesConsumer,
++	_ consumer.Traces,
+ ) (component.TracesReceiver, error) {
+ 	return nopReceiverInstance, nil
+ }
+@@ -60,7 +60,7 @@ func (f *nopReceiverFactory) CreateMetricsReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,
+ 	_ configmodels.Receiver,
+-	_ consumer.MetricsConsumer,
++	_ consumer.Metrics,
+ ) (component.MetricsReceiver, error) {
+ 	return nopReceiverInstance, nil
+ }
+@@ -70,7 +70,7 @@ func (f *nopReceiverFactory) CreateLogsReceiver(
+ 	_ context.Context,
+ 	_ component.ReceiverCreateParams,
+ 	_ configmodels.Receiver,
+-	_ consumer.LogsConsumer,
++	_ consumer.Logs,
+ ) (component.LogsReceiver, error) {
+ 	return nopReceiverInstance, nil
+ }

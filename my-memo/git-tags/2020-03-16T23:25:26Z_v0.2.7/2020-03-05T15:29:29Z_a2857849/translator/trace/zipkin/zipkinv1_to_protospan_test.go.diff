@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan_test.go b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+index c14574ea2..13c1473bf 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan_test.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan_test.go
+@@ -863,7 +863,7 @@ func TestSpanKindTranslation(t *testing.T) {
+ 			}
+ 
+ 			// Translate to OCSpanData.
+-			sd, err := spandata.ProtoSpanToOCSpanData(ocSpan)
++			sd, err := spandata.ProtoSpanToOCSpanData(ocSpan, nil)
+ 			assert.NoError(t, err)
+ 			assert.EqualValues(t, test.ocKind, sd.SpanKind)
+ 

@@ -1,0 +1,31 @@
+diff --git a/receiver/otlpreceiver/otlphttp.go b/receiver/otlpreceiver/otlphttp.go
+index 1bd211645..efcaf146e 100644
+--- a/receiver/otlpreceiver/otlphttp.go
++++ b/receiver/otlpreceiver/otlphttp.go
+@@ -44,7 +44,7 @@ func handleTraces(
+ 		return
+ 	}
+ 
+-	td, err := tracesUnmarshaler.Unmarshal(body)
++	td, err := tracesUnmarshaler.UnmarshalTraces(body)
+ 	if err != nil {
+ 		writeError(resp, contentType, err, http.StatusBadRequest)
+ 		return
+@@ -71,7 +71,7 @@ func handleMetrics(
+ 		return
+ 	}
+ 
+-	md, err := metricsUnmarshaler.Unmarshal(body)
++	md, err := metricsUnmarshaler.UnmarshalMetrics(body)
+ 	if err != nil {
+ 		writeError(resp, contentType, err, http.StatusBadRequest)
+ 		return
+@@ -98,7 +98,7 @@ func handleLogs(
+ 		return
+ 	}
+ 
+-	ld, err := logsUnmarshaler.Unmarshal(body)
++	ld, err := logsUnmarshaler.UnmarshalLogs(body)
+ 	if err != nil {
+ 		writeError(resp, contentType, err, http.StatusBadRequest)
+ 		return

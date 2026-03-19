@@ -1,0 +1,41 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index b1f18687b..f33a0d3bd 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -529,12 +529,10 @@ func TestSamplingStrategiesMutualTLS(t *testing.T) {
+ 	}
+ 	exp, err := factory.CreateTracesReceiver(context.Background(), component.ReceiverCreateParams{Logger: zap.NewNop()}, cfg, consumertest.NewTracesNop())
+ 	require.NoError(t, err)
+-	host := &componenttest.ErrorWaitingHost{}
+-	err = exp.Start(context.Background(), host)
++	err = exp.Start(context.Background(), newAssertNoErrorHost(t))
+ 	require.NoError(t, err)
+ 	defer exp.Shutdown(context.Background())
+-	_, err = host.WaitForFatalError(200 * time.Millisecond)
+-	require.NoError(t, err)
++	<-time.After(200 * time.Millisecond)
+ 
+ 	resp, err := http.Get(fmt.Sprintf("http://%s?service=bar", hostEndpoint))
+ 	require.NoError(t, err)
+@@ -587,3 +585,21 @@ func sendToCollector(endpoint string, batch *jaegerthrift.Batch) error {
+ 	}
+ 	return nil
+ }
++
++// assertNoErrorHost implements a component.Host that asserts that there were no errors.
++type assertNoErrorHost struct {
++	component.Host
++	*testing.T
++}
++
++// newAssertNoErrorHost returns a new instance of assertNoErrorHost.
++func newAssertNoErrorHost(t *testing.T) component.Host {
++	return &assertNoErrorHost{
++		Host: componenttest.NewNopHost(),
++		T:    t,
++	}
++}
++
++func (aneh *assertNoErrorHost) ReportFatalError(err error) {
++	assert.NoError(aneh, err)
++}

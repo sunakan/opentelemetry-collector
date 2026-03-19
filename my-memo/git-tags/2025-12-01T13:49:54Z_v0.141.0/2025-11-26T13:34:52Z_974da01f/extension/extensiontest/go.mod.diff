@@ -1,0 +1,10 @@
+diff --git a/extension/extensiontest/go.mod b/extension/extensiontest/go.mod
+index 25fb7a570..e6662b156 100644
+--- a/extension/extensiontest/go.mod
++++ b/extension/extensiontest/go.mod
+@@ -42,3 +42,5 @@ replace go.opentelemetry.io/collector/component => ../../component
+ replace go.opentelemetry.io/collector/component/componenttest => ../../component/componenttest
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../../featuregate
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

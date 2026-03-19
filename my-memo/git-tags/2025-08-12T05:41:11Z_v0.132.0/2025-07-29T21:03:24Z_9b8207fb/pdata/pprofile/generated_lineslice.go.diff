@@ -1,0 +1,20 @@
+diff --git a/pdata/pprofile/generated_lineslice.go b/pdata/pprofile/generated_lineslice.go
+index 8c4502e10..7f0498b8e 100644
+--- a/pdata/pprofile/generated_lineslice.go
++++ b/pdata/pprofile/generated_lineslice.go
+@@ -130,6 +130,7 @@ func (es LineSlice) RemoveIf(f func(Line) bool) {
+ 	newLen := 0
+ 	for i := 0; i < len(*es.orig); i++ {
+ 		if f(es.At(i)) {
++			(*es.orig)[i] = nil
+ 			continue
+ 		}
+ 		if newLen == i {
+@@ -138,6 +139,7 @@ func (es LineSlice) RemoveIf(f func(Line) bool) {
+ 			continue
+ 		}
+ 		(*es.orig)[newLen] = (*es.orig)[i]
++		(*es.orig)[i] = nil
+ 		newLen++
+ 	}
+ 	*es.orig = (*es.orig)[:newLen]

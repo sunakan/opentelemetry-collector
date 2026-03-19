@@ -1,0 +1,15 @@
+diff --git a/cmd/pdatagen/internal/trace_structs.go b/cmd/pdatagen/internal/trace_structs.go
+index 4df701bdf..ead06c68e 100644
+--- a/cmd/pdatagen/internal/trace_structs.go
++++ b/cmd/pdatagen/internal/trace_structs.go
+@@ -102,8 +102,8 @@ var span = &messageValueStruct{
+ 			originFieldName: "Kind",
+ 			returnType:      "SpanKind",
+ 			rawType:         "otlptrace.Span_SpanKind",
+-			defaultVal:      "SpanKindUNSPECIFIED",
+-			testVal:         "SpanKindSERVER",
++			defaultVal:      "SpanKindUnspecified",
++			testVal:         "SpanKindServer",
+ 		},
+ 		startTimeField,
+ 		endTimeField,

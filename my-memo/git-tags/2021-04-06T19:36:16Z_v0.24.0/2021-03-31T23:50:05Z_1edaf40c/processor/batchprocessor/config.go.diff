@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/config.go b/processor/batchprocessor/config.go
+index 90a14f023..40832b344 100644
+--- a/processor/batchprocessor/config.go
++++ b/processor/batchprocessor/config.go
+@@ -22,7 +22,7 @@ import (
+ 
+ // Config defines configuration for batch processor.
+ type Config struct {
+-	config.ProcessorSettings `mapstructure:",squash"`
++	*config.ProcessorSettings `mapstructure:"-"`
+ 
+ 	// Timeout sets the time after which a batch will be sent regardless of size.
+ 	Timeout time.Duration `mapstructure:"timeout,omitempty"`

@@ -1,0 +1,22 @@
+diff --git a/receiver/xreceiver/profiles.go b/receiver/xreceiver/profiles.go
+index 6aa5b3d06..cc068175d 100644
+--- a/receiver/xreceiver/profiles.go
++++ b/receiver/xreceiver/profiles.go
+@@ -10,6 +10,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer/xconsumer"
+ 	"go.opentelemetry.io/collector/pipeline"
+ 	"go.opentelemetry.io/collector/receiver"
++	"go.opentelemetry.io/collector/receiver/internal"
+ )
+ 
+ // Profiles receiver receives profiles.
+@@ -67,6 +68,9 @@ func (f *factory) CreateProfiles(ctx context.Context, set receiver.Settings, cfg
+ 	if f.createProfilesFunc == nil {
+ 		return nil, pipeline.ErrSignalNotSupported
+ 	}
++	if set.ID.Type() != f.Type() {
++		return nil, internal.ErrIDMismatch(set.ID, f.Type())
++	}
+ 	return f.createProfilesFunc(ctx, set, cfg, next)
+ }
+ 

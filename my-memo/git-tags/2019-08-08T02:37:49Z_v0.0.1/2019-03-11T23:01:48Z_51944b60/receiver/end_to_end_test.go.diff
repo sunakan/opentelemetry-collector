@@ -1,0 +1,13 @@
+diff --git a/receiver/end_to_end_test.go b/receiver/end_to_end_test.go
+index c22b4d161..90c7c395a 100644
+--- a/receiver/end_to_end_test.go
++++ b/receiver/end_to_end_test.go
+@@ -43,7 +43,7 @@ func Example_endToEnd() {
+ 
+ 	// Once we have the span receiver which will connect to the
+ 	// various exporter pipeline i.e. *tracepb.Span->OpenCensus.SpanData
+-	lsr := loggingexporter.NewTraceExporter(zap.NewNop())
++	lsr, _ := loggingexporter.NewTraceExporter(zap.NewNop())
+ 	for _, tr := range trl {
+ 		if err := tr.StartTraceReception(context.Background(), lsr); err != nil {
+ 			log.Fatalf("Failed to start trace receiver: %v", err)

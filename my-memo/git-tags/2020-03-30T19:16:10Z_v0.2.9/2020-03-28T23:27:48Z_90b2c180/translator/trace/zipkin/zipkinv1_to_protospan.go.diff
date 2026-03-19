@@ -1,0 +1,13 @@
+diff --git a/translator/trace/zipkin/zipkinv1_to_protospan.go b/translator/trace/zipkin/zipkinv1_to_protospan.go
+index a5ae75d9c..11ede30e9 100644
+--- a/translator/trace/zipkin/zipkinv1_to_protospan.go
++++ b/translator/trace/zipkin/zipkinv1_to_protospan.go
+@@ -281,7 +281,7 @@ func parseZipkinV1Annotations(annotations []*annotation) *annotationParseResult
+ 	spanKindIsSet := false
+ 
+ 	for _, currAnnotation := range annotations {
+-		if currAnnotation == nil && currAnnotation.Value == "" {
++		if currAnnotation == nil || currAnnotation.Value == "" {
+ 			continue
+ 		}
+ 

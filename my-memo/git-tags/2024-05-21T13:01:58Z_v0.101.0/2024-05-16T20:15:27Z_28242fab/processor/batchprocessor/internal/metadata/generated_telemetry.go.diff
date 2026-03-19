@@ -1,0 +1,14 @@
+diff --git a/processor/batchprocessor/internal/metadata/generated_telemetry.go b/processor/batchprocessor/internal/metadata/generated_telemetry.go
+index a35d095dd..b03945505 100644
+--- a/processor/batchprocessor/internal/metadata/generated_telemetry.go
++++ b/processor/batchprocessor/internal/metadata/generated_telemetry.go
+@@ -35,6 +35,9 @@ type telemetryBuilderOption func(*TelemetryBuilder)
+ // for a component
+ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...telemetryBuilderOption) (*TelemetryBuilder, error) {
+ 	builder := TelemetryBuilder{}
++	for _, op := range options {
++		op(&builder)
++	}
+ 	var err, errs error
+ 	meter := Meter(settings)
+ 	builder.ProcessorBatchBatchSendSize, err = meter.Int64Histogram(

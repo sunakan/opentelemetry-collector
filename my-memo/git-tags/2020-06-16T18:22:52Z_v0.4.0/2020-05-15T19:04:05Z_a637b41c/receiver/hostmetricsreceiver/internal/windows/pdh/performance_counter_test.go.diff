@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_test.go b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_test.go
+index 3d4969837..575bd3e77 100644
+--- a/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_test.go
++++ b/receiver/hostmetricsreceiver/internal/windows/pdh/performance_counter_test.go
+@@ -22,7 +22,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
++	"go.opentelemetry.io/collector/receiver/hostmetricsreceiver/internal/third_party/telegraf/win_perf_counters"
+ )
+ 
+ func TestNewPerfCounter_InvalidPath(t *testing.T) {

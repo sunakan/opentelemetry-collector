@@ -1,0 +1,25 @@
+diff --git a/exporter/exportertest/nop_exporter.go b/exporter/exportertest/nop_exporter.go
+index 3d1b8b1ca..06ddb69a0 100644
+--- a/exporter/exportertest/nop_exporter.go
++++ b/exporter/exportertest/nop_exporter.go
+@@ -34,10 +34,17 @@ func (ne *nopExporter) ProcessMetricsData(ctx context.Context, md data.MetricsDa
+ 	return nil
+ }
+ 
+-const nopExportFormat = "NopExporter"
++const (
++	nopTraceExportFormat   = "nop_trace"
++	nopMetricsExportFormat = "nop_metrics"
++)
++
++func (ne *nopExporter) TraceExportFormat() string {
++	return nopTraceExportFormat
++}
+ 
+-func (ne *nopExporter) ExportFormat() string {
+-	return nopExportFormat
++func (ne *nopExporter) MetricsExportFormat() string {
++	return nopMetricsExportFormat
+ }
+ 
+ // NewNopTraceExporter creates an TraceExporter that just drops the received data.

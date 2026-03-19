@@ -1,0 +1,20 @@
+diff --git a/receiver/receiverhelper/obsreport_test.go b/receiver/receiverhelper/obsreport_test.go
+index 3a417e176..b6d52f9be 100644
+--- a/receiver/receiverhelper/obsreport_test.go
++++ b/receiver/receiverhelper/obsreport_test.go
+@@ -297,11 +297,9 @@ func TestCheckReceiverLogsViews(t *testing.T) {
+ }
+ 
+ func testTelemetry(t *testing.T, id component.ID, testFunc func(t *testing.T, tt componenttest.TestTelemetry)) {
+-	t.Run("WithOTel", func(t *testing.T) {
+-		tt, err := componenttest.SetupTelemetry(id)
+-		require.NoError(t, err)
+-		t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
++	tt, err := componenttest.SetupTelemetry(id)
++	require.NoError(t, err)
++	t.Cleanup(func() { require.NoError(t, tt.Shutdown(context.Background())) })
+ 
+-		testFunc(t, tt)
+-	})
++	testFunc(t, tt)
+ }

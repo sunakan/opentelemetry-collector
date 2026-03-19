@@ -1,0 +1,13 @@
+diff --git a/pdata/pmetric/generated_exemplarslice_test.go b/pdata/pmetric/generated_exemplarslice_test.go
+index 31e758061..264420d9e 100644
+--- a/pdata/pmetric/generated_exemplarslice_test.go
++++ b/pdata/pmetric/generated_exemplarslice_test.go
+@@ -51,6 +51,8 @@ func TestExemplarSlice_CopyTo(t *testing.T) {
+ 	src := generateTestExemplarSlice()
+ 	src.CopyTo(dest)
+ 	assert.Equal(t, generateTestExemplarSlice(), dest)
++	dest.CopyTo(dest)
++	assert.Equal(t, generateTestExemplarSlice(), dest)
+ }
+ 
+ func TestExemplarSlice_EnsureCapacity(t *testing.T) {

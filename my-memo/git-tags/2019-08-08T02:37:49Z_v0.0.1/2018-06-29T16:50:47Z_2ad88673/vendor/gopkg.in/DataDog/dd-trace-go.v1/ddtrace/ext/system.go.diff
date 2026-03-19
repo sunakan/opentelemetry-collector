@@ -1,0 +1,13 @@
+diff --git a/vendor/gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext/system.go b/vendor/gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext/system.go
+new file mode 100644
+index 000000000..9256aa5b2
+--- /dev/null
++++ b/vendor/gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext/system.go
+@@ -0,0 +1,7 @@
++package ext
++
++// Standard system metadata names
++const (
++	// The pid of the traced process
++	Pid = "system.pid"
++)

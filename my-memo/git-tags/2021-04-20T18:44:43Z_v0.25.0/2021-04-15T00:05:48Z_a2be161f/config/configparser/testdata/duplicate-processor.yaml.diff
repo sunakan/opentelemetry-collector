@@ -1,0 +1,19 @@
+diff --git a/config/configparser/testdata/duplicate-processor.yaml b/config/configparser/testdata/duplicate-processor.yaml
+deleted file mode 100644
+index 5345cec59..000000000
+--- a/config/configparser/testdata/duplicate-processor.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor/       abc:
+-  exampleprocessor/abc:
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [examplereceiver]
+-      exporters: [exampleexporter]
+-      processors: [exampleprocessor]

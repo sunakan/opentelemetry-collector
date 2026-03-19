@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/metadata.yaml b/exporter/exporterhelper/metadata.yaml
+index 9212c3ec2..baa606a08 100644
+--- a/exporter/exporterhelper/metadata.yaml
++++ b/exporter/exporterhelper/metadata.yaml
+@@ -46,6 +46,8 @@ telemetry:
+     exporter_queue_batch_send_size:
+       enabled: true
+       description: Number of units in the batch
++      stability:
++        level: development
+       unit: "{units}"
+       histogram:
+         value_type: int
+@@ -78,6 +80,8 @@ telemetry:
+     exporter_queue_batch_send_size_bytes:
+       enabled: true
+       description: Number of bytes in batch that was sent. Only available on detailed level.
++      stability:
++        level: development
+       unit: By
+       histogram:
+         value_type: int

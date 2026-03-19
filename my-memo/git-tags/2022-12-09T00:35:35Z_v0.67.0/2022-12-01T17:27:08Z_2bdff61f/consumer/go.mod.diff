@@ -1,0 +1,10 @@
+diff --git a/consumer/go.mod b/consumer/go.mod
+index 33008f075..b741ad2fe 100644
+--- a/consumer/go.mod
++++ b/consumer/go.mod
+@@ -40,3 +40,5 @@ replace go.opentelemetry.io/collector/extension/zpagesextension => ../extension/
+ replace go.opentelemetry.io/collector/component => ../component
+ 
+ replace go.opentelemetry.io/collector/featuregate => ../featuregate
++
++replace go.opentelemetry.io/collector/confmap => ../confmap

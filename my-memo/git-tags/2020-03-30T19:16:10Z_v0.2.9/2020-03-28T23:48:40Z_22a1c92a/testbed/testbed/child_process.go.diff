@@ -1,0 +1,12 @@
+diff --git a/testbed/testbed/child_process.go b/testbed/testbed/child_process.go
+index 0ebc2aca2..e4e6100dc 100644
+--- a/testbed/testbed/child_process.go
++++ b/testbed/testbed/child_process.go
+@@ -146,6 +146,7 @@ func (cp *childProcess) start(params startParams) error {
+ 	log.Printf("Writing %s log to %s", cp.name, params.logFilePath)
+ 
+ 	// Prepare to start the process.
++	// #nosec
+ 	cp.cmd = exec.Command(params.cmd, params.cmdArgs...)
+ 
+ 	// Capture standard output and standard error.

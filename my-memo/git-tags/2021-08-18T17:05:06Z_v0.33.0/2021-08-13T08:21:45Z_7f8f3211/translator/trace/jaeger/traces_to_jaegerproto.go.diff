@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/traces_to_jaegerproto.go b/translator/trace/jaeger/traces_to_jaegerproto.go
+index ad6cf10b8..60b5f17bb 100644
+--- a/translator/trace/jaeger/traces_to_jaegerproto.go
++++ b/translator/trace/jaeger/traces_to_jaegerproto.go
+@@ -157,7 +157,7 @@ func attributeToJaegerProtoTag(key string, attr pdata.AttributeValue) model.KeyV
+ 		tag.VFloat64 = attr.DoubleVal()
+ 	case pdata.AttributeValueTypeMap, pdata.AttributeValueTypeArray:
+ 		tag.VType = model.ValueType_STRING
+-		tag.VStr = tracetranslator.AttributeValueToString(attr)
++		tag.VStr = pdata.AttributeValueToString(attr)
+ 	}
+ 	return tag
+ }

@@ -1,0 +1,17 @@
+diff --git a/pdata/pmetric/generated_summarydatapointvalueatquantile.go b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+index 667e5610c..aad8eb56c 100644
+--- a/pdata/pmetric/generated_summarydatapointvalueatquantile.go
++++ b/pdata/pmetric/generated_summarydatapointvalueatquantile.go
+@@ -74,6 +74,10 @@ func (ms SummaryDataPointValueAtQuantile) SetValue(v float64) {
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms SummaryDataPointValueAtQuantile) CopyTo(dest SummaryDataPointValueAtQuantile) {
+ 	dest.state.AssertMutable()
+-	dest.SetQuantile(ms.Quantile())
+-	dest.SetValue(ms.Value())
++	copyOrigSummaryDataPointValueAtQuantile(dest.orig, ms.orig)
++}
++
++func copyOrigSummaryDataPointValueAtQuantile(dest, src *otlpmetrics.SummaryDataPoint_ValueAtQuantile) {
++	dest.Quantile = src.Quantile
++	dest.Value = src.Value
+ }

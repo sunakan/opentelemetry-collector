@@ -1,0 +1,15 @@
+diff --git a/internal/processor/filterlog/filterlog_test.go b/internal/processor/filterlog/filterlog_test.go
+index ef14afed1..61678444a 100644
+--- a/internal/processor/filterlog/filterlog_test.go
++++ b/internal/processor/filterlog/filterlog_test.go
+@@ -20,9 +20,9 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/internal/processor/filterconfig"
+ 	"go.opentelemetry.io/collector/internal/processor/filterset"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func createConfig(matchType filterset.MatchType) *filterset.Config {

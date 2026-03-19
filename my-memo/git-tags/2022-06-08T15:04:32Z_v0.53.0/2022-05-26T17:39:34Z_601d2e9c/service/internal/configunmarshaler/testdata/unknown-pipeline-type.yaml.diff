@@ -1,0 +1,24 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml b/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
+index 7c88405a9..963669456 100644
+--- a/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
++++ b/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
+@@ -1,13 +1,13 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ processors:
+-  exampleprocessor:
++  nop:
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     wrongdatatype:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

@@ -1,0 +1,15 @@
+diff --git a/exporter/zipkinexporter/README.md b/exporter/zipkinexporter/README.md
+index 7d6b475cb..a538203c5 100644
+--- a/exporter/zipkinexporter/README.md
++++ b/exporter/zipkinexporter/README.md
+@@ -26,8 +26,8 @@ Example:
+ 
+ ```yaml
+ exporters:
+-zipkin:
+- endpoint: "http://some.url:9411/api/v2/spans"
++  zipkin:
++    endpoint: "http://some.url:9411/api/v2/spans"
+ ```
+ 
+ The full list of settings exposed for this exporter are documented [here](./config.go)

@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/queue_sender_test.go b/exporter/exporterhelper/queue_sender_test.go
+index f880e49cc..0d043ffe5 100644
+--- a/exporter/exporterhelper/queue_sender_test.go
++++ b/exporter/exporterhelper/queue_sender_test.go
+@@ -345,7 +345,6 @@ func TestQueuedRetryPersistenceEnabledStorageError(t *testing.T) {
+ }
+ 
+ func TestQueuedRetryPersistentEnabled_shutdown_dataIsRequeued(t *testing.T) {
+-
+ 	produceCounter := &atomic.Uint32{}
+ 
+ 	qCfg := NewDefaultQueueSettings()

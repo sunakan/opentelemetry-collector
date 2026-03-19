@@ -1,0 +1,19 @@
+diff --git a/translator/internaldata/metrics_to_oc.go b/translator/internaldata/metrics_to_oc.go
+index 97b8df033..92e3c5ba3 100644
+--- a/translator/internaldata/metrics_to_oc.go
++++ b/translator/internaldata/metrics_to_oc.go
+@@ -20,10 +20,10 @@ import (
+ 	ocmetrics "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
+ 	"github.com/golang/protobuf/ptypes/wrappers"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
+-	"github.com/open-telemetry/opentelemetry-collector/internal"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/data"
++	"go.opentelemetry.io/collector/consumer/consumerdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal"
++	"go.opentelemetry.io/collector/internal/data"
+ )
+ 
+ const (

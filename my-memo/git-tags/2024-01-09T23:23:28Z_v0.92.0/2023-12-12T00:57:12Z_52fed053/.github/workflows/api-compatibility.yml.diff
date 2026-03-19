@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/api-compatibility.yml b/.github/workflows/api-compatibility.yml
+index de8bc0cd4..2a38f4ccd 100644
+--- a/.github/workflows/api-compatibility.yml
++++ b/.github/workflows/api-compatibility.yml
+@@ -32,7 +32,7 @@ jobs:
+           path: ${{ github.head_ref }}
+ 
+       - name: Setup Go
+-        uses: actions/setup-go@v4
++        uses: actions/setup-go@v5
+         with:
+           go-version: ~1.20.12
+ 

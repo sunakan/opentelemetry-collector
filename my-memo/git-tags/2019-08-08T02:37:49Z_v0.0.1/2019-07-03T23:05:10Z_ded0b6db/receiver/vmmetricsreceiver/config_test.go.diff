@@ -1,0 +1,13 @@
+diff --git a/receiver/vmmetricsreceiver/config_test.go b/receiver/vmmetricsreceiver/config_test.go
+index 18e9ddcb8..4056c7316 100644
+--- a/receiver/vmmetricsreceiver/config_test.go
++++ b/receiver/vmmetricsreceiver/config_test.go
+@@ -30,7 +30,7 @@ import (
+ var _ = configv2.RegisterTestFactories()
+ 
+ func TestLoadConfig(t *testing.T) {
+-	factory := receiver.GetReceiverFactory(typeStr)
++	factory := receiver.GetFactory(typeStr)
+ 
+ 	config, err := configv2.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"))
+ 

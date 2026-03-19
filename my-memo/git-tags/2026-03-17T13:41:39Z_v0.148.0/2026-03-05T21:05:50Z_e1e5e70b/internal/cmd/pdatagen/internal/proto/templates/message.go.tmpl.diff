@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl b/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
+index 69beb12e6..3e7ae87f5 100644
+--- a/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
++++ b/internal/cmd/pdatagen/internal/proto/templates/message.go.tmpl
+@@ -37,7 +37,7 @@ var (
+ 
+ 
+ func New{{ .messageName }}() *{{ .messageName }} {
+-    if !UseProtoPooling.IsEnabled() {
++    if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+         return &{{ .messageName }}{}
+     }
+     return protoPool{{ .messageName }}.Get().(*{{ .messageName }})
+@@ -48,7 +48,7 @@ func Delete{{ .messageName }}(orig *{{ .messageName }}, nullable bool) {
+         return
+     }
+ 
+-    if !UseProtoPooling.IsEnabled() {
++    if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+         orig.Reset()
+         return
+     }

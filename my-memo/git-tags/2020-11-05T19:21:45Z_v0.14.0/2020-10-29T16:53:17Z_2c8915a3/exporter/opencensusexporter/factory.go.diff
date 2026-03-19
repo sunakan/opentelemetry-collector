@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/factory.go b/exporter/opencensusexporter/factory.go
+index f0f623e35..aabdd8e6e 100644
+--- a/exporter/opencensusexporter/factory.go
++++ b/exporter/opencensusexporter/factory.go
+@@ -52,7 +52,7 @@ func createDefaultConfig() configmodels.Exporter {
+ 	}
+ }
+ 
+-func createTraceExporter(ctx context.Context, params component.ExporterCreateParams, config configmodels.Exporter) (component.TraceExporter, error) {
++func createTraceExporter(ctx context.Context, params component.ExporterCreateParams, config configmodels.Exporter) (component.TracesExporter, error) {
+ 	oCfg := config.(*Config)
+ 	return newTraceExporter(ctx, oCfg, params.Logger)
+ }

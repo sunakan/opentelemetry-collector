@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/test/core.builder.yaml b/cmd/builder/test/core.builder.yaml
+index be41ea341..15f420d57 100644
+--- a/cmd/builder/test/core.builder.yaml
++++ b/cmd/builder/test/core.builder.yaml
+@@ -1,7 +1,6 @@
+ dist:
+   name: core
+   module: go.opentelemetry.io/collector/builder/test/core
+-  otelcol_version: 0.112.0
+   go: ${GOBIN}
+ 
+ extensions:

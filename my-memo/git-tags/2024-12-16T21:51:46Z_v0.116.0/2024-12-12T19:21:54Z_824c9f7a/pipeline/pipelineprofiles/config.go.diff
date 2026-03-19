@@ -1,0 +1,12 @@
+diff --git a/pipeline/pipelineprofiles/config.go b/pipeline/pipelineprofiles/config.go
+index e1cd9136c..6802cf15c 100644
+--- a/pipeline/pipelineprofiles/config.go
++++ b/pipeline/pipelineprofiles/config.go
+@@ -7,6 +7,4 @@ import (
+ 	"go.opentelemetry.io/collector/pipeline/internal/globalsignal"
+ )
+ 
+-var (
+-	SignalProfiles = globalsignal.MustNewSignal("profiles")
+-)
++var SignalProfiles = globalsignal.MustNewSignal("profiles")

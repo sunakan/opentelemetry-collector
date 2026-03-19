@@ -1,0 +1,19 @@
+diff --git a/service/internal/builder/testdata/not_supported_processor_metrics.yaml b/service/internal/builder/testdata/not_supported_processor_metrics.yaml
+new file mode 100644
+index 000000000..38d0cd79a
+--- /dev/null
++++ b/service/internal/builder/testdata/not_supported_processor_metrics.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++processors:
++  bf:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    metrics:
++      receivers: [examplereceiver]
++      processors: [bf]
++      exporters: [exampleexporter]

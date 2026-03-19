@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/config_test.go b/processor/attributesprocessor/config_test.go
+index f06bf6c14..c4bf7ad9b 100644
+--- a/processor/attributesprocessor/config_test.go
++++ b/processor/attributesprocessor/config_test.go
+@@ -29,7 +29,7 @@ import (
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+ )
+ 
+-func TestLoadingConifg(t *testing.T) {
++func TestLoadingConfig(t *testing.T) {
+ 	factories, err := componenttest.ExampleComponents()
+ 	assert.NoError(t, err)
+ 

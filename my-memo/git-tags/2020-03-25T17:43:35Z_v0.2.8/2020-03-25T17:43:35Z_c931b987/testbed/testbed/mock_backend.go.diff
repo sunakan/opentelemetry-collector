@@ -1,0 +1,21 @@
+diff --git a/testbed/testbed/mock_backend.go b/testbed/testbed/mock_backend.go
+index fe79d451e..8d4ca9d8f 100644
+--- a/testbed/testbed/mock_backend.go
++++ b/testbed/testbed/mock_backend.go
+@@ -22,7 +22,6 @@ import (
+ 	"sync"
+ 	"sync/atomic"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ )
+ 
+@@ -62,8 +61,6 @@ func NewMockBackend(logFilePath string, receiver DataReceiver) *MockBackend {
+ 	return mb
+ }
+ 
+-var _ component.Host = (*MockBackend)(nil)
+-
+ func (mb *MockBackend) Context() context.Context {
+ 	return context.Background()
+ }

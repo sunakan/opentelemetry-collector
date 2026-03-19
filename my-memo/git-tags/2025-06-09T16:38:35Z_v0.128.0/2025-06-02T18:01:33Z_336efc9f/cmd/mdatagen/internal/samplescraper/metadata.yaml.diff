@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index 6564828c2..1d090b137 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -135,7 +135,7 @@ metrics:
+   default.metric.to_be_removed:
+     enabled: true
+     description: "[DEPRECATED] Non-monotonic delta sum double metric enabled by default."
+-    extended_documentation: The metric will be will be removed soon.
++    extended_documentation: The metric will be removed soon.
+     unit: s
+     sum:
+       value_type: double

@@ -1,0 +1,12 @@
+diff --git a/service/internal/status/status_test.go b/service/internal/status/status_test.go
+index 18a5fa355..8c9498bd1 100644
+--- a/service/internal/status/status_test.go
++++ b/service/internal/status/status_test.go
+@@ -241,7 +241,6 @@ func TestStatusFuncsConcurrent(t *testing.T) {
+ 	wg.Add(len(ids))
+ 
+ 	for _, id := range ids {
+-		id := id
+ 		go func() {
+ 			compFn := NewReportStatusFunc(id, rep.ReportStatus)
+ 			compFn(componentstatus.NewEvent(componentstatus.StatusStarting))

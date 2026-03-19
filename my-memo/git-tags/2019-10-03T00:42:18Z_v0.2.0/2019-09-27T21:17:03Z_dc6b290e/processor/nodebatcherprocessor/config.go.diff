@@ -1,0 +1,13 @@
+diff --git a/processor/nodebatcherprocessor/config.go b/processor/nodebatcherprocessor/config.go
+index b058181aa..332a68c5a 100644
+--- a/processor/nodebatcherprocessor/config.go
++++ b/processor/nodebatcherprocessor/config.go
+@@ -17,7 +17,7 @@ package nodebatcherprocessor
+ import (
+ 	"time"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
++	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+ )
+ 
+ // Config defines configuration for batch processor.

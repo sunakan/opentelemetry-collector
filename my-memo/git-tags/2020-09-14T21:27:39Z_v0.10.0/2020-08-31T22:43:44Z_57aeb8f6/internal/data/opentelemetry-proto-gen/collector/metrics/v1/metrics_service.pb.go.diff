@@ -1,0 +1,13 @@
+diff --git a/internal/data/opentelemetry-proto-gen/collector/metrics/v1/metrics_service.pb.go b/internal/data/opentelemetry-proto-gen/collector/metrics/v1/metrics_service.pb.go
+index 3cf40ed89..95ac23f43 100644
+--- a/internal/data/opentelemetry-proto-gen/collector/metrics/v1/metrics_service.pb.go
++++ b/internal/data/opentelemetry-proto-gen/collector/metrics/v1/metrics_service.pb.go
+@@ -15,7 +15,7 @@ import (
+ 	codes "google.golang.org/grpc/codes"
+ 	status "google.golang.org/grpc/status"
+ 
+-	v1 "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1old"
++	v1 "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/metrics/v1"
+ )
+ 
+ // Reference imports to suppress errors if they are not otherwise used.

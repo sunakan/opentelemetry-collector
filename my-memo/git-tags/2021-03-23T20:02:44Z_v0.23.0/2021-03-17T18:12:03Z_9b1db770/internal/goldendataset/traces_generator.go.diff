@@ -1,0 +1,25 @@
+diff --git a/internal/goldendataset/traces_generator.go b/internal/goldendataset/traces_generator.go
+index df1d67a6c..4cbd807f9 100644
+--- a/internal/goldendataset/traces_generator.go
++++ b/internal/goldendataset/traces_generator.go
+@@ -20,6 +20,8 @@ import (
+ 	"math/rand"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/internal"
++	otlpcollectortrace "go.opentelemetry.io/collector/internal/data/protogen/collector/trace/v1"
+ 	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
+ 	otlptrace "go.opentelemetry.io/collector/internal/data/protogen/trace/v1"
+ )
+@@ -49,7 +51,10 @@ func GenerateTraces(tracePairsFile string, spanPairsFile string) ([]pdata.Traces
+ 		if spanErr != nil {
+ 			err = spanErr
+ 		}
+-		traces[index-1] = pdata.TracesFromOtlp([]*otlptrace.ResourceSpans{rscSpan})
++		traces[index-1] = pdata.TracesFromInternalRep(
++			internal.TracesFromOtlp(&otlpcollectortrace.ExportTraceServiceRequest{
++				ResourceSpans: []*otlptrace.ResourceSpans{rscSpan},
++			}))
+ 	}
+ 	return traces, err
+ }

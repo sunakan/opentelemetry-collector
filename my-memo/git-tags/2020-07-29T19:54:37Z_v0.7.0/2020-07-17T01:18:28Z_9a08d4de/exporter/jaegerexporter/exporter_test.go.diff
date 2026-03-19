@@ -1,0 +1,13 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index 9ac435311..0860bb15a 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -206,7 +206,7 @@ func TestMutualTLS(t *testing.T) {
+ 	defer server.GracefulStop()
+ 
+ 	// Create gRPC trace exporter
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig().(*Config)
+ 	cfg.GRPCClientSettings = configgrpc.GRPCClientSettings{
+ 		Endpoint: serverAddr.String(),

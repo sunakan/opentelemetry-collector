@@ -1,0 +1,13 @@
+diff --git a/processor/attributekeyprocessor/factory.go b/processor/attributekeyprocessor/factory.go
+index 4e6968c1b..8400ab65e 100644
+--- a/processor/attributekeyprocessor/factory.go
++++ b/processor/attributekeyprocessor/factory.go
+@@ -44,7 +44,7 @@ func (f *Factory) CreateDefaultConfig() configmodels.Processor {
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+ 		},
+-		Keys: make(map[string]NewKeyProperties, 0),
++		Keys: make(map[string]NewKeyProperties),
+ 	}
+ }
+ 

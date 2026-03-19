@@ -1,0 +1,17 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index dcfae3f39..7cff16257 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -35,8 +35,10 @@ const (
+ 	typeStr = "jaeger"
+ 
+ 	// Protocol values.
+-	protoGRPC           = "grpc"
+-	protoThriftHTTP     = "thrift-http"
++	protoGRPC       = "grpc"
++	protoThriftHTTP = "thrift-http"
++	// TODO https://github.com/open-telemetry/opentelemetry-service/issues/267
++	//	Remove ThriftTChannel support.
+ 	protoThriftTChannel = "thrift-tchannel"
+ 
+ 	// Default endpoints to bind to.

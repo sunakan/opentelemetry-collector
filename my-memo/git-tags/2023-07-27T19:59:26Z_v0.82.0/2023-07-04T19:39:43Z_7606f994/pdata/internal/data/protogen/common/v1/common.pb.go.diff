@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/data/protogen/common/v1/common.pb.go b/pdata/internal/data/protogen/common/v1/common.pb.go
+index c30ce2d06..ed4df2571 100644
+--- a/pdata/internal/data/protogen/common/v1/common.pb.go
++++ b/pdata/internal/data/protogen/common/v1/common.pb.go
+@@ -33,7 +33,6 @@ type AnyValue struct {
+ 	// in which case this AnyValue is considered to be "empty".
+ 	//
+ 	// Types that are valid to be assigned to Value:
+-	//
+ 	//	*AnyValue_StringValue
+ 	//	*AnyValue_BoolValue
+ 	//	*AnyValue_IntValue

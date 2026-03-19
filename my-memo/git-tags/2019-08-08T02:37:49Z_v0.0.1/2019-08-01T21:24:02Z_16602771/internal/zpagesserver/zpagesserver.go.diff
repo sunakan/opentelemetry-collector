@@ -1,0 +1,12 @@
+diff --git a/internal/zpagesserver/zpagesserver.go b/internal/zpagesserver/zpagesserver.go
+index 0ff5f1770..ddc4c039e 100644
+--- a/internal/zpagesserver/zpagesserver.go
++++ b/internal/zpagesserver/zpagesserver.go
+@@ -25,6 +25,7 @@ import (
+ 
+ const (
+ 	// ZPagesHTTPPort is the name of the flag used to specify the zpages port.
++	// TODO(ccaraman): Move ZPage configuration to be apart of global config/config.go, maybe under diagnostics section.
+ 	ZPagesHTTPPort = "zpages-http-port"
+ )
+ 

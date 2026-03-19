@@ -1,0 +1,19 @@
+diff --git a/vendor/golang.org/x/oauth2/internal/client_appengine.go b/vendor/golang.org/x/oauth2/internal/client_appengine.go
+deleted file mode 100644
+index 743487188..000000000
+--- a/vendor/golang.org/x/oauth2/internal/client_appengine.go
++++ /dev/null
+@@ -1,13 +0,0 @@
+-// Copyright 2018 The Go Authors. All rights reserved.
+-// Use of this source code is governed by a BSD-style
+-// license that can be found in the LICENSE file.
+-
+-// +build appengine
+-
+-package internal
+-
+-import "google.golang.org/appengine/urlfetch"
+-
+-func init() {
+-	appengineClientHook = urlfetch.Client
+-}

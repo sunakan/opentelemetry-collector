@@ -1,0 +1,22 @@
+diff --git a/connector/connector.go b/connector/connector.go
+index f7d9cc46e..c29aefb8d 100644
+--- a/connector/connector.go
++++ b/connector/connector.go
+@@ -4,17 +4,12 @@
+ package connector // import "go.opentelemetry.io/collector/connector"
+ 
+ import (
+-	"errors"
+ 	"fmt"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/connector/internal"
+ )
+ 
+-var (
+-	errNilNextConsumer = errors.New("nil next Consumer")
+-)
+-
+ // A Traces connector acts as an exporter from a traces pipeline and a receiver
+ // to one or more traces, metrics, or logs pipelines.
+ // Traces feeds a consumer.Traces, consumer.Metrics, or consumer.Logs with data.

@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces_test.go b/exporter/exporterhelper/traces_test.go
+index 20d9fabd1..379cd524a 100644
+--- a/exporter/exporterhelper/traces_test.go
++++ b/exporter/exporterhelper/traces_test.go
+@@ -51,7 +51,7 @@ func TestTracesRequest(t *testing.T) {
+ 	mr := newTracesRequest(context.Background(), testdata.GenerateTraces(1), nil)
+ 
+ 	traceErr := consumererror.NewTraces(errors.New("some error"), ptrace.NewTraces())
+-	assert.EqualValues(t, newTracesRequest(context.Background(), ptrace.NewTraces(), nil), mr.onError(traceErr))
++	assert.EqualValues(t, newTracesRequest(context.Background(), ptrace.NewTraces(), nil), mr.OnError(traceErr))
+ }
+ 
+ func TestTracesExporter_InvalidName(t *testing.T) {

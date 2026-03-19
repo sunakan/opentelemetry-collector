@@ -1,0 +1,30 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index 04d60ffcf..f519ddf04 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -42,7 +42,7 @@ func TestLoadConfig(t *testing.T) {
+ 	require.NoError(t, err)
+ 	require.NotNil(t, cfg)
+ 
+-	assert.Equal(t, len(cfg.Receivers), 10)
++	assert.Equal(t, len(cfg.Receivers), 12)
+ 
+ 	assert.Equal(t, cfg.Receivers[config.NewComponentID(typeStr)], factory.CreateDefaultConfig())
+ 
+@@ -56,6 +56,16 @@ func TestLoadConfig(t *testing.T) {
+ 	defaultOnlyHTTP.GRPC = nil
+ 	assert.Equal(t, cfg.Receivers[config.NewComponentIDWithName(typeStr, "only_http")], defaultOnlyHTTP)
+ 
++	defaultOnlyHTTPNull := factory.CreateDefaultConfig().(*Config)
++	defaultOnlyHTTPNull.SetIDName("only_http_null")
++	defaultOnlyHTTPNull.GRPC = nil
++	assert.Equal(t, cfg.Receivers[config.NewComponentIDWithName(typeStr, "only_http_null")], defaultOnlyHTTPNull)
++
++	defaultOnlyHTTPEmptyMap := factory.CreateDefaultConfig().(*Config)
++	defaultOnlyHTTPEmptyMap.SetIDName("only_http_empty_map")
++	defaultOnlyHTTPEmptyMap.GRPC = nil
++	assert.Equal(t, cfg.Receivers[config.NewComponentIDWithName(typeStr, "only_http_empty_map")], defaultOnlyHTTPEmptyMap)
++
+ 	assert.Equal(t, cfg.Receivers[config.NewComponentIDWithName(typeStr, "customname")],
+ 		&Config{
+ 			ReceiverSettings: config.NewReceiverSettings(config.NewComponentIDWithName(typeStr, "customname")),

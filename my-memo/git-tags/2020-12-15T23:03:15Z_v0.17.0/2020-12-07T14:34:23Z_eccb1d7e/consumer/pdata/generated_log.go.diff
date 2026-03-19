@@ -1,0 +1,40 @@
+diff --git a/consumer/pdata/generated_log.go b/consumer/pdata/generated_log.go
+index 918b274f9..82110449f 100644
+--- a/consumer/pdata/generated_log.go
++++ b/consumer/pdata/generated_log.go
+@@ -158,11 +158,6 @@ func NewResourceLogs() ResourceLogs {
+ 	return newResourceLogs(&otlplogs.ResourceLogs{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms ResourceLogs) InitEmpty() {
+-	*ms.orig = otlplogs.ResourceLogs{}
+-}
+-
+ // Resource returns the resource associated with this ResourceLogs.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -319,11 +314,6 @@ func NewInstrumentationLibraryLogs() InstrumentationLibraryLogs {
+ 	return newInstrumentationLibraryLogs(&otlplogs.InstrumentationLibraryLogs{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms InstrumentationLibraryLogs) InitEmpty() {
+-	*ms.orig = otlplogs.InstrumentationLibraryLogs{}
+-}
+-
+ // InstrumentationLibrary returns the instrumentationlibrary associated with this InstrumentationLibraryLogs.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".
+@@ -481,11 +471,6 @@ func NewLogRecord() LogRecord {
+ 	return newLogRecord(&otlplogs.LogRecord{})
+ }
+ 
+-// Deprecated: This function will be removed soon.
+-func (ms LogRecord) InitEmpty() {
+-	*ms.orig = otlplogs.LogRecord{}
+-}
+-
+ // Timestamp returns the timestamp associated with this LogRecord.
+ //
+ // Important: This causes a runtime error if IsNil() returns "true".

@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/status.go b/cmd/mdatagen/internal/status.go
+index eafd86ca1..ebc95cff9 100644
+--- a/cmd/mdatagen/internal/status.go
++++ b/cmd/mdatagen/internal/status.go
+@@ -46,7 +46,6 @@ type Status struct {
+ 	Warnings             []string     `mapstructure:"warnings"`
+ 	Codeowners           *Codeowners  `mapstructure:"codeowners"`
+ 	UnsupportedPlatforms []string     `mapstructure:"unsupported_platforms"`
+-	NotComponent         bool         `mapstructure:"not_component"`
+ }
+ 
+ func (s *Status) SortedDistributions() []string {

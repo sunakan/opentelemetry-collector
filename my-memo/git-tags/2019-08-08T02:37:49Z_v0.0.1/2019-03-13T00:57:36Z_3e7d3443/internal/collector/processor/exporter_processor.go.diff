@@ -1,0 +1,15 @@
+diff --git a/internal/collector/processor/exporter_processor.go b/internal/collector/processor/exporter_processor.go
+index 8017b4b3b..3cf79b4a2 100644
+--- a/internal/collector/processor/exporter_processor.go
++++ b/internal/collector/processor/exporter_processor.go
+@@ -34,8 +34,8 @@ func NewTraceExporterProcessor(traceExporters ...consumer.TraceConsumer) SpanPro
+ 	return &exporterSpanProcessor{tp: multiconsumer.NewTraceProcessor(traceExporters)}
+ }
+ 
+-func (sp *exporterSpanProcessor) ProcessSpans(td data.TraceData, spanFormat string) error {
+-	err := sp.tp.ConsumeTraceData(context.Background(), td)
++func (sp *exporterSpanProcessor) ProcessSpans(ctx context.Context, td data.TraceData) error {
++	err := sp.tp.ConsumeTraceData(ctx, td)
+ 	if err != nil {
+ 		return err
+ 	}

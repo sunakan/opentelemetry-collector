@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_resourceprofilesslice_test.go b/pdata/pprofile/generated_resourceprofilesslice_test.go
+index 16726df8d..eef729f9b 100644
+--- a/pdata/pprofile/generated_resourceprofilesslice_test.go
++++ b/pdata/pprofile/generated_resourceprofilesslice_test.go
+@@ -27,7 +27,7 @@ func TestResourceProfilesSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestResourceProfiles((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigResourceProfiles()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

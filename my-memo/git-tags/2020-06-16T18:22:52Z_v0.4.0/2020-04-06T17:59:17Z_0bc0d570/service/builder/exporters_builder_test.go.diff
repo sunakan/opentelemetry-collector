@@ -1,0 +1,21 @@
+diff --git a/service/builder/exporters_builder_test.go b/service/builder/exporters_builder_test.go
+index 81a7917bd..bf4ecbff5 100644
+--- a/service/builder/exporters_builder_test.go
++++ b/service/builder/exporters_builder_test.go
+@@ -15,6 +15,7 @@
+ package builder
+ 
+ import (
++	"context"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -76,7 +77,7 @@ func TestExportersBuilder_Build(t *testing.T) {
+ 	assert.NoError(t, err)
+ 
+ 	// Ensure it can be stopped.
+-	if err = e1.Shutdown(); err != nil {
++	if err = e1.Shutdown(context.Background()); err != nil {
+ 		// TODO Find a better way to handle this case
+ 		// Since the endpoint of opencensus exporter doesn't actually exist, e1 may
+ 		// already stop because it cannot connect.

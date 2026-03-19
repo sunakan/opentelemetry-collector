@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/scripts/set_release_tag.sh b/.github/workflows/scripts/set_release_tag.sh
+deleted file mode 100755
+index cca21408a..000000000
+--- a/.github/workflows/scripts/set_release_tag.sh
++++ /dev/null
+@@ -1,7 +0,0 @@
+-#!/usr/bin/env bash
+-
+-TAG="${GITHUB_REF##*/}"
+-if [[ $TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+.* ]]
+-then
+-    echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+-fi

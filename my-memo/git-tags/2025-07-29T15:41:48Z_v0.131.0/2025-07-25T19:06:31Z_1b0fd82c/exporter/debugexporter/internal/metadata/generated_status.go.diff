@@ -1,0 +1,16 @@
+diff --git a/exporter/debugexporter/internal/metadata/generated_status.go b/exporter/debugexporter/internal/metadata/generated_status.go
+index d79a9eb95..88a98e387 100644
+--- a/exporter/debugexporter/internal/metadata/generated_status.go
++++ b/exporter/debugexporter/internal/metadata/generated_status.go
+@@ -12,8 +12,8 @@ var (
+ )
+ 
+ const (
+-	TracesStability   = component.StabilityLevelDevelopment
+-	MetricsStability  = component.StabilityLevelDevelopment
+-	LogsStability     = component.StabilityLevelDevelopment
+ 	ProfilesStability = component.StabilityLevelDevelopment
++	TracesStability   = component.StabilityLevelAlpha
++	MetricsStability  = component.StabilityLevelAlpha
++	LogsStability     = component.StabilityLevelAlpha
+ )

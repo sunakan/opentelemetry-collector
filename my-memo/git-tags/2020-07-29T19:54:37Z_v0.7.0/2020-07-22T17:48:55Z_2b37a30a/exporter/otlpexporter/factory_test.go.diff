@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/factory_test.go b/exporter/otlpexporter/factory_test.go
+index 6cf00d559..fc105cac1 100644
+--- a/exporter/otlpexporter/factory_test.go
++++ b/exporter/otlpexporter/factory_test.go
+@@ -186,7 +186,7 @@ func TestCreateLogsExporter(t *testing.T) {
+ 	cfg.GRPCClientSettings.Endpoint = testutil.GetAvailableLocalAddress(t)
+ 
+ 	creationParams := component.ExporterCreateParams{Logger: zap.NewNop()}
+-	oexp, err := factory.(component.LogExporterFactory).CreateLogExporter(context.Background(), creationParams, cfg)
++	oexp, err := factory.(component.LogsExporterFactory).CreateLogsExporter(context.Background(), creationParams, cfg)
+ 	require.Nil(t, err)
+ 	require.NotNil(t, oexp)
+ }

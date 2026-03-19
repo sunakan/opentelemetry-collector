@@ -1,0 +1,17 @@
+diff --git a/cmd/mdatagen/templates/telemetry.go.tmpl b/cmd/mdatagen/templates/telemetry.go.tmpl
+index 7610f04a5..554c3da62 100644
+--- a/cmd/mdatagen/templates/telemetry.go.tmpl
++++ b/cmd/mdatagen/templates/telemetry.go.tmpl
+@@ -4,7 +4,12 @@ package {{ .Package }}
+ 
+ import (
+     {{- if .Telemetry.Metrics }}
++    {{- range $_, $metric := .Telemetry.Metrics }}
++    {{- if $metric.Data.Async }}
+     "context"
++    {{- break}}
++    {{- end }}
++    {{- end }}
+     "errors"
+     {{- end }}
+ 

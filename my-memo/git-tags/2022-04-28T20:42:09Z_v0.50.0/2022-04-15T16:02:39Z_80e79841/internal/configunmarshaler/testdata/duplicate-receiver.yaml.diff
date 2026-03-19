@@ -1,0 +1,19 @@
+diff --git a/internal/configunmarshaler/testdata/duplicate-receiver.yaml b/internal/configunmarshaler/testdata/duplicate-receiver.yaml
+new file mode 100644
+index 000000000..4e00b5fe6
+--- /dev/null
++++ b/internal/configunmarshaler/testdata/duplicate-receiver.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver/ recv:
++  examplereceiver /recv :
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

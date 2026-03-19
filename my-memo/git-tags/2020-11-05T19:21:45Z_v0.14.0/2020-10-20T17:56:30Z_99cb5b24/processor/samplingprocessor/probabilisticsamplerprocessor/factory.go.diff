@@ -1,0 +1,13 @@
+diff --git a/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go b/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
+index 58a3a44b9..99571b436 100644
+--- a/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
++++ b/processor/samplingprocessor/probabilisticsamplerprocessor/factory.go
+@@ -50,7 +50,7 @@ func createTraceProcessor(
+ 	_ context.Context,
+ 	_ component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceProcessor, error) {
+ 	oCfg := cfg.(*Config)
+ 	return newTraceProcessor(nextConsumer, *oCfg)

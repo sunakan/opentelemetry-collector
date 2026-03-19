@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/traces_to_oc.go b/translator/internaldata/traces_to_oc.go
+index 8ff5ba326..a1313c679 100644
+--- a/translator/internaldata/traces_to_oc.go
++++ b/translator/internaldata/traces_to_oc.go
+@@ -33,7 +33,7 @@ var (
+ 	defaultProcessID = 0
+ )
+ 
+-func TraceDataToOC(td pdata.TraceData) []consumerdata.TraceData {
++func TraceDataToOC(td pdata.Traces) []consumerdata.TraceData {
+ 	resourceSpans := td.ResourceSpans()
+ 
+ 	if resourceSpans.Len() == 0 {

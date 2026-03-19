@@ -1,0 +1,30 @@
+diff --git a/.github/workflows/build-and-test-windows.yaml b/.github/workflows/build-and-test-windows.yaml
+index 245f20702..71f93fe6e 100644
+--- a/.github/workflows/build-and-test-windows.yaml
++++ b/.github/workflows/build-and-test-windows.yaml
+@@ -16,7 +16,11 @@ permissions: read-all
+ 
+ jobs:
+   windows-unittest:
+-    runs-on: windows-latest
++    strategy:
++      fail-fast: false
++      matrix:
++        os: [windows-2022, windows-2025]
++    runs-on: ${{ matrix.os }}
+     steps:
+       - name: Checkout Repo
+         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+@@ -41,7 +45,11 @@ jobs:
+         run: make gotest
+ 
+   windows-service-test:
+-    runs-on: windows-latest
++    strategy:
++      fail-fast: false
++      matrix:
++        os: [windows-2022, windows-2025]
++    runs-on: ${{ matrix.os }}
+     steps:
+       - name: Checkout Repo
+         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

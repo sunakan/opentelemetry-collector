@@ -1,0 +1,11 @@
+diff --git a/confmap/provider/fileprovider/testdata/default-config.yaml b/confmap/provider/fileprovider/testdata/default-config.yaml
+index 78b6afd11..cc4c0e8a3 100644
+--- a/confmap/provider/fileprovider/testdata/default-config.yaml
++++ b/confmap/provider/fileprovider/testdata/default-config.yaml
+@@ -1,5 +1,5 @@
+ processors:
+   testprocessor:
+ exporters:
+-  otlp:
++  otlp_grpc:
+     endpoint: "localhost:4317"

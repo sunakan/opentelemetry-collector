@@ -1,0 +1,17 @@
+diff --git a/.chloggen/fixconfmap.yaml b/.chloggen/fixconfmap.yaml
+deleted file mode 100755
+index d5fd27266..000000000
+--- a/.chloggen/fixconfmap.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: bug_fix
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: confmap
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Fix support for concatenating envvars with colon
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [6580]

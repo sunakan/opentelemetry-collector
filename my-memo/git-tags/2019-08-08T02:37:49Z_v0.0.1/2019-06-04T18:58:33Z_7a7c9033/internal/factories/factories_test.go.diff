@@ -1,0 +1,53 @@
+diff --git a/internal/factories/factories_test.go b/internal/factories/factories_test.go
+index 1f5686756..3c7e8860f 100644
+--- a/internal/factories/factories_test.go
++++ b/internal/factories/factories_test.go
+@@ -15,8 +15,12 @@
+ package factories
+ 
+ import (
++	"context"
+ 	"testing"
+ 
++	"github.com/census-instrumentation/opencensus-service/consumer"
++	"github.com/census-instrumentation/opencensus-service/receiver"
++
+ 	"github.com/census-instrumentation/opencensus-service/internal/configmodels"
+ )
+ 
+@@ -28,11 +32,35 @@ func (f *ExampleReceiverFactory) Type() string {
+ 	return "examplereceiver"
+ }
+ 
++// CustomUnmarshaler returns nil because we don't need custom unmarshaling for this factory.
++func (f *ExampleReceiverFactory) CustomUnmarshaler() CustomUnmarshaler {
++	return nil
++}
++
+ // CreateDefaultConfig creates the default configuration for the Receiver.
+ func (f *ExampleReceiverFactory) CreateDefaultConfig() configmodels.Receiver {
+ 	return nil
+ }
+ 
++// CreateTraceReceiver creates a trace receiver based on this config.
++func (f *ExampleReceiverFactory) CreateTraceReceiver(
++	ctx context.Context,
++	cfg configmodels.Receiver,
++	nextConsumer consumer.TraceConsumer,
++) (receiver.TraceReceiver, error) {
++	// Not used for this test, just return nil
++	return nil, nil
++}
++
++// CreateMetricsReceiver creates a metrics receiver based on this config.
++func (f *ExampleReceiverFactory) CreateMetricsReceiver(
++	cfg configmodels.Receiver,
++	consumer consumer.MetricsConsumer,
++) (receiver.MetricsReceiver, error) {
++	// Not used for this test, just return nil
++	return nil, nil
++}
++
+ func TestRegisterReceiverFactory(t *testing.T) {
+ 	f := ExampleReceiverFactory{}
+ 	err := RegisterReceiverFactory(&f)

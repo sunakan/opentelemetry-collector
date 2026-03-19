@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_scopemetrics.go b/pdata/internal/generated_proto_scopemetrics.go
+index fc521a401..1fac11cbe 100644
+--- a/pdata/internal/generated_proto_scopemetrics.go
++++ b/pdata/internal/generated_proto_scopemetrics.go
+@@ -184,6 +184,7 @@ func (orig *ScopeMetrics) SizeProto() int {
+ 		l = orig.Metrics[i].SizeProto()
+ 		n += 1 + proto.Sov(uint64(l)) + l
+ 	}
++
+ 	l = len(orig.SchemaUrl)
+ 	if l > 0 {
+ 		n += 1 + proto.Sov(uint64(l)) + l

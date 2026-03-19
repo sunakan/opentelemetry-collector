@@ -1,0 +1,30 @@
+diff --git a/service/config_test.go b/service/config_test.go
+index 367110f4e..a5dfa67c9 100644
+--- a/service/config_test.go
++++ b/service/config_test.go
+@@ -85,7 +85,7 @@ func TestConfigValidate(t *testing.T) {
+ 			name: "custom-service-telemetrySettings-encoding",
+ 			cfgFn: func() *Config {
+ 				cfg := generateConfig()
+-				cfg.Service.Telemetry.Logs.Encoding = "test_encoding"
++				cfg.Service.Telemetry.Logs.Encoding = "json"
+ 				return cfg
+ 			},
+ 			expected: nil,
+@@ -237,6 +237,16 @@ func TestConfigValidate(t *testing.T) {
+ 			},
+ 			expected: errors.New(`unknown pipeline datatype "wrongtype" for wrongtype`),
+ 		},
++		{
++			name: "invalid-telemetry-metric-config",
++			cfgFn: func() *Config {
++				cfg := generateConfig()
++				cfg.Service.Telemetry.Metrics.Level = configtelemetry.LevelBasic
++				cfg.Service.Telemetry.Metrics.Address = ""
++				return cfg
++			},
++			expected: nil,
++		},
+ 	}
+ 
+ 	for _, test := range testCases {

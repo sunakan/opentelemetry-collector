@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/internal/otlptext/profiles.go b/exporter/debugexporter/internal/otlptext/profiles.go
+index 9bcb4c39d..fbe13a78a 100644
+--- a/exporter/debugexporter/internal/otlptext/profiles.go
++++ b/exporter/debugexporter/internal/otlptext/profiles.go
+@@ -19,7 +19,7 @@ type textProfilesMarshaler struct{}
+ // MarshalProfiles pprofile.Profiles to OTLP text.
+ func (textProfilesMarshaler) MarshalProfiles(pd pprofile.Profiles) ([]byte, error) {
+ 	buf := dataBuffer{}
+-	dic := pd.ProfilesDictionary()
++	dic := pd.Dictionary()
+ 	rps := pd.ResourceProfiles()
+ 
+ 	buf.logProfileMappings(dic.MappingTable())

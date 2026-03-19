@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/factory_test.go b/extension/zpagesextension/factory_test.go
+index e5341425e..176edb1e2 100644
+--- a/extension/zpagesextension/factory_test.go
++++ b/extension/zpagesextension/factory_test.go
+@@ -31,7 +31,7 @@ import (
+ 
+ func TestFactory_Type(t *testing.T) {
+ 	factory := Factory{}
+-	require.Equal(t, typeStr, factory.Type())
++	require.Equal(t, configmodels.Type(typeStr), factory.Type())
+ }
+ 
+ func TestFactory_CreateDefaultConfig(t *testing.T) {

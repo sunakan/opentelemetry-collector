@@ -1,0 +1,58 @@
+diff --git a/receiver/otlpreceiver/logs/otlp_test.go b/receiver/otlpreceiver/logs/otlp_test.go
+index 43aa8fefd..fe3f1008a 100644
+--- a/receiver/otlpreceiver/logs/otlp_test.go
++++ b/receiver/otlpreceiver/logs/otlp_test.go
+@@ -55,16 +55,18 @@ func TestExport(t *testing.T) {
+ 	unixnanos := uint64(12578940000000012345)
+ 	traceID := [16]byte{1, 2, 3, 4, 5, 6, 7, 8, 8, 7, 6, 5, 4, 3, 2, 1}
+ 	spanID := [8]byte{8, 7, 6, 5, 4, 3, 2, 1}
+-	resourceLogs := []*otlplog.ResourceLogs{
+-		{
+-			InstrumentationLibraryLogs: []*otlplog.InstrumentationLibraryLogs{
+-				{
+-					Logs: []*otlplog.LogRecord{
+-						{
+-							TraceId:      data.NewTraceID(traceID),
+-							SpanId:       data.NewSpanID(spanID),
+-							Name:         "operationB",
+-							TimeUnixNano: unixnanos,
++	otlp := &collectorlog.ExportLogsServiceRequest{
++		ResourceLogs: []*otlplog.ResourceLogs{
++			{
++				InstrumentationLibraryLogs: []*otlplog.InstrumentationLibraryLogs{
++					{
++						Logs: []*otlplog.LogRecord{
++							{
++								TraceId:      data.NewTraceID(traceID),
++								SpanId:       data.NewSpanID(spanID),
++								Name:         "operationB",
++								TimeUnixNano: unixnanos,
++							},
+ 						},
+ 					},
+ 				},
+@@ -74,13 +76,9 @@ func TestExport(t *testing.T) {
+ 
+ 	// Keep log data to compare the test result against it
+ 	// Clone needed because OTLP proto XXX_ fields are altered in the GRPC downstream
+-	traceData := pdata.LogsFromInternalRep(internal.LogsFromOtlp(resourceLogs)).Clone()
+-
+-	req := &collectorlog.ExportLogsServiceRequest{
+-		ResourceLogs: resourceLogs,
+-	}
++	ld := pdata.LogsFromInternalRep(internal.LogsFromOtlp(otlp)).Clone()
+ 
+-	resp, err := traceClient.Export(context.Background(), req)
++	resp, err := traceClient.Export(context.Background(), otlp)
+ 	require.NoError(t, err, "Failed to export trace: %v", err)
+ 	require.NotNil(t, resp, "The response is missing")
+ 
+@@ -88,7 +86,7 @@ func TestExport(t *testing.T) {
+ 
+ 	require.Equal(t, 1, len(logSink.AllLogs()), "unexpected length: %v", len(logSink.AllLogs()))
+ 
+-	assert.EqualValues(t, traceData, logSink.AllLogs()[0])
++	assert.EqualValues(t, ld, logSink.AllLogs()[0])
+ }
+ 
+ func TestExport_EmptyRequest(t *testing.T) {

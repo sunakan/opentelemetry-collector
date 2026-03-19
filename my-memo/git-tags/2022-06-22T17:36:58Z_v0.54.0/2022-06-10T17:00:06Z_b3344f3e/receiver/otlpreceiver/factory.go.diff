@@ -1,0 +1,31 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 707ace1be..88168e64b 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -63,7 +63,7 @@ func createDefaultConfig() config.Receiver {
+ 	}
+ }
+ 
+-// CreateTracesReceiver creates a  trace receiver based on provided config.
++// createTracesReceiver creates a trace receiver based on provided config.
+ func createTracesReceiver(
+ 	_ context.Context,
+ 	set component.ReceiverCreateSettings,
+@@ -80,7 +80,7 @@ func createTracesReceiver(
+ 	return r, nil
+ }
+ 
+-// CreateMetricsReceiver creates a metrics receiver based on provided config.
++// createMetricsReceiver creates a metrics receiver based on provided config.
+ func createMetricsReceiver(
+ 	_ context.Context,
+ 	set component.ReceiverCreateSettings,
+@@ -97,7 +97,7 @@ func createMetricsReceiver(
+ 	return r, nil
+ }
+ 
+-// CreateLogReceiver creates a log receiver based on provided config.
++// createLogReceiver creates a log receiver based on provided config.
+ func createLogReceiver(
+ 	_ context.Context,
+ 	set component.ReceiverCreateSettings,

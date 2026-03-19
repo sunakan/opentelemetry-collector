@@ -1,0 +1,23 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index b4a174632..ba6b906ae 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -107,6 +107,7 @@ func (f *Factory) CreateTraceReceiver(
+ 	protoTChannel := rCfg.Protocols[protoThriftTChannel]
+ 	protoThriftCompact := rCfg.Protocols[protoThriftCompact]
+ 	protoThriftBinary := rCfg.Protocols[protoThriftBinary]
++	remoteSamplingConfig := rCfg.RemoteSampling
+ 
+ 	config := Configuration{}
+ 	var grpcServerOptions []grpc.ServerOption
+@@ -161,6 +162,10 @@ func (f *Factory) CreateTraceReceiver(
+ 		}
+ 	}
+ 
++	if remoteSamplingConfig != nil {
++		config.RemoteSamplingEndpoint = remoteSamplingConfig.FetchEndpoint
++	}
++
+ 	if (protoGRPC == nil && protoHTTP == nil && protoTChannel == nil && protoThriftBinary == nil && protoThriftCompact == nil) ||
+ 		(config.CollectorGRPCPort == 0 && config.CollectorHTTPPort == 0 && config.CollectorThriftPort == 0 && config.AgentBinaryThriftPort == 0 && config.AgentCompactThriftPort == 0) {
+ 		err := fmt.Errorf("either %v, %v, %v, %v, or %v protocol endpoint with non-zero port must be enabled for %s receiver",

@@ -1,0 +1,8 @@
+diff --git a/exporter/debugexporter/testdata/config_verbosity_typo.yaml b/exporter/debugexporter/testdata/config_verbosity_typo.yaml
+new file mode 100644
+index 000000000..440930033
+--- /dev/null
++++ b/exporter/debugexporter/testdata/config_verbosity_typo.yaml
+@@ -0,0 +1,2 @@
++# Typo in the configuration that assumes that this property is camelcase
++verBosity: detailed

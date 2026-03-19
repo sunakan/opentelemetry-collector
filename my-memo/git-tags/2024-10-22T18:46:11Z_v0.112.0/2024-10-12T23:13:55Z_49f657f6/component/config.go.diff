@@ -1,0 +1,13 @@
+diff --git a/component/config.go b/component/config.go
+index 91898258f..d7eb0e005 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -86,7 +86,7 @@ func callValidateIfPossible(v reflect.Value) error {
+ 	if reflect.PointerTo(v.Type()).Implements(configValidatorType) {
+ 		// If not addressable, then create a new *V pointer and set the value to current v.
+ 		if !v.CanAddr() {
+-			pv := reflect.New(reflect.PtrTo(v.Type()).Elem())
++			pv := reflect.New(reflect.PointerTo(v.Type()).Elem())
+ 			pv.Elem().Set(v)
+ 			v = pv.Elem()
+ 		}

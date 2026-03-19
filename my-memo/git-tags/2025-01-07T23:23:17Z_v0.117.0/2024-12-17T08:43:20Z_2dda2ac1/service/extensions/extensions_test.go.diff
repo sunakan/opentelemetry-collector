@@ -1,0 +1,13 @@
+diff --git a/service/extensions/extensions_test.go b/service/extensions/extensions_test.go
+index 6e10b7b22..509423a68 100644
+--- a/service/extensions/extensions_test.go
++++ b/service/extensions/extensions_test.go
+@@ -285,7 +285,7 @@ func TestNotifyConfig(t *testing.T) {
+ 				Extensions: builders.NewExtension(tt.extensionsConfigs, tt.factories),
+ 			}, tt.serviceExtensions)
+ 			require.NoError(t, err)
+-			errs := extensions.NotifyConfig(context.Background(), confmap.NewFromStringMap(map[string]interface{}{}))
++			errs := extensions.NotifyConfig(context.Background(), confmap.NewFromStringMap(map[string]any{}))
+ 			assert.Equal(t, tt.want, errs)
+ 		})
+ 	}

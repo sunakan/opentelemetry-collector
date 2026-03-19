@@ -1,0 +1,9 @@
+diff --git a/exporter/otlphttpexporter/testdata/config.yaml b/exporter/otlphttpexporter/testdata/config.yaml
+index 410ff12a4..59ec7e206 100644
+--- a/exporter/otlphttpexporter/testdata/config.yaml
++++ b/exporter/otlphttpexporter/testdata/config.yaml
+@@ -23,3 +23,4 @@ headers:
+   header1: "234"
+   another: "somevalue"
+ compression: gzip
++profiles_endpoint: "https://custom.profiles.endpoint:8080/v1development/profiles"

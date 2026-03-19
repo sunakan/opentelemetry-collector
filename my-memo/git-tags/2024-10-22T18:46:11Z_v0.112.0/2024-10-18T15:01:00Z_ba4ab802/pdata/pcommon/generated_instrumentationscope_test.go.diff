@@ -1,0 +1,35 @@
+diff --git a/pdata/pcommon/generated_instrumentationscope_test.go b/pdata/pcommon/generated_instrumentationscope_test.go
+index 8dc46fe69..23fb4cbb0 100644
+--- a/pdata/pcommon/generated_instrumentationscope_test.go
++++ b/pdata/pcommon/generated_instrumentationscope_test.go
+@@ -16,11 +16,11 @@ import (
+ )
+ 
+ func TestInstrumentationScope_MoveTo(t *testing.T) {
+-	ms := InstrumentationScope(internal.GenerateTestInstrumentationScope())
++	ms := generateTestInstrumentationScope()
+ 	dest := NewInstrumentationScope()
+ 	ms.MoveTo(dest)
+ 	assert.Equal(t, NewInstrumentationScope(), ms)
+-	assert.Equal(t, InstrumentationScope(internal.GenerateTestInstrumentationScope()), dest)
++	assert.Equal(t, generateTestInstrumentationScope(), dest)
+ 	sharedState := internal.StateReadOnly
+ 	assert.Panics(t, func() { ms.MoveTo(newInstrumentationScope(&otlpcommon.InstrumentationScope{}, &sharedState)) })
+ 	assert.Panics(t, func() { newInstrumentationScope(&otlpcommon.InstrumentationScope{}, &sharedState).MoveTo(dest) })
+@@ -31,7 +31,7 @@ func TestInstrumentationScope_CopyTo(t *testing.T) {
+ 	orig := NewInstrumentationScope()
+ 	orig.CopyTo(ms)
+ 	assert.Equal(t, orig, ms)
+-	orig = InstrumentationScope(internal.GenerateTestInstrumentationScope())
++	orig = generateTestInstrumentationScope()
+ 	orig.CopyTo(ms)
+ 	assert.Equal(t, orig, ms)
+ 	sharedState := internal.StateReadOnly
+@@ -75,3 +75,7 @@ func TestInstrumentationScope_DroppedAttributesCount(t *testing.T) {
+ 		newInstrumentationScope(&otlpcommon.InstrumentationScope{}, &sharedState).SetDroppedAttributesCount(uint32(17))
+ 	})
+ }
++
++func generateTestInstrumentationScope() InstrumentationScope {
++	return InstrumentationScope(internal.GenerateTestInstrumentationScope())
++}

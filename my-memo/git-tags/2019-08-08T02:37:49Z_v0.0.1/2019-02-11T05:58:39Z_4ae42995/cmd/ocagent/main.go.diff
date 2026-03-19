@@ -1,0 +1,47 @@
+diff --git a/cmd/ocagent/main.go b/cmd/ocagent/main.go
+index ed6910e39..ec1119460 100644
+--- a/cmd/ocagent/main.go
++++ b/cmd/ocagent/main.go
+@@ -38,6 +38,7 @@ import (
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+ 	"github.com/census-instrumentation/opencensus-service/receiver/jaeger"
+ 	"github.com/census-instrumentation/opencensus-service/receiver/opencensus"
++	promreceiver "github.com/census-instrumentation/opencensus-service/receiver/prometheus"
+ 	"github.com/census-instrumentation/opencensus-service/receiver/zipkin"
+ 	"github.com/census-instrumentation/opencensus-service/receiver/zipkin/scribe"
+ )
+@@ -135,6 +136,15 @@ func runOCAgent() {
+ 		closeFns = append(closeFns, jaegerDoneFn)
+ 	}
+ 
++	// If the Prometheus receiver is enabled, then run it.
++	if agentConfig.PrometheusReceiverEnabled() {
++		promDoneFn, err := runPrometheusReceiver(agentConfig.PrometheusConfiguration(), commonMetricsSink)
++		if err != nil {
++			log.Fatal(err)
++		}
++		closeFns = append(closeFns, promDoneFn)
++	}
++
+ 	// Always cleanup finally
+ 	defer func() {
+ 		for _, closeFn := range closeFns {
+@@ -268,3 +278,18 @@ func runZipkinScribeReceiver(config *config.ScribeReceiverConfig, sr receiver.Tr
+ 	log.Printf("Running Zipkin Scribe receiver with %+v", *config)
+ 	return doneFn, nil
+ }
++
++func runPrometheusReceiver(promConfig *promreceiver.Configuration, mr receiver.MetricsReceiverSink) (doneFn func() error, err error) {
++	pmr, err := promreceiver.New(promConfig)
++	if err != nil {
++		return nil, err
++	}
++	if err := pmr.StartMetricsReception(context.Background(), mr); err != nil {
++		return nil, err
++	}
++	doneFn = func() error {
++		return pmr.StopMetricsReception(context.Background())
++	}
++	log.Print("Running Prometheus receiver")
++	return doneFn, nil
++}

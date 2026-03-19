@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/builder/receivers_builder.go b/cmd/occollector/app/builder/receivers_builder.go
+index eea094971..76c13bc9b 100644
+--- a/cmd/occollector/app/builder/receivers_builder.go
++++ b/cmd/occollector/app/builder/receivers_builder.go
+@@ -221,7 +221,7 @@ func (rb *ReceiversBuilder) buildReceiver(config models.Receiver) (*builtReceive
+ 	}
+ 
+ 	// Prepare to build the receiver.
+-	factory := receiver.GetReceiverFactory(config.Type())
++	factory := receiver.GetFactory(config.Type())
+ 	rcv := &builtReceiver{}
+ 
+ 	// Now we have list of pipelines broken down by data type. Iterate for each data type.

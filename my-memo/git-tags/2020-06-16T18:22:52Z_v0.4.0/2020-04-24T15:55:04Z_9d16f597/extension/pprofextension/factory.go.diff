@@ -1,0 +1,13 @@
+diff --git a/extension/pprofextension/factory.go b/extension/pprofextension/factory.go
+index 95c4d1681..ff775f193 100644
+--- a/extension/pprofextension/factory.go
++++ b/extension/pprofextension/factory.go
+@@ -33,7 +33,7 @@ type Factory struct {
+ }
+ 
+ // Type gets the type of the config created by this factory.
+-func (f *Factory) Type() string {
++func (f *Factory) Type() configmodels.Type {
+ 	return typeStr
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index d2c06279e..44e1b3751 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -59,6 +59,8 @@ var (
+ 		"/confmap/provider/httpsprovider",
+ 		"/confmap/provider/yamlprovider",
+ 		"/consumer",
++		"/consumer/consumerprofiles",
++		"/consumer/consumertest",
+ 		"/connector",
+ 		"/exporter",
+ 		"/exporter/debugexporter",

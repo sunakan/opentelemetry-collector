@@ -1,0 +1,12 @@
+diff --git a/config/configopaque/opaque.go b/config/configopaque/opaque.go
+index 332bc0e0b..5293804b9 100644
+--- a/config/configopaque/opaque.go
++++ b/config/configopaque/opaque.go
+@@ -9,6 +9,7 @@ import (
+ )
+ 
+ // String alias that is marshaled and printed in an opaque way.
++// To recover the original value, cast it to a string.
+ type String string
+ 
+ const maskedString = "[REDACTED]"

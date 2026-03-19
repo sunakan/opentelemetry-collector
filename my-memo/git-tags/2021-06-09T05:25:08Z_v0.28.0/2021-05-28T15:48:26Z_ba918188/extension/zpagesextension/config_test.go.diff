@@ -1,0 +1,13 @@
+diff --git a/extension/zpagesextension/config_test.go b/extension/zpagesextension/config_test.go
+index f984ad64b..7fc7ca01f 100644
+--- a/extension/zpagesextension/config_test.go
++++ b/extension/zpagesextension/config_test.go
+@@ -33,7 +33,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	factory := NewFactory()
+ 	factories.Extensions[typeStr] = factory
+-	cfg, err := configtest.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
++	cfg, err := configtest.LoadConfigAndValidate(path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.Nil(t, err)
+ 	require.NotNil(t, cfg)

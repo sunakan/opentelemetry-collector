@@ -1,0 +1,22 @@
+diff --git a/receiver/scraperhelper/metadata.yaml b/receiver/scraperhelper/metadata.yaml
+index 90121a996..3fd8990d2 100644
+--- a/receiver/scraperhelper/metadata.yaml
++++ b/receiver/scraperhelper/metadata.yaml
+@@ -11,6 +11,8 @@ telemetry:
+   metrics:
+     scraper_scraped_metric_points:
+       enabled: true
++      stability:
++        level: alpha
+       description: Number of metric points successfully scraped.
+       unit: "{datapoints}"
+       sum:
+@@ -19,6 +21,8 @@ telemetry:
+ 
+     scraper_errored_metric_points:
+       enabled: true
++      stability:
++        level: alpha
+       description: Number of metric points that were unable to be scraped.
+       unit: "{datapoints}"
+       sum:

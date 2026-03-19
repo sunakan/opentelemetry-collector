@@ -1,0 +1,15 @@
+diff --git a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
+index 5bac4653a..b1ff3f106 100644
+--- a/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
++++ b/receiver/receiverhelper/internal/metadatatest/generated_telemetrytest.go
+@@ -20,8 +20,8 @@ type Telemetry struct {
+ 	componenttest.Telemetry
+ }
+ 
+-func SetupTelemetry() Telemetry {
+-	return Telemetry{Telemetry: componenttest.NewTelemetry()}
++func SetupTelemetry(opts ...componenttest.TelemetryOption) Telemetry {
++	return Telemetry{Telemetry: componenttest.NewTelemetry(opts...)}
+ }
+ func (tt *Telemetry) NewSettings() receiver.Settings {
+ 	set := receivertest.NewNopSettings()

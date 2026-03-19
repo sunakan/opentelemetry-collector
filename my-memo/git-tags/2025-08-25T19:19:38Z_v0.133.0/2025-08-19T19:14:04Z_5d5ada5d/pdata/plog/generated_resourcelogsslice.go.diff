@@ -1,0 +1,13 @@
+diff --git a/pdata/plog/generated_resourcelogsslice.go b/pdata/plog/generated_resourcelogsslice.go
+index 128d00d71..c43dd5329 100644
+--- a/pdata/plog/generated_resourcelogsslice.go
++++ b/pdata/plog/generated_resourcelogsslice.go
+@@ -99,7 +99,7 @@ func (es ResourceLogsSlice) EnsureCapacity(newCap int) {
+ // It returns the newly added ResourceLogs.
+ func (es ResourceLogsSlice) AppendEmpty() ResourceLogs {
+ 	es.state.AssertMutable()
+-	*es.orig = append(*es.orig, internal.NewOrigPtrResourceLogs())
++	*es.orig = append(*es.orig, internal.NewOrigResourceLogs())
+ 	return es.At(es.Len() - 1)
+ }
+ 

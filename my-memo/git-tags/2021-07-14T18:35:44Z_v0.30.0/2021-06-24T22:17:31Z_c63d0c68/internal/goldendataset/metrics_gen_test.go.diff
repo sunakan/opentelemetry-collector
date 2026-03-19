@@ -1,0 +1,13 @@
+diff --git a/internal/goldendataset/metrics_gen_test.go b/internal/goldendataset/metrics_gen_test.go
+index 441ba507c..4f1ca8f50 100644
+--- a/internal/goldendataset/metrics_gen_test.go
++++ b/internal/goldendataset/metrics_gen_test.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func TestGenDefault(t *testing.T) {

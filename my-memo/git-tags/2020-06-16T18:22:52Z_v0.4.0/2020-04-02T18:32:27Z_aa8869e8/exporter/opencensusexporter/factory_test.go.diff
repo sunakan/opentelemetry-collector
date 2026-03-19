@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index 586a0c4a7..f505e48f5 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -63,7 +63,7 @@ func TestCreateTraceExporter(t *testing.T) {
+ 		context.Background(),
+ 		zap.NewNop(),
+ 		rcvCfg,
+-		new(exportertest.SinkTraceExporter))
++		new(exportertest.SinkTraceExporterOld))
+ 	require.NotNil(t, rcv)
+ 	require.Nil(t, err)
+ 	require.Nil(t, rcv.Start(component.NewMockHost()))

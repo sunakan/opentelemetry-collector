@@ -1,0 +1,10 @@
+diff --git a/config/config.go b/config/config.go
+index 00e7b87e6..52ff62522 100644
+--- a/config/config.go
++++ b/config/config.go
+@@ -232,4 +232,4 @@ type Pipeline struct {
+ }
+ 
+ // Pipelines is a map of names to Pipelines.
+-type Pipelines map[string]*Pipeline
++type Pipelines map[ComponentID]*Pipeline

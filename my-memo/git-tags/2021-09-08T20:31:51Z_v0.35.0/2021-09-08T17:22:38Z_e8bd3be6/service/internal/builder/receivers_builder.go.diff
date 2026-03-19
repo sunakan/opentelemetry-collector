@@ -1,0 +1,13 @@
+diff --git a/service/internal/builder/receivers_builder.go b/service/internal/builder/receivers_builder.go
+index 33619d182..a06bcc0d0 100644
+--- a/service/internal/builder/receivers_builder.go
++++ b/service/internal/builder/receivers_builder.go
+@@ -99,7 +99,7 @@ func BuildReceivers(
+ 	receivers := make(Receivers)
+ 	for recvID, recvCfg := range cfg.Receivers {
+ 		set := component.ReceiverCreateSettings{
+-			TelemetryCreateSettings: component.TelemetryCreateSettings{
++			TelemetrySettings: component.TelemetrySettings{
+ 				Logger:         logger.With(zap.String(zapKindKey, zapKindReceiver), zap.String(zapNameKey, recvID.String())),
+ 				TracerProvider: tracerProvider,
+ 			},

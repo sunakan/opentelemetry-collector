@@ -1,0 +1,17 @@
+diff --git a/receiver/otlpreceiver/factory.go b/receiver/otlpreceiver/factory.go
+index 88168e64b..18ee98f84 100644
+--- a/receiver/otlpreceiver/factory.go
++++ b/receiver/otlpreceiver/factory.go
+@@ -38,9 +38,9 @@ func NewFactory() component.ReceiverFactory {
+ 	return component.NewReceiverFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		component.WithTracesReceiver(createTracesReceiver),
+-		component.WithMetricsReceiver(createMetricsReceiver),
+-		component.WithLogsReceiver(createLogReceiver))
++		component.WithTracesReceiverAndStabilityLevel(createTracesReceiver, component.StabilityLevelStable),
++		component.WithMetricsReceiverAndStabilityLevel(createMetricsReceiver, component.StabilityLevelStable),
++		component.WithLogsReceiverAndStabilityLevel(createLogReceiver, component.StabilityLevelBeta))
+ }
+ 
+ // createDefaultConfig creates the default configuration for receiver.

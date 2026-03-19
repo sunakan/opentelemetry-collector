@@ -1,0 +1,28 @@
+diff --git a/pdata/plog/generated_resourcelogs.go b/pdata/plog/generated_resourcelogs.go
+index 419ac0108..ddb720b34 100644
+--- a/pdata/plog/generated_resourcelogs.go
++++ b/pdata/plog/generated_resourcelogs.go
+@@ -55,6 +55,11 @@ func (ms ResourceLogs) Resource() pcommon.Resource {
+ 	return pcommon.Resource(internal.NewResource(&ms.orig.Resource, ms.state))
+ }
+ 
++// ScopeLogs returns the ScopeLogs associated with this ResourceLogs.
++func (ms ResourceLogs) ScopeLogs() ScopeLogsSlice {
++	return newScopeLogsSlice(&ms.orig.ScopeLogs, ms.state)
++}
++
+ // SchemaUrl returns the schemaurl associated with this ResourceLogs.
+ func (ms ResourceLogs) SchemaUrl() string {
+ 	return ms.orig.SchemaUrl
+@@ -66,11 +71,6 @@ func (ms ResourceLogs) SetSchemaUrl(v string) {
+ 	ms.orig.SchemaUrl = v
+ }
+ 
+-// ScopeLogs returns the ScopeLogs associated with this ResourceLogs.
+-func (ms ResourceLogs) ScopeLogs() ScopeLogsSlice {
+-	return newScopeLogsSlice(&ms.orig.ScopeLogs, ms.state)
+-}
+-
+ // CopyTo copies all properties from the current struct overriding the destination.
+ func (ms ResourceLogs) CopyTo(dest ResourceLogs) {
+ 	dest.state.AssertMutable()

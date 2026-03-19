@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterparser/exparser.go b/exporter/exporterparser/exparser.go
+index 5dc29f62f..71ac6b2e0 100644
+--- a/exporter/exporterparser/exparser.go
++++ b/exporter/exporterparser/exparser.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-// This package provides support for parsing and creating the
++// Package exporterparser provides support for parsing and creating the
+ // respective exporters given a YAML configuration payload.
+ // For now it currently only provides statically imported OpenCensus
+ // exporters like:

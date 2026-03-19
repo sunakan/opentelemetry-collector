@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/config_test.go b/receiver/otlpreceiver/config_test.go
+index ef00031b8..400143d80 100644
+--- a/receiver/otlpreceiver/config_test.go
++++ b/receiver/otlpreceiver/config_test.go
+@@ -177,6 +177,7 @@ func TestUnmarshalConfigUnix(t *testing.T) {
+ 		}, cfg)
+ }
+ 
++// cspell:ignore htttp
+ func TestUnmarshalConfigTypoDefaultProtocol(t *testing.T) {
+ 	cm, err := confmaptest.LoadConf(filepath.Join("testdata", "typo_default_proto_config.yaml"))
+ 	require.NoError(t, err)

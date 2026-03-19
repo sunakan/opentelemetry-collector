@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_attribute_test.go b/pdata/pprofile/generated_attribute_test.go
+index cf866daed..872b4c865 100644
+--- a/pdata/pprofile/generated_attribute_test.go
++++ b/pdata/pprofile/generated_attribute_test.go
+@@ -41,7 +41,7 @@ func TestAttribute_CopyTo(t *testing.T) {
+ 
+ func TestAttribute_Key(t *testing.T) {
+ 	ms := NewAttribute()
+-	assert.Equal(t, "", ms.Key())
++	assert.Empty(t, ms.Key())
+ 	ms.SetKey("key")
+ 	assert.Equal(t, "key", ms.Key())
+ 	sharedState := internal.StateReadOnly

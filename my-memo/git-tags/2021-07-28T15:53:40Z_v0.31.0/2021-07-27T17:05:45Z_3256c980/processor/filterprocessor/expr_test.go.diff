@@ -1,0 +1,26 @@
+diff --git a/processor/filterprocessor/expr_test.go b/processor/filterprocessor/expr_test.go
+index db34e407d..0f0722e3f 100644
+--- a/processor/filterprocessor/expr_test.go
++++ b/processor/filterprocessor/expr_test.go
+@@ -91,21 +91,11 @@ func testFilter(t *testing.T, mdType pdata.MetricDataType, mvType pdata.MetricVa
+ 					if metric.Name() == filteredMetric {
+ 						dt := metric.DataType()
+ 						switch dt {
+-						case pdata.MetricDataTypeIntGauge:
+-							pts := metric.IntGauge().DataPoints()
+-							for l := 0; l < pts.Len(); l++ {
+-								assertFiltered(t, pts.At(l).LabelsMap())
+-							}
+ 						case pdata.MetricDataTypeGauge:
+ 							pts := metric.Gauge().DataPoints()
+ 							for l := 0; l < pts.Len(); l++ {
+ 								assertFiltered(t, pts.At(l).LabelsMap())
+ 							}
+-						case pdata.MetricDataTypeIntSum:
+-							pts := metric.IntSum().DataPoints()
+-							for l := 0; l < pts.Len(); l++ {
+-								assertFiltered(t, pts.At(l).LabelsMap())
+-							}
+ 						case pdata.MetricDataTypeSum:
+ 							pts := metric.Sum().DataPoints()
+ 							for l := 0; l < pts.Len(); l++ {

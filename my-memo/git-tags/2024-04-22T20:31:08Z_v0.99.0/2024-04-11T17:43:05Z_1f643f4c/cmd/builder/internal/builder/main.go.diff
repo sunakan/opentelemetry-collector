@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main.go b/cmd/builder/internal/builder/main.go
+index 3b22300be..0a00b6532 100644
+--- a/cmd/builder/internal/builder/main.go
++++ b/cmd/builder/internal/builder/main.go
+@@ -80,7 +80,6 @@ func Generate(cfg Config) error {
+ 		mainOthersTemplate,
+ 		mainWindowsTemplate,
+ 		componentsTemplate,
+-		componentsTestTemplate,
+ 		goModTemplate,
+ 	} {
+ 		if err := processAndWrite(cfg, tmpl, tmpl.Name(), cfg); err != nil {

@@ -1,0 +1,12 @@
+diff --git a/consumer/consumertest/err.go b/consumer/consumertest/err.go
+index 26c9afe41..58d049071 100644
+--- a/consumer/consumertest/err.go
++++ b/consumer/consumertest/err.go
+@@ -21,6 +21,7 @@ import (
+ )
+ 
+ type errConsumer struct {
++	nonMutatingConsumer
+ 	err error
+ }
+ 

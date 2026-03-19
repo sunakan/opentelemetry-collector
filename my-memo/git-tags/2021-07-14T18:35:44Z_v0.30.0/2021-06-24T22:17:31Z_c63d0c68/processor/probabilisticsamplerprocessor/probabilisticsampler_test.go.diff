@@ -1,0 +1,14 @@
+diff --git a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+index f83d79980..be799bbdf 100644
+--- a/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
++++ b/processor/probabilisticsamplerprocessor/probabilisticsampler_test.go
+@@ -26,8 +26,8 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/consumer/pdata"
+ 	idutils "go.opentelemetry.io/collector/internal/idutils"
++	"go.opentelemetry.io/collector/model/pdata"
+ 	"go.opentelemetry.io/collector/translator/conventions"
+ )
+ 

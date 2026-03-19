@@ -1,0 +1,21 @@
+diff --git a/processor/probabilisticsamplerprocessor/testdata/empty.yaml b/processor/probabilisticsamplerprocessor/testdata/empty.yaml
+new file mode 100644
+index 000000000..ad0169002
+--- /dev/null
++++ b/processor/probabilisticsamplerprocessor/testdata/empty.yaml
+@@ -0,0 +1,15 @@
++receivers:
++  examplereceiver:
++
++processors:
++  probabilistic-sampler:
++    
++
++exporters:
++  exampleexporter:
++
++pipelines:
++  traces:
++    receivers: [examplereceiver]
++    processors: [probabilistic-sampler]
++    exporters: [exampleexporter]

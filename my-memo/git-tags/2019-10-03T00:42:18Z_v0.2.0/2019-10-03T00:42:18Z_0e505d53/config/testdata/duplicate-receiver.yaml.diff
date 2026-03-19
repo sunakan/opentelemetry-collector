@@ -1,0 +1,19 @@
+diff --git a/config/testdata/duplicate-receiver.yaml b/config/testdata/duplicate-receiver.yaml
+index 2eff9cf20..275054e67 100644
+--- a/config/testdata/duplicate-receiver.yaml
++++ b/config/testdata/duplicate-receiver.yaml
+@@ -5,8 +5,9 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      exporters: [exampleexporter]
++      processors: [exampleprocessor]

@@ -1,0 +1,22 @@
+diff --git a/pdata/pprofile/links_test.go b/pdata/pprofile/links_test.go
+index 1c2b49bcd..ebe991930 100644
+--- a/pdata/pprofile/links_test.go
++++ b/pdata/pprofile/links_test.go
+@@ -38,7 +38,7 @@ func TestSetLink(t *testing.T) {
+ 	idx, err = SetLink(table, l2)
+ 	require.NoError(t, err)
+ 	assert.Equal(t, 2, table.Len())
+-	assert.Equal(t, int32(table.Len()-1), idx) //nolint:gosec // G115
++	assert.Equal(t, int32(table.Len()-1), idx)
+ 
+ 	// Set an existing link
+ 	idx, err = SetLink(table, l)
+@@ -49,7 +49,7 @@ func TestSetLink(t *testing.T) {
+ 	idx, err = SetLink(table, l2)
+ 	require.NoError(t, err)
+ 	assert.Equal(t, 2, table.Len())
+-	assert.Equal(t, int32(table.Len()-1), idx) //nolint:gosec // G115
++	assert.Equal(t, int32(table.Len()-1), idx)
+ }
+ 
+ func BenchmarkSetLink(b *testing.B) {

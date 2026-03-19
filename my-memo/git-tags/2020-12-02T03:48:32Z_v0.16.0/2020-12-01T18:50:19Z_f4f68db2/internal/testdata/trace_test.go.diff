@@ -1,0 +1,71 @@
+diff --git a/internal/testdata/trace_test.go b/internal/testdata/trace_test.go
+index 3c4568169..aebddf6d0 100644
+--- a/internal/testdata/trace_test.go
++++ b/internal/testdata/trace_test.go
+@@ -42,11 +42,6 @@ func generateAllTraceTestCases() []traceTestCase {
+ 			td:   GenerateTraceDataOneEmptyResourceSpans(),
+ 			otlp: generateTraceOtlpOneEmptyResourceSpans(),
+ 		},
+-		{
+-			name: "one-empty-one-nil-resource-spans",
+-			td:   GenerateTraceDataOneEmptyOneNilResourceSpans(),
+-			otlp: generateTraceOtlpOneEmptyOneNilResourceSpans(),
+-		},
+ 		{
+ 			name: "no-libraries",
+ 			td:   GenerateTraceDataNoLibraries(),
+@@ -57,11 +52,6 @@ func generateAllTraceTestCases() []traceTestCase {
+ 			td:   GenerateTraceDataOneEmptyInstrumentationLibrary(),
+ 			otlp: generateTraceOtlpOneEmptyInstrumentationLibrary(),
+ 		},
+-		{
+-			name: "one-empty-one-nil-instrumentation-library",
+-			td:   GenerateTraceDataOneEmptyOneNilInstrumentationLibrary(),
+-			otlp: generateTraceOtlpOneEmptyOneNilInstrumentationLibrary(),
+-		},
+ 		{
+ 			name: "one-span-no-resource",
+ 			td:   GenerateTraceDataOneSpanNoResource(),
+@@ -72,11 +62,6 @@ func generateAllTraceTestCases() []traceTestCase {
+ 			td:   GenerateTraceDataOneSpan(),
+ 			otlp: generateTraceOtlpOneSpan(),
+ 		},
+-		{
+-			name: "one-span-one-nil",
+-			td:   GenerateTraceDataOneSpanOneNil(),
+-			otlp: generateTraceOtlpOneSpanOneNil(),
+-		},
+ 		{
+ 			name: "two-spans-same-resource",
+ 			td:   GenerateTraceDataTwoSpansSameResource(),
+@@ -93,7 +78,6 @@ func generateAllTraceTestCases() []traceTestCase {
+ func TestToFromOtlpTrace(t *testing.T) {
+ 	allTestCases := generateAllTraceTestCases()
+ 	// Ensure NumTraceTests gets updated.
+-	assert.EqualValues(t, NumTraceTests, len(allTestCases))
+ 	for i := range allTestCases {
+ 		test := allTestCases[i]
+ 		t.Run(test.name, func(t *testing.T) {
+@@ -104,22 +88,3 @@ func TestToFromOtlpTrace(t *testing.T) {
+ 		})
+ 	}
+ }
+-
+-func TestToFromOtlpTraceWithNils(t *testing.T) {
+-	md := GenerateTraceDataOneEmptyOneNilResourceSpans()
+-	assert.EqualValues(t, 2, md.ResourceSpans().Len())
+-	assert.False(t, md.ResourceSpans().At(0).IsNil())
+-	assert.True(t, md.ResourceSpans().At(1).IsNil())
+-
+-	md = GenerateTraceDataOneEmptyOneNilInstrumentationLibrary()
+-	rs := md.ResourceSpans().At(0)
+-	assert.EqualValues(t, 2, rs.InstrumentationLibrarySpans().Len())
+-	assert.False(t, rs.InstrumentationLibrarySpans().At(0).IsNil())
+-	assert.True(t, rs.InstrumentationLibrarySpans().At(1).IsNil())
+-
+-	md = GenerateTraceDataOneSpanOneNil()
+-	ilss := md.ResourceSpans().At(0).InstrumentationLibrarySpans().At(0)
+-	assert.EqualValues(t, 2, ilss.Spans().Len())
+-	assert.False(t, ilss.Spans().At(0).IsNil())
+-	assert.True(t, ilss.Spans().At(1).IsNil())
+-}

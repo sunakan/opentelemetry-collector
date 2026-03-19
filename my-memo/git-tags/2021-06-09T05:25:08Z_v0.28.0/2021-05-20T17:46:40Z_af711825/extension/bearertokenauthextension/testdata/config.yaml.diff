@@ -1,0 +1,27 @@
+diff --git a/extension/bearertokenauthextension/testdata/config.yaml b/extension/bearertokenauthextension/testdata/config.yaml
+new file mode 100644
+index 000000000..3672ac2e6
+--- /dev/null
++++ b/extension/bearertokenauthextension/testdata/config.yaml
+@@ -0,0 +1,21 @@
++extensions:
++  bearertokenauth:
++    token: "sometoken"
++  bearertokenauth/1:
++    token: "sometesttoken"
++
++# Data pipeline is required to load the config.
++receivers:
++  nop:
++processors:
++  nop:
++exporters:
++  nop:
++
++service:
++  extensions: [bearertokenauth/1]
++  pipelines:
++    traces:
++      receivers: [nop]
++      processors: [nop]
++      exporters: [nop]

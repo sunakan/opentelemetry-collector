@@ -1,0 +1,12 @@
+diff --git a/pdata/pprofile/pprofileotlp/grpc.go b/pdata/pprofile/pprofileotlp/grpc.go
+index 04f7dcd07..819df8f68 100644
+--- a/pdata/pprofile/pprofileotlp/grpc.go
++++ b/pdata/pprofile/pprofileotlp/grpc.go
+@@ -12,6 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpcollectorprofile "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/profiles/v1development"
++	_ "go.opentelemetry.io/collector/pdata/internal/grpcencoding" // enforces custom gRPC encoding to be loaded.
+ 	"go.opentelemetry.io/collector/pdata/internal/otlp"
+ )
+ 

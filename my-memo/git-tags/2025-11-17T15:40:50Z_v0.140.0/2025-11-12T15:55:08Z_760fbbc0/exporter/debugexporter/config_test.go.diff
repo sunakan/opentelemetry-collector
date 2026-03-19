@@ -1,0 +1,13 @@
+diff --git a/exporter/debugexporter/config_test.go b/exporter/debugexporter/config_test.go
+index d407c991f..51b4c875e 100644
+--- a/exporter/debugexporter/config_test.go
++++ b/exporter/debugexporter/config_test.go
+@@ -25,7 +25,7 @@ func TestUnmarshalDefaultConfig(t *testing.T) {
+ 
+ func TestUnmarshalConfig(t *testing.T) {
+ 	queueCfg := exporterhelper.NewDefaultQueueConfig()
+-	queueCfg.QueueSize = 1
++	queueCfg.Enabled = false
+ 	tests := []struct {
+ 		filename    string
+ 		cfg         *Config

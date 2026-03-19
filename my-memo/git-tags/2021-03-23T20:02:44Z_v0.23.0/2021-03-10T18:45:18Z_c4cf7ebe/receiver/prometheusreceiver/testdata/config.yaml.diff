@@ -1,0 +1,23 @@
+diff --git a/receiver/prometheusreceiver/testdata/config.yaml b/receiver/prometheusreceiver/testdata/config.yaml
+index 32513a9ad..5c115d9e2 100644
+--- a/receiver/prometheusreceiver/testdata/config.yaml
++++ b/receiver/prometheusreceiver/testdata/config.yaml
+@@ -11,14 +11,14 @@ receivers:
+           scrape_interval: 5s
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+       receivers: [prometheus]
+-      processors: [exampleprocessor]
+-      exporters: [exampleexporter]
++      processors: [nop]
++      exporters: [nop]

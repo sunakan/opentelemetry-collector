@@ -1,0 +1,13 @@
+diff --git a/internal/data/metric_test.go b/internal/data/metric_test.go
+index 0fa01a76c..3b4afe1ff 100644
+--- a/internal/data/metric_test.go
++++ b/internal/data/metric_test.go
+@@ -22,7 +22,7 @@ import (
+ 	otlpresource "github.com/open-telemetry/opentelemetry-proto/gen/go/resource/v1"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/consumer/pdata"
++	"go.opentelemetry.io/collector/consumer/pdata"
+ )
+ 
+ const (

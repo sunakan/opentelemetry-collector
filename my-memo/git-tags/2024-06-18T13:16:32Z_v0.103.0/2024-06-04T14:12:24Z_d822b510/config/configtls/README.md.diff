@@ -1,0 +1,12 @@
+diff --git a/config/configtls/README.md b/config/configtls/README.md
+index aecfc284b..cdc8d3166 100644
+--- a/config/configtls/README.md
++++ b/config/configtls/README.md
+@@ -122,6 +122,7 @@ Beyond TLS configuration, the following setting can optionally be configured
+   client certificate. (optional) This sets the ClientCAs and ClientAuth to
+   RequireAndVerifyClientCert in the TLSConfig. Please refer to
+   https://godoc.org/crypto/tls#Config for more information.
++- `client_ca_file_reload` (default = false): Reload the ClientCAs file when it is modified.
+ 
+ Example:
+ 

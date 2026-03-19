@@ -1,0 +1,28 @@
+diff --git a/internal/cmd/pdatagen/internal/optional_primitive_field.go b/internal/cmd/pdatagen/internal/optional_primitive_field.go
+index f66fc1609..d4969934e 100644
+--- a/internal/cmd/pdatagen/internal/optional_primitive_field.go
++++ b/internal/cmd/pdatagen/internal/optional_primitive_field.go
+@@ -67,6 +67,11 @@ const optionalPrimitiveCopyOrigTemplate = `if src{{ .fieldName }}, ok := src.{{
+ 	dest.{{ .fieldName }}_ = nil
+ }`
+ 
++const optionalPrimitiveMarshalJSONTemplate = `if ms.Has{{ .fieldName }}() {
++		dest.WriteObjectField("{{ lowerFirst .fieldName }}")
++		dest.Write{{ upperFirst .returnType }}(ms.{{ .fieldName }}())
++	}`
++
+ type OptionalPrimitiveField struct {
+ 	fieldName  string
+ 	defaultVal string
+@@ -94,6 +99,11 @@ func (opv *OptionalPrimitiveField) GenerateCopyOrig(ms *messageStruct) string {
+ 	return executeTemplate(t, opv.templateFields(ms))
+ }
+ 
++func (opv *OptionalPrimitiveField) GenerateMarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("optionalPrimitiveMarshalJSONTemplate").Parse(optionalPrimitiveMarshalJSONTemplate))
++	return executeTemplate(t, opv.templateFields(ms))
++}
++
+ func (opv *OptionalPrimitiveField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName":       ms.getName(),

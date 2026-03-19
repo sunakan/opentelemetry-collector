@@ -1,0 +1,21 @@
+diff --git a/processor/queuedprocessor/factory_test.go b/processor/queuedprocessor/factory_test.go
+index a8e01cbe0..501203886 100644
+--- a/processor/queuedprocessor/factory_test.go
++++ b/processor/queuedprocessor/factory_test.go
+@@ -26,14 +26,14 @@ import (
+ )
+ 
+ func TestCreateDefaultConfig(t *testing.T) {
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	assert.NotNil(t, cfg, "failed to create default config")
+ 	assert.NoError(t, configcheck.ValidateConfig(cfg))
+ }
+ 
+ func TestCreateProcessor(t *testing.T) {
+-	factory := &Factory{}
++	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 	creationParams := component.ProcessorCreateParams{Logger: zap.NewNop()}
+ 

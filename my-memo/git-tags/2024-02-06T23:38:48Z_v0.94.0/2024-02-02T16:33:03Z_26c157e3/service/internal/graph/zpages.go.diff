@@ -1,0 +1,13 @@
+diff --git a/service/internal/graph/zpages.go b/service/internal/graph/zpages.go
+index 0c7c0829e..0f2793974 100644
+--- a/service/internal/graph/zpages.go
++++ b/service/internal/graph/zpages.go
+@@ -55,7 +55,7 @@ func (g *Graph) HandleZPages(w http.ResponseWriter, r *http.Request) {
+ 
+ 		sumData.Rows = append(sumData.Rows, zpages.SummaryPipelinesTableRowData{
+ 			FullName:    c.String(),
+-			InputType:   string(c.Type()),
++			InputType:   c.Type().String(),
+ 			MutatesData: p.capabilitiesNode.getConsumer().Capabilities().MutatesData,
+ 			Receivers:   recvIDs,
+ 			Processors:  procIDs,

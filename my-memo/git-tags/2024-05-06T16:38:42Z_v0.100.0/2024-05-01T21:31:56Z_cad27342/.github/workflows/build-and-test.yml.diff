@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index c8c8727a5..1fb73116b 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -139,7 +139,7 @@ jobs:
+       matrix:
+         runner: [ubuntu-latest, actuated-arm64-4cpu-4gb]
+         exclude:
+-          - go-version: "1.21.9"
++          - go-version: "~1.21.9"
+             runner: actuated-arm64-4cpu-4gb
+         go-version: ["~1.22", "~1.21.9"] # 1.20 needs quotes otherwise it's interpreted as 1.2
+     runs-on: ${{ matrix.runner }}

@@ -1,0 +1,12 @@
+diff --git a/testbed/Makefile b/testbed/Makefile
+index 9d94b3c84..c3af99680 100644
+--- a/testbed/Makefile
++++ b/testbed/Makefile
+@@ -5,6 +5,7 @@ GOFMT=gofmt
+ GOLINT=golint
+ GOVET=go vet
+ GOOS=$(shell go env GOOS)
++GOARCH=$(shell go env GOARCH)
+ 
+ .DEFAULT_GOAL := fmt-vet-lint-test
+ 

@@ -1,0 +1,40 @@
+diff --git a/pdata/internal/generated_wrapper_span_event_test.go b/pdata/internal/generated_wrapper_span_event_test.go
+index 5d39ea24c..6bd7284c3 100644
+--- a/pdata/internal/generated_wrapper_span_event_test.go
++++ b/pdata/internal/generated_wrapper_span_event_test.go
+@@ -10,8 +10,10 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	otlptrace "go.opentelemetry.io/collector/pdata/internal/data/protogen/trace/v1"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func TestCopyOrigSpan_Event(t *testing.T) {
+@@ -23,3 +25,24 @@ func TestCopyOrigSpan_Event(t *testing.T) {
+ 	CopyOrigSpan_Event(dest, src)
+ 	assert.Equal(t, src, dest)
+ }
++
++func TestMarshalAndUnmarshalJSONOrigSpan_Event(t *testing.T) {
++	src := &otlptrace.Span_Event{}
++	FillOrigTestSpan_Event(src)
++	stream := json.BorrowStream(nil)
++	defer json.ReturnStream(stream)
++	MarshalJSONOrigSpan_Event(src, stream)
++	require.NoError(t, stream.Error())
++
++	// Append an unknown field at the start to ensure unknown fields are skipped
++	// and the unmarshal logic continues.
++	buf := stream.Buffer()
++	assert.EqualValues(t, '{', buf[0])
++	iter := json.BorrowIterator(append([]byte(`{"unknown": "string",`), buf[1:]...))
++	defer json.ReturnIterator(iter)
++	dest := &otlptrace.Span_Event{}
++	UnmarshalJSONOrigSpan_Event(dest, iter)
++	require.NoError(t, iter.Error())
++
++	assert.Equal(t, src, dest)
++}

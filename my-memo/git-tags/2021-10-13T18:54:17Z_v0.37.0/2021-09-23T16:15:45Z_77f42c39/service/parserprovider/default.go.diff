@@ -1,0 +1,16 @@
+diff --git a/service/parserprovider/default.go b/service/parserprovider/default.go
+index b7c011b48..14d35f321 100644
+--- a/service/parserprovider/default.go
++++ b/service/parserprovider/default.go
+@@ -14,9 +14,9 @@
+ 
+ package parserprovider
+ 
+-// Default is the default MapProvider and it creates configuration from a file
++// NewDefaultMapProvider is the default MapProvider and it creates configuration from a file
+ // defined by the --config command line flag and overwrites properties from --set
+ // command line flag (if the flag is present).
+-func Default() MapProvider {
++func NewDefaultMapProvider() MapProvider {
+ 	return NewMergeMapProvider(NewFileMapProvider(), NewPropertiesMapProvider())
+ }

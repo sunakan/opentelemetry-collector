@@ -1,0 +1,27 @@
+diff --git a/processor/processorhelper/logs.go b/processor/processorhelper/logs.go
+index 23c702cd2..9ea284e35 100644
+--- a/processor/processorhelper/logs.go
++++ b/processor/processorhelper/logs.go
+@@ -6,6 +6,7 @@ package processorhelper // import "go.opentelemetry.io/collector/processor/proce
+ import (
+ 	"context"
+ 	"errors"
++	"time"
+ 
+ 	"go.opentelemetry.io/otel/trace"
+ 
+@@ -49,10 +50,14 @@ func NewLogs(
+ 	logsConsumer, err := consumer.NewLogs(func(ctx context.Context, ld plog.Logs) error {
+ 		span := trace.SpanFromContext(ctx)
+ 		span.AddEvent("Start processing.", eventOptions)
++
++		startTime := time.Now()
++
+ 		recordsIn := ld.LogRecordCount()
+ 
+ 		var errFunc error
+ 		ld, errFunc = logsFunc(ctx, ld)
++		obs.recordInternalDuration(ctx, startTime)
+ 		span.AddEvent("End processing.", eventOptions)
+ 		if errFunc != nil {
+ 			obs.recordInOut(ctx, recordsIn, 0)

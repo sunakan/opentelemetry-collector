@@ -1,0 +1,13 @@
+diff --git a/internal/collector/processor/queued/config_test.go b/internal/collector/processor/queued/config_test.go
+index 5cdc705a7..b6e716a96 100644
+--- a/internal/collector/processor/queued/config_test.go
++++ b/internal/collector/processor/queued/config_test.go
+@@ -43,7 +43,7 @@ func TestLoadConfig(t *testing.T) {
+ 
+ 	p1 := cfg.Processors["queued-retry/2"]
+ 	assert.Equal(t, p1,
+-		&ConfigV2{
++		&Config{
+ 			ProcessorSettings: configmodels.ProcessorSettings{
+ 				TypeVal: "queued-retry",
+ 				NameVal: "queued-retry/2",

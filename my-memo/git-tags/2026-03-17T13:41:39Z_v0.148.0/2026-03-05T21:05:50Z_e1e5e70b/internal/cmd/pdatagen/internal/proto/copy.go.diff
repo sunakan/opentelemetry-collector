@@ -1,0 +1,22 @@
+diff --git a/internal/cmd/pdatagen/internal/proto/copy.go b/internal/cmd/pdatagen/internal/proto/copy.go
+index a2d5eb744..5d2fd7d35 100644
+--- a/internal/cmd/pdatagen/internal/proto/copy.go
++++ b/internal/cmd/pdatagen/internal/proto/copy.go
+@@ -11,7 +11,7 @@ const copyOther = `{{ if .repeated -}}
+ 	dest.{{ .fieldName }} = append(dest.{{ .fieldName }}[:0], src.{{ .fieldName }}...)
+ {{ else if ne .oneOfGroup "" -}}
+ 	var ov *{{ .oneOfMessageName }}
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		ov = &{{ .oneOfMessageName }}{}
+ 	} else {
+ 		ov = ProtoPool{{ .oneOfMessageName }}.Get().(*{{ .oneOfMessageName }})
+@@ -32,7 +32,7 @@ const copyMessage = `{{ if .repeated -}}
+ 	dest.{{ .fieldName }} = Copy{{ .messageName }}{{ if .nullable }}Ptr{{ end }}Slice(dest.{{ .fieldName }}, src.{{ .fieldName }})
+ {{- else if ne .oneOfGroup "" -}}
+ 	var ov *{{ .oneOfMessageName }}
+-	if !UseProtoPooling.IsEnabled() {
++	if !metadata.PdataUseProtoPoolingFeatureGate.IsEnabled() {
+ 		ov = &{{ .oneOfMessageName }}{}
+ 	} else {
+ 		ov = ProtoPool{{ .oneOfMessageName }}.Get().(*{{ .oneOfMessageName }})

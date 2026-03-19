@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/internal/otlptext/databuffer.go b/exporter/loggingexporter/internal/otlptext/databuffer.go
+index cdc3c9a14..7f53d81d6 100644
+--- a/exporter/loggingexporter/internal/otlptext/databuffer.go
++++ b/exporter/loggingexporter/internal/otlptext/databuffer.go
+@@ -76,7 +76,7 @@ func (b *dataBuffer) logMetricDescriptor(md pmetric.Metric) {
+ 
+ func (b *dataBuffer) logMetricDataPoints(m pmetric.Metric) {
+ 	switch m.Type() {
+-	case pmetric.MetricTypeNone:
++	case pmetric.MetricTypeEmpty:
+ 		return
+ 	case pmetric.MetricTypeGauge:
+ 		b.logNumberDataPoints(m.Gauge().DataPoints())

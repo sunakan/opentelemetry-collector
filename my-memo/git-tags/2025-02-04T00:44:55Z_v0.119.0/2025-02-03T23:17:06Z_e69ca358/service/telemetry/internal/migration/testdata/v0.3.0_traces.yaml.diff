@@ -1,0 +1,16 @@
+diff --git a/service/telemetry/internal/migration/testdata/v0.3.0_traces.yaml b/service/telemetry/internal/migration/testdata/v0.3.0_traces.yaml
+index 464aa66bb..99fede44b 100644
+--- a/service/telemetry/internal/migration/testdata/v0.3.0_traces.yaml
++++ b/service/telemetry/internal/migration/testdata/v0.3.0_traces.yaml
+@@ -11,3 +11,11 @@ processors:
+   - simple:
+       exporter:
+         console: {}
++  - simple:
++      exporter:
++        otlp:
++          protocol: http/protobuf
++          endpoint: http://127.0.0.1:4317
++          headers:
++          - name: "key1"
++            value: "value1"

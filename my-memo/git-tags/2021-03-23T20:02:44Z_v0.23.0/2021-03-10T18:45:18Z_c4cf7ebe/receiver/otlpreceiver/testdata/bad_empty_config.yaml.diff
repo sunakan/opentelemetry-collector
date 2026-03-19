@@ -1,0 +1,23 @@
+diff --git a/receiver/otlpreceiver/testdata/bad_empty_config.yaml b/receiver/otlpreceiver/testdata/bad_empty_config.yaml
+index db0b165a6..a204b9998 100644
+--- a/receiver/otlpreceiver/testdata/bad_empty_config.yaml
++++ b/receiver/otlpreceiver/testdata/bad_empty_config.yaml
+@@ -2,14 +2,14 @@ receivers:
+   otlp:
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+      receivers: [otlp]
+-     processors: [exampleprocessor]
+-     exporters: [exampleexporter]
++     processors: [nop]
++     exporters: [nop]

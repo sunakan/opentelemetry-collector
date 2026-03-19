@@ -1,0 +1,12 @@
+diff --git a/exporter/loggingexporter/logging_exporter_test.go b/exporter/loggingexporter/logging_exporter_test.go
+index db2bca219..a0c3bbba3 100644
+--- a/exporter/loggingexporter/logging_exporter_test.go
++++ b/exporter/loggingexporter/logging_exporter_test.go
+@@ -44,7 +44,6 @@ func TestLoggingMetricsExporterNoErrors(t *testing.T) {
+ 
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), testdata.GenerateMetricsEmpty()))
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), testdata.GeneratMetricsAllTypesWithSampleDatapoints()))
+-	assert.NoError(t, lme.ConsumeMetrics(context.Background(), testdata.GenerateMetricsAllTypesNilDataPoint()))
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), testdata.GenerateMetricsAllTypesEmptyDataPoint()))
+ 	assert.NoError(t, lme.ConsumeMetrics(context.Background(), testdata.GenerateMetricsMetricTypeInvalid()))
+ 

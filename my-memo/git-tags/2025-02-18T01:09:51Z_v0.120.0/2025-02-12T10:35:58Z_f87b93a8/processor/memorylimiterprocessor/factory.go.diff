@@ -1,0 +1,25 @@
+diff --git a/processor/memorylimiterprocessor/factory.go b/processor/memorylimiterprocessor/factory.go
+index 5f2f5f89e..d65246c39 100644
+--- a/processor/memorylimiterprocessor/factory.go
++++ b/processor/memorylimiterprocessor/factory.go
+@@ -10,8 +10,9 @@ import (
+ 	"sync"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componentattribute"
+ 	"go.opentelemetry.io/collector/consumer"
++	"go.opentelemetry.io/collector/internal/telemetry"
++	"go.opentelemetry.io/collector/internal/telemetry/componentattribute"
+ 	"go.opentelemetry.io/collector/processor"
+ 	"go.opentelemetry.io/collector/processor/memorylimiterprocessor/internal/metadata"
+ 	"go.opentelemetry.io/collector/processor/processorhelper"
+@@ -106,7 +107,8 @@ func (f *factory) getMemoryLimiter(set processor.Settings, cfg component.Config)
+ 		return memLimiter, nil
+ 	}
+ 
+-	set.Logger = set.TelemetrySettings.LoggerWithout(
++	set.Logger = telemetry.LoggerWithout(
++		set.TelemetrySettings,
+ 		componentattribute.SignalKey,
+ 		componentattribute.PipelineIDKey,
+ 		componentattribute.ComponentIDKey,

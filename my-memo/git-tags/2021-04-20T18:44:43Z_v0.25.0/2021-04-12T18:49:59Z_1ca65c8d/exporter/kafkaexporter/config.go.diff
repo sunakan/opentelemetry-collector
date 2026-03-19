@@ -1,0 +1,15 @@
+diff --git a/exporter/kafkaexporter/config.go b/exporter/kafkaexporter/config.go
+index 5601882dc..05ef405e9 100644
+--- a/exporter/kafkaexporter/config.go
++++ b/exporter/kafkaexporter/config.go
+@@ -69,3 +69,10 @@ type MetadataRetry struct {
+ 	// (default 250ms). Similar to the JVM's `retry.backoff.ms`.
+ 	Backoff time.Duration `mapstructure:"backoff"`
+ }
++
++var _ config.Exporter = (*Config)(nil)
++
++// Validate checks if the exporter configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

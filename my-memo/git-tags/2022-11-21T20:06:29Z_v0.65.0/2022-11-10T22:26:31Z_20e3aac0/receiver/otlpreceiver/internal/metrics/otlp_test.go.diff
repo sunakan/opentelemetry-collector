@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/internal/metrics/otlp_test.go b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+index 163e9dba4..2d90ad0b8 100644
+--- a/receiver/otlpreceiver/internal/metrics/otlp_test.go
++++ b/receiver/otlpreceiver/internal/metrics/otlp_test.go
+@@ -87,7 +87,8 @@ func otlpReceiverOnGRPCServer(t *testing.T, mc consumer.Metrics) net.Addr {
+ 		require.NoError(t, ln.Close())
+ 	})
+ 
+-	r := New(component.NewIDWithName("otlp", "metrics"), mc, componenttest.NewNopReceiverCreateSettings())
++	r, err := New(component.NewIDWithName("otlp", "metrics"), mc, componenttest.NewNopReceiverCreateSettings())
++	require.NoError(t, err)
+ 	// Now run it as a gRPC server
+ 	srv := grpc.NewServer()
+ 	pmetricotlp.RegisterGRPCServer(srv, r)

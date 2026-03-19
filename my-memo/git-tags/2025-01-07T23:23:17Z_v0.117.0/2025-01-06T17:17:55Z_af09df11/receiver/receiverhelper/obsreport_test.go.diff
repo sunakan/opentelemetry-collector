@@ -1,0 +1,13 @@
+diff --git a/receiver/receiverhelper/obsreport_test.go b/receiver/receiverhelper/obsreport_test.go
+index 455fd16a8..b6ae6da7b 100644
+--- a/receiver/receiverhelper/obsreport_test.go
++++ b/receiver/receiverhelper/obsreport_test.go
+@@ -16,7 +16,7 @@ import (
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/receiver"
+-	"go.opentelemetry.io/collector/receiver/internal"
++	"go.opentelemetry.io/collector/receiver/receiverhelper/internal"
+ )
+ 
+ const (

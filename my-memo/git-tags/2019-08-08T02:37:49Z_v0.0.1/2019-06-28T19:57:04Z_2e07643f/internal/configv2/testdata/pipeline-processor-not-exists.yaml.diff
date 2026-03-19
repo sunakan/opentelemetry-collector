@@ -1,0 +1,20 @@
+diff --git a/internal/configv2/testdata/pipeline-processor-not-exists.yaml b/internal/configv2/testdata/pipeline-processor-not-exists.yaml
+deleted file mode 100644
+index 81aabccac..000000000
+--- a/internal/configv2/testdata/pipeline-processor-not-exists.yaml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:
+-  traces:
+-    receivers:
+-      - multireceiver
+-    processors:
+-      - nosuchprocessor
+-    exporters:
+-      - exampleexporter

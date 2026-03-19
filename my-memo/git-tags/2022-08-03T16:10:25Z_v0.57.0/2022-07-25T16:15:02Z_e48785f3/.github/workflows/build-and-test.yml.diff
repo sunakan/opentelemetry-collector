@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 18506545a..3dbd2b158 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -6,6 +6,10 @@ on:
+       - "v[0-9]+.[0-9]+.[0-9]+*"
+   pull_request:
+ 
++concurrency:
++  group: ${{ github.workflow }}-${{ github.head_ref }}
++  cancel-in-progress: true
++
+ jobs:
+   setup-environment:
+     runs-on: ubuntu-latest

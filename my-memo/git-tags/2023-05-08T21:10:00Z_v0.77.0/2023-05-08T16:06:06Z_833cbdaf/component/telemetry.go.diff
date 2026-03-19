@@ -1,0 +1,20 @@
+diff --git a/component/telemetry.go b/component/telemetry.go
+index 22d5557fd..b45a42425 100644
+--- a/component/telemetry.go
++++ b/component/telemetry.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
++	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+ type TelemetrySettings struct {
+@@ -36,4 +37,7 @@ type TelemetrySettings struct {
+ 	// MetricsLevel controls the level of detail for metrics emitted by the collector.
+ 	// Experimental: *NOTE* this field is experimental and may be changed or removed.
+ 	MetricsLevel configtelemetry.Level
++
++	// Resource contains the resource attributes for the collector's telemetry.
++	Resource pcommon.Resource
+ }

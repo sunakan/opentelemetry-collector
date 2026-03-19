@@ -1,0 +1,15 @@
+diff --git a/processor/attributesprocessor/config.go b/processor/attributesprocessor/config.go
+index 73317b45a..207862fdd 100644
+--- a/processor/attributesprocessor/config.go
++++ b/processor/attributesprocessor/config.go
+@@ -37,3 +37,10 @@ type Config struct {
+ 	// This is a required field.
+ 	processorhelper.Settings `mapstructure:",squash"`
+ }
++
++var _ config.Processor = (*Config)(nil)
++
++// Validate checks if the processor configuration is valid
++func (cfg *Config) Validate() error {
++	return nil
++}

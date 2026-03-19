@@ -1,0 +1,18 @@
+diff --git a/component/componenttest/nop_component.go b/component/componenttest/nop_component.go
+index c8310d0be..ac56476e7 100644
+--- a/component/componenttest/nop_component.go
++++ b/component/componenttest/nop_component.go
+@@ -15,10 +15,10 @@
+ package componenttest // import "go.opentelemetry.io/collector/component/componenttest"
+ 
+ import (
+-	"go.opentelemetry.io/collector/component/componenthelper"
++	"go.opentelemetry.io/collector/component"
+ )
+ 
+ type nopComponent struct {
+-	componenthelper.StartFunc
+-	componenthelper.ShutdownFunc
++	component.StartFunc
++	component.ShutdownFunc
+ }

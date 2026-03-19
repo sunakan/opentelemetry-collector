@@ -1,0 +1,13 @@
+diff --git a/internal/configmodels/configmodels.go b/internal/configmodels/configmodels.go
+index aec8b2a60..f7365cbd5 100644
+--- a/internal/configmodels/configmodels.go
++++ b/internal/configmodels/configmodels.go
+@@ -19,7 +19,7 @@ package configmodels
+ 
+ /*
+ Receivers, Exporters and Processors typically have common configuration settings, however
+-sometimes specific implementations (e.g. StackDriver) will have extra configuration settings.
++sometimes specific implementations will have extra configuration settings.
+ This requires the configuration data for these entities to be polymorphic.
+ 
+ To satisfy these requirements we declare interfaces Receiver, Exporter, Processor,

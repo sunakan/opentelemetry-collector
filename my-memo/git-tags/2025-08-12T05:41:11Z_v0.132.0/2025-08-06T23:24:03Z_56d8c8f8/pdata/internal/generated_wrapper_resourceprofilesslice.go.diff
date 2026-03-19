@@ -1,0 +1,40 @@
+diff --git a/pdata/internal/generated_wrapper_resourceprofilesslice.go b/pdata/internal/generated_wrapper_resourceprofilesslice.go
+index 6ccc0e28e..c9cb01d68 100644
+--- a/pdata/internal/generated_wrapper_resourceprofilesslice.go
++++ b/pdata/internal/generated_wrapper_resourceprofilesslice.go
+@@ -8,6 +8,7 @@ package internal
+ 
+ import (
+ 	otlpprofiles "go.opentelemetry.io/collector/pdata/internal/data/protogen/profiles/v1development"
++	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func CopyOrigResourceProfilesSlice(dest, src []*otlpprofiles.ResourceProfiles) []*otlpprofiles.ResourceProfiles {
+@@ -47,3 +48,27 @@ func GenerateOrigTestResourceProfilesSlice() []*otlpprofiles.ResourceProfiles {
+ 	}
+ 	return orig
+ }
++
++// MarshalJSONOrigResourceProfilesSlice marshals all properties from the current struct to the destination stream.
++func MarshalJSONOrigResourceProfilesSlice(orig []*otlpprofiles.ResourceProfiles, dest *json.Stream) {
++	dest.WriteArrayStart()
++	if len(orig) > 0 {
++		MarshalJSONOrigResourceProfiles(orig[0], dest)
++	}
++	for i := 1; i < len(orig); i++ {
++		dest.WriteMore()
++		MarshalJSONOrigResourceProfiles(orig[i], dest)
++	}
++	dest.WriteArrayEnd()
++}
++
++// UnmarshalJSONOrigResourceProfilesSlice unmarshals all properties from the current struct from the source iterator.
++func UnmarshalJSONOrigResourceProfilesSlice(iter *json.Iterator) []*otlpprofiles.ResourceProfiles {
++	var orig []*otlpprofiles.ResourceProfiles
++	iter.ReadArrayCB(func(iter *json.Iterator) bool {
++		orig = append(orig, &otlpprofiles.ResourceProfiles{})
++		UnmarshalJSONOrigResourceProfiles(orig[len(orig)-1], iter)
++		return true
++	})
++	return orig
++}

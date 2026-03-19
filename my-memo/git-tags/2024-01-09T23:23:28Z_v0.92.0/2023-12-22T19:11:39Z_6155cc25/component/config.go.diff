@@ -1,0 +1,13 @@
+diff --git a/component/config.go b/component/config.go
+index e46ead72f..f34f04b8d 100644
+--- a/component/config.go
++++ b/component/config.go
+@@ -32,7 +32,7 @@ func UnmarshalConfig(conf *confmap.Conf, intoCfg Config) error {
+ 		return cu.Unmarshal(conf)
+ 	}
+ 
+-	return conf.Unmarshal(intoCfg, confmap.WithErrorUnused())
++	return conf.Unmarshal(intoCfg)
+ }
+ 
+ // ConfigValidator defines an optional interface for configurations to implement to do validation.

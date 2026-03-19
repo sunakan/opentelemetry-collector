@@ -1,0 +1,13 @@
+diff --git a/service/telemetry/otelconftelemetry/metrics_test.go b/service/telemetry/otelconftelemetry/metrics_test.go
+index 4c3ed5fb9..b4e0facdf 100644
+--- a/service/telemetry/otelconftelemetry/metrics_test.go
++++ b/service/telemetry/otelconftelemetry/metrics_test.go
+@@ -20,7 +20,7 @@ import (
+ 	config "go.opentelemetry.io/contrib/otelconf/v0.3.0"
+ 	"go.opentelemetry.io/otel/attribute"
+ 	"go.opentelemetry.io/otel/metric"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.26.0"
++	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
+ 	"go.uber.org/zap"
+ 	"go.uber.org/zap/zapcore"
+ 	"go.uber.org/zap/zaptest/observer"

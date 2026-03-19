@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/testdata/two_metric_types.yaml b/cmd/mdatagen/internal/testdata/two_metric_types.yaml
+index 572eab2f3..b6b48fd2a 100644
+--- a/cmd/mdatagen/internal/testdata/two_metric_types.yaml
++++ b/cmd/mdatagen/internal/testdata/two_metric_types.yaml
+@@ -11,6 +11,8 @@ metrics:
+   system.cpu.time:
+     enabled: true
+     description: Total CPU seconds broken down by different states.
++    stability:
++      level: development
+     unit: s
+     gauge:
+       value_type: double

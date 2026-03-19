@@ -1,0 +1,26 @@
+diff --git a/internal/cmd/pdatagen/internal/primitive_field.go b/internal/cmd/pdatagen/internal/primitive_field.go
+index df7a4605c..53e6e12c7 100644
+--- a/internal/cmd/pdatagen/internal/primitive_field.go
++++ b/internal/cmd/pdatagen/internal/primitive_field.go
+@@ -53,6 +53,9 @@ const primitiveMarshalJSONTemplate = `if ms.orig.{{ .originFieldName }} != {{ .d
+ 		dest.Write{{ upperFirst .returnType }}(ms.orig.{{ .originFieldName }})
+ 	}`
+ 
++const primitiveUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
++		ms.orig.{{ .originFieldName }} = iter.Read{{ upperFirst .returnType }}()`
++
+ type PrimitiveField struct {
+ 	fieldName       string
+ 	originFieldName string
+@@ -86,6 +89,11 @@ func (pf *PrimitiveField) GenerateMarshalJSON(ms *messageStruct) string {
+ 	return executeTemplate(t, pf.templateFields(ms))
+ }
+ 
++func (pf *PrimitiveField) GenerateUnmarshalJSON(ms *messageStruct) string {
++	t := template.Must(templateNew("primitiveUnmarshalJSONTemplate").Parse(primitiveUnmarshalJSONTemplate))
++	return executeTemplate(t, pf.templateFields(ms))
++}
++
+ func (pf *PrimitiveField) templateFields(ms *messageStruct) map[string]any {
+ 	return map[string]any{
+ 		"structName":       ms.getName(),

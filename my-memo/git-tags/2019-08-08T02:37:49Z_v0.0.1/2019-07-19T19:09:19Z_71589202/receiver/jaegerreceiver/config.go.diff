@@ -1,0 +1,20 @@
+diff --git a/receiver/jaegerreceiver/config.go b/receiver/jaegerreceiver/config.go
+index 091c9ae9a..a66b156a8 100644
+--- a/receiver/jaegerreceiver/config.go
++++ b/receiver/jaegerreceiver/config.go
+@@ -44,3 +44,15 @@ func (rs *Config) Type() string {
+ func (rs *Config) SetType(typeStr string) {
+ 	rs.TypeVal = typeStr
+ }
++
++// IsEnabled returns true if the entity is enabled.
++func (rs *Config) IsEnabled() bool {
++	for _, p := range rs.Protocols {
++		if p.IsEnabled() {
++			// If any protocol is enabled then the receiver as a whole should be enabled.
++			return true
++		}
++	}
++	// All protocols are disabled so the entire receiver can be disabled.
++	return false
++}

@@ -1,0 +1,24 @@
+diff --git a/pdata/pprofile/profiles.go b/pdata/pprofile/profiles.go
+index 34e9290a7..4fcfa74e8 100644
+--- a/pdata/pprofile/profiles.go
++++ b/pdata/pprofile/profiles.go
+@@ -38,6 +38,7 @@ func (ms Profiles) IsReadOnly() bool {
+ // CopyTo copies the Profiles instance overriding the destination.
+ func (ms Profiles) CopyTo(dest Profiles) {
+ 	ms.ResourceProfiles().CopyTo(dest.ResourceProfiles())
++	ms.ProfilesDictionary().CopyTo(dest.ProfilesDictionary())
+ }
+ 
+ // ResourceProfiles returns the ResourceProfilesSlice associated with this Profiles.
+@@ -45,6 +46,11 @@ func (ms Profiles) ResourceProfiles() ResourceProfilesSlice {
+ 	return newResourceProfilesSlice(&ms.getOrig().ResourceProfiles, internal.GetProfilesState(internal.Profiles(ms)))
+ }
+ 
++// ProfilesDictionary returns the ProfilesDictionary associated with this Profiles.
++func (ms Profiles) ProfilesDictionary() ProfilesDictionary {
++	return newProfilesDictionary(&ms.getOrig().Dictionary, internal.GetProfilesState(internal.Profiles(ms)))
++}
++
+ // MarkReadOnly marks the ResourceProfiles as shared so that no further modifications can be done on it.
+ func (ms Profiles) MarkReadOnly() {
+ 	internal.SetProfilesState(internal.Profiles(ms), internal.StateReadOnly)

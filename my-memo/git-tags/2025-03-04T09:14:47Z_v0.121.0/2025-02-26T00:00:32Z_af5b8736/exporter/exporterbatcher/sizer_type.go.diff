@@ -1,0 +1,32 @@
+diff --git a/exporter/exporterbatcher/sizer_type.go b/exporter/exporterbatcher/sizer_type.go
+index 1b1b05a27..718a0597e 100644
+--- a/exporter/exporterbatcher/sizer_type.go
++++ b/exporter/exporterbatcher/sizer_type.go
+@@ -7,20 +7,21 @@ import (
+ 	"fmt"
+ )
+ 
+-type SizerType string
++type SizerType struct {
++	val string
++}
+ 
+ const (
+-	SizerTypeItems SizerType = "items"
+-	SizerTypeBytes SizerType = "bytes"
++	sizerTypeItems = "items"
+ )
+ 
++var SizerTypeItems = SizerType{val: sizerTypeItems}
++
+ // UnmarshalText implements TextUnmarshaler interface.
+ func (s *SizerType) UnmarshalText(text []byte) error {
+ 	switch str := string(text); str {
+-	case string(SizerTypeItems):
++	case sizerTypeItems:
+ 		*s = SizerTypeItems
+-	case string(SizerTypeBytes):
+-		*s = SizerTypeBytes
+ 	default:
+ 		return fmt.Errorf("invalid sizer: %q", str)
+ 	}

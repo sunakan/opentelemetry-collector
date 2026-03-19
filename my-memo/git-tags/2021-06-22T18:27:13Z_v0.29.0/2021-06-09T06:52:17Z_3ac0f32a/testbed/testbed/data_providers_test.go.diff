@@ -1,0 +1,11 @@
+diff --git a/testbed/testbed/data_providers_test.go b/testbed/testbed/data_providers_test.go
+index 3a900d0f3..4174e3dc8 100644
+--- a/testbed/testbed/data_providers_test.go
++++ b/testbed/testbed/data_providers_test.go
+@@ -36,5 +36,5 @@ func TestGoldenDataProvider(t *testing.T) {
+ 		}
+ 		ms = append(ms, m)
+ 	}
+-	require.Equal(t, len(dp.metricsGenerated), len(ms))
++	require.Equal(t, len(dp.(*goldenDataProvider).metricsGenerated), len(ms))
+ }

@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/traceid.go b/pdata/pcommon/traceid.go
+index 4a1219989..e3a0dbf45 100644
+--- a/pdata/pcommon/traceid.go
++++ b/pdata/pcommon/traceid.go
+@@ -45,6 +45,9 @@ func (ms TraceID) Bytes() [16]byte {
+ 
+ // HexString returns hex representation of the TraceID.
+ func (ms TraceID) HexString() string {
++	if ms.IsEmpty() {
++		return ""
++	}
+ 	return hex.EncodeToString(ms.orig[:])
+ }
+ 

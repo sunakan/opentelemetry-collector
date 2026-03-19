@@ -1,0 +1,13 @@
+diff --git a/pkg/configv2/testdata/missing-pipelines.yaml b/pkg/configv2/testdata/missing-pipelines.yaml
+deleted file mode 100644
+index 7d1fb921b..000000000
+--- a/pkg/configv2/testdata/missing-pipelines.yaml
++++ /dev/null
+@@ -1,7 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-pipelines:

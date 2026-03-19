@@ -1,0 +1,17 @@
+diff --git a/internal/cmd/pdatagen/internal/xpdata_entity_package.go b/internal/cmd/pdatagen/internal/xpdata_entity_package.go
+index 9ead79ea9..8fe49ed65 100644
+--- a/internal/cmd/pdatagen/internal/xpdata_entity_package.go
++++ b/internal/cmd/pdatagen/internal/xpdata_entity_package.go
+@@ -44,10 +44,8 @@ var entityRef = &messageStruct{
+ 	fields: []Field{
+ 		schemaURLField,
+ 		&PrimitiveField{
+-			fieldName:  "Type",
+-			returnType: "string",
+-			defaultVal: `""`,
+-			testVal:    `"host"`,
++			fieldName: "Type",
++			protoType: ProtoTypeString,
+ 		},
+ 		&SliceField{
+ 			fieldName:   "IdKeys",

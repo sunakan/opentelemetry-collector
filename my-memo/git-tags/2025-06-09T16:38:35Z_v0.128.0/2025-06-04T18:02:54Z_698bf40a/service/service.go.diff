@@ -1,0 +1,12 @@
+diff --git a/service/service.go b/service/service.go
+index 233eaf3e9..18a87ab54 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -181,6 +181,7 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 		BuildInfo:         set.BuildInfo,
+ 		ZapOptions:        set.LoggingOptions,
+ 		SDK:               &sdk,
++		Resource:          res,
+ 	}
+ 
+ 	logger, lp, err := telFactory.CreateLogger(ctx, telset, &cfg.Telemetry)

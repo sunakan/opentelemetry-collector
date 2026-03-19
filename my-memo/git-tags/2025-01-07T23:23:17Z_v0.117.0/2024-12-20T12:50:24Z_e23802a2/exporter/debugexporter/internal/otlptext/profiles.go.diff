@@ -1,0 +1,12 @@
+diff --git a/exporter/debugexporter/internal/otlptext/profiles.go b/exporter/debugexporter/internal/otlptext/profiles.go
+index 08e48d47c..30ca3b0b1 100644
+--- a/exporter/debugexporter/internal/otlptext/profiles.go
++++ b/exporter/debugexporter/internal/otlptext/profiles.go
+@@ -38,7 +38,6 @@ func (textProfilesMarshaler) MarshalProfiles(pd pprofile.Profiles) ([]byte, erro
+ 				buf.logAttr("Profile ID", profile.ProfileID())
+ 				buf.logAttr("Start time", profile.Time().String())
+ 				buf.logAttr("Duration", profile.Duration().String())
+-				buf.logAttributes("Attributes", profile.Attributes())
+ 				buf.logAttr("Dropped attributes count", strconv.FormatUint(uint64(profile.DroppedAttributesCount()), 10))
+ 				buf.logEntry("    Location indices: %d", profile.LocationIndices().AsRaw())
+ 

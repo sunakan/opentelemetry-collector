@@ -1,0 +1,20 @@
+diff --git a/cmd/pdatagen/internal/log_structs.go b/cmd/pdatagen/internal/log_structs.go
+index fcb442902..e22c837a3 100644
+--- a/cmd/pdatagen/internal/log_structs.go
++++ b/cmd/pdatagen/internal/log_structs.go
+@@ -49,6 +49,7 @@ var resourceLogs = &messageValueStruct{
+ 	originFullName: "otlplogs.ResourceLogs",
+ 	fields: []baseField{
+ 		resourceField,
++		schemaURLField,
+ 		&sliceField{
+ 			fieldName:       "InstrumentationLibraryLogs",
+ 			originFieldName: "InstrumentationLibraryLogs",
+@@ -68,6 +69,7 @@ var instrumentationLibraryLogs = &messageValueStruct{
+ 	originFullName: "otlplogs.InstrumentationLibraryLogs",
+ 	fields: []baseField{
+ 		instrumentationLibraryField,
++		schemaURLField,
+ 		&sliceField{
+ 			fieldName:       "Logs",
+ 			originFieldName: "Logs",

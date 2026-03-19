@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_scopespansslice.go b/pdata/internal/generated_wrapper_scopespansslice.go
+index d7adf7db9..ecf673935 100644
+--- a/pdata/internal/generated_wrapper_scopespansslice.go
++++ b/pdata/internal/generated_wrapper_scopespansslice.go
+@@ -38,3 +38,12 @@ func CopyOrigScopeSpansSlice(dest, src []*otlptrace.ScopeSpans) []*otlptrace.Sco
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestScopeSpansSlice() []*otlptrace.ScopeSpans {
++	orig := make([]*otlptrace.ScopeSpans, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlptrace.ScopeSpans{}
++		FillOrigTestScopeSpans(orig[i])
++	}
++	return orig
++}

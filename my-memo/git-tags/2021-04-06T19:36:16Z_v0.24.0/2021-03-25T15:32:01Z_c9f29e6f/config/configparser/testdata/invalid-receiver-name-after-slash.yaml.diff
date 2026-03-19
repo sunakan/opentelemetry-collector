@@ -1,0 +1,19 @@
+diff --git a/config/configparser/testdata/invalid-receiver-name-after-slash.yaml b/config/configparser/testdata/invalid-receiver-name-after-slash.yaml
+new file mode 100644
+index 000000000..e2d74fd5e
+--- /dev/null
++++ b/config/configparser/testdata/invalid-receiver-name-after-slash.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++  examplereceiver/:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

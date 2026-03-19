@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 3ea70d0d8..6cbf0f973 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -68,3 +68,7 @@ replace go.opentelemetry.io/collector => ../../
+ replace go.opentelemetry.io/collector/pdata => ../../pdata
+ 
+ replace go.opentelemetry.io/collector/semconv => ../../semconv
++
++replace go.opentelemetry.io/collector/extension/zpagesextension => ../../extension/zpagesextension
++
++replace go.opentelemetry.io/collector/extension/ballastextension => ../../extension/ballastextension

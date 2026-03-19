@@ -1,0 +1,12 @@
+diff --git a/component/config_test.go b/component/config_test.go
+index f47a9edc8..afdbc61b0 100644
+--- a/component/config_test.go
++++ b/component/config_test.go
+@@ -313,7 +313,6 @@ func TestNewType(t *testing.T) {
+ 		{name: "loki"},
+ 		{name: "mdatagen"},
+ 		{name: "memcached"},
+-		{name: "memory_ballast"},
+ 		{name: "memory_limiter"},
+ 		{name: "metricstransform"},
+ 		{name: "mezmo"},

@@ -1,0 +1,11 @@
+diff --git a/processor/addattributesprocessor/factory.go b/processor/addattributesprocessor/factory.go
+index 1508b8e14..3b0fed87d 100644
+--- a/processor/addattributesprocessor/factory.go
++++ b/processor/addattributesprocessor/factory.go
+@@ -66,5 +66,5 @@ func (f *processorFactory) CreateMetricsProcessor(
+ 	nextConsumer consumer.MetricsConsumer,
+ 	cfg models.Processor,
+ ) (processor.MetricsProcessor, error) {
+-	return nil, factories.ErrDataTypeIsNotSupported
++	return nil, models.ErrDataTypeIsNotSupported
+ }

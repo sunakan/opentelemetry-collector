@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/templates/go.mod.tmpl b/cmd/builder/internal/builder/templates/go.mod.tmpl
+index 033a316ce..7f0bb5672 100644
+--- a/cmd/builder/internal/builder/templates/go.mod.tmpl
++++ b/cmd/builder/internal/builder/templates/go.mod.tmpl
+@@ -23,7 +23,7 @@ require (
+ 	{{- range .Processors}}
+ 	{{if .GoMod}}{{.GoMod}}{{end}}
+ 	{{- end}}
+-	go.opentelemetry.io/collector/otelcol v{{.Distribution.OtelColVersion}}
++	go.opentelemetry.io/collector/otelcol {{.OtelColVersion}}
+ )
+ 
+ require (

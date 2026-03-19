@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/config.go b/cmd/builder/internal/builder/config.go
+index 04d4cd4c0..4dde5bb82 100644
+--- a/cmd/builder/internal/builder/config.go
++++ b/cmd/builder/internal/builder/config.go
+@@ -85,6 +85,7 @@ func DefaultConfig() Config {
+ 		Distribution: Distribution{
+ 			OutputPath:     outputDir,
+ 			OtelColVersion: defaultOtelColVersion,
++			Module:         "go.opentelemetry.io/collector/cmd/builder",
+ 		},
+ 	}
+ }

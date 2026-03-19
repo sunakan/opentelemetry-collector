@@ -1,0 +1,44 @@
+diff --git a/cmd/mdatagen/metricdata.go b/cmd/mdatagen/metricdata.go
+index d4a91c6eb..0bee46b4a 100644
+--- a/cmd/mdatagen/metricdata.go
++++ b/cmd/mdatagen/metricdata.go
+@@ -21,7 +21,6 @@ import (
+ var (
+ 	_ MetricData = &intGauge{}
+ 	_ MetricData = &intSum{}
+-	_ MetricData = &intHistogram{}
+ 	_ MetricData = &gauge{}
+ 	_ MetricData = &sum{}
+ 	_ MetricData = &histogram{}
+@@ -48,8 +47,6 @@ func (e *ymlMetricData) UnmarshalYAML(unmarshal func(interface{}) error) error {
+ 		md = &intGauge{}
+ 	case "int sum":
+ 		md = &intSum{}
+-	case "int histogram":
+-		md = &intHistogram{}
+ 	case "gauge":
+ 		md = &gauge{}
+ 	case "sum":
+@@ -165,22 +162,6 @@ func (d sum) HasAggregated() bool {
+ 	return true
+ }
+ 
+-type intHistogram struct {
+-	Aggregated `yaml:",inline"`
+-}
+-
+-func (i intHistogram) Type() string {
+-	return "IntHistogram"
+-}
+-
+-func (i intHistogram) HasMonotonic() bool {
+-	return false
+-}
+-
+-func (i intHistogram) HasAggregated() bool {
+-	return true
+-}
+-
+ type histogram struct {
+ 	Aggregated `yaml:",inline"`
+ }

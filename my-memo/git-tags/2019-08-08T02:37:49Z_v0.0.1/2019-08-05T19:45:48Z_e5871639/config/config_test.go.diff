@@ -1,0 +1,16 @@
+diff --git a/config/config_test.go b/config/config_test.go
+index 8ca74e0aa..92206ff8e 100644
+--- a/config/config_test.go
++++ b/config/config_test.go
+@@ -176,9 +176,10 @@ func TestDecodeConfig_Invalid(t *testing.T) {
+ 	}{
+ 		{name: "empty-config"},
+ 		{name: "missing-all-sections"},
++		{name: "missing-enabled-exporters", expected: errMissingExporters},
+ 		{name: "missing-enabled-receivers", expected: errMissingReceivers},
++		{name: "missing-exporters", expected: errMissingExporters},
+ 		{name: "missing-receivers", expected: errMissingReceivers},
+-		{name: "missing-exporters"},
+ 		{name: "missing-processors"},
+ 		{name: "invalid-receiver-name"},
+ 		{name: "invalid-receiver-reference", expected: errPipelineReceiverNotExists},

@@ -1,0 +1,32 @@
+diff --git a/processor/filterprocessor/testdata/config_invalid.yaml b/processor/filterprocessor/testdata/config_invalid.yaml
+new file mode 100644
+index 000000000..a2ed32c8c
+--- /dev/null
++++ b/processor/filterprocessor/testdata/config_invalid.yaml
+@@ -0,0 +1,26 @@
++receivers:
++    examplereceiver:
++
++processors:
++    filter/include:
++        # any names NOT matching filters are excluded from remainder of pipeline
++        metrics:
++            include:
++                match_type: regexp
++                metric_names:
++                    # re2 regexp patterns
++                    - (\W|^)stock\stips(\W|$
++
++exporters:
++    exampleexporter:
++
++service:
++    pipelines:
++        traces:
++            receivers: [examplereceiver]
++            processors: [filter/include]
++            exporters: [exampleexporter]
++        metrics:
++            receivers: [examplereceiver]
++            processors: [filter/include]
++            exporters: [exampleexporter]

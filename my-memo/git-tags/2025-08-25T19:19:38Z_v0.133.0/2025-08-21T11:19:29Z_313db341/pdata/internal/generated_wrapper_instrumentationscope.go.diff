@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_instrumentationscope.go b/pdata/internal/generated_wrapper_instrumentationscope.go
+index 821f4a3c3..b0f606c5d 100644
+--- a/pdata/internal/generated_wrapper_instrumentationscope.go
++++ b/pdata/internal/generated_wrapper_instrumentationscope.go
+@@ -66,6 +66,10 @@ func DeleteOrigInstrumentationScope(orig *otlpcommon.InstrumentationScope, nulla
+ }
+ 
+ func CopyOrigInstrumentationScope(dest, src *otlpcommon.InstrumentationScope) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Name = src.Name
+ 	dest.Version = src.Version
+ 	dest.Attributes = CopyOrigKeyValueSlice(dest.Attributes, src.Attributes)

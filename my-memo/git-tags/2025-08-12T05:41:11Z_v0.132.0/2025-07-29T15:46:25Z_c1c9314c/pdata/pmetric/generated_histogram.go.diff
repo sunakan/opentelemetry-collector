@@ -1,0 +1,35 @@
+diff --git a/pdata/pmetric/generated_histogram.go b/pdata/pmetric/generated_histogram.go
+index 67b20c7f7..8ca62e3be 100644
+--- a/pdata/pmetric/generated_histogram.go
++++ b/pdata/pmetric/generated_histogram.go
+@@ -77,7 +77,7 @@ func (ms Histogram) marshalJSONStream(dest *json.Stream) {
+ 	dest.WriteObjectStart()
+ 	if ms.orig.AggregationTemporality != otlpmetrics.AggregationTemporality(0) {
+ 		dest.WriteObjectField("aggregationTemporality")
+-		ms.AggregationTemporality().marshalJSONStream(dest)
++		dest.WriteInt32(int32(ms.orig.AggregationTemporality))
+ 	}
+ 	if len(ms.orig.DataPoints) > 0 {
+ 		dest.WriteObjectField("dataPoints")
+@@ -86,6 +86,21 @@ func (ms Histogram) marshalJSONStream(dest *json.Stream) {
+ 	dest.WriteObjectEnd()
+ }
+ 
++// unmarshalJSONIter unmarshals all properties from the current struct from the source iterator.
++func (ms Histogram) unmarshalJSONIter(iter *json.Iterator) {
++	iter.ReadObjectCB(func(iter *json.Iterator, f string) bool {
++		switch f {
++		case "aggregationTemporality", "aggregation_temporality":
++			ms.orig.AggregationTemporality = otlpmetrics.AggregationTemporality(iter.ReadEnumValue(otlpmetrics.AggregationTemporality_value))
++		case "dataPoints", "data_points":
++			ms.DataPoints().unmarshalJSONIter(iter)
++		default:
++			iter.Skip()
++		}
++		return true
++	})
++}
++
+ func copyOrigHistogram(dest, src *otlpmetrics.Histogram) {
+ 	dest.AggregationTemporality = src.AggregationTemporality
+ 	dest.DataPoints = copyOrigHistogramDataPointSlice(dest.DataPoints, src.DataPoints)

@@ -1,0 +1,11 @@
+diff --git a/internal/tools/jsonschema_patch.sed b/internal/tools/jsonschema_patch.sed
+deleted file mode 100644
+index 04090d912..000000000
+--- a/internal/tools/jsonschema_patch.sed
++++ /dev/null
+@@ -1,4 +0,0 @@
+-# go-jsonschema always generates patternProperties as
+-# map[string]interface{}, for more specific types, they must
+-# be replaced here
+-s+type Headers.*+type Headers map[string]string+g
+\ No newline at end of file

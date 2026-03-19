@@ -1,0 +1,34 @@
+diff --git a/pdata/plog/plogotlp/logs.go b/pdata/plog/plogotlp/logs.go
+index 312b5582f..31ac5024c 100644
+--- a/pdata/plog/plogotlp/logs.go
++++ b/pdata/plog/plogotlp/logs.go
+@@ -65,6 +65,7 @@ func (lr Response) UnmarshalJSON(data []byte) error {
+ }
+ 
+ // Request represents the request for gRPC/HTTP client/server.
++// It's a wrapper for plog.Logs data.
+ type Request struct {
+ 	orig *otlpcollectorlog.ExportLogsServiceRequest
+ }
+@@ -74,6 +75,13 @@ func NewRequest() Request {
+ 	return Request{orig: &otlpcollectorlog.ExportLogsServiceRequest{}}
+ }
+ 
++// NewRequestFromLogs returns a Request from plog.Logs.
++// Because Request is a wrapper for plog.Logs,
++// any changes to the provided Logs struct will be reflected in the Request and vice versa.
++func NewRequestFromLogs(l plog.Logs) Request {
++	return Request{orig: internal.LogsToOtlp(l)}
++}
++
+ // MarshalProto marshals Request into proto bytes.
+ func (lr Request) MarshalProto() ([]byte, error) {
+ 	return lr.orig.Marshal()
+@@ -106,6 +114,7 @@ func (lr Request) UnmarshalJSON(data []byte) error {
+ 	return nil
+ }
+ 
++// Deprecated: [v0.50.0] Use NewRequestFromLogs instead.
+ func (lr Request) SetLogs(ld plog.Logs) {
+ 	*lr.orig = *internal.LogsToOtlp(ld)
+ }

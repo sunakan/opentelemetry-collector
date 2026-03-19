@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_instrumentationscope.go b/pdata/internal/generated_wrapper_instrumentationscope.go
+index 0e5ec0780..92fed83f2 100644
+--- a/pdata/internal/generated_wrapper_instrumentationscope.go
++++ b/pdata/internal/generated_wrapper_instrumentationscope.go
+@@ -32,9 +32,9 @@ func NewInstrumentationScope(orig *otlpcommon.InstrumentationScope, state *State
+ }
+ 
+ func GenerateTestInstrumentationScope() InstrumentationScope {
+-	orig := otlpcommon.InstrumentationScope{}
+-	FillOrigTestInstrumentationScope(&orig)
+-	return NewInstrumentationScope(&orig, NewState())
++	orig := NewOrigPtrInstrumentationScope()
++	FillOrigTestInstrumentationScope(orig)
++	return NewInstrumentationScope(orig, NewState())
+ }
+ 
+ func NewOrigInstrumentationScope() otlpcommon.InstrumentationScope {

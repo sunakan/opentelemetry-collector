@@ -1,0 +1,13 @@
+diff --git a/service/internal/components/loggers.go b/service/internal/components/loggers.go
+index 5c016094f..c495e1905 100644
+--- a/service/internal/components/loggers.go
++++ b/service/internal/components/loggers.go
+@@ -38,7 +38,7 @@ func ReceiverLogger(logger *zap.Logger, id component.ID, dt component.DataType)
+ 	return logger.With(
+ 		zap.String(zapKindKey, zapKindReceiver),
+ 		zap.String(zapNameKey, id.String()),
+-		zap.String(zapKindPipeline, string(dt)))
++		zap.String(zapDataTypeKey, string(dt)))
+ }
+ 
+ func ProcessorLogger(logger *zap.Logger, id component.ID, pipelineID component.ID) *zap.Logger {

@@ -1,0 +1,13 @@
+diff --git a/internal/testdata/resource.go b/internal/testdata/resource.go
+index 1e363fc24..f5d2b8f72 100644
+--- a/internal/testdata/resource.go
++++ b/internal/testdata/resource.go
+@@ -15,7 +15,7 @@
+ package testdata
+ 
+ import (
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func initResource1(r pdata.Resource) {

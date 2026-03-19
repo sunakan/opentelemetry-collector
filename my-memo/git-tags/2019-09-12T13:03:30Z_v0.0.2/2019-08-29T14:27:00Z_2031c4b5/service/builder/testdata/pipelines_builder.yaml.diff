@@ -1,0 +1,34 @@
+diff --git a/service/builder/testdata/pipelines_builder.yaml b/service/builder/testdata/pipelines_builder.yaml
+index 0fe828b72..f4464ac54 100644
+--- a/service/builder/testdata/pipelines_builder.yaml
++++ b/service/builder/testdata/pipelines_builder.yaml
+@@ -5,9 +5,11 @@ receivers:
+   examplereceiver/multi:
+ 
+ processors:
+-  add-attributes:
+-    values:
+-      attr1: 12345
++  attributes:
++    actions:
++      - key: attr1
++        value: 12345
++        action: insert
+ 
+ exporters:
+   exampleexporter:
+@@ -16,12 +18,12 @@ exporters:
+ pipelines:
+   traces:
+     receivers: [examplereceiver, examplereceiver/multi]
+-    processors: [add-attributes]
++    processors: [attributes]
+     exporters: [exampleexporter]
+ 
+   traces/2:
+     receivers: [examplereceiver/2, examplereceiver/multi]
+-    processors: [add-attributes]
++    processors: [attributes]
+     exporters: [exampleexporter, exampleexporter/2]
+ 
+   metrics:

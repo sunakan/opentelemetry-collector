@@ -1,0 +1,27 @@
+diff --git a/pdata/internal/generated_wrapper_resourcelogsslice.go b/pdata/internal/generated_wrapper_resourcelogsslice.go
+index 07a45c650..52f43b249 100644
+--- a/pdata/internal/generated_wrapper_resourcelogsslice.go
++++ b/pdata/internal/generated_wrapper_resourcelogsslice.go
+@@ -8,7 +8,6 @@ package internal
+ 
+ import (
+ 	otlplogs "go.opentelemetry.io/collector/pdata/internal/data/protogen/logs/v1"
+-	"go.opentelemetry.io/collector/pdata/internal/json"
+ )
+ 
+ func CopyOrigResourceLogsSlice(dest, src []*otlplogs.ResourceLogs) []*otlplogs.ResourceLogs {
+@@ -49,14 +48,3 @@ func GenerateOrigTestResourceLogsSlice() []*otlplogs.ResourceLogs {
+ 	orig[4] = NewOrigResourceLogs()
+ 	return orig
+ }
+-
+-// UnmarshalJSONOrigResourceLogsSlice unmarshals all properties from the current struct from the source iterator.
+-func UnmarshalJSONOrigResourceLogsSlice(iter *json.Iterator) []*otlplogs.ResourceLogs {
+-	var orig []*otlplogs.ResourceLogs
+-	iter.ReadArrayCB(func(iter *json.Iterator) bool {
+-		orig = append(orig, NewOrigResourceLogs())
+-		UnmarshalJSONOrigResourceLogs(orig[len(orig)-1], iter)
+-		return true
+-	})
+-	return orig
+-}

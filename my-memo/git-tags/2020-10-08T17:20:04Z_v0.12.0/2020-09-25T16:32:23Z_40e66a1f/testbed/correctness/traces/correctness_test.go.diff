@@ -1,0 +1,13 @@
+diff --git a/testbed/correctness/traces/correctness_test.go b/testbed/correctness/traces/correctness_test.go
+index 5cf526b51..7e741e3bb 100644
+--- a/testbed/correctness/traces/correctness_test.go
++++ b/testbed/correctness/traces/correctness_test.go
+@@ -98,7 +98,7 @@ func testWithTracingGoldenDataset(
+ 	tc.StopLoad()
+ 
+ 	tc.WaitForN(func() bool { return tc.LoadGenerator.DataItemsSent() == tc.MockBackend.DataItemsReceived() },
+-		duration, "all data items received")
++		duration*3, "all data items received")
+ 
+ 	tc.StopAgent()
+ 

@@ -1,0 +1,14 @@
+diff --git a/testbed/testbed/receivers.go b/testbed/testbed/receivers.go
+index a28ef723c..fddd202a9 100644
+--- a/testbed/testbed/receivers.go
++++ b/testbed/testbed/receivers.go
+@@ -336,7 +336,8 @@ func (dr *PrometheusDataReceiver) Start(_ consumer.TraceConsumer, mc consumer.Me
+ 		}},
+ 	}
+ 	var err error
+-	dr.receiver, err = factory.CreateMetricsReceiver(context.Background(), component.ReceiverCreateParams{}, cfg, mc)
++	params := component.ReceiverCreateParams{Logger: zap.NewNop()}
++	dr.receiver, err = factory.CreateMetricsReceiver(context.Background(), params, cfg, mc)
+ 	if err != nil {
+ 		return err
+ 	}

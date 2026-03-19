@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/factory.go b/exporter/otlphttpexporter/factory.go
+index eab5a52dd..17aa6f2de 100644
+--- a/exporter/otlphttpexporter/factory.go
++++ b/exporter/otlphttpexporter/factory.go
+@@ -43,7 +43,7 @@ func NewFactory() component.ExporterFactory {
+ 
+ func createDefaultConfig() config.Exporter {
+ 	return &Config{
+-		ExporterSettings: config.NewExporterSettings(typeStr),
++		ExporterSettings: config.NewExporterSettings(config.NewID(typeStr)),
+ 		RetrySettings:    exporterhelper.DefaultRetrySettings(),
+ 		QueueSettings:    exporterhelper.DefaultQueueSettings(),
+ 		HTTPClientSettings: confighttp.HTTPClientSettings{

@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index 520921229..85c7f09ed 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -69,7 +69,7 @@ configuration is provided, ocb will generate a default Collector.
+ 		return nil, err
+ 	}
+ 
+-	// version of this binary
++	cmd.AddCommand(initCommand())
+ 	cmd.AddCommand(versionCommand())
+ 
+ 	return cmd, nil

@@ -1,0 +1,12 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index a61d1470b..8d10e5cbc 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -52,6 +52,7 @@ func createDefaultConfig() configmodels.Receiver {
+ 		HTTPServerSettings: confighttp.HTTPServerSettings{
+ 			Endpoint: defaultBindEndpoint,
+ 		},
++		ParseStringTags: false,
+ 	}
+ }
+ 

@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/opencensus.go b/receiver/opencensusreceiver/opencensus.go
+index 6535d91e5..09b3f1464 100644
+--- a/receiver/opencensusreceiver/opencensus.go
++++ b/receiver/opencensusreceiver/opencensus.go
+@@ -261,7 +261,7 @@ func (ocr *ocReceiver) startServer(host component.Host) error {
+ 			}
+ 		}()
+ 		go func() {
+-			if errHTTP := ocr.httpServer().Serve(httpL); errHTTP != nil {
++			if errHTTP := ocr.httpServer().Serve(httpL); errHTTP != http.ErrServerClosed {
+ 				host.ReportFatalError(errHTTP)
+ 			}
+ 		}()

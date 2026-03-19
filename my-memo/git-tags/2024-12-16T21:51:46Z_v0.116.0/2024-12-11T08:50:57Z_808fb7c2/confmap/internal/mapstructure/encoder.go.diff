@@ -1,0 +1,15 @@
+diff --git a/confmap/internal/mapstructure/encoder.go b/confmap/internal/mapstructure/encoder.go
+index 994ad038f..ffc0bdc29 100644
+--- a/confmap/internal/mapstructure/encoder.go
++++ b/confmap/internal/mapstructure/encoder.go
+@@ -23,9 +23,7 @@ const (
+ 	optionSkip          = "-"
+ )
+ 
+-var (
+-	errNonStringEncodedKey = errors.New("non string-encoded key")
+-)
++var errNonStringEncodedKey = errors.New("non string-encoded key")
+ 
+ // tagInfo stores the mapstructure tag details.
+ type tagInfo struct {

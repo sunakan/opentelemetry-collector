@@ -1,0 +1,17 @@
+diff --git a/pdata/plog/json_test.go b/pdata/plog/json_test.go
+index 160e5b790..ccdf9d173 100644
+--- a/pdata/plog/json_test.go
++++ b/pdata/plog/json_test.go
+@@ -14,8 +14,10 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ )
+ 
+-var _ Marshaler = (*JSONMarshaler)(nil)
+-var _ Unmarshaler = (*JSONUnmarshaler)(nil)
++var (
++	_ Marshaler   = (*JSONMarshaler)(nil)
++	_ Unmarshaler = (*JSONUnmarshaler)(nil)
++)
+ 
+ var logsOTLP = func() Logs {
+ 	ld := NewLogs()

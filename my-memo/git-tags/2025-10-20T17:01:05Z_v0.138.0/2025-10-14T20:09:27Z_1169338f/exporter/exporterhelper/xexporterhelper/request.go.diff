@@ -1,0 +1,11 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/request.go b/exporter/exporterhelper/xexporterhelper/request.go
+index 9fbf3e8e8..4dca6b545 100644
+--- a/exporter/exporterhelper/xexporterhelper/request.go
++++ b/exporter/exporterhelper/xexporterhelper/request.go
+@@ -26,6 +26,3 @@ type RequestConverterFunc[T any] = request.RequestConverterFunc[T]
+ // RequestConsumeFunc processes the request. After the function returns, the request is no longer accessible,
+ // and accessing it is considered undefined behavior.
+ type RequestConsumeFunc = request.RequestConsumeFunc
+-
+-// RequestSizer is an interface that returns the size of the given request.
+-type RequestSizer = request.Sizer[Request]

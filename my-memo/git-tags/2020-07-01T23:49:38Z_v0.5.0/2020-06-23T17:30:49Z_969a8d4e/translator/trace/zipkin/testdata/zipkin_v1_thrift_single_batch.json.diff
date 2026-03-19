@@ -1,0 +1,20 @@
+diff --git a/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json b/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
+index 413c1a47c..4faf08d6a 100644
+--- a/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
++++ b/translator/trace/zipkin/testdata/zipkin_v1_thrift_single_batch.json
+@@ -14,6 +14,15 @@
+                 }
+             },
+             {
++              "timestamp": 1544805927450000,
++              "value": "custom time event",
++              "host": {
++                "ipv4": -1407254524,
++                "port": 0,
++                "service_name": "service1"
++              }
++          },
++          {
+                 "timestamp": 1544805927460102,
+                 "value": "ss",
+                 "host": {

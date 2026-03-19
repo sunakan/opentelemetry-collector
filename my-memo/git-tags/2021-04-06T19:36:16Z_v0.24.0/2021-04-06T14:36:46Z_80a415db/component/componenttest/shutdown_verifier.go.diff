@@ -1,0 +1,23 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index e1f7afd6e..0c5bff835 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -23,8 +23,8 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/component/componenterror"
+ 	"go.opentelemetry.io/collector/config"
+-	"go.opentelemetry.io/collector/config/configerror"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/internal/testdata"
+ )
+@@ -39,7 +39,7 @@ func verifyTraceProcessorDoesntProduceAfterShutdown(t *testing.T, factory compon
+ 		nextSink,
+ 	)
+ 	if err != nil {
+-		if err == configerror.ErrDataTypeIsNotSupported {
++		if err == componenterror.ErrDataTypeIsNotSupported {
+ 			return
+ 		}
+ 		require.NoError(t, err)

@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index badf7b375..740545e10 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -44,7 +44,7 @@ func TestApplication_StartUnified(t *testing.T) {
+ 		app.v.Set(portArg[i], port)
+ 	}
+ 
+-	app.v.Set("config", "testdata/otelsvc-config.yaml")
++	app.v.Set("config", "testdata/otelcol-config.yaml")
+ 
+ 	appDone := make(chan struct{})
+ 	go func() {

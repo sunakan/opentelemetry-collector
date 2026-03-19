@@ -1,0 +1,12 @@
+diff --git a/config/testdata/duplicate-receiver.yaml b/config/testdata/duplicate-receiver.yaml
+index 180db33f6..2eff9cf20 100644
+--- a/config/testdata/duplicate-receiver.yaml
++++ b/config/testdata/duplicate-receiver.yaml
+@@ -5,7 +5,6 @@ exporters:
+   exampleexporter:
+ processors:
+   exampleprocessor:
+-    enabled: true
+ pipelines:
+   traces:
+     receivers: [examplereceiver]

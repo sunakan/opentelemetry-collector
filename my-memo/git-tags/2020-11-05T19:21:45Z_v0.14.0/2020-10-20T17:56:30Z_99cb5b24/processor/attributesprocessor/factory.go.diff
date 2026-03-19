@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/factory.go b/processor/attributesprocessor/factory.go
+index c6e51a91d..baea6b726 100644
+--- a/processor/attributesprocessor/factory.go
++++ b/processor/attributesprocessor/factory.go
+@@ -54,7 +54,7 @@ func createTraceProcessor(
+ 	_ context.Context,
+ 	_ component.ProcessorCreateParams,
+ 	cfg configmodels.Processor,
+-	nextConsumer consumer.TraceConsumer,
++	nextConsumer consumer.TracesConsumer,
+ ) (component.TraceProcessor, error) {
+ 	oCfg := cfg.(*Config)
+ 	if len(oCfg.Actions) == 0 {

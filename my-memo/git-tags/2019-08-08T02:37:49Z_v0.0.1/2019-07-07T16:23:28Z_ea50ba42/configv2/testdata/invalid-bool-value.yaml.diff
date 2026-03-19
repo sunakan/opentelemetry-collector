@@ -1,0 +1,18 @@
+diff --git a/configv2/testdata/invalid-bool-value.yaml b/configv2/testdata/invalid-bool-value.yaml
+deleted file mode 100644
+index f74598188..000000000
+--- a/configv2/testdata/invalid-bool-value.yaml
++++ /dev/null
+@@ -1,12 +0,0 @@
+-receivers:
+-  examplereceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-  exampleprocessor:
+-    enabled: [2,3]
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    exporters: [exampleexporter]
+-    processors: [exampleprocessor]

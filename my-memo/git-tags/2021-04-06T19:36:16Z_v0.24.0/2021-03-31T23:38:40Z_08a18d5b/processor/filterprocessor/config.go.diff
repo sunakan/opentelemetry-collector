@@ -1,0 +1,13 @@
+diff --git a/processor/filterprocessor/config.go b/processor/filterprocessor/config.go
+index 7b65ec728..f13d8bd41 100644
+--- a/processor/filterprocessor/config.go
++++ b/processor/filterprocessor/config.go
+@@ -25,7 +25,7 @@ type Config struct {
+ 	Metrics                  MetricFilters `mapstructure:"metrics"`
+ }
+ 
+-// MetricFilter filters by Metric properties.
++// MetricFilters filters by Metric properties.
+ type MetricFilters struct {
+ 	// Include match properties describe metrics that should be included in the Collector Service pipeline,
+ 	// all other metrics should be dropped from further processing.

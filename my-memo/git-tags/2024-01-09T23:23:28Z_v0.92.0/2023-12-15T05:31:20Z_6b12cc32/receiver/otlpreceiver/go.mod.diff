@@ -1,0 +1,10 @@
+diff --git a/receiver/otlpreceiver/go.mod b/receiver/otlpreceiver/go.mod
+index 147a26a43..c12bcd3f6 100644
+--- a/receiver/otlpreceiver/go.mod
++++ b/receiver/otlpreceiver/go.mod
+@@ -129,3 +129,5 @@ retract (
+ 	v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module, use v0.76.1
+ 	v0.69.0 // Release failed, use v0.69.1
+ )
++
++replace go.opentelemetry.io/collector/config/configretry => ../../config/configretry

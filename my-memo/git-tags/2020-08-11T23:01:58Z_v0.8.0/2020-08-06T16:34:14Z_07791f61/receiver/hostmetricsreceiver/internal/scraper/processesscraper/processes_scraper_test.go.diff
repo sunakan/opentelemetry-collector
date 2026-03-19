@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
+index 2548e037a..6c132a81b 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper_test.go
+@@ -77,6 +77,8 @@ func TestScrapeMetrics(t *testing.T) {
+ 			for i, expectedMetricDescriptor := range expectedMetrics {
+ 				assertProcessesMetricValid(t, metrics.At(i), expectedMetricDescriptor)
+ 			}
++
++			internal.AssertSameTimeStampForAllMetrics(t, metrics)
+ 		})
+ 	}
+ }

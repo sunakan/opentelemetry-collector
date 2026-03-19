@@ -1,0 +1,24 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+index 0a68945d0..ae6ea012d 100644
+--- a/exporter/zipkinexporter/testdata/config.yaml
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -1,8 +1,8 @@
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ processors:
+-  exampleprocessor:
++  nop:
+ 
+ exporters:
+   zipkin:
+@@ -24,6 +24,6 @@ exporters:
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
+-      processors: [exampleprocessor]
++      receivers: [nop]
++      processors: [nop]
+       exporters: [zipkin, zipkin/2]

@@ -1,0 +1,22 @@
+diff --git a/consumer/pdata/generated_metrics_test.go b/consumer/pdata/generated_metrics_test.go
+index c08fffbf5..6c01c2277 100644
+--- a/consumer/pdata/generated_metrics_test.go
++++ b/consumer/pdata/generated_metrics_test.go
+@@ -161,9 +161,6 @@ func TestResourceMetrics_CopyTo(t *testing.T) {
+ func TestResourceMetrics_Resource(t *testing.T) {
+ 	ms := NewResourceMetrics()
+ 	ms.InitEmpty()
+-	assert.True(t, ms.Resource().IsNil())
+-	ms.Resource().InitEmpty()
+-	assert.False(t, ms.Resource().IsNil())
+ 	fillTestResource(ms.Resource())
+ 	assert.EqualValues(t, generateTestResource(), ms.Resource())
+ }
+@@ -2156,7 +2153,6 @@ func generateTestResourceMetrics() ResourceMetrics {
+ }
+ 
+ func fillTestResourceMetrics(tv ResourceMetrics) {
+-	tv.Resource().InitEmpty()
+ 	fillTestResource(tv.Resource())
+ 	fillTestInstrumentationLibraryMetricsSlice(tv.InstrumentationLibraryMetrics())
+ }

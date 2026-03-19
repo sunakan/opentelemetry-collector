@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/databuffer.go b/internal/otlptext/databuffer.go
+index 995257e62..81849db3b 100644
+--- a/internal/otlptext/databuffer.go
++++ b/internal/otlptext/databuffer.go
+@@ -97,7 +97,7 @@ func (b *dataBuffer) logNumberDataPoints(ps pdata.NumberDataPointSlice) {
+ 
+ 		b.logEntry("StartTimestamp: %s", p.StartTimestamp())
+ 		b.logEntry("Timestamp: %s", p.Timestamp())
+-		switch p.Type() {
++		switch p.ValueType() {
+ 		case pdata.MetricValueTypeInt:
+ 			b.logEntry("Value: %d", p.IntVal())
+ 		case pdata.MetricValueTypeDouble:

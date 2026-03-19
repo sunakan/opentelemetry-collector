@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 457f92ae9..a31df76ee 100644
+--- a/Makefile
++++ b/Makefile
+@@ -142,7 +142,7 @@ install-tools:
+ 
+ .PHONY: run
+ run: build-binary-cmd-otelcol
+-	./bin/cmd-otelcol --config ${RUN_CONFIG} ${RUN_ARGS}
++	./bin/otelcolcore --config ${RUN_CONFIG} ${RUN_ARGS}
+ 
+ .PHONY: for-all
+ for-all:

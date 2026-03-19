@@ -1,0 +1,13 @@
+diff --git a/observability/observabilitytest/observabilitytest.go b/observability/observabilitytest/observabilitytest.go
+index 9762f4277..e2f4dc138 100644
+--- a/observability/observabilitytest/observabilitytest.go
++++ b/observability/observabilitytest/observabilitytest.go
+@@ -103,7 +103,7 @@ func CheckRecordedMetricsForTraceExporter(t *testing.T, te exporter.TraceExporte
+ 	ctx := observability.ContextWithReceiverName(context.Background(), fakeReceiverName)
+ 	const numBatches = 7
+ 	for i := 0; i < numBatches; i++ {
+-		if err := te.ProcessTraceData(ctx, td); err != nil {
++		if err := te.ConsumeTraceData(ctx, td); err != nil {
+ 			t.Fatalf("Want nil got %v", err)
+ 		}
+ 	}

@@ -1,0 +1,22 @@
+diff --git a/config/testdata/duplicate-pipeline.yaml b/config/testdata/duplicate-pipeline.yaml
+new file mode 100644
+index 000000000..d08d30109
+--- /dev/null
++++ b/config/testdata/duplicate-pipeline.yaml
+@@ -0,0 +1,16 @@
++receivers:
++  examplereceiver:
++exporters:
++  exampleexporter:
++processors:
++  exampleprocessor:
++    enabled: true
++pipelines:
++  traces/default:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]
++  traces/ default:
++    receivers: [examplereceiver]
++    exporters: [exampleexporter]
++    processors: [exampleprocessor]

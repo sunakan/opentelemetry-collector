@@ -1,0 +1,13 @@
+diff --git a/component/receiver.go b/component/receiver.go
+index dcf4bf7e1..c61f4024e 100644
+--- a/component/receiver.go
++++ b/component/receiver.go
+@@ -21,7 +21,7 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+-// ReceiverConfig is the configuration of a component.Receiver. Specific extensions must implement
++// ReceiverConfig is the configuration of a component.Receiver. Specific Extension must implement
+ // this interface and must embed ReceiverSettings struct or a struct that extends it.
+ type ReceiverConfig interface {
+ 	identifiable

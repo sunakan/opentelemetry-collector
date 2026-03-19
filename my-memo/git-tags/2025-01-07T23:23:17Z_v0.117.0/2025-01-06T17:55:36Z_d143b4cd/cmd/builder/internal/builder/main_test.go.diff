@@ -1,0 +1,16 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 6b43e7a76..47d84a519 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -77,10 +77,10 @@ var replaceModules = []string{
+ 	"/extension",
+ 	"/extension/auth",
+ 	"/extension/auth/authtest",
+-	"/extension/experimental/storage",
+ 	"/extension/extensioncapabilities",
+ 	"/extension/extensiontest",
+ 	"/extension/zpagesextension",
++	"/extension/xextension",
+ 	"/featuregate",
+ 	"/internal/memorylimiter",
+ 	"/internal/fanoutconsumer",

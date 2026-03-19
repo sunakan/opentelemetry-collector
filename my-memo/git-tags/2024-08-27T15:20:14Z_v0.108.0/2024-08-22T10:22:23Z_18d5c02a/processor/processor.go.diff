@@ -1,0 +1,22 @@
+diff --git a/processor/processor.go b/processor/processor.go
+index 543d4869d..72233b425 100644
+--- a/processor/processor.go
++++ b/processor/processor.go
+@@ -4,17 +4,12 @@
+ package processor // import "go.opentelemetry.io/collector/processor"
+ 
+ import (
+-	"errors"
+ 	"fmt"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/processor/internal"
+ )
+ 
+-var (
+-	errNilNextConsumer = errors.New("nil next Consumer")
+-)
+-
+ // Traces is a processor that can consume traces.
+ type Traces = internal.Traces
+ 

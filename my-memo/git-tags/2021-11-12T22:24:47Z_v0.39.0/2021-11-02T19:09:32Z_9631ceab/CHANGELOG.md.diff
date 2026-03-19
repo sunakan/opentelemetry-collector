@@ -1,0 +1,14 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index aab67c6ce..c1305f7a9 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,9 @@
+ ## 🛑 Breaking changes 🛑
+ 
+ - Remove `component.BaseProcessorFactory`, use `processorhelper.NewFactory` instead (#4175)
++- Force usage of `exporterhelper.NewFactory` to implement `component.ExporterFactory` (#4338)
++- Force usage of `receiverhelper.NewFactory` to implement `component.ReceiverFactory` (#4338)
++- Force usage of `extensionhelper.NewFactory` to implement `component.ExtensionFactory` (#4338)
+ - Move `service/parserprovider` package to `config/configmapprovider` (#4206)
+ - Remove `config.Pipeline.Name` (#4326)
+ 

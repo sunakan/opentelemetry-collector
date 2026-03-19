@@ -1,0 +1,12 @@
+diff --git a/featuregate/go.mod b/featuregate/go.mod
+index 1597ac80c..b63601c99 100644
+--- a/featuregate/go.mod
++++ b/featuregate/go.mod
+@@ -3,6 +3,7 @@ module go.opentelemetry.io/collector/featuregate
+ go 1.20
+ 
+ require (
++	github.com/hashicorp/go-version v1.6.0
+ 	github.com/stretchr/testify v1.8.4
+ 	go.uber.org/multierr v1.11.0
+ )

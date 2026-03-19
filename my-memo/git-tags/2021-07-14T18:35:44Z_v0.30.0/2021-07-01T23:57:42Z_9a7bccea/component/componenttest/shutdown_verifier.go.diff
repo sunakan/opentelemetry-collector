@@ -1,0 +1,13 @@
+diff --git a/component/componenttest/shutdown_verifier.go b/component/componenttest/shutdown_verifier.go
+index 47430e8e8..1c26575e1 100644
+--- a/component/componenttest/shutdown_verifier.go
++++ b/component/componenttest/shutdown_verifier.go
+@@ -58,7 +58,7 @@ func verifyTracesProcessorDoesntProduceAfterShutdown(t *testing.T, factory compo
+ 
+ 	// The Shutdown() is done. It means the processor must have sent everything we
+ 	// gave it to the next sink.
+-	assert.EqualValues(t, generatedCount, nextSink.SpansCount())
++	assert.EqualValues(t, generatedCount, nextSink.SpanCount())
+ }
+ 
+ // VerifyProcessorShutdown verifies the processor doesn't produce telemetry data after shutdown.

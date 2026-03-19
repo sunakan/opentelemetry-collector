@@ -1,0 +1,13 @@
+diff --git a/processor/cloningfanoutconnector_test.go b/processor/cloningfanoutconnector_test.go
+index 296f57952..39fdf043a 100644
+--- a/processor/cloningfanoutconnector_test.go
++++ b/processor/cloningfanoutconnector_test.go
+@@ -22,7 +22,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+-	"go.opentelemetry.io/collector/internal/data/testdata"
++	"go.opentelemetry.io/collector/internal/testdata"
+ )
+ 
+ func TestTraceProcessorCloningNotMultiplexing(t *testing.T) {

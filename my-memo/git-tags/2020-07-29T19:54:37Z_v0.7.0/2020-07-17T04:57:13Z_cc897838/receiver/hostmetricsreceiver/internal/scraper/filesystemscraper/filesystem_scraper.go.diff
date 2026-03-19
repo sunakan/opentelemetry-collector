@@ -1,0 +1,48 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper.go
+index c3d3cec1b..6adb56b3c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/filesystemscraper/filesystem_scraper.go
+@@ -98,18 +98,13 @@ func (s *scraper) ScrapeMetrics(_ context.Context) (pdata.MetricSlice, error) {
+ 	}
+ 
+ 	// filter devices by name
+-	filteredUsages := make([]*deviceUsage, 0, len(usages))
+-	for _, usage := range usages {
+-		if s.includeDevice(usage.deviceName) {
+-			filteredUsages = append(filteredUsages, usage)
+-		}
+-	}
++	usages = s.filterByDevice(usages)
+ 
+-	if len(filteredUsages) > 0 {
++	if len(usages) > 0 {
+ 		metrics.Resize(1 + systemSpecificMetricsLen)
+ 
+-		initializeFileSystemUsageMetric(metrics.At(0), filteredUsages)
+-		appendSystemSpecificMetrics(metrics, 1, filteredUsages)
++		initializeFileSystemUsageMetric(metrics.At(0), usages)
++		appendSystemSpecificMetrics(metrics, 1, usages)
+ 	}
+ 
+ 	if len(errors) > 0 {
+@@ -137,6 +132,20 @@ func initializeFileSystemUsageDataPoint(dataPoint pdata.Int64DataPoint, deviceLa
+ 	dataPoint.SetValue(value)
+ }
+ 
++func (s *scraper) filterByDevice(usages []*deviceUsage) []*deviceUsage {
++	if s.includeFS == nil && s.excludeFS == nil {
++		return usages
++	}
++
++	filteredUsages := make([]*deviceUsage, 0, len(usages))
++	for _, usage := range usages {
++		if s.includeDevice(usage.deviceName) {
++			filteredUsages = append(filteredUsages, usage)
++		}
++	}
++	return filteredUsages
++}
++
+ func (s *scraper) includeDevice(deviceName string) bool {
+ 	return (s.includeFS == nil || s.includeFS.Matches(deviceName)) &&
+ 		(s.excludeFS == nil || !s.excludeFS.Matches(deviceName))

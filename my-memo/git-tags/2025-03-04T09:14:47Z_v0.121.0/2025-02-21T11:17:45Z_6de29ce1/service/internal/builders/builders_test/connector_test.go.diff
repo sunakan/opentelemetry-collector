@@ -1,0 +1,13 @@
+diff --git a/service/internal/builders/builders_test/connector_test.go b/service/internal/builders/builders_test/connector_test.go
+index ba8c733f3..d6c651e00 100644
+--- a/service/internal/builders/builders_test/connector_test.go
++++ b/service/internal/builders/builders_test/connector_test.go
+@@ -378,7 +378,7 @@ func TestNewNopConnectorConfigsAndFactories(t *testing.T) {
+ 
+ 	factory := connectortest.NewNopFactory()
+ 	cfg := factory.CreateDefaultConfig()
+-	set := connectortest.NewNopSettingsWithType(factory.Type())
++	set := connectortest.NewNopSettings(factory.Type())
+ 	set.ID = component.NewIDWithName(builders.NopType, "conn")
+ 
+ 	tracesToTraces, err := factory.CreateTracesToTraces(context.Background(), set, cfg, consumertest.NewNop())

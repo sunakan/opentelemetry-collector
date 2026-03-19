@@ -1,0 +1,17 @@
+diff --git a/extension/memorylimiterextension/factory_test.go b/extension/memorylimiterextension/factory_test.go
+index 45bd06675..5c0acdc75 100644
+--- a/extension/memorylimiterextension/factory_test.go
++++ b/extension/memorylimiterextension/factory_test.go
+@@ -38,10 +38,10 @@ func TestCreateExtension(t *testing.T) {
+ 	pCfg.CheckInterval = 100 * time.Millisecond
+ 
+ 	tp, err := factory.CreateExtension(context.Background(), extensiontest.NewNopSettings(), cfg)
+-	assert.NoError(t, err)
++	require.NoError(t, err)
+ 	assert.NotNil(t, tp)
+ 	// test if we can shutdown a monitoring routine that has not started
+-	assert.ErrorIs(t, tp.Shutdown(context.Background()), memorylimiter.ErrShutdownNotStarted)
++	require.ErrorIs(t, tp.Shutdown(context.Background()), memorylimiter.ErrShutdownNotStarted)
+ 	assert.NoError(t, tp.Start(context.Background(), componenttest.NewNopHost()))
+ 
+ 	assert.NoError(t, tp.Shutdown(context.Background()))

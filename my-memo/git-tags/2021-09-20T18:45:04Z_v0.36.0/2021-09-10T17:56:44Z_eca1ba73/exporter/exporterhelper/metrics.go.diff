@@ -1,0 +1,55 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index a48af7ba3..96c9b9975 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -23,9 +23,13 @@ import (
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumererror"
+ 	"go.opentelemetry.io/collector/consumer/consumerhelper"
++	"go.opentelemetry.io/collector/model/otlp"
+ 	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
++var metricsMarshaler = otlp.NewProtobufMetricsMarshaler()
++var metricsUnmarshaler = otlp.NewProtobufMetricsUnmarshaler()
++
+ type metricsRequest struct {
+ 	baseRequest
+ 	md     pdata.Metrics
+@@ -40,6 +44,16 @@ func newMetricsRequest(ctx context.Context, md pdata.Metrics, pusher consumerhel
+ 	}
+ }
+ 
++func newMetricsRequestUnmarshalerFunc(pusher consumerhelper.ConsumeMetricsFunc) requestUnmarshaler {
++	return func(bytes []byte) (request, error) {
++		metrics, err := metricsUnmarshaler.UnmarshalMetrics(bytes)
++		if err != nil {
++			return nil, err
++		}
++		return newMetricsRequest(context.Background(), metrics, pusher), nil
++	}
++}
++
+ func (req *metricsRequest) onError(err error) request {
+ 	var metricsError consumererror.Metrics
+ 	if consumererror.AsMetrics(err, &metricsError) {
+@@ -52,6 +66,10 @@ func (req *metricsRequest) export(ctx context.Context) error {
+ 	return req.pusher(ctx, req.md)
+ }
+ 
++func (req *metricsRequest) marshal() ([]byte, error) {
++	return metricsMarshaler.MarshalMetrics(req.md)
++}
++
+ func (req *metricsRequest) count() int {
+ 	return req.md.DataPointCount()
+ }
+@@ -81,7 +99,7 @@ func NewMetricsExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be := newBaseExporter(cfg, set, bs)
++	be := newBaseExporter(cfg, set, bs, config.MetricsDataType, newMetricsRequestUnmarshalerFunc(pusher))
+ 	be.wrapConsumerSender(func(nextSender requestSender) requestSender {
+ 		return &metricsSenderWithObservability{
+ 			obsrep:     be.obsrep,

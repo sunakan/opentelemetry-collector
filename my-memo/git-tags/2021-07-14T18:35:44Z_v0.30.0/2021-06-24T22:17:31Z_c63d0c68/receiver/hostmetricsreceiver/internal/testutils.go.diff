@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/testutils.go b/receiver/hostmetricsreceiver/internal/testutils.go
+index 4fca1db92..06793f9fd 100644
+--- a/receiver/hostmetricsreceiver/internal/testutils.go
++++ b/receiver/hostmetricsreceiver/internal/testutils.go
+@@ -20,7 +20,7 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ func AssertContainsAttribute(t *testing.T, attr pdata.AttributeMap, key string) {

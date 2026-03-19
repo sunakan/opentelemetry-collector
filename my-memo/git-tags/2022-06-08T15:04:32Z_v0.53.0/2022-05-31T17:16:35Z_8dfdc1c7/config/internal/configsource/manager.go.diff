@@ -1,0 +1,13 @@
+diff --git a/config/internal/configsource/manager.go b/config/internal/configsource/manager.go
+index d2d5f5319..8faae06e7 100644
+--- a/config/internal/configsource/manager.go
++++ b/config/internal/configsource/manager.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"github.com/spf13/cast"
+ 	"go.uber.org/multierr"
+-	"gopkg.in/yaml.v2"
++	"gopkg.in/yaml.v3"
+ 
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/experimental/configsource"

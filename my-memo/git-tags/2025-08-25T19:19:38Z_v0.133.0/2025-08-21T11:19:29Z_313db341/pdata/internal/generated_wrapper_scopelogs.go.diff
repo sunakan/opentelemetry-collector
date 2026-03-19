@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_scopelogs.go b/pdata/internal/generated_wrapper_scopelogs.go
+index 6374e50d4..1b2b763a1 100644
+--- a/pdata/internal/generated_wrapper_scopelogs.go
++++ b/pdata/internal/generated_wrapper_scopelogs.go
+@@ -50,6 +50,10 @@ func DeleteOrigScopeLogs(orig *otlplogs.ScopeLogs, nullable bool) {
+ }
+ 
+ func CopyOrigScopeLogs(dest, src *otlplogs.ScopeLogs) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	CopyOrigInstrumentationScope(&dest.Scope, &src.Scope)
+ 	dest.LogRecords = CopyOrigLogRecordSlice(dest.LogRecords, src.LogRecords)
+ 	dest.SchemaUrl = src.SchemaUrl

@@ -1,0 +1,13 @@
+diff --git a/receiver/scraperhelper/scrapercontroller_test.go b/receiver/scraperhelper/scrapercontroller_test.go
+index fc5ee174e..ef88029ca 100644
+--- a/receiver/scraperhelper/scrapercontroller_test.go
++++ b/receiver/scraperhelper/scrapercontroller_test.go
+@@ -107,7 +107,7 @@ func TestScrapeController(t *testing.T) {
+ 			name:            "AddMetricsScrapers_NilNextConsumerError",
+ 			scrapers:        2,
+ 			nilNextConsumer: true,
+-			expectedNewErr:  "nil nextConsumer",
++			expectedNewErr:  "nil next Consumer",
+ 		},
+ 		{
+ 			name:                      "AddMetricsScrapersWithCollectionInterval_InvalidCollectionIntervalError",

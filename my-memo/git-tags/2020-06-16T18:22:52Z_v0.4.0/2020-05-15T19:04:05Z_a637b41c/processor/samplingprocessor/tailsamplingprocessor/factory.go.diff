@@ -1,0 +1,19 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/factory.go b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+index 903b628c4..edd99c2c4 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/factory.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/factory.go
+@@ -19,10 +19,10 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/component"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configerror"
+-	"github.com/open-telemetry/opentelemetry-collector/config/configmodels"
+-	"github.com/open-telemetry/opentelemetry-collector/consumer"
++	"go.opentelemetry.io/collector/component"
++	"go.opentelemetry.io/collector/config/configerror"
++	"go.opentelemetry.io/collector/config/configmodels"
++	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ const (

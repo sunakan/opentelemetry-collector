@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/persistent_queue_test.go b/exporter/exporterhelper/internal/persistent_queue_test.go
+index 77705f319..f94a4b35a 100644
+--- a/exporter/exporterhelper/internal/persistent_queue_test.go
++++ b/exporter/exporterhelper/internal/persistent_queue_test.go
+@@ -176,7 +176,7 @@ func newTraces(numTraces int, numSpans int) pdata.Traces {
+ 
+ 	for i := 0; i < numTraces; i++ {
+ 		traceID := pdata.NewTraceID([16]byte{1, 2, 3, byte(i)})
+-		ils := batch.InstrumentationLibrarySpans().AppendEmpty()
++		ils := batch.ScopeSpans().AppendEmpty()
+ 		for j := 0; j < numSpans; j++ {
+ 			span := ils.Spans().AppendEmpty()
+ 			span.SetTraceID(traceID)

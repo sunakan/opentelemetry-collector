@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/constants.go b/exporter/exporterhelper/constants.go
+index 9749b8b6e..d1b1d477d 100644
+--- a/exporter/exporterhelper/constants.go
++++ b/exporter/exporterhelper/constants.go
+@@ -19,8 +19,8 @@ import (
+ )
+ 
+ var (
+-	// errEmptyExporterName is returned when an empty name is given.
+-	errEmptyExporterName = errors.New("empty exporterName")
++	// errNilConfig is returned when an empty name is given.
++	errNilConfig = errors.New("nil config")
+ 	// errNilPushTraceData is returned when a nil pushTraceData is given.
+ 	errNilPushTraceData = errors.New("nil pushTraceData")
+ 	// errNilPushMetricsData is returned when a nil pushMetricsData is given.

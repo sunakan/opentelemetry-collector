@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/internal/queuebatch/persistent_queue.go b/exporter/exporterhelper/internal/queuebatch/persistent_queue.go
+index a1106103f..9174e3df0 100644
+--- a/exporter/exporterhelper/internal/queuebatch/persistent_queue.go
++++ b/exporter/exporterhelper/internal/queuebatch/persistent_queue.go
+@@ -29,6 +29,11 @@ const (
+ 	writeIndexKey               = "wi"
+ 	currentlyDispatchedItemsKey = "di"
+ 	queueSizeKey                = "si"
++
++	// queueMetadataKey is the new single key for all queue metadata.
++	// TODO: Enable when https://github.com/open-telemetry/opentelemetry-collector/issues/12890 is done
++	//nolint:unused
++	queueMetadataKey = "qmv0"
+ )
+ 
+ var (
+@@ -46,6 +51,7 @@ var indexDonePool = sync.Pool{
+ 
+ type persistentQueueSettings[T any] struct {
+ 	sizer           request.Sizer[T]
++	sizerType       request.SizerType
+ 	capacity        int64
+ 	blockOnOverflow bool
+ 	signal          pipeline.Signal

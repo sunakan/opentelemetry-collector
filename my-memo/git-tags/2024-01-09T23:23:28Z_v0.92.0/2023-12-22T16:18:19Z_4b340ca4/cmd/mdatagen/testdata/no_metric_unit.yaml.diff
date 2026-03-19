@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/testdata/no_metric_unit.yaml b/cmd/mdatagen/testdata/no_metric_unit.yaml
+new file mode 100644
+index 000000000..cc5c49a7c
+--- /dev/null
++++ b/cmd/mdatagen/testdata/no_metric_unit.yaml
+@@ -0,0 +1,22 @@
++type: file
++
++status:
++  class: receiver
++  stability:
++    development: [logs]
++    beta: [traces]
++    stable: [metrics]
++  distributions: [contrib]
++  warnings:
++    - Any additional information that should be brought to the consumer's attention
++
++
++metrics:
++  default.metric:
++    enabled: true
++    description: Monotonic cumulative sum int metric enabled by default.
++    extended_documentation: The metric will be become optional soon.
++    sum:
++      value_type: int
++      monotonic: true
++      aggregation_temporality: cumulative

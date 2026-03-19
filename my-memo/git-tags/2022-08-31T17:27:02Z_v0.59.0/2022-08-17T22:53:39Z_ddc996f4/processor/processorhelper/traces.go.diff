@@ -1,0 +1,13 @@
+diff --git a/processor/processorhelper/traces.go b/processor/processorhelper/traces.go
+index 578b13211..3281c743f 100644
+--- a/processor/processorhelper/traces.go
++++ b/processor/processorhelper/traces.go
+@@ -36,7 +36,7 @@ type tracesProcessor struct {
+ 	consumer.Traces
+ }
+ 
+-// Deprecated: [v0.58.0] use version with NewTracesProcessor.
++// Deprecated: [v0.59.0] use version with NewTracesProcessor.
+ func NewTracesProcessorWithCreateSettings(
+ 	ctx context.Context,
+ 	set component.ProcessorCreateSettings,

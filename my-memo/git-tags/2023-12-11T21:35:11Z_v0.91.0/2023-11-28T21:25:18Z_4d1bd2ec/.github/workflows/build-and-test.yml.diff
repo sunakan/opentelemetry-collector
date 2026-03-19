@@ -1,0 +1,15 @@
+diff --git a/.github/workflows/build-and-test.yml b/.github/workflows/build-and-test.yml
+index 64da1baff..a9ee407ea 100644
+--- a/.github/workflows/build-and-test.yml
++++ b/.github/workflows/build-and-test.yml
+@@ -119,10 +119,6 @@ jobs:
+         run: |
+           make genpdata
+           git diff --exit-code || (echo 'Generated code is out of date, please run "make genpdata" and commit the changes in this PR.' && exit 1)
+-      - name: Gen dependabot
+-        run: |
+-          make gendependabot
+-          git diff -s --exit-code || (echo 'ALL_MODULES have been changed, please run "make gendependabot" and commit the changes in this PR.' && exit 1)
+       - name: Gen otelcorecol
+         run: |
+           make genotelcorecol

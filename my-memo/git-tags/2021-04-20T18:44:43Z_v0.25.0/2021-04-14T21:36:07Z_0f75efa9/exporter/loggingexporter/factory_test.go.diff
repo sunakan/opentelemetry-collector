@@ -1,0 +1,13 @@
+diff --git a/exporter/loggingexporter/factory_test.go b/exporter/loggingexporter/factory_test.go
+index bf04ef5d5..98f73405e 100644
+--- a/exporter/loggingexporter/factory_test.go
++++ b/exporter/loggingexporter/factory_test.go
+@@ -41,7 +41,7 @@ func TestCreateMetricsExporter(t *testing.T) {
+ 	assert.NotNil(t, me)
+ }
+ 
+-func TestCreateTraceExporter(t *testing.T) {
++func TestCreateTracesExporter(t *testing.T) {
+ 	factory := NewFactory()
+ 	cfg := factory.CreateDefaultConfig()
+ 

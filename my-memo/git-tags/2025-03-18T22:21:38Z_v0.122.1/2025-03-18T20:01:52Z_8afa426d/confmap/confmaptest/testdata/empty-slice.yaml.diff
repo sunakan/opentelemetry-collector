@@ -1,0 +1,7 @@
+diff --git a/confmap/confmaptest/testdata/empty-slice.yaml b/confmap/confmaptest/testdata/empty-slice.yaml
+index 797254b64..ec9c7c062 100644
+--- a/confmap/confmaptest/testdata/empty-slice.yaml
++++ b/confmap/confmaptest/testdata/empty-slice.yaml
+@@ -1 +1 @@
+-slice: []
++slice: [] # empty slices are sanitized to nil in ToStringMap

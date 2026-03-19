@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/tracehelper.go b/exporter/exporterhelper/tracehelper.go
+index 423eb8e55..54ed29f67 100644
+--- a/exporter/exporterhelper/tracehelper.go
++++ b/exporter/exporterhelper/tracehelper.go
+@@ -121,7 +121,7 @@ func (te *traceExporterV2) Start(host component.Host) error {
+ 	return nil
+ }
+ 
+-func (te *traceExporterV2) ConsumeTraceV2(
++func (te *traceExporterV2) ConsumeTrace(
+ 	ctx context.Context,
+ 	td data.TraceData,
+ ) error {

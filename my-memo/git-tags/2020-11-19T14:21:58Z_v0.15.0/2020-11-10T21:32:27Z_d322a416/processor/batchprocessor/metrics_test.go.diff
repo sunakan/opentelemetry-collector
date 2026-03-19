@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metrics_test.go b/processor/batchprocessor/metrics_test.go
+index 2f720c5c6..d128ece59 100644
+--- a/processor/batchprocessor/metrics_test.go
++++ b/processor/batchprocessor/metrics_test.go
+@@ -43,7 +43,7 @@ func TestBatchProcessorMetrics(t *testing.T) {
+ 			continue
+ 		}
+ 		for i, viewName := range test.viewNames {
+-			assert.Equal(t, viewName, views[i].Name)
++			assert.Equal(t, "processor/batch/"+viewName, views[i].Name)
+ 		}
+ 	}
+ }

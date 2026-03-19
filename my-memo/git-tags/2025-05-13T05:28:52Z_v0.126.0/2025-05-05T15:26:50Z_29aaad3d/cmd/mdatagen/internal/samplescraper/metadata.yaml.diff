@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/internal/samplescraper/metadata.yaml b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+index b4db179c9..6564828c2 100644
+--- a/cmd/mdatagen/internal/samplescraper/metadata.yaml
++++ b/cmd/mdatagen/internal/samplescraper/metadata.yaml
+@@ -6,6 +6,7 @@ github_project: open-telemetry/opentelemetry-collector
+ sem_conv_version: 1.9.0
+ 
+ status:
++  disable_codecov_badge: true
+   class: scraper
+   stability:
+     stable: [metrics]

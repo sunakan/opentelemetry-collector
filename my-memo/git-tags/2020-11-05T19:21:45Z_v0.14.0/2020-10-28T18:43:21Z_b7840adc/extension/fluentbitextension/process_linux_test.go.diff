@@ -1,0 +1,22 @@
+diff --git a/extension/fluentbitextension/process_linux_test.go b/extension/fluentbitextension/process_linux_test.go
+index 9eec68d05..5862f85f7 100644
+--- a/extension/fluentbitextension/process_linux_test.go
++++ b/extension/fluentbitextension/process_linux_test.go
+@@ -93,7 +93,7 @@ func TestProcessManager(t *testing.T) {
+ 	pm.Start(ctx, nil)
+ 	defer pm.Shutdown(ctx)
+ 
+-	require.Eventually(t, findSubproc, 5*time.Second, 100*time.Millisecond)
++	require.Eventually(t, findSubproc, 12*time.Second, 100*time.Millisecond)
+ 	require.NotNil(t, *mockProc)
+ 
+ 	cmdline, err := (*mockProc).Cmdline()
+@@ -128,7 +128,7 @@ func TestProcessManagerArgs(t *testing.T) {
+ 	pm.Start(ctx, nil)
+ 	defer pm.Shutdown(ctx)
+ 
+-	require.Eventually(t, findSubproc, 5*time.Second, 100*time.Millisecond)
++	require.Eventually(t, findSubproc, 12*time.Second, 100*time.Millisecond)
+ 	require.NotNil(t, *mockProc)
+ 
+ 	cmdline, err := (*mockProc).Cmdline()

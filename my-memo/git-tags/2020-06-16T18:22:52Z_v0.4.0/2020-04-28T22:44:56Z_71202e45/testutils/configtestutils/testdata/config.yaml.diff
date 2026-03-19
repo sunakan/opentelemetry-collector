@@ -1,0 +1,17 @@
+diff --git a/testutils/configtestutils/testdata/config.yaml b/testutils/configtestutils/testdata/config.yaml
+new file mode 100644
+index 000000000..45189b1ec
+--- /dev/null
++++ b/testutils/configtestutils/testdata/config.yaml
+@@ -0,0 +1,10 @@
++# Yaml configuration tests
++
++test/fullyaml:
++    topvalue: toplevelvalue
++    nested:
++        nestedvalue: nestedvalue
++    nestedvalue: squashedvalue
++test/partialyaml:
++    topvalue: toplevelvalue
++    nestedvalue: squashedvalue
+\ No newline at end of file

@@ -1,0 +1,29 @@
+diff --git a/cmd/builder/internal/init/templates/config.yaml.tmpl b/cmd/builder/internal/init/templates/config.yaml.tmpl
+new file mode 100644
+index 000000000..c81bc2f44
+--- /dev/null
++++ b/cmd/builder/internal/init/templates/config.yaml.tmpl
+@@ -0,0 +1,23 @@
++receivers:
++  otlp:
++    protocols:
++      grpc:
++        endpoint: 0.0.0.0:4317
++      http:
++        endpoint: 0.0.0.0:4318
++
++exporters:
++  otlp:
++    endpoint: https://localhost:4318
++
++service:
++  pipelines:
++    traces:
++      receivers: [otlp]
++      exporters: [otlp]
++    metrics:
++      receivers: [otlp]
++      exporters: [otlp]
++    logs:
++        receivers: [otlp]
++        exporters: [otlp]

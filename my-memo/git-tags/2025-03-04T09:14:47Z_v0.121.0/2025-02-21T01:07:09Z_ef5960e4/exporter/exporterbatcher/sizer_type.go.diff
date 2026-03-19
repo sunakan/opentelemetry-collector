@@ -1,0 +1,34 @@
+diff --git a/exporter/exporterbatcher/sizer_type.go b/exporter/exporterbatcher/sizer_type.go
+new file mode 100644
+index 000000000..1b1b05a27
+--- /dev/null
++++ b/exporter/exporterbatcher/sizer_type.go
+@@ -0,0 +1,28 @@
++// Copyright The OpenTelemetry Authors
++// SPDX-License-Identifier: Apache-2.0
++
++package exporterbatcher // import "go.opentelemetry.io/collector/exporter/exporterbatcher"
++
++import (
++	"fmt"
++)
++
++type SizerType string
++
++const (
++	SizerTypeItems SizerType = "items"
++	SizerTypeBytes SizerType = "bytes"
++)
++
++// UnmarshalText implements TextUnmarshaler interface.
++func (s *SizerType) UnmarshalText(text []byte) error {
++	switch str := string(text); str {
++	case string(SizerTypeItems):
++		*s = SizerTypeItems
++	case string(SizerTypeBytes):
++		*s = SizerTypeBytes
++	default:
++		return fmt.Errorf("invalid sizer: %q", str)
++	}
++	return nil
++}

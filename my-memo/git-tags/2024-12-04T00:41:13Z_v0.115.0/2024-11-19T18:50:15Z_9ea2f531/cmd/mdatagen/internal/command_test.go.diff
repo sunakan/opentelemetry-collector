@@ -1,0 +1,28 @@
+diff --git a/cmd/mdatagen/internal/command_test.go b/cmd/mdatagen/internal/command_test.go
+index a143da7ec..dfdf6d4aa 100644
+--- a/cmd/mdatagen/internal/command_test.go
++++ b/cmd/mdatagen/internal/command_test.go
+@@ -608,11 +608,6 @@ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("")
+ }
+ 
+-// Deprecated: [v0.114.0] use Meter instead.
+-func LeveledMeter(settings component.TelemetrySettings, level configtelemetry.Level) metric.Meter {
+-	return settings.LeveledMeterProvider(level).Meter("")
+-}
+-
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ 	return settings.TracerProvider.Tracer("")
+ }
+@@ -646,11 +641,6 @@ func Meter(settings component.TelemetrySettings) metric.Meter {
+ 	return settings.MeterProvider.Meter("")
+ }
+ 
+-// Deprecated: [v0.114.0] use Meter instead.
+-func LeveledMeter(settings component.TelemetrySettings, level configtelemetry.Level) metric.Meter {
+-	return settings.LeveledMeterProvider(level).Meter("")
+-}
+-
+ func Tracer(settings component.TelemetrySettings) trace.Tracer {
+ 	return settings.TracerProvider.Tracer("")
+ }

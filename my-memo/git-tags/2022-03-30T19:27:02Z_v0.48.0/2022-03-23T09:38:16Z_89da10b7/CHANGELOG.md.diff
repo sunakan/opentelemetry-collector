@@ -1,0 +1,23 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index a403e304d..f641b6a6a 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -28,6 +28,7 @@
+   - Deprecate `pdata.AttributeValueSlice` struct in favor of `pdata.Slice`
+   - Deprecate `pdata.NewAttributeValueSlice` func in favor of `pdata.NewSlice`
+ - Deprecate LogRecord.Name(), it was deprecated in the data model (#5054)
++- Deprecate global flag in `featuregates` (#5060)
+ 
+ ### 💡 Enhancements 💡
+ 
+@@ -35,6 +36,10 @@
+   In case of type mismatch, they don't panic right away but return an invalid zero-initialized
+   instance for consistency with other OneOf field accessors (#5034)
+ 
++### 🧰 Bug fixes 🧰
++
++- The `featuregates` were not configured from the "--feature-gates" flag on windows service (#5060)
++
+ ## v0.47.0 Beta
+ 
+ ### 🛑 Breaking changes 🛑

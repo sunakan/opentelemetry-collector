@@ -1,0 +1,13 @@
+diff --git a/internal/data/testdata/trace.go b/internal/data/testdata/trace.go
+index e7f85d05f..9ed4c89e2 100644
+--- a/internal/data/testdata/trace.go
++++ b/internal/data/testdata/trace.go
+@@ -17,7 +17,7 @@ package testdata
+ import (
+ 	"time"
+ 
+-	otlptrace "github.com/open-telemetry/opentelemetry-proto/gen/go/trace/v1"
++	otlptrace "go.opentelemetry.io/collector/internal/data/opentelemetry-proto-gen/trace/v1"
+ 
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ )

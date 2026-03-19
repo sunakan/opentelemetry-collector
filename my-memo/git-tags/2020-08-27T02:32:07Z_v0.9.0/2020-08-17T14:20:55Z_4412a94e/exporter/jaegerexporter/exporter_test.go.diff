@@ -1,0 +1,16 @@
+diff --git a/exporter/jaegerexporter/exporter_test.go b/exporter/jaegerexporter/exporter_test.go
+index bc8a82357..63a17f8c8 100644
+--- a/exporter/jaegerexporter/exporter_test.go
++++ b/exporter/jaegerexporter/exporter_test.go
+@@ -192,10 +192,10 @@ func TestMutualTLS(t *testing.T) {
+ 	// start gRPC Jaeger server
+ 	tlsCfgOpts := configtls.TLSServerSetting{
+ 		TLSSetting: configtls.TLSSetting{
+-			CAFile:   caPath,
+ 			CertFile: serverCertPath,
+ 			KeyFile:  serverKeyPath,
+ 		},
++		ClientCAFile: caPath,
+ 	}
+ 	tlsCfg, err := tlsCfgOpts.LoadTLSConfig()
+ 	require.NoError(t, err)

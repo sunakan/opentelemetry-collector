@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/octrace/opencensus.go b/receiver/opencensusreceiver/octrace/opencensus.go
+index 6911e7dbd..cf4908415 100644
+--- a/receiver/opencensusreceiver/octrace/opencensus.go
++++ b/receiver/opencensusreceiver/octrace/opencensus.go
+@@ -81,7 +81,7 @@ func (ocr *Receiver) Export(tes agenttracepb.TraceService_ExportServer) error {
+ 		ctx = client.NewContext(ctx, c)
+ 	}
+ 
+-	longLivedRPCCtx := obsreport.ReceiverContext(ctx, ocr.instanceName, receiverTransport, receiverTagValue)
++	longLivedRPCCtx := obsreport.ReceiverContext(ctx, ocr.instanceName, receiverTransport)
+ 
+ 	// The first message MUST have a non-nil Node.
+ 	recv, err := tes.Recv()

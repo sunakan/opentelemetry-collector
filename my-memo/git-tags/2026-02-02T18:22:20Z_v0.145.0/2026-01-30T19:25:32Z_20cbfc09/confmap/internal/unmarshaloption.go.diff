@@ -1,0 +1,14 @@
+diff --git a/confmap/internal/unmarshaloption.go b/confmap/internal/unmarshaloption.go
+index e82ce6fd0..77e38417e 100644
+--- a/confmap/internal/unmarshaloption.go
++++ b/confmap/internal/unmarshaloption.go
+@@ -10,7 +10,8 @@ type UnmarshalOption interface {
+ // UnmarshalOptions is used by (*Conf).Unmarshal to toggle unmarshaling settings.
+ // It is in the `internal` package so experimental options can be added in xconfmap.
+ type UnmarshalOptions struct {
+-	IgnoreUnused bool
++	IgnoreUnused     bool
++	ForceUnmarshaler bool
+ }
+ 
+ type UnmarshalOptionFunc func(*UnmarshalOptions)

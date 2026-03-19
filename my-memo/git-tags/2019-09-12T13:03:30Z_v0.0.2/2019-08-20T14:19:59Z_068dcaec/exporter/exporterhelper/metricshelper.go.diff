@@ -1,0 +1,40 @@
+diff --git a/exporter/exporterhelper/metricshelper.go b/exporter/exporterhelper/metricshelper.go
+index 972086f02..4a8b0c84e 100644
+--- a/exporter/exporterhelper/metricshelper.go
++++ b/exporter/exporterhelper/metricshelper.go
+@@ -31,6 +31,7 @@ type PushMetricsData func(ctx context.Context, td consumerdata.MetricsData) (dro
+ type metricsExporter struct {
+ 	exporterName    string
+ 	pushMetricsData PushMetricsData
++	shutdown        Shutdown
+ }
+ 
+ var _ (exporter.MetricsExporter) = (*metricsExporter)(nil)
+@@ -45,6 +46,11 @@ func (me *metricsExporter) ConsumeMetricsData(ctx context.Context, md consumerda
+ 	return err
+ }
+ 
++// Shutdown stops the exporter and is invoked during shutdown.
++func (me *metricsExporter) Shutdown() error {
++	return me.shutdown()
++}
++
+ // NewMetricsExporter creates an MetricsExporter that can record metrics and can wrap every request with a Span.
+ // If no options are passed it just adds the exporter format as a tag in the Context.
+ // TODO: Add support for recordMetrics.
+@@ -64,9 +70,15 @@ func NewMetricsExporter(exporterName string, pushMetricsData PushMetricsData, op
+ 		pushMetricsData = pushMetricsDataWithSpan(pushMetricsData, opts.spanName)
+ 	}
+ 
++	// The default shutdown method always returns nil.
++	if opts.shutdown == nil {
++		opts.shutdown = func() error { return nil }
++	}
++
+ 	return &metricsExporter{
+ 		exporterName:    exporterName,
+ 		pushMetricsData: pushMetricsData,
++		shutdown:        opts.shutdown,
+ 	}, nil
+ }
+ 

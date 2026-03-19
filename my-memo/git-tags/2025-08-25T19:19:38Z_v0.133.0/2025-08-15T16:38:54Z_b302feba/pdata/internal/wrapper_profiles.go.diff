@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/wrapper_profiles.go b/pdata/internal/wrapper_profiles.go
+index 0e47d6702..93057aee7 100644
+--- a/pdata/internal/wrapper_profiles.go
++++ b/pdata/internal/wrapper_profiles.go
+@@ -23,9 +23,8 @@ func ProfilesToProto(l Profiles) otlpprofile.ProfilesData {
+ // ProfilesFromProto internal helper to convert protobuf representation to Profiles.
+ // This function set exclusive state assuming that it's called only once per Profiles.
+ func ProfilesFromProto(orig otlpprofile.ProfilesData) Profiles {
+-	state := StateMutable
+ 	return NewProfiles(&otlpcollectorprofile.ExportProfilesServiceRequest{
+ 		ResourceProfiles: orig.ResourceProfiles,
+ 		Dictionary:       orig.Dictionary,
+-	}, &state)
++	}, NewState())
+ }

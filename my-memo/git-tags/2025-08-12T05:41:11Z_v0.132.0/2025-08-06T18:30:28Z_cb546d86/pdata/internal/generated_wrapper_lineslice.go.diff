@@ -1,0 +1,17 @@
+diff --git a/pdata/internal/generated_wrapper_lineslice.go b/pdata/internal/generated_wrapper_lineslice.go
+index 1c6ca4ccd..78a4da466 100644
+--- a/pdata/internal/generated_wrapper_lineslice.go
++++ b/pdata/internal/generated_wrapper_lineslice.go
+@@ -38,3 +38,12 @@ func CopyOrigLineSlice(dest, src []*otlpprofiles.Line) []*otlpprofiles.Line {
+ 	}
+ 	return newDest
+ }
++
++func GenerateOrigTestLineSlice() []*otlpprofiles.Line {
++	orig := make([]*otlpprofiles.Line, 7)
++	for i := 0; i < 7; i++ {
++		orig[i] = &otlpprofiles.Line{}
++		FillOrigTestLine(orig[i])
++	}
++	return orig
++}

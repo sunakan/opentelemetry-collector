@@ -1,0 +1,13 @@
+diff --git a/exporter/opencensusexporter/factory_test.go b/exporter/opencensusexporter/factory_test.go
+index 00d79f3a8..bacd028ab 100644
+--- a/exporter/opencensusexporter/factory_test.go
++++ b/exporter/opencensusexporter/factory_test.go
+@@ -183,7 +183,7 @@ func TestCreateTraceExporter(t *testing.T) {
+ 			if tt.mustFail {
+ 				assert.NotNil(t, err)
+ 			} else {
+-				assert.Nil(t, err)
++				assert.NoError(t, err)
+ 				assert.NotNil(t, consumer)
+ 
+ 				err = consumer.Shutdown(context.Background())

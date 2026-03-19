@@ -1,0 +1,13 @@
+diff --git a/processor/batchprocessor/metrics.go b/processor/batchprocessor/metrics.go
+index 2aecaeedd..228e5668e 100644
+--- a/processor/batchprocessor/metrics.go
++++ b/processor/batchprocessor/metrics.go
+@@ -32,7 +32,7 @@ type batchProcessorTelemetry struct {
+ 	telemetryBuilder *metadata.TelemetryBuilder
+ }
+ 
+-func newBatchProcessorTelemetry(set processor.CreateSettings, currentMetadataCardinality func() int) (*batchProcessorTelemetry, error) {
++func newBatchProcessorTelemetry(set processor.Settings, currentMetadataCardinality func() int) (*batchProcessorTelemetry, error) {
+ 	attrs := attribute.NewSet(attribute.String(obsmetrics.ProcessorKey, set.ID.String()))
+ 
+ 	telemetryBuilder, err := metadata.NewTelemetryBuilder(set.TelemetrySettings,

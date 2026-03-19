@@ -1,0 +1,27 @@
+diff --git a/internal/config/config.go b/internal/config/config.go
+index b71969ad5..b33121451 100644
+--- a/internal/config/config.go
++++ b/internal/config/config.go
+@@ -101,6 +101,7 @@ type Receivers struct {
+ 	Zipkin     *ReceiverConfig       `mapstructure:"zipkin"`
+ 	Jaeger     *ReceiverConfig       `mapstructure:"jaeger"`
+ 	Scribe     *ScribeReceiverConfig `mapstructure:"zipkin-scribe"`
++	VMMetrics  *ReceiverConfig       `mapstructure:"vmmetrics"`
+ 
+ 	// Prometheus contains the Prometheus configurations.
+ 	// Such as:
+@@ -374,6 +375,14 @@ func (c *Config) OpenCensusReceiverTLSCredentialsServerOption() (opt opencensusr
+ 	return tlsCreds.ToOpenCensusReceiverServerOption()
+ }
+ 
++// VMMetricsReceiverEnabled returns true if Config is non-nil.
++func (c *Config) VMMetricsReceiverEnabled() bool {
++	if c == nil {
++		return false
++	}
++	return c.Receivers != nil && c.Receivers.VMMetrics != nil
++}
++
+ // CheckLogicalConflicts serves to catch logical errors such as
+ // if the Zipkin receiver port conflicts with that of the exporter,
+ // lest we'll have a self DOS because spans will be exported "out" from

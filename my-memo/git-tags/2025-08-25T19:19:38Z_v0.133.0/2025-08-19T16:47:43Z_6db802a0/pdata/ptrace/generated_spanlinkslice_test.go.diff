@@ -1,0 +1,13 @@
+diff --git a/pdata/ptrace/generated_spanlinkslice_test.go b/pdata/ptrace/generated_spanlinkslice_test.go
+index ecd163fc7..f6b27f5ac 100644
+--- a/pdata/ptrace/generated_spanlinkslice_test.go
++++ b/pdata/ptrace/generated_spanlinkslice_test.go
+@@ -27,7 +27,7 @@ func TestSpanLinkSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestSpan_Link((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigSpan_Link()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

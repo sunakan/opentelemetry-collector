@@ -1,0 +1,35 @@
+diff --git a/exporter/exporterhelper/xexporterhelper/profiles.go b/exporter/exporterhelper/xexporterhelper/profiles.go
+index 34afd2959..5b5f7d440 100644
+--- a/exporter/exporterhelper/xexporterhelper/profiles.go
++++ b/exporter/exporterhelper/xexporterhelper/profiles.go
+@@ -129,7 +129,7 @@ func NewProfilesRequestExporter(
+ 		return nil, errNilProfilesConverter
+ 	}
+ 
+-	be, err := internal.NewBaseExporter(set, xpipeline.SignalProfiles, newProfilesExporterWithObservability, options...)
++	be, err := internal.NewBaseExporter(set, xpipeline.SignalProfiles, internal.NewObsReportSender, options...)
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -150,21 +150,3 @@ func NewProfilesRequestExporter(
+ 		Profiles:     tc,
+ 	}, err
+ }
+-
+-type profilesExporterWithObservability struct {
+-	internal.BaseSender[exporterhelper.Request]
+-	obsrep *internal.ObsReport
+-}
+-
+-func newProfilesExporterWithObservability(obsrep *internal.ObsReport) internal.Sender[exporterhelper.Request] {
+-	return &profilesExporterWithObservability{obsrep: obsrep}
+-}
+-
+-func (tewo *profilesExporterWithObservability) Send(ctx context.Context, req exporterhelper.Request) error {
+-	c := tewo.obsrep.StartProfilesOp(ctx)
+-	numSamples := req.ItemsCount()
+-	// Forward the data to the next consumer (this pusher is the next).
+-	err := tewo.NextSender.Send(c, req)
+-	tewo.obsrep.EndProfilesOp(c, numSamples, err)
+-	return err
+-}

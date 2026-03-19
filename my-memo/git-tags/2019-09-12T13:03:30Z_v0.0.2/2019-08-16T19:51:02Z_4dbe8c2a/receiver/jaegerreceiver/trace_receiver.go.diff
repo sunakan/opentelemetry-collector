@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver.go b/receiver/jaegerreceiver/trace_receiver.go
+index 59501daa4..0af025e85 100644
+--- a/receiver/jaegerreceiver/trace_receiver.go
++++ b/receiver/jaegerreceiver/trace_receiver.go
+@@ -134,6 +134,8 @@ func (jr *jReceiver) agentAddress() string {
+ 	return fmt.Sprintf(":%d", port)
+ }
+ 
++// TODO https://github.com/open-telemetry/opentelemetry-service/issues/267
++//	Remove ThriftTChannel support.
+ func (jr *jReceiver) tchannelAddr() string {
+ 	var port int
+ 	if jr.config != nil {

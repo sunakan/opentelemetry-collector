@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/value.go b/pdata/pcommon/value.go
+index c7d84004d..31d479202 100644
+--- a/pdata/pcommon/value.go
++++ b/pdata/pcommon/value.go
+@@ -336,7 +336,7 @@ func (v Value) MoveTo(dest Value) {
+ // Calling this function on zero-initialized Value will cause a panic.
+ func (v Value) CopyTo(dest Value) {
+ 	dest.getState().AssertMutable()
+-	internal.CopyOrigValue(dest.getOrig(), v.getOrig())
++	internal.CopyOrigAnyValue(dest.getOrig(), v.getOrig())
+ }
+ 
+ // AsString converts an OTLP Value object of any type to its equivalent string

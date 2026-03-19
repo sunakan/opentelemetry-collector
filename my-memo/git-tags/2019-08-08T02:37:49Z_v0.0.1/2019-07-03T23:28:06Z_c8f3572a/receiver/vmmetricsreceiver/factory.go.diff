@@ -1,0 +1,21 @@
+diff --git a/receiver/vmmetricsreceiver/factory.go b/receiver/vmmetricsreceiver/factory.go
+index a05765db7..8b71484fe 100644
+--- a/receiver/vmmetricsreceiver/factory.go
++++ b/receiver/vmmetricsreceiver/factory.go
+@@ -21,6 +21,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-service/configv2/configerror"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ 	"github.com/open-telemetry/opentelemetry-service/models"
+ 	"github.com/open-telemetry/opentelemetry-service/receiver"
+@@ -67,7 +68,7 @@ func (f *factory) CreateTraceReceiver(
+ 	nextConsumer consumer.TraceConsumer,
+ ) (receiver.TraceReceiver, error) {
+ 	// VMMetrics does not support traces
+-	return nil, models.ErrDataTypeIsNotSupported
++	return nil, configerror.ErrDataTypeIsNotSupported
+ }
+ 
+ // CreateMetricsReceiver creates a metrics receiver based on provided config.

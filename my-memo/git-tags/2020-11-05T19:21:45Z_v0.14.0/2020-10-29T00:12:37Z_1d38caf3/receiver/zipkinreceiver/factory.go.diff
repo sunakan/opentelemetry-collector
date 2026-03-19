@@ -1,0 +1,13 @@
+diff --git a/receiver/zipkinreceiver/factory.go b/receiver/zipkinreceiver/factory.go
+index 5a3e2a5fa..a61d1470b 100644
+--- a/receiver/zipkinreceiver/factory.go
++++ b/receiver/zipkinreceiver/factory.go
+@@ -61,7 +61,7 @@ func createTraceReceiver(
+ 	_ component.ReceiverCreateParams,
+ 	cfg configmodels.Receiver,
+ 	nextConsumer consumer.TracesConsumer,
+-) (component.TraceReceiver, error) {
++) (component.TracesReceiver, error) {
+ 	rCfg := cfg.(*Config)
+ 	return New(rCfg, nextConsumer)
+ }

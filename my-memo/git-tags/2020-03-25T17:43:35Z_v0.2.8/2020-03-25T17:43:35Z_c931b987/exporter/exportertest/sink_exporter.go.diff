@@ -1,0 +1,30 @@
+diff --git a/exporter/exportertest/sink_exporter.go b/exporter/exportertest/sink_exporter.go
+index 6241f0995..bf6bad286 100644
+--- a/exporter/exportertest/sink_exporter.go
++++ b/exporter/exportertest/sink_exporter.go
+@@ -20,7 +20,6 @@ import (
+ 
+ 	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+-	"github.com/open-telemetry/opentelemetry-collector/exporter"
+ )
+ 
+ // SinkTraceExporter acts as a trace receiver for use in tests.
+@@ -29,8 +28,6 @@ type SinkTraceExporter struct {
+ 	traces []consumerdata.TraceData
+ }
+ 
+-var _ exporter.TraceExporter = (*SinkTraceExporter)(nil)
+-
+ // Start tells the exporter to start. The exporter may prepare for exporting
+ // by connecting to the endpoint. Host parameter can be used for communicating
+ // with the host after Start() has already returned.
+@@ -67,8 +64,6 @@ type SinkMetricsExporter struct {
+ 	metrics []consumerdata.MetricsData
+ }
+ 
+-var _ exporter.MetricsExporter = (*SinkMetricsExporter)(nil)
+-
+ // Start tells the exporter to start. The exporter may prepare for exporting
+ // by connecting to the endpoint. Host parameter can be used for communicating
+ // with the host after Start() has already returned.

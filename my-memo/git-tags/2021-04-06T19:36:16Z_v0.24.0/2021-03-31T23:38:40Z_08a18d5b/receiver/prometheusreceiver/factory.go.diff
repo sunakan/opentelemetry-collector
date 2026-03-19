@@ -1,0 +1,12 @@
+diff --git a/receiver/prometheusreceiver/factory.go b/receiver/prometheusreceiver/factory.go
+index 5e2d3b7b0..2ad06240b 100644
+--- a/receiver/prometheusreceiver/factory.go
++++ b/receiver/prometheusreceiver/factory.go
+@@ -44,6 +44,7 @@ var (
+ 	errNilScrapeConfig = errors.New("expecting a non-nil ScrapeConfig")
+ )
+ 
++// NewFactory creates a new Prometheus receiver factory.
+ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,

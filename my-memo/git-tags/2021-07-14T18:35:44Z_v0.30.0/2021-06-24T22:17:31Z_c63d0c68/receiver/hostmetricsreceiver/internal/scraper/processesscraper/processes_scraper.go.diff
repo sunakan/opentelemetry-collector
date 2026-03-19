@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper.go b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper.go
+index a24f28c12..bef1b1873 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processesscraper/processes_scraper.go
+@@ -21,7 +21,7 @@ import (
+ 	"github.com/shirou/gopsutil/load"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/consumer/pdata"
++	"go.opentelemetry.io/collector/model/pdata"
+ )
+ 
+ // scraper for Processes Metrics

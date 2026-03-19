@@ -1,0 +1,12 @@
+diff --git a/pdata/ptrace/ptraceotlp/generated_exportresponse_test.go b/pdata/ptrace/ptraceotlp/generated_exportresponse_test.go
+index 4605c1ff2..543c42ebb 100644
+--- a/pdata/ptrace/ptraceotlp/generated_exportresponse_test.go
++++ b/pdata/ptrace/ptraceotlp/generated_exportresponse_test.go
+@@ -49,6 +49,5 @@ func TestExportResponse_PartialSuccess(t *testing.T) {
+ }
+ 
+ func generateTestExportResponse() ExportResponse {
+-	ms := newExportResponse(internal.GenTestExportTraceServiceResponse(), internal.NewState())
+-	return ms
++	return newExportResponse(internal.GenTestExportTraceServiceResponse(), internal.NewState())
+ }

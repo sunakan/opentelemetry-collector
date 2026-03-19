@@ -1,0 +1,23 @@
+diff --git a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+index 6ec50270b..4a55de6de 100644
+--- a/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
++++ b/pdata/internal/generated_wrapper_exportlogspartialsuccess.go
+@@ -15,11 +15,13 @@ import (
+ 	"go.opentelemetry.io/collector/pdata/internal/proto"
+ )
+ 
+-var protoPoolExportLogsPartialSuccess = sync.Pool{
+-	New: func() any {
+-		return &otlpcollectorlogs.ExportLogsPartialSuccess{}
+-	},
+-}
++var (
++	protoPoolExportLogsPartialSuccess = sync.Pool{
++		New: func() any {
++			return &otlpcollectorlogs.ExportLogsPartialSuccess{}
++		},
++	}
++)
+ 
+ func NewOrigExportLogsPartialSuccess() *otlpcollectorlogs.ExportLogsPartialSuccess {
+ 	if !UseProtoPooling.IsEnabled() {

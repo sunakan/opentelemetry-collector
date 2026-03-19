@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_sampleslice_test.go b/pdata/pprofile/generated_sampleslice_test.go
+index 345f4c839..9c932fefb 100644
+--- a/pdata/pprofile/generated_sampleslice_test.go
++++ b/pdata/pprofile/generated_sampleslice_test.go
+@@ -27,7 +27,7 @@ func TestSampleSlice(t *testing.T) {
+ 	for i := 0; i < 7; i++ {
+ 		es.AppendEmpty()
+ 		assert.Equal(t, emptyVal, es.At(i))
+-		internal.FillOrigTestSample((*es.orig)[i])
++		(*es.orig)[i] = internal.GenTestOrigSample()
+ 		assert.Equal(t, testVal, es.At(i))
+ 	}
+ 	assert.Equal(t, 7, es.Len())

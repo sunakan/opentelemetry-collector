@@ -1,0 +1,12 @@
+diff --git a/demos/trace/oc-agent-config.yaml b/demos/trace/oc-agent-config.yaml
+index cd6d4371a..6288f22fe 100644
+--- a/demos/trace/oc-agent-config.yaml
++++ b/demos/trace/oc-agent-config.yaml
+@@ -1,6 +1,7 @@
+ receivers:
+   opencensus:
+     address: ":55678"
++    reconnection-delay: 2s
+   jaeger:
+     collector_http_port: 14268
+ 

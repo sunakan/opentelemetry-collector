@@ -1,0 +1,13 @@
+diff --git a/component/component.go b/component/component.go
+index 672f1ecc5..868d9d26c 100644
+--- a/component/component.go
++++ b/component/component.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/config"
+ )
+ 
+-// Component is either a receiver, exporter, processor or an extension.
++// Component is either a receiver, exporter, processor, or an extension.
+ //
+ // A component's lifecycle has the following phases:
+ //

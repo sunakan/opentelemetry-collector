@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+index 94aefcacf..c46615a21 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/memoryscraper/factory.go
+@@ -26,7 +26,7 @@ import (
+ // This file implements Factory for Memory scraper.
+ 
+ const (
+-	// The value of "type" key in configuration.
++	// TypeStr the value of "type" key in configuration.
+ 	TypeStr = "memory"
+ )
+ 

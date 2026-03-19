@@ -1,0 +1,23 @@
+diff --git a/internal/cmd/pdatagen/internal/templates.go b/internal/cmd/pdatagen/internal/templates.go
+index 83d89e1cf..9f8721248 100644
+--- a/internal/cmd/pdatagen/internal/templates.go
++++ b/internal/cmd/pdatagen/internal/templates.go
+@@ -77,6 +77,7 @@ func templateNew(name string) *template.Template {
+ 	return template.New(name).Funcs(template.FuncMap{
+ 		"upperFirst": upperFirst,
+ 		"lowerFirst": lowerFirst,
++		"add":        add,
+ 		"sub":        sub,
+ 		"needSnake":  needSnake,
+ 		"toSnake":    strcase.ToSnake,
+@@ -91,6 +92,10 @@ func lowerFirst(s string) string {
+ 	return strings.ToLower(s[0:1]) + s[1:]
+ }
+ 
++func add(a, b int) int {
++	return a + b
++}
++
+ func sub(a, b int) int {
+ 	return a - b
+ }

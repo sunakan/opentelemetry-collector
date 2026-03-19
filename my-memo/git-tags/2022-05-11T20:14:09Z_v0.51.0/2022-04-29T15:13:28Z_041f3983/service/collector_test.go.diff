@@ -1,0 +1,13 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index acc8b0c12..432c5ed93 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -137,7 +137,7 @@ func TestCollectorReportError(t *testing.T) {
+ 		return Running == col.GetState()
+ 	}, 2*time.Second, 200*time.Millisecond)
+ 
+-	col.service.ReportFatalError(errors.New("err2"))
++	col.service.host.ReportFatalError(errors.New("err2"))
+ 
+ 	wg.Wait()
+ 	assert.Equal(t, Closed, col.GetState())

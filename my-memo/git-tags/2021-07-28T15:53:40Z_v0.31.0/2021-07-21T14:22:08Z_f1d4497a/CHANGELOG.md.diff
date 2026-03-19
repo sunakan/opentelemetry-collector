@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 7da1c6dc8..b759419d8 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -39,6 +39,7 @@
+ 
+ - `scraperhelper`: Include the scraper name in log messages (#3487)
+ - `scraperhelper`: fix case when returned pdata is empty (#3520) 
++- `otlpexporter`: Allow endpoint to be configured with a scheme of `http` or `https` (#3575)
+ - Record the correct number of points not metrics in Kafka receiver (#3553) 
+ - Validate the Prometheus configuration (#3589) 
+ 

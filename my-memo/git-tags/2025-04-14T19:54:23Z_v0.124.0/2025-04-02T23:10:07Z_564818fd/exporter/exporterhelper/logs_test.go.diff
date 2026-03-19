@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/logs_test.go b/exporter/exporterhelper/logs_test.go
+index 07db2dfbc..5a4547419 100644
+--- a/exporter/exporterhelper/logs_test.go
++++ b/exporter/exporterhelper/logs_test.go
+@@ -52,7 +52,7 @@ func TestLogsRequest(t *testing.T) {
+ 	lr := newLogsRequest(testdata.GenerateLogs(1))
+ 
+ 	logErr := consumererror.NewLogs(errors.New("some error"), plog.NewLogs())
+-	assert.EqualValues(
++	assert.Equal(
+ 		t,
+ 		newLogsRequest(plog.NewLogs()),
+ 		lr.(RequestErrorHandler).OnError(logErr),

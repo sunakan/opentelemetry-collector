@@ -1,0 +1,13 @@
+diff --git a/consumer/fanoutconsumer/consumer_test.go b/consumer/fanoutconsumer/consumer_test.go
+index 5317ca2f6..3ae3c6f16 100644
+--- a/consumer/fanoutconsumer/consumer_test.go
++++ b/consumer/fanoutconsumer/consumer_test.go
+@@ -58,7 +58,7 @@ func TestTracesProcessorMultiplexing(t *testing.T) {
+ 	}
+ }
+ 
+-func TestTraceProcessorWhenOneErrors(t *testing.T) {
++func TestTracesProcessorWhenOneErrors(t *testing.T) {
+ 	processors := make([]consumer.Traces, 3)
+ 	for i := range processors {
+ 		processors[i] = new(consumertest.TracesSink)

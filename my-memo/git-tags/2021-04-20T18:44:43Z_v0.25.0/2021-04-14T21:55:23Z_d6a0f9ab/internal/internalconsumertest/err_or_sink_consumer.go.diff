@@ -1,0 +1,13 @@
+diff --git a/internal/internalconsumertest/err_or_sink_consumer.go b/internal/internalconsumertest/err_or_sink_consumer.go
+index 847e12f3b..7f7fb85ab 100644
+--- a/internal/internalconsumertest/err_or_sink_consumer.go
++++ b/internal/internalconsumertest/err_or_sink_consumer.go
+@@ -48,7 +48,7 @@ func (esc *ErrOrSinkConsumer) ConsumeTraces(ctx context.Context, td pdata.Traces
+ 	return esc.TracesSink.ConsumeTraces(ctx, td)
+ }
+ 
+-// ConsumeTraces stores traces to this sink.
++// ConsumeMetrics stores metrics to this sink.
+ func (esc *ErrOrSinkConsumer) ConsumeMetrics(ctx context.Context, md pdata.Metrics) error {
+ 	esc.mu.Lock()
+ 	defer esc.mu.Unlock()

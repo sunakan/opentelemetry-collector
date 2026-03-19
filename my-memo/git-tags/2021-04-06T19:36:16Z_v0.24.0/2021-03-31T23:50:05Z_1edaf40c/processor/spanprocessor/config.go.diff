@@ -1,0 +1,13 @@
+diff --git a/processor/spanprocessor/config.go b/processor/spanprocessor/config.go
+index f86eff205..5500a23ad 100644
+--- a/processor/spanprocessor/config.go
++++ b/processor/spanprocessor/config.go
+@@ -24,7 +24,7 @@ import (
+ // the include properties and then the exclude properties if they are specified.
+ // This determines if a span is to be processed or not.
+ type Config struct {
+-	config.ProcessorSettings `mapstructure:",squash"`
++	*config.ProcessorSettings `mapstructure:"-"`
+ 
+ 	filterconfig.MatchConfig `mapstructure:",squash"`
+ 

@@ -1,0 +1,20 @@
+diff --git a/cmd/mdatagen/loader_test.go b/cmd/mdatagen/loader_test.go
+index 63d7277e2..5da03588a 100644
+--- a/cmd/mdatagen/loader_test.go
++++ b/cmd/mdatagen/loader_test.go
+@@ -280,6 +280,7 @@ func TestLoadMetadata(t *testing.T) {
+ 				},
+ 				ScopeName:       "go.opentelemetry.io/collector/internal/receiver/samplereceiver",
+ 				ShortFolderName: "sample",
++				Tests:           tests{Host: "componenttest.NewNopHost()"},
+ 			},
+ 		},
+ 		{
+@@ -289,6 +290,7 @@ func TestLoadMetadata(t *testing.T) {
+ 				Parent:          "parentComponent",
+ 				ScopeName:       "go.opentelemetry.io/collector/cmd/mdatagen",
+ 				ShortFolderName: "testdata",
++				Tests:           tests{Host: "componenttest.NewNopHost()"},
+ 			},
+ 		},
+ 		{

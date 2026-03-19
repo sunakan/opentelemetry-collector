@@ -1,0 +1,12 @@
+diff --git a/cmd/mdatagen/testdata/status_only.yaml b/cmd/mdatagen/testdata/status_only.yaml
+new file mode 100644
+index 000000000..2365b43f1
+--- /dev/null
++++ b/cmd/mdatagen/testdata/status_only.yaml
+@@ -0,0 +1,6 @@
++type: metricreceiver
++status:
++  class: exporter
++  stability:
++    beta: [traces, metrics, logs]
++  distributions: [contrib]

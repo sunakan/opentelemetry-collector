@@ -1,0 +1,13 @@
+diff --git a/exporter/otlpexporter/go.mod b/exporter/otlpexporter/go.mod
+index 206d99e13..84e8cdd3a 100644
+--- a/exporter/otlpexporter/go.mod
++++ b/exporter/otlpexporter/go.mod
+@@ -18,7 +18,7 @@ require (
+ 	go.opentelemetry.io/collector/consumer v1.25.0
+ 	go.opentelemetry.io/collector/consumer/consumererror v0.119.0
+ 	go.opentelemetry.io/collector/exporter v0.119.0
+-	go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper v0.119.0
++	go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper v0.119.1-0.20250217142445-a567a0176541
+ 	go.opentelemetry.io/collector/exporter/exportertest v0.119.0
+ 	go.opentelemetry.io/collector/exporter/xexporter v0.119.0
+ 	go.opentelemetry.io/collector/pdata v1.25.0

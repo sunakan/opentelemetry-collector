@@ -1,0 +1,13 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetry.go.tmpl b/cmd/mdatagen/internal/templates/telemetry.go.tmpl
+index 180699256..6f888fa03 100644
+--- a/cmd/mdatagen/internal/templates/telemetry.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetry.go.tmpl
+@@ -116,7 +116,7 @@ func NewTelemetryBuilder(settings component.TelemetrySettings, options ...Teleme
+     {{- if not $metric.Optional }}
+     builder.{{ $name.Render }}, err = builder.meters[configtelemetry.Level{{ casesTitle $metric.Level.String }}].{{ $metric.Data.Instrument }}(
+         "otelcol_{{ $name }}",
+-        metric.WithDescription("{{ $metric.Description }}"),
++        metric.WithDescription("{{ $metric.Description }}{{ $metric.Stability }}"),
+         metric.WithUnit("{{ $metric.Unit }}"),
+         {{- if eq $metric.Data.Type "Histogram" -}}
+         {{ if $metric.Data.Boundaries -}}metric.WithExplicitBucketBoundaries([]float64{ {{- range $metric.Data.Boundaries }} {{.}}, {{- end }} }...),{{- end }}

@@ -1,0 +1,11 @@
+diff --git a/pdata/pmetric/aggregation_temporality_test.go b/pdata/pmetric/aggregation_temporality_test.go
+index 21962bdb5..655d3721b 100644
+--- a/pdata/pmetric/aggregation_temporality_test.go
++++ b/pdata/pmetric/aggregation_temporality_test.go
+@@ -13,5 +13,5 @@ func TestAggregationTemporalityString(t *testing.T) {
+ 	assert.Equal(t, "Unspecified", AggregationTemporalityUnspecified.String())
+ 	assert.Equal(t, "Delta", AggregationTemporalityDelta.String())
+ 	assert.Equal(t, "Cumulative", AggregationTemporalityCumulative.String())
+-	assert.Equal(t, "", (AggregationTemporalityCumulative + 1).String())
++	assert.Empty(t, (AggregationTemporalityCumulative + 1).String())
+ }

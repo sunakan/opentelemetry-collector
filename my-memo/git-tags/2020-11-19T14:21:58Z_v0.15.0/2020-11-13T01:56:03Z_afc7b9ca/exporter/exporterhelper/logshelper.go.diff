@@ -1,0 +1,15 @@
+diff --git a/exporter/exporterhelper/logshelper.go b/exporter/exporterhelper/logshelper.go
+index d9126ffc0..b6c76f631 100644
+--- a/exporter/exporterhelper/logshelper.go
++++ b/exporter/exporterhelper/logshelper.go
+@@ -78,6 +78,10 @@ func NewLogsExporter(
+ 		return nil, errNilConfig
+ 	}
+ 
++	if logger == nil {
++		return nil, errNilLogger
++	}
++
+ 	if pushLogsData == nil {
+ 		return nil, errNilPushLogsData
+ 	}

@@ -1,0 +1,23 @@
+diff --git a/receiver/jaegerreceiver/trace_receiver_test.go b/receiver/jaegerreceiver/trace_receiver_test.go
+index be22dcc00..c06e9fe0c 100644
+--- a/receiver/jaegerreceiver/trace_receiver_test.go
++++ b/receiver/jaegerreceiver/trace_receiver_test.go
+@@ -47,6 +47,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/configgrpc"
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ 	"go.opentelemetry.io/collector/config/configtls"
++	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+ 	"go.opentelemetry.io/collector/consumer/pdata"
+ 	"go.opentelemetry.io/collector/testutil"
+@@ -67,6 +68,10 @@ type traceConsumer struct {
+ 	cb func(context.Context, pdata.Traces)
+ }
+ 
++func (t traceConsumer) Capabilities() consumer.Capabilities {
++	return consumer.Capabilities{MutatesData: false}
++}
++
+ func (t traceConsumer) ConsumeTraces(ctx context.Context, td pdata.Traces) error {
+ 	go t.cb(ctx, td)
+ 	return nil

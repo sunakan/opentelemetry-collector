@@ -1,0 +1,10 @@
+diff --git a/component/componentstatus/instance_test.go b/component/componentstatus/instance_test.go
+index dc7228307..6d734cba3 100644
+--- a/component/componentstatus/instance_test.go
++++ b/component/componentstatus/instance_test.go
+@@ -92,5 +92,4 @@ func TestAllPipelineIDs(t *testing.T) {
+ 		return false
+ 	})
+ 	assert.Equal(t, 1, count)
+-
+ }

@@ -1,0 +1,14 @@
+diff --git a/receiver/otlpreceiver/testdata/uds.yaml b/receiver/otlpreceiver/testdata/uds.yaml
+new file mode 100644
+index 000000000..d1d70bff7
+--- /dev/null
++++ b/receiver/otlpreceiver/testdata/uds.yaml
+@@ -0,0 +1,8 @@
++# The following entry demonstrates how to specify a Unix Domain Socket for the server.
++protocols:
++  grpc:
++    transport: unix
++    endpoint: /tmp/grpc_otlp.sock
++  http:
++    # transport: unix
++    endpoint: /tmp/http_otlp.sock

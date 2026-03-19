@@ -1,0 +1,13 @@
+diff --git a/exporter/otlphttpexporter/go.mod b/exporter/otlphttpexporter/go.mod
+index 119b89b74..d46c5f0d1 100644
+--- a/exporter/otlphttpexporter/go.mod
++++ b/exporter/otlphttpexporter/go.mod
+@@ -95,8 +95,6 @@ replace go.opentelemetry.io/collector/config/internal => ../../config/internal
+ 
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+-replace go.opentelemetry.io/collector/connector => ../../connector
+-
+ replace go.opentelemetry.io/collector/exporter => ../
+ 
+ replace go.opentelemetry.io/collector/extension => ../../extension

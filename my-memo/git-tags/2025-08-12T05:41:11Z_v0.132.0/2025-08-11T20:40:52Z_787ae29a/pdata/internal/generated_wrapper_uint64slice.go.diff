@@ -1,0 +1,24 @@
+diff --git a/pdata/internal/generated_wrapper_uint64slice.go b/pdata/internal/generated_wrapper_uint64slice.go
+index 850a20b30..e2d7b44f4 100644
+--- a/pdata/internal/generated_wrapper_uint64slice.go
++++ b/pdata/internal/generated_wrapper_uint64slice.go
+@@ -41,19 +41,6 @@ func GenerateOrigTestUint64Slice() []uint64 {
+ 	return []uint64{1, 2, 3}
+ }
+ 
+-// MarshalJSONOrigUint64Slice marshals all properties from the current struct to the destination stream.
+-func MarshalJSONOrigUint64Slice(orig []uint64, dest *json.Stream) {
+-	dest.WriteArrayStart()
+-	if len(orig) > 0 {
+-		dest.WriteUint64(orig[0])
+-	}
+-	for i := 1; i < len(orig); i++ {
+-		dest.WriteMore()
+-		dest.WriteUint64(orig[i])
+-	}
+-	dest.WriteArrayEnd()
+-}
+-
+ // UnmarshalJSONOrigUint64Slice unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigUint64Slice(iter *json.Iterator) []uint64 {
+ 	var orig []uint64

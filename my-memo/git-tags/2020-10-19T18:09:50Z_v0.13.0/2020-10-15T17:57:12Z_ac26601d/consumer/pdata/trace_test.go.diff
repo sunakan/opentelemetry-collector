@@ -1,0 +1,30 @@
+diff --git a/consumer/pdata/trace_test.go b/consumer/pdata/trace_test.go
+index 0d00d1f2e..05793290e 100644
+--- a/consumer/pdata/trace_test.go
++++ b/consumer/pdata/trace_test.go
+@@ -143,7 +143,7 @@ func TestResourceSpansWireCompatibility(t *testing.T) {
+ 	assert.EqualValues(t, *pdataRS.orig, &gogoprotoRS2)
+ }
+ 
+-func TestTraces_ToOtlpProtoBytes(t *testing.T) {
++func TestToOtlpProtoBytes(t *testing.T) {
+ 	td := NewTraces()
+ 	bytes, err := td.ToOtlpProtoBytes()
+ 	assert.Nil(t, err)
+@@ -153,3 +153,16 @@ func TestTraces_ToOtlpProtoBytes(t *testing.T) {
+ 	assert.Nil(t, err)
+ 	assert.EqualValues(t, etsr.ResourceSpans, TracesToOtlp(td))
+ }
++
++func TestFromOtlpProtoBytes(t *testing.T) {
++	td := NewTraces()
++	bytes, err := td.ToOtlpProtoBytes()
++	assert.Nil(t, err)
++
++	err = td.FromOtlpProtoBytes(bytes)
++	assert.Nil(t, err)
++	assert.EqualValues(t, NewTraces(), td)
++
++	err = td.FromOtlpProtoBytes([]byte{0xFF})
++	assert.EqualError(t, err, "unexpected EOF")
++}

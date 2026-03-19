@@ -1,0 +1,13 @@
+diff --git a/translator/internaldata/oc_to_metrics.go b/translator/internaldata/oc_to_metrics.go
+index fdaca916f..e78832e24 100644
+--- a/translator/internaldata/oc_to_metrics.go
++++ b/translator/internaldata/oc_to_metrics.go
+@@ -272,7 +272,7 @@ func fillNumberDataPointAsDouble(ocMetric *ocmetrics.Metric, dps pdata.NumberDat
+ 			dp.SetStartTimestamp(startTimestamp)
+ 			dp.SetTimestamp(pdata.TimestampFromTime(point.GetTimestamp().AsTime()))
+ 			fillLabelsMap(ocLabelsKeys, timeseries.LabelValues, dp.LabelsMap())
+-			dp.SetValue(point.GetDoubleValue())
++			dp.SetDoubleVal(point.GetDoubleValue())
+ 		}
+ 	}
+ }

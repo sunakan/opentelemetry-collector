@@ -1,0 +1,26 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
+index 3b8c438d9..d05e1bf8c 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/factory_test.go
+@@ -16,6 +16,7 @@ package processscraper
+ 
+ import (
+ 	"context"
++	"runtime"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -34,6 +35,11 @@ func TestCreateMetricsScraper(t *testing.T) {
+ 
+ 	scraper, err := factory.CreateMetricsScraper(context.Background(), zap.NewNop(), cfg)
+ 
+-	assert.NoError(t, err)
+-	assert.NotNil(t, scraper)
++	if runtime.GOOS == "linux" || runtime.GOOS == "windows" {
++		assert.NoError(t, err)
++		assert.NotNil(t, scraper)
++	} else {
++		assert.Error(t, err)
++		assert.Nil(t, scraper)
++	}
+ }

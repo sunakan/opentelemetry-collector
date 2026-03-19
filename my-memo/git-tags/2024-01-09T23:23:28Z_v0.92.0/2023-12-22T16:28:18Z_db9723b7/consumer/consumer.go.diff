@@ -1,0 +1,13 @@
+diff --git a/consumer/consumer.go b/consumer/consumer.go
+index af181d138..503750ad7 100644
+--- a/consumer/consumer.go
++++ b/consumer/consumer.go
+@@ -38,7 +38,7 @@ func WithCapabilities(capabilities Capabilities) Option {
+ 	}
+ }
+ 
+-// Capabilities implementation of the base
++// Capabilities returns the capabilities of the component
+ func (bs baseImpl) Capabilities() Capabilities {
+ 	return bs.capabilities
+ }

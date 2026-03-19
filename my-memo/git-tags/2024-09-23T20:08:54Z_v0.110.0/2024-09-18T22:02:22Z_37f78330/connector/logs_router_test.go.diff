@@ -1,0 +1,21 @@
+diff --git a/connector/logs_router_test.go b/connector/logs_router_test.go
+index a8af2fc41..d4d70c3fe 100644
+--- a/connector/logs_router_test.go
++++ b/connector/logs_router_test.go
+@@ -10,6 +10,7 @@ import (
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/consumer"
+@@ -148,7 +149,7 @@ func TestLogsRouterConsumers(t *testing.T) {
+ 
+ 	none, err := r.Consumer()
+ 	assert.Nil(t, none)
+-	assert.Error(t, err)
++	require.Error(t, err)
+ 
+ 	fake, err := r.Consumer(component.MustNewID("fake"))
+ 	assert.Nil(t, fake)

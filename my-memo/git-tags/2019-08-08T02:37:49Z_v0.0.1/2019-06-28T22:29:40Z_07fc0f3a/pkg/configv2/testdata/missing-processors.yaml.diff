@@ -1,0 +1,14 @@
+diff --git a/pkg/configv2/testdata/missing-processors.yaml b/pkg/configv2/testdata/missing-processors.yaml
+deleted file mode 100644
+index 68a1954ec..000000000
+--- a/pkg/configv2/testdata/missing-processors.yaml
++++ /dev/null
+@@ -1,8 +0,0 @@
+-receivers:
+-  multireceiver:
+-exporters:
+-  exampleexporter:
+-processors:
+-pipelines:
+-  traces:
+-    receivers: [invalidreceivername]

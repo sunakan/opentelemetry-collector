@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/testutil_test.go b/exporter/prometheusremotewriteexporter/testutil_test.go
+index b90bd1193..5db687ecc 100644
+--- a/exporter/prometheusremotewriteexporter/testutil_test.go
++++ b/exporter/prometheusremotewriteexporter/testutil_test.go
+@@ -282,7 +282,7 @@ var (
+ 	invalidIntHistogram    = "invalidIntHistogram"
+ 	invalidDoubleHistogram = "invalidDoubleHistogram"
+ 
+-	//Category 3: nil data points
++	// Category 3: nil data points
+ 	nilDataPointIntGauge        = "nilDataPointIntGauge"
+ 	nilDataPointDoubleGauge     = "nilDataPointDoubleGauge"
+ 	nilDataPointIntSum          = "nilDataPointIntSum"

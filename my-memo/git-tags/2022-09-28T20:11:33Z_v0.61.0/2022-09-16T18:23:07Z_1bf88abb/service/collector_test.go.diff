@@ -1,0 +1,14 @@
+diff --git a/service/collector_test.go b/service/collector_test.go
+index 5063f95e7..0fe9f56f0 100644
+--- a/service/collector_test.go
++++ b/service/collector_test.go
+@@ -37,8 +37,8 @@ import (
+ 	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/confmap"
+ 	"go.opentelemetry.io/collector/extension/zpagesextension"
++	"go.opentelemetry.io/collector/featuregate"
+ 	"go.opentelemetry.io/collector/internal/testutil"
+-	"go.opentelemetry.io/collector/service/featuregate"
+ )
+ 
+ func TestStateString(t *testing.T) {

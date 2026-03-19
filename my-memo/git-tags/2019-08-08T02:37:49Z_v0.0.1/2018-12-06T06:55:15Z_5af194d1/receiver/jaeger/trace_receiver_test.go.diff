@@ -1,0 +1,16 @@
+diff --git a/receiver/jaeger/trace_receiver_test.go b/receiver/jaeger/trace_receiver_test.go
+index a3c72a801..54ea810d2 100644
+--- a/receiver/jaeger/trace_receiver_test.go
++++ b/receiver/jaeger/trace_receiver_test.go
+@@ -39,7 +39,10 @@ import (
+ func TestReception(t *testing.T) {
+ 	// 1. Create the Jaeger receiver aka "server"
+ 	tchannelPort, collectorHTTPPort := 14267, 14268
+-	jr, err := jaegerreceiver.New(context.Background(), tchannelPort, collectorHTTPPort)
++	jr, err := jaegerreceiver.New(context.Background(), &jaegerreceiver.Configuration{
++		CollectorThriftPort: tchannelPort,
++		CollectorHTTPPort:   collectorHTTPPort,
++	})
+ 	if err != nil {
+ 		t.Fatalf("Failed to create new Jaeger Receiver: %v", err)
+ 	}

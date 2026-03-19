@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/duplicate-processor.yaml b/service/internal/configunmarshaler/testdata/duplicate-processor.yaml
+deleted file mode 100644
+index 6247c1d4c..000000000
+--- a/service/internal/configunmarshaler/testdata/duplicate-processor.yaml
++++ /dev/null
+@@ -1,13 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-processors:
+-  nop/ proc:
+-  nop /proc :
+-service:
+-  pipelines:
+-    traces:
+-      receivers: [nop]
+-      exporters: [nop]
+-      processors: [nop]

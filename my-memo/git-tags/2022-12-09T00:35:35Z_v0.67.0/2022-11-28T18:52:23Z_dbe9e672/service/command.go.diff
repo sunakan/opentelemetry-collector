@@ -1,0 +1,13 @@
+diff --git a/service/command.go b/service/command.go
+index ac2e24fc1..372c14c9c 100644
+--- a/service/command.go
++++ b/service/command.go
+@@ -53,7 +53,7 @@ func NewCommand(set CollectorSettings) *cobra.Command {
+ 			return col.Run(cmd.Context())
+ 		},
+ 	}
+-
++	rootCmd.AddCommand(newBuildSubCommand(set))
+ 	rootCmd.Flags().AddGoFlagSet(flagSet)
+ 	return rootCmd
+ }

@@ -1,0 +1,22 @@
+diff --git a/processor/nodebatcherprocessor/config_test.go b/processor/nodebatcherprocessor/config_test.go
+index 1c5fd813f..03c0efc80 100644
+--- a/processor/nodebatcherprocessor/config_test.go
++++ b/processor/nodebatcherprocessor/config_test.go
+@@ -27,14 +27,12 @@ import (
+ )
+ 
+ func TestLoadConfig(t *testing.T) {
+-	receivers, processors, exporters, err := config.ExampleComponents()
++	factories, err := config.ExampleComponents()
+ 	assert.Nil(t, err)
+ 
+ 	factory := &Factory{}
+-	processors[typeStr] = &Factory{}
+-	cfg, err := config.LoadConfigFile(
+-		t, path.Join(".", "testdata", "config.yaml"), receivers, processors, exporters,
+-	)
++	factories.Processors[typeStr] = &Factory{}
++	cfg, err := config.LoadConfigFile(t, path.Join(".", "testdata", "config.yaml"), factories)
+ 
+ 	require.Nil(t, err)
+ 	require.NotNil(t, cfg)

@@ -1,0 +1,19 @@
+diff --git a/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml b/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
+new file mode 100644
+index 000000000..7c88405a9
+--- /dev/null
++++ b/service/internal/configunmarshaler/testdata/unknown-pipeline-type.yaml
+@@ -0,0 +1,13 @@
++receivers:
++  examplereceiver:
++processors:
++  exampleprocessor:
++exporters:
++  exampleexporter:
++
++service:
++  pipelines:
++    wrongdatatype:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/README.md b/receiver/jaegerreceiver/README.md
+index 7a3fa6b5a..b3eacc6eb 100644
+--- a/receiver/jaegerreceiver/README.md
++++ b/receiver/jaegerreceiver/README.md
+@@ -37,7 +37,7 @@ receivers:
+         tls_credentials:
+           key_file: /key.pem # path to private key
+           cert_file: /cert.pem # path to certificate
+-        endpoint: "localhost:9876"
++        endpoint: "0.0.0.0:9876"
+ ```
+ 
+ ## Remote Sampling

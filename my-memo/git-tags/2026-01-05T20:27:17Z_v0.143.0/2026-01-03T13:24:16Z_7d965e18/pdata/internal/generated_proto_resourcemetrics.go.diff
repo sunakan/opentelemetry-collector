@@ -1,0 +1,21 @@
+diff --git a/pdata/internal/generated_proto_resourcemetrics.go b/pdata/internal/generated_proto_resourcemetrics.go
+index 8cfa263ad..dc61ce32c 100644
+--- a/pdata/internal/generated_proto_resourcemetrics.go
++++ b/pdata/internal/generated_proto_resourcemetrics.go
+@@ -46,15 +46,14 @@ func DeleteResourceMetrics(orig *ResourceMetrics, nullable bool) {
+ 		orig.Reset()
+ 		return
+ 	}
+-
+ 	DeleteResource(&orig.Resource, false)
+ 	for i := range orig.ScopeMetrics {
+ 		DeleteScopeMetrics(orig.ScopeMetrics[i], true)
+ 	}
++
+ 	for i := range orig.DeprecatedScopeMetrics {
+ 		DeleteScopeMetrics(orig.DeprecatedScopeMetrics[i], true)
+ 	}
+-
+ 	orig.Reset()
+ 	if nullable {
+ 		protoPoolResourceMetrics.Put(orig)

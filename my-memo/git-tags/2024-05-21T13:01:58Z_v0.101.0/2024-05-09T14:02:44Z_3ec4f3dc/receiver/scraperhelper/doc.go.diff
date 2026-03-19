@@ -1,0 +1,12 @@
+diff --git a/receiver/scraperhelper/doc.go b/receiver/scraperhelper/doc.go
+index f936c1873..a1e5cb26f 100644
+--- a/receiver/scraperhelper/doc.go
++++ b/receiver/scraperhelper/doc.go
+@@ -1,5 +1,7 @@
+ // Copyright The OpenTelemetry Authors
+ // SPDX-License-Identifier: Apache-2.0
+ 
++//go:generate mdatagen metadata.yaml
++
+ // Package scraperhelper provides utilities for scrapers.
+ package scraperhelper // import "go.opentelemetry.io/collector/receiver/scraperhelper"

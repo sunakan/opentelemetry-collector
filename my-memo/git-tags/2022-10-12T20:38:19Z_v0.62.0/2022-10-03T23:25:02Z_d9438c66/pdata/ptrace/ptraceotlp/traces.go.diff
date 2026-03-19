@@ -1,0 +1,24 @@
+diff --git a/pdata/ptrace/ptraceotlp/traces.go b/pdata/ptrace/ptraceotlp/traces.go
+index d97fbc281..a2007d948 100644
+--- a/pdata/ptrace/ptraceotlp/traces.go
++++ b/pdata/ptrace/ptraceotlp/traces.go
+@@ -126,9 +126,6 @@ type GRPCClient interface {
+ 	Export(ctx context.Context, request Request, opts ...grpc.CallOption) (Response, error)
+ }
+ 
+-// Deprecated: [0.61.0] Use GRPCClient instead
+-type Client = GRPCClient
+-
+ type tracesClient struct {
+ 	rawClient otlpcollectortrace.TraceServiceClient
+ }
+@@ -153,9 +150,6 @@ type GRPCServer interface {
+ 	Export(context.Context, Request) (Response, error)
+ }
+ 
+-// Deprecated: [0.61.0] Use GRPCServer instead
+-type Server = GRPCServer
+-
+ // RegisterGRPCServer registers the GRPCServer to the grpc.Server.
+ func RegisterGRPCServer(s *grpc.Server, srv GRPCServer) {
+ 	otlpcollectortrace.RegisterTraceServiceServer(s, &rawTracesServer{srv: srv})

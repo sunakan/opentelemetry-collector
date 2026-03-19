@@ -1,0 +1,12 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 5e9bb6eed..2b0caa7a1 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -5,6 +5,7 @@
+ ## 🛑 Breaking changes 🛑
+ 
+ - Remove `mem-ballast-size-mib`, already deprecated and no-op (#4005).
++- Remove `AttributeHTTPStatusText` const, replaced with `"http.status_text"` (#4015, contrib/#5182).
+ 
+ ## v0.35.0 Beta
+ 

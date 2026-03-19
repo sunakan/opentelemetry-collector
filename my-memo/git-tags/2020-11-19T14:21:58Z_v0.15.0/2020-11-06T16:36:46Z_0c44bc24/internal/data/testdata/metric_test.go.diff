@@ -1,0 +1,17 @@
+diff --git a/internal/data/testdata/metric_test.go b/internal/data/testdata/metric_test.go
+index ddbf5a61c..0d6e7614e 100644
+--- a/internal/data/testdata/metric_test.go
++++ b/internal/data/testdata/metric_test.go
+@@ -97,9 +97,9 @@ func generateAllMetricsTestCases() []traceMetricsCase {
+ 			otlp: generateMetricsOtlpAllTypesNoDataPoints(),
+ 		},
+ 		{
+-			name: "counters-histogram",
+-			td:   GenerateMetricsWithCountersHistograms(),
+-			otlp: generateMetricsOtlpWithCountersHistograms(),
++			name: "all-metric-types",
++			td:   GeneratMetricsAllTypesWithSampleDatapoints(),
++			otlp: generateMetricsOtlpAllTypesWithSampleDatapoints(),
+ 		},
+ 	}
+ }

@@ -1,0 +1,13 @@
+diff --git a/processor/factory.go b/processor/factory.go
+index 3303d6b27..75ec2bfa3 100644
+--- a/processor/factory.go
++++ b/processor/factory.go
+@@ -19,7 +19,7 @@ import (
+ 
+ 	"go.uber.org/zap"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/configv2/configmodels"
++	"github.com/open-telemetry/opentelemetry-service/config/configmodels"
+ 	"github.com/open-telemetry/opentelemetry-service/consumer"
+ )
+ 

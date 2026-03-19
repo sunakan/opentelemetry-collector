@@ -1,0 +1,16 @@
+diff --git a/vendor/github.com/census-instrumentation/opencensus-proto/pom.xml b/vendor/github.com/census-instrumentation/opencensus-proto/pom.xml
+index c4c2185a9..39bb19c3c 100644
+--- a/vendor/github.com/census-instrumentation/opencensus-proto/pom.xml
++++ b/vendor/github.com/census-instrumentation/opencensus-proto/pom.xml
+@@ -52,8 +52,10 @@
+           <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
+           <protoSourceRoot>.</protoSourceRoot>
+ 	        <includes>
++            <include>opencensus/proto/agent/*.proto</include>
++            <include>opencensus/proto/exporter/*.proto</include>
+             <include>opencensus/proto/stats/*.proto</include>
+-            <include>opencensus/proto/stats/metrics/*.proto</include>
++            <include>opencensus/proto/metrics/*.proto</include>
+             <include>opencensus/proto/trace/*.proto</include>
+ 	        </includes>
+         </configuration>

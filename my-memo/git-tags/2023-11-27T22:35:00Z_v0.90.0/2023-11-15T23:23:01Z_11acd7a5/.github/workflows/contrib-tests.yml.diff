@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/contrib-tests.yml b/.github/workflows/contrib-tests.yml
+index 4b2e50d3e..7003881e2 100644
+--- a/.github/workflows/contrib-tests.yml
++++ b/.github/workflows/contrib-tests.yml
+@@ -1,7 +1,7 @@
+ name: contrib-tests
+ on:
+   push:
+-    branches: [ main, 'renovatebot/**' ]
++    branches: [ main ]
+     tags:
+       - v[0-9]+.[0-9]+.[0-9]+.*
+   pull_request:

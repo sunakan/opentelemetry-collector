@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/command.go b/cmd/builder/internal/command.go
+index a39ca7332..34d1b0b13 100644
+--- a/cmd/builder/internal/command.go
++++ b/cmd/builder/internal/command.go
+@@ -53,7 +53,7 @@ build configuration given by the "--config" argument. If no build
+ configuration is provided, ocb will generate a default Collector.
+ `,
+ 		Args: cobra.NoArgs,
+-		RunE: func(cmd *cobra.Command, args []string) error {
++		RunE: func(cmd *cobra.Command, _ []string) error {
+ 			if err := initConfig(cmd.Flags()); err != nil {
+ 				return err
+ 			}

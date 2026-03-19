@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterqueue/config.go b/exporter/exporterqueue/config.go
+index fcc0e0e57..b8a2c01e5 100644
+--- a/exporter/exporterqueue/config.go
++++ b/exporter/exporterqueue/config.go
+@@ -33,7 +33,7 @@ func NewDefaultConfig() Config {
+ 	}
+ }
+ 
+-// Validate checks if the QueueSettings configuration is valid
++// Validate checks if the Config is valid
+ func (qCfg *Config) Validate() error {
+ 	if !qCfg.Enabled {
+ 		return nil

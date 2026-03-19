@@ -1,0 +1,31 @@
+diff --git a/service/telemetry_test.go b/service/telemetry_test.go
+index 1b414730a..07d786872 100644
+--- a/service/telemetry_test.go
++++ b/service/telemetry_test.go
+@@ -149,7 +149,7 @@ func TestTelemetryInit(t *testing.T) {
+ 						"net_host_port": "",
+ 					},
+ 				},
+-				metricPrefix + "target_info": {
++				"target_info": {
+ 					value: 0,
+ 					labels: map[string]string{
+ 						"service_name":        "otelcol",
+@@ -180,7 +180,7 @@ func TestTelemetryInit(t *testing.T) {
+ 					value:  10,
+ 					labels: map[string]string{},
+ 				},
+-				metricPrefix + "target_info": {
++				"target_info": {
+ 					value: 0,
+ 					labels: map[string]string{
+ 						"service_name":        "otelcol",
+@@ -236,7 +236,7 @@ func TestTelemetryInit(t *testing.T) {
+ 						"net_host_port": "",
+ 					},
+ 				},
+-				metricPrefix + "target_info": {
++				"target_info": {
+ 					value: 0,
+ 					labels: map[string]string{
+ 						"service_name":        "otelcol",

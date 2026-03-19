@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/internal/bounded_memory_queue.go b/exporter/exporterhelper/internal/bounded_memory_queue.go
+index 603b7b78a..7586ffffe 100644
+--- a/exporter/exporterhelper/internal/bounded_memory_queue.go
++++ b/exporter/exporterhelper/internal/bounded_memory_queue.go
+@@ -14,7 +14,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package internal
++package internal // import "go.opentelemetry.io/collector/exporter/exporterhelper/internal"
+ 
+ import (
+ 	"sync"

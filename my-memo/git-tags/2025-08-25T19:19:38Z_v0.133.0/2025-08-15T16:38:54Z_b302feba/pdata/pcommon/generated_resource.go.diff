@@ -1,0 +1,14 @@
+diff --git a/pdata/pcommon/generated_resource.go b/pdata/pcommon/generated_resource.go
+index 26beb8909..c3e70d97e 100644
+--- a/pdata/pcommon/generated_resource.go
++++ b/pdata/pcommon/generated_resource.go
+@@ -29,8 +29,7 @@ func newResource(orig *otlpresource.Resource, state *internal.State) Resource {
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func NewResource() Resource {
+-	state := internal.StateMutable
+-	return newResource(&otlpresource.Resource{}, &state)
++	return newResource(&otlpresource.Resource{}, internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

@@ -1,0 +1,11 @@
+diff --git a/service/telemetry/testdata/config_empty_readers.yaml b/service/telemetry/testdata/config_empty_readers.yaml
+new file mode 100644
+index 000000000..9c2fb6bd7
+--- /dev/null
++++ b/service/telemetry/testdata/config_empty_readers.yaml
+@@ -0,0 +1,5 @@
++logs:
++  level: "info"
++metrics:
++  level: "basic"
++  readers: []

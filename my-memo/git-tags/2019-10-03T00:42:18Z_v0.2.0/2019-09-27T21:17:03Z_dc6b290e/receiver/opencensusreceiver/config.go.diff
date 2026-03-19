@@ -1,0 +1,13 @@
+diff --git a/receiver/opencensusreceiver/config.go b/receiver/opencensusreceiver/config.go
+index a0f7fee4e..df76cc4f8 100644
+--- a/receiver/opencensusreceiver/config.go
++++ b/receiver/opencensusreceiver/config.go
+@@ -21,7 +21,7 @@ import (
+ 	"google.golang.org/grpc"
+ 	"google.golang.org/grpc/keepalive"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/receiver"
++	"github.com/open-telemetry/opentelemetry-collector/receiver"
+ )
+ 
+ // Config defines configuration for OpenCensus receiver.

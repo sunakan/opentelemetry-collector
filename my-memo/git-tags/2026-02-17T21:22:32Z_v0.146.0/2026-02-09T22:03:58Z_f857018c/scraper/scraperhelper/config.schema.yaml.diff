@@ -1,0 +1,26 @@
+diff --git a/scraper/scraperhelper/config.schema.yaml b/scraper/scraperhelper/config.schema.yaml
+new file mode 100644
+index 000000000..731d01416
+--- /dev/null
++++ b/scraper/scraperhelper/config.schema.yaml
+@@ -0,0 +1,20 @@
++$defs:
++  controller_config:
++    description: ControllerConfig defines common settings for a scraper controller configuration. Scraper controller receivers can embed this struct, instead of receiver.Settings, and extend it with more fields if needed.
++    type: object
++    properties:
++      collection_interval:
++        description: CollectionInterval sets how frequently the scraper should be called and used as the context timeout to ensure that scrapers don't exceed the interval.
++        type: string
++        x-customType: time.Duration
++        format: duration
++      initial_delay:
++        description: InitialDelay sets the initial start delay for the scraper, any non positive value is assumed to be immediately.
++        type: string
++        x-customType: time.Duration
++        format: duration
++      timeout:
++        description: Timeout is an optional value used to set scraper's context deadline.
++        type: string
++        x-customType: time.Duration
++        format: duration

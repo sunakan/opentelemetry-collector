@@ -1,0 +1,12 @@
+diff --git a/service/internal/graph/metadata.yaml b/service/internal/graph/metadata.yaml
+index c6a249946..1da128e80 100644
+--- a/service/internal/graph/metadata.yaml
++++ b/service/internal/graph/metadata.yaml
+@@ -2,6 +2,7 @@ type: graph
+ github_project: open-telemetry/opentelemetry-collector
+ 
+ status:
++  disable_codecov_badge: true
+   class: service
+   codeowners:
+     active:

@@ -1,0 +1,12 @@
+diff --git a/receiver/otlpreceiver/config.go b/receiver/otlpreceiver/config.go
+index a321458a8..d86c3d46c 100644
+--- a/receiver/otlpreceiver/config.go
++++ b/receiver/otlpreceiver/config.go
+@@ -20,6 +20,7 @@ import (
+ 	"go.opentelemetry.io/collector/config/confighttp"
+ )
+ 
++// Protocols is the configuration for the supported protocols.
+ type Protocols struct {
+ 	GRPC *configgrpc.GRPCServerSettings `mapstructure:"grpc"`
+ 	HTTP *confighttp.HTTPServerSettings `mapstructure:"http"`

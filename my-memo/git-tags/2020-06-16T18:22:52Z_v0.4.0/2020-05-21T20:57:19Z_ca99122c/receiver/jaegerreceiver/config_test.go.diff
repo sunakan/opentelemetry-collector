@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/config_test.go b/receiver/jaegerreceiver/config_test.go
+index 90ceacfbe..c80e6bf52 100644
+--- a/receiver/jaegerreceiver/config_test.go
++++ b/receiver/jaegerreceiver/config_test.go
+@@ -69,7 +69,7 @@ func TestLoadConfig(t *testing.T) {
+ 			},
+ 			RemoteSampling: &RemoteSamplingConfig{
+ 				HostEndpoint: "0.0.0.0:5778",
+-				GRPCSettings: configgrpc.GRPCSettings{
++				GRPCClientSettings: configgrpc.GRPCClientSettings{
+ 					Endpoint: "jaeger-collector:1234",
+ 				},
+ 				StrategyFile: "/etc/strategies.json",

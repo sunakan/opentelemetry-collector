@@ -1,0 +1,24 @@
+diff --git a/processor/queuedprocessor/queued_processor.go b/processor/queuedprocessor/queued_processor.go
+index 05addb820..84743bec7 100644
+--- a/processor/queuedprocessor/queued_processor.go
++++ b/processor/queuedprocessor/queued_processor.go
+@@ -25,6 +25,7 @@ import (
+ 	"go.opencensus.io/tag"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumererror"
+@@ -104,6 +105,11 @@ func newQueuedSpanProcessor(sender consumer.TraceConsumer, opts options) *queued
+ 	}
+ }
+ 
++// Start is invoked during service startup.
++func (sp *queuedSpanProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Stop halts the span processor and all its goroutines.
+ func (sp *queuedSpanProcessor) Stop() {
+ 	sp.stopOnce.Do(func() {

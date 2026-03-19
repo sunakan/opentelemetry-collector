@@ -1,0 +1,13 @@
+diff --git a/testbed/tests/e2e_test.go b/testbed/tests/e2e_test.go
+index ecad6f2d4..abfc8815e 100644
+--- a/testbed/tests/e2e_test.go
++++ b/testbed/tests/e2e_test.go
+@@ -25,7 +25,7 @@ import (
+ 
+ 	"github.com/stretchr/testify/assert"
+ 
+-	"github.com/open-telemetry/opentelemetry-collector/testbed/testbed"
++	"go.opentelemetry.io/collector/testbed/testbed"
+ )
+ 
+ func TestIdleMode(t *testing.T) {

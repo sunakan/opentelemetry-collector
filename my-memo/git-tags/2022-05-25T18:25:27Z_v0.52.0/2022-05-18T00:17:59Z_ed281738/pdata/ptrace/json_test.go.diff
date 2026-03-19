@@ -1,0 +1,43 @@
+diff --git a/pdata/ptrace/json_test.go b/pdata/ptrace/json_test.go
+index bfa2651be..e8c3fc08f 100644
+--- a/pdata/ptrace/json_test.go
++++ b/pdata/ptrace/json_test.go
+@@ -136,36 +136,19 @@ func TestJSONFull(t *testing.T) {
+ 	jsonBuf, err := encoder.MarshalTraces(tracesOTLPFull)
+ 	assert.NoError(t, err)
+ 
+-	decoder := newJSONUnmarshaler()
++	decoder := NewJSONUnmarshaler()
+ 	got, err := decoder.UnmarshalTraces(jsonBuf)
+ 	assert.NoError(t, err)
+ 	assert.EqualValues(t, tracesOTLPFull, got)
+ }
+ 
+-func BenchmarkJSONPBUnmarshal(b *testing.B) {
+-	b.ReportAllocs()
+-
+-	encoder := NewJSONMarshaler()
+-	jsonBuf, err := encoder.MarshalTraces(tracesOTLPFull)
+-	assert.NoError(b, err)
+-	decoder := newJSONPBUnmarshaler()
+-
+-	b.ResetTimer()
+-	b.RunParallel(func(pb *testing.PB) {
+-		for pb.Next() {
+-			_, err := decoder.UnmarshalTraces(jsonBuf)
+-			assert.NoError(b, err)
+-		}
+-	})
+-}
+-
+ func BenchmarkJSONUnmarshal(b *testing.B) {
+ 	b.ReportAllocs()
+ 
+ 	encoder := NewJSONMarshaler()
+ 	jsonBuf, err := encoder.MarshalTraces(tracesOTLPFull)
+ 	assert.NoError(b, err)
+-	decoder := newJSONUnmarshaler()
++	decoder := NewJSONUnmarshaler()
+ 
+ 	b.ResetTimer()
+ 	b.RunParallel(func(pb *testing.PB) {

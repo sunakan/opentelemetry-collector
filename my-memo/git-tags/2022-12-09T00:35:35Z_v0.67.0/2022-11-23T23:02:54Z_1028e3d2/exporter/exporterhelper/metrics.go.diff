@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/metrics.go b/exporter/exporterhelper/metrics.go
+index 33d81d64f..a81c674d4 100644
+--- a/exporter/exporterhelper/metrics.go
++++ b/exporter/exporterhelper/metrics.go
+@@ -82,7 +82,7 @@ type metricsExporter struct {
+ func NewMetricsExporter(
+ 	_ context.Context,
+ 	set component.ExporterCreateSettings,
+-	cfg component.ExporterConfig,
++	cfg component.Config,
+ 	pusher consumer.ConsumeMetricsFunc,
+ 	options ...Option,
+ ) (component.MetricsExporter, error) {

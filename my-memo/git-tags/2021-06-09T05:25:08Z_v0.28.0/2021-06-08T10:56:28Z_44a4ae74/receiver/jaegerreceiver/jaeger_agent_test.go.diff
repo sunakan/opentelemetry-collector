@@ -1,0 +1,16 @@
+diff --git a/receiver/jaegerreceiver/jaeger_agent_test.go b/receiver/jaegerreceiver/jaeger_agent_test.go
+index e8d3e3ce6..dbbb40b41 100644
+--- a/receiver/jaegerreceiver/jaeger_agent_test.go
++++ b/receiver/jaegerreceiver/jaeger_agent_test.go
+@@ -223,9 +223,9 @@ func newClientUDP(hostPort string, binary bool) (*agent.AgentClient, error) {
+ 	}
+ 	var protocolFactory thrift.TProtocolFactory
+ 	if binary {
+-		protocolFactory = thrift.NewTBinaryProtocolFactoryDefault()
++		protocolFactory = thrift.NewTBinaryProtocolFactoryConf(nil)
+ 	} else {
+-		protocolFactory = thrift.NewTCompactProtocolFactory()
++		protocolFactory = thrift.NewTCompactProtocolFactoryConf(nil)
+ 	}
+ 	return agent.NewAgentClientFactory(clientTransport, protocolFactory), nil
+ }

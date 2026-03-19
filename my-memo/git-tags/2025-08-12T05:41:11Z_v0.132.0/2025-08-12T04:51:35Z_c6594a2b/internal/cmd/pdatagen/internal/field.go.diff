@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/field.go b/internal/cmd/pdatagen/internal/field.go
+index 654821cd6..1d253c940 100644
+--- a/internal/cmd/pdatagen/internal/field.go
++++ b/internal/cmd/pdatagen/internal/field.go
+@@ -19,6 +19,8 @@ type Field interface {
+ 	GenerateSizeProto(ms *messageStruct) string
+ 
+ 	GenerateMarshalProto(ms *messageStruct) string
++
++	GenerateTestValue(ms *messageStruct) string
+ }
+ 
+ func origAccessor(hasWrapper bool) string {

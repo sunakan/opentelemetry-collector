@@ -1,0 +1,16 @@
+diff --git a/pdata/internal/generated_wrapper_byteslice.go b/pdata/internal/generated_wrapper_byteslice.go
+index d1e3ace16..112484fe6 100644
+--- a/pdata/internal/generated_wrapper_byteslice.go
++++ b/pdata/internal/generated_wrapper_byteslice.go
+@@ -43,11 +43,6 @@ func GenerateOrigTestByteSlice() []byte {
+ 	return []byte{1, 2, 3}
+ }
+ 
+-// MarshalJSONOrigByteSlice marshals all properties from the current struct to the destination stream.
+-func MarshalJSONOrigByteSlice(orig []byte, dest *json.Stream) {
+-	dest.WriteString(base64.StdEncoding.EncodeToString(orig))
+-}
+-
+ // UnmarshalJSONOrigByteSlice unmarshals all properties from the current struct from the source iterator.
+ func UnmarshalJSONOrigByteSlice(iter *json.Iterator) []byte {
+ 	buf := iter.ReadStringAsSlice()

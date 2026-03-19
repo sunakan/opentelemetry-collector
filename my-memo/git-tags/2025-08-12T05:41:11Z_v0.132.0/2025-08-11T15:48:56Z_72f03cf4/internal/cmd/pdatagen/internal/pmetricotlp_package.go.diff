@@ -1,0 +1,29 @@
+diff --git a/internal/cmd/pdatagen/internal/pmetricotlp_package.go b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+index 390428d70..3589db109 100644
+--- a/internal/cmd/pdatagen/internal/pmetricotlp_package.go
++++ b/internal/cmd/pdatagen/internal/pmetricotlp_package.go
+@@ -28,10 +28,24 @@ var pmetricotlp = &Package{
+ 		},
+ 	},
+ 	structs: []baseStruct{
++		exportMetricsResponse,
+ 		exportMetricsPartialSuccess,
+ 	},
+ }
+ 
++var exportMetricsResponse = &messageStruct{
++	structName:     "ExportResponse",
++	description:    "// ExportResponse represents the response for gRPC/HTTP client/server.",
++	originFullName: "otlpcollectormetrics.ExportMetricsServiceResponse",
++	fields: []Field{
++		&MessageField{
++			fieldName:     "PartialSuccess",
++			protoID:       1,
++			returnMessage: exportMetricsPartialSuccess,
++		},
++	},
++}
++
+ var exportMetricsPartialSuccess = &messageStruct{
+ 	structName:     "ExportPartialSuccess",
+ 	description:    "// ExportPartialSuccess represents the details of a partially successful export request.",

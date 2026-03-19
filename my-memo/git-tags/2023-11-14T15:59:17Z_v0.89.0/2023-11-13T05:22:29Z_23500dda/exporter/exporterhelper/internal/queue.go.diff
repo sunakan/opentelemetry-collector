@@ -1,0 +1,16 @@
+diff --git a/exporter/exporterhelper/internal/queue.go b/exporter/exporterhelper/internal/queue.go
+index 52dfdefc6..0ffc834a6 100644
+--- a/exporter/exporterhelper/internal/queue.go
++++ b/exporter/exporterhelper/internal/queue.go
+@@ -9,11 +9,9 @@ import (
+ 	"context"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/exporter"
+ )
+ 
+ type QueueSettings struct {
+-	exporter.CreateSettings
+ 	DataType component.DataType
+ 	Callback func(item Request)
+ }

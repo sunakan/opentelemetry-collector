@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_slice.go b/pdata/pcommon/generated_slice.go
+index 3b549e55b..8b84e46ce 100644
+--- a/pdata/pcommon/generated_slice.go
++++ b/pdata/pcommon/generated_slice.go
+@@ -143,7 +143,7 @@ func (es Slice) RemoveIf(f func(Value) bool) {
+ // CopyTo copies all elements from the current slice overriding the destination.
+ func (es Slice) CopyTo(dest Slice) {
+ 	dest.getState().AssertMutable()
+-	*dest.getOrig() = internal.CopyOrigSlice(*dest.getOrig(), *es.getOrig())
++	*dest.getOrig() = internal.CopyOrigAnyValueSlice(*dest.getOrig(), *es.getOrig())
+ }
+ 
+ func (ms Slice) getOrig() *[]otlpcommon.AnyValue {

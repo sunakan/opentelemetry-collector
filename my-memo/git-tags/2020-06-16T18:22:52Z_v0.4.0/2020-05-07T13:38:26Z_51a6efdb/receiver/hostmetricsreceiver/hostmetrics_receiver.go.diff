@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/hostmetrics_receiver.go b/receiver/hostmetricsreceiver/hostmetrics_receiver.go
+index e0b2b63f1..c09d5d083 100644
+--- a/receiver/hostmetricsreceiver/hostmetrics_receiver.go
++++ b/receiver/hostmetricsreceiver/hostmetrics_receiver.go
+@@ -83,7 +83,7 @@ func (hmr *Receiver) Shutdown(ctx context.Context) error {
+ 	var errs []error
+ 
+ 	for _, scraper := range hmr.scrapers {
+-		err := scraper.Close(ctx)
++		err := scraper.Shutdown(ctx)
+ 		if err != nil {
+ 			errs = append(errs, err)
+ 		}

@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/traces.go b/internal/otlptext/traces.go
+index 3d0ebb2f8..2361163b8 100644
+--- a/internal/otlptext/traces.go
++++ b/internal/otlptext/traces.go
+@@ -38,7 +38,7 @@ func (textTracesMarshaler) MarshalTraces(td pdata.Traces) ([]byte, error) {
+ 		for j := 0; j < ilss.Len(); j++ {
+ 			buf.logEntry("InstrumentationLibrarySpans #%d", j)
+ 			ils := ilss.At(j)
+-			buf.logEntry("InstrumentationLibraryMetrics SchemaURL: %s", ils.SchemaUrl())
++			buf.logEntry("InstrumentationLibrarySpans SchemaURL: %s", ils.SchemaUrl())
+ 			buf.logInstrumentationLibrary(ils.InstrumentationLibrary())
+ 
+ 			spans := ils.Spans()

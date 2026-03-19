@@ -1,0 +1,21 @@
+diff --git a/extension/memorylimiterextension/memorylimiter_test.go b/extension/memorylimiterextension/memorylimiter_test.go
+index 2a63a497b..96aa24e3f 100644
+--- a/extension/memorylimiterextension/memorylimiter_test.go
++++ b/extension/memorylimiterextension/memorylimiter_test.go
+@@ -10,6 +10,7 @@ import (
+ 	"time"
+ 
+ 	"github.com/stretchr/testify/assert"
++	"github.com/stretchr/testify/require"
+ 	"go.uber.org/zap"
+ 
+ 	"go.opentelemetry.io/collector/component"
+@@ -82,7 +83,7 @@ func TestMemoryPressureResponse(t *testing.T) {
+ 			if tt.expectError {
+ 				assert.True(t, mustRefuse)
+ 			} else {
+-				assert.NoError(t, err)
++				require.NoError(t, err)
+ 			}
+ 			assert.NoError(t, ml.Shutdown(ctx))
+ 		})

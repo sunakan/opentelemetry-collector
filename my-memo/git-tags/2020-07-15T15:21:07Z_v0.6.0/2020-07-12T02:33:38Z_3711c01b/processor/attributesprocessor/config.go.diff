@@ -1,0 +1,13 @@
+diff --git a/processor/attributesprocessor/config.go b/processor/attributesprocessor/config.go
+index 37d38a5b3..e097df3ba 100644
+--- a/processor/attributesprocessor/config.go
++++ b/processor/attributesprocessor/config.go
+@@ -33,7 +33,7 @@ type Config struct {
+ 	filterspan.MatchConfig `mapstructure:",squash"`
+ 
+ 	// Specifies the list of attributes to act on.
+-	// The set of actions are {INSERT, UPDATE, UPSERT, DELETE}.
++	// The set of actions are {INSERT, UPDATE, UPSERT, DELETE, HASH, EXTRACT}.
+ 	// This is a required field.
+ 	attraction.Settings `mapstructure:",squash"`
+ }

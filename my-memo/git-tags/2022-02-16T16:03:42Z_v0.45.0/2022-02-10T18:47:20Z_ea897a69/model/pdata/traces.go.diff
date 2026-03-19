@@ -1,0 +1,12 @@
+diff --git a/model/pdata/traces.go b/model/pdata/traces.go
+index db5896aaa..2cc3fc7fa 100644
+--- a/model/pdata/traces.go
++++ b/model/pdata/traces.go
+@@ -41,6 +41,7 @@ type TracesSizer interface {
+ }
+ 
+ // Traces is the top-level struct that is propagated through the traces pipeline.
++// Use NewTraces to create new instance, zero-initialized instance is not valid for use.
+ type Traces struct {
+ 	orig *otlptrace.TracesData
+ }

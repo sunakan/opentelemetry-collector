@@ -1,0 +1,13 @@
+diff --git a/internal/otlptext/logs.go b/internal/otlptext/logs.go
+index 357aa725e..52d26aec1 100644
+--- a/internal/otlptext/logs.go
++++ b/internal/otlptext/logs.go
+@@ -41,7 +41,7 @@ func (textLogsMarshaler) MarshalLogs(ld pdata.Logs) ([]byte, error) {
+ 			buf.logEntry("InstrumentationLibraryMetrics SchemaURL: %s", ils.SchemaUrl())
+ 			buf.logInstrumentationLibrary(ils.InstrumentationLibrary())
+ 
+-			logs := ils.Logs()
++			logs := ils.LogRecords()
+ 			for k := 0; k < logs.Len(); k++ {
+ 				buf.logEntry("LogRecord #%d", k)
+ 				lr := logs.At(k)

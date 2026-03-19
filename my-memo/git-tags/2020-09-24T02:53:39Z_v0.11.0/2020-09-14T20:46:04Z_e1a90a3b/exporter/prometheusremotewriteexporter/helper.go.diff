@@ -1,0 +1,13 @@
+diff --git a/exporter/prometheusremotewriteexporter/helper.go b/exporter/prometheusremotewriteexporter/helper.go
+index bf5eda1c2..6939d4883 100644
+--- a/exporter/prometheusremotewriteexporter/helper.go
++++ b/exporter/prometheusremotewriteexporter/helper.go
+@@ -216,7 +216,7 @@ func wrapTimeSeries(tsMap map[string]*prompb.TimeSeries) (*prompb.WriteRequest,
+ 	}
+ 	wrapped := prompb.WriteRequest{
+ 		Timeseries: TsArray,
+-		//Other parameters of the WriteRequest are unnecessary for our Export
++		// Other parameters of the WriteRequest are unnecessary for our Export
+ 	}
+ 	return &wrapped, nil
+ }

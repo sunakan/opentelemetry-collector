@@ -1,0 +1,70 @@
+diff --git a/internal/collector/telemetry/telemetry.go b/internal/collector/telemetry/telemetry.go
+index 3e4b7a7b1..a31de98ee 100644
+--- a/internal/collector/telemetry/telemetry.go
++++ b/internal/collector/telemetry/telemetry.go
+@@ -19,10 +19,12 @@ import (
+ 	"flag"
+ 	"fmt"
+ 	"strings"
++
++	"github.com/open-telemetry/opentelemetry-collector/internal/version"
+ )
+ 
+ const (
+-	metricsPortCfg   = "metrics-port"
++	metricsAddrCfg   = "metrics-addr"
+ 	metricsLevelCfg  = "metrics-level"
+ 	metricsPrefixCfg = "metrics-prefix"
+ 
+@@ -41,7 +43,7 @@ const (
+ var (
+ 	// Command-line flags that control publication of telemetry data.
+ 	metricsLevelPtr  *string
+-	metricsPortPtr   *uint
++	metricsAddrPtr   *string
+ 	metricsPrefixPtr *string
+ 
+ 	useLegacyMetricsPtr *bool
+@@ -57,10 +59,10 @@ func Flags(flags *flag.FlagSet) {
+ 
+ 	// At least until we can use a generic, i.e.: OpenCensus, metrics exporter
+ 	// we default to Prometheus at port 8888, if not otherwise specified.
+-	metricsPortPtr = flags.Uint(
+-		metricsPortCfg,
+-		8888,
+-		"Port exposing collector telemetry.")
++	metricsAddrPtr = flags.String(
++		metricsAddrCfg,
++		GetMetricsAddrDefault(),
++		"[address]:port for exposing collector telemetry.")
+ 
+ 	metricsPrefixPtr = flags.String(
+ 		metricsPrefixCfg,
+@@ -85,6 +87,16 @@ func Flags(flags *flag.FlagSet) {
+ 		"Flag to control the addition of 'service.instance.id' to the collector metrics.")
+ }
+ 
++// GetMetricsAddrDefault returns the default metrics bind address and port depending on
++// the current build type.
++func GetMetricsAddrDefault() string {
++	if version.IsDevBuild() {
++		// Listen on localhost by default for dev builds to avoid security prompts.
++		return "localhost:8888"
++	}
++	return ":8888"
++}
++
+ // Level of telemetry data to be generated.
+ type Level int8
+ 
+@@ -118,8 +130,8 @@ func GetLevel() (Level, error) {
+ 	return level, nil
+ }
+ 
+-func GetMetricsPort() int {
+-	return int(*metricsPortPtr)
++func GetMetricsAddr() string {
++	return *metricsAddrPtr
+ }
+ 
+ func GetMetricsPrefix() string {

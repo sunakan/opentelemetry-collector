@@ -1,0 +1,26 @@
+diff --git a/Makefile.Common b/Makefile.Common
+index 85d282b2d..02a144f3a 100644
+--- a/Makefile.Common
++++ b/Makefile.Common
+@@ -12,6 +12,10 @@ IMPI=impi
+ test:
+ 	@echo $(ALL_PKGS) | xargs -n 10 $(GOTEST) $(GOTEST_OPT)
+ 
++.PHONY: test-unstable
++test-unstable:
++	@echo $(ALL_PKGS) | xargs -n 10 $(GOTEST) $(GOTEST_OPT) -tags enable_unstable
++
+ .PHONY: benchmark
+ benchmark:
+ 	$(GOTEST) -bench=. -run=notests ./...
+@@ -25,6 +29,10 @@ fmt:
+ lint:
+ 	$(LINT) run --allow-parallel-runners
+ 
++.PHONY: lint-unstable
++lint-unstable:
++	$(LINT) run --allow-parallel-runners --build-tags enable_unstable
++
+ .PHONY: impi
+ impi:
+ 	@$(IMPI) --local go.opentelemetry.io/collector --scheme stdThirdPartyLocal ./...

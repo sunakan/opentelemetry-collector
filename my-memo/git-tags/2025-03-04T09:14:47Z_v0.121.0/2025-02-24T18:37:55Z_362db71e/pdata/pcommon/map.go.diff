@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/map.go b/pdata/pcommon/map.go
+index 91b803922..0b7b2fd44 100644
+--- a/pdata/pcommon/map.go
++++ b/pdata/pcommon/map.go
+@@ -263,7 +263,7 @@ func (m Map) CopyTo(dest Map) {
+ 
+ // AsRaw returns a standard go map representation of this Map.
+ func (m Map) AsRaw() map[string]any {
+-	rawMap := make(map[string]any)
++	rawMap := make(map[string]any, m.Len())
+ 	m.Range(func(k string, v Value) bool {
+ 		rawMap[k] = v.AsRaw()
+ 		return true

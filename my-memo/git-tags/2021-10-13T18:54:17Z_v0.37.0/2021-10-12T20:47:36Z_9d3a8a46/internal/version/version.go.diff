@@ -1,0 +1,13 @@
+diff --git a/internal/version/version.go b/internal/version/version.go
+index a0fa98ac9..dd962baf5 100644
+--- a/internal/version/version.go
++++ b/internal/version/version.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package version
++package version // import "go.opentelemetry.io/collector/internal/version"
+ 
+ import (
+ 	"bytes"

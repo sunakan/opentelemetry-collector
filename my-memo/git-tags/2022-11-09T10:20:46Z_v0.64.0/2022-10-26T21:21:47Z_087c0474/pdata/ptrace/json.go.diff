@@ -1,0 +1,28 @@
+diff --git a/pdata/ptrace/json.go b/pdata/ptrace/json.go
+index f44324dc7..6ac389c29 100644
+--- a/pdata/ptrace/json.go
++++ b/pdata/ptrace/json.go
+@@ -24,11 +24,6 @@ import (
+ 
+ var delegate = ptracejson.JSONMarshaler
+ 
+-// Deprecated: [v0.63.0] use &JSONMarshaler{}
+-func NewJSONMarshaler() Marshaler {
+-	return &JSONMarshaler{}
+-}
+-
+ var _ Marshaler = (*JSONMarshaler)(nil)
+ 
+ type JSONMarshaler struct{}
+@@ -42,11 +37,6 @@ func (*JSONMarshaler) MarshalTraces(td Traces) ([]byte, error) {
+ 
+ type JSONUnmarshaler struct{}
+ 
+-// Deprecated: [v0.63.0] use &JSONUnmarshaler{}
+-func NewJSONUnmarshaler() Unmarshaler {
+-	return &JSONUnmarshaler{}
+-}
+-
+ func (*JSONUnmarshaler) UnmarshalTraces(buf []byte) (Traces, error) {
+ 	var td otlptrace.TracesData
+ 	if err := ptracejson.UnmarshalTraceData(buf, &td); err != nil {

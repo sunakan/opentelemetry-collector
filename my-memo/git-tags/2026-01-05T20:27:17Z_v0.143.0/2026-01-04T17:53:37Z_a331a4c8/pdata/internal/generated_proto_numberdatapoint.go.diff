@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_proto_numberdatapoint.go b/pdata/internal/generated_proto_numberdatapoint.go
+index e7f01f60f..e413d6407 100644
+--- a/pdata/internal/generated_proto_numberdatapoint.go
++++ b/pdata/internal/generated_proto_numberdatapoint.go
+@@ -47,11 +47,11 @@ func (m *NumberDataPoint) GetAsInt() int64 {
+ 
+ // NumberDataPoint is a single data point in a timeseries that describes the time-varying value of a number metric.
+ type NumberDataPoint struct {
++	Value             any
+ 	Attributes        []KeyValue
++	Exemplars         []Exemplar
+ 	StartTimeUnixNano uint64
+ 	TimeUnixNano      uint64
+-	Value             any
+-	Exemplars         []Exemplar
+ 	Flags             uint32
+ }
+ 

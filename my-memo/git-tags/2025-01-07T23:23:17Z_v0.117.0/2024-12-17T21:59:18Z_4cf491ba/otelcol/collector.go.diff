@@ -1,0 +1,13 @@
+diff --git a/otelcol/collector.go b/otelcol/collector.go
+index 13ac5986e..dac8c860e 100644
+--- a/otelcol/collector.go
++++ b/otelcol/collector.go
+@@ -148,7 +148,7 @@ func (col *Collector) Shutdown() {
+ 	state := col.GetState()
+ 	if state == StateRunning || state == StateStarting {
+ 		defer func() {
+-			recover() // nolint:errcheck
++			_ = recover()
+ 		}()
+ 		close(col.shutdownChan)
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/model/pdata/generated_common.go b/model/pdata/generated_common.go
+index 4bbef6f83..4e4f24575 100644
+--- a/model/pdata/generated_common.go
++++ b/model/pdata/generated_common.go
+@@ -18,7 +18,7 @@
+ package pdata
+ 
+ import (
+-	otlpcommon "go.opentelemetry.io/collector/internal/data/protogen/common/v1"
++	otlpcommon "go.opentelemetry.io/collector/model/internal/data/protogen/common/v1"
+ )
+ 
+ // InstrumentationLibrary is a message representing the instrumentation library information.

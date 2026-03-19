@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/pdata/templates/message.go.tmpl b/internal/cmd/pdatagen/internal/pdata/templates/message.go.tmpl
+index 8576c1a04..42ee0bb64 100644
+--- a/internal/cmd/pdatagen/internal/pdata/templates/message.go.tmpl
++++ b/internal/cmd/pdatagen/internal/pdata/templates/message.go.tmpl
+@@ -41,7 +41,7 @@ func new{{ .structName }}(orig *{{ .originFullName }}, state *internal.State) {{
+ // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
+ // OR directly access the member if this is embedded in another struct.
+ func New{{ .structName }}() {{ .structName }} {
+-	return new{{ .structName }}(internal.NewOrigPtr{{ .originName }}(), internal.NewState())
++	return new{{ .structName }}(internal.NewOrig{{ .originName }}(), internal.NewState())
+ }
+ 
+ // MoveTo moves all properties from the current struct overriding the destination and

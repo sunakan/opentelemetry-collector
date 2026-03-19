@@ -1,0 +1,21 @@
+diff --git a/extension/zpagesextension/go.mod b/extension/zpagesextension/go.mod
+index bea93dd85..10b467171 100644
+--- a/extension/zpagesextension/go.mod
++++ b/extension/zpagesextension/go.mod
+@@ -10,6 +10,7 @@ require (
+ 	go.opentelemetry.io/collector/component/componenttest v0.129.0
+ 	go.opentelemetry.io/collector/config/configauth v0.129.0
+ 	go.opentelemetry.io/collector/config/confighttp v0.129.0
++	go.opentelemetry.io/collector/config/configoptional v0.129.0
+ 	go.opentelemetry.io/collector/confmap v1.35.0
+ 	go.opentelemetry.io/collector/extension v1.35.0
+ 	go.opentelemetry.io/collector/extension/extensiontest v0.129.0
+@@ -91,6 +92,8 @@ replace go.opentelemetry.io/collector/consumer => ../../consumer
+ 
+ replace go.opentelemetry.io/collector/config/configopaque => ../../config/configopaque
+ 
++replace go.opentelemetry.io/collector/config/configoptional => ../../config/configoptional
++
+ replace go.opentelemetry.io/collector/config/configtls => ../../config/configtls
+ 
+ replace go.opentelemetry.io/collector/config/configcompression => ../../config/configcompression

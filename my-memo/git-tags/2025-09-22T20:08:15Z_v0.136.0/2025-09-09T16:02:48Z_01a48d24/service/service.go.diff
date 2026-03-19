@@ -1,0 +1,22 @@
+diff --git a/service/service.go b/service/service.go
+index aa89d26c3..f5dc034f1 100644
+--- a/service/service.go
++++ b/service/service.go
+@@ -124,14 +124,11 @@ func New(ctx context.Context, set Settings, cfg Config) (*Service, error) {
+ 	}
+ 
+ 	mpConfig := &cfg.Telemetry.Metrics.MeterProvider
+-	if mpConfig.Views == nil {
+-		mpConfig.Views = configureViews(cfg.Telemetry.Metrics.Level)
+-	}
+-
+ 	telFactory := otelconftelemetry.NewFactory()
+ 	telset := telemetry.Settings{
+-		BuildInfo:  set.BuildInfo,
+-		ZapOptions: set.LoggingOptions,
++		BuildInfo:    set.BuildInfo,
++		ZapOptions:   set.LoggingOptions,
++		DefaultViews: configureViews,
+ 	}
+ 
+ 	telProviders, err := telFactory.CreateProviders(ctx, telset, &cfg.Telemetry)

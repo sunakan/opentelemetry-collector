@@ -1,0 +1,24 @@
+diff --git a/faulty_config.yaml b/faulty_config.yaml
+deleted file mode 100644
+index 05bb1b252..000000000
+--- a/faulty_config.yaml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-receivers:
+-  nop:
+-exporters:
+-  nop:
+-service:
+-  pipelines:
+-    logs:
+-      receivers: [nop]
+-      processors: []
+-      exporters: [nop]
+-  telemetry:
+-    metrics:
+-      readers:
+-        - periodic:
+-            exporter:
+-              otlp:
+-                protocol: http/protobuf
+-                endpoint: https://backend:4318

@@ -1,0 +1,13 @@
+diff --git a/receiver/prometheusreceiver/internal/ocastore_test.go b/receiver/prometheusreceiver/internal/ocastore_test.go
+index d71ca3e23..f49a64d8f 100644
+--- a/receiver/prometheusreceiver/internal/ocastore_test.go
++++ b/receiver/prometheusreceiver/internal/ocastore_test.go
+@@ -26,7 +26,7 @@ import (
+ 
+ func TestOcaStore(t *testing.T) {
+ 
+-	o := NewOcaStore(context.Background(), nil, nil, nil, false, "prometheus")
++	o := NewOcaStore(context.Background(), nil, nil, nil, false, "", "prometheus")
+ 	o.SetScrapeManager(&scrape.Manager{})
+ 
+ 	app := o.Appender()

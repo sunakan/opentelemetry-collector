@@ -1,0 +1,13 @@
+diff --git a/cmd/occollector/app/collector/collector_test.go b/cmd/occollector/app/collector/collector_test.go
+index 57899eaf2..83c0aaff9 100644
+--- a/cmd/occollector/app/collector/collector_test.go
++++ b/cmd/occollector/app/collector/collector_test.go
+@@ -80,7 +80,7 @@ func TestApplication_StartUnified(t *testing.T) {
+ 		App.v.Set(portArg[i], port)
+ 	}
+ 
+-	App.v.Set("config", "testdata/unisvc-config.yaml")
++	App.v.Set("config", "testdata/otelsvc-config.yaml")
+ 
+ 	appDone := make(chan struct{})
+ 	go func() {

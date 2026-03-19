@@ -1,0 +1,13 @@
+diff --git a/processor/metrics.go b/processor/metrics.go
+index fa371d8dc..c1eadf987 100644
+--- a/processor/metrics.go
++++ b/processor/metrics.go
+@@ -20,7 +20,7 @@ import (
+ 	"go.opencensus.io/stats/view"
+ 	"go.opencensus.io/tag"
+ 
+-	"github.com/open-telemetry/opentelemetry-service/internal/collector/telemetry"
++	"github.com/open-telemetry/opentelemetry-collector/internal/collector/telemetry"
+ )
+ 
+ // Keys and stats for telemetry.

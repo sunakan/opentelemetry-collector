@@ -1,0 +1,32 @@
+diff --git a/exporter/exporterhelper/resource_to_label_test.go b/exporter/exporterhelper/resource_to_label_test.go
+index 232673f84..88facb113 100644
+--- a/exporter/exporterhelper/resource_to_label_test.go
++++ b/exporter/exporterhelper/resource_to_label_test.go
+@@ -40,7 +40,7 @@ func TestConvertResourceToLabels(t *testing.T) {
+ 
+ }
+ 
+-func TestConvertResourceToLabelsAllDataTypes(t *testing.T) {
++func TestConvertResourceToLabelsAllDataTypesEmptyDataPoint(t *testing.T) {
+ 	md := testdata.GenerateMetricsAllTypesEmptyDataPoint()
+ 	assert.NotNil(t, md)
+ 
+@@ -73,18 +73,3 @@ func TestConvertResourceToLabelsAllDataTypes(t *testing.T) {
+ 	assert.Equal(t, 0, md.ResourceMetrics().At(0).InstrumentationLibraryMetrics().At(0).Metrics().At(5).IntHistogram().DataPoints().At(0).LabelsMap().Len())
+ 
+ }
+-
+-func TestConvertResourceToLabelsAllDataTypesNilDataPoint(t *testing.T) {
+-	md := testdata.GenerateMetricsAllTypesNilDataPoint()
+-	assert.NotNil(t, md)
+-
+-	// Before converting resource to labels
+-	assert.Equal(t, 1, md.ResourceMetrics().At(0).Resource().Attributes().Len())
+-
+-	cloneMd := convertResourceToLabels(md)
+-
+-	// After converting resource to labels
+-	assert.Equal(t, 1, cloneMd.ResourceMetrics().At(0).Resource().Attributes().Len())
+-
+-	assert.Equal(t, 1, md.ResourceMetrics().At(0).Resource().Attributes().Len())
+-}

@@ -1,0 +1,16 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/circle.yml b/vendor/github.com/openzipkin/zipkin-go/circle.yml
+new file mode 100644
+index 000000000..4365dbf9f
+--- /dev/null
++++ b/vendor/github.com/openzipkin/zipkin-go/circle.yml
+@@ -0,0 +1,10 @@
++dependencies:
++  override:
++    - sudo rm -rf /home/ubuntu/.go_workspace/src/github.com/openzipkin
++    - mkdir -p /home/ubuntu/.go_workspace/src/github.com/openzipkin
++    - mv /home/ubuntu/zipkin-go /home/ubuntu/.go_workspace/src/github.com/openzipkin
++    - ln -s /home/ubuntu/.go_workspace/src/github.com/openzipkin/zipkin-go /home/ubuntu/zipkin-go
++    - go get -u -t -v github.com/openzipkin/zipkin-go/...
++test:
++  override:
++    - make test bench

@@ -1,0 +1,26 @@
+diff --git a/receiver/receiverhelper/factory_test.go b/receiver/receiverhelper/factory_test.go
+index d28db0e21..22b39a6ba 100644
+--- a/receiver/receiverhelper/factory_test.go
++++ b/receiver/receiverhelper/factory_test.go
+@@ -23,18 +23,15 @@ import (
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ )
+ 
+ const typeStr = "test"
+ 
+-var defaultCfg = &componenttest.NopConfig{
+-	ReceiverSettings: config.ReceiverSettings{
+-		TypeVal: typeStr,
+-		NameVal: typeStr,
+-	},
++var defaultCfg = &config.ReceiverSettings{
++	TypeVal: typeStr,
++	NameVal: typeStr,
+ }
+ 
+ func TestNewFactory(t *testing.T) {

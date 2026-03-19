@@ -1,0 +1,15 @@
+diff --git a/obsreport/obsreporttest/obsreporttest_test.go b/obsreport/obsreporttest/obsreporttest_test.go
+index 13996817a..8cac8fa3f 100644
+--- a/obsreport/obsreporttest/obsreporttest_test.go
++++ b/obsreport/obsreporttest/obsreporttest_test.go
+@@ -34,8 +34,8 @@ const (
+ )
+ 
+ var (
+-	receiver = config.NewID("fakeReicever")
+-	exporter = config.NewID("fakeExporter")
++	receiver = config.NewComponentID("fakeReicever")
++	exporter = config.NewComponentID("fakeExporter")
+ )
+ 
+ func TestCheckReceiverTracesViews(t *testing.T) {

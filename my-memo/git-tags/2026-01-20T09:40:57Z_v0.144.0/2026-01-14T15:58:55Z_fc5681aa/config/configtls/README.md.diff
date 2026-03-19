@@ -1,0 +1,22 @@
+diff --git a/config/configtls/README.md b/config/configtls/README.md
+index 792312233..2d66fae3c 100644
+--- a/config/configtls/README.md
++++ b/config/configtls/README.md
+@@ -99,7 +99,7 @@ Example:
+ 
+ ```yaml
+ exporters:
+-  otlp:
++  otlp_grpc:
+     endpoint: myserver.local:55690
+     tls:
+       insecure: false
+@@ -174,7 +174,7 @@ Example:
+ 
+ ```yaml
+ exporters:
+-  otlp:
++  otlp_grpc:
+     endpoint: myserver.local:55690
+     tls:
+       ca_file: ca.crt

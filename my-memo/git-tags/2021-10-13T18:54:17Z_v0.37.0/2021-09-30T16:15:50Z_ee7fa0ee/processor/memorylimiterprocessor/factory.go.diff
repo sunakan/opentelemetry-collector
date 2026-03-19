@@ -1,0 +1,31 @@
+diff --git a/processor/memorylimiterprocessor/factory.go b/processor/memorylimiterprocessor/factory.go
+index 419d8da2c..532e45efa 100644
+--- a/processor/memorylimiterprocessor/factory.go
++++ b/processor/memorylimiterprocessor/factory.go
+@@ -54,7 +54,7 @@ func createTracesProcessor(
+ 	cfg config.Processor,
+ 	nextConsumer consumer.Traces,
+ ) (component.TracesProcessor, error) {
+-	ml, err := newMemoryLimiter(set.Logger, cfg.(*Config))
++	ml, err := newMemoryLimiter(set, cfg.(*Config))
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -73,7 +73,7 @@ func createMetricsProcessor(
+ 	cfg config.Processor,
+ 	nextConsumer consumer.Metrics,
+ ) (component.MetricsProcessor, error) {
+-	ml, err := newMemoryLimiter(set.Logger, cfg.(*Config))
++	ml, err := newMemoryLimiter(set, cfg.(*Config))
+ 	if err != nil {
+ 		return nil, err
+ 	}
+@@ -91,7 +91,7 @@ func createLogsProcessor(
+ 	cfg config.Processor,
+ 	nextConsumer consumer.Logs,
+ ) (component.LogsProcessor, error) {
+-	ml, err := newMemoryLimiter(set.Logger, cfg.(*Config))
++	ml, err := newMemoryLimiter(set, cfg.(*Config))
+ 	if err != nil {
+ 		return nil, err
+ 	}

@@ -1,0 +1,13 @@
+diff --git a/service/service_test.go b/service/service_test.go
+index 00575a534..47d0061fd 100644
+--- a/service/service_test.go
++++ b/service/service_test.go
+@@ -493,8 +493,6 @@ func assertMetrics(t *testing.T, metricsAddr string, expectedLabels map[string]l
+ func assertZPages(t *testing.T, zpagesAddr string) {
+ 	paths := []string{
+ 		"/debug/tracez",
+-		// TODO: enable this when otel-metrics is used and this page is available.
+-		// "/debug/rpcz",
+ 		"/debug/pipelinez",
+ 		"/debug/servicez",
+ 		"/debug/extensionz",

@@ -1,0 +1,10 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/metrics_test.go b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+index fe6438bb3..f055254ac 100644
+--- a/cmd/mdatagen/internal/samplereceiver/metrics_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/metrics_test.go
+@@ -104,5 +104,4 @@ func TestComponentTelemetry(t *testing.T) {
+ 		},
+ 	})
+ 	require.NoError(t, tt.Shutdown(context.Background()))
+-
+ }

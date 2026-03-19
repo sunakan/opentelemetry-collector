@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_protospan_test.go b/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
+index e57ab0abe..eac212770 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
++++ b/translator/trace/jaeger/jaegerthrift_to_protospan_test.go
+@@ -601,8 +601,3 @@ func TestHTTPToGRPCStatusCode(t *testing.T) {
+ 		}
+ 	}
+ }
+-
+-func jsonify(v interface{}) []byte {
+-	jb, _ := json.MarshalIndent(v, "", "   ")
+-	return jb
+-}

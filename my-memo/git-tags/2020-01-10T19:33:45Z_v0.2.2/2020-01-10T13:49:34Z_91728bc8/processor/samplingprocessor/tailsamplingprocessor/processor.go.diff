@@ -1,0 +1,24 @@
+diff --git a/processor/samplingprocessor/tailsamplingprocessor/processor.go b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+index 352491281..b596aa7b0 100644
+--- a/processor/samplingprocessor/tailsamplingprocessor/processor.go
++++ b/processor/samplingprocessor/tailsamplingprocessor/processor.go
+@@ -27,6 +27,7 @@ import (
+ 	"go.opencensus.io/tag"
+ 	"go.uber.org/zap"
+ 
++	"github.com/open-telemetry/opentelemetry-collector/component"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer"
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/observability"
+@@ -316,6 +317,11 @@ func (tsp *tailSamplingSpanProcessor) GetCapabilities() processor.Capabilities {
+ 	return processor.Capabilities{MutatesConsumedData: false}
+ }
+ 
++// Start is invoked during service startup.
++func (tsp *tailSamplingSpanProcessor) Start(host component.Host) error {
++	return nil
++}
++
+ // Shutdown is invoked during service shutdown.
+ func (tsp *tailSamplingSpanProcessor) Shutdown() error {
+ 	return nil

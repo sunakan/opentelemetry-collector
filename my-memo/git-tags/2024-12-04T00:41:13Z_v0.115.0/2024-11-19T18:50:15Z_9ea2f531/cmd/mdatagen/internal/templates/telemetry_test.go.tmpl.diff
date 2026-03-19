@@ -1,0 +1,14 @@
+diff --git a/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl b/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
+index 33d3c012c..170ad0872 100644
+--- a/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
++++ b/cmd/mdatagen/internal/templates/telemetry_test.go.tmpl
+@@ -45,9 +45,6 @@ func (m mockTracerProvider) Tracer(name string, opts ...trace.TracerOption) trac
+ 
+ func TestProviders(t *testing.T) {
+ 	set := component.TelemetrySettings{
+-		LeveledMeterProvider: func(_ configtelemetry.Level) metric.MeterProvider {
+-			return mockMeterProvider{}
+-		},
+ 		MeterProvider: mockMeterProvider{},
+ 		TracerProvider: mockTracerProvider{},
+ 	}

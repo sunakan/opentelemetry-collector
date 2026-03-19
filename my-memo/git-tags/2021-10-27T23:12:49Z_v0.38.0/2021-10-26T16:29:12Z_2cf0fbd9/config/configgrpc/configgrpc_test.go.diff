@@ -1,0 +1,13 @@
+diff --git a/config/configgrpc/configgrpc_test.go b/config/configgrpc/configgrpc_test.go
+index b4fab3806..1c1c94b20 100644
+--- a/config/configgrpc/configgrpc_test.go
++++ b/config/configgrpc/configgrpc_test.go
+@@ -137,7 +137,7 @@ func TestGrpcServerAuthSettings(t *testing.T) {
+ 	}
+ 	host := &mockHost{
+ 		ext: map[config.ComponentID]component.Extension{
+-			config.NewComponentID("mock"): &configauth.MockAuthenticator{},
++			config.NewComponentID("mock"): &configauth.MockServerAuthenticator{},
+ 		},
+ 	}
+ 	opts, err := gss.ToServerOption(host, componenttest.NewNopTelemetrySettings())

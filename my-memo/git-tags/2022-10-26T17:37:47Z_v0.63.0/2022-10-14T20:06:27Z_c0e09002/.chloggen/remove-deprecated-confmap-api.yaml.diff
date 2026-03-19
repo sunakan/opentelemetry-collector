@@ -1,0 +1,10 @@
+diff --git a/.chloggen/remove-deprecated-confmap-api.yaml b/.chloggen/remove-deprecated-confmap-api.yaml
+new file mode 100755
+index 000000000..352ab0de4
+--- /dev/null
++++ b/.chloggen/remove-deprecated-confmap-api.yaml
+@@ -0,0 +1,4 @@
++change_type: breaking
++component: confmap
++note: "Remove deprecated `confmap.Conf.UnmarshalExact` API in 0.62.0"
++issues: [6315]

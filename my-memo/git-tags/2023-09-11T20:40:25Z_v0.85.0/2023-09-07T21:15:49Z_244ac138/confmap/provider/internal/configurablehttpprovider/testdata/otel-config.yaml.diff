@@ -1,0 +1,13 @@
+diff --git a/confmap/provider/internal/configurablehttpprovider/testdata/otel-config.yaml b/confmap/provider/internal/configurablehttpprovider/testdata/otel-config.yaml
+index c6a64d703..8b7aef3c5 100644
+--- a/confmap/provider/internal/configurablehttpprovider/testdata/otel-config.yaml
++++ b/confmap/provider/internal/configurablehttpprovider/testdata/otel-config.yaml
+@@ -21,7 +21,7 @@ processors:
+ 
+ exporters:
+   logging:
+-    loglevel: debug
++    verbosity: detailed
+ 
+ service:
+   pipelines:

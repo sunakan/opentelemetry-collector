@@ -1,0 +1,19 @@
+diff --git a/receiver/prometheusreceiver/testdata/config.yaml b/receiver/prometheusreceiver/testdata/config.yaml
+index fb99f32f7..dae24b91c 100644
+--- a/receiver/prometheusreceiver/testdata/config.yaml
++++ b/receiver/prometheusreceiver/testdata/config.yaml
+@@ -19,8 +19,9 @@ processors:
+ exporters:
+   exampleexporter:
+ 
+-pipelines:
+-  traces:
+-    receivers: [prometheus]
+-    processors: [exampleprocessor]
+-    exporters: [exampleexporter]
++service:
++  pipelines:
++    traces:
++      receivers: [prometheus]
++      processors: [exampleprocessor]
++      exporters: [exampleexporter]

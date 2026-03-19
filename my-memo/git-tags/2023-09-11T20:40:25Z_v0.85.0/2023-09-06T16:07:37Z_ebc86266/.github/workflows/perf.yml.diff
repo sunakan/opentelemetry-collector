@@ -1,0 +1,13 @@
+diff --git a/.github/workflows/perf.yml b/.github/workflows/perf.yml
+index 017e23bb9..0742f34c0 100644
+--- a/.github/workflows/perf.yml
++++ b/.github/workflows/perf.yml
+@@ -8,7 +8,7 @@ jobs:
+   runperf:
+     runs-on: ubuntu-latest
+     steps:
+-      - uses: actions/checkout@v3
++      - uses: actions/checkout@v4
+ 
+       - name: Setup Go
+         uses: actions/setup-go@v4

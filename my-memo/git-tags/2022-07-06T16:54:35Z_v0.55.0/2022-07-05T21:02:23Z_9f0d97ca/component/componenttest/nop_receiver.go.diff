@@ -1,0 +1,17 @@
+diff --git a/component/componenttest/nop_receiver.go b/component/componenttest/nop_receiver.go
+index 247b51cfd..c641c5215 100644
+--- a/component/componenttest/nop_receiver.go
++++ b/component/componenttest/nop_receiver.go
+@@ -43,9 +43,9 @@ func NewNopReceiverFactory() component.ReceiverFactory {
+ 				ReceiverSettings: config.NewReceiverSettings(config.NewComponentID("nop")),
+ 			}
+ 		},
+-		component.WithTracesReceiver(createTracesReceiver),
+-		component.WithMetricsReceiver(createMetricsReceiver),
+-		component.WithLogsReceiver(createLogsReceiver))
++		component.WithTracesReceiverAndStabilityLevel(createTracesReceiver, component.StabilityLevelStable),
++		component.WithMetricsReceiverAndStabilityLevel(createMetricsReceiver, component.StabilityLevelStable),
++		component.WithLogsReceiverAndStabilityLevel(createLogsReceiver, component.StabilityLevelStable))
+ }
+ 
+ func createTracesReceiver(context.Context, component.ReceiverCreateSettings, config.Receiver, consumer.Traces) (component.TracesReceiver, error) {

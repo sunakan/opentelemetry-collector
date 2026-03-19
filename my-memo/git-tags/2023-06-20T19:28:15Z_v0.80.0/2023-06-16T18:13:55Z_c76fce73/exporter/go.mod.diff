@@ -1,0 +1,10 @@
+diff --git a/exporter/go.mod b/exporter/go.mod
+index d5fba5f63..62dbfb8ff 100644
+--- a/exporter/go.mod
++++ b/exporter/go.mod
+@@ -91,3 +91,5 @@ retract v0.76.0 // Depends on retracted pdata v1.0.0-rc10 module
+ replace go.opentelemetry.io/collector/connector => ../connector
+ 
+ replace go.opentelemetry.io/collector/config/configcompression => ../config/configcompression
++
++replace go.opentelemetry.io/collector/config/confignet => ../config/confignet

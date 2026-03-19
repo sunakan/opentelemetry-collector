@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_proto_resourceprofiles.go b/pdata/internal/generated_proto_resourceprofiles.go
+index 69522c24d..5114d7a89 100644
+--- a/pdata/internal/generated_proto_resourceprofiles.go
++++ b/pdata/internal/generated_proto_resourceprofiles.go
+@@ -184,6 +184,7 @@ func (orig *ResourceProfiles) SizeProto() int {
+ 		l = orig.ScopeProfiles[i].SizeProto()
+ 		n += 1 + proto.Sov(uint64(l)) + l
+ 	}
++
+ 	l = len(orig.SchemaUrl)
+ 	if l > 0 {
+ 		n += 1 + proto.Sov(uint64(l)) + l

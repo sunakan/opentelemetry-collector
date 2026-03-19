@@ -1,0 +1,18 @@
+diff --git a/config/confighttp/confighttp.go b/config/confighttp/confighttp.go
+index 2c09e8cb7..f3d6d2c23 100644
+--- a/config/confighttp/confighttp.go
++++ b/config/confighttp/confighttp.go
+@@ -90,12 +90,7 @@ func (hcs *HTTPClientSettings) ToClient(ext map[config.ComponentID]component.Ext
+ 			return nil, fmt.Errorf("extensions configuration not found")
+ 		}
+ 
+-		componentID, cperr := config.NewComponentIDFromString(hcs.Auth.AuthenticatorName)
+-		if cperr != nil {
+-			return nil, cperr
+-		}
+-
+-		httpCustomAuthRoundTripper, aerr := configauth.GetHTTPClientAuthenticator(ext, componentID)
++		httpCustomAuthRoundTripper, aerr := hcs.Auth.GetHTTPClientAuthenticator(ext)
+ 		if aerr != nil {
+ 			return nil, aerr
+ 		}

@@ -1,0 +1,26 @@
+diff --git a/exporter/internal/experr/err.go b/exporter/internal/experr/err.go
+index 6bff64b16..f8b109d7d 100644
+--- a/exporter/internal/experr/err.go
++++ b/exporter/internal/experr/err.go
+@@ -3,7 +3,12 @@
+ 
+ package experr // import "go.opentelemetry.io/collector/exporter/internal/experr"
+ 
+-import "errors"
++import (
++	"errors"
++	"fmt"
++
++	"go.opentelemetry.io/collector/component"
++)
+ 
+ type shutdownErr struct {
+ 	err error
+@@ -25,3 +30,7 @@ func IsShutdownErr(err error) bool {
+ 	var sdErr shutdownErr
+ 	return errors.As(err, &sdErr)
+ }
++
++func ErrIDMismatch(id component.ID, typ component.Type) error {
++	return fmt.Errorf("component type mismatch: component ID %q does not have type %q", id, typ)
++}

@@ -1,0 +1,13 @@
+diff --git a/component/extension.go b/component/extension.go
+index 6296ee29c..6ba887085 100644
+--- a/component/extension.go
++++ b/component/extension.go
+@@ -46,7 +46,7 @@ type PipelineWatcher interface {
+ 
+ // ExtensionCreateSettings is passed to ExtensionFactory.Create* functions.
+ type ExtensionCreateSettings struct {
+-	TelemetryCreateSettings
++	TelemetrySettings
+ 
+ 	// BuildInfo can be used by components for informational purposes
+ 	BuildInfo BuildInfo

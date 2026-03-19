@@ -1,0 +1,13 @@
+diff --git a/config/configtls/configtls.go b/config/configtls/configtls.go
+index 7b6c215d3..cc6167b73 100644
+--- a/config/configtls/configtls.go
++++ b/config/configtls/configtls.go
+@@ -12,7 +12,7 @@
+ // See the License for the specific language governing permissions and
+ // limitations under the License.
+ 
+-package configtls
++package configtls // import "go.opentelemetry.io/collector/config/configtls"
+ 
+ import (
+ 	"crypto/tls"

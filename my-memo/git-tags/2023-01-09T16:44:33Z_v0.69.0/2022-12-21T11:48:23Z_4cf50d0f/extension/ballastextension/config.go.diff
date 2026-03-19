@@ -1,0 +1,20 @@
+diff --git a/extension/ballastextension/config.go b/extension/ballastextension/config.go
+index 49d4d78ed..9f8f23896 100644
+--- a/extension/ballastextension/config.go
++++ b/extension/ballastextension/config.go
+@@ -16,15 +16,10 @@ package ballastextension // import "go.opentelemetry.io/collector/extension/ball
+ 
+ import (
+ 	"errors"
+-
+-	"go.opentelemetry.io/collector/config"
+ )
+ 
+ // Config has the configuration for the ballast extension.
+ type Config struct {
+-	// Deprecated: [v0.68.0] will be removed soon.
+-	config.ExtensionSettings `mapstructure:",squash"`
+-
+ 	// SizeMiB is the size, in MiB, of the memory ballast
+ 	// to be created for this process.
+ 	SizeMiB uint64 `mapstructure:"size_mib"`

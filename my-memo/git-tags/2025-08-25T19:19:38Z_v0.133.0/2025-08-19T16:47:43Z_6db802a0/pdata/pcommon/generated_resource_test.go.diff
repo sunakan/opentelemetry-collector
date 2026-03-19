@@ -1,0 +1,12 @@
+diff --git a/pdata/pcommon/generated_resource_test.go b/pdata/pcommon/generated_resource_test.go
+index 177e45582..bc8993c3b 100644
+--- a/pdata/pcommon/generated_resource_test.go
++++ b/pdata/pcommon/generated_resource_test.go
+@@ -60,5 +60,6 @@ func TestResource_DroppedAttributesCount(t *testing.T) {
+ }
+ 
+ func generateTestResource() Resource {
+-	return Resource(internal.GenerateTestResource())
++	ms := newResource(internal.GenTestOrigResource(), internal.NewState())
++	return ms
+ }

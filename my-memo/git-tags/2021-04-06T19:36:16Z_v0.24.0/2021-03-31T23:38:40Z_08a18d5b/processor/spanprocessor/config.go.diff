@@ -1,0 +1,12 @@
+diff --git a/processor/spanprocessor/config.go b/processor/spanprocessor/config.go
+index 591579b56..f86eff205 100644
+--- a/processor/spanprocessor/config.go
++++ b/processor/spanprocessor/config.go
+@@ -59,6 +59,7 @@ type Name struct {
+ 	ToAttributes *ToAttributes `mapstructure:"to_attributes"`
+ }
+ 
++// ToAttributes specifies a configuration to extract attributes from span name.
+ type ToAttributes struct {
+ 	// Rules is a list of rules to extract attribute values from span name. The values
+ 	// in the span name are replaced by extracted attribute names. Each rule in the list

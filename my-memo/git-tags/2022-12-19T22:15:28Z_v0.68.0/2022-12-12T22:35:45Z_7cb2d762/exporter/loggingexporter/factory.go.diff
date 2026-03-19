@@ -1,0 +1,20 @@
+diff --git a/exporter/loggingexporter/factory.go b/exporter/loggingexporter/factory.go
+index 76e7601a4..49f28e568 100644
+--- a/exporter/loggingexporter/factory.go
++++ b/exporter/loggingexporter/factory.go
+@@ -23,7 +23,6 @@ import (
+ 	"go.uber.org/zap/zapcore"
+ 
+ 	"go.opentelemetry.io/collector/component"
+-	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/config/configtelemetry"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/exporter"
+@@ -52,7 +51,6 @@ func NewFactory() exporter.Factory {
+ 
+ func createDefaultConfig() component.Config {
+ 	return &Config{
+-		ExporterSettings:   config.NewExporterSettings(component.NewID(typeStr)),
+ 		LogLevel:           zapcore.InfoLevel,
+ 		Verbosity:          configtelemetry.LevelNormal,
+ 		SamplingInitial:    defaultSamplingInitial,

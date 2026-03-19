@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index d9ef7a4c1..ffba4779d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -306,7 +306,7 @@ PROTO_PACKAGE=go.opentelemetry.io/collector/$(PROTO_TARGET_GEN_DIR)
+ # Intermediate directory used during generation.
+ PROTO_INTERMEDIATE_DIR=model/internal/.patched-otlp-proto
+ 
+-DOCKER_PROTOBUF ?= otel/build-protobuf:0.2.1
++DOCKER_PROTOBUF ?= otel/build-protobuf:0.4.1
+ PROTOC := docker run --rm -u ${shell id -u} -v${PWD}:${PWD} -w${PWD}/$(PROTO_INTERMEDIATE_DIR) ${DOCKER_PROTOBUF} --proto_path=${PWD}
+ PROTO_INCLUDES := -I/usr/include/github.com/gogo/protobuf -I./
+ 

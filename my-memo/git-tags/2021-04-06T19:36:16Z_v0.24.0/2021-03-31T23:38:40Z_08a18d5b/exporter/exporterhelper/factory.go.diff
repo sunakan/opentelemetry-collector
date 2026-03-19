@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/factory.go b/exporter/exporterhelper/factory.go
+index 044632939..d4fa9ed55 100644
+--- a/exporter/exporterhelper/factory.go
++++ b/exporter/exporterhelper/factory.go
+@@ -36,7 +36,7 @@ type CreateTracesExporter func(context.Context, component.ExporterCreateParams,
+ // CreateMetricsExporter is the equivalent of component.ExporterFactory.CreateMetricsExporter()
+ type CreateMetricsExporter func(context.Context, component.ExporterCreateParams, config.Exporter) (component.MetricsExporter, error)
+ 
+-// CreateMetricsExporter is the equivalent of component.ExporterFactory.CreateLogsExporter()
++// CreateLogsExporter is the equivalent of component.ExporterFactory.CreateLogsExporter()
+ type CreateLogsExporter func(context.Context, component.ExporterCreateParams, config.Exporter) (component.LogsExporter, error)
+ 
+ type factory struct {

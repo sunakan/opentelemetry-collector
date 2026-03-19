@@ -1,0 +1,12 @@
+diff --git a/pdata/plog/plogotlp/grpc.go b/pdata/plog/plogotlp/grpc.go
+index 5e90a668f..6a892606d 100644
+--- a/pdata/plog/plogotlp/grpc.go
++++ b/pdata/plog/plogotlp/grpc.go
+@@ -12,6 +12,7 @@ import (
+ 
+ 	"go.opentelemetry.io/collector/pdata/internal"
+ 	otlpcollectorlog "go.opentelemetry.io/collector/pdata/internal/data/protogen/collector/logs/v1"
++	_ "go.opentelemetry.io/collector/pdata/internal/grpcencoding" // enforces custom gRPC encoding to be loaded.
+ 	"go.opentelemetry.io/collector/pdata/internal/otlp"
+ )
+ 

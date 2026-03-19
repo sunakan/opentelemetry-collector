@@ -1,0 +1,17 @@
+diff --git a/.chloggen/addvisit.yaml b/.chloggen/addvisit.yaml
+deleted file mode 100755
+index d266c6c6b..000000000
+--- a/.chloggen/addvisit.yaml
++++ /dev/null
+@@ -1,11 +0,0 @@
+-# One of 'breaking', 'deprecation', 'new_component', 'enhancement', 'bug_fix'
+-change_type: deprecation
+-
+-# The name of the component, or a single word describing the area of concern, (e.g. otlpreceiver)
+-component: featuregate
+-
+-# A brief description of the change.  Surround your text with quotes ("") if it needs to start with a backtick (`).
+-note: Deprecate Registry.List in favor of Registry.VisitAll.
+-
+-# One or more tracking issues or pull requests related to the change
+-issues: [7041]

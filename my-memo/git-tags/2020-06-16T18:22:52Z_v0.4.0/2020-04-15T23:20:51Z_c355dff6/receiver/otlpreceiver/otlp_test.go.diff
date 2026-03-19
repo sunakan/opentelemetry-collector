@@ -1,0 +1,13 @@
+diff --git a/receiver/otlpreceiver/otlp_test.go b/receiver/otlpreceiver/otlp_test.go
+index e82f07ac8..e65c41a92 100644
+--- a/receiver/otlpreceiver/otlp_test.go
++++ b/receiver/otlpreceiver/otlp_test.go
+@@ -134,7 +134,7 @@ func TestGrpcGateway_endToEnd(t *testing.T) {
+ 
+ 	got := sink.AllTraces()[0]
+ 
+-	want := pdata.TraceDataFromOtlp([]*otlptrace.ResourceSpans{
++	want := pdata.TracesFromOtlp([]*otlptrace.ResourceSpans{
+ 		{
+ 			Resource: &otlpresource.Resource{
+ 				Attributes: []*otlpcommon.AttributeKeyValue{

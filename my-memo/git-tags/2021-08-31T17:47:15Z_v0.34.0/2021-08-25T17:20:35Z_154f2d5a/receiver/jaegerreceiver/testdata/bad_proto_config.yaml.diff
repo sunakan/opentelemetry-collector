@@ -1,0 +1,25 @@
+diff --git a/receiver/jaegerreceiver/testdata/bad_proto_config.yaml b/receiver/jaegerreceiver/testdata/bad_proto_config.yaml
+deleted file mode 100644
+index 29e7f061e..000000000
+--- a/receiver/jaegerreceiver/testdata/bad_proto_config.yaml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-receivers:
+-  # The following demonstrates how to enable protocols with defaults
+-  jaeger:
+-    protocols:
+-      thrift_htttp:
+-        endpoint: "127.0.0.1:123"
+-
+-processors:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  pipelines:
+-    traces:
+-     receivers: [jaeger]
+-     processors: [nop]
+-     exporters: [nop]

@@ -1,0 +1,20 @@
+diff --git a/receiver/hostmetricsreceiver/config_test.go b/receiver/hostmetricsreceiver/config_test.go
+index 18013d576..117166d7b 100644
+--- a/receiver/hostmetricsreceiver/config_test.go
++++ b/receiver/hostmetricsreceiver/config_test.go
+@@ -100,7 +100,7 @@ func TestLoadInvalidConfig_NoScrapers(t *testing.T) {
+ 	factories.Receivers[typeStr] = factory
+ 	_, err = configtest.LoadConfigFile(t, path.Join(".", "testdata", "config-noscrapers.yaml"), factories)
+ 
+-	require.EqualError(t, err, "error reading settings for receiver type \"hostmetrics\": must specify at least one scraper when using hostmetrics receiver")
++	require.EqualError(t, err, "error reading receivers configuration for hostmetrics: must specify at least one scraper when using hostmetrics receiver")
+ }
+ 
+ func TestLoadInvalidConfig_InvalidScraperKey(t *testing.T) {
+@@ -111,5 +111,5 @@ func TestLoadInvalidConfig_InvalidScraperKey(t *testing.T) {
+ 	factories.Receivers[typeStr] = factory
+ 	_, err = configtest.LoadConfigFile(t, path.Join(".", "testdata", "config-invalidscraperkey.yaml"), factories)
+ 
+-	require.EqualError(t, err, "error reading settings for receiver type \"hostmetrics\": invalid scraper key: invalidscraperkey")
++	require.EqualError(t, err, "error reading receivers configuration for hostmetrics: invalid scraper key: invalidscraperkey")
+ }

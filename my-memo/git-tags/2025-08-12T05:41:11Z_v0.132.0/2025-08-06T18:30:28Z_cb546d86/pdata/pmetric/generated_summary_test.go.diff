@@ -1,0 +1,25 @@
+diff --git a/pdata/pmetric/generated_summary_test.go b/pdata/pmetric/generated_summary_test.go
+index f49a28ae9..7288c6d55 100644
+--- a/pdata/pmetric/generated_summary_test.go
++++ b/pdata/pmetric/generated_summary_test.go
+@@ -65,16 +65,12 @@ func TestSummary_MarshalAndUnmarshalJSON(t *testing.T) {
+ func TestSummary_DataPoints(t *testing.T) {
+ 	ms := NewSummary()
+ 	assert.Equal(t, NewSummaryDataPointSlice(), ms.DataPoints())
+-	fillTestSummaryDataPointSlice(ms.DataPoints())
++	ms.orig.DataPoints = internal.GenerateOrigTestSummaryDataPointSlice()
+ 	assert.Equal(t, generateTestSummaryDataPointSlice(), ms.DataPoints())
+ }
+ 
+ func generateTestSummary() Summary {
+-	tv := NewSummary()
+-	fillTestSummary(tv)
+-	return tv
+-}
+-
+-func fillTestSummary(tv Summary) {
+-	fillTestSummaryDataPointSlice(tv.DataPoints())
++	ms := NewSummary()
++	internal.FillOrigTestSummary(ms.orig)
++	return ms
+ }

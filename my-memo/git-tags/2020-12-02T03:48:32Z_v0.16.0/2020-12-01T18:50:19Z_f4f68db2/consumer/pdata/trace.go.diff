@@ -1,0 +1,20 @@
+diff --git a/consumer/pdata/trace.go b/consumer/pdata/trace.go
+index 60848e12a..a6c8edef7 100644
+--- a/consumer/pdata/trace.go
++++ b/consumer/pdata/trace.go
+@@ -79,15 +79,8 @@ func (td Traces) SpanCount() int {
+ 	rss := td.ResourceSpans()
+ 	for i := 0; i < rss.Len(); i++ {
+ 		rs := rss.At(i)
+-		if rs.IsNil() {
+-			continue
+-		}
+ 		ilss := rs.InstrumentationLibrarySpans()
+ 		for j := 0; j < ilss.Len(); j++ {
+-			ils := ilss.At(j)
+-			if ils.IsNil() {
+-				continue
+-			}
+ 			spanCount += ilss.At(j).Spans().Len()
+ 		}
+ 	}

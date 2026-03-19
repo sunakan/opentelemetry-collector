@@ -1,0 +1,10 @@
+diff --git a/.codecov.yml b/.codecov.yml
+index b7698210c..469b449be 100644
+--- a/.codecov.yml
++++ b/.codecov.yml
+@@ -19,4 +19,5 @@ coverage:
+ 
+ ignore:
+   - "pdata/internal/data/protogen/**/*"
++  - "**/*.pb.go"
+   - "cmd/mdatagen/third_party/**/*"

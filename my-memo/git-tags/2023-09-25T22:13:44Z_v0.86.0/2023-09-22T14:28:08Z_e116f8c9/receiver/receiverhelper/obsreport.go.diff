@@ -1,0 +1,16 @@
+diff --git a/receiver/receiverhelper/obsreport.go b/receiver/receiverhelper/obsreport.go
+index 40caca0cc..edea46ebc 100644
+--- a/receiver/receiverhelper/obsreport.go
++++ b/receiver/receiverhelper/obsreport.go
+@@ -25,10 +25,7 @@ import (
+ )
+ 
+ const (
+-	receiverName  = "receiver"
+-	scopeName     = "go.opentelemetry.io/collector/obsreport"
+-	nameSep       = "/"
+-	receiverScope = scopeName + nameSep + receiverName
++	receiverScope = obsmetrics.Scope + obsmetrics.NameSep + obsmetrics.ReceiverKey
+ )
+ 
+ // ObsReport is a helper to add observability to a receiver.

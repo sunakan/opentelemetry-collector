@@ -1,0 +1,13 @@
+diff --git a/model/semconv/v1.5.0/resource.go b/model/semconv/v1.5.0/resource.go
+index fc7d6a68f..ce0a2ac26 100644
+--- a/model/semconv/v1.5.0/resource.go
++++ b/model/semconv/v1.5.0/resource.go
+@@ -14,7 +14,7 @@
+ 
+ // Code generated from semantic convention specification. DO NOT EDIT.
+ 
+-package semconv
++package semconv // import "go.opentelemetry.io/collector/model/semconv/v1.5.0"
+ 
+ // A cloud environment (e.g. GCP, Azure, AWS)
+ const (

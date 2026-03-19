@@ -1,0 +1,21 @@
+diff --git a/receiver/otlpreceiver/internal/trace/otlp_test.go b/receiver/otlpreceiver/internal/trace/otlp_test.go
+index 1b188092f..9975deeb9 100644
+--- a/receiver/otlpreceiver/internal/trace/otlp_test.go
++++ b/receiver/otlpreceiver/internal/trace/otlp_test.go
+@@ -24,6 +24,7 @@ import (
+ 	"github.com/stretchr/testify/require"
+ 	"google.golang.org/grpc"
+ 
++	"go.opentelemetry.io/collector/component/componenttest"
+ 	"go.opentelemetry.io/collector/config"
+ 	"go.opentelemetry.io/collector/consumer"
+ 	"go.opentelemetry.io/collector/consumer/consumertest"
+@@ -111,7 +112,7 @@ func otlpReceiverOnGRPCServer(t *testing.T, tc consumer.Traces) (net.Addr, func(
+ 		}
+ 	}
+ 
+-	r := New(config.NewComponentIDWithName("otlp", "trace"), tc)
++	r := New(config.NewComponentIDWithName("otlp", "trace"), tc, componenttest.NewNopReceiverCreateSettings())
+ 	require.NoError(t, err)
+ 
+ 	// Now run it as a gRPC server

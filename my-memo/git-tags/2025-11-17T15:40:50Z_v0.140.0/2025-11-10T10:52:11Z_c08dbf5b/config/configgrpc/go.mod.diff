@@ -1,0 +1,10 @@
+diff --git a/config/configgrpc/go.mod b/config/configgrpc/go.mod
+index 0cccc2bf2..ab48cadb6 100644
+--- a/config/configgrpc/go.mod
++++ b/config/configgrpc/go.mod
+@@ -114,3 +114,5 @@ replace go.opentelemetry.io/collector/extension/extensionmiddleware/extensionmid
+ replace go.opentelemetry.io/collector/confmap => ../../confmap
+ 
+ replace go.opentelemetry.io/collector/confmap/xconfmap => ../../confmap/xconfmap
++
++replace go.opentelemetry.io/collector/internal/testutil => ../../internal/testutil

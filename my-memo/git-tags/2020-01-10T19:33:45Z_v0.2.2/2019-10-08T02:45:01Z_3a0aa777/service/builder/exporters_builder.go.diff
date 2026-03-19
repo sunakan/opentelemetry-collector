@@ -1,0 +1,37 @@
+diff --git a/service/builder/exporters_builder.go b/service/builder/exporters_builder.go
+index a0e25de3a..16f5a2e0f 100644
+--- a/service/builder/exporters_builder.go
++++ b/service/builder/exporters_builder.go
+@@ -134,6 +134,7 @@ func (eb *ExportersBuilder) Build() (Exporters, error) {
+ 		if err != nil {
+ 			return nil, err
+ 		}
++
+ 		exporters[cfg] = exp
+ 	}
+ 
+@@ -206,6 +207,11 @@ func (eb *ExportersBuilder) buildExporter(
+ 			return nil, fmt.Errorf("error creating %s exporter: %v", config.Name(), err)
+ 		}
+ 
++		// Check if the factory really created the exporter.
++		if te == nil {
++			return nil, fmt.Errorf("factory for %q produced a nil exporter", config.Name())
++		}
++
+ 		exporter.te = te
+ 	}
+ 
+@@ -220,6 +226,12 @@ func (eb *ExportersBuilder) buildExporter(
+ 			return nil, fmt.Errorf("error creating %s exporter: %v", config.Name(), err)
+ 		}
+ 
++		// The factories can be implemented by third parties, check if they really
++		// created the exporter.
++		if me == nil {
++			return nil, fmt.Errorf("factory for %q produced a nil exporter", config.Name())
++		}
++
+ 		exporter.me = me
+ 	}
+ 

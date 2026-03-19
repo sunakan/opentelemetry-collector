@@ -1,0 +1,15 @@
+diff --git a/component/componenttest/nop_extension.go b/component/componenttest/nop_extension.go
+index ef3d1c4f9..4319556f3 100644
+--- a/component/componenttest/nop_extension.go
++++ b/component/componenttest/nop_extension.go
+@@ -25,8 +25,8 @@ import (
+ // NewNopExtensionCreateSettings returns a new nop settings for Create*Extension functions.
+ func NewNopExtensionCreateSettings() component.ExtensionCreateSettings {
+ 	return component.ExtensionCreateSettings{
+-		TelemetryCreateSettings: NewNopTelemetryCreateSettings(),
+-		BuildInfo:               component.DefaultBuildInfo(),
++		TelemetrySettings: NewNopTelemetrySettings(),
++		BuildInfo:         component.DefaultBuildInfo(),
+ 	}
+ }
+ 

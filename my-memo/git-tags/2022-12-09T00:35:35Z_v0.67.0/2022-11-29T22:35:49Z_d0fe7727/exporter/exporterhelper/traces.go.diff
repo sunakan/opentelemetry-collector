@@ -1,0 +1,13 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index ce882e3fe..ea336d586 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -99,7 +99,7 @@ func NewTracesExporter(
+ 	}
+ 
+ 	bs := fromOptions(options...)
+-	be, err := newBaseExporter(cfg, set, bs, component.DataTypeTraces, newTraceRequestUnmarshalerFunc(pusher))
++	be, err := newBaseExporter(set, bs, component.DataTypeTraces, newTraceRequestUnmarshalerFunc(pusher))
+ 	if err != nil {
+ 		return nil, err
+ 	}

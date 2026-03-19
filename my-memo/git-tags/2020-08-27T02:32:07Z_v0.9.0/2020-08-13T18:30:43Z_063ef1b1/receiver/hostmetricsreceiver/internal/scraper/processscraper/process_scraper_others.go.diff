@@ -1,0 +1,13 @@
+diff --git a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_others.go b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_others.go
+index 46eedad53..bbb22705d 100644
+--- a/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_others.go
++++ b/receiver/hostmetricsreceiver/internal/scraper/processscraper/process_scraper_others.go
+@@ -24,7 +24,7 @@ import (
+ 
+ const cpuStatesLen = 0
+ 
+-func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startTime pdata.TimestampUnixNano, cpuTime *cpu.TimesStat) {
++func appendCPUTimeStateDataPoints(ddps pdata.DoubleDataPointSlice, startTime, now pdata.TimestampUnixNano, cpuTime *cpu.TimesStat) {
+ }
+ 
+ func getProcessExecutable(proc processHandle) (*executableMetadata, error) {

@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/forward_test.go b/connector/forwardconnector/forward_test.go
+index 3783a1f59..3ce18c4f5 100644
+--- a/connector/forwardconnector/forward_test.go
++++ b/connector/forwardconnector/forward_test.go
+@@ -19,7 +19,7 @@ import (
+ func TestForward(t *testing.T) {
+ 	f := NewFactory()
+ 	cfg := f.CreateDefaultConfig()
+-	assert.Equal(t, &struct{}{}, cfg)
++	assert.Equal(t, &Config{}, cfg)
+ 
+ 	ctx := context.Background()
+ 	set := connectortest.NewNopCreateSettings()

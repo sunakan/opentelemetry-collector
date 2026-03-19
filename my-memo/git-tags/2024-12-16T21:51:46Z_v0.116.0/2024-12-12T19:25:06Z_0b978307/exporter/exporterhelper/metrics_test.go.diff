@@ -1,0 +1,24 @@
+diff --git a/exporter/exporterhelper/metrics_test.go b/exporter/exporterhelper/metrics_test.go
+index 5d89c3bee..d6d38e9a3 100644
+--- a/exporter/exporterhelper/metrics_test.go
++++ b/exporter/exporterhelper/metrics_test.go
+@@ -387,6 +387,7 @@ func newPushMetricsData(retError error) consumer.ConsumeMetricsFunc {
+ 		return retError
+ 	}
+ }
++
+ func newPushMetricsDataModifiedDownstream(retError error) consumer.ConsumeMetricsFunc {
+ 	return func(_ context.Context, metric pmetric.Metrics) error {
+ 		metric.ResourceMetrics().MoveAndAppendTo(pmetric.NewResourceMetricsSlice())
+@@ -419,8 +420,10 @@ func generateMetricsTraffic(t *testing.T, tracer trace.Tracer, me exporter.Metri
+ 	}
+ }
+ 
++// nolint: unparam
+ func checkWrapSpanForMetrics(t *testing.T, sr *tracetest.SpanRecorder, tracer trace.Tracer,
+-	me exporter.Metrics, wantError error, numMetricPoints int64) { // nolint: unparam
++	me exporter.Metrics, wantError error, numMetricPoints int64,
++) {
+ 	const numRequests = 5
+ 	generateMetricsTraffic(t, tracer, me, numRequests, wantError)
+ 

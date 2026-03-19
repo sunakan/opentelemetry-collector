@@ -1,0 +1,14 @@
+diff --git a/receiver/opencensusreceiver/opencensus_test.go b/receiver/opencensusreceiver/opencensus_test.go
+index 26da23201..94b8ae0cd 100644
+--- a/receiver/opencensusreceiver/opencensus_test.go
++++ b/receiver/opencensusreceiver/opencensus_test.go
+@@ -35,8 +35,8 @@ import (
+ 	"github.com/open-telemetry/opentelemetry-collector/consumer/consumerdata"
+ 	"github.com/open-telemetry/opentelemetry-collector/exporter/exportertest"
+ 	"github.com/open-telemetry/opentelemetry-collector/internal"
+-	"github.com/open-telemetry/opentelemetry-collector/internal/testutils"
+ 	"github.com/open-telemetry/opentelemetry-collector/receiver/receivertest"
++	"github.com/open-telemetry/opentelemetry-collector/testutils"
+ )
+ 
+ // TODO(ccaraman): Migrate tests to use assert for validating functionality.

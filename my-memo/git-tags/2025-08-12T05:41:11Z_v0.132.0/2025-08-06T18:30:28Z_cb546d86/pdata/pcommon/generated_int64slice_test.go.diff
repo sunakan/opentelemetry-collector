@@ -1,0 +1,13 @@
+diff --git a/pdata/pcommon/generated_int64slice_test.go b/pdata/pcommon/generated_int64slice_test.go
+index e621f14e5..743552972 100644
+--- a/pdata/pcommon/generated_int64slice_test.go
++++ b/pdata/pcommon/generated_int64slice_test.go
+@@ -135,7 +135,7 @@ func TestInt64Slice_MarshalAndUnmarshalJSON(t *testing.T) {
+ 	stream := json.BorrowStream(nil)
+ 	defer json.ReturnStream(stream)
+ 	src := NewInt64Slice()
+-	internal.FillTestInt64Slice(internal.Int64Slice(src))
++	*src.getOrig() = internal.GenerateOrigTestInt64Slice()
+ 	internal.MarshalJSONStreamInt64Slice(internal.Int64Slice(src), stream)
+ 	require.NoError(t, stream.Error())
+ 

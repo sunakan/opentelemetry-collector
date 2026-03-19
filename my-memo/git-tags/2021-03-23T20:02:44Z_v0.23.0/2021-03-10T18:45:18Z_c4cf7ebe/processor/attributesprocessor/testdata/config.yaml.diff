@@ -1,0 +1,25 @@
+diff --git a/processor/attributesprocessor/testdata/config.yaml b/processor/attributesprocessor/testdata/config.yaml
+index 8525f0be3..3565ee53a 100644
+--- a/processor/attributesprocessor/testdata/config.yaml
++++ b/processor/attributesprocessor/testdata/config.yaml
+@@ -301,16 +301,16 @@ processors:
+         value: "SELECT * FROM USERS [obfuscated]"
+ 
+ receivers:
+-  examplereceiver:
++  nop:
+ 
+ exporters:
+-  exampleexporter:
++  nop:
+ 
+ service:
+   pipelines:
+     traces:
+-      receivers: [examplereceiver]
++      receivers: [nop]
+       processors: [attributes/insert]
+-      exporters: [exampleexporter]
++      exporters: [nop]
+ 
+ 

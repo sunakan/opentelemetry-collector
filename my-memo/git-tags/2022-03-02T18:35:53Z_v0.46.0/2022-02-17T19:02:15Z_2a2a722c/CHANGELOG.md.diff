@@ -1,0 +1,15 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 400bf19db..4849deb26 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,10 @@
+ 
+ - Add validation to check at least one endpoint is specified in otlphttpexporter's configuration (#4860)
+ 
++## 🧰 Bug fixes 🧰
++
++- Initialized logger with collector to avoid potential race condition panic on `Shutdown` (#4827)
++
+ ## v0.45.0 Beta
+ 
+ ### 🛑 Breaking changes 🛑

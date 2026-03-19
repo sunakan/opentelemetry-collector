@@ -1,0 +1,13 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index fbe45bf7a..2e924cf98 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -56,7 +56,7 @@ func NewFactory() component.ReceiverFactory {
+ 	return receiverhelper.NewFactory(
+ 		typeStr,
+ 		createDefaultConfig,
+-		receiverhelper.WithTraceReceiver(createTraceReceiver),
++		receiverhelper.WithTraces(createTraceReceiver),
+ 		receiverhelper.WithCustomUnmarshaler(customUnmarshaler))
+ }
+ 

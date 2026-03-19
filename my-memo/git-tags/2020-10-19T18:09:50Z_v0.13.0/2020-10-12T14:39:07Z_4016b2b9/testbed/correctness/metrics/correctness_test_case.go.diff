@@ -1,0 +1,31 @@
+diff --git a/testbed/correctness/metrics/correctness_test_case.go b/testbed/correctness/metrics/correctness_test_case.go
+index 18d89e53a..d66e6cd00 100644
+--- a/testbed/correctness/metrics/correctness_test_case.go
++++ b/testbed/correctness/metrics/correctness_test_case.go
+@@ -17,6 +17,7 @@ package metrics
+ import (
+ 	"log"
+ 	"testing"
++	"time"
+ 
+ 	"github.com/stretchr/testify/require"
+ 
+@@ -92,8 +93,16 @@ func (tc *correctnessTestCase) sendFirstMetric() {
+ 
+ func (tc *correctnessTestCase) waitForAllMetrics() {
+ 	log.Println("waiting for allMetricsReceived")
+-	<-tc.harness.allMetricsReceived
+-	log.Println("all metrics received")
++	for {
++		select {
++		case <-time.After(10 * time.Second):
++			tc.t.Fatal("Deadline exceeded while waiting to receive metrics")
++			return
++		case <-tc.harness.allMetricsReceived:
++			log.Println("all metrics received")
++			return
++		}
++	}
+ }
+ 
+ func componentFactories(t *testing.T) component.Factories {

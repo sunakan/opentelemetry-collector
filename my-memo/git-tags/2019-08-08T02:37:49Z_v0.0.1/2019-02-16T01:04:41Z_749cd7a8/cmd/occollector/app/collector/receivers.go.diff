@@ -1,0 +1,20 @@
+diff --git a/cmd/occollector/app/collector/receivers.go b/cmd/occollector/app/collector/receivers.go
+index 90344b29b..a682d5c2a 100644
+--- a/cmd/occollector/app/collector/receivers.go
++++ b/cmd/occollector/app/collector/receivers.go
+@@ -22,11 +22,11 @@ import (
+ 	"go.uber.org/zap"
+ 
+ 	"github.com/census-instrumentation/opencensus-service/cmd/occollector/app/builder"
+-	"github.com/census-instrumentation/opencensus-service/internal/collector/jaeger"
+-	"github.com/census-instrumentation/opencensus-service/internal/collector/opencensus"
++	jaegerreceiver "github.com/census-instrumentation/opencensus-service/internal/collector/jaeger"
++	ocreceiver "github.com/census-instrumentation/opencensus-service/internal/collector/opencensus"
+ 	"github.com/census-instrumentation/opencensus-service/internal/collector/processor"
+-	"github.com/census-instrumentation/opencensus-service/internal/collector/zipkin"
+-	"github.com/census-instrumentation/opencensus-service/internal/collector/zipkin/scribe"
++	zipkinreceiver "github.com/census-instrumentation/opencensus-service/internal/collector/zipkin"
++	zipkinscribereceiver "github.com/census-instrumentation/opencensus-service/internal/collector/zipkin/scribe"
+ 	"github.com/census-instrumentation/opencensus-service/receiver"
+ )
+ 

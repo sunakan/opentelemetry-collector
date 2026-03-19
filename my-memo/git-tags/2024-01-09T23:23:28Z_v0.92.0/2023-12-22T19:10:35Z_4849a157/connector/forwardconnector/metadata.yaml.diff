@@ -1,0 +1,13 @@
+diff --git a/connector/forwardconnector/metadata.yaml b/connector/forwardconnector/metadata.yaml
+new file mode 100644
+index 000000000..41fc27070
+--- /dev/null
++++ b/connector/forwardconnector/metadata.yaml
+@@ -0,0 +1,7 @@
++type: forward
++
++status:
++  class: connector
++  stability:
++    beta: [traces_to_traces, metrics_to_metrics, logs_to_logs]
++  distributions: [core, contrib]

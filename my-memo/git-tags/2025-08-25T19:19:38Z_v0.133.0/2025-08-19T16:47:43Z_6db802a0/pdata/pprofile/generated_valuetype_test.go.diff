@@ -1,0 +1,13 @@
+diff --git a/pdata/pprofile/generated_valuetype_test.go b/pdata/pprofile/generated_valuetype_test.go
+index 2a22f80d0..0647a40b3 100644
+--- a/pdata/pprofile/generated_valuetype_test.go
++++ b/pdata/pprofile/generated_valuetype_test.go
+@@ -71,7 +71,6 @@ func TestValueType_AggregationTemporality(t *testing.T) {
+ }
+ 
+ func generateTestValueType() ValueType {
+-	ms := NewValueType()
+-	internal.FillOrigTestValueType(ms.orig)
++	ms := newValueType(internal.GenTestOrigValueType(), internal.NewState())
+ 	return ms
+ }

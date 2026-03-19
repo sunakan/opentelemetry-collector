@@ -1,0 +1,17 @@
+diff --git a/receiver/jaegerreceiver/factory.go b/receiver/jaegerreceiver/factory.go
+index fda0b7639..0b5db1eb8 100644
+--- a/receiver/jaegerreceiver/factory.go
++++ b/receiver/jaegerreceiver/factory.go
+@@ -103,8 +103,10 @@ func (f *Factory) CustomUnmarshaler() component.CustomUnmarshaler {
+ // CreateDefaultConfig creates the default configuration for Jaeger receiver.
+ func (f *Factory) CreateDefaultConfig() configmodels.Receiver {
+ 	return &Config{
+-		TypeVal:   typeStr,
+-		NameVal:   typeStr,
++		ReceiverSettings: configmodels.ReceiverSettings{
++			TypeVal: typeStr,
++			NameVal: typeStr,
++		},
+ 		Protocols: map[string]*configprotocol.ProtocolServerSettings{},
+ 	}
+ }

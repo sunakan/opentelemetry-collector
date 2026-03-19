@@ -1,0 +1,15 @@
+diff --git a/consumer/consumertest/sink_test.go b/consumer/consumertest/sink_test.go
+index 3b7466e14..c7531aac9 100644
+--- a/consumer/consumertest/sink_test.go
++++ b/consumer/consumertest/sink_test.go
+@@ -64,8 +64,8 @@ func TestLogsSink(t *testing.T) {
+ 		want = append(want, md)
+ 	}
+ 	assert.Equal(t, want, sink.AllLogs())
+-	assert.Equal(t, len(want), sink.LogRecordsCount())
++	assert.Equal(t, len(want), sink.LogRecordCount())
+ 	sink.Reset()
+ 	assert.Equal(t, 0, len(sink.AllLogs()))
+-	assert.Equal(t, 0, sink.LogRecordsCount())
++	assert.Equal(t, 0, sink.LogRecordCount())
+ }

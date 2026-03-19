@@ -1,0 +1,13 @@
+diff --git a/internal/cmd/pdatagen/internal/one_of_primitive_value.go b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+index 03bc45495..1467aca5c 100644
+--- a/internal/cmd/pdatagen/internal/one_of_primitive_value.go
++++ b/internal/cmd/pdatagen/internal/one_of_primitive_value.go
+@@ -59,7 +59,7 @@ const oneOfPrimitiveMarshalJSONTemplate = `case *{{ .originStructName }}_{{ .ori
+ 	dest.Write{{ upperFirst .returnType }}(ov.{{ .originFieldName }})`
+ 
+ const oneOfPrimitiveUnmarshalJSONTemplate = `case "{{ lowerFirst .originFieldName }}"{{ if needSnake .originFieldName -}}, "{{ toSnake .originFieldName }}"{{- end }}:
+-	ms.orig.{{ .originOneOfFieldName }} = &{{ .originStructType }}{
++	orig.{{ .originOneOfFieldName }} = &{{ .originStructType }}{
+ 		{{ .originFieldName }}: iter.Read{{ upperFirst .returnType }}(),
+ 	}`
+ 

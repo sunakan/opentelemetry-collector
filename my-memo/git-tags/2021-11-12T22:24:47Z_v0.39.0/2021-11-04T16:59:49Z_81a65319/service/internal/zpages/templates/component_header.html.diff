@@ -1,0 +1,14 @@
+diff --git a/service/internal/zpages/templates/component_header.html b/service/internal/zpages/templates/component_header.html
+index 463a15cc7..826127479 100644
+--- a/service/internal/zpages/templates/component_header.html
++++ b/service/internal/zpages/templates/component_header.html
+@@ -1,7 +1,6 @@
+-{{$a := .ComponentEndpoint}}
+ {{$link := .Link}}
+ {{- if $link -}}
+-    <h6><a href="{{$a}}">{{.Name}}</a></h6>
++    <h6><a href="{{.ComponentEndpoint}}">{{.Name}}</a></h6>
+ {{- else -}}
+     <h6>{{.Name}}</h6>
+ {{- end -}}
+\ No newline at end of file

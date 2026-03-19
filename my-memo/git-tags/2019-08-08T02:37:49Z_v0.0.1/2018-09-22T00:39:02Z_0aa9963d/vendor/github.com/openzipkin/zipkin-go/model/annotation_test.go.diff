@@ -1,0 +1,28 @@
+diff --git a/vendor/github.com/openzipkin/zipkin-go/model/annotation_test.go b/vendor/github.com/openzipkin/zipkin-go/model/annotation_test.go
+deleted file mode 100644
+index 2a80b8c62..000000000
+--- a/vendor/github.com/openzipkin/zipkin-go/model/annotation_test.go
++++ /dev/null
+@@ -1,22 +0,0 @@
+-package model
+-
+-import (
+-	"encoding/json"
+-	"testing"
+-)
+-
+-func TestAnnotationNegativeTimestamp(t *testing.T) {
+-	var (
+-		span SpanModel
+-		b1   = []byte(`{"annotations":[{"timestamp":-1}]}`)
+-		b2   = []byte(`{"annotations":[{"timestamp":0}]}`)
+-	)
+-
+-	if err := json.Unmarshal(b1, &span); err == nil {
+-		t.Errorf("Unmarshal should have failed with error, have: %+v", span)
+-	}
+-
+-	if err := json.Unmarshal(b2, &span); err == nil {
+-		t.Errorf("Unmarshal should have failed with error, have: %+v", span)
+-	}
+-}

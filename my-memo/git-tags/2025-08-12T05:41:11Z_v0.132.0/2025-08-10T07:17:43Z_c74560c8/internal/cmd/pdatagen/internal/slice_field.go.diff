@@ -1,0 +1,30 @@
+diff --git a/internal/cmd/pdatagen/internal/slice_field.go b/internal/cmd/pdatagen/internal/slice_field.go
+index 960639691..9a69cd3af 100644
+--- a/internal/cmd/pdatagen/internal/slice_field.go
++++ b/internal/cmd/pdatagen/internal/slice_field.go
+@@ -84,8 +84,16 @@ func (sf *SliceField) GenerateUnmarshalJSON(ms *messageStruct) string {
+ }
+ 
+ func (sf *SliceField) GenerateSizeProto(*messageStruct) string {
++	return sf.toProtoField().genSizeProto()
++}
++
++func (sf *SliceField) GenerateMarshalProto(*messageStruct) string {
++	return sf.toProtoField().genMarshalProto()
++}
++
++func (sf *SliceField) toProtoField() *ProtoField {
+ 	_, nullable := sf.returnSlice.(*sliceOfPtrs)
+-	pf := &ProtoField{
++	return &ProtoField{
+ 		Type:        sf.protoType,
+ 		ID:          sf.protoID,
+ 		Name:        sf.fieldName,
+@@ -93,7 +101,6 @@ func (sf *SliceField) GenerateSizeProto(*messageStruct) string {
+ 		Repeated:    sf.protoType != ProtoTypeBytes,
+ 		Nullable:    nullable,
+ 	}
+-	return pf.genSizeProto()
+ }
+ 
+ func (sf *SliceField) templateFields(ms *messageStruct) map[string]any {

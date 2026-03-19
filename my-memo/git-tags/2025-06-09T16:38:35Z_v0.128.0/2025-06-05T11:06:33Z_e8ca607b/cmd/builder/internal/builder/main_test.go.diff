@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index 6f98cdb51..caa4cae5d 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -50,6 +50,7 @@ var replaceModules = []string{
+ 	"/config/configmiddleware",
+ 	"/config/confignet",
+ 	"/config/configopaque",
++	"/config/configoptional",
+ 	"/config/configretry",
+ 	"/config/configtelemetry",
+ 	"/config/configtls",

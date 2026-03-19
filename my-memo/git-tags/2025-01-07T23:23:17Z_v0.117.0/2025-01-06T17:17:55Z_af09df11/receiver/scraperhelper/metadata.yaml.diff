@@ -1,0 +1,37 @@
+diff --git a/receiver/scraperhelper/metadata.yaml b/receiver/scraperhelper/metadata.yaml
+deleted file mode 100644
+index 3fd8990d2..000000000
+--- a/receiver/scraperhelper/metadata.yaml
++++ /dev/null
+@@ -1,30 +0,0 @@
+-type: scraperhelper
+-github_project: open-telemetry/opentelemetry-collector
+-
+-status:
+-  class: receiver
+-  not_component: true
+-  stability:
+-    beta: [traces, metrics, logs]
+-
+-telemetry:
+-  metrics:
+-    scraper_scraped_metric_points:
+-      enabled: true
+-      stability:
+-        level: alpha
+-      description: Number of metric points successfully scraped.
+-      unit: "{datapoints}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+-
+-    scraper_errored_metric_points:
+-      enabled: true
+-      stability:
+-        level: alpha
+-      description: Number of metric points that were unable to be scraped.
+-      unit: "{datapoints}"
+-      sum:
+-        value_type: int
+-        monotonic: true
+\ No newline at end of file

@@ -1,0 +1,44 @@
+diff --git a/config/configtest/testdata/config.yaml b/config/configtest/testdata/config.yaml
+index 45189b1ec..da82f64eb 100644
+--- a/config/configtest/testdata/config.yaml
++++ b/config/configtest/testdata/config.yaml
+@@ -1,10 +1,28 @@
+-# Yaml configuration tests
+-
+-test/fullyaml:
+-    topvalue: toplevelvalue
+-    nested:
+-        nestedvalue: nestedvalue
+-    nestedvalue: squashedvalue
+-test/partialyaml:
+-    topvalue: toplevelvalue
+-    nestedvalue: squashedvalue
+\ No newline at end of file
++receivers:
++    examplereceiver:
++    examplereceiver/myreceiver:
++        endpoint: "localhost:12345"
++        extra: "some string"
++
++processors:
++    exampleprocessor:
++
++exporters:
++    exampleexporter/myexporter:
++        extra: "some export string 2"
++    exampleexporter:
++
++extensions:
++    exampleextension/0:
++    exampleextension/disabled:
++        extra: "not present in the service"
++    exampleextension/1:
++        extra: "some string"
++
++service:
++    extensions: [exampleextension/0, exampleextension/1]
++    pipelines:
++        traces:
++            receivers: [examplereceiver]
++            processors: [exampleprocessor]
++            exporters: [exampleexporter]

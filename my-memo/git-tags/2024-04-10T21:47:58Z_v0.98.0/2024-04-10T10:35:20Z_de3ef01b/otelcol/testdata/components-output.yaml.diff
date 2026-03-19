@@ -1,0 +1,16 @@
+diff --git a/otelcol/testdata/components-output.yaml b/otelcol/testdata/components-output.yaml
+index bfac28484..929ae0194 100644
+--- a/otelcol/testdata/components-output.yaml
++++ b/otelcol/testdata/components-output.yaml
+@@ -8,6 +8,11 @@ receivers:
+         logs: Stable
+         metrics: Stable
+         traces: Stable
++    - name: nop_logs
++      stability:
++        logs: Stable
++        metrics: Undefined
++        traces: Undefined
+ processors:
+     - name: nop
+       stability:

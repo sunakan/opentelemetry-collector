@@ -1,0 +1,23 @@
+diff --git a/model/pdata/logs.go b/model/pdata/logs.go
+index 582055929..d85e9962a 100644
+--- a/model/pdata/logs.go
++++ b/model/pdata/logs.go
+@@ -96,15 +96,15 @@ func (ld Logs) ResourceLogs() ResourceLogsSlice {
+ 	return newResourceLogsSlice(&ld.orig.ResourceLogs)
+ }
+ 
+-// Deprecated: use LogRecordSlice
++// Deprecated: [v0.44.0] use LogRecordSlice
+ type LogSlice = LogRecordSlice
+ 
+-// Deprecated: use `LogRecords`.
++// Deprecated: [v0.44.0] use `LogRecords`.
+ func (ms InstrumentationLibraryLogs) Logs() LogRecordSlice {
+ 	return ms.LogRecords()
+ }
+ 
+-// Deprecated: use NewLogRecordSlice
++// Deprecated: [v0.44.0] use NewLogRecordSlice
+ func NewLogSlice() LogRecordSlice {
+ 	return NewLogRecordSlice()
+ }

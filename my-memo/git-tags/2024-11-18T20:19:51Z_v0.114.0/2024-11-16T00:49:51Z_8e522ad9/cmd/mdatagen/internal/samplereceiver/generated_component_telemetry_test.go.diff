@@ -1,0 +1,21 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go b/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
+index ea344d16f..64fd8e37e 100644
+--- a/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
++++ b/cmd/mdatagen/internal/samplereceiver/generated_component_telemetry_test.go
+@@ -26,14 +26,15 @@ type componentTestTelemetry struct {
+ 
+ func (tt *componentTestTelemetry) NewSettings() receiver.Settings {
+ 	set := receivertest.NewNopSettings()
+-	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	set.ID = component.NewID(component.MustNewType("sample"))
++	set.TelemetrySettings = tt.newTelemetrySettings()
+ 	return set
+ }
+ 
+ func (tt *componentTestTelemetry) newTelemetrySettings() component.TelemetrySettings {
+ 	set := componenttest.NewNopTelemetrySettings()
+ 	set.MeterProvider = tt.meterProvider
++	set.MetricsLevel = configtelemetry.LevelDetailed
+ 	set.LeveledMeterProvider = func(_ configtelemetry.Level) metric.MeterProvider {
+ 		return tt.meterProvider
+ 	}

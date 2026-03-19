@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/traces.go b/exporter/exporterhelper/traces.go
+index 7f18e62b0..8de97091c 100644
+--- a/exporter/exporterhelper/traces.go
++++ b/exporter/exporterhelper/traces.go
+@@ -79,17 +79,6 @@ type traceExporter struct {
+ 	consumer.Traces
+ }
+ 
+-// Deprecated: [v0.59.0] use NewTracesExporter.
+-func NewTracesExporterWithContext(
+-	ctx context.Context,
+-	set component.ExporterCreateSettings,
+-	cfg config.Exporter,
+-	pusher consumer.ConsumeTracesFunc,
+-	options ...Option,
+-) (component.TracesExporter, error) {
+-	return NewTracesExporter(ctx, set, cfg, pusher, options...)
+-}
+-
+ // NewTracesExporter creates a component.TracesExporter that records observability metrics and wraps every request with a Span.
+ func NewTracesExporter(
+ 	_ context.Context,

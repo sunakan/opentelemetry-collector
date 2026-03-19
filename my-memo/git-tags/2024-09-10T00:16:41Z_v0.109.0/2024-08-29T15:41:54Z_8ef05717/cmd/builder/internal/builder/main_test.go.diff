@@ -1,0 +1,12 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index fc53a3a08..f65273b5d 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -77,6 +77,7 @@ var (
+ 		"/processor",
+ 		"/processor/batchprocessor",
+ 		"/processor/memorylimiterprocessor",
++		"/processor/processorprofiles",
+ 		"/receiver",
+ 		"/receiver/nopreceiver",
+ 		"/receiver/otlpreceiver",

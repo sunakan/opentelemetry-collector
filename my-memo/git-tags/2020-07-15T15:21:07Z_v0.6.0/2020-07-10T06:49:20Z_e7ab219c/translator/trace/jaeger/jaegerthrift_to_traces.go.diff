@@ -1,0 +1,15 @@
+diff --git a/translator/trace/jaeger/jaegerthrift_to_traces.go b/translator/trace/jaeger/jaegerthrift_to_traces.go
+index a866e8b78..fe2ba8945 100644
+--- a/translator/trace/jaeger/jaegerthrift_to_traces.go
++++ b/translator/trace/jaeger/jaegerthrift_to_traces.go
+@@ -166,8 +166,9 @@ func jThriftLogsToSpanEvents(logs []*jaeger.Log, dest pdata.SpanEventSlice) {
+ 		attrs := event.Attributes()
+ 		attrs.InitEmptyWithCapacity(len(log.Fields))
+ 		jThriftTagsToInternalAttributes(log.Fields, attrs)
+-		if name, ok := attrs.Get("message"); ok {
++		if name, ok := attrs.Get(tracetranslator.TagMessage); ok {
+ 			event.SetName(name.StringVal())
++			attrs.Delete(tracetranslator.TagMessage)
+ 		}
+ 	}
+ }

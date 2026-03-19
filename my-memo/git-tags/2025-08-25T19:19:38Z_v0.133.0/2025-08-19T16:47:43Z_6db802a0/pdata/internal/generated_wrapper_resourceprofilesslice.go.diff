@@ -1,0 +1,18 @@
+diff --git a/pdata/internal/generated_wrapper_resourceprofilesslice.go b/pdata/internal/generated_wrapper_resourceprofilesslice.go
+index 3bd9a5e57..244b4cf4a 100644
+--- a/pdata/internal/generated_wrapper_resourceprofilesslice.go
++++ b/pdata/internal/generated_wrapper_resourceprofilesslice.go
+@@ -43,11 +43,9 @@ func CopyOrigResourceProfilesSlice(dest, src []*otlpprofiles.ResourceProfiles) [
+ func GenerateOrigTestResourceProfilesSlice() []*otlpprofiles.ResourceProfiles {
+ 	orig := make([]*otlpprofiles.ResourceProfiles, 5)
+ 	orig[0] = NewOrigPtrResourceProfiles()
+-	orig[1] = NewOrigPtrResourceProfiles()
+-	FillOrigTestResourceProfiles(orig[1])
++	orig[1] = GenTestOrigResourceProfiles()
+ 	orig[2] = NewOrigPtrResourceProfiles()
+-	orig[3] = NewOrigPtrResourceProfiles()
+-	FillOrigTestResourceProfiles(orig[3])
++	orig[3] = GenTestOrigResourceProfiles()
+ 	orig[4] = NewOrigPtrResourceProfiles()
+ 	return orig
+ }

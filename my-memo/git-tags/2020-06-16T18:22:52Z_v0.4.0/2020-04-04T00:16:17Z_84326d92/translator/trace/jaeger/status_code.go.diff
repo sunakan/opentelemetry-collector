@@ -1,0 +1,13 @@
+diff --git a/translator/trace/jaeger/status_code.go b/translator/trace/jaeger/status_code.go
+index d0ba7d31a..1bcd0971f 100644
+--- a/translator/trace/jaeger/status_code.go
++++ b/translator/trace/jaeger/status_code.go
+@@ -18,7 +18,7 @@ import (
+ 	"math"
+ 	"strconv"
+ 
+-	model "github.com/jaegertracing/jaeger/model"
++	"github.com/jaegertracing/jaeger/model"
+ 	"github.com/jaegertracing/jaeger/thrift-gen/jaeger"
+ 
+ 	tracetranslator "github.com/open-telemetry/opentelemetry-collector/translator/trace"

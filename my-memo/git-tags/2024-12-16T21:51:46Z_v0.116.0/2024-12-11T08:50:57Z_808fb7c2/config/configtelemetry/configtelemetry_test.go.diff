@@ -1,0 +1,17 @@
+diff --git a/config/configtelemetry/configtelemetry_test.go b/config/configtelemetry/configtelemetry_test.go
+index 1832fc0e1..4404c4538 100644
+--- a/config/configtelemetry/configtelemetry_test.go
++++ b/config/configtelemetry/configtelemetry_test.go
+@@ -11,8 +11,10 @@ import (
+ 	"github.com/stretchr/testify/require"
+ )
+ 
+-var _ encoding.TextMarshaler = (*Level)(nil)
+-var _ encoding.TextUnmarshaler = (*Level)(nil)
++var (
++	_ encoding.TextMarshaler   = (*Level)(nil)
++	_ encoding.TextUnmarshaler = (*Level)(nil)
++)
+ 
+ func TestUnmarshalText(t *testing.T) {
+ 	tests := []struct {

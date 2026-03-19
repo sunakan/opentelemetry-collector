@@ -1,0 +1,24 @@
+diff --git a/internal/otlp/to_translator.go b/internal/otlp/to_translator.go
+index 77e7e850c..5b347db3a 100644
+--- a/internal/otlp/to_translator.go
++++ b/internal/otlp/to_translator.go
+@@ -25,18 +25,7 @@ import (
+ 
+ type toTranslator struct{}
+ 
+-// NewToTracesTranslator returns a model.ToTracesTranslator to convert from OTLP data model to pdata.
+-func NewToTracesTranslator() model.ToTracesTranslator {
+-	return &toTranslator{}
+-}
+-
+-// NewToMetricsTranslator returns a model.ToMetricsTranslator to convert from OTLP data model to pdata.
+-func NewToMetricsTranslator() model.ToMetricsTranslator {
+-	return &toTranslator{}
+-}
+-
+-// NewToLogsTranslator returns a model.ToLogsTranslator to convert from OTLP data model to pdata.
+-func NewToLogsTranslator() model.ToLogsTranslator {
++func newToTranslator() *toTranslator {
+ 	return &toTranslator{}
+ }
+ 

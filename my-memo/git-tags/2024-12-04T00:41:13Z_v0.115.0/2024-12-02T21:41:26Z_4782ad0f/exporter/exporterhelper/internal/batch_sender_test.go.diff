@@ -1,0 +1,12 @@
+diff --git a/exporter/exporterhelper/internal/batch_sender_test.go b/exporter/exporterhelper/internal/batch_sender_test.go
+index 61edb5cf9..020b2a8d1 100644
+--- a/exporter/exporterhelper/internal/batch_sender_test.go
++++ b/exporter/exporterhelper/internal/batch_sender_test.go
+@@ -158,7 +158,6 @@ func TestBatchSender_BatchExportError(t *testing.T) {
+ 			assert.Eventually(t, func() bool {
+ 				return sink.requestsCount.Load() == tt.expectedRequests &&
+ 					sink.itemsCount.Load() == tt.expectedItems &&
+-					be.BatchSender.(*BatchSender).activeRequests.Load() == 0 &&
+ 					be.QueueSender.(*QueueSender).queue.Size() == 0
+ 			}, 100*time.Millisecond, 10*time.Millisecond)
+ 		})

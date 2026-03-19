@@ -1,0 +1,13 @@
+diff --git a/interceptor/opencensus/opencensus_test.go b/interceptor/opencensus/opencensus_test.go
+index e0356676f..639610b36 100644
+--- a/interceptor/opencensus/opencensus_test.go
++++ b/interceptor/opencensus/opencensus_test.go
+@@ -444,7 +444,7 @@ func newSpanAppender() *spanAppender {
+ 
+ var _ spanreceiver.SpanReceiver = (*spanAppender)(nil)
+ 
+-func (sa *spanAppender) ReceiveSpans(node *commonpb.Node, spans ...*tracepb.Span) (*spanreceiver.Acknowledgement, error) {
++func (sa *spanAppender) ReceiveSpans(ctx context.Context, node *commonpb.Node, spans ...*tracepb.Span) (*spanreceiver.Acknowledgement, error) {
+ 	sa.Lock()
+ 	defer sa.Unlock()
+ 

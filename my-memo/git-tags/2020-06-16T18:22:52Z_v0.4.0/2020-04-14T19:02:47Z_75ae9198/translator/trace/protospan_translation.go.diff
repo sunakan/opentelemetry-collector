@@ -1,0 +1,12 @@
+diff --git a/translator/trace/protospan_translation.go b/translator/trace/protospan_translation.go
+index 0505bd828..039ace608 100644
+--- a/translator/trace/protospan_translation.go
++++ b/translator/trace/protospan_translation.go
+@@ -27,6 +27,7 @@ const (
+ 
+ 	TagStatusCode       = "status.code"
+ 	TagStatusMsg        = "status.message"
++	TagError            = "error"
+ 	TagHTTPStatusCode   = "http.status_code"
+ 	TagHTTPStatusMsg    = "http.status_message"
+ 	TagZipkinCensusCode = "census.status_code"

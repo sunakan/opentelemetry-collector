@@ -1,0 +1,19 @@
+diff --git a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
+index b07d752eb..c0ae79bd1 100644
+--- a/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
++++ b/cmd/mdatagen/internal/samplereceiver/internal/metadata/generated_logs.go
+@@ -3,12 +3,13 @@
+ package metadata
+ 
+ import (
++	conventions "go.opentelemetry.io/otel/semconv/v1.9.0"
++
+ 	"go.opentelemetry.io/collector/component"
+ 	"go.opentelemetry.io/collector/filter"
+ 	"go.opentelemetry.io/collector/pdata/pcommon"
+ 	"go.opentelemetry.io/collector/pdata/plog"
+ 	"go.opentelemetry.io/collector/receiver"
+-	conventions "go.opentelemetry.io/collector/semconv/v1.9.0"
+ )
+ 
+ type eventDefaultEvent struct {

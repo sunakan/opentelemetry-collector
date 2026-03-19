@@ -1,0 +1,19 @@
+diff --git a/exporter/zipkinexporter/testdata/config.yaml b/exporter/zipkinexporter/testdata/config.yaml
+index 58e3e10c9..288633a55 100644
+--- a/exporter/zipkinexporter/testdata/config.yaml
++++ b/exporter/zipkinexporter/testdata/config.yaml
+@@ -10,8 +10,9 @@ exporters:
+   zipkin/2:
+     url: "https://somedest:1234/api/v2/spans"
+ 
+-pipelines:
+-  traces:
+-    receivers: [examplereceiver]
+-    processors: [exampleprocessor]
+-    exporters: [zipkin, zipkin/2]
++service:
++  pipelines:
++    traces:
++      receivers: [examplereceiver]
++      processors: [exampleprocessor]
++      exporters: [zipkin, zipkin/2]

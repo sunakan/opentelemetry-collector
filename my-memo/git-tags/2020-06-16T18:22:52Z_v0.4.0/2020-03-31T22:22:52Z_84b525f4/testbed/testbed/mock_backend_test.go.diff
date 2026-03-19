@@ -1,0 +1,13 @@
+diff --git a/testbed/testbed/mock_backend_test.go b/testbed/testbed/mock_backend_test.go
+index b47f38799..664af8646 100644
+--- a/testbed/testbed/mock_backend_test.go
++++ b/testbed/testbed/mock_backend_test.go
+@@ -32,7 +32,7 @@ func TestGeneratorAndBackend(t *testing.T) {
+ 
+ 	defer mb.Stop()
+ 
+-	lg, err := NewLoadGenerator(NewJaegerThriftDataSender(port))
++	lg, err := NewLoadGenerator(NewJaegerGRPCDataSender(port))
+ 	require.NoError(t, err, "Cannot start load generator")
+ 
+ 	assert.EqualValues(t, 0, lg.dataItemsSent)

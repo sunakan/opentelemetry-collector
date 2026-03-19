@@ -1,0 +1,13 @@
+diff --git a/config/identifiable_test.go b/config/identifiable_test.go
+index 7719fbc2c..fe342346d 100644
+--- a/config/identifiable_test.go
++++ b/config/identifiable_test.go
+@@ -62,7 +62,7 @@ func TestIDFromString(t *testing.T) {
+ 
+ 	for _, test := range testCases {
+ 		t.Run(test.idStr, func(t *testing.T) {
+-			id, err := NewIDFromString(test.idStr)
++			id, err := NewComponentIDFromString(test.idStr)
+ 			if test.expectedErr {
+ 				assert.Error(t, err)
+ 				return

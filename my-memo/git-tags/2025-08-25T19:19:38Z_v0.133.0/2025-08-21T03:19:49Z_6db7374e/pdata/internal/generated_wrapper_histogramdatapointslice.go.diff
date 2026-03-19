@@ -1,0 +1,12 @@
+diff --git a/pdata/internal/generated_wrapper_histogramdatapointslice.go b/pdata/internal/generated_wrapper_histogramdatapointslice.go
+index ea57ee189..210f02eab 100644
+--- a/pdata/internal/generated_wrapper_histogramdatapointslice.go
++++ b/pdata/internal/generated_wrapper_histogramdatapointslice.go
+@@ -25,6 +25,7 @@ func CopyOrigHistogramDataPointSlice(dest, src []*otlpmetrics.HistogramDataPoint
+ 		// Cleanup the rest of the elements so GC can free the memory.
+ 		// This can happen when len(src) < len(dest) < cap(dest).
+ 		for i := len(src); i < len(dest); i++ {
++			DeleteOrigHistogramDataPoint(dest[i], true)
+ 			dest[i] = nil
+ 		}
+ 		// Add new pointers for missing elements.

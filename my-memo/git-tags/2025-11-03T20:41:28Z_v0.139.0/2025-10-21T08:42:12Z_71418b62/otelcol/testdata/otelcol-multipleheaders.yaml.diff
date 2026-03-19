@@ -1,0 +1,30 @@
+diff --git a/otelcol/testdata/otelcol-multipleheaders.yaml b/otelcol/testdata/otelcol-multipleheaders.yaml
+deleted file mode 100644
+index 6247f3831..000000000
+--- a/otelcol/testdata/otelcol-multipleheaders.yaml
++++ /dev/null
+@@ -1,24 +0,0 @@
+-receivers:
+-  nop:
+-
+-exporters:
+-  nop:
+-
+-service:
+-  telemetry:
+-    metrics:
+-      level: none
+-    traces:
+-      processors:
+-      - batch:
+-          exporter:
+-            otlp:
+-              endpoint: localhost:4318
+-              headers:
+-                first: val1
+-                second: val2
+-              protocol: http/protobuf
+-  pipelines:
+-    metrics:
+-      receivers: [nop]
+-      exporters: [nop]

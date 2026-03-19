@@ -1,0 +1,15 @@
+diff --git a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+index 2c3571e9c..be0d980d6 100644
+--- a/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
++++ b/pdata/internal/generated_wrapper_summarydatapoint_valueatquantile.go
+@@ -47,6 +47,10 @@ func DeleteOrigSummaryDataPoint_ValueAtQuantile(orig *otlpmetrics.SummaryDataPoi
+ }
+ 
+ func CopyOrigSummaryDataPoint_ValueAtQuantile(dest, src *otlpmetrics.SummaryDataPoint_ValueAtQuantile) {
++	// If copying to same object, just return.
++	if src == dest {
++		return
++	}
+ 	dest.Quantile = src.Quantile
+ 	dest.Value = src.Value
+ }

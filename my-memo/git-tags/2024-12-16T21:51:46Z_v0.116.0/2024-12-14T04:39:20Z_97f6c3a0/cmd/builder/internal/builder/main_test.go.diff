@@ -1,0 +1,13 @@
+diff --git a/cmd/builder/internal/builder/main_test.go b/cmd/builder/internal/builder/main_test.go
+index acf148c04..162d8e230 100644
+--- a/cmd/builder/internal/builder/main_test.go
++++ b/cmd/builder/internal/builder/main_test.go
+@@ -71,7 +71,7 @@ var replaceModules = []string{
+ 	"/exporter/debugexporter",
+ 	"/exporter/xexporter",
+ 	"/exporter/exportertest",
+-	"/exporter/exporterhelper/exporterhelperprofiles",
++	"/exporter/exporterhelper/xexporterhelper",
+ 	"/exporter/nopexporter",
+ 	"/exporter/otlpexporter",
+ 	"/exporter/otlphttpexporter",

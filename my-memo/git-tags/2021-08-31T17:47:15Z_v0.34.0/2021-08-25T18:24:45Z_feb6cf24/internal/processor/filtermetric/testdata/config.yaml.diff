@@ -1,0 +1,31 @@
+diff --git a/internal/processor/filtermetric/testdata/config.yaml b/internal/processor/filtermetric/testdata/config.yaml
+deleted file mode 100644
+index c3a058d58..000000000
+--- a/internal/processor/filtermetric/testdata/config.yaml
++++ /dev/null
+@@ -1,24 +0,0 @@
+-# Yaml form of the configuration for matching metrics
+-# This configuration can be embedded into other component's yamls
+-# The top level here are just test names and do not represent part of the actual configuration.
+-
+-config/regexp:
+-    match_type: regexp
+-    metric_names: [prefix/.*, .*contains.*, .*_suffix, full_name_match]
+-config/regexpoptions:
+-    match_type: regexp
+-    regexp:
+-        cacheenabled: true
+-        cachemaxnumentries: 5
+-    metric_names:
+-        - prefix/.*
+-        - .*contains.*
+-        - .*_suffix
+-        - full_name_match
+-config/strict:
+-    match_type: strict
+-    metric_names:
+-        - exact_string_match
+-config/emptyproperties:
+-    match_type: regexp
+-    metric_names:
+\ No newline at end of file

@@ -1,0 +1,22 @@
+diff --git a/exporter/exporterhelper/logs.go b/exporter/exporterhelper/logs.go
+index 024d51d5d..27425d505 100644
+--- a/exporter/exporterhelper/logs.go
++++ b/exporter/exporterhelper/logs.go
+@@ -78,17 +78,6 @@ type logsExporter struct {
+ 	consumer.Logs
+ }
+ 
+-// Deprecated: [v0.59.0] use NewLogsExporter.
+-func NewLogsExporterWithContext(
+-	ctx context.Context,
+-	set component.ExporterCreateSettings,
+-	cfg config.Exporter,
+-	pusher consumer.ConsumeLogsFunc,
+-	options ...Option,
+-) (component.LogsExporter, error) {
+-	return NewLogsExporter(ctx, set, cfg, pusher, options...)
+-}
+-
+ // NewLogsExporter creates a component.LogsExporter that records observability metrics and wraps every request with a Span.
+ func NewLogsExporter(
+ 	_ context.Context,

@@ -1,0 +1,19 @@
+diff --git a/processor/processorhelper/documentation.md b/processor/processorhelper/documentation.md
+index 1c1b10f9f..28ada41b3 100644
+--- a/processor/processorhelper/documentation.md
++++ b/processor/processorhelper/documentation.md
+@@ -14,6 +14,14 @@ Number of items passed to the processor. [alpha]
+ | ---- | ----------- | ---------- | --------- |
+ | {items} | Sum | Int | true |
+ 
++### otelcol_processor_internal_duration
++
++Duration of time taken to process a batch of telemetry data through the processor. [alpha]
++
++| Unit | Metric Type | Value Type |
++| ---- | ----------- | ---------- |
++| s | Histogram | Double |
++
+ ### otelcol_processor_outgoing_items
+ 
+ Number of items emitted from the processor. [alpha]

@@ -1,0 +1,20 @@
+diff --git a/config/configgrpc/configgrpc.go b/config/configgrpc/configgrpc.go
+index 9f71e01ab..fc558227b 100644
+--- a/config/configgrpc/configgrpc.go
++++ b/config/configgrpc/configgrpc.go
+@@ -110,7 +110,6 @@ func NewDefaultClientConfig() *ClientConfig {
+ 	return &ClientConfig{
+ 		TLSSetting:   configtls.NewDefaultClientConfig(),
+ 		Keepalive:    NewDefaultKeepaliveClientConfig(),
+-		Auth:         configauth.NewDefaultAuthentication(),
+ 		BalancerName: BalancerName(),
+ 	}
+ }
+@@ -196,7 +195,6 @@ type ServerConfig struct {
+ func NewDefaultServerConfig() *ServerConfig {
+ 	return &ServerConfig{
+ 		Keepalive: NewDefaultKeepaliveServerConfig(),
+-		Auth:      configauth.NewDefaultAuthentication(),
+ 	}
+ }
+ 

@@ -1,0 +1,12 @@
+diff --git a/.golangci.yml b/.golangci.yml
+index 81d7273af..7eeebe829 100644
+--- a/.golangci.yml
++++ b/.golangci.yml
+@@ -101,6 +101,7 @@ linters:
+     - staticcheck
+     - misspell
+     - scopelint
++    - unconvert
+ 
+ issues:
+   # Excluding configuration per-path, per-linter, per-text and per-source

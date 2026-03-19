@@ -1,0 +1,14 @@
+diff --git a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+index 06bfde974..337f4990e 100644
+--- a/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
++++ b/internal/cmd/pdatagen/internal/templates/message_internal.go.tmpl
+@@ -33,8 +33,7 @@ func New{{ .structName }}(orig *{{ .originFullName }}, state *State) {{ .structN
+ func GenerateTest{{ .structName }}() {{ .structName }} {
+ 	orig := {{ .originFullName }}{}
+ 	FillOrigTest{{ .originName }}(&orig)
+-	state := StateMutable
+-	return New{{ .structName }}(&orig, &state)
++	return New{{ .structName }}(&orig, NewState())
+ }
+ 
+ {{ end }}

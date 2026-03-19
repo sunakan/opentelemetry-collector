@@ -1,0 +1,13 @@
+diff --git a/otelcol/otelcoltest/config_test.go b/otelcol/otelcoltest/config_test.go
+index 4079e610c..317cc7de8 100644
+--- a/otelcol/otelcoltest/config_test.go
++++ b/otelcol/otelcoltest/config_test.go
+@@ -57,7 +57,7 @@ func TestLoadConfig(t *testing.T) {
+ 	assert.Contains(t, cfg.Service.Extensions, component.NewID("nop"))
+ 	require.Len(t, cfg.Service.Pipelines, 1)
+ 	assert.Equal(t,
+-		&service.ConfigServicePipeline{
++		&service.PipelineConfig{
+ 			Receivers:  []component.ID{component.NewID("nop")},
+ 			Processors: []component.ID{component.NewID("nop")},
+ 			Exporters:  []component.ID{component.NewID("nop")},

@@ -1,0 +1,15 @@
+diff --git a/exporter/zipkinexporter/factory.go b/exporter/zipkinexporter/factory.go
+index 0e91d2e27..daf5d1b54 100644
+--- a/exporter/zipkinexporter/factory.go
++++ b/exporter/zipkinexporter/factory.go
+@@ -50,8 +50,8 @@ func createDefaultConfig() configmodels.Exporter {
+ 			TypeVal: typeStr,
+ 			NameVal: typeStr,
+ 		},
+-		RetrySettings: exporterhelper.CreateDefaultRetrySettings(),
+-		QueueSettings: exporterhelper.CreateDefaultQueueSettings(),
++		RetrySettings: exporterhelper.DefaultRetrySettings(),
++		QueueSettings: exporterhelper.DefaultQueueSettings(),
+ 		HTTPClientSettings: confighttp.HTTPClientSettings{
+ 			Timeout: defaultTimeout,
+ 			// We almost read 0 bytes, so no need to tune ReadBufferSize.
