@@ -30,6 +30,11 @@ fi
 if [[ "$last_commit_id" == "" ]]; then
   next_commit_id=$(git log origin/main --reverse --abbrev=8 --format='%h' | head -n1 || true)
 else
+  memo_file=$(find "$REPO_ROOT/my-memo/git-tags" -type f -name 'MY_MEMO.md' -path "*_${last_commit_id}/*" | head -n1 || true)
+  if [[ "$memo_file" == "" ]]; then
+    log_error "最新コミット ${last_commit_id} の MY_MEMO.md がありません。メモを書いてから進んでください"
+    exit 1
+  fi
   next_commit_id=$(git log "${last_commit_id}..origin/main" --reverse --abbrev=8 --format='%h' | head -n1 || true)
 fi
 
