@@ -1,7 +1,7 @@
 ---
 name: memo
 description: 最新のcherry-pickしたコミットの内容をMY_MEMO.mdに記載する
-allowed-tools: Read(**/opentelemetry-collector/my-memo/**), Glob(**/opentelemetry-collector/my-memo/**), Bash(find:*), Bash(ls:*), Write(**/opentelemetry-collector/my-memo/**)
+allowed-tools: Read(**/opentelemetry-collector/my-memo/**), Read(my-memo/**), Glob(**/opentelemetry-collector/my-memo/**), Glob(my-memo/**), Bash(find:*), Bash(ls:*), Write(**/opentelemetry-collector/my-memo/**), Write(my-memo/**)
 ---
 
 ## タスク
